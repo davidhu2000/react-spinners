@@ -6,7 +6,7 @@ import insertKeyframesRule from 'domkit/insertKeyframesRule';
 /**
  * @type {object}
  */
-const animationName = {};
+let animations = {};
 
 class Loader extends React.Component {
 
@@ -31,7 +31,7 @@ class Loader extends React.Component {
     let size = this.props.size;
     let animationName = animations[size];
 
-    if (! animationName) {
+    if (!animationName) {
       let keyframes = {
         '75%': {
           opacity: 0.7
@@ -74,7 +74,7 @@ class Loader extends React.Component {
 
     return assign(
       this.getBallStyle(i),
-        this.getAnimationStyle(i),
+      this.getAnimationStyle(i),
       {
         width: 10,
         height: 10,

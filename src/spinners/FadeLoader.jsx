@@ -54,7 +54,7 @@ class Loader extends React.Component {
    * @return {object} object with position properties
    */
   getPosStyle(i) {
-    let radius = '20';
+    let radius = 20;
     let quarter = (radius / 2) + (radius / 5.5);
 
     let lines = {
