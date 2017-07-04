@@ -3,16 +3,22 @@ import PropTypes from 'prop-types';
 import assign from 'domkit/appendVendorPrefix';
 import insertKeyframesRule from 'domkit/insertKeyframesRule';
 
+/**
+ * @type {object}
+ */
 const keyframes = {
   
 }
 
+/**
+ * @type {string}
+ */
 const animationName = insertKeyframesRule(keyframes);
 
 class Loader extends React.Component {
 
    /**
-   * @return {bbject} object with ball properties
+   * @return {object} object with ball properties
    */
   getBallStyle() {
     return {
@@ -22,7 +28,7 @@ class Loader extends React.Component {
 
   /**
    * @param  {number} i element index
-   * @return {bbject} object with animation properties
+   * @return {object} object with animation properties
    */
   getAnimationStyle(i) {
     
@@ -35,7 +41,7 @@ class Loader extends React.Component {
 
   /**
    * @param  {number} i element index
-   * @return {bbject} object with style properties
+   * @return {object} object with style properties
    */
   getStyle(i) {
     return assign(
@@ -45,7 +51,7 @@ class Loader extends React.Component {
 
   /**
    * @param {boolean} loading Check if loading
-   * @return {ReactElement | null} Returns Spinner or null
+   * @return {ReactComponent | null} Returns Loader or null
    */
   renderLoader(loading) {
     if (loading) {
@@ -65,14 +71,14 @@ class Loader extends React.Component {
 }
 
 /**
- * @type {Object}
+ * @type {object}
  */
 Loader.propTypes = {
   
 }
 
 /**
- * @type {Object}
+ * @type {object}
  */
 Loader.defaultProps = {
   

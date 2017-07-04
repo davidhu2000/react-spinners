@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import assign from 'domkit/appendVendorPrefix';
 import insertKeyframesRule from 'domkit/insertKeyframesRule';
 
+/**
+ * @type {object}
+ */
 const keyframes = {
   '50%': {
     transform: 'scale(0.75)',
@@ -14,10 +17,16 @@ const keyframes = {
   }
 }
 
+/**
+ * @type {string}
+ */
 const animationName = insertKeyframesRule(keyframes);
 
 class Loader extends React.Component {
 
+  /**
+   * @return {object} object with ball properties
+   */
   getBallStyle() {
     return {
       backgroundColor: this.props.color,
@@ -29,6 +38,10 @@ class Loader extends React.Component {
     }
   }
 
+  /**
+   * @param  {number} i element index
+   * @return {object} object with animation properties
+   */
   getAnimationStyle(i) {
     let animation = [animationName, '0.7s', i % 2 ? '0s': '0.35s', 'infinite', 'linear'].join(' ');
     let animationFillMode = 'both';
@@ -39,6 +52,10 @@ class Loader extends React.Component {
     }
   }
 
+  /**
+   * @param  {number} i element index
+   * @return {object} object with style properties
+   */
   getStyle(i) {
     return assign(
       this.getBallStyle(i),
@@ -47,6 +64,10 @@ class Loader extends React.Component {
     );
   }
 
+  /**
+   * @param {boolean} loading Check if loading
+   * @return {ReactComponent | null} Returns Loader or null
+   */
   renderLoader(loading) {
     if (loading) {
       return (
@@ -66,6 +87,9 @@ class Loader extends React.Component {
   }
 }
 
+/**
+ * @type {object}
+ */
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
@@ -73,6 +97,9 @@ Loader.propTypes = {
   margin: PropTypes.string
 }
 
+/**
+ * @type {object}
+ */
 Loader.defaultProps = {
   loading: true,
   color: '#ffffff',
