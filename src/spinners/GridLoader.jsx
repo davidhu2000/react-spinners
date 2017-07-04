@@ -35,7 +35,7 @@ const random = top => {
 
 class Loader extends React.Component {
 
-   /**
+  /**
    * @return {object} object with ball properties
    */
   getBallStyle() {

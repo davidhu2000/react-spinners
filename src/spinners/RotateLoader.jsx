@@ -25,7 +25,7 @@ const animationName = insertKeyframesRule(keyframes);
 
 class Loader extends React.Component {
 
-   /**
+  /**
    * @return {object} object with ball properties
    */
   getBallStyle() {

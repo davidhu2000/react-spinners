@@ -40,10 +40,11 @@ let leftRotateAnimationName = insertKeyframesRule(leftRotateKeyframes);
 
 class Loader extends React.Component {
 
-   /**
+  /**
+   * @param {string} size circle size
    * @return {object} object with ball properties
    */
-  getCircleStyle() {
+  getCircleStyle(size) {
     return {
       width: size,
       height: size,

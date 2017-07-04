@@ -10,7 +10,7 @@ let animations = {};
 
 class Loader extends React.Component {
 
-   /**
+  /**
    * @return {object} object with ball properties
    */
   getBallStyle() {
