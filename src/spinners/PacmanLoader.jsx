@@ -6,32 +6,7 @@ import insertKeyframesRule from 'domkit/insertKeyframesRule';
 /**
  * @type {object}
  */
-const keyframes = {
-  '0%': {
-    transform: 'scale(1)'
-  },
-  '50%': {
-    transform: 'scale(0.5)',
-    opacity: 0.7
-  },
-  '100%': {
-    transform: 'scale(1)',
-    opacity: 1
-  }
-}
-
-/**
- * @type {string}
- */
-const animationName = insertKeyframesRule(keyframes);
-
-/**
- * @param  {number} top top position
- * @return {number} random value
- */
-const random = top => {
-  return Math.random() * top
-}
+const animationName = {};
 
 class Loader extends React.Component {
 
@@ -53,10 +28,22 @@ class Loader extends React.Component {
    * @return {object} object with animation properties
    */
   getAnimationStyle(i) {
-    let animationDuration = ((random(100) / 100) + 0.6) + 's';
-    let animationDelay = ((random(100) / 100) - 0.2) + 's';
+    let size = this.props.size;
+    let animationName = animations[size];
 
-    let animation = [animationName, animationDuration, animationDelay, 'infinite', 'ease'].join(' ');
+    if (! animationName) {
+      let keyframes = {
+        '75%': {
+          opacity: 0.7
+        },
+        '100%': {
+          transform: 'translate(' + (-4 * size) + 'px,' + (-size / 4) + 'px)'
+        }
+      };
+      animationName = animations[size] = insertKeyframesRule(keyframes);
+    }
+
+    let animation = [animationName, '1s', i*0.25 + 's', 'infinite', 'linear'].join(' ');
     let animationFillMode = 'both';
 
     return {
@@ -70,11 +57,31 @@ class Loader extends React.Component {
    * @return {object} object with style properties
    */
   getStyle(i) {
+    if (i == 1) {
+      let s1 =  this.props.size + 'px solid transparent';
+      let s2 =  this.props.size + 'px solid ' + this.props.color;
+
+      return {
+        width: 0,
+        height: 0,
+        borderRight: s1,
+        borderTop: s2,
+        borderLeft: s2,
+        borderBottom: s2,
+        borderRadius: this.props.size
+      };
+    }
+
     return assign(
       this.getBallStyle(i),
-      this.getAnimationStyle(i),
+        this.getAnimationStyle(i),
       {
-        display: 'inline-block'
+        width: 10,
+        height: 10,
+        transform: 'translate(0, '+ -this.props.size / 4 + 'px)',
+        position: 'absolute',
+        top: 25,
+        left: 100
       }
     );
   }
@@ -86,7 +93,7 @@ class Loader extends React.Component {
   renderLoader(loading) {
     if (loading) {
       let style = {
-        width: (parseFloat(this.props.size) * 3) + parseFloat(this.props.margin) * 6,
+        position: 'relative',
         fontSize: 0
       };
 
@@ -98,10 +105,6 @@ class Loader extends React.Component {
             <div style={this.getStyle(3)} />
             <div style={this.getStyle(4)} />
             <div style={this.getStyle(5)} />
-            <div style={this.getStyle(6)} />
-            <div style={this.getStyle(7)} />
-            <div style={this.getStyle(8)} />
-            <div style={this.getStyle(9)} />
           </div>
         </div>
       );
@@ -121,8 +124,8 @@ class Loader extends React.Component {
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
-  size: PropTypes.string,
-  margin: PropTypes.string
+  size: PropTypes.number,
+  margin: PropTypes.number
 }
 
 /**
@@ -131,8 +134,8 @@ Loader.propTypes = {
 Loader.defaultProps = {
   loading: true,
   color: '#ffffff',
-  size: '15px',
-  margin: '2px' 
+  size: 25,
+  margin: 2
 }
 
 export default Loader;

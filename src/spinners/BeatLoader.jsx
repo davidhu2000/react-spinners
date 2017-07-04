@@ -71,9 +71,9 @@ class Loader extends React.Component {
     if (loading) {
       return (
         <div id={this.props.id} className={this.props.className}>
-          <div style={this.getStyle(1)}></div>
-          <div style={this.getStyle(2)}></div>
-          <div style={this.getStyle(3)}></div>
+          <div style={this.getStyle(1)} />
+          <div style={this.getStyle(2)} />
+          <div style={this.getStyle(3)} />
         </div>
       );
     }
