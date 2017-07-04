@@ -14,7 +14,7 @@ const keyframes = {
   }
 }
 
-const anmiationName = insertKeyframesRule(keyframes);
+const animationName = insertKeyframesRule(keyframes);
 
 class Loader extends React.Component {
 
