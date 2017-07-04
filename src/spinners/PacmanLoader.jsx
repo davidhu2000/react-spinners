@@ -37,7 +37,7 @@ class Loader extends React.Component {
           opacity: 0.7
         },
         '100%': {
-          transform: 'translate(' + (-4 * size) + 'px,' + (-size / 4) + 'px)'
+          transform: `translate(${-4 * size}px, ${-size / 4}px)`
         }
       };
       animationName = animations[size] = insertKeyframesRule(keyframes);
@@ -57,9 +57,9 @@ class Loader extends React.Component {
    * @return {object} object with style properties
    */
   getStyle(i) {
-    if (i == 1) {
-      let s1 =  this.props.size + 'px solid transparent';
-      let s2 =  this.props.size + 'px solid ' + this.props.color;
+    if (i === 1) {
+      let s1 = `${this.props.size}px solid transparent`;
+      let s2 = `${this.props.size}px solid ${this.props.color}`;
 
       return {
         width: 0,

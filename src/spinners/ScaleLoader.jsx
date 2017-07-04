@@ -7,8 +7,14 @@ import insertKeyframesRule from 'domkit/insertKeyframesRule';
  * @type {object}
  */
 const keyframes = {
+  '0%': {
+    transform: 'scaley(1.0)'
+  },
+  '50%': {
+    transform: 'scaley(0.4)'
+  },
   '100%': {
-    transform: 'rotate(360deg)'
+    transform: 'scaley(1.0)'
   }
 }
 
@@ -20,14 +26,15 @@ const animationName = insertKeyframesRule(keyframes);
 class Loader extends React.Component {
 
   /**
-   * @param {string} size size of the ball
    * @return {object} object with ball properties
    */
-  getBallStyle(size) {
+  getLineStyle() {
     return {
-      width: size,
-      height: size,
-      borderRadius: '100%'
+      backgroundColor: this.props.color,
+      height: this.props.height,
+      width: this.props.width,
+      margin: this.props.margin,
+      borderRadius: this.props.radius
     }
   }
 
@@ -36,8 +43,8 @@ class Loader extends React.Component {
    * @return {object} object with animation properties
    */
   getAnimationStyle(i) {
-    let animation = [animationName, '0.6s', '0s', 'infinite', 'linear'].join(' ');
-    let animationFillMode = 'forwards';
+    let animation = [animationName, '1s', (i * 0.1) + 's', 'infinite', 'cubic-bezier(.2,.68,.18,1.08)'].join(' ');
+    let animationFillMode = 'both';
 
     return {
       animation: animation,
@@ -50,31 +57,13 @@ class Loader extends React.Component {
    * @return {object} object with style properties
    */
   getStyle(i) {
-    let size = parseInt(this.props.size);
-    let moonSize = size / 7;
-
-    if (i === 1) {
-      return assign(
-        this.getBallStyle(moonSize), 
-        this.getAnimationStyle(i), 
-        {
-          backgroundColor: this.props.color,
-          opacity: '0.8',
-          position: 'absolute',
-          top: size / 2 - moonSize / 2
-        }
-      );
-    } else if (i === 2) {
-      return assign(
-        this.getBallStyle(size), 
-        {
-          border: `${moonSize}px solid ${this.props.color}`,
-          opacity: 0.1
-        }
-      );
-    } else {
-      return assign(this.getAnimationStyle(i), { position: 'absolute' });
-    }
+    return assign(
+      this.getLineStyle(i),
+      this.getAnimationStyle(i),
+      {
+        display: 'inline-block'
+      }
+    );
   }
 
   /**
@@ -85,10 +74,11 @@ class Loader extends React.Component {
     if (loading) {
       return (
         <div id={this.props.id} className={this.props.className}>
-          <div style={this.getStyle(0)}>
-            <div style={this.getStyle(1)} />
-            <div style={this.getStyle(2)} />
-          </div>
+          <div style={this.getStyle(1)} />
+          <div style={this.getStyle(2)} />
+          <div style={this.getStyle(3)} />
+          <div style={this.getStyle(4)} />
+          <div style={this.getStyle(5)} />
         </div>
       );
     }
@@ -107,8 +97,10 @@ class Loader extends React.Component {
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
-  size: PropTypes.string,
-  margin: PropTypes.string
+  height: PropTypes.string,
+  width: PropTypes.string,
+  margin: PropTypes.string,
+  radius: PropTypes.string
 }
 
 /**
@@ -117,8 +109,10 @@ Loader.propTypes = {
 Loader.defaultProps = {
   loading: true,
   color: '#ffffff',
-  size: '60px',
-  margin: '2px'
+  height: '35px',
+  width: '4px',
+  margin: '2px',
+  radius: '2px'
 }
 
 export default Loader;

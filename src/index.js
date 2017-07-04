@@ -9,6 +9,11 @@ import PacmanLoader from './spinners/PacmanLoader';
 import PulseLoader from './spinners/PulseLoader';
 import RingLoader from './spinners/RingLoader';
 import RiseLoader from './spinners/RiseLoader';
+import RotateLoader from './spinners/RotateLoader';
+import ScaleLoader from './spinners/ScaleLoader';
+import SkewLoader from './spinners/SkewLoader';
+import SquareLoader from './spinners/SquareLoader';
+import SyncLoader from './spinners/SyncLoader';
 
 module.exports = {
   BeatLoader,
@@ -21,5 +26,10 @@ module.exports = {
   PacmanLoader,
   PulseLoader,
   RingLoader,
-  RiseLoader
+  RiseLoader,
+  RotateLoader,
+  ScaleLoader,
+  SkewLoader,
+  SquareLoader,
+  SyncLoader
 }

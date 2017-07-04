@@ -1,0 +1,109 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import assign from 'domkit/appendVendorPrefix';
+import insertKeyframesRule from 'domkit/insertKeyframesRule';
+
+/**
+ * @type {object}
+ */
+const keyframes = {
+  '25%': {
+    transform: 'perspective(100px) rotateX(180deg) rotateY(0)'
+  },
+  '50%': {
+    transform: 'perspective(100px) rotateX(180deg) rotateY(180deg)'
+  },
+  '75%': {
+    transform: 'perspective(100px) rotateX(0) rotateY(180deg)'
+  },
+  '100%': {
+    transform: 'perspective(100px) rotateX(0) rotateY(0)'
+  }
+}
+
+/**
+ * @type {string}
+ */
+const animationName = insertKeyframesRule(keyframes);
+
+class Loader extends React.Component {
+
+  /**
+   * @return {object} object with ball properties
+   */
+  getSharpStyle() {
+    return {
+      width: 0,
+      height: 0,
+      borderLeft: `${this.props.size} solid transparent`,
+      borderRight: `${this.props.size} solid transparent`,
+      borderBottom: `${this.props.size} solid ${this.props.color}`
+    }
+  }
+
+  /**
+   * @return {object} object with animation properties
+   */
+  getAnimationStyle() {
+    let animation = [animationName, '3s', '0s', 'infinite', 'cubic-bezier(.09,.57,.49,.9)'].join(' ');
+    let animationFillMode = 'both';
+
+    return {
+      animation: animation,
+      animationFillMode: animationFillMode
+    }
+  }
+
+  /**
+   * @return {object} object with style properties
+   */
+  getStyle() {
+    return assign(
+      this.getSharpStyle(),
+      this.getAnimationStyle(),
+      {
+        display: 'inline-block'
+      }
+    );
+  }
+
+  /**
+   * @param {boolean} loading Check if loading
+   * @return {ReactComponent | null} Returns Loader or null
+   */
+  renderLoader(loading) {
+    if (loading) {
+      return (
+        <div id={this.props.id} className={this.props.className}>
+          <div style={this.getStyle()}></div>
+        </div>
+      );
+    }
+
+    return null;
+  }
+
+  render() {
+    return this.renderLoader(this.props.loading);
+  }
+}
+
+/**
+ * @type {object}
+ */
+Loader.propTypes = {
+  loading: PropTypes.bool,
+  color: PropTypes.string,
+  size: PropTypes.string
+}
+
+/**
+ * @type {object}
+ */
+Loader.defaultProps = {
+  loading: true,
+  color: '#ffffff',
+  size: '20px'
+}
+
+export default Loader;
