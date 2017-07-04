@@ -36,8 +36,7 @@ class Loader extends React.Component {
       borderColor: this.props.color,
       borderBottomColor: 'transparent',
       borderRadius: '100%',
-      background: 'transparent !important',
-      verticalAlign: this.props.verticalAlign
+      background: 'transparent !important'
     }
   }
 

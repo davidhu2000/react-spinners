@@ -45,8 +45,7 @@ class Loader extends React.Component {
       backgroundColor: this.props.color,
       width: size,
       height: size,
-      borderRadius: '100%',
-      verticalAlign: this.props.verticalAlign
+      borderRadius: '100%'
     };
   }
 

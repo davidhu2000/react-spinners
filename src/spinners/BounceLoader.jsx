@@ -34,8 +34,7 @@ class Loader extends React.Component {
       opacity: 0.6,
       position: 'absolute',
       top: 0,
-      left: 0,
-      verticalAlign: this.props.verticalAlign
+      left: 0
     }
   }
 
