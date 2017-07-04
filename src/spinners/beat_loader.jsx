@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import assgin from 'domkit/appendVEndorPrefix';
+import assgin from 'domkit/appendVendorPrefix';
 import insertKeyframesRule from 'domkit/insertKeyframesRule';
 
 const keyframes = {
@@ -80,4 +80,4 @@ Loader.defaultProps = {
   margin: '2px'
 }
 
-export { Loader };
+export default Loader;
