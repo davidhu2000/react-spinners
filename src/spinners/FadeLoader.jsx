@@ -25,7 +25,7 @@ class Loader extends React.Component {
    /**
    * @return {object} object with ball properties
    */
-  getBallStyle() {
+  getLineStyle() {
     return {
       backgroundColor: this.props.color,
       height: this.props.height,
