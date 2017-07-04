@@ -11,12 +11,19 @@ const animationName = insertKeyframesRule(keyframes);
 
 class Loader extends React.Component {
 
+   /**
+   * @return {bbject} object with ball properties
+   */
   getBallStyle() {
     return {
       
     }
   }
 
+  /**
+   * @param  {number} i element index
+   * @return {bbject} object with animation properties
+   */
   getAnimationStyle(i) {
     
 
@@ -26,12 +33,20 @@ class Loader extends React.Component {
     }
   }
 
+  /**
+   * @param  {number} i element index
+   * @return {bbject} object with style properties
+   */
   getStyle(i) {
     return assign(
       
     );
   }
 
+  /**
+   * @param {boolean} loading Check if loading
+   * @return {ReactElement | null} Returns Spinner or null
+   */
   renderLoader(loading) {
     if (loading) {
       return (
@@ -49,10 +64,16 @@ class Loader extends React.Component {
   }
 }
 
+/**
+ * @type {Object}
+ */
 Loader.propTypes = {
   
 }
 
+/**
+ * @type {Object}
+ */
 Loader.defaultProps = {
   
 }

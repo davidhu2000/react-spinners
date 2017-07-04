@@ -1,5 +1,5 @@
-import BeatLoader from './spinners/beat_loader';
-import BounceLoader from './spinners/bounce_loader';
+import BeatLoader from './spinners/BeatLoader';
+import BounceLoader from './spinners/BounceLoader';
 
 module.exports = {
   BeatLoader,
