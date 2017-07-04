@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import assgin from 'domkit/appendVendorPrefix';
+import assign from 'domkit/appendVendorPrefix';
 import insertKeyframesRule from 'domkit/insertKeyframesRule';
 
 const keyframes = {
