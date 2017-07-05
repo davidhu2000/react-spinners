@@ -17,7 +17,9 @@
     "react",
     "loader",
     "spinner",
-    "halogen"
+    "halogen",
+    "progress",
+    "activity"
   ],
   "scripts": {
     "prepublish": "babel --plugins transform-es2015-modules-umd src --ignore __tests__ --out-dir ./dist",
