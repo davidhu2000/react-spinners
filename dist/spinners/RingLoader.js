@@ -150,7 +150,7 @@
     }, {
       key: 'getStyle',
       value: function getStyle(i) {
-        var size = parseInt(this.props.size);
+        var size = this.props.size;
 
         if (i) {
           return (0, _appendVendorPrefix2.default)(this.getCircleStyle(size), this.getAnimationStyle(i), {
@@ -200,8 +200,8 @@
   Loader.propTypes = {
     loading: _propTypes2.default.bool,
     color: _propTypes2.default.string,
-    size: _propTypes2.default.string,
-    margin: _propTypes2.default.string
+    size: Proptypes.number,
+    margin: _propTypes2.default.number
 
     /**
      * @type {object}
@@ -209,8 +209,8 @@
   };Loader.defaultProps = {
     loading: true,
     color: '#ffffff',
-    size: '60px',
-    margin: '2px'
+    size: 60,
+    margin: 2
   };
 
   exports.default = Loader;

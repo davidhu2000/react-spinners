@@ -168,7 +168,7 @@
   Loader.propTypes = {
     loading: _propTypes2.default.bool,
     color: _propTypes2.default.string,
-    size: _propTypes2.default.string
+    size: Proptypes.number
 
     /**
      * @type {object}
@@ -176,7 +176,7 @@
   };Loader.defaultProps = {
     loading: true,
     color: '#ffffff',
-    size: '20px'
+    size: 20
   };
 
   exports.default = Loader;

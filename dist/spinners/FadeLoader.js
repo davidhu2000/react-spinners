@@ -227,10 +227,10 @@
   Loader.propTypes = {
     loading: _propTypes2.default.bool,
     color: _propTypes2.default.string,
-    height: _propTypes2.default.string,
-    width: _propTypes2.default.string,
-    margin: _propTypes2.default.string,
-    radius: _propTypes2.default.string
+    height: _propTypes2.default.number,
+    width: _propTypes2.default.number,
+    margin: Proptypes.number,
+    radius: _propTypes2.default.number
 
     /**
      * @type {object}
@@ -238,10 +238,10 @@
   };Loader.defaultProps = {
     loading: true,
     color: '#ffffff',
-    height: '15px',
-    width: '5px',
-    margin: '2px',
-    radius: '2px'
+    height: 15,
+    width: 5,
+    margin: 2,
+    radius: 2
   };
 
   exports.default = Loader;
