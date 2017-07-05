@@ -242,7 +242,7 @@
      */
   };Loader.defaultProps = {
     loading: true,
-    color: '#ffffff',
+    color: '#000000',
     width: 100,
     height: 4
   };

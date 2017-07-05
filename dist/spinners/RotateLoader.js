@@ -188,7 +188,7 @@
      */
   };Loader.defaultProps = {
     loading: true,
-    color: '#ffffff',
+    color: '#000000',
     size: 15,
     margin: 2
   };
