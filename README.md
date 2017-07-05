@@ -39,23 +39,23 @@ class AwesomeComponent extends React.Component {
 }
 ```
 
-## Available Loaders
+## Available Loaders, PropTypes, and Default Values
 
-Loader       | Props
--------------|-------------------------------------------------------------------------------------------
-BeatLoader   | loading:boolean, color:string, size:number, margin:number
-BounceLoader | loading:boolean, color:string, size:number
-ClipLoader   | loading:boolean, color:string, size:number
-DotLoader    | loading:boolean, color:string, size:number, margin:number
-FadeLoader   | loading:boolean, color:string, height:number, width:number, radius:number,  margin:number
-GridLoader   | loading:boolean, color:string, size:number, margin:number
-MoonLoader   | loading:boolean, color:string, size:number, margin:number
-PacmanLoader | loading:boolean, color:string, size:number, margin:number
-PulseLoader  | loading:boolean, color:string, size:number, margin:number
-RingLoader   | loading:boolean, color:string, size:number, margin:number
-RiseLoader   | loading:boolean, color:string, size:number, margin:number
-RotateLoader | loading:boolean, color:string, size:number, margin:number
-ScaleLoader  | loading:boolean, color:string, height:number, width:number, radius:number,  margin:number
-SkewLoader   | loading:boolean, color:string, size:number
-SquareLoader | loading:boolean, color:string, size:number, margin:number
-SyncLoader   | loading:boolean, color:string, size:number, margin:number
+Loader       | Loading:bool | color:str   | size:int | height:int | width:int | radius:int | margin:int
+-------------|:------------:|:-----------:|:--------:|:----------:|:---------:|:----------:|:----------
+BeatLoader   | `true`       | `'#ffffff'` | `15`     |            |           |            | `2`
+BounceLoader | `true`       | `'#ffffff'` | `60`     |            |           |            |
+ClipLoader   | `true`       | `'#ffffff'` | `35`     |            |           |            |
+DotLoader    | `true`       | `'#ffffff'` | `60`     |            |           |            | `2`
+FadeLoader   | `true`       | `'#ffffff'` |          | `15`       | `5`       | `2`        | `2`
+GridLoader   | `true`       | `'#ffffff'` | `15`     |            |           |            | `2`
+MoonLoader   | `true`       | `'#ffffff'` | `60`     |            |           |            | `2`
+PacmanLoader | `true`       | `'#ffffff'` | `25`     |            |           |            | `2`
+PulseLoader  | `true`       | `'#ffffff'` | `15`     |            |           |            | `2`
+RingLoader   | `true`       | `'#ffffff'` | `60`     |            |           |            | `2`
+RiseLoader   | `true`       | `'#ffffff'` | `15`     |            |           |            | `2`
+RotateLoader | `true`       | `'#ffffff'` | `15`     |            |           |            | `2`
+ScaleLoader  | `true`       | `'#ffffff'` |          | `35`       | `4`       | `2`        | `2`
+SkewLoader   | `true`       | `'#ffffff'` | `20`     |            |           |            |
+SquareLoader | `true`       | `'#ffffff'` | `50`     |            |           |            | `2`
+SyncLoader   | `true`       | `'#ffffff'` | `15`     |            |           |            | `2`
