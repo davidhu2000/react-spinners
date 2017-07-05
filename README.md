@@ -42,7 +42,7 @@ class AwesomeComponent extends React.Component {
 ## Available Loaders, PropTypes, and Default Values
 
 Loader       | Loading:bool | color:str   | size:int | height:int | width:int | radius:int | margin:int
--------------|:------------:|:-----------:|:--------:|:----------:|:---------:|:----------:|:----------
+------------:|:------------:|:-----------:|:--------:|:----------:|:---------:|:----------:|:---------:
 BeatLoader   | `true`       | `'#ffffff'` | `15`     |            |           |            | `2`
 BounceLoader | `true`       | `'#ffffff'` | `60`     |            |           |            |
 ClipLoader   | `true`       | `'#ffffff'` | `35`     |            |           |            |
