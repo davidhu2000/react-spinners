@@ -1,0 +1,108 @@
+body { 
+  background: #e2e2e2;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+/* Header styles */
+header {
+  width: 100%;
+  height: 400px;
+  background: #2b303b;
+  background: linear-gradient(90deg, #36D7B7, #2b303b);
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: block;
+  text-align: center;
+  margin: 0px auto;
+  font-size: 40px;
+  letter-spacing: 5px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+/* install styles */
+.installation {
+  margin: 50px auto;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+code {
+  /*display: block;*/
+  background: #2b303b;
+  padding: 16px 32px;
+  font-size: 20px;
+  margin: 0 auto;
+  font-family: Courier New, Courier, monospace;
+}
+
+code:hover {
+  background: #000;
+  box-shadow: 0.5px 0.5px 0.5px #111;
+}
+
+/* Spinner Container Styles */
+.spinner-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 300px;
+  width: 80%;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.spinner-item {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 0.5px solid #e2e2e2;
+  box-shadow: 1px 1px 1px #e2e2e2;
+  width: 250px;
+  height: 250px;
+  margin: 30px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.spinner-title {
+  position: absolute;
+  top: 20px;
+}
+
+.color-picker {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  z-index: 100;
+}
+
+/* Footer styles */
+footer {
+  padding: 30px;
+  margin: 15px 0;
+  background: #2b303b;
+  text-align: center;
+}
+
+footer a {
+  text-decoration: none;
+  color: #ccc;
+}
+
+footer a:hover {
+  color: #fff;
+}
