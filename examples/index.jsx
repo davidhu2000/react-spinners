@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 import { Code, ColorPicker } from './components';
 import {
+  BarLoader,
   BeatLoader,
   BounceLoader,
   ClipLoader,
@@ -71,6 +72,11 @@ class SpinnerExamples extends React.Component {
               Change Color
             </button>
           ) }
+        </div>
+
+        <div className='spinner-item'>
+          <div className='spinner-title'>BarLoader</div>
+          <BarLoader color={color}/>
         </div>
         
         <div className='spinner-item'>

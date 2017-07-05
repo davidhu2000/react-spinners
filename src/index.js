@@ -1,3 +1,4 @@
+import BarLoader from './spinners/BarLoader';
 import BeatLoader from './spinners/BeatLoader';
 import BounceLoader from './spinners/BounceLoader';
 import ClipLoader from './spinners/ClipLoader';
@@ -16,6 +17,7 @@ import SquareLoader from './spinners/SquareLoader';
 import SyncLoader from './spinners/SyncLoader';
 
 module.exports = {
+  BarLoader,
   BeatLoader,
   BounceLoader,
   ClipLoader,

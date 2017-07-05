@@ -1,17 +1,19 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['module', './spinners/BeatLoader', './spinners/BounceLoader', './spinners/ClipLoader', './spinners/DotLoader', './spinners/FadeLoader', './spinners/GridLoader', './spinners/MoonLoader', './spinners/PacmanLoader', './spinners/PulseLoader', './spinners/RingLoader', './spinners/RiseLoader', './spinners/RotateLoader', './spinners/ScaleLoader', './spinners/SkewLoader', './spinners/SquareLoader', './spinners/SyncLoader'], factory);
+    define(['module', './spinners/BarLoader', './spinners/BeatLoader', './spinners/BounceLoader', './spinners/ClipLoader', './spinners/DotLoader', './spinners/FadeLoader', './spinners/GridLoader', './spinners/MoonLoader', './spinners/PacmanLoader', './spinners/PulseLoader', './spinners/RingLoader', './spinners/RiseLoader', './spinners/RotateLoader', './spinners/ScaleLoader', './spinners/SkewLoader', './spinners/SquareLoader', './spinners/SyncLoader'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(module, require('./spinners/BeatLoader'), require('./spinners/BounceLoader'), require('./spinners/ClipLoader'), require('./spinners/DotLoader'), require('./spinners/FadeLoader'), require('./spinners/GridLoader'), require('./spinners/MoonLoader'), require('./spinners/PacmanLoader'), require('./spinners/PulseLoader'), require('./spinners/RingLoader'), require('./spinners/RiseLoader'), require('./spinners/RotateLoader'), require('./spinners/ScaleLoader'), require('./spinners/SkewLoader'), require('./spinners/SquareLoader'), require('./spinners/SyncLoader'));
+    factory(module, require('./spinners/BarLoader'), require('./spinners/BeatLoader'), require('./spinners/BounceLoader'), require('./spinners/ClipLoader'), require('./spinners/DotLoader'), require('./spinners/FadeLoader'), require('./spinners/GridLoader'), require('./spinners/MoonLoader'), require('./spinners/PacmanLoader'), require('./spinners/PulseLoader'), require('./spinners/RingLoader'), require('./spinners/RiseLoader'), require('./spinners/RotateLoader'), require('./spinners/ScaleLoader'), require('./spinners/SkewLoader'), require('./spinners/SquareLoader'), require('./spinners/SyncLoader'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod, global.BeatLoader, global.BounceLoader, global.ClipLoader, global.DotLoader, global.FadeLoader, global.GridLoader, global.MoonLoader, global.PacmanLoader, global.PulseLoader, global.RingLoader, global.RiseLoader, global.RotateLoader, global.ScaleLoader, global.SkewLoader, global.SquareLoader, global.SyncLoader);
+    factory(mod, global.BarLoader, global.BeatLoader, global.BounceLoader, global.ClipLoader, global.DotLoader, global.FadeLoader, global.GridLoader, global.MoonLoader, global.PacmanLoader, global.PulseLoader, global.RingLoader, global.RiseLoader, global.RotateLoader, global.ScaleLoader, global.SkewLoader, global.SquareLoader, global.SyncLoader);
     global.index = mod.exports;
   }
-})(this, function (module, _BeatLoader, _BounceLoader, _ClipLoader, _DotLoader, _FadeLoader, _GridLoader, _MoonLoader, _PacmanLoader, _PulseLoader, _RingLoader, _RiseLoader, _RotateLoader, _ScaleLoader, _SkewLoader, _SquareLoader, _SyncLoader) {
+})(this, function (module, _BarLoader, _BeatLoader, _BounceLoader, _ClipLoader, _DotLoader, _FadeLoader, _GridLoader, _MoonLoader, _PacmanLoader, _PulseLoader, _RingLoader, _RiseLoader, _RotateLoader, _ScaleLoader, _SkewLoader, _SquareLoader, _SyncLoader) {
   'use strict';
+
+  var _BarLoader2 = _interopRequireDefault(_BarLoader);
 
   var _BeatLoader2 = _interopRequireDefault(_BeatLoader);
 
@@ -52,6 +54,7 @@
   }
 
   module.exports = {
+    BarLoader: _BarLoader2.default,
     BeatLoader: _BeatLoader2.default,
     BounceLoader: _BounceLoader2.default,
     ClipLoader: _ClipLoader2.default,

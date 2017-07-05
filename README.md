@@ -46,21 +46,27 @@ class AwesomeComponent extends React.Component {
 
 ## Available Loaders, PropTypes, and Default Values
 
-Loader       | Loading:bool | color:str | size:int | height:int | width:int | radius:int | margin:int
-------------:|:------------:|:---------:|:--------:|:----------:|:---------:|:----------:|:---------:
-BeatLoader   | `true`       | `'#fff'`  | `15`     |            |           |            | `2`
-BounceLoader | `true`       | `'#fff'`  | `60`     |            |           |            |
-ClipLoader   | `true`       | `'#fff'`  | `35`     |            |           |            |
-DotLoader    | `true`       | `'#fff'`  | `60`     |            |           |            | `2`
-FadeLoader   | `true`       | `'#fff'`  |          | `15`       | `5`       | `2`        | `2`
-GridLoader   | `true`       | `'#fff'`  | `15`     |            |           |            | `2`
-MoonLoader   | `true`       | `'#fff'`  | `60`     |            |           |            | `2`
-PacmanLoader | `true`       | `'#fff'`  | `25`     |            |           |            | `2`
-PulseLoader  | `true`       | `'#fff'`  | `15`     |            |           |            | `2`
-RingLoader   | `true`       | `'#fff'`  | `60`     |            |           |            | `2`
-RiseLoader   | `true`       | `'#fff'`  | `15`     |            |           |            | `2`
-RotateLoader | `true`       | `'#fff'`  | `15`     |            |           |            | `2`
-ScaleLoader  | `true`       | `'#fff'`  |          | `35`       | `4`       | `2`        | `2`
-SkewLoader   | `true`       | `'#fff'`  | `20`     |            |           |            |
-SquareLoader | `true`       | `'#fff'`  | `50`     |            |           |            | `2`
-SyncLoader   | `true`       | `'#fff'`  | `15`     |            |           |            | `2`
+Common default props for all loaders:
+
+    loading: true
+    color: '#ffffff'
+
+Loader       | size:int | height:int | width:int | radius:int | margin:int
+------------:|:--------:|:----------:|:---------:|:----------:|:---------:
+BarLoader    |          | `4`        | `100`     |            |
+BeatLoader   | `15`     |            |           |            | `2`
+BounceLoader | `60`     |            |           |            |
+ClipLoader   | `35`     |            |           |            |
+DotLoader    | `60`     |            |           |            | `2`
+FadeLoader   |          | `15`       | `5`       | `2`        | `2`
+GridLoader   | `15`     |            |           |            | `2`
+MoonLoader   | `60`     |            |           |            | `2`
+PacmanLoader | `25`     |            |           |            | `2`
+PulseLoader  | `15`     |            |           |            | `2`
+RingLoader   | `60`     |            |           |            | `2`
+RiseLoader   | `15`     |            |           |            | `2`
+RotateLoader | `15`     |            |           |            | `2`
+ScaleLoader  |          | `35`       | `4`       | `2`        | `2`
+SkewLoader   | `20`     |            |           |            |
+SquareLoader | `50`     |            |           |            | `2`
+SyncLoader   | `15`     |            |           |            | `2`
