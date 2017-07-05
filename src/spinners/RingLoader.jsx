@@ -134,7 +134,7 @@ Loader.propTypes = {
  */
 Loader.defaultProps = {
   loading: true,
-  color: '#ffffff',
+  color: '#000000',
   size: 60,
   margin: 2
 }

@@ -49,7 +49,7 @@ class AwesomeComponent extends React.Component {
 Common default props for all loaders:
 
     loading: true
-    color: '#ffffff'
+    color: '#000000'
 
 Loader       | size:int | height:int | width:int | radius:int | margin:int
 ------------:|:--------:|:----------:|:---------:|:----------:|:---------:
