@@ -35,9 +35,9 @@ class Loader extends React.Component {
     return {
       width: 0,
       height: 0,
-      borderLeft: `${this.props.size} solid transparent`,
-      borderRight: `${this.props.size} solid transparent`,
-      borderBottom: `${this.props.size} solid ${this.props.color}`
+      borderLeft: `${this.props.size}px solid transparent`,
+      borderRight: `${this.props.size}px solid transparent`,
+      borderBottom: `${this.props.size}px solid ${this.props.color}`
     }
   }
 
