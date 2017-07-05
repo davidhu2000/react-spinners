@@ -1,9 +1,8 @@
 /* global document, window */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { SketchPicker } from 'react-color';
 
-import { Code } from './components';
+import { Code, ColorPicker } from './components';
 import {
   BeatLoader,
   BounceLoader,
@@ -28,29 +27,52 @@ class SpinnerExamples extends React.Component {
     super();
     this.state = {
       color: '#36D7B7',
-      showPicker: true
+      showPicker: false
     }
 
     this.updateColor = this.updateColor.bind(this);
+    this.togglePicker = this.togglePicker.bind(this);
+
+  }
+
+  componentDidMount() {
+
+    document.addEventListener('scroll', () => {
+      if (window.scrollY > 360) {
+        let picker = document.getElementsByClassName('color-picker')[0];
+        picker.classList.remove('position-abs');
+        picker.classList.add('position-fixed');
+      } else {
+        let picker = document.getElementsByClassName('color-picker')[0];
+        picker.classList.add('position-abs');
+        picker.classList.remove('position-fixed');
+      }
+    })
+
   }
 
   updateColor(color) {
     this.setState({ color: color.hex });
   }
 
+  togglePicker() {
+    this.setState({ showPicker: !this.state.showPicker });
+  }
+
   render() {
-    let { color } = this.state;
+    let { color, showPicker } = this.state;
     return (
       <div className="spinner-container">
-        <div className="color-picker">
-          { this.state.showPicker ? (
-            <SketchPicker color={color} onChangeComplete={this.updateColor}/>
+        <div className="color-picker position-abs">
+          { showPicker ? (
+            <ColorPicker color={color} updateColor={this.updateColor} togglePicker={this.togglePicker} />
           ) : (
-            <button onClick={() => this.setState({ showPicker: !this.state.showPicker })}>
-              Show Color Picker
+            <button onClick={this.togglePicker}>
+              Change Color
             </button>
           ) }
         </div>
+        
         <div className='spinner-item'>
           <div className='spinner-title'>BeatLoader</div>
           <BeatLoader color={color}/>
