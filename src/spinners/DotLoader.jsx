@@ -37,7 +37,7 @@ var bounceAnimationName = insertKeyframesRule(bounceKeyframes);
 class Loader extends React.Component {
 
   /**
-   * @param {string} size size of the ball
+   * @param {number} size size of the ball
    * @return {object} object with ball properties
    */
   getBallStyle(size) {
@@ -68,7 +68,7 @@ class Loader extends React.Component {
    * @return {object} object with style properties
    */
   getStyle(i) {
-    var size = parseInt(this.props.size);
+    let { size } = this.props;
     var ballSize = size / 2;
 
     if (i) {
@@ -123,8 +123,8 @@ class Loader extends React.Component {
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
-  size: PropTypes.string,
-  margin: PropTypes.string
+  size: Proptypes.number,
+  margin: PropTypes.number
 }
 
 /**
@@ -133,8 +133,8 @@ Loader.propTypes = {
 Loader.defaultProps = {
   loading: true,
   color: '#ffffff',
-  size: '60px',
-  margin: '2px'
+  size: 60,
+  margin: 2
 }
 
 export default Loader;

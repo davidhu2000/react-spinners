@@ -94,7 +94,7 @@ class Loader extends React.Component {
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
-  size: PropTypes.string
+  size: Proptypes.number
 }
 
 /**
@@ -103,7 +103,7 @@ Loader.propTypes = {
 Loader.defaultProps = {
   loading: true,
   color: '#ffffff',
-  size: '20px'
+  size: 20
 }
 
 export default Loader;

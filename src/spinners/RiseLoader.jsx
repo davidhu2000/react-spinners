@@ -134,8 +134,8 @@ class Loader extends React.Component {
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
-  size: PropTypes.string,
-  margin: PropTypes.string
+  size: Proptypes.number,
+  margin: PropTypes.number
 }
 
 /**
@@ -144,8 +144,8 @@ Loader.propTypes = {
 Loader.defaultProps = {
   loading: true,
   color: '#ffffff',
-  size: '15px',
-  margin: '2px'
+  size: 15,
+  margin: 2
 }
 
 export default Loader;
