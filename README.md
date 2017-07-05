@@ -2,7 +2,6 @@
 
 [![npm version](https://badge.fury.io/js/react-spinners.svg)][npm_url]
 [![dependencies](https://david-dm.org/davidhu2000/react-spinners.svg)][npm_url]
-[![devDependencies](https://david-dm.org/davidhu2000/react-spinners.svg#info=devDependencies)][npm_url]
 
 [npm_url]: https://www.npmjs.org/package/react-spinners
 
