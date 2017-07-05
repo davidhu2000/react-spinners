@@ -1,12 +1,19 @@
 # React Spinners
 
+[![npm version](https://badge.fury.io/js/react-spinners.svg)][npm_url]
+[![downloads](https://img.shields.io/npm/davidh2000/react-spinner.svg)][npm_url]
+[![dependencies](https://david-dm.org/davidhu2000/react-spinners.svg)][npm_url]
+[![devDependencies](https://david-dm.org/davidhu2000/react-spinners.svg#info=devDependencies)][npm_url]
+
+[npm_url]: https://www.npmjs.org/package/react-spinners
+
 A collection of loading spinners with React.js based on [Halogen](https://github.com/yuanyan/halogen).
 
 This package is bootstraped using [react-npm-boilerplate](https://github.com/juliancwirko/react-npm-boilerplate)
 
 ## Demo
 
-[Demo](https://davidhu2000.github.io/react-spinners)
+[Demo Page](https://davidhu2000.github.io/react-spinners)
 
 ## Installation
 
@@ -41,21 +48,21 @@ class AwesomeComponent extends React.Component {
 
 ## Available Loaders, PropTypes, and Default Values
 
-Loader       | Loading:bool | color:str   | size:int | height:int | width:int | radius:int | margin:int
-------------:|:------------:|:-----------:|:--------:|:----------:|:---------:|:----------:|:---------:
-BeatLoader   | `true`       | `'#ffffff'` | `15`     |            |           |            | `2`
-BounceLoader | `true`       | `'#ffffff'` | `60`     |            |           |            |
-ClipLoader   | `true`       | `'#ffffff'` | `35`     |            |           |            |
-DotLoader    | `true`       | `'#ffffff'` | `60`     |            |           |            | `2`
-FadeLoader   | `true`       | `'#ffffff'` |          | `15`       | `5`       | `2`        | `2`
-GridLoader   | `true`       | `'#ffffff'` | `15`     |            |           |            | `2`
-MoonLoader   | `true`       | `'#ffffff'` | `60`     |            |           |            | `2`
-PacmanLoader | `true`       | `'#ffffff'` | `25`     |            |           |            | `2`
-PulseLoader  | `true`       | `'#ffffff'` | `15`     |            |           |            | `2`
-RingLoader   | `true`       | `'#ffffff'` | `60`     |            |           |            | `2`
-RiseLoader   | `true`       | `'#ffffff'` | `15`     |            |           |            | `2`
-RotateLoader | `true`       | `'#ffffff'` | `15`     |            |           |            | `2`
-ScaleLoader  | `true`       | `'#ffffff'` |          | `35`       | `4`       | `2`        | `2`
-SkewLoader   | `true`       | `'#ffffff'` | `20`     |            |           |            |
-SquareLoader | `true`       | `'#ffffff'` | `50`     |            |           |            | `2`
-SyncLoader   | `true`       | `'#ffffff'` | `15`     |            |           |            | `2`
+Loader       | Loading:bool | color:str | size:int | height:int | width:int | radius:int | margin:int
+------------:|:------------:|:---------:|:--------:|:----------:|:---------:|:----------:|:---------:
+BeatLoader   | `true`       | `'#fff'`  | `15`     |            |           |            | `2`
+BounceLoader | `true`       | `'#fff'`  | `60`     |            |           |            |
+ClipLoader   | `true`       | `'#fff'`  | `35`     |            |           |            |
+DotLoader    | `true`       | `'#fff'`  | `60`     |            |           |            | `2`
+FadeLoader   | `true`       | `'#fff'`  |          | `15`       | `5`       | `2`        | `2`
+GridLoader   | `true`       | `'#fff'`  | `15`     |            |           |            | `2`
+MoonLoader   | `true`       | `'#fff'`  | `60`     |            |           |            | `2`
+PacmanLoader | `true`       | `'#fff'`  | `25`     |            |           |            | `2`
+PulseLoader  | `true`       | `'#fff'`  | `15`     |            |           |            | `2`
+RingLoader   | `true`       | `'#fff'`  | `60`     |            |           |            | `2`
+RiseLoader   | `true`       | `'#fff'`  | `15`     |            |           |            | `2`
+RotateLoader | `true`       | `'#fff'`  | `15`     |            |           |            | `2`
+ScaleLoader  | `true`       | `'#fff'`  |          | `35`       | `4`       | `2`        | `2`
+SkewLoader   | `true`       | `'#fff'`  | `20`     |            |           |            |
+SquareLoader | `true`       | `'#fff'`  | `50`     |            |           |            | `2`
+SyncLoader   | `true`       | `'#fff'`  | `15`     |            |           |            | `2`
