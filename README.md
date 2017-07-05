@@ -16,7 +16,7 @@ This package is bootstraped using [react-npm-boilerplate](https://github.com/jul
 
 Each loader has their own default properties. You can overwrite the defaults by passing props into the loaders.
 
-Each loader accepts a `loading` prop as a boolean. The loader will not render anything if `loading` is `false`. This prop defaults to `true`.
+Each loader accepts a `loading` prop as a boolean. The loader will not render anything if `loading` is `false`. The `loading` prop defaults to `true`.
 
 ```js
 import React from 'react';
