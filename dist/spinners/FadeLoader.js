@@ -229,7 +229,7 @@
     color: _propTypes2.default.string,
     height: _propTypes2.default.number,
     width: _propTypes2.default.number,
-    margin: Proptypes.number,
+    margin: _propTypes2.default.number,
     radius: _propTypes2.default.number
 
     /**

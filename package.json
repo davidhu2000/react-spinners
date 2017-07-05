@@ -27,7 +27,8 @@
     "lintfix": "eslint ./src --fix",
     "testonly": "mocha $npm_package_options_mocha",
     "test": "npm run lint && npm run testonly",
-    "test-watch": "npm run testonly -- --watch --watch-extensions js"
+    "test-watch": "npm run testonly -- --watch --watch-extensions js",
+    "build": "$npm_execpath run prepublish && webpack"
   },
   "devDependencies": {
     "babel-cli": "^6.6.4",

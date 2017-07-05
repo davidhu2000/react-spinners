@@ -159,7 +159,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   height: PropTypes.number,
   width: PropTypes.number,
-  margin: Proptypes.number,
+  margin: PropTypes.number,
   radius: PropTypes.number
 }
 

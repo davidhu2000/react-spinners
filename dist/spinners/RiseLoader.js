@@ -207,7 +207,7 @@
   Loader.propTypes = {
     loading: _propTypes2.default.bool,
     color: _propTypes2.default.string,
-    size: Proptypes.number,
+    size: _propTypes2.default.number,
     margin: _propTypes2.default.number
 
     /**

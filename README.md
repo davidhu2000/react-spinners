@@ -1,6 +1,7 @@
 # React Spinners
 
 A collection of loading spinners with React.js based on [Halogen](https://github.com/yuanyan/halogen). 
+
 This package is bootstraped using [react-npm-boilerplate](https://github.com/juliancwirko/react-npm-boilerplate)
 
 ## Demo
