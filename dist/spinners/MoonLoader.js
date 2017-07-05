@@ -140,7 +140,7 @@
             opacity: 0.1
           });
         } else {
-          return (0, _appendVendorPrefix2.default)(this.getAnimationStyle(i), { position: 'absolute' });
+          return (0, _appendVendorPrefix2.default)(this.getAnimationStyle(i), { position: 'relative' });
         }
       }
     }, {

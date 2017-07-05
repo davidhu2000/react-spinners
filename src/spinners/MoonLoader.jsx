@@ -73,7 +73,7 @@ class Loader extends React.Component {
         }
       );
     } else {
-      return assign(this.getAnimationStyle(i), { position: 'absolute' });
+      return assign(this.getAnimationStyle(i), { position: 'relative' });
     }
   }
 
