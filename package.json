@@ -28,7 +28,8 @@
     "testonly": "mocha $npm_package_options_mocha",
     "test": "npm run lint && npm run testonly",
     "test-watch": "npm run testonly -- --watch --watch-extensions js",
-    "build": "$npm_execpath run prepublish && webpack"
+    "build": "$npm_execpath run prepublish && webpack",
+    "patch": "npm version patch && npm publish"
   },
   "devDependencies": {
     "babel-cli": "^6.6.4",
