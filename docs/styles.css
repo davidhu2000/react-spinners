@@ -9,10 +9,17 @@ header {
   width: 100%;
   height: 360px;
   background: #2b303b;
+  background: -webkit-gradient(linear, left top, right top, from(#36D7B7), to(#2b303b));
+  background: -webkit-linear-gradient(left, #36D7B7, #2b303b);
+  background: -o-linear-gradient(left, #36D7B7, #2b303b);
   background: linear-gradient(90deg, #36D7B7, #2b303b);
   color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   z-index: 1000;
 }
 
@@ -36,8 +43,11 @@ header {
   letter-spacing: 5px;
   font-weight: 300;
   text-transform: uppercase;
+  position: -webkit-sticky;
   position: sticky;
   top: 10px;
+  -webkit-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
 
@@ -45,8 +55,12 @@ header {
 .installation {
   margin: 50px auto;
   color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   cursor: pointer;
 }
 
@@ -57,21 +71,33 @@ code {
   margin: 0 auto;
   font-family: Courier New, Courier, monospace;
   opacity: 0.9;
+  -webkit-transition: 0.3s ease-out;
+  -o-transition: 0.3s ease-out;
   transition: 0.3s ease-out;
 }
 
 code:hover {
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+          box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
   opacity: 1;
 }
 
 /* Spinner Container Styles */
 .spinner-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   min-width: 300px;
   width: 80%;
   margin: 0 auto;
@@ -79,14 +105,26 @@ code:hover {
 }
 
 .spinner-item {
-  flex: 0 0 auto;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 20px;
   border: 0.5px solid #e2e2e2;
-  box-shadow: 1px 1px 1px #e2e2e2;
+  -webkit-box-shadow: 1px 1px 1px #e2e2e2;
+          box-shadow: 1px 1px 1px #e2e2e2;
   width: 250px;
   height: 250px;
   margin: 30px;
@@ -115,6 +153,8 @@ code:hover {
   color: #fff;
   border: none;
   opacity: 0.9;
+  -webkit-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   font-weight: 300;
   text-transform: uppercase;
@@ -125,7 +165,8 @@ code:hover {
 }
 
 .color-picker button:hover {
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+          box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
   opacity: 1;
 }
 
