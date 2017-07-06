@@ -130,14 +130,14 @@ class Loader extends React.Component {
       return (
         <div id={this.props.id} className={this.props.className}>
           <div style={style}>
-              <div style={this.getStyle(1)} />
-              <div style={this.getStyle(2)} />
-              <div style={this.getStyle(3)} />
-              <div style={this.getStyle(4)} />
-              <div style={this.getStyle(5)} />
-              <div style={this.getStyle(6)} />
-              <div style={this.getStyle(7)} />
-              <div style={this.getStyle(8)} />
+            <div style={this.getStyle(1)} />
+            <div style={this.getStyle(2)} />
+            <div style={this.getStyle(3)} />
+            <div style={this.getStyle(4)} />
+            <div style={this.getStyle(5)} />
+            <div style={this.getStyle(6)} />
+            <div style={this.getStyle(7)} />
+            <div style={this.getStyle(8)} />
           </div>
         </div>
       );
