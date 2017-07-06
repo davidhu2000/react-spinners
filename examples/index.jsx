@@ -13,6 +13,7 @@ import {
   GridLoader,
   MoonLoader,
   PacmanLoader,
+  PropagateLoader,
   PulseLoader,
   RingLoader,
   RiseLoader,
@@ -117,6 +118,11 @@ class SpinnerExamples extends React.Component {
         <div className='spinner-item'>
           <div className='spinner-title'>PacmanLoader</div>
           <PacmanLoader color={color}/>
+        </div>
+
+        <div className='spinner-item'>
+          <div className='spinner-title'>PropagateLoader</div>
+          <PropagateLoader color={color}/>
         </div>
 
         <div className='spinner-item'>

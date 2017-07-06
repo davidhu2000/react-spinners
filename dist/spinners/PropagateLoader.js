@@ -8,7 +8,7 @@
       exports: {}
     };
     factory(mod.exports, global.react, global.propTypes, global.appendVendorPrefix, global.insertKeyframesRule, global.helpers);
-    global.BarLoader = mod.exports;
+    global.PropagateLoader = mod.exports;
   }
 })(this, function (exports, _react, _propTypes, _appendVendorPrefix, _insertKeyframesRule, _helpers) {
   'use strict';
@@ -79,50 +79,53 @@
     if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
   }
 
+  // 1.5 4.5 7.5
+  var distance = [1, 3, 5];
   /**
    * @type {object}
    */
-  var keyframesLong = {
-    '0%': {
-      left: '-35%',
-      right: '100%'
+  var keyframes = {
+    0: {
+      '25%': { transform: 'translateX(-' + distance[0] + 'rem) scale(0.75)' },
+      '50%': { transform: 'translateX(-' + distance[1] + 'rem) scale(0.6)' },
+      '75%': { transform: 'translateX(-' + distance[2] + 'rem) scale(0.5)' },
+      '95%': { transform: 'translateX(0rem) scale(1)' }
     },
-    '60%': {
-      left: '100%',
-      right: '-90%'
+    1: {
+      '25%': { transform: 'translateX(-' + distance[0] + 'rem) scale(0.75)' },
+      '50%': { transform: 'translateX(-' + distance[1] + 'rem) scale(0.6)' },
+      '75%': { transform: 'translateX(-' + distance[1] + 'rem) scale(0.6)' },
+      '95%': { transform: 'translateX(0rem) scale(1)' }
     },
-    '100%': {
-      left: '100%',
-      right: '-90%'
+    2: {
+      '25%': { transform: 'translateX(-' + distance[0] + 'rem) scale(0.75)' },
+      '75%': { transform: 'translateX(-' + distance[0] + 'rem) scale(0.75)' },
+      '95%': { transform: 'translateX(0rem) scale(1)' }
+    },
+    3: {
+      '25%': { transform: 'translateX(' + distance[0] + 'rem) scale(0.75)' },
+      '75%': { transform: 'translateX(' + distance[0] + 'rem) scale(0.75)' },
+      '95%': { transform: 'translateX(0rem) scale(1)' }
+    },
+    4: {
+      '25%': { transform: 'translateX(' + distance[0] + 'rem) scale(0.75)' },
+      '50%': { transform: 'translateX(' + distance[1] + 'rem) scale(0.6)' },
+      '75%': { transform: 'translateX(' + distance[1] + 'rem) scale(0.6)' },
+      '95%': { transform: 'translateX(0rem) scale(1)' }
+    },
+    5: {
+      '25%': { transform: 'translateX(' + distance[0] + 'rem) scale(0.75)' },
+      '50%': { transform: 'translateX(' + distance[1] + 'rem) scale(0.6)' },
+      '75%': { transform: 'translateX(' + distance[2] + 'rem) scale(0.5)' },
+      '95%': { transform: 'translateX(0rem) scale(1)' }
     }
 
-    /**
-     * @type {object}
-     */
-  };var keyframesShort = {
-    '0%': {
-      left: '-200%',
-      right: '100%'
-    },
-    '60%': {
-      left: '107%',
-      right: '-8%'
-    },
-    '100%': {
-      left: '107%',
-      right: '-8%'
-    }
+    // /**
+    //  * @type {string}
+    //  */
+    // const animationName = insertKeyframesRule(keyframes);
 
-    /**
-     * @type {string}
-     */
-  };var animationNameLong = (0, _insertKeyframesRule2.default)(keyframesLong);
-
-  /**
-   * @type {string}
-   */
-  var animationNameShort = (0, _insertKeyframesRule2.default)(keyframesShort);
-
+  };
   var Loader = function (_React$Component) {
     _inherits(Loader, _React$Component);
 
@@ -133,30 +136,23 @@
     }
 
     _createClass(Loader, [{
-      key: 'getLineStyle',
-      value: function getLineStyle() {
+      key: 'getBallStyle',
+      value: function getBallStyle() {
         return {
           position: 'absolute',
-          height: this.props.height,
-          display: 'block',
-          backgroundColor: this.props.color,
-          borderRadius: 2,
-          backgroundClip: 'padding-box',
-          overflow: 'hidden',
-          willChange: 'left right'
+          fontSize: this.props.size / 3,
+          width: this.props.size,
+          height: this.props.size,
+          background: this.props.color,
+          borderRadius: '50%'
         };
       }
     }, {
       key: 'getAnimationStyle',
       value: function getAnimationStyle(i) {
-        var animation = void 0;
+        var animationName = (0, _insertKeyframesRule2.default)(keyframes[i]);
+        var animation = [animationName, '1.5s', 'infinite'].join(' ');
         var animationFillMode = 'forwards';
-
-        if (i === 1) {
-          animation = [animationNameLong, '2.1s', 'cubic-bezier(0.65, 0.815, 0.735, 0.395)', 'infinite'].join(' ');
-        } else if (i === 2) {
-          animation = [animationNameShort, '2.1s', '1.15s', 'cubic-bezier(0.165, 0.84, 0.44, 1)', 'infinite'].join(' ');
-        }
 
         return {
           animation: animation,
@@ -166,21 +162,7 @@
     }, {
       key: 'getStyle',
       value: function getStyle(i) {
-        if (i === 0) {
-          var color = this.props.color;
-
-
-          return {
-            position: 'relative',
-            height: this.props.height,
-            width: this.props.width,
-            overflow: 'hidden',
-            backgroundColor: (0, _helpers.calculateRgba)(color, 0.2),
-            backgroundClip: 'padding-box'
-          };
-        }
-
-        return (0, _appendVendorPrefix2.default)(this.getLineStyle(i), this.getAnimationStyle(i));
+        return (0, _appendVendorPrefix2.default)(this.getBallStyle(i), this.getAnimationStyle(i));
       }
     }, {
       key: 'renderLoader',
@@ -191,9 +173,13 @@
             { id: this.props.id, className: this.props.className },
             _react2.default.createElement(
               'div',
-              { style: this.getStyle(0) },
+              { style: { position: 'relative' } },
+              _react2.default.createElement('div', { style: this.getStyle(0) }),
               _react2.default.createElement('div', { style: this.getStyle(1) }),
-              _react2.default.createElement('div', { style: this.getStyle(2) })
+              _react2.default.createElement('div', { style: this.getStyle(2) }),
+              _react2.default.createElement('div', { style: this.getStyle(3) }),
+              _react2.default.createElement('div', { style: this.getStyle(4) }),
+              _react2.default.createElement('div', { style: this.getStyle(5) })
             )
           );
         }
@@ -215,18 +201,16 @@
    */
   Loader.propTypes = {
     loading: _propTypes2.default.bool,
-    color: _propTypes2.default.string,
-    width: _propTypes2.default.number,
-    height: _propTypes2.default.number
+    size: _propTypes2.default.number,
+    color: _propTypes2.default.string
 
     /**
      * @type {object}
      */
   };Loader.defaultProps = {
     loading: true,
-    color: '#000000',
-    width: 100,
-    height: 4
+    size: 15,
+    color: '#000000'
   };
 
   exports.default = Loader;

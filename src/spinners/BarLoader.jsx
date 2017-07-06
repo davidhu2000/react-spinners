@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import assign from 'domkit/appendVendorPrefix';
 import insertKeyframesRule from 'domkit/insertKeyframesRule';
+import { calculateRgba } from '../helpers';
 
 /**
  * @type {object}
@@ -63,7 +64,7 @@ class Loader extends React.Component {
       borderRadius: 2,
       backgroundClip: 'padding-box',
       overflow: 'hidden',
-      willChange: 'left right'
+      willChange: 'left right',
     }
   }
 
@@ -95,28 +96,12 @@ class Loader extends React.Component {
     if (i === 0) {
       let { color } = this.props;
 
-      if (color[0] === '#') {
-        color = color.slice(1);
-      }
-
-      if (color.length === 3) {
-        let res = '';
-        color.split('').forEach(c => {
-          res += c;
-          res += c;
-        });
-        color = res;
-      }
-
-      let rgbValues = color.match(/.{2}/g).map(hex => parseInt(hex, 16)).join(', ')
-      let rgba = `rgba(${rgbValues}, 0.2)`;
-
       return {
         position: 'relative',
         height: this.props.height,
         width: this.props.width,
         overflow: 'hidden',
-        backgroundColor: rgba,
+        backgroundColor: calculateRgba(color, 0.2),
         backgroundClip: 'padding-box'
       }
     }

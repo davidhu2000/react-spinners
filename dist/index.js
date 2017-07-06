@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['module', './spinners/BarLoader', './spinners/BeatLoader', './spinners/BounceLoader', './spinners/ClipLoader', './spinners/DotLoader', './spinners/FadeLoader', './spinners/GridLoader', './spinners/MoonLoader', './spinners/PacmanLoader', './spinners/PulseLoader', './spinners/RingLoader', './spinners/RiseLoader', './spinners/RotateLoader', './spinners/ScaleLoader', './spinners/SkewLoader', './spinners/SquareLoader', './spinners/SyncLoader'], factory);
+    define(['module', './spinners/BarLoader', './spinners/BeatLoader', './spinners/BounceLoader', './spinners/ClipLoader', './spinners/DotLoader', './spinners/FadeLoader', './spinners/GridLoader', './spinners/MoonLoader', './spinners/PacmanLoader', './spinners/PropagateLoader', './spinners/PulseLoader', './spinners/RingLoader', './spinners/RiseLoader', './spinners/RotateLoader', './spinners/ScaleLoader', './spinners/SkewLoader', './spinners/SquareLoader', './spinners/SyncLoader'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(module, require('./spinners/BarLoader'), require('./spinners/BeatLoader'), require('./spinners/BounceLoader'), require('./spinners/ClipLoader'), require('./spinners/DotLoader'), require('./spinners/FadeLoader'), require('./spinners/GridLoader'), require('./spinners/MoonLoader'), require('./spinners/PacmanLoader'), require('./spinners/PulseLoader'), require('./spinners/RingLoader'), require('./spinners/RiseLoader'), require('./spinners/RotateLoader'), require('./spinners/ScaleLoader'), require('./spinners/SkewLoader'), require('./spinners/SquareLoader'), require('./spinners/SyncLoader'));
+    factory(module, require('./spinners/BarLoader'), require('./spinners/BeatLoader'), require('./spinners/BounceLoader'), require('./spinners/ClipLoader'), require('./spinners/DotLoader'), require('./spinners/FadeLoader'), require('./spinners/GridLoader'), require('./spinners/MoonLoader'), require('./spinners/PacmanLoader'), require('./spinners/PropagateLoader'), require('./spinners/PulseLoader'), require('./spinners/RingLoader'), require('./spinners/RiseLoader'), require('./spinners/RotateLoader'), require('./spinners/ScaleLoader'), require('./spinners/SkewLoader'), require('./spinners/SquareLoader'), require('./spinners/SyncLoader'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod, global.BarLoader, global.BeatLoader, global.BounceLoader, global.ClipLoader, global.DotLoader, global.FadeLoader, global.GridLoader, global.MoonLoader, global.PacmanLoader, global.PulseLoader, global.RingLoader, global.RiseLoader, global.RotateLoader, global.ScaleLoader, global.SkewLoader, global.SquareLoader, global.SyncLoader);
+    factory(mod, global.BarLoader, global.BeatLoader, global.BounceLoader, global.ClipLoader, global.DotLoader, global.FadeLoader, global.GridLoader, global.MoonLoader, global.PacmanLoader, global.PropagateLoader, global.PulseLoader, global.RingLoader, global.RiseLoader, global.RotateLoader, global.ScaleLoader, global.SkewLoader, global.SquareLoader, global.SyncLoader);
     global.index = mod.exports;
   }
-})(this, function (module, _BarLoader, _BeatLoader, _BounceLoader, _ClipLoader, _DotLoader, _FadeLoader, _GridLoader, _MoonLoader, _PacmanLoader, _PulseLoader, _RingLoader, _RiseLoader, _RotateLoader, _ScaleLoader, _SkewLoader, _SquareLoader, _SyncLoader) {
+})(this, function (module, _BarLoader, _BeatLoader, _BounceLoader, _ClipLoader, _DotLoader, _FadeLoader, _GridLoader, _MoonLoader, _PacmanLoader, _PropagateLoader, _PulseLoader, _RingLoader, _RiseLoader, _RotateLoader, _ScaleLoader, _SkewLoader, _SquareLoader, _SyncLoader) {
   'use strict';
 
   var _BarLoader2 = _interopRequireDefault(_BarLoader);
@@ -30,6 +30,8 @@
   var _MoonLoader2 = _interopRequireDefault(_MoonLoader);
 
   var _PacmanLoader2 = _interopRequireDefault(_PacmanLoader);
+
+  var _PropagateLoader2 = _interopRequireDefault(_PropagateLoader);
 
   var _PulseLoader2 = _interopRequireDefault(_PulseLoader);
 
@@ -63,6 +65,7 @@
     GridLoader: _GridLoader2.default,
     MoonLoader: _MoonLoader2.default,
     PacmanLoader: _PacmanLoader2.default,
+    PropagateLoader: _PropagateLoader2.default,
     PulseLoader: _PulseLoader2.default,
     RingLoader: _RingLoader2.default,
     RiseLoader: _RiseLoader2.default,

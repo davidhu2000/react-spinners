@@ -7,6 +7,7 @@ import FadeLoader from './spinners/FadeLoader';
 import GridLoader from './spinners/GridLoader';
 import MoonLoader from './spinners/MoonLoader';
 import PacmanLoader from './spinners/PacmanLoader';
+import PropagateLoader from './spinners/PropagateLoader';
 import PulseLoader from './spinners/PulseLoader';
 import RingLoader from './spinners/RingLoader';
 import RiseLoader from './spinners/RiseLoader';
@@ -26,6 +27,7 @@ module.exports = {
   GridLoader,
   MoonLoader,
   PacmanLoader,
+  PropagateLoader,
   PulseLoader,
   RingLoader,
   RiseLoader,
