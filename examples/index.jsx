@@ -3,25 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Code, ColorPicker } from './components';
-import {
-  BarLoader,
-  BeatLoader,
-  BounceLoader,
-  ClipLoader,
-  DotLoader,
-  FadeLoader,
-  GridLoader,
-  HashLoader,
-  MoonLoader,
-  PacmanLoader,
-  PropagateLoader,
-  PulseLoader,
-  RingLoader,
-  RiseLoader,
-  RotateLoader,
-  ScaleLoader,
-  SyncLoader
-} from '../src';
+import Spinners from '../src';
 
 class SpinnerExamples extends React.Component {
   constructor() {
@@ -58,6 +40,12 @@ class SpinnerExamples extends React.Component {
     this.setState({ showPicker: !this.state.showPicker });
   }
 
+  renderSpinner(Spinner) {
+    return (
+      <Spinner color={this.state.color} />
+    );
+  }
+
   render() {
     let { color, showPicker } = this.state;
     return (
@@ -72,90 +60,12 @@ class SpinnerExamples extends React.Component {
           ) }
         </div>
 
-        <div className='spinner-item'>
-          <div className='spinner-title'>BarLoader</div>
-          <BarLoader color={color}/>
-        </div>
-        
-        <div className='spinner-item'>
-          <div className='spinner-title'>BeatLoader</div>
-          <BeatLoader color={color}/>
-        </div>
-
-        <div className='spinner-item'>
-          <div className='spinner-title'>BounceLoader</div>
-          <BounceLoader color={color}/>
-        </div>
-
-        <div className='spinner-item'>
-          <div className='spinner-title'>ClipLoader</div>
-          <ClipLoader color={color}/>
-        </div>
-
-        <div className='spinner-item'>
-          <div className='spinner-title'>DotLoader</div>
-          <DotLoader color={color}/>
-        </div>
-
-        <div className='spinner-item'>
-          <div className='spinner-title'>FadeLoader</div>
-          <FadeLoader color={color}/>
-        </div>
-
-        <div className='spinner-item'>
-          <div className='spinner-title'>GridLoader</div>
-          <GridLoader color={color}/>
-        </div>
-        
-        <div className='spinner-item'>
-          <div className='spinner-title'>HashLoader</div>
-          <HashLoader color={color}/>
-        </div>
-
-        <div className='spinner-item'>
-          <div className='spinner-title'>MoonLoader</div>
-          <MoonLoader color={color}/>
-        </div>
-        
-        <div className='spinner-item'>
-          <div className='spinner-title'>PacmanLoader</div>
-          <PacmanLoader color={color}/>
-        </div>
-
-        <div className='spinner-item'>
-          <div className='spinner-title'>PropagateLoader</div>
-          <PropagateLoader color={color}/>
-        </div>
-
-        <div className='spinner-item'>
-          <div className='spinner-title'>PulseLoader</div>
-          <PulseLoader color={color}/>
-        </div>
-
-        <div className='spinner-item'>
-          <div className='spinner-title'>RingLoader</div>
-          <RingLoader color={color}/>
-        </div>
-
-        <div className='spinner-item'>
-          <div className='spinner-title'>RiseLoader</div>
-          <RiseLoader color={color}/>
-        </div>
-
-        <div className='spinner-item'>
-          <div className='spinner-title'>RotateLoader</div>
-          <RotateLoader color={color}/>
-        </div>
-
-        <div className='spinner-item'>
-          <div className='spinner-title'>ScaleLoader</div>
-          <ScaleLoader color={color}/>
-        </div>
-
-        <div className='spinner-item'>
-          <div className='spinner-title'>SyncLoader</div>
-          <SyncLoader color={color}/>
-        </div>
+        { Object.keys(Spinners).map(name => (
+          <div className="spinner-item">
+            <div className="spinner-title">{name}</div>
+            { this.renderSpinner(Spinners[name]) }
+          </div>
+        )) }
       </div>
     )
   }
