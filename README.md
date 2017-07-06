@@ -51,22 +51,23 @@ Common default props for all loaders:
     loading: true
     color: '#000000'
 
-Loader       | size:int | height:int | width:int | radius:int | margin:int
-------------:|:--------:|:----------:|:---------:|:----------:|:---------:
-BarLoader    |          | `4`        | `100`     |            |
-BeatLoader   | `15`     |            |           |            | `2`
-BounceLoader | `60`     |            |           |            |
-ClipLoader   | `35`     |            |           |            |
-DotLoader    | `60`     |            |           |            | `2`
-FadeLoader   |          | `15`       | `5`       | `2`        | `2`
-GridLoader   | `15`     |            |           |            | `2`
-MoonLoader   | `60`     |            |           |            | `2`
-PacmanLoader | `25`     |            |           |            | `2`
-PulseLoader  | `15`     |            |           |            | `2`
-RingLoader   | `60`     |            |           |            | `2`
-RiseLoader   | `15`     |            |           |            | `2`
-RotateLoader | `15`     |            |           |            | `2`
-ScaleLoader  |          | `35`       | `4`       | `2`        | `2`
-SkewLoader   | `20`     |            |           |            |
-SquareLoader | `50`     |            |           |            | `2`
-SyncLoader   | `15`     |            |           |            | `2`
+Loader          | size:int | height:int | width:int | radius:int | margin:int
+------------:   |:--------:|:----------:|:---------:|:----------:|:---------:
+BarLoader       |          | `4`        | `100`     |            |
+BeatLoader      | `15`     |            |           |            | `2`
+BounceLoader    | `60`     |            |           |            |
+ClipLoader      | `35`     |            |           |            |
+DotLoader       | `60`     |            |           |            | `2`
+FadeLoader      |          | `15`       | `5`       | `2`        | `2`
+GridLoader      | `15`     |            |           |            | `2`
+MoonLoader      | `60`     |            |           |            | `2`
+PacmanLoader    | `25`     |            |           |            | `2`
+PropagateLoader | `15`     |            |           |            |
+PulseLoader     | `15`     |            |           |            | `2`
+RingLoader      | `60`     |            |           |            | `2`
+RiseLoader      | `15`     |            |           |            | `2`
+RotateLoader    | `15`     |            |           |            | `2`
+ScaleLoader     |          | `35`       | `4`       | `2`        | `2`
+SkewLoader      | `20`     |            |           |            |
+SquareLoader    | `50`     |            |           |            | `2`
+SyncLoader      | `15`     |            |           |            | `2`
