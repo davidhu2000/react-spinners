@@ -44,7 +44,7 @@ class Loader extends React.Component {
       animationFillMode: animationFillMode
     }
   }
-
+ 
   /**
    * @param  {number} i element index
    * @return {object} object with style properties

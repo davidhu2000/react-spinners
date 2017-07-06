@@ -5,6 +5,7 @@ import ClipLoader       from './spinners/ClipLoader';
 import DotLoader        from './spinners/DotLoader';
 import FadeLoader       from './spinners/FadeLoader';
 import GridLoader       from './spinners/GridLoader';
+import HashLoader       from './spinners/HashLoader';
 import MoonLoader       from './spinners/MoonLoader';
 import PacmanLoader     from './spinners/PacmanLoader';
 import PropagateLoader  from './spinners/PropagateLoader';
@@ -14,7 +15,6 @@ import RiseLoader       from './spinners/RiseLoader';
 import RotateLoader     from './spinners/RotateLoader';
 import ScaleLoader      from './spinners/ScaleLoader';
 import SkewLoader       from './spinners/SkewLoader';
-import SlackLoader      from './spinners/SlackLoader';
 import SquareLoader     from './spinners/SquareLoader';
 import SyncLoader       from './spinners/SyncLoader';
 
@@ -26,6 +26,7 @@ module.exports = {
   DotLoader,
   FadeLoader,
   GridLoader,
+  HashLoader,
   MoonLoader,
   PacmanLoader,
   PropagateLoader,
@@ -35,7 +36,6 @@ module.exports = {
   RotateLoader,
   ScaleLoader,
   SkewLoader,
-  SlackLoader,
   SquareLoader,
   SyncLoader
 }
