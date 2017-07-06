@@ -12,11 +12,11 @@
   <script src="bundle.js"></script>
 </head>
 <body>
-  <header>
+  <header id='header'>
     <h1 class="logo">React Spinners</h1>
   </header>
 
-  <main>
+  <main id='main'>
     <div class="installation">
       <code id='code'>yarn add react-spinners</code>
     </div>
@@ -37,6 +37,25 @@
       data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"
     />
   </a>
-  
+
+  <script>
+    let header = document.getElementById('header');
+    let main = document.getElementById('main');
+    document.addEventListener('scroll', () => {
+      let height = 360 - window.scrollY;
+      if (height > 225) {
+        header.style.height = `${height}px`;
+        header.classList.remove('navbar');
+        header.style.boxShadow = '';
+        main.style.marginTop = '0';
+      } else {
+        header.classList.add('navbar');
+        header.style.height = null;
+        header.style.boxShadow = '0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2)';
+        main.style.marginTop = '280px';
+      }
+    
+    })
+  </script>
 </body>
 </html>

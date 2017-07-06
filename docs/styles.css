@@ -13,9 +13,18 @@ header {
   color: #fff;
   display: flex;
   align-items: center;
+  z-index: 1000;
+}
+
+.navbar {
+  height: 90px !important;
+  position: fixed;
+  top: 0;
 }
 
 .logo {
+  height: 50px;
+  line-height: 50px;
   display: block;
   text-align: center;
   margin: 0px auto;
@@ -87,7 +96,8 @@ code:hover {
 .color-picker {
   top: 370px;
   left: 20px;
-  z-index: 100;
+  position: fixed;
+  z-index: 999;
 }
 
 .color-picker button {
@@ -98,7 +108,7 @@ code:hover {
   color: #fff;
   border: none;
   opacity: 0.9;
-  transition: 0.3s ease-out;
+  transition: 0.5s ease-in-out;
   font-weight: 300;
   text-transform: uppercase;
   cursor: pointer;
@@ -112,19 +122,10 @@ code:hover {
   opacity: 1;
 }
 
-.position-abs {
-  position: absolute;
-}
-
-.position-fixed {
-  position: fixed;
-  top: 10px;
-}
-
 /* Footer styles */
 footer {
   padding: 30px;
-  margin: 15px 0;
+  margin: 15px 0 0 0;
   background: #2b303b;
   text-align: center;
 }

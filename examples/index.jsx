@@ -40,16 +40,15 @@ class SpinnerExamples extends React.Component {
   componentDidMount() {
 
     document.addEventListener('scroll', () => {
-      if (window.scrollY > 360) {
-        let picker = document.getElementsByClassName('color-picker')[0];
-        picker.classList.remove('position-abs');
-        picker.classList.add('position-fixed');
+      let picker = document.getElementsByClassName('color-picker')[0];
+      let top = 370 - window.scrollY * 2;
+      console.log(top)
+      if (top > 100) {
+        picker.style.top = `${top}px`;
       } else {
-        let picker = document.getElementsByClassName('color-picker')[0];
-        picker.classList.add('position-abs');
-        picker.classList.remove('position-fixed');
+        picker.style.top = `100px`;
       }
-    })
+    });
 
   }
 
