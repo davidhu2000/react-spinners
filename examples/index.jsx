@@ -11,6 +11,7 @@ import {
   DotLoader,
   FadeLoader,
   GridLoader,
+  HashLoader,
   MoonLoader,
   PacmanLoader,
   PropagateLoader,
@@ -19,9 +20,6 @@ import {
   RiseLoader,
   RotateLoader,
   ScaleLoader,
-  SkewLoader,
-  HashLoader,
-  SquareLoader,
   SyncLoader
 } from '../src';
 
@@ -152,17 +150,6 @@ class SpinnerExamples extends React.Component {
         <div className='spinner-item'>
           <div className='spinner-title'>ScaleLoader</div>
           <ScaleLoader color={color}/>
-        </div>
-
-        <div className='spinner-item'>
-          <div className='spinner-title'>SkewLoader</div>
-          <SkewLoader color={color}/>
-        </div>
-
-
-        <div className='spinner-item'>
-          <div className='spinner-title'>SquareLoader</div>
-          <SquareLoader color={color}/>
         </div>
 
         <div className='spinner-item'>

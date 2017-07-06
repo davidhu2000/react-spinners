@@ -99,7 +99,7 @@ class Loader extends React.Component {
     const animationName = insertKeyframesRule(keyframes);
     let animation = [animationName, '2s', 'infinite'].join(' ');
     let animationFillMode = '';
-    console.log(keyframes)
+
     return {
       animation: animation,
       animationFillMode: animationFillMode

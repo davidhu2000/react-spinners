@@ -14,8 +14,6 @@ import RingLoader       from './spinners/RingLoader';
 import RiseLoader       from './spinners/RiseLoader';
 import RotateLoader     from './spinners/RotateLoader';
 import ScaleLoader      from './spinners/ScaleLoader';
-import SkewLoader       from './spinners/SkewLoader';
-import SquareLoader     from './spinners/SquareLoader';
 import SyncLoader       from './spinners/SyncLoader';
 
 module.exports = {
@@ -35,7 +33,5 @@ module.exports = {
   RiseLoader,
   RotateLoader,
   ScaleLoader,
-  SkewLoader,
-  SquareLoader,
   SyncLoader
 }
