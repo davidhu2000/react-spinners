@@ -3,6 +3,17 @@ import PropTypes from 'prop-types';
 import assign from 'domkit/appendVendorPrefix';
 import insertKeyframesRule from 'domkit/insertKeyframesRule';
 
+const keyframes = {
+  0: {
+    "0%": { transform: 'rotate(0deg) '},
+    "50%": { transform: 'rotate(-45deg) '},
+  },
+  1: {
+    "0%": { transform: 'rotate(0deg) '},
+    "50%": { transform: 'rotate(45deg) '},
+  },
+}
+
 /**
  * @type {object}
  */
@@ -57,18 +68,23 @@ class Loader extends React.Component {
    * @return {object} object with style properties
    */
   getStyle(i) {
-    if (i === 1) {
+    if (i <= 1) {
       let s1 = `${this.props.size}px solid transparent`;
       let s2 = `${this.props.size}px solid ${this.props.color}`;
+      
+      let animationName = insertKeyframesRule(keyframes[i]);
+      let animation = [animationName, '0.8s', 'infinite', 'ease-in-out'].join(' ');
 
       return {
         width: 0,
         height: 0,
         borderRight: s1,
-        borderTop: s2,
+        borderTop: i === 0 ? s1 : s2,
         borderLeft: s2,
-        borderBottom: s2,
-        borderRadius: this.props.size
+        borderBottom: i === 0 ? s2 : s1,
+        borderRadius: this.props.size,
+        position: 'absolute',
+        animation: animation
       };
     }
 
@@ -94,13 +110,17 @@ class Loader extends React.Component {
     if (loading) {
       let style = {
         position: 'relative',
-        fontSize: 0
+        fontSize: 0,
+        height: this.props.size,
+        width: this.props.size
       };
 
       return (
         <div id={this.props.id} className={this.props.className}>
           <div style={style}>
-            <div style={this.getStyle(1)} />
+            <div style={this.getStyle(0)} />
+            <div style={{ ...this.getStyle(1), position: 'absolute'} } />
+            {/*<div style={{ ...this.getStyle(1), transform: 'rotate(15deg)'} } />*/}
             <div style={this.getStyle(2)} />
             <div style={this.getStyle(3)} />
             <div style={this.getStyle(4)} />
