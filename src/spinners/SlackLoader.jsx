@@ -18,11 +18,19 @@ const animationName = insertKeyframesRule(keyframes);
 class Loader extends React.Component {
 
   /**
-   * @return {object} object with ball properties
+   * @return {object} object with line properties
    */
-  getBallStyle() {
+  getLineStyle() {
     return {
-      
+      position: 'absolute',
+      content: '',
+      top: '50%',
+      left: '50%',
+      display: 'block',
+      width: this.props.size / 5,
+      height: this.props.size / 5,
+      borderRadius: this.props.size / 10,
+      transform: 'translate(-50%, -50%)'
     }
   }
 
@@ -54,10 +62,20 @@ class Loader extends React.Component {
    * @return {ReactComponent | null} Returns Loader or null
    */
   renderLoader(loading) {
+    let style = {
+      position: 'relative',
+      width: this.props.size,
+      height: this.props.size,
+      transform: 'rotate(165deg)',
+      background: 'blue'
+    };
+
     if (loading) {
       return (
         <div id={this.props.id} className={this.props.className}>
-          
+          <div style={style}>
+
+          </div>
         </div>
       );
     }
@@ -74,14 +92,18 @@ class Loader extends React.Component {
  * @type {object}
  */
 Loader.propTypes = {
-  
+  loading: PropTypes.bool,
+  size: PropTypes.number,
+  color: PropTypes.string
 }
 
 /**
  * @type {object}
  */
 Loader.defaultProps = {
-  
+  loading: true,
+  size: 50,
+  color: "#000000"
 }
 
 export default Loader;

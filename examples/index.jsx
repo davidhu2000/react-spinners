@@ -23,7 +23,7 @@ import {
   SlackLoader,
   SquareLoader,
   SyncLoader
-} from '../dist';
+} from '../src';
 
 class SpinnerExamples extends React.Component {
   constructor() {
