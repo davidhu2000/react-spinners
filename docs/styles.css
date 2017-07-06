@@ -17,9 +17,13 @@ header {
 }
 
 .navbar {
-  height: 90px !important;
+  height: 40px !important;
   position: fixed;
   top: 0;
+}
+
+.navbar h1 {
+  font-size: 20px;
 }
 
 .logo {
@@ -32,6 +36,9 @@ header {
   letter-spacing: 5px;
   font-weight: 300;
   text-transform: uppercase;
+  position: sticky;
+  top: 10px;
+  transition: 0.2s ease-in-out;
 }
 
 /* install styles */
