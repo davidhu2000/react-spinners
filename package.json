@@ -47,9 +47,12 @@
     "eslint-plugin-react": "^4.2.3",
     "jsdom": "^8.1.0",
     "nodemon": "^1.9.1",
+    "prop-types": "^15.5.10",
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.0.0",
     "react-dom": "^15.0.0",
+    "react-click-outside": "^ 2.3.1",
+    "react-color": "^2.13.0",
     "webpack": "^3.0.0"
   },
   "peerDependencies": {
@@ -57,10 +60,6 @@
     "react-dom": "~0.14.8 || ^15.0.0"
   },
   "dependencies": {
-    "babel-runtime": "^6.6.1",
-    "domkit": "^0.0.1",
-    "prop-types": "^15.5.10",
-    "react-click-outside": "^2.3.1",
-    "react-color": "^2.13.0"
+    "domkit": "^0.0.1"
   }
 }
