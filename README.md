@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/react-spinners.svg)][npm_url]
 [![circle ci](https://circleci.com/gh/davidhu2000/react-spinners.svg?style=shield)][npm_url]
-[![downloads](https://img.shields.io/npm/dm/react-spinners.svg)][npm_url]
+[![downloads](https://img.shields.io/npm/dt/react-spinners.svg)][npm_url]
 [![license](https://img.shields.io/npm/l/react-spinners.svg)][npm_url]
 
 [![dependencies Status](https://david-dm.org/davidhu2000/react-spinners/status.svg)](https://david-dm.org/davidhu2000/react-spinners)
