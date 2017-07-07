@@ -139,6 +139,91 @@ code:hover {
   top: 20px;
 }
 
+/* form styles */
+.spinner-form {
+  position: absolute;
+  bottom: 5px;
+  font-family: sans-serif, serif;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.spinner-form-input {
+  margin: 3px;
+  display: flex;
+  width: 50px;
+  height: 20px;
+  position: relative;
+}
+
+.spinner-form-input label {
+  flex: 1;
+  font-size: 15px;
+  line-height: 20px;
+  text-align: right;
+  color: #999;
+  position: absolute;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  top: 0px;
+  width: 50px;
+  text-align: center;
+}
+
+.spinner-form-input input {
+  flex: 1;
+  width: 50%;
+  padding: 0 4px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #757575;
+  text-align: center;
+}
+
+.spinner-form-input input:focus {
+  outline: none;
+}
+
+.spinner-form-input input:focus ~ label, .spinner-form-input input:valid ~ label {
+  top: -20px;
+  color: #111;
+  font-size: 10px;
+}
+
+.bar {
+  position: absolute;
+  display: block;
+  width: 100%;
+  bottom: -1px;
+}
+
+.bar:before, .bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #36D7B7;
+  transition: 0.2s ease all;
+}
+
+.bar:before {
+  left: 50%;
+}
+
+.bar:after {
+  right: 50%;
+}
+
+.spinner-form-input input:focus~.bar:before, 
+.spinner-form-input input:focus~.bar:after {
+  width: 50%;
+}
+
+/* color picker styles */
 .color-picker {
   top: 370px;
   left: 20px;
