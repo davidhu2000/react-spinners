@@ -16,22 +16,22 @@ const keyframesBefore = (size, color) => {
   let offset = lat - thickness;
   color = calculateRgba(color, 0.75);
   return {
-    '0%': { 
+    '0%': {
       width: `${thickness}px`,
       'box-shadow': `${lat}px ${-offset}px ${color}, ${-lat}px ${offset}px ${color}`
     },
-    '35%': { 
+    '35%': {
       width: `${size}px`,
       'box-shadow': `0 ${-offset}px ${color}, 0 ${offset}px ${color}`
     },
-    '70%': { 
+    '70%': {
       width: `${thickness}px`,
       'box-shadow': `${-lat}px ${-offset}px ${color}, ${lat}px ${offset}px ${color}`
     },
     '100%': {
       'box-shadow': `${lat}px ${-offset}px ${color}, ${-lat}px ${offset}px ${color}`
     }
-  }
+  };
 };
 
 /**
@@ -46,22 +46,22 @@ const keyframesAfter = (size, color) => {
   let offset = lat - thickness;
   color = calculateRgba(color, 0.75);
   return {
-    '0%': { 
+    '0%': {
       height: `${thickness}px`,
       'box-shadow': `${offset}px ${lat}px ${color}, ${-offset}px ${-lat}px ${color}`
     },
-    '35%': { 
+    '35%': {
       height: `${size}px`,
       'box-shadow': `${offset}px ${0} ${color}, ${-offset}px ${0} ${color}`
     },
-    '70%': { 
+    '70%': {
       height: `${thickness}px`,
       'box-shadow': `${offset}px ${-lat}px ${color}, ${-offset}px ${lat}px ${color}`
     },
     '100%': {
       'box-shadow': `${offset}px ${lat}px ${color}, ${-offset}px ${-lat}px ${color}`
     }
-  }
+  };
 };
 
 
@@ -81,7 +81,7 @@ class Loader extends React.Component {
       height: this.props.size / 5,
       borderRadius: this.props.size / 10,
       transform: 'translate(-50%, -50%)'
-    }
+    };
   }
 
   /**
@@ -101,9 +101,9 @@ class Loader extends React.Component {
     let animationFillMode = '';
 
     return {
-      animation: animation,
-      animationFillMode: animationFillMode
-    }
+      animation,
+      animationFillMode
+    };
   }
 
   /**
@@ -126,7 +126,7 @@ class Loader extends React.Component {
       position: 'relative',
       width: this.props.size,
       height: this.props.size,
-      transform: 'rotate(165deg)',
+      transform: 'rotate(165deg)'
     };
 
     if (loading) {
@@ -155,7 +155,7 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   size: PropTypes.number,
   color: PropTypes.string
-}
+};
 
 /**
  * @type {object}
@@ -164,6 +164,6 @@ Loader.defaultProps = {
   loading: true,
   size: 50,
   color: "#000000"
-}
+};
 
 export default Loader;

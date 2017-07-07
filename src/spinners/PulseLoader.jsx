@@ -7,19 +7,19 @@ import insertKeyframesRule from 'domkit/insertKeyframesRule';
  * @type {object}
  */
 const keyframes = {
-  '0%' : {
+  '0%': {
     transform: 'scale(1)',
     opacity: 1
   },
-  '45%' : {
+  '45%': {
     transform: 'scale(0.1)',
     opacity: 0.7
   },
-  '80%' : {
+  '80%': {
     transform: 'scale(1)',
     opacity: 1
   }
-}
+};
 
 /**
  * @type {string}
@@ -38,7 +38,7 @@ class Loader extends React.Component {
       height: this.props.size,
       margin: this.props.margin,
       borderRadius: '100%'
-    }
+    };
   }
 
   /**
@@ -46,13 +46,13 @@ class Loader extends React.Component {
    * @return {object} object with animation properties
    */
   getAnimationStyle(i) {
-    let animation = [animationName, '0.75s', (i * 0.12) + 's', 'infinite', 'cubic-bezier(.2,.68,.18,1.08)'].join(' ');
-    let animationFillMode = 'both'; 
+    let animation = [animationName, '0.75s', `${i * 0.12}s`, 'infinite', 'cubic-bezier(.2,.68,.18,1.08)'].join(' ');
+    let animationFillMode = 'both';
 
     return {
-      animation: animation,
-      animationFillMode: animationFillMode
-    }
+      animation,
+      animationFillMode
+    };
   }
 
   /**
@@ -100,7 +100,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   margin: PropTypes.number
-}
+};
 
 /**
  * @type {object}
@@ -110,6 +110,6 @@ Loader.defaultProps = {
   color: '#000000',
   size: 15,
   margin: 2
-}
+};
 
 export default Loader;

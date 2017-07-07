@@ -15,7 +15,7 @@ const keyframes = {
     transform: 'scale(1)',
     opacity: 1
   }
-}
+};
 
 /**
  * @type {string}
@@ -34,7 +34,7 @@ class Loader extends React.Component {
       height: this.props.size,
       margin: this.props.margin,
       borderRadius: '100%'
-    }
+    };
   }
 
   /**
@@ -42,13 +42,13 @@ class Loader extends React.Component {
    * @return {object} object with animation properties
    */
   getAnimationStyle(i) {
-    let animation = [animationName, '0.7s', i % 2 ? '0s': '0.35s', 'infinite', 'linear'].join(' ');
+    let animation = [animationName, '0.7s', i % 2 ? '0s' : '0.35s', 'infinite', 'linear'].join(' ');
     let animationFillMode = 'both';
 
     return {
-      animation: animation,
-      animationFillMode: animationFillMode
-    }
+      animation,
+      animationFillMode
+    };
   }
 
   /**
@@ -94,7 +94,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   margin: PropTypes.number
-}
+};
 
 /**
  * @type {object}
@@ -104,6 +104,6 @@ Loader.defaultProps = {
   color: '#000000',
   size: 15,
   margin: 2
-}
+};
 
 export default Loader;

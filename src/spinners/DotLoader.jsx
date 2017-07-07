@@ -6,7 +6,7 @@ import insertKeyframesRule from 'domkit/insertKeyframesRule';
 /**
  * @type {object}
  */
-var rotateKeyframes = {
+let rotateKeyframes = {
   '100%': {
     transform: 'rotate(360deg)'
   }
@@ -15,7 +15,7 @@ var rotateKeyframes = {
 /**
  * @type {object}
  */
-var bounceKeyframes = {
+let bounceKeyframes = {
   '0%, 100%': {
     transform: 'scale(0)'
   },
@@ -27,12 +27,12 @@ var bounceKeyframes = {
 /**
  * @type {string}
  */
-var rotateAnimationName = insertKeyframesRule(rotateKeyframes);
+let rotateAnimationName = insertKeyframesRule(rotateKeyframes);
 
 /**
  * @type {string}
  */
-var bounceAnimationName = insertKeyframesRule(bounceKeyframes);
+let bounceAnimationName = insertKeyframesRule(bounceKeyframes);
 
 class Loader extends React.Component {
 
@@ -54,13 +54,13 @@ class Loader extends React.Component {
    * @return {object} object with animation properties
    */
   getAnimationStyle(i) {
-    let animation = [i==0 ? rotateAnimationName : bounceAnimationName, '2s', i==2? '-1s': '0s', 'infinite', 'linear'].join(' ');
+    let animation = [i == 0 ? rotateAnimationName : bounceAnimationName, '2s', i == 2 ? '-1s' : '0s', 'infinite', 'linear'].join(' ');
     let animationFillMode = 'forwards';
 
     return {
-      animation: animation,
-      animationFillMode: animationFillMode
-    }
+      animation,
+      animationFillMode
+    };
   }
 
   /**
@@ -69,7 +69,7 @@ class Loader extends React.Component {
    */
   getStyle(i) {
     let { size } = this.props;
-    var ballSize = size / 2;
+    let ballSize = size / 2;
 
     if (i) {
       return assign(
@@ -77,8 +77,8 @@ class Loader extends React.Component {
         this.getAnimationStyle(i),
         {
           position: 'absolute',
-          top: i % 2 ? 0: 'auto',
-          bottom: i % 2 ? 'auto': 0
+          top: i % 2 ? 0 : 'auto',
+          bottom: i % 2 ? 'auto' : 0
         }
       );
     }
@@ -125,7 +125,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   margin: PropTypes.number
-}
+};
 
 /**
  * @type {object}
@@ -135,6 +135,6 @@ Loader.defaultProps = {
   color: '#000000',
   size: 60,
   margin: 2
-}
+};
 
 export default Loader;

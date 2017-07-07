@@ -48,10 +48,10 @@ class Loader extends React.Component {
     return {
       width: size,
       height: size,
-      border: size / 10 + 'px solid ' + this.props.color,
+      border: `${size / 10}px solid ${this.props.color}`,
       opacity: 0.4,
       borderRadius: '100%'
-    }
+    };
   }
 
   /**
@@ -64,10 +64,10 @@ class Loader extends React.Component {
     let perspective = '800px';
 
     return {
-      perspective: perspective,
-      animation: animation,
-      animationFillMode: animationFillMode
-    }
+      perspective,
+      animation,
+      animationFillMode
+    };
   }
 
   /**
@@ -78,8 +78,8 @@ class Loader extends React.Component {
     let { size } = this.props;
     if (i) {
       return assign(
-        this.getCircleStyle(size), 
-        this.getAnimationStyle(i), 
+        this.getCircleStyle(size),
+        this.getAnimationStyle(i),
         {
           position: 'absolute',
           top: 0,
@@ -89,8 +89,8 @@ class Loader extends React.Component {
     }
 
     return {
-      width: size, 
-      height: size, 
+      width: size,
+      height: size,
       position: 'relative'
     };
   }
@@ -127,7 +127,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   margin: PropTypes.number
-}
+};
 
 /**
  * @type {object}
@@ -137,6 +137,6 @@ Loader.defaultProps = {
   color: '#000000',
   size: 60,
   margin: 2
-}
+};
 
 export default Loader;

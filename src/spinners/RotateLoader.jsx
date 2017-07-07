@@ -16,7 +16,7 @@ const keyframes = {
   '100%': {
     transform: 'rotate(360deg)'
   }
-}
+};
 
 /**
  * @type {string}
@@ -35,7 +35,7 @@ class Loader extends React.Component {
       height: this.props.size,
       margin: this.props.margin,
       borderRadius: '100%'
-    }
+    };
   }
 
   /**
@@ -47,9 +47,9 @@ class Loader extends React.Component {
     let animationFillMode = 'both';
 
     return {
-      animation: animation,
-      animationFillMode: animationFillMode
-    }
+      animation,
+      animationFillMode
+    };
   }
 
   /**
@@ -59,7 +59,7 @@ class Loader extends React.Component {
   getStyle(i) {
     if (i) {
       return assign(
-        this.getBallStyle(i), 
+        this.getBallStyle(i),
         {
           opacity: '0.8',
           position: 'absolute',
@@ -70,8 +70,8 @@ class Loader extends React.Component {
     }
 
     return assign(
-      this.getBallStyle(i), 
-      this.getAnimationStyle(i), 
+      this.getBallStyle(i),
+      this.getAnimationStyle(i),
       {
         display: 'inline-block',
         position: 'relative'
@@ -111,7 +111,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   margin: PropTypes.number
-}
+};
 
 /**
  * @type {object}
@@ -121,6 +121,6 @@ Loader.defaultProps = {
   color: '#000000',
   size: 15,
   margin: 2
-}
+};
 
 export default Loader;

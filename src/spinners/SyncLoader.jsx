@@ -16,7 +16,7 @@ const keyframes = {
   '100%': {
     transform: 'translateY(0)'
   }
-}
+};
 
 /**
  * @type {string}
@@ -35,7 +35,7 @@ class Loader extends React.Component {
       height: this.props.size,
       margin: this.props.margin,
       borderRadius: '100%'
-    }
+    };
   }
 
   /**
@@ -43,13 +43,13 @@ class Loader extends React.Component {
    * @return {object} object with animation properties
    */
   getAnimationStyle(i) {
-    let animation = [animationName, '0.6s', (i * 0.07) + 's', 'infinite', 'ease-in-out'].join(' ');
+    let animation = [animationName, '0.6s', `${i * 0.07}s`, 'infinite', 'ease-in-out'].join(' ');
     let animationFillMode = 'both';
 
     return {
-      animation: animation,
-      animationFillMode: animationFillMode
-    }
+      animation,
+      animationFillMode
+    };
   }
 
   /**
@@ -97,7 +97,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   margin: PropTypes.number
-}
+};
 
 /**
  * @type {object}
@@ -107,6 +107,6 @@ Loader.defaultProps = {
   color: '#000000',
   size: 15,
   margin: 2
-}
+};
 
 export default Loader;

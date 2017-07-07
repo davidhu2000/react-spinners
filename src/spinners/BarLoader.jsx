@@ -20,7 +20,7 @@ const keyframesLong = {
     left: '100%',
     right: '-90%'
   }
-}
+};
 
 /**
  * @type {object}
@@ -38,7 +38,7 @@ const keyframesShort = {
     left: '107%',
     right: '-8%'
   }
-}
+};
 
 /**
  * @type {string}
@@ -64,8 +64,8 @@ class Loader extends React.Component {
       borderRadius: 2,
       backgroundClip: 'padding-box',
       overflow: 'hidden',
-      willChange: 'left right',
-    }
+      willChange: 'left right'
+    };
   }
 
   /**
@@ -77,15 +77,15 @@ class Loader extends React.Component {
     let animationFillMode = 'forwards';
 
     if (i === 1) {
-      animation = [animationNameLong, '2.1s', 'cubic-bezier(0.65, 0.815, 0.735, 0.395)', 'infinite'].join(' ')   
+      animation = [animationNameLong, '2.1s', 'cubic-bezier(0.65, 0.815, 0.735, 0.395)', 'infinite'].join(' ');
     } else if (i === 2) {
-      animation = [animationNameShort, '2.1s', '1.15s', 'cubic-bezier(0.165, 0.84, 0.44, 1)', 'infinite'].join(' ')
+      animation = [animationNameShort, '2.1s', '1.15s', 'cubic-bezier(0.165, 0.84, 0.44, 1)', 'infinite'].join(' ');
     }
 
     return {
-      animation: animation,
-      animationFillMode: animationFillMode
-    }
+      animation,
+      animationFillMode
+    };
   }
 
   /**
@@ -103,7 +103,7 @@ class Loader extends React.Component {
         overflow: 'hidden',
         backgroundColor: calculateRgba(color, 0.2),
         backgroundClip: 'padding-box'
-      }
+      };
     }
 
     return assign(
@@ -144,7 +144,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   width: PropTypes.number,
   height: PropTypes.number
-}
+};
 
 /**
  * @type {object}
@@ -154,6 +154,6 @@ Loader.defaultProps = {
   color: '#000000',
   width: 100,
   height: 4
-}
+};
 
 export default Loader;

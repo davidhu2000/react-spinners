@@ -16,7 +16,7 @@ const keyframes = {
   '100%': {
     transform: 'scaley(1.0)'
   }
-}
+};
 
 /**
  * @type {string}
@@ -35,7 +35,7 @@ class Loader extends React.Component {
       width: this.props.width,
       margin: this.props.margin,
       borderRadius: this.props.radius
-    }
+    };
   }
 
   /**
@@ -43,13 +43,13 @@ class Loader extends React.Component {
    * @return {object} object with animation properties
    */
   getAnimationStyle(i) {
-    let animation = [animationName, '1s', (i * 0.1) + 's', 'infinite', 'cubic-bezier(.2,.68,.18,1.08)'].join(' ');
+    let animation = [animationName, '1s', `${i * 0.1}s`, 'infinite', 'cubic-bezier(.2,.68,.18,1.08)'].join(' ');
     let animationFillMode = 'both';
 
     return {
-      animation: animation,
-      animationFillMode: animationFillMode
-    }
+      animation,
+      animationFillMode
+    };
   }
 
   /**
@@ -101,7 +101,7 @@ Loader.propTypes = {
   width: PropTypes.number,
   margin: PropTypes.number,
   radius: PropTypes.number
-}
+};
 
 /**
  * @type {object}
@@ -113,6 +113,6 @@ Loader.defaultProps = {
   width: 4,
   margin: 2,
   radius: 2
-}
+};
 
 export default Loader;

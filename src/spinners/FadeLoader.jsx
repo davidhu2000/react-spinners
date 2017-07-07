@@ -13,7 +13,7 @@ const keyframes = {
   '100%': {
     opacity: 1
   }
-}
+};
 
 /**
  * @type {string}
@@ -32,7 +32,7 @@ class Loader extends React.Component {
       width: this.props.width,
       margin: this.props.margin,
       borderRadius: this.props.radius
-    }
+    };
   }
 
   /**
@@ -40,13 +40,13 @@ class Loader extends React.Component {
    * @return {object} object with animation properties
    */
   getAnimationStyle(i) {
-    let animation = [animationName, '1.2s', (i * 0.12) + 's', 'infinite', 'ease-in-out'].join(' ');
+    let animation = [animationName, '1.2s', `${i * 0.12}s`, 'infinite', 'ease-in-out'].join(' ');
     let animationFillMode = 'both';
 
     return {
-      animation: animation,
-      animationFillMode: animationFillMode
-    }
+      animation,
+      animationFillMode
+    };
   }
 
   /**
@@ -98,7 +98,7 @@ class Loader extends React.Component {
       }
     };
 
-    return lines['l'+i];
+    return lines[`l${i}`];
   }
 
   /**
@@ -126,7 +126,7 @@ class Loader extends React.Component {
         position: 'relative',
         fontSize: 0
       };
-      
+
       return (
         <div id={this.props.id} className={this.props.className}>
           <div style={style}>
@@ -161,7 +161,7 @@ Loader.propTypes = {
   width: PropTypes.number,
   margin: PropTypes.number,
   radius: PropTypes.number
-}
+};
 
 /**
  * @type {object}
@@ -172,7 +172,7 @@ Loader.defaultProps = {
   height: 15,
   width: 5,
   margin: 2,
-  radius: 2 
-}
+  radius: 2
+};
 
 export default Loader;

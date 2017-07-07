@@ -40,7 +40,7 @@ const keyframes = {
   '100%': {
     transform: 'translate(0, -1em) rotate(-225deg)'
   }
-}
+};
 
 /**
  * @type {string}
@@ -63,7 +63,7 @@ class Loader extends React.Component {
       border: `0.25em solid ${this.props.color}`,
       borderRadius: '15%',
       transform: 'translate(0, -1em) rotate(-45deg)'
-    }
+    };
   }
 
   /**
@@ -78,7 +78,7 @@ class Loader extends React.Component {
       left: '1.7em',
       borderLeft: `0.25em solid ${this.props.color}`,
       transform: 'rotate(45deg)'
-    }
+    };
   }
 
   /**
@@ -90,9 +90,9 @@ class Loader extends React.Component {
     let animationFillMode = 'both';
 
     return {
-      animation: animation,
-      animationFillMode: animationFillMode
-    }
+      animation,
+      animationFillMode
+    };
   }
 
   /**
@@ -121,7 +121,7 @@ class Loader extends React.Component {
         width: '5.4em',
         height: '5.4em',
         fontSize: this.props.size
-      }
+      };
 
       return (
         <div id={this.props.id} className={this.props.className}>
@@ -148,7 +148,7 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number
-}
+};
 
 /**
  * @type {object}
@@ -157,6 +157,6 @@ Loader.defaultProps = {
   loading: true,
   color: '#000000',
   size: 15
-}
+};
 
 export default Loader;

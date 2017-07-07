@@ -5,14 +5,14 @@ import insertKeyframesRule from 'domkit/insertKeyframesRule';
 
 const keyframes = {
   0: {
-    "0%": { transform: 'rotate(0deg) '},
-    "50%": { transform: 'rotate(-45deg) '},
+    "0%": { transform: 'rotate(0deg) ' },
+    "50%": { transform: 'rotate(-45deg) ' }
   },
   1: {
-    "0%": { transform: 'rotate(0deg) '},
-    "50%": { transform: 'rotate(45deg) '},
-  },
-}
+    "0%": { transform: 'rotate(0deg) ' },
+    "50%": { transform: 'rotate(45deg) ' }
+  }
+};
 
 /**
  * @type {object}
@@ -31,7 +31,7 @@ class Loader extends React.Component {
       height: this.props.size,
       margin: this.props.margin,
       borderRadius: '100%'
-    }
+    };
   }
 
   /**
@@ -54,13 +54,13 @@ class Loader extends React.Component {
       animationName = animations[size] = insertKeyframesRule(keyframes);
     }
 
-    let animation = [animationName, '1s', i*0.25 + 's', 'infinite', 'linear'].join(' ');
+    let animation = [animationName, '1s', `${i * 0.25}s`, 'infinite', 'linear'].join(' ');
     let animationFillMode = 'both';
 
     return {
-      animation: animation,
-      animationFillMode: animationFillMode
-    }
+      animation,
+      animationFillMode
+    };
   }
 
   /**
@@ -71,7 +71,7 @@ class Loader extends React.Component {
     if (i <= 1) {
       let s1 = `${this.props.size}px solid transparent`;
       let s2 = `${this.props.size}px solid ${this.props.color}`;
-      
+
       let animationName = insertKeyframesRule(keyframes[i]);
       let animation = [animationName, '0.8s', 'infinite', 'ease-in-out'].join(' ');
 
@@ -84,7 +84,7 @@ class Loader extends React.Component {
         borderBottom: i === 0 ? s2 : s1,
         borderRadius: this.props.size,
         position: 'absolute',
-        animation: animation
+        animation
       };
     }
 
@@ -94,7 +94,7 @@ class Loader extends React.Component {
       {
         width: 10,
         height: 10,
-        transform: 'translate(0, '+ -this.props.size / 4 + 'px)',
+        transform: `translate(0, ${-this.props.size / 4}px)`,
         position: 'absolute',
         top: 25,
         left: 100
@@ -119,8 +119,8 @@ class Loader extends React.Component {
         <div id={this.props.id} className={this.props.className}>
           <div style={style}>
             <div style={this.getStyle(0)} />
-            <div style={{ ...this.getStyle(1), position: 'absolute'} } />
-            {/*<div style={{ ...this.getStyle(1), transform: 'rotate(15deg)'} } />*/}
+            <div style={{ ...this.getStyle(1), position: 'absolute' }} />
+            {/* <div style={{ ...this.getStyle(1), transform: 'rotate(15deg)'} } />*/}
             <div style={this.getStyle(2)} />
             <div style={this.getStyle(3)} />
             <div style={this.getStyle(4)} />
@@ -146,7 +146,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   margin: PropTypes.number
-}
+};
 
 /**
  * @type {object}
@@ -156,6 +156,6 @@ Loader.defaultProps = {
   color: '#000000',
   size: 25,
   margin: 2
-}
+};
 
 export default Loader;

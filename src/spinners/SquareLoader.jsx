@@ -19,7 +19,7 @@ const keyframes = {
   '100%': {
     transform: 'rotateX(0) rotateY(0)'
   }
-}
+};
 
 /**
  * @type {string}
@@ -36,7 +36,7 @@ class Loader extends React.Component {
       backgroundColor: this.props.color,
       width: this.props.size,
       height: this.props.size
-    }
+    };
   }
 
   /**
@@ -48,10 +48,10 @@ class Loader extends React.Component {
     let perspective = '100px';
 
     return {
-      perspective: perspective,
-      animation: animation,
-      animationFillMode: animationFillMode
-    }
+      perspective,
+      animation,
+      animationFillMode
+    };
   }
 
   /**
@@ -75,7 +75,7 @@ class Loader extends React.Component {
     if (loading) {
       return (
         <div id={this.props.id} className={this.props.className}>
-          <div style={this.getStyle()}></div>
+          <div style={this.getStyle()} />
         </div>
       );
     }
@@ -96,7 +96,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   margin: PropTypes.number
-}
+};
 
 /**
  * @type {object}
@@ -106,6 +106,6 @@ Loader.defaultProps = {
   color: '#000000',
   size: 50,
   margin: 2
-}
+};
 
 export default Loader;

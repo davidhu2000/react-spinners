@@ -35,7 +35,7 @@ class Loader extends React.Component {
       position: 'absolute',
       top: 0,
       left: 0
-    }
+    };
   }
 
   /**
@@ -43,13 +43,13 @@ class Loader extends React.Component {
    * @return {object} object with animation properties
    */
   getAnimationStyle(i) {
-    let animation = [animationName, '2s', i == 1 ? '1s': '0s', 'infinite', 'ease-in-out'].join(' ');
+    let animation = [animationName, '2s', i == 1 ? '1s' : '0s', 'infinite', 'ease-in-out'].join(' ');
     let animationFillMode = 'both';
 
     return {
-      animation: animation,
-      animationFillMode: animationFillMode
-    }
+      animation,
+      animationFillMode
+    };
   }
 
   /**
@@ -104,7 +104,7 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number
-}
+};
 
 /**
  * @type {object}
@@ -112,7 +112,7 @@ Loader.propTypes = {
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
-  size: 60,
-}
+  size: 60
+};
 
 export default Loader;

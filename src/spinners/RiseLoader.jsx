@@ -6,23 +6,23 @@ import insertKeyframesRule from 'domkit/insertKeyframesRule';
 /**
  * @type {number}
  */
-var riseAmount = 30;
+let riseAmount = 30;
 
 /**
  * @type {object}
  */
-var keyframesEven = {
+let keyframesEven = {
   '0%': {
     transform: 'scale(1.1)'
   },
-  '25': {
-    transform: 'translateY(-' + riseAmount + 'px)'
+  25: {
+    transform: `translateY(-${riseAmount}px)`
   },
   '50%': {
     transform: 'scale(0.4)'
   },
   '75%': {
-    transform: 'translateY(' + riseAmount + 'px)'
+    transform: `translateY(${riseAmount}px)`
   },
   '100%': {
     transform: 'translateY(0) scale(1.0)'
@@ -32,18 +32,18 @@ var keyframesEven = {
 /**
  * @type {object}
  */
-var keyframesOdd = {
+let keyframesOdd = {
   '0%': {
     transform: 'scale(0.4)'
   },
-  '25': {
-    transform: 'translateY(' + riseAmount + 'px)'
+  25: {
+    transform: `translateY(${riseAmount}px)`
   },
   '50%': {
     transform: 'scale(1.1)'
   },
   '75%': {
-    transform: 'translateY(-' + riseAmount + 'px)'
+    transform: `translateY(-${riseAmount}px)`
   },
   '100%': {
     transform: 'translateY(0) scale(0.75)'
@@ -53,12 +53,12 @@ var keyframesOdd = {
 /**
  * @type {string}
  */
-var animationNameEven = insertKeyframesRule(keyframesEven);
+let animationNameEven = insertKeyframesRule(keyframesEven);
 
 /**
  * @type {string}
  */
-var animationNameOdd = insertKeyframesRule(keyframesOdd);
+let animationNameOdd = insertKeyframesRule(keyframesOdd);
 
 class Loader extends React.Component {
 
@@ -72,7 +72,7 @@ class Loader extends React.Component {
       height: this.props.size,
       margin: this.props.margin,
       borderRadius: '100%'
-    }
+    };
   }
 
   /**
@@ -84,9 +84,9 @@ class Loader extends React.Component {
     let animationFillMode = 'both';
 
     return {
-      animation: animation,
-      animationFillMode: animationFillMode
-    }
+      animation,
+      animationFillMode
+    };
   }
 
   /**
@@ -136,7 +136,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   margin: PropTypes.number
-}
+};
 
 /**
  * @type {object}
@@ -146,6 +146,6 @@ Loader.defaultProps = {
   color: '#000000',
   size: 15,
   margin: 2
-}
+};
 
 export default Loader;

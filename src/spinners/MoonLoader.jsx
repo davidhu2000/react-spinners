@@ -10,7 +10,7 @@ const keyframes = {
   '100%': {
     transform: 'rotate(360deg)'
   }
-}
+};
 
 /**
  * @type {string}
@@ -28,7 +28,7 @@ class Loader extends React.Component {
       width: size,
       height: size,
       borderRadius: '100%'
-    }
+    };
   }
 
   /**
@@ -40,11 +40,11 @@ class Loader extends React.Component {
     let animationFillMode = 'forwards';
 
     return {
-      animation: animation,
-      animationFillMode: animationFillMode
-    }
+      animation,
+      animationFillMode
+    };
   }
- 
+
   /**
    * @param  {number} i element index
    * @return {object} object with style properties
@@ -55,8 +55,8 @@ class Loader extends React.Component {
 
     if (i === 1) {
       return assign(
-        this.getBallStyle(moonSize), 
-        this.getAnimationStyle(i), 
+        this.getBallStyle(moonSize),
+        this.getAnimationStyle(i),
         {
           backgroundColor: this.props.color,
           opacity: '0.8',
@@ -66,7 +66,7 @@ class Loader extends React.Component {
       );
     } else if (i === 2) {
       return assign(
-        this.getBallStyle(size), 
+        this.getBallStyle(size),
         {
           border: `${moonSize}px solid ${this.props.color}`,
           opacity: 0.1
@@ -109,7 +109,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   margin: PropTypes.number
-}
+};
 
 /**
  * @type {object}
@@ -119,6 +119,6 @@ Loader.defaultProps = {
   color: '#000000',
   size: 60,
   margin: 2
-}
+};
 
 export default Loader;

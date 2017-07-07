@@ -18,7 +18,7 @@ const keyframes = {
     transform: 'scale(1)',
     opacity: 1
   }
-}
+};
 
 /**
  * @type {string}
@@ -29,9 +29,7 @@ const animationName = insertKeyframesRule(keyframes);
  * @param  {number} top top position
  * @return {number} random value
  */
-const random = top => {
-  return Math.random() * top
-}
+const random = top => Math.random() * top;
 
 class Loader extends React.Component {
 
@@ -45,7 +43,7 @@ class Loader extends React.Component {
       height: this.props.size,
       margin: this.props.margin,
       borderRadius: '100%'
-    }
+    };
   }
 
   /**
@@ -53,16 +51,16 @@ class Loader extends React.Component {
    * @return {object} object with animation properties
    */
   getAnimationStyle(i) {
-    let animationDuration = ((random(100) / 100) + 0.6) + 's';
-    let animationDelay = ((random(100) / 100) - 0.2) + 's';
+    let animationDuration = `${(random(100) / 100) + 0.6}s`;
+    let animationDelay = `${(random(100) / 100) - 0.2}s`;
 
     let animation = [animationName, animationDuration, animationDelay, 'infinite', 'ease'].join(' ');
     let animationFillMode = 'both';
 
     return {
-      animation: animation,
-      animationFillMode: animationFillMode
-    }
+      animation,
+      animationFillMode
+    };
   }
 
   /**
@@ -123,7 +121,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   margin: PropTypes.number
-}
+};
 
 /**
  * @type {object}
@@ -132,7 +130,7 @@ Loader.defaultProps = {
   loading: true,
   color: '#000000',
   size: 15,
-  margin: 2 
-}
+  margin: 2
+};
 
 export default Loader;
