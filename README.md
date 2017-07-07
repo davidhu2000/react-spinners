@@ -4,6 +4,7 @@
 [![circle ci](https://circleci.com/gh/davidhu2000/react-spinners.svg?style=shield)][npm_url]
 [![downloads](https://img.shields.io/npm/dm/react-spinners.svg)][npm_url]
 [![license](https://img.shields.io/npm/l/react-spinners.svg)][npm_url]
+
 [![dependencies Status](https://david-dm.org/davidhu2000/react-spinners/status.svg)](https://david-dm.org/davidhu2000/react-spinners)
 [![devDependencies Status](https://david-dm.org/davidhu2000/react-spinners/dev-status.svg)](https://david-dm.org/davidhu2000/react-spinners?type=dev)
 [![peerDependencies Status](https://david-dm.org/davidhu2000/react-spinners/peer-status.svg)](https://david-dm.org/davidhu2000/react-spinners?type=peer)
