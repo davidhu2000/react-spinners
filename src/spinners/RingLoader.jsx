@@ -59,7 +59,7 @@ class Loader extends React.Component {
    * @return {object} object with animation properties
    */
   getAnimationStyle(i) {
-    let animation = [i == 1 ? rightRotateAnimationName : leftRotateAnimationName, '2s', '0s', 'infinite', 'linear'].join(' ');
+    let animation = [i === 1 ? rightRotateAnimationName : leftRotateAnimationName, '2s', '0s', 'infinite', 'linear'].join(' ');
     let animationFillMode = 'forwards';
     let perspective = '800px';
 
@@ -102,7 +102,7 @@ class Loader extends React.Component {
   renderLoader(loading) {
     if (loading) {
       return (
-        <div id={this.props.id} className={this.props.className}>
+        <div className="react-spinners--ring">
           <div style={this.getStyle(0)}>
             <div style={this.getStyle(1)} />
             <div style={this.getStyle(2)} />
@@ -125,8 +125,7 @@ class Loader extends React.Component {
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
-  size: PropTypes.number,
-  margin: PropTypes.number
+  size: PropTypes.number
 };
 
 /**
@@ -135,8 +134,7 @@ Loader.propTypes = {
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
-  size: 60,
-  margin: 2
+  size: 60
 };
 
 export default Loader;

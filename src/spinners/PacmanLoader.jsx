@@ -43,7 +43,7 @@ class Loader extends React.Component {
     let animationName = animations[size];
 
     if (!animationName) {
-      let keyframes = {
+      let keyframesBall = {
         '75%': {
           opacity: 0.7
         },
@@ -51,7 +51,8 @@ class Loader extends React.Component {
           transform: `translate(${-4 * size}px, ${-size / 4}px)`
         }
       };
-      animationName = animations[size] = insertKeyframesRule(keyframes);
+      animationName = insertKeyframesRule(keyframesBall);
+      animations[size] = animationName;
     }
 
     let animation = [animationName, '1s', `${i * 0.25}s`, 'infinite', 'linear'].join(' ');
@@ -116,11 +117,10 @@ class Loader extends React.Component {
       };
 
       return (
-        <div id={this.props.id} className={this.props.className}>
+        <div className="react-spinners--pacman">
           <div style={style}>
             <div style={this.getStyle(0)} />
             <div style={{ ...this.getStyle(1), position: 'absolute' }} />
-            {/* <div style={{ ...this.getStyle(1), transform: 'rotate(15deg)'} } />*/}
             <div style={this.getStyle(2)} />
             <div style={this.getStyle(3)} />
             <div style={this.getStyle(4)} />

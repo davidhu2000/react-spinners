@@ -128,7 +128,7 @@ class Loader extends React.Component {
       };
 
       return (
-        <div id={this.props.id} className={this.props.className}>
+        <div className="react-spinners--fade">
           <div style={style}>
             <div style={this.getStyle(1)} />
             <div style={this.getStyle(2)} />

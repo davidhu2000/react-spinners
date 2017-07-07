@@ -80,7 +80,7 @@ class Loader extends React.Component {
    * @return {object} object with animation properties
    */
   getAnimationStyle(i) {
-    let animation = [i % 2 == 0 ? animationNameEven : animationNameOdd, '1s', '0s', 'infinite', 'cubic-bezier(.15,.46,.9,.6)'].join(' ');
+    let animation = [i % 2 === 0 ? animationNameEven : animationNameOdd, '1s', '0s', 'infinite', 'cubic-bezier(.15,.46,.9,.6)'].join(' ');
     let animationFillMode = 'both';
 
     return {
@@ -110,7 +110,7 @@ class Loader extends React.Component {
   renderLoader(loading) {
     if (loading) {
       return (
-        <div id={this.props.id} className={this.props.className}>
+        <div className="react-spinners--rise">
           <div style={this.getStyle(1)} />
           <div style={this.getStyle(2)} />
           <div style={this.getStyle(3)} />

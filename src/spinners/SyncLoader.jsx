@@ -73,7 +73,7 @@ class Loader extends React.Component {
   renderLoader(loading) {
     if (loading) {
       return (
-        <div id={this.props.id} className={this.props.className}>
+        <div className="react-spinners--sync">
           <div style={this.getStyle(1)} />
           <div style={this.getStyle(2)} />
           <div style={this.getStyle(3)} />

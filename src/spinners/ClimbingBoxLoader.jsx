@@ -82,10 +82,9 @@ class Loader extends React.Component {
   }
 
   /**
-   * @param  {number} i element index
    * @return {object} object with animation properties
    */
-  getAnimationStyle(i) {
+  getAnimationStyle() {
     let animation = [animationName, '2.5s', 'infinite', 'cubic-bezier(.79, 0, .47, .97)'].join(' ');
     let animationFillMode = 'both';
 
@@ -96,10 +95,9 @@ class Loader extends React.Component {
   }
 
   /**
-   * @param  {number} i element index
    * @return {object} object with style properties
    */
-  getStyle(i) {
+  getStyle() {
     return assign(
       this.getBoxStyle(),
       this.getAnimationStyle()
@@ -124,7 +122,7 @@ class Loader extends React.Component {
       };
 
       return (
-        <div id={this.props.id} className={this.props.className}>
+        <div className="react-spinners--climbing-box">
           <div style={style}>
             <div style={this.getStyle()} />
             <div style={this.getHillStyle()} />

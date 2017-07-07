@@ -74,7 +74,7 @@ class Loader extends React.Component {
   renderLoader(loading) {
     if (loading) {
       return (
-        <div id={this.props.id} className={this.props.className}>
+        <div className="react-spinners--square">
           <div style={this.getStyle()} />
         </div>
       );
@@ -94,8 +94,7 @@ class Loader extends React.Component {
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
-  size: PropTypes.number,
-  margin: PropTypes.number
+  size: PropTypes.number
 };
 
 /**
@@ -104,8 +103,7 @@ Loader.propTypes = {
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
-  size: 50,
-  margin: 2
+  size: 50
 };
 
 export default Loader;

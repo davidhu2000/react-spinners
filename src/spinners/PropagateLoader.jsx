@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import assign from 'domkit/appendVendorPrefix';
 import insertKeyframesRule from 'domkit/insertKeyframesRule';
-import { calculateRgba } from '../helpers';
 
 // 1.5 4.5 7.5
 let distance = [1, 3, 5];
@@ -100,7 +99,7 @@ class Loader extends React.Component {
   renderLoader(loading) {
     if (loading) {
       return (
-        <div id={this.props.id} className={this.props.className}>
+        <div className="react-spinners--propagate">
           <div style={{ position: 'relative' }}>
             <div style={this.getStyle(0)} />
             <div style={this.getStyle(1)} />

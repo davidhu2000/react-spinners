@@ -47,10 +47,9 @@ class Loader extends React.Component {
   }
 
   /**
-   * @param  {number} i element index
    * @return {object} object with animation properties
    */
-  getAnimationStyle(i) {
+  getAnimationStyle() {
     let animationDuration = `${(random(100) / 100) + 0.6}s`;
     let animationDelay = `${(random(100) / 100) - 0.2}s`;
 
@@ -84,12 +83,12 @@ class Loader extends React.Component {
   renderLoader(loading) {
     if (loading) {
       let style = {
-        width: (parseFloat(this.props.size) * 3) + parseFloat(this.props.margin) * 6,
+        width: (parseFloat(this.props.size) * 3) + (parseFloat(this.props.margin) * 6),
         fontSize: 0
       };
 
       return (
-        <div id={this.props.id} className={this.props.className}>
+        <div className="react-spinners--grid">
           <div style={style}>
             <div style={this.getStyle(1)} />
             <div style={this.getStyle(2)} />

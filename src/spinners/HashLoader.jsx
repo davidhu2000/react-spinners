@@ -131,7 +131,7 @@ class Loader extends React.Component {
 
     if (loading) {
       return (
-        <div id={this.props.id} className={this.props.className}>
+        <div className="react-spinners--hash">
           <div style={style}>
             <div style={this.getStyle(1)} />
             <div style={this.getStyle(2)} />

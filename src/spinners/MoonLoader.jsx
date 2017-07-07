@@ -32,10 +32,9 @@ class Loader extends React.Component {
   }
 
   /**
-   * @param  {number} i element index
    * @return {object} object with animation properties
    */
-  getAnimationStyle(i) {
+  getAnimationStyle() {
     let animation = [animationName, '0.6s', '0s', 'infinite', 'linear'].join(' ');
     let animationFillMode = 'forwards';
 
@@ -50,7 +49,7 @@ class Loader extends React.Component {
    * @return {object} object with style properties
    */
   getStyle(i) {
-    let size = parseInt(this.props.size);
+    let size = parseInt(this.props.size, 10);
     let moonSize = size / 7;
 
     if (i === 1) {
@@ -61,7 +60,7 @@ class Loader extends React.Component {
           backgroundColor: this.props.color,
           opacity: '0.8',
           position: 'absolute',
-          top: size / 2 - moonSize / 2
+          top: (size / 2) - (moonSize / 2)
         }
       );
     } else if (i === 2) {
@@ -84,7 +83,7 @@ class Loader extends React.Component {
   renderLoader(loading) {
     if (loading) {
       return (
-        <div id={this.props.id} className={this.props.className}>
+        <div className="react-spinners--moon">
           <div style={this.getStyle(0)}>
             <div style={this.getStyle(1)} />
             <div style={this.getStyle(2)} />
@@ -107,8 +106,7 @@ class Loader extends React.Component {
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
-  size: PropTypes.number,
-  margin: PropTypes.number
+  size: PropTypes.number
 };
 
 /**
@@ -117,8 +115,7 @@ Loader.propTypes = {
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
-  size: 60,
-  margin: 2
+  size: 60
 };
 
 export default Loader;
