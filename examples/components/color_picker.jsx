@@ -11,7 +11,7 @@ class Picker extends React.Component {
   render() {
     let { color, updateColor } = this.props;
     return (
-      <SketchPicker color={color} onChangeComplete={updateColor}/>
+      <SketchPicker color={color} onChangeComplete={updateColor} />
     );
   }
 }
