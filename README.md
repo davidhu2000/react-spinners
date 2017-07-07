@@ -2,6 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/react-spinners.svg)][npm_url]
 [![dependencies](https://david-dm.org/davidhu2000/react-spinners.svg)][npm_url]
+[![circle ci](https://circleci.com/gh/davidhu2000/react-spinners.svg?style=shield)][npm_url]
 
 [npm_url]: https://www.npmjs.org/package/react-spinners
 
@@ -48,25 +49,28 @@ class AwesomeComponent extends React.Component {
 
 Common default props for all loaders:
 
-    loading: true
-    color: '#000000'
+```js
+loading: true
+color: '#000000'
+```
 
-Loader          | size:int | height:int | width:int | radius:int | margin:int
-------------:   |:--------:|:----------:|:---------:|:----------:|:---------:
-BarLoader       |          | `4`        | `100`     |            |
-BeatLoader      | `15`     |            |           |            | `2`
-BounceLoader    | `60`     |            |           |            |
-ClipLoader      | `35`     |            |           |            |
-DotLoader       | `60`     |            |           |            | `2`
-FadeLoader      |          | `15`       | `5`       | `2`        | `2`
-GridLoader      | `15`     |            |           |            |
-HashLoader      | `50`     |            |           |            | `2`
-MoonLoader      | `60`     |            |           |            | `2`
-PacmanLoader    | `25`     |            |           |            | `2`
-PropagateLoader | `15`     |            |           |            |
-PulseLoader     | `15`     |            |           |            | `2`
-RingLoader      | `60`     |            |           |            | `2`
-RiseLoader      | `15`     |            |           |            | `2`
-RotateLoader    | `15`     |            |           |            | `2`
-ScaleLoader     |          | `35`       | `4`       | `2`        | `2`
-SyncLoader      | `15`     |            |           |            | `2`
+Loader                  | size:int | height:int | width:int | radius:int | margin:int
+-----------------------:|:--------:|:----------:|:---------:|:----------:|:---------:
+BarLoader               |          | `4`        | `100`     |            |
+BeatLoader              | `15`     |            |           |            | `2`
+BounceLoader            | `60`     |            |           |            |
+ClipLoader              | `35`     |            |           |            |
+ClimbingBoxLoader       | `15`     |            |           |            |
+DotLoader               | `60`     |            |           |            | `2`
+FadeLoader              |          | `15`       | `5`       | `2`        | `2`
+GridLoader              | `15`     |            |           |            |
+HashLoader              | `50`     |            |           |            | `2`
+MoonLoader              | `60`     |            |           |            | `2`
+PacmanLoader            | `25`     |            |           |            | `2`
+PropagateLoader         | `15`     |            |           |            |
+PulseLoader             | `15`     |            |           |            | `2`
+RingLoader              | `60`     |            |           |            | `2`
+RiseLoader              | `15`     |            |           |            | `2`
+RotateLoader            | `15`     |            |           |            | `2`
+ScaleLoader             |          | `35`       | `4`       | `2`        | `2`
+SyncLoader              | `15`     |            |           |            | `2`
