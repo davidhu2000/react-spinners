@@ -49,8 +49,6 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
-    "jsdom": "^8.1.0",
-    "nodemon": "^1.9.1",
     "prop-types": "^15.5.10",
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.0.0",

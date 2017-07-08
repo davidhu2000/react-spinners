@@ -145,14 +145,24 @@ code:hover {
   bottom: 5px;
   font-family: sans-serif, serif;
   width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .spinner-form-input {
   margin: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 50px;
   height: 20px;
@@ -160,13 +170,17 @@ code:hover {
 }
 
 .spinner-form-input label {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   font-size: 15px;
   line-height: 20px;
   text-align: right;
   color: #999;
   position: absolute;
   pointer-events: none;
+  -webkit-transition: 0.2s ease all;
+  -o-transition: 0.2s ease all;
   transition: 0.2s ease all;
   top: 0px;
   width: 50px;
@@ -174,7 +188,9 @@ code:hover {
 }
 
 .spinner-form-input input {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   width: 50%;
   padding: 0 4px;
   display: block;
@@ -207,6 +223,8 @@ code:hover {
   bottom: 1px;
   position: absolute;
   background: #36D7B7;
+  -webkit-transition: 0.2s ease all;
+  -o-transition: 0.2s ease all;
   transition: 0.2s ease all;
 }
 
