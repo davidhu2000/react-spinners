@@ -21,7 +21,9 @@ This package is bootstraped using [react-npm-boilerplate](https://github.com/jul
 
 ## Installation
 
-    npm install react-spinners --save
+```bash
+npm install react-spinners --save
+```
 
 ## Usage
 
