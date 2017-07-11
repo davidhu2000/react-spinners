@@ -31,6 +31,7 @@ module.exports = {
         "no-plusplus": "off",
         "no-else-return": "off",
         "no-void": 2,
+        "no-mixed-operators": "off",
         "brace-style": [2, "1tbs"],
         "camelcase": [1, {"properties": "never"}],
         "consistent-return": 0,

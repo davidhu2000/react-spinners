@@ -1,6 +1,7 @@
 import BarLoader from './spinners/BarLoader';
 import BeatLoader from './spinners/BeatLoader';
 import BounceLoader from './spinners/BounceLoader';
+import CircleLoader from './spinners/CircleLoader';
 import ClipLoader from './spinners/ClipLoader';
 import ClimbingBoxLoader from './spinners/ClimbingBoxLoader';
 import DotLoader from './spinners/DotLoader';
@@ -21,6 +22,7 @@ module.exports = {
   BarLoader,
   BeatLoader,
   BounceLoader,
+  CircleLoader,
   ClipLoader,
   ClimbingBoxLoader,
   DotLoader,
