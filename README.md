@@ -66,6 +66,7 @@ Loader                  | size:int | height:int | width:int | radius:int | margi
 BarLoader               |          | `4`        | `100`     |            |
 BeatLoader              | `15`     |            |           |            | `2`
 BounceLoader            | `60`     |            |           |            |
+CircleLoader            | `50`     |            |           |            |
 ClipLoader              | `35`     |            |           |            |
 ClimbingBoxLoader       | `15`     |            |           |            |
 DotLoader               | `60`     |            |           |            | `2`

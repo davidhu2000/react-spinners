@@ -74,14 +74,18 @@ class Loader extends React.Component {
  * @type {object}
  */
 Loader.propTypes = {
-  
+  loading: PropTypes.string,
+  color: PropTypes.string,
+  size: PropTypes.number
 }
 
 /**
  * @type {object}
  */
 Loader.defaultProps = {
-  
+  loading: true,
+  color: '#000000',
+  size: 
 }
 
 export default Loader;
