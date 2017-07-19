@@ -44,8 +44,11 @@ class AwesomeComponent extends React.Component {
   }
   render() {
     return (
-      <div>
-        <RingLoader color={'#123abc'} loading={this.state.loading} />
+      <div className='sweet-loading'>
+        <RingLoader
+          color={'#123abc'} 
+          loading={this.state.loading} 
+        />
       </div>
     )
   }
