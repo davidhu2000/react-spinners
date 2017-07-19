@@ -1,0 +1,12 @@
+[ignore]
+./dist
+
+[include]
+./src
+./examples
+
+[libs]
+
+[options]
+
+[lints]

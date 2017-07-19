@@ -61,7 +61,7 @@ class SpinnerExamples extends React.Component {
           <LoaderItem color={color} name={name} spinner={Spinners[name]} />
         )) }
       </div>
-    )
+    );
   }
 }
 

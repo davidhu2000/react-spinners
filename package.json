@@ -26,10 +26,11 @@
     "lint": "eslint ./src  --ext .js,.jsx",
     "lintfix": "eslint ./src  --ext .js,.jsx --fix",
     "testonly": "mocha $npm_package_options_mocha",
-    "test": "npm run lint",
+    "test": "npm run lint && npm run flow",
     "test-watch": "npm run testonly -- --watch --watch-extensions js",
     "build": "$npm_execpath run prepublish && webpack",
-    "patch": "npm version patch && npm publish"
+    "patch": "npm version patch && npm publish",
+    "flow": "./node_modules/.bin/flow check"
   },
   "devDependencies": {
     "babel-cli": "^6.6.4",
@@ -49,6 +50,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
+    "flow-bin": "^0.50.0",
     "prop-types": "^15.5.10",
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.0.0",
