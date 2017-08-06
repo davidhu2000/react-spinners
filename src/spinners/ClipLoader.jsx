@@ -63,7 +63,8 @@ class Loader extends React.Component {
       this.getAnimationStyle(i),
       {
         display: 'inline-block'
-      }
+      },
+      this.props.style
     );
   }
 
