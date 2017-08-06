@@ -96,7 +96,7 @@ Loader.propTypes = {
   loaderStyle: PropTypes.object,
   loading: PropTypes.bool,
   color: PropTypes.string,
-  size: PropTypes.number,
+  size: PropTypes.number
 };
 
 /**
