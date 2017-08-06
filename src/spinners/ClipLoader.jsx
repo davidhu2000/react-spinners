@@ -64,7 +64,7 @@ class Loader extends React.Component {
       {
         display: 'inline-block'
       },
-      this.props.style
+      this.props.loaderStyle
     );
   }
 
@@ -93,15 +93,17 @@ class Loader extends React.Component {
  * @type {object}
  */
 Loader.propTypes = {
+  loaderStyle: PropTypes.object,
   loading: PropTypes.bool,
   color: PropTypes.string,
-  size: PropTypes.number
+  size: PropTypes.number,
 };
 
 /**
  * @type {object}
  */
 Loader.defaultProps = {
+  loaderStyle: {},
   loading: true,
   color: '#000000',
   size: 35
