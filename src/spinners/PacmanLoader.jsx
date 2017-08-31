@@ -1,161 +1,97 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import assign from 'domkit/appendVendorPrefix';
-import insertKeyframesRule from 'domkit/insertKeyframesRule';
+import { keyframes, css } from 'emotion';
+import { onlyUpdateForKeys } from 'recompose';
 
-const keyframes = {
-  0: {
-    "0%": { transform: 'rotate(0deg) ' },
-    "50%": { transform: 'rotate(-45deg) ' }
-  },
-  1: {
-    "0%": { transform: 'rotate(0deg) ' },
-    "50%": { transform: 'rotate(45deg) ' }
-  }
-};
-
-/**
- * @type {object}
- */
-let animations = {};
+// This returns an animation
+const pacman = [
+  keyframes`
+      0% {transform: rotate(0deg)} 
+      50% {transform: rotate(-44deg)}
+    `,
+  keyframes`
+      0% {transform: rotate(0deg)} 
+      50% {transform: rotate(44deg)}
+    `
+];
 
 class Loader extends React.Component {
+  ball = keyframes`
+      75% {opacity: 0.7}
+      100% {transform: translate(${-4 * this.props.size}px, ${-this.props.size / 4}px)}
+    `;
 
-  /**
-   * @return {object} object with ball properties
-   */
-  getBallStyle() {
-    return {
-      backgroundColor: this.props.color,
-      width: this.props.size,
-      height: this.props.size,
-      margin: this.props.margin,
-      borderRadius: '100%'
-    };
-  }
+  ballStyle = i => css`{
+        width: 10px;
+        height: 10px;
+        background-color: ${this.props.color};
+        margin: ${this.props.margin};
+        border-radius: 100%;
+        transform: translate(0, ${-this.props.size / 4}px);
+        position: absolute;
+        top: 25px;
+        left: 100px;
+        animation: ${this.ball} 1s ${i * 0.25}s infinite linear;
+        animation-fill-mode: both;
+    }`;
 
-  /**
-   * @param  {number} i element index
-   * @return {object} object with animation properties
-   */
-  getAnimationStyle(i) {
-    let size = this.props.size;
-    let animationName = animations[size];
+  s1 = `${this.props.size}px solid transparent`;
+  s2 = `${this.props.size}px solid ${this.props.color}`;
+  pacmanStyle = i => css`{
+        width: 0;
+        height: 0;
+        border-right: ${this.s1};
+        border-top: ${i === 0 ? this.s1 : this.s2};
+        border-left: ${this.s2};
+        border-bottom: ${i === 0 ? this.s2 : this.s1};
+        border-radius: ${this.props.size}px;
+        position: absolute;
+        animation: ${pacman[i]} 0.8s infinite ease-in-out;
+        animation-fill-mode: both;
+    }`;
 
-    if (!animationName) {
-      let keyframesBall = {
-        '75%': {
-          opacity: 0.7
-        },
-        '100%': {
-          transform: `translate(${-4 * size}px, ${-size / 4}px)`
-        }
-      };
-      animationName = insertKeyframesRule(keyframesBall);
-      animations[size] = animationName;
-    }
+  wrapper = css`{
+        position: relative;
+        font-size: 0;
+        height: ${this.props.size}px;
+        width: ${this.props.size}px;
+    }`;
 
-    let animation = [animationName, '1s', `${i * 0.25}s`, 'infinite', 'linear'].join(' ');
-    let animationFillMode = 'both';
-
-    return {
-      animation,
-      animationFillMode
-    };
-  }
-
-  /**
-   * @param  {number} i element index
-   * @return {object} object with style properties
-   */
-  getStyle(i) {
-    if (i <= 1) {
-      let s1 = `${this.props.size}px solid transparent`;
-      let s2 = `${this.props.size}px solid ${this.props.color}`;
-
-      let animationName = insertKeyframesRule(keyframes[i]);
-      let animation = [animationName, '0.8s', 'infinite', 'ease-in-out'].join(' ');
-
-      return {
-        width: 0,
-        height: 0,
-        borderRight: s1,
-        borderTop: i === 0 ? s1 : s2,
-        borderLeft: s2,
-        borderBottom: i === 0 ? s2 : s1,
-        borderRadius: this.props.size,
-        position: 'absolute',
-        animation
-      };
-    }
-
-    return assign(
-      this.getBallStyle(i),
-      this.getAnimationStyle(i),
-      {
-        width: 10,
-        height: 10,
-        transform: `translate(0, ${-this.props.size / 4}px)`,
-        position: 'absolute',
-        top: 25,
-        left: 100
-      }
-    );
-  }
-
-  /**
-   * @param {boolean} loading Check if loading
-   * @return {ReactComponent | null} Returns Loader or null
-   */
-  renderLoader(loading) {
-    if (loading) {
-      let style = {
-        position: 'relative',
-        fontSize: 0,
-        height: this.props.size,
-        width: this.props.size
-      };
-
-      return (
-        <div className="react-spinners--pacman">
-          <div style={style}>
-            <div style={this.getStyle(0)} />
-            <div style={{ ...this.getStyle(1), position: 'absolute' }} />
-            <div style={this.getStyle(2)} />
-            <div style={this.getStyle(3)} />
-            <div style={this.getStyle(4)} />
-            <div style={this.getStyle(5)} />
-          </div>
-        </div>
-      );
-    }
-
-    return null;
-  }
+  pac = this.pacmanStyle(0);
+  man = css`
+        composes: ${this.pacmanStyle(1)};
+        position: absolute;
+    `;
+  c = this.ballStyle(2);
+  d = this.ballStyle(3);
+  e = this.ballStyle(4);
+  f = this.ballStyle(5);
 
   render() {
-    return this.renderLoader(this.props.loading);
+    return this.props.loading ?
+      <div className={this.wrapper}>
+        <div className={this.pac} />
+        <div className={this.man} />
+        <div className={this.c} />
+        <div className={this.d} />
+        <div className={this.e} />
+        <div className={this.f} />
+      </div> : null;
   }
 }
 
-/**
- * @type {object}
- */
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
-  margin: PropTypes.number
+  margin: PropTypes.string
 };
 
-/**
- * @type {object}
- */
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
   size: 25,
-  margin: 2
+  margin: '2px'
 };
 
-export default Loader;
+export default onlyUpdateForKeys(['loading', 'color', 'size', 'margin'])(Loader);

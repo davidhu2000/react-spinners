@@ -1,121 +1,61 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import assign from 'domkit/appendVendorPrefix';
-import insertKeyframesRule from 'domkit/insertKeyframesRule';
+import { keyframes, css } from 'emotion';
+import { onlyUpdateForKeys } from 'recompose';
 
-/**
- * @type {object}
- */
-const keyframes = {
-  '100%': {
-    transform: 'rotate(360deg)'
-  }
-};
-
-/**
- * @type {string}
- */
-const animationName = insertKeyframesRule(keyframes);
+const moon = keyframes`
+  100% {transform: rotate(360deg)}
+`;
 
 class Loader extends React.Component {
+  moonSize = this.props.size / 7;
+  ballStyle = size => css`{
+        width: ${size}px;
+        height: ${size}px;
+        border-radius: 100%;
+    }`;
+  wrapper = css`{
+        position: relative;
+        width: ${this.props.size + this.moonSize * 2}px;
+        height: ${this.props.size + this.moonSize * 2}px;
+        animation: ${moon} 0.6s 0s infinite linear;
+        animation-fill-mode: forwards;
 
-  /**
-   * @param {string} size size of the ball
-   * @return {object} object with ball properties
-   */
-  getBallStyle(size) {
-    return {
-      width: size,
-      height: size,
-      borderRadius: '100%'
-    };
-  }
-
-  /**
-   * @return {object} object with animation properties
-   */
-  getAnimationStyle() {
-    let animation = [animationName, '0.6s', '0s', 'infinite', 'linear'].join(' ');
-    let animationFillMode = 'forwards';
-
-    return {
-      animation,
-      animationFillMode
-    };
-  }
-
-  /**
-   * @param  {number} i element index
-   * @return {object} object with style properties
-   */
-  getStyle(i) {
-    let size = parseInt(this.props.size, 10);
-    let moonSize = size / 7;
-
-    if (i === 1) {
-      return assign(
-        this.getBallStyle(moonSize),
-        this.getAnimationStyle(i),
-        {
-          backgroundColor: this.props.color,
-          opacity: '0.8',
-          position: 'absolute',
-          top: (size / 2) - (moonSize / 2)
-        }
-      );
-    } else if (i === 2) {
-      return assign(
-        this.getBallStyle(size),
-        {
-          border: `${moonSize}px solid ${this.props.color}`,
-          opacity: 0.1
-        }
-      );
-    } else {
-      return assign(this.getAnimationStyle(i), { position: 'relative' });
-    }
-  }
-
-  /**
-   * @param {boolean} loading Check if loading
-   * @return {ReactComponent | null} Returns Loader or null
-   */
-  renderLoader(loading) {
-    if (loading) {
-      return (
-        <div className="react-spinners--moon">
-          <div style={this.getStyle(0)}>
-            <div style={this.getStyle(1)} />
-            <div style={this.getStyle(2)} />
-          </div>
-        </div>
-      );
-    }
-
-    return null;
-  }
+    }`;
+  ball = css`
+        composes: ${this.ballStyle(this.moonSize)};
+        background-color: ${this.props.color};
+        opacity: 0.8;
+        position: absolute;
+        top: ${(this.props.size / 2) - (this.moonSize / 2)}px;
+        animation: ${moon} 0.6s 0s infinite linear;
+        animation-fill-mode: forwards;
+    `;
+  circle = css`
+        composes: ${this.ballStyle(this.props.size)};
+        border: ${this.moonSize}px solid ${this.props.color};
+        opacity: 0.1;
+    `;
 
   render() {
-    return this.renderLoader(this.props.loading);
+    return this.props.loading ?
+      <div className={this.wrapper}>
+        <div className={this.ball} />
+        <div className={this.circle} />
+      </div> : null;
   }
 }
 
-/**
- * @type {object}
- */
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number
 };
 
-/**
- * @type {object}
- */
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
   size: 60
 };
 
-export default Loader;
+export default onlyUpdateForKeys('loading', 'color', 'size')(Loader);

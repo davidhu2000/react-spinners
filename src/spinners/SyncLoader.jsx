@@ -1,97 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import assign from 'domkit/appendVendorPrefix';
-import insertKeyframesRule from 'domkit/insertKeyframesRule';
+import { keyframes, css } from 'emotion';
+import { onlyUpdateForKeys } from 'recompose';
 
-/**
- * @type {object}
- */
-const keyframes = {
-  '33%': {
-    transform: 'translateY(10px)'
-  },
-  '66%': {
-    transform: 'translateY(-10px)'
-  },
-  '100%': {
-    transform: 'translateY(0)'
-  }
-};
-
-/**
- * @type {string}
- */
-const animationName = insertKeyframesRule(keyframes);
+const sync = keyframes`
+  33% {transform: translateY(10px)}
+  66% {transform: translateY(-10px)}
+  100% {transform: translateY(0)}
+`;
 
 class Loader extends React.Component {
 
-  /**
-   * @return {object} object with ball properties
-   */
-  getBallStyle() {
-    return {
-      backgroundColor: this.props.color,
-      width: this.props.size,
-      height: this.props.size,
-      margin: this.props.margin,
-      borderRadius: '100%'
-    };
-  }
+  style = i => css`{
+        background-color: ${this.props.color};
+        width: ${this.props.size}px;
+        height: ${this.props.size}px;
+        margin: ${this.props.margin};
+        border-radius: 100%;
+        display: inline-block;
+        animation: ${sync} 0.6s ${i * 0.07}s infinite ease-in-out;
+        animation-fill-mode: both;
+    }`;
 
-  /**
-   * @param  {number} i element index
-   * @return {object} object with animation properties
-   */
-  getAnimationStyle(i) {
-    let animation = [animationName, '0.6s', `${i * 0.07}s`, 'infinite', 'ease-in-out'].join(' ');
-    let animationFillMode = 'both';
-
-    return {
-      animation,
-      animationFillMode
-    };
-  }
-
-  /**
-   * @param  {number} i element index
-   * @return {object} object with style properties
-   */
-  getStyle(i) {
-    return assign(
-      this.getBallStyle(i),
-      this.getAnimationStyle(i),
-      {
-        display: 'inline-block'
-      }
-    );
-  }
-
-  /**
-   * @param {boolean} loading Check if loading
-   * @return {ReactComponent | null} Returns Loader or null
-   */
-  renderLoader(loading) {
-    if (loading) {
-      return (
-        <div className="react-spinners--sync">
-          <div style={this.getStyle(1)} />
-          <div style={this.getStyle(2)} />
-          <div style={this.getStyle(3)} />
-        </div>
-      );
-    }
-
-    return null;
-  }
+  a = this.style(1);
+  b = this.style(2);
+  c = this.style(3);
 
   render() {
-    return this.renderLoader(this.props.loading);
+    return this.props.loading ?
+      <div>
+        <div className={this.a} />
+        <div className={this.b} />
+        <div className={this.c} />
+      </div> : null;
   }
 }
 
-/**
- * @type {object}
- */
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
@@ -99,9 +43,6 @@ Loader.propTypes = {
   margin: PropTypes.number
 };
 
-/**
- * @type {object}
- */
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
@@ -109,4 +50,4 @@ Loader.defaultProps = {
   margin: 2
 };
 
-export default Loader;
+export default onlyUpdateForKeys(['loading', 'color', 'size', 'margin'])(Loader);

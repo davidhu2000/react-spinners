@@ -46,6 +46,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-2": "^6.5.0",
     "babel-register": "^6.24.1",
+    "emotion": "^7.2.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-friendly-formatter": "^2.0.7",
@@ -60,6 +61,7 @@
     "react-click-outside": "^ 2.3.1",
     "react-color": "^2.13.0",
     "react-dom": "^15.0.0",
+    "recompose": "0.24.0",
     "webpack": "^3.0.0"
   },
   "peerDependencies": {

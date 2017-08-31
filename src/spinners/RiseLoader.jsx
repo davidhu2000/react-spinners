@@ -1,151 +1,68 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import assign from 'domkit/appendVendorPrefix';
-import insertKeyframesRule from 'domkit/insertKeyframesRule';
+import { keyframes, css } from 'emotion';
+import { onlyUpdateForKeys } from 'recompose';
 
-/**
- * @type {number}
- */
-let riseAmount = 30;
+const riseAmount = 30;
 
-/**
- * @type {object}
- */
-let keyframesEven = {
-  '0%': {
-    transform: 'scale(1.1)'
-  },
-  25: {
-    transform: `translateY(-${riseAmount}px)`
-  },
-  '50%': {
-    transform: 'scale(0.4)'
-  },
-  '75%': {
-    transform: `translateY(${riseAmount}px)`
-  },
-  '100%': {
-    transform: 'translateY(0) scale(1.0)'
-  }
-};
+const even = keyframes`
+  0% {transform: scale(1.1)}
+  25% {translateY(-${riseAmount}px)}
+  50% {transform: scale(0.4)}
+  75% {transform: translateY(${riseAmount}px)}
+  100% {transform: translateY(0) scale(1.0)}
+`;
 
-/**
- * @type {object}
- */
-let keyframesOdd = {
-  '0%': {
-    transform: 'scale(0.4)'
-  },
-  25: {
-    transform: `translateY(${riseAmount}px)`
-  },
-  '50%': {
-    transform: 'scale(1.1)'
-  },
-  '75%': {
-    transform: `translateY(-${riseAmount}px)`
-  },
-  '100%': {
-    transform: 'translateY(0) scale(0.75)'
-  }
-};
-
-/**
- * @type {string}
- */
-let animationNameEven = insertKeyframesRule(keyframesEven);
-
-/**
- * @type {string}
- */
-let animationNameOdd = insertKeyframesRule(keyframesOdd);
+const odd = keyframes`
+  0% {transform: scale(0.4)}
+  25% {translateY(${riseAmount}px)}
+  50% {transform: scale(1.1)}
+  75% {transform: translateY(${-riseAmount}px)}
+  100% {transform: translateY(0) scale(0.75)}
+`;
 
 class Loader extends React.Component {
+  style = i => css`{
+        background-color: ${this.props.color};
+        width: ${this.props.size}px;
+        height: ${this.props.size}px;
+        margin: ${this.props.margin};
+        border-radius: 100%;
+        display: inline-block;
+        animation: ${i % 2 === 0 ? even : odd} 1s 0s infinite cubic-bezier(.15,.46,.9,.6);
+        animation-fill-mode: both;
+    }`;
 
-  /**
-   * @return {object} object with ball properties
-   */
-  getBallStyle() {
-    return {
-      backgroundColor: this.props.color,
-      width: this.props.size,
-      height: this.props.size,
-      margin: this.props.margin,
-      borderRadius: '100%'
-    };
-  }
-
-  /**
-   * @param  {number} i element index
-   * @return {object} object with animation properties
-   */
-  getAnimationStyle(i) {
-    let animation = [i % 2 === 0 ? animationNameEven : animationNameOdd, '1s', '0s', 'infinite', 'cubic-bezier(.15,.46,.9,.6)'].join(' ');
-    let animationFillMode = 'both';
-
-    return {
-      animation,
-      animationFillMode
-    };
-  }
-
-  /**
-   * @param  {number} i element index
-   * @return {object} object with style properties
-   */
-  getStyle(i) {
-    return assign(
-      this.getBallStyle(i),
-      this.getAnimationStyle(i),
-      {
-        display: 'inline-block'
-      }
-    );
-  }
-
-  /**
-   * @param {boolean} loading Check if loading
-   * @return {ReactComponent | null} Returns Loader or null
-   */
-  renderLoader(loading) {
-    if (loading) {
-      return (
-        <div className="react-spinners--rise">
-          <div style={this.getStyle(1)} />
-          <div style={this.getStyle(2)} />
-          <div style={this.getStyle(3)} />
-          <div style={this.getStyle(4)} />
-          <div style={this.getStyle(5)} />
-        </div>
-      );
-    }
-
-    return null;
-  }
+  a = this.style(1);
+  b = this.style(2);
+  c = this.style(3);
+  d = this.style(4);
+  e = this.style(5);
 
   render() {
-    return this.renderLoader(this.props.loading);
+    return this.props.loading ?
+      <div>
+        <div className={this.a} />
+        <div className={this.b} />
+        <div className={this.c} />
+        <div className={this.d} />
+        <div className={this.e} />
+      </div> : null;
   }
 }
 
-/**
- * @type {object}
- */
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
-  margin: PropTypes.number
+  margin: PropTypes.string
 };
 
-/**
- * @type {object}
- */
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
   size: 15,
-  margin: 2
+  margin: '2px'
 };
 
-export default Loader;
+export default onlyUpdateForKeys(['loading', 'color', 'size', 'margin'])(Loader);
