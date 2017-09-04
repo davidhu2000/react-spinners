@@ -1,72 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>React Spinners</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Spinners</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <script src="vendor.js"></script>
-  <script src="bundle.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="vendor.js"></script>
+    <script src="bundle.js"></script>
 
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-92266369-2', 'auto');
-    ga('send', 'pageview');
+        ga('create', 'UA-92266369-2', 'auto');
+        ga('send', 'pageview');
 
-  </script>
+    </script>
 </head>
 <body>
-  <header id='header'>
+<header id='header'>
     <h1 class="logo">React Spinners</h1>
-  </header>
+</header>
 
-  <main id='main'>
+<main id='main'>
     <div class="installation">
-      <code id='code'>yarn add react-spinners</code>
+        <code id='code'>yarn add react-spinners</code>
     </div>
 
     <div id='root'></div>
 
-  </main>
+</main>
 
-  <footer>
+<footer>
     <a href="https://github.com/davidhu2000/react-spinners">Github Repository</a>
-  </footer>
+</footer>
 
-  <a href="https://github.com/davidhu2000/react-spinners">
-    <img 
-      style="position: absolute; top: 0; right: 0; border: 0;" 
-      src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" 
-      alt="Fork me on GitHub" 
-      data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"
+<a href="https://github.com/davidhu2000/react-spinners">
+    <img
+            style="position: absolute; top: 0; right: 0; border: 0;"
+            src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67"
+            alt="Fork me on GitHub"
+            data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"
     />
-  </a>
+</a>
 
-  <script>
+<script>
     let header = document.getElementById('header');
     let main = document.getElementById('main');
     document.addEventListener('scroll', () => {
-      let height = 360 - window.scrollY;
-      if (height > 200) {
-        header.style.height = `${height}px`;
-        header.classList.remove('navbar');
-        header.style.boxShadow = '';
-        main.style.marginTop = '0';
-      } else {
-        header.classList.add('navbar');
-        header.style.height = null;
-        header.style.boxShadow = '0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2)';
-        main.style.marginTop = '250px';
-      }
-    
+        let height = 360 - window.scrollY;
+        if (height > 200) {
+            header.style.height = `${height}px`;
+            header.classList.remove('navbar');
+            header.style.boxShadow = '';
+            main.style.marginTop = '0';
+        } else {
+            header.classList.add('navbar');
+            header.style.height = null;
+            header.style.boxShadow = '0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2)';
+            main.style.marginTop = '250px';
+        }
+
     })
-  </script>
+</script>
 </body>
 </html>

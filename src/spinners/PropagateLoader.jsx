@@ -57,7 +57,6 @@ class Loader extends React.Component {
 
   wrapper = css`{
         position: relative;
-        margin-left: ${this.props.size * 3 * 2}px;
     }`;
   a = this.style(0);
   b = this.style(1);
