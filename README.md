@@ -1,7 +1,7 @@
 # React Spinners
 
 [![npm version](https://badge.fury.io/js/react-spinners.svg)][npm_url]
-[![circle ci](https://circleci.com/gh/davidhu2000/react-spinners.svg?style=shield)][npm_url]
+[![circle ci](https://circleci.com/gh/davidhu2000/react-spinners.svg?style=shield)][ci_url]
 [![downloads](https://img.shields.io/npm/dt/react-spinners.svg)][npm_url]
 [![license](https://img.shields.io/npm/l/react-spinners.svg)][npm_url]
 [![Code Triagers Badge](https://www.codetriage.com/davidhu2000/react-spinners/badges/users.svg)](https://www.codetriage.com/davidhu2000/react-spinners)
@@ -11,6 +11,7 @@
 [![peerDependencies Status](https://david-dm.org/davidhu2000/react-spinners/peer-status.svg)](https://david-dm.org/davidhu2000/react-spinners?type=peer)
 
 [npm_url]: https://www.npmjs.org/package/react-spinners
+[ci_url]: https://circleci.com/gh/davidhu2000/react-spinners
 
 A collection of loading spinners with React.js based on [Halogen](https://github.com/yuanyan/halogen).
 
