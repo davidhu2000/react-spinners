@@ -33,6 +33,17 @@ Each loader has their own default properties. You can overwrite the defaults by 
 
 Each loader accepts a `loading` prop as a boolean. The loader will not render anything if `loading` is `false`. The `loading` prop defaults to `true`.
 
+**IMPORTANT**: This package used [emotion](https://github.com/emotion-js/emotion). Remember to add the plugin to `.babelrc`, for example: 
+
+```
+{
+    "presets": [ "react", "es2015", "stage-0"],
+    "plugins": ["emotion"]
+}
+```
+
+### Example
+
 ```js
 import React from 'react';
 import { RingLoader } from 'react-spinners';
