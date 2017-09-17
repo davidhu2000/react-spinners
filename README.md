@@ -77,24 +77,24 @@ loading: true
 color: '#000000'
 ```
 
-Loader                  | size:int | height:int | width:int | radius:int | margin:int
+Loader                  | size:int | height:int | width:int | radius:int | margin:str
 -----------------------:|:--------:|:----------:|:---------:|:----------:|:---------:
 BarLoader               |          | `4`        | `100`     |            |
-BeatLoader              | `15`     |            |           |            | `2`
+BeatLoader              | `15`     |            |           |            | `2px`
 BounceLoader            | `60`     |            |           |            |
 CircleLoader            | `50`     |            |           |            |
 ClipLoader              | `35`     |            |           |            |
 ClimbingBoxLoader       | `15`     |            |           |            |
-DotLoader               | `60`     |            |           |            | `2`
-FadeLoader              |          | `15`       | `5`       | `2`        | `2`
+DotLoader               | `60`     |            |           |            | `2px`
+FadeLoader              |          | `15`       | `5`       | `2`        | `2px`
 GridLoader              | `15`     |            |           |            |
-HashLoader              | `50`     |            |           |            | `2`
-MoonLoader              | `60`     |            |           |            | `2`
-PacmanLoader            | `25`     |            |           |            | `2`
+HashLoader              | `50`     |            |           |            | `2px`
+MoonLoader              | `60`     |            |           |            | `2px`
+PacmanLoader            | `25`     |            |           |            | `2px`
 PropagateLoader         | `15`     |            |           |            |
-PulseLoader             | `15`     |            |           |            | `2`
-RingLoader              | `60`     |            |           |            | `2`
-RiseLoader              | `15`     |            |           |            | `2`
-RotateLoader            | `15`     |            |           |            | `2`
-ScaleLoader             |          | `35`       | `4`       | `2`        | `2`
-SyncLoader              | `15`     |            |           |            | `2`
+PulseLoader             | `15`     |            |           |            | `2px`
+RingLoader              | `60`     |            |           |            | `2px`
+RiseLoader              | `15`     |            |           |            | `2px`
+RotateLoader            | `15`     |            |           |            | `2px`
+ScaleLoader             |          | `35`       | `4`       | `2`        | `2px`
+SyncLoader              | `15`     |            |           |            | `2px`

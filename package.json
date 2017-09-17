@@ -12,6 +12,9 @@
     "url": "https://github.com/davidhu2000/react-spinners/issues"
   },
   "homepage": "https://github.com/davidhu2000/react-spinners",
+  "contributors": [
+    "Cisco Guillaume (https://github.com/GuillaumeCisco)"
+  ],
   "keywords": [
     "react-spinners",
     "react-spinner",
