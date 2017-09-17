@@ -16,7 +16,7 @@ const short = keyframes`
   100% {left: 107%;right: -8%}
 `;
 
-class Loader extends React.Component {
+export class Loader extends React.Component {
   style = i => css`{
         position: absolute;
         height: ${this.props.height}px;
@@ -62,4 +62,6 @@ Loader.defaultProps = {
   height: 4
 };
 
-export default onlyUpdateForKeys(['loading', 'color', 'width', 'height'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'width', 'height'])(Loader);
+Component.defaultProps = Loader.defaultProps;
+export default Component;

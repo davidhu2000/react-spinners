@@ -43,4 +43,6 @@ Loader.defaultProps = {
   margin: '2px'
 };
 
-export default onlyUpdateForKeys(['loading', 'color', 'size', 'margin'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin'])(Loader);
+Component.defaultProps = Loader.defaultProps;
+export default Component;

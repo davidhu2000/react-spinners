@@ -114,4 +114,6 @@ Loader.defaultProps = {
   radius: 2
 };
 
-export default onlyUpdateForKeys(['loading', 'color', 'height', 'width', 'margin', 'radius'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'height', 'width', 'margin', 'radius'])(Loader);
+Component.defaultProps = Loader.defaultProps;
+export default Component;

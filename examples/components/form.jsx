@@ -7,7 +7,7 @@ const Form = ({ inputs, update }) => (
       <div className='spinner-form-input'>
         <input
           name={name}
-          type='number'
+          type={name === 'margin' ? 'text' : 'number'}
           value={inputs[name]}
           onChange={update(name)}
         />

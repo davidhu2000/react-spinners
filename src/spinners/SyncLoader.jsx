@@ -36,14 +36,16 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
-  margin: PropTypes.number
+  margin: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
   size: 15,
-  margin: 2
+  margin: '2px'
 };
 
-export default onlyUpdateForKeys(['loading', 'color', 'size', 'margin'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin'])(Loader);
+Component.defaultProps = Loader.defaultProps;
+export default Component;

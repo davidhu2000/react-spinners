@@ -38,7 +38,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   height: PropTypes.number,
   width: PropTypes.number,
-  margin: PropTypes.number,
+  margin: PropTypes.string,
   radius: PropTypes.number
 };
 
@@ -47,8 +47,10 @@ Loader.defaultProps = {
   color: '#000000',
   height: 35,
   width: 4,
-  margin: 2,
+  margin: '2px',
   radius: 2
 };
 
-export default onlyUpdateForKeys(['loading', 'color', 'height', 'width', 'margin', 'radius'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'height', 'width', 'margin', 'radius'])(Loader);
+Component.defaultProps = Loader.defaultProps;
+export default Component;
