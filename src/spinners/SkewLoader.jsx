@@ -12,7 +12,7 @@ const skew = keyframes`
 
 class Loader extends React.Component {
 
-  style = css`{
+  style = () => css`{
         width: 0;
         height: 0;
         border-left: ${this.props.size}px solid transparent;
@@ -26,7 +26,7 @@ class Loader extends React.Component {
 
   render() {
     return this.props.loading ?
-      <div className={this.style} /> : null;
+      <div className={this.style()} /> : null;
   }
 }
 

@@ -25,7 +25,7 @@ class Loader extends React.Component {
   radius = 20;
   quarter = (this.radius / 2) + (this.radius / 5.5);
 
-  wrapper = css`{        
+  wrapper = () => css`{        
         position: relative;
         font-size: 0;
         top: ${this.radius}px;
@@ -34,47 +34,47 @@ class Loader extends React.Component {
         height: ${this.radius * 3}px;
     }`;
 
-  a = css`
+  a = () => css`
           composes: ${this.style(1)};
           top: ${this.radius};
           left: 0;
         `;
-  b = css`
+  b = () => css`
           composes: ${this.style(2)};
           top: ${this.quarter};
           left: ${this.quarter};
           transform: rotate(-45deg);
         `;
-  c = css`
+  c = () => css`
           composes: ${this.style(3)};
           top: 0;
           left: ${this.radius};
           transform: rotate(90deg);
         `;
-  d = css`
+  d = () => css`
           composes: ${this.style(4)};
           top: ${-this.quarter};
           left: ${this.quarter};
           transform: rotate(45deg);
         `;
-  e = css`
+  e = () => css`
           composes: ${this.style(5)};
           top: ${-this.radius};
           left: 0;
         `;
-  f = css`
+  f = () => css`
           composes: ${this.style(6)};
           top: ${-this.quarter};
           left: ${-this.quarter};
           transform: rotate(-45deg);
         `;
-  g = css`
+  g = () => css`
           composes: ${this.style(7)};
           top: 0;
           left: ${-this.radius};
           transform: rotate(90deg);
         `;
-  h = css`
+  h = () => css`
           composes: ${this.style(8)};
           top: ${this.quarter};
           left: ${-this.quarter};
@@ -83,15 +83,15 @@ class Loader extends React.Component {
 
   render() {
     return this.props.loading ?
-      <div className={this.wrapper}>
-        <div className={this.a} />
-        <div className={this.b} />
-        <div className={this.c} />
-        <div className={this.d} />
-        <div className={this.e} />
-        <div className={this.f} />
-        <div className={this.g} />
-        <div className={this.h} />
+      <div className={this.wrapper()}>
+        <div className={this.a()} />
+        <div className={this.b()} />
+        <div className={this.c()} />
+        <div className={this.d()} />
+        <div className={this.e()} />
+        <div className={this.f()} />
+        <div className={this.g()} />
+        <div className={this.h()} />
       </div> : null;
   }
 }

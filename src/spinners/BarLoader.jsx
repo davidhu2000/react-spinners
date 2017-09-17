@@ -30,7 +30,7 @@ class Loader extends React.Component {
         animation: ${i === 1 ? long : short} 2.1s ${i === 2 ? '1.15s' : ''} ${i === 1 ? 'cubic-bezier(0.65, 0.815, 0.735, 0.395)' : 'cubic-bezier(0.165, 0.84, 0.44, 1)'} infinite;
     }`;
 
-  wrapper = css`{        
+  wrapper = () => css`{        
         position: relative;
         width: ${this.props.width}px;
         height: ${this.props.height}px;
@@ -39,14 +39,11 @@ class Loader extends React.Component {
         background-clip: padding-box;
     }`;
 
-  long = this.style(1);
-  short = this.style(2);
-
   render() {
     return this.props.loading ?
-      <div className={this.wrapper}>
-        <div className={this.long} />
-        <div className={this.short} />
+      <div className={this.wrapper()}>
+        <div className={this.style(1)} />
+        <div className={this.style(2)} />
       </div> : null;
   }
 }
@@ -65,4 +62,4 @@ Loader.defaultProps = {
   height: 4
 };
 
-export default onlyUpdateForKeys('loading', 'color', 'width', 'height')(Loader);
+export default onlyUpdateForKeys(['loading', 'color', 'width', 'height'])(Loader);

@@ -22,20 +22,16 @@ class Loader extends React.Component {
         animation: ${bounce} 2.1s ${i === 1 ? '1s' : '0s'} infinite ease-in-out;
     }`;
 
-  wrapper = css`{        
+  wrapper = () => css`{        
         position: relative;
         width: ${this.props.size}px;
         height: ${this.props.size}px;
     }`;
-
-  a = this.style(1);
-  b = this.style(2);
-
   render() {
     return this.props.loading ?
-      <div className={this.wrapper}>
-        <div className={this.a} />
-        <div className={this.b} />
+      <div className={this.wrapper()}>
+        <div className={this.style(1)} />
+        <div className={this.style(2)} />
       </div> : null;
   }
 }

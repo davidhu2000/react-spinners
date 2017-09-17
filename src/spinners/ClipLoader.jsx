@@ -11,7 +11,7 @@ const clip = keyframes`
 `;
 
 class Loader extends React.Component {
-  style = css`{
+  style = () => css`{
         background: transparent !important;
         width: ${this.props.size}px;
         height: ${this.props.size}px;
@@ -25,7 +25,7 @@ class Loader extends React.Component {
     }`;
 
   render() {
-    return this.props.loading ? <div className={this.style} /> : null;
+    return this.props.loading ? <div className={this.style()} /> : null;
   }
 }
 

@@ -18,7 +18,7 @@ const climbingBox = keyframes`
 `;
 
 class Loader extends React.Component {
-  style = css`{   
+  style = () => css`{   
         position: absolute;
         left: 0;
         bottom: -0.1em;
@@ -32,7 +32,7 @@ class Loader extends React.Component {
         animation: ${climbingBox} 2.5s infinite cubic-bezier(.79, 0, .47, .97);
     }`;
 
-  wrapper = css`{        
+  wrapper = () => css`{        
         position: absolute;
         top: 50%;
         left: 50%;
@@ -44,7 +44,7 @@ class Loader extends React.Component {
     }`;
 
 
-  hill = css`{
+  hill = () => css`{
         position: absolute;
         width: 7.1em;
         height: 7.1em;
@@ -63,9 +63,9 @@ class Loader extends React.Component {
   render() {
     return this.props.loading ?
       <div className={this.container}>
-        <div className={this.wrapper}>
-          <div className={this.style} />
-          <div className={this.hill} />
+        <div className={this.wrapper()}>
+          <div className={this.style()} />
+          <div className={this.hill()} />
         </div>
       </div> : null;
   }

@@ -18,7 +18,7 @@ class Loader extends React.Component {
         left: ${i % 2 ? -28 : 25}px;
     }`;
 
-  ball = css`{
+  ball = () => css`{
         background-color: ${this.props.color};
         width: ${this.props.size}px;
         height: ${this.props.size}px;
@@ -26,28 +26,28 @@ class Loader extends React.Component {
         border-radius: 100%;
     }`;
 
-  wrapper = css`
-        composes: ${this.ball};
+  wrapper = () => css`
+        composes: ${this.ball()};
         display: inline-block;
         position: relative;
         animation-fill-mode: both;
         animation: ${rotate} 1s 0s infinite cubic-bezier(.7,-.13,.22,.86);        
     `;
 
-  long = css`
-        composes: ${this.ball};       
+  long = () => css`
+        composes: ${this.ball()};       
         composes: ${this.style(1)};
     `;
-  short = css`
-        composes: ${this.ball};       
+  short = () => css`
+        composes: ${this.ball()};       
         composes: ${this.style(2)};
     `;
 
   render() {
     return this.props.loading ?
-      <div className={this.wrapper}>
-        <div className={this.long} />
-        <div className={this.short} />
+      <div className={this.wrapper()}>
+        <div className={this.long()} />
+        <div className={this.short()} />
       </div> : null;
   }
 }

@@ -25,7 +25,7 @@ class Loader extends React.Component {
         animation: ${bounce} 2s ${i === 2 ? '-1s' : '0s'} infinite linear;
     }`;
 
-  wrapper = css`{        
+  wrapper = () => css`{        
         position: relative;
         width: ${this.props.size}px;
         height: ${this.props.size}px;
@@ -33,14 +33,11 @@ class Loader extends React.Component {
         animation: ${rotate} 2s 0s infinite linear;
     }`;
 
-  a = this.style(1);
-  b = this.style(2);
-
   render() {
     return this.props.loading ?
-      <div className={this.wrapper}>
-        <div className={this.a} />
-        <div className={this.b} />
+      <div className={this.wrapper()}>
+        <div className={this.style(1)} />
+        <div className={this.style(2)} />
       </div> : null;
   }
 }

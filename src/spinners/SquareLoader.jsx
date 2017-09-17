@@ -12,7 +12,7 @@ const square = keyframes`
 
 class Loader extends React.Component {
 
-  style = css`{
+  style = () => css`{
         background-color: ${this.props.color};
         width: ${this.props.size}px;
         height: ${this.props.size}px;
@@ -23,7 +23,7 @@ class Loader extends React.Component {
 
   render() {
     return this.props.loading ?
-      <div className={this.style} /> : null;
+      <div className={this.style()} /> : null;
   }
 }
 

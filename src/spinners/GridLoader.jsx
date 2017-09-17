@@ -24,32 +24,23 @@ class Loader extends React.Component {
         animation: ${grid} ${(rand / 100) + 0.6}s ${(rand / 100) - 0.2}s infinite ease;
     }`;
 
-  wrapper = css`{        
+  wrapper = () => css`{        
         width: ${(parseFloat(this.props.size) * 3) + (parseFloat(this.props.margin) * 6)}px;
         font-size: 0;
     }`;
 
-  a = this.style(random(100));
-  b = this.style(random(100));
-  c = this.style(random(100));
-  d = this.style(random(100));
-  e = this.style(random(100));
-  f = this.style(random(100));
-  g = this.style(random(100));
-  h = this.style(random(100));
-  i = this.style(random(100));
   render() {
     return this.props.loading ?
-      <div className={this.wrapper}>
-        <div className={this.a} />
-        <div className={this.b} />
-        <div className={this.c} />
-        <div className={this.d} />
-        <div className={this.e} />
-        <div className={this.f} />
-        <div className={this.g} />
-        <div className={this.h} />
-        <div className={this.i} />
+      <div className={this.wrapper()}>
+        <div className={this.style(random(100))} />
+        <div className={this.style(random(100))} />
+        <div className={this.style(random(100))} />
+        <div className={this.style(random(100))} />
+        <div className={this.style(random(100))} />
+        <div className={this.style(random(100))} />
+        <div className={this.style(random(100))} />
+        <div className={this.style(random(100))} />
+        <div className={this.style(random(100))} />
       </div> : null;
   }
 }

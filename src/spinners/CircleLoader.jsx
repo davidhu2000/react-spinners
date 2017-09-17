@@ -25,26 +25,20 @@ class Loader extends React.Component {
         animation: ${circle} 1s ${i * 0.2}s infinite linear;
     }`;
 
-  wrapper = css`{        
+  wrapper = () => css`{        
         position: relative;
         width: ${this.props.size}px;
         height: ${this.props.size}px;
     }`;
 
-  a = this.style(0);
-  b = this.style(1);
-  c = this.style(2);
-  d = this.style(3);
-  e = this.style(4);
-
   render() {
     return this.props.loading ?
-      <div className={this.wrapper}>
-        <div className={this.a} />
-        <div className={this.b} />
-        <div className={this.c} />
-        <div className={this.d} />
-        <div className={this.e} />
+      <div className={this.wrapper()}>
+        <div className={this.style(0)} />
+        <div className={this.style(1)} />
+        <div className={this.style(2)} />
+        <div className={this.style(3)} />
+        <div className={this.style(4)} />
       </div> : null;
   }
 }

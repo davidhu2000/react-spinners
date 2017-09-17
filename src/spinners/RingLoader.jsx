@@ -29,20 +29,17 @@ class Loader extends React.Component {
         animation: ${i === 1 ? right : left} 2s 0s infinite linear;
     }`;
 
-  wrapper = css`{        
+  wrapper = () => css`{        
         width: ${this.props.size}px;
         height: ${this.props.size}px;
         position: relative;
     }`;
 
-  left = this.style(1);
-  right = this.style(2);
-
   render() {
     return this.props.loading ?
-      <div className={this.wrapper}>
-        <div className={this.left} />
-        <div className={this.right} />
+      <div className={this.wrapper()}>
+        <div className={this.style(1)} />
+        <div className={this.style(2)} />
       </div> : null;
   }
 }

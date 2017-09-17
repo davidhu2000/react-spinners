@@ -19,17 +19,12 @@ class Loader extends React.Component {
         animation: ${beat} 0.7s ${i % 2 ? '0s' : '0.35s'} infinite linear;
         animation-fill-mode: both;
     }`;
-
-  a = this.style(1);
-  b = this.style(2);
-  c = this.style(3);
-
   render() {
     return this.props.loading ?
       <div>
-        <div className={this.a} />
-        <div className={this.b} />
-        <div className={this.c} />
+        <div className={this.style(1)} />
+        <div className={this.style(2)} />
+        <div className={this.style(3)} />
       </div> : null;
   }
 }

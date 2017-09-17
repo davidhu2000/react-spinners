@@ -55,25 +55,19 @@ class Loader extends React.Component {
         animation-fill-mode: forwards;
     }`;
 
-  wrapper = css`{
+  wrapper = () => css`{
         position: relative;
     }`;
-  a = this.style(0);
-  b = this.style(1);
-  c = this.style(2);
-  d = this.style(3);
-  e = this.style(4);
-  f = this.style(5);
 
   render() {
     return this.props.loading ?
-      <div className={this.wrapper}>
-        <div className={this.a} />
-        <div className={this.b} />
-        <div className={this.c} />
-        <div className={this.d} />
-        <div className={this.e} />
-        <div className={this.f} />
+      <div className={this.wrapper()}>
+        <div className={this.style(0)} />
+        <div className={this.style(1)} />
+        <div className={this.style(2)} />
+        <div className={this.style(3)} />
+        <div className={this.style(4)} />
+        <div className={this.style(5)} />
       </div> : null;
   }
 }

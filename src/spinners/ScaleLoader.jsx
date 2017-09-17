@@ -21,20 +21,14 @@ class Loader extends React.Component {
         animation-fill-mode: both;
     }`;
 
-  a = this.style(1);
-  b = this.style(2);
-  c = this.style(3);
-  d = this.style(4);
-  e = this.style(5);
-
   render() {
     return this.props.loading ?
       <div>
-        <div className={this.a} />
-        <div className={this.b} />
-        <div className={this.c} />
-        <div className={this.d} />
-        <div className={this.e} />
+        <div className={this.style(1)} />
+        <div className={this.style(2)} />
+        <div className={this.style(3)} />
+        <div className={this.style(4)} />
+        <div className={this.style(5)} />
       </div> : null;
   }
 }
