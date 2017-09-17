@@ -29,7 +29,7 @@
     "lint": "eslint ./src  --ext .js,.jsx",
     "lintfix": "eslint ./src  --ext .js,.jsx --fix",
     "testonly": "mocha $npm_package_options_mocha",
-    "test": "npm run lint && npm run flow",
+    "test": "npm run lint",
     "test-watch": "npm run testonly -- --watch --watch-extensions js",
     "build": "$npm_execpath run prepublish && webpack",
     "patch": "npm version patch && npm publish",
