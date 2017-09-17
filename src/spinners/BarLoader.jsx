@@ -1,144 +1,53 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import assign from 'domkit/appendVendorPrefix';
-import insertKeyframesRule from 'domkit/insertKeyframesRule';
+import { keyframes, css } from 'emotion';
+import { onlyUpdateForKeys } from 'recompose';
 import { calculateRgba } from '../helpers';
 
-/**
- * @type {object}
- */
-const keyframesLong = {
-  '0%': {
-    left: '-35%',
-    right: '100%'
-  },
-  '60%': {
-    left: '100%',
-    right: '-90%'
-  },
-  '100%': {
-    left: '100%',
-    right: '-90%'
-  }
-};
+const long = keyframes`
+  0% {left: -35%;right: 100%} 
+  60% {left: 100%;right: -90%}
+  100% {left: 100%;right: -90%}
+`;
 
-/**
- * @type {object}
- */
-const keyframesShort = {
-  '0%': {
-    left: '-200%',
-    right: '100%'
-  },
-  '60%': {
-    left: '107%',
-    right: '-8%'
-  },
-  '100%': {
-    left: '107%',
-    right: '-8%'
-  }
-};
+const short = keyframes`
+  0% {left: -200%;right: 100%} 
+  60% {left: 107%;right: -8%}
+  100% {left: 107%;right: -8%}
+`;
 
-/**
- * @type {string}
- */
-const animationNameLong = insertKeyframesRule(keyframesLong);
+export class Loader extends React.Component {
+  style = i => css`{
+        position: absolute;
+        height: ${this.props.height}px;
+        overflow: hidden;
+        background-color: ${this.props.color};
+        background-clip: padding-box;
+        display: block;
+        border-radius: 2px;
+        will-change: left, right;
+        animation-fill-mode: forwards;
+        animation: ${i === 1 ? long : short} 2.1s ${i === 2 ? '1.15s' : ''} ${i === 1 ? 'cubic-bezier(0.65, 0.815, 0.735, 0.395)' : 'cubic-bezier(0.165, 0.84, 0.44, 1)'} infinite;
+    }`;
 
-/**
- * @type {string}
- */
-const animationNameShort = insertKeyframesRule(keyframesShort);
-
-class Loader extends React.Component {
-
-  /**
-   * @return {object} object with ball properties
-   */
-  getLineStyle() {
-    return {
-      position: 'absolute',
-      height: this.props.height,
-      display: 'block',
-      backgroundColor: this.props.color,
-      borderRadius: 2,
-      backgroundClip: 'padding-box',
-      overflow: 'hidden',
-      willChange: 'left right'
-    };
-  }
-
-  /**
-   * @param  {number} i element index
-   * @return {object} object with animation properties
-   */
-  getAnimationStyle(i) {
-    let animation;
-    let animationFillMode = 'forwards';
-
-    if (i === 1) {
-      animation = [animationNameLong, '2.1s', 'cubic-bezier(0.65, 0.815, 0.735, 0.395)', 'infinite'].join(' ');
-    } else if (i === 2) {
-      animation = [animationNameShort, '2.1s', '1.15s', 'cubic-bezier(0.165, 0.84, 0.44, 1)', 'infinite'].join(' ');
-    }
-
-    return {
-      animation,
-      animationFillMode
-    };
-  }
-
-  /**
-   * @param  {number} i element index
-   * @return {object} object with style properties
-   */
-  getStyle(i) {
-    if (i === 0) {
-      let { color } = this.props;
-
-      return {
-        position: 'relative',
-        height: this.props.height,
-        width: this.props.width,
-        overflow: 'hidden',
-        backgroundColor: calculateRgba(color, 0.2),
-        backgroundClip: 'padding-box'
-      };
-    }
-
-    return assign(
-      this.getLineStyle(i),
-      this.getAnimationStyle(i)
-    );
-  }
-
-  /**
-   * @param {boolean} loading Check if loading
-   * @return {ReactComponent | null} Returns Loader or null
-   */
-  renderLoader(loading) {
-    if (loading) {
-      return (
-        <div className="react-spinners--bar">
-          <div style={this.getStyle(0)} >
-            <div style={this.getStyle(1)} />
-            <div style={this.getStyle(2)} />
-          </div>
-        </div>
-      );
-    }
-
-    return null;
-  }
+  wrapper = () => css`{        
+        position: relative;
+        width: ${this.props.width}px;
+        height: ${this.props.height}px;
+        overflow: hidden;
+        background-color: ${calculateRgba(this.props.color, 0.2)};
+        background-clip: padding-box;
+    }`;
 
   render() {
-    return this.renderLoader(this.props.loading);
+    return this.props.loading ?
+      <div className={this.wrapper()}>
+        <div className={this.style(1)} />
+        <div className={this.style(2)} />
+      </div> : null;
   }
 }
 
-/**
- * @type {object}
- */
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
@@ -146,9 +55,6 @@ Loader.propTypes = {
   height: PropTypes.number
 };
 
-/**
- * @type {object}
- */
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
@@ -156,4 +62,6 @@ Loader.defaultProps = {
   height: 4
 };
 
-export default Loader;
+const Component = onlyUpdateForKeys(['loading', 'color', 'width', 'height'])(Loader);
+Component.defaultProps = Loader.defaultProps;
+export default Component;

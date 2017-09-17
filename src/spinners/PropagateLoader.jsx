@@ -1,141 +1,89 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import assign from 'domkit/appendVendorPrefix';
-import insertKeyframesRule from 'domkit/insertKeyframesRule';
+import { keyframes, css } from 'emotion';
+import { onlyUpdateForKeys } from 'recompose';
 
 // 1.5 4.5 7.5
 let distance = [1, 3, 5];
-/**
- * @type {object}
- */
-const keyframes = {
-  0: {
-    '25%': { transform: `translateX(-${distance[0]}rem) scale(0.75)` },
-    '50%': { transform: `translateX(-${distance[1]}rem) scale(0.6)` },
-    '75%': { transform: `translateX(-${distance[2]}rem) scale(0.5)` },
-    '95%': { transform: `translateX(0rem) scale(1)` }
-  },
-  1: {
-    '25%': { transform: `translateX(-${distance[0]}rem) scale(0.75)` },
-    '50%': { transform: `translateX(-${distance[1]}rem) scale(0.6)` },
-    '75%': { transform: `translateX(-${distance[1]}rem) scale(0.6)` },
-    '95%': { transform: `translateX(0rem) scale(1)` }
-  },
-  2: {
-    '25%': { transform: `translateX(-${distance[0]}rem) scale(0.75)` },
-    '75%': { transform: `translateX(-${distance[0]}rem) scale(0.75)` },
-    '95%': { transform: `translateX(0rem) scale(1)` }
-  },
-  3: {
-    '25%': { transform: `translateX(${distance[0]}rem) scale(0.75)` },
-    '75%': { transform: `translateX(${distance[0]}rem) scale(0.75)` },
-    '95%': { transform: `translateX(0rem) scale(1)` }
-  },
-  4: {
-    '25%': { transform: `translateX(${distance[0]}rem) scale(0.75)` },
-    '50%': { transform: `translateX(${distance[1]}rem) scale(0.6)` },
-    '75%': { transform: `translateX(${distance[1]}rem) scale(0.6)` },
-    '95%': { transform: `translateX(0rem) scale(1)` }
-  },
-  5: {
-    '25%': { transform: `translateX(${distance[0]}rem) scale(0.75)` },
-    '50%': { transform: `translateX(${distance[1]}rem) scale(0.6)` },
-    '75%': { transform: `translateX(${distance[2]}rem) scale(0.5)` },
-    '95%': { transform: `translateX(0rem) scale(1)` }
-  }
-};
 
-// /**
-//  * @type {string}
-//  */
-// const animationName = insertKeyframesRule(keyframes);
+const propagate = [
+  keyframes`
+      25% {transform: translateX(-${distance[0]}rem) scale(0.75)} 
+      50% {transform: translateX(-${distance[1]}rem) scale(0.6)}
+      75% {transform: translateX(-${distance[2]}rem) scale(0.5)}
+      95% {transform: translateX(0rem) scale(1)}
+    `,
+  keyframes`
+      25% {transform: translateX(-${distance[0]}rem) scale(0.75)} 
+      50% {transform: translateX(-${distance[1]}rem) scale(0.6)}
+      75% {transform: translateX(-${distance[1]}rem) scale(0.6)}
+      95% {transform: translateX(0rem) scale(1)}
+    `,
+  keyframes`
+      25% {transform: translateX(-${distance[0]}rem) scale(0.75)}
+      75% {transform: translateX(-${distance[0]}rem) scale(0.75)}
+      95% {transform: translateX(0rem) scale(1)}
+    `,
+  keyframes`
+      25% {transform: translateX(${distance[0]}rem) scale(0.75)}
+      75% {transform: translateX(${distance[0]}rem) scale(0.75)}
+      95% {transform: translateX(0rem) scale(1)}
+    `,
+  keyframes`
+      25% {transform: translateX(${distance[0]}rem) scale(0.75)} 
+      50% {transform: translateX(${distance[1]}rem) scale(0.6)}
+      75% {transform: translateX(${distance[1]}rem) scale(0.6)}
+      95% {transform: translateX(0rem) scale(1)}
+    `,
+  keyframes`
+      25% {transform: translateX(${distance[0]}rem) scale(0.75)} 
+      50% {transform: translateX(${distance[1]}rem) scale(0.6)}
+      75% {transform: translateX(${distance[2]}rem) scale(0.5)}
+      95% {transform: translateX(0rem) scale(1)}
+    `
+];
 
 class Loader extends React.Component {
+  style = i => css`{
+        position: absolute;
+        font-size: ${this.props.size / 3}px;
+        width: ${this.props.size}px;
+        height: ${this.props.size}px;
+        background: ${this.props.color};
+        border-radius: 50%;
+        animation: ${propagate[i]} 1.5s  infinite;
+        animation-fill-mode: forwards;
+    }`;
 
-  /**
-   * @return {object} object with ball properties
-   */
-  getBallStyle() {
-    return {
-      position: 'absolute',
-      fontSize: this.props.size / 3,
-      width: this.props.size,
-      height: this.props.size,
-      background: this.props.color,
-      borderRadius: '50%'
-    };
-  }
-
-  /**
-   * @param  {number} i element index
-   * @return {object} object with animation properties
-   */
-  getAnimationStyle(i) {
-    let animationName = insertKeyframesRule(keyframes[i]);
-    let animation = [animationName, '1.5s', 'infinite'].join(' ');
-    let animationFillMode = 'forwards';
-
-    return {
-      animation,
-      animationFillMode
-    };
-  }
-
-  /**
-   * @param  {number} i element index
-   * @return {object} object with style properties
-   */
-  getStyle(i) {
-    return assign(
-      this.getBallStyle(i),
-      this.getAnimationStyle(i)
-    );
-  }
-
-  /**
-   * @param {boolean} loading Check if loading
-   * @return {ReactComponent | null} Returns Loader or null
-   */
-  renderLoader(loading) {
-    if (loading) {
-      return (
-        <div className="react-spinners--propagate">
-          <div style={{ position: 'relative' }}>
-            <div style={this.getStyle(0)} />
-            <div style={this.getStyle(1)} />
-            <div style={this.getStyle(2)} />
-            <div style={this.getStyle(3)} />
-            <div style={this.getStyle(4)} />
-            <div style={this.getStyle(5)} />
-          </div>
-        </div>
-      );
-    }
-
-    return null;
-  }
+  wrapper = () => css`{
+        position: relative;
+    }`;
 
   render() {
-    return this.renderLoader(this.props.loading);
+    return this.props.loading ?
+      <div className={this.wrapper()}>
+        <div className={this.style(0)} />
+        <div className={this.style(1)} />
+        <div className={this.style(2)} />
+        <div className={this.style(3)} />
+        <div className={this.style(4)} />
+        <div className={this.style(5)} />
+      </div> : null;
   }
 }
 
-/**
- * @type {object}
- */
 Loader.propTypes = {
   loading: PropTypes.bool,
   size: PropTypes.number,
   color: PropTypes.string
 };
 
-/**
- * @type {object}
- */
 Loader.defaultProps = {
   loading: true,
   size: 15,
   color: '#000000'
 };
 
-export default Loader;
+const Component = onlyUpdateForKeys(['loading', 'color', 'size'])(Loader);
+Component.defaultProps = Loader.defaultProps;
+export default Component;

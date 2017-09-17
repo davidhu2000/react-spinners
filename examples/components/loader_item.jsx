@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {createEagerElement} from 'recompose';
 import { Form } from './form';
 
 class LoaderItem extends React.Component {
@@ -24,9 +25,7 @@ class LoaderItem extends React.Component {
   }
 
   renderSpinner(Spinner) {
-    return (
-      <Spinner color={this.props.color} {...this.state} />
-    );
+    return <Spinner color={this.props.color} {...this.state} />;
   }
 
   render() {
