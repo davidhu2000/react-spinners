@@ -64,7 +64,6 @@
     "react-click-outside": "^ 2.3.1",
     "react-color": "^2.13.0",
     "react-dom": "^15.0.0",
-    "recompose": "0.24.0",
     "webpack": "^3.0.0"
   },
   "peerDependencies": {
@@ -73,6 +72,7 @@
   },
   "dependencies": {
     "babel-plugin-emotion": "^7.1.0",
-    "react-emotion": "^7.2.0"
+    "react-emotion": "^7.2.0",
+    "recompose": "0.24.0"
   }
 }
