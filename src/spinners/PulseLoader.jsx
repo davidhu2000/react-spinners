@@ -42,7 +42,7 @@ Loader.propTypes = {
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
-  size: '15',
+  size: 15,
   margin: '2px'
 };
 
