@@ -71,8 +71,8 @@
     "react-dom": "~0.14.8 || ^15.0.0"
   },
   "dependencies": {
-    "babel-plugin-emotion": "^7.1.0",
-    "react-emotion": "^7.2.0",
-    "recompose": "0.24.0"
+    "babel-plugin-emotion": "^8.0.6",
+    "react-emotion": "^8.0.6",
+    "recompose": "0.26.0"
   }
 }
