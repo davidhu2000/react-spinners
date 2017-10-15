@@ -49,7 +49,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
-    "emotion": "^7.2.0",
+    "emotion": "^8.0.6",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-friendly-formatter": "^2.0.7",
