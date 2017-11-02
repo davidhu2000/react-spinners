@@ -7,96 +7,96 @@ export namespace ReactSpinners {
 	}
 
 	interface BarLoaderProps extends CommonProps {
-		height?: number | string;
-		width?: number | string;
+		height?: number;
+		width?: number;
 	}
 
 	interface BeatLoaderProps extends CommonProps {
 		margin?: string;
-		size?: number | string;
+		size?: number;
 	}
 
 	interface BounceLoaderProps extends CommonProps {
-		size?: number | string;
+		size?: number;
 	}
 
 	interface CircleLoaderProps extends CommonProps {
-		size?: number | string;
+		size?: number;
 	}
 
 	interface ClipLoaderProps extends CommonProps {
-		size?: number | string;
+		size?: number;
 	}
 
 	interface ClimbingBoxLoaderProps extends CommonProps {
-		size?: number | string;
+		size?: number;
 	}
 
 	interface DotLoaderProps extends CommonProps {
 		margin?: string;
-		size?: number | string;
+		size?: number;
 	}
 
 	interface FadeLoaderProps extends CommonProps {
-		height?: number | string;
+		height?: number;
 		margin?: string;
-		radius?: string | number;
-		width?: number | string;
+		radius?: number;
+		width?: number;
 	}
 
 	interface GridLoaderProps extends CommonProps {
-		size?: number | string;
+		size?: number;
 	}
 
 	interface HashLoaderProps extends CommonProps {
 		margin?: string;
-		size?: number | string;
+		size?: number;
 	}
 
 	interface MoonLoaderProps extends CommonProps {
 		margin?: string;
-		size?: number | string;
+		size?: number;
 	}
 
 	interface PacmanLoaderProps extends CommonProps {
 		margin?: string;
-		size?: number | string;
+		size?: number;
 	}
 
 	interface PropagateLoaderProps extends CommonProps {
-		size?: number | string;
+		size?: number;
 	}
 
 	interface PulseLoaderProps extends CommonProps {
 		margin?: string;
-		size?: number | string;
+		size?: number;
 	}
 
 	interface RingLoaderProps extends CommonProps {
 		margin?: string;
-		size?: number | string;
+		size?: number;
 	}
 
 	interface RiseLoaderProps extends CommonProps {
 		margin?: string;
-		size?: number | string;
+		size?: number;
 	}
 
 	interface RotateLoaderProps extends CommonProps {
 		margin?: string;
-		size?: number | string;
+		size?: number;
 	}
 
 	interface ScaleLoaderProps extends CommonProps {
-		height?: number | string;
+		height?: number;
 		margin?: string;
-		radius?: string | number;
-		width?: number | string;
+		radius?: number;
+		width?: number;
 	}
 
 	interface SyncLoaderProps extends CommonProps {
 		margin?: string;
-		size?: number | string;
+		size?: number;
 	}
 }
 
