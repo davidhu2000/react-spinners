@@ -38,6 +38,7 @@
     "patch": "npm version patch && npm publish",
     "flow": "./node_modules/.bin/flow check"
   },
+  "types": "./src/index.d.ts",
   "devDependencies": {
     "babel-cli": "^6.6.4",
     "babel-core": "^6.7.4",
