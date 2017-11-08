@@ -2,11 +2,19 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.2.1
+
+- **bugfix**: moved `prop-types` to from devDependencies to dependencies. This fixes the `Package not found` error for projects that do not include `prop-types` as a dependency.
+
 ## 0.2.0
+
+**Note: this release has a critical issue and was deprecated. Please update to 0.1.9 or higher.**
 
 - add TypeScript typings
 
 ## 0.1.9
+
+**Note: this release has a critical issue and was deprecated. Please update to 0.1.9 or higher.**
 
 - **bugfix**: moved `emotion` from devDependency to dependency. This fixed the `Package not found` error.
 

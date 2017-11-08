@@ -58,7 +58,6 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
     "flow-bin": "^0.50.0",
-    "prop-types": "^15.5.10",
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.0.0",
     "react-click-outside": "^ 2.3.1",
@@ -73,6 +72,7 @@
   "dependencies": {
     "babel-plugin-emotion": "^8.0.6",
     "emotion": "^8.0.8",
+    "prop-types": "^15.5.10",        
     "react-emotion": "^8.0.6",
     "recompose": "0.26.0"
   }
