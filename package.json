@@ -1,6 +1,6 @@
 {
   "name": "react-spinners",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A collection of react loading spinners",
   "repository": {
     "type": "git",
@@ -72,7 +72,7 @@
   "dependencies": {
     "babel-plugin-emotion": "^8.0.6",
     "emotion": "^8.0.8",
-    "prop-types": "^15.5.10",        
+    "prop-types": "^15.5.10",
     "react-emotion": "^8.0.6",
     "recompose": "0.26.0"
   }
