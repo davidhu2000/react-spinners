@@ -23,7 +23,7 @@ class Loader extends React.Component {
         height: ${this.props.size}px;
         border: ${this.props.size / 10}px solid ${this.props.color};
         opacity: 0.4;
-        borderRadius: 100%;
+        border-radius: 100%;
         animation-fill-mode: forwards;
         perspective: 800px;
         animation: ${i === 1 ? right : left} 2s 0s infinite linear;
