@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.2.2
+
+- **bugfix**: change `borderRadius` to `border-radius` in `RingLoader` so the browser will recognize the css.
+
 ## 0.2.1
 
 - **bugfix**: moved `prop-types` to from devDependencies to dependencies. This fixes the `Package not found` error for projects that do not include `prop-types` as a dependency.
