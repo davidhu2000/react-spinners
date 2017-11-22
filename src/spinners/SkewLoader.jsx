@@ -11,7 +11,6 @@ const skew = keyframes`
 `;
 
 class Loader extends React.Component {
-
   style = () => css`{
         width: 0;
         height: 0;

@@ -10,7 +10,6 @@ const rotate = keyframes`
 `;
 
 class Loader extends React.Component {
-
   style = i => css`{
         opacity: 0.8;
         position: absolute;

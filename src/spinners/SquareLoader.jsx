@@ -11,7 +11,6 @@ const square = keyframes`
 `;
 
 class Loader extends React.Component {
-
   style = () => css`{
         background-color: ${this.props.color};
         width: ${this.props.size}px;

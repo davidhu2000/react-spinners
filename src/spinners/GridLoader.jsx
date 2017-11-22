@@ -12,7 +12,6 @@ const grid = keyframes`
 const random = top => Math.random() * top;
 
 class Loader extends React.Component {
-
   style = rand => css`{
         display: inline-block;
         background-color: ${this.props.color};

@@ -10,7 +10,6 @@ const sync = keyframes`
 `;
 
 class Loader extends React.Component {
-
   style = i => css`{
         background-color: ${this.props.color};
         width: ${this.props.size}px;
