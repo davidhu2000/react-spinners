@@ -9,7 +9,6 @@ const fade = keyframes`
 `;
 
 class Loader extends React.Component {
-
   style = i => css`{
         position: absolute;
         height: ${this.props.height}px;
