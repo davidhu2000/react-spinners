@@ -17,10 +17,6 @@ A collection of loading spinners with React.js based on [Halogen](https://github
 
 This package is bootstraped using [react-npm-boilerplate](https://github.com/juliancwirko/react-npm-boilerplate)
 
-<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/YsWPXzR7ZbjnxKCaLbuyR61q/davidhu2000/react-spinners'>
-  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/YsWPXzR7ZbjnxKCaLbuyR61q/davidhu2000/react-spinners.svg' />
-</a>
-
 ## Demo
 
 [Demo Page](https://davidhu2000.github.io/react-spinners)
