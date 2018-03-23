@@ -10,14 +10,14 @@ const moon = keyframes`
 class Loader extends React.Component {
   moonSize = () => this.props.size / 7;
   ballStyle = size => css`{
-        width: ${size}px;
-        height: ${size}px;
+        width: ${size.toString() + this.props.sizetunit};
+        height: ${size.toString() + this.props.sizetunit};
         border-radius: 100%;
     }`;
   wrapper = () => css`{
         position: relative;
-        width: ${this.props.size + this.moonSize() * 2}px;
-        height: ${this.props.size + this.moonSize() * 2}px;
+        width: ${(this.props.size + this.moonSize() * 2).toString() + this.props.sizetunit};
+        height: ${(this.props.size + this.moonSize() * 2).toString() + this.props.sizetunit};
         animation: ${moon} 0.6s 0s infinite linear;
         animation-fill-mode: forwards;
 
@@ -27,7 +27,7 @@ class Loader extends React.Component {
         background-color: ${this.props.color};
         opacity: 0.8;
         position: absolute;
-        top: ${(this.props.size / 2) - (this.moonSize() / 2)}px;
+        top: ${((this.props.size / 2) - (this.moonSize() / 2)).toString() + this.props.sizetunit};
         animation: ${moon} 0.6s 0s infinite linear;
         animation-fill-mode: forwards;
     `;
@@ -49,13 +49,15 @@ class Loader extends React.Component {
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
-  size: PropTypes.number
+  size: PropTypes.number,
+  sizeunit: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
-  size: 60
+  size: 60,
+  sizeunit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'size'])(Loader);

@@ -16,89 +16,110 @@ export namespace ReactSpinners {
 	interface BeatLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
+		sizeunit?: string;
 	}
 
 	interface BounceLoaderProps extends CommonProps {
 		size?: number;
+		sizeunit?: string;
 	}
 
 	interface CircleLoaderProps extends CommonProps {
 		size?: number;
+		sizeunit?: string;
 	}
 
 	interface ClipLoaderProps extends CommonProps {
 		size?: number;
+		sizeunit?: string;
 	}
 
 	interface ClimbingBoxLoaderProps extends CommonProps {
 		size?: number;
+		sizeunit?: string;
 	}
 
 	interface DotLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
+		sizeunit?: string;
 	}
 
 	interface FadeLoaderProps extends CommonProps {
 		height?: number;
+		heightunit?: string;
+		width?: number;
+		widthunit?: string;
 		margin?: string;
 		radius?: number;
-		width?: number;
 	}
 
 	interface GridLoaderProps extends CommonProps {
 		size?: number;
+		sizeunit?: string;
 	}
 
 	interface HashLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
+		sizeunit?: string;
 	}
 
 	interface MoonLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
+		sizeunit?: string;
 	}
 
 	interface PacmanLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
+		sizeunit?: string;
 	}
 
 	interface PropagateLoaderProps extends CommonProps {
 		size?: number;
+		sizeunit?: string;
 	}
 
 	interface PulseLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
+		sizeunit?: string;
 	}
 
 	interface RingLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
+		sizeunit?: string;
 	}
 
 	interface RiseLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
+		sizeunit?: string;
 	}
 
 	interface RotateLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
+		sizeunit?: string;
 	}
 
 	interface ScaleLoaderProps extends CommonProps {
 		height?: number;
+		heightunit?: string;
+		width?: number;
+		widthunit?: string;
 		margin?: string;
 		radius?: number;
-		width?: number;
+		radiusunit?: string;
 	}
 
 	interface SyncLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
+		sizeunit?: string;
 	}
 }
 

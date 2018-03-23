@@ -32,8 +32,8 @@ export class Loader extends React.Component {
 
   wrapper = () => css`{        
         position: relative;
-        width: ${this.props.width + this.props.width};
-        height: ${this.props.height}px;
+        width: ${this.props.width.toString() + this.props.widthunit};
+        height: ${this.props.height.toString() + this.props.heightunit};
         overflow: hidden;
         background-color: ${calculateRgba(this.props.color, 0.2)};
         background-clip: padding-box;

@@ -11,8 +11,8 @@ const fade = keyframes`
 class Loader extends React.Component {
   style = i => css`{
         position: absolute;
-        height: ${this.props.height}px;
-        width: ${this.props.width}px;
+        width: ${this.props.width.toString() + this.props.widthunit};
+        height: ${this.props.height.toString() + this.props.heightunit};
         margin: ${this.props.margin};
         background-color: ${this.props.color};
         border-radius: ${this.props.radius};
@@ -101,7 +101,9 @@ Loader.propTypes = {
   height: PropTypes.number,
   width: PropTypes.number,
   margin: PropTypes.string,
-  radius: PropTypes.number
+  radius: PropTypes.number,
+  heightunit: PropTypes.string,
+  widthunit: PropTypes.string,
 };
 
 Loader.defaultProps = {
@@ -110,7 +112,9 @@ Loader.defaultProps = {
   height: 15,
   width: 5,
   margin: '2px',
-  radius: 2
+  radius: 2,
+  widthunit: 'px',
+  heightunit: 'px',
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'height', 'width', 'margin', 'radius'])(Loader);
