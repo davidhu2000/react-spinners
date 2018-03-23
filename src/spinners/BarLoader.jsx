@@ -54,7 +54,7 @@ Loader.propTypes = {
   width: PropTypes.number,
   widthunit: PropTypes.string,
   height: PropTypes.number,
-  heightunit: PropTypes.string,
+  heightunit: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -63,8 +63,7 @@ Loader.defaultProps = {
   width: 100,
   widthunit: 'px',
   height: 4,
-  heightunit: 'px',
-
+  heightunit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'width', 'height'])(Loader);

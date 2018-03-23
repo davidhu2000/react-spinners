@@ -46,7 +46,7 @@ const propagate = [
 class Loader extends React.Component {
   style = i => css`{
         position: absolute;
-        font-size: ${(this.props.size/3).toString() + this.props.sizeunit};
+        font-size: ${(this.props.size / 3).toString() + this.props.sizeunit};
         height: ${this.props.size.toString() + this.props.sizeunit};
         width: ${this.props.size.toString() + this.props.sizeunit};
         height: ${this.props.size.toString() + this.props.sizeunit};

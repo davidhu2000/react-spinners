@@ -27,8 +27,8 @@ class Loader extends React.Component {
 
   wrapper = () => css`{        
         position: relative;
-        width: ${this.props.size.toString() + this.props.sizetunit};
-        height: ${this.props.size.toString() + this.props.sizetunit};
+        width: ${this.props.size.toString() + this.props.sizeunit};
+        height: ${this.props.size.toString() + this.props.sizeunit};
     }`;
 
   render() {

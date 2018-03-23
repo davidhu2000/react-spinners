@@ -103,7 +103,7 @@ Loader.propTypes = {
   margin: PropTypes.string,
   radius: PropTypes.number,
   heightunit: PropTypes.string,
-  widthunit: PropTypes.string,
+  widthunit: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -114,7 +114,7 @@ Loader.defaultProps = {
   margin: '2px',
   radius: 2,
   widthunit: 'px',
-  heightunit: 'px',
+  heightunit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'height', 'width', 'margin', 'radius'])(Loader);
