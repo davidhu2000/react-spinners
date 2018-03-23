@@ -8,7 +8,9 @@ export namespace ReactSpinners {
 
 	interface BarLoaderProps extends CommonProps {
 		height?: number;
+		heightunit?: string;
 		width?: number;
+		widthunit?: string;
 	}
 
 	interface BeatLoaderProps extends CommonProps {

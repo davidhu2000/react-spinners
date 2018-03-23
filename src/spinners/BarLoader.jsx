@@ -32,7 +32,7 @@ export class Loader extends React.Component {
 
   wrapper = () => css`{        
         position: relative;
-        width: ${this.props.width}px;
+        width: ${this.props.width + this.props.width};
         height: ${this.props.height}px;
         overflow: hidden;
         background-color: ${calculateRgba(this.props.color, 0.2)};
@@ -52,14 +52,19 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   width: PropTypes.number,
-  height: PropTypes.number
+  widthunit: PropTypes.string,
+  height: PropTypes.number,
+  heightunit: PropTypes.string,
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
   width: 100,
-  height: 4
+  widthunit: 'px',
+  height: 4,
+  heightunit: 'px',
+
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'width', 'height'])(Loader);
