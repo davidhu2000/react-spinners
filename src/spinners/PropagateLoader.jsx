@@ -46,10 +46,10 @@ const propagate = [
 class Loader extends React.Component {
   style = i => css`{
         position: absolute;
-        font-size: ${(this.props.size / 3).toString() + this.props.sizeUnit};
-        height: ${this.props.size.toString() + this.props.sizeUnit};
-        width: ${this.props.size.toString() + this.props.sizeUnit};
-        height: ${this.props.size.toString() + this.props.sizeUnit};
+        font-size: ${(this.props.size / 3)} ${this.props.sizeUnit};
+        height: ${this.props.size} ${this.props.sizeUnit};
+        width: ${this.props.size} ${this.props.sizeUnit};
+        height: ${this.props.size} ${this.props.sizeUnit};
         background: ${this.props.color};
         border-radius: 50%;
         animation: ${propagate[i]} 1.5s  infinite;

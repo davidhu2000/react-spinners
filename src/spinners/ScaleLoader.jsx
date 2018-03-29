@@ -12,10 +12,10 @@ const scale = keyframes`
 class Loader extends React.Component {
   style = i => css`{
         background-color: ${this.props.color};
-        width: ${this.props.width.toString() + this.props.widthUnit};
-        height: ${this.props.height.toString() + this.props.heightUnit};
+        width: ${this.props.width} ${this.props.widthUnit};
+        height: ${this.props.height} ${this.props.heightUnit};
         margin: ${this.props.margin};
-        border-radius: ${this.props.radius.toString() + this.props.radiusunit};
+        border-radius: ${this.props.radius} ${this.props.radiusunit};
         display: inline-block;
         animation: ${scale} 1s ${i * 0.1}s infinite cubic-bezier(.2,.68,.18,1.08);
         animation-fill-mode: both;

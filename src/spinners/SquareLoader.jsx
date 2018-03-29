@@ -13,8 +13,8 @@ const square = keyframes`
 class Loader extends React.Component {
   style = () => css`{
         background-color: ${this.props.color};
-        width: ${this.props.size.toString() + this.props.sizeUnit}
-        height: ${this.props.size.toString() + this.props.sizeUnit}
+        width: ${this.props.size} ${this.props.sizeUnit}
+        height: ${this.props.size} ${this.props.sizeUnit}
         display: inline-block;
         animation: ${square} 3s 0s infinite cubic-bezier(.09,.57,.49,.9);
         animation-fill-mode: both;
