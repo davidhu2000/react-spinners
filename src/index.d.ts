@@ -8,109 +8,109 @@ export namespace ReactSpinners {
 
 	interface BarLoaderProps extends CommonProps {
 		height?: number;
-		heightunit?: string;
+		heightUnit?: string;
 		width?: number;
-		widthunit?: string;
+		widthUnit?: string;
 	}
 
 	interface BeatLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
-		sizeunit?: string;
+		sizeUnit?: string;
 	}
 
 	interface BounceLoaderProps extends CommonProps {
 		size?: number;
-		sizeunit?: string;
+		sizeUnit?: string;
 	}
 
 	interface CircleLoaderProps extends CommonProps {
 		size?: number;
-		sizeunit?: string;
+		sizeUnit?: string;
 	}
 
 	interface ClipLoaderProps extends CommonProps {
 		size?: number;
-		sizeunit?: string;
+		sizeUnit?: string;
 	}
 
 	interface ClimbingBoxLoaderProps extends CommonProps {
 		size?: number;
-		sizeunit?: string;
+		sizeUnit?: string;
 	}
 
 	interface DotLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
-		sizeunit?: string;
+		sizeUnit?: string;
 	}
 
 	interface FadeLoaderProps extends CommonProps {
 		height?: number;
-		heightunit?: string;
+		heightUnit?: string;
 		width?: number;
-		widthunit?: string;
+		widthUnit?: string;
 		margin?: string;
 		radius?: number;
 	}
 
 	interface GridLoaderProps extends CommonProps {
 		size?: number;
-		sizeunit?: string;
+		sizeUnit?: string;
 	}
 
 	interface HashLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
-		sizeunit?: string;
+		sizeUnit?: string;
 	}
 
 	interface MoonLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
-		sizeunit?: string;
+		sizeUnit?: string;
 	}
 
 	interface PacmanLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
-		sizeunit?: string;
+		sizeUnit?: string;
 	}
 
 	interface PropagateLoaderProps extends CommonProps {
 		size?: number;
-		sizeunit?: string;
+		sizeUnit?: string;
 	}
 
 	interface PulseLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
-		sizeunit?: string;
+		sizeUnit?: string;
 	}
 
 	interface RingLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
-		sizeunit?: string;
+		sizeUnit?: string;
 	}
 
 	interface RiseLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
-		sizeunit?: string;
+		sizeUnit?: string;
 	}
 
 	interface RotateLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
-		sizeunit?: string;
+		sizeUnit?: string;
 	}
 
 	interface ScaleLoaderProps extends CommonProps {
 		height?: number;
-		heightunit?: string;
+		heightUnit?: string;
 		width?: number;
-		widthunit?: string;
+		widthUnit?: string;
 		margin?: string;
 		radius?: number;
 		radiusunit?: string;
@@ -119,7 +119,7 @@ export namespace ReactSpinners {
 	interface SyncLoaderProps extends CommonProps {
 		margin?: string;
 		size?: number;
-		sizeunit?: string;
+		sizeUnit?: string;
 	}
 }
 

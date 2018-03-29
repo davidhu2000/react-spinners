@@ -18,7 +18,7 @@ const pacman = [
 class Loader extends React.Component {
   ball = () => keyframes`
       75% {opacity: 0.7}
-      100% {transform: translate(${(-4 * this.props.size).toString() + this.props.sizeunit}, ${(-this.props.size/4).toString() + this.props.sizeunit})}
+      100% {transform: translate(${(-4 * this.props.size).toString() + this.props.sizeUnit}, ${(-this.props.size/4).toString() + this.props.sizeUnit})}
     `;
 
   ballStyle = i => css`{
@@ -27,7 +27,7 @@ class Loader extends React.Component {
         background-color: ${this.props.color};
         margin: ${this.props.margin};
         border-radius: 100%;
-        transform: translate(0, ${(-this.props.size/4).toString() + this.props.sizeunit});
+        transform: translate(0, ${(-this.props.size/4).toString() + this.props.sizeUnit});
         position: absolute;
         top: 25px;
         left: 100px;
@@ -35,8 +35,8 @@ class Loader extends React.Component {
         animation-fill-mode: both;
     }`;
 
-  s1 = () => `${this.props.size.toString() + this.props.sizeunit} solid transparent`;
-  s2 = () => `${this.props.size.toString() + this.props.sizeunit} solid ${this.props.color}`;
+  s1 = () => `${this.props.size.toString() + this.props.sizeUnit} solid transparent`;
+  s2 = () => `${this.props.size.toString() + this.props.sizeUnit} solid ${this.props.color}`;
   pacmanStyle = i => css`{
         width: 0;
         height: 0;
@@ -44,7 +44,7 @@ class Loader extends React.Component {
         border-top: ${i === 0 ? this.s1() : this.s2()};
         border-left: ${this.s2()};
         border-bottom: ${i === 0 ? this.s2() : this.s1()};
-        border-radius: ${this.props.size.toString() + this.props.sizeunit};
+        border-radius: ${this.props.size.toString() + this.props.sizeUnit};
         position: absolute;
         animation: ${pacman[i]} 0.8s infinite ease-in-out;
         animation-fill-mode: both;
@@ -53,8 +53,8 @@ class Loader extends React.Component {
   wrapper = () => css`{
         position: relative;
         font-size: 0;
-        height: ${this.props.size.toString() + this.props.sizeunit};
-        width: ${this.props.size.toString() + this.props.sizeunit};
+        height: ${this.props.size.toString() + this.props.sizeUnit};
+        width: ${this.props.size.toString() + this.props.sizeUnit};
     }`;
 
   pac = () => this.pacmanStyle(0);
@@ -81,7 +81,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   margin: PropTypes.string,
-  sizeunit: PropTypes.string
+  sizeUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -89,7 +89,7 @@ Loader.defaultProps = {
   color: '#000000',
   size: 25,
   margin: '2px',
-  sizeunit: 'px'
+  sizeUnit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin'])(Loader);

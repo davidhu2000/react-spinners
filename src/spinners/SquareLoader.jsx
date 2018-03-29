@@ -13,8 +13,8 @@ const square = keyframes`
 class Loader extends React.Component {
   style = () => css`{
         background-color: ${this.props.color};
-        width: ${this.props.size.toString() + this.props.sizeunit}
-        height: ${this.props.size.toString() + this.props.sizeunit}
+        width: ${this.props.size.toString() + this.props.sizeUnit}
+        height: ${this.props.size.toString() + this.props.sizeUnit}
         display: inline-block;
         animation: ${square} 3s 0s infinite cubic-bezier(.09,.57,.49,.9);
         animation-fill-mode: both;
@@ -30,14 +30,14 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
-  sizeunit: PropTypes.string
+  sizeUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
   size: 50,
-  sizeunit: 'px'
+  sizeUnit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'size'])(Loader);

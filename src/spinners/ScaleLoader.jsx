@@ -12,8 +12,8 @@ const scale = keyframes`
 class Loader extends React.Component {
   style = i => css`{
         background-color: ${this.props.color};
-        width: ${this.props.width.toString() + this.props.widthunit};
-        height: ${this.props.height.toString() + this.props.heightunit};
+        width: ${this.props.width.toString() + this.props.widthUnit};
+        height: ${this.props.height.toString() + this.props.heightUnit};
         margin: ${this.props.margin};
         border-radius: ${this.props.radius.toString() + this.props.radiusunit};
         display: inline-block;
@@ -40,8 +40,8 @@ Loader.propTypes = {
   width: PropTypes.number,
   margin: PropTypes.string,
   radius: PropTypes.number,
-  heightunit: PropTypes.string,
-  widthunit: PropTypes.string,
+  heightUnit: PropTypes.string,
+  widthUnit: PropTypes.string,
   radiusunit: PropTypes.string
 };
 
@@ -52,8 +52,8 @@ Loader.defaultProps = {
   width: 4,
   margin: '2px',
   radius: 2,
-  heightunit: 'px',
-  widthunit: 'px',
+  heightUnit: 'px',
+  widthUnit: 'px',
   radiusunit: 'px'
 };
 

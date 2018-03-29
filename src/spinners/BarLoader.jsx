@@ -32,8 +32,8 @@ export class Loader extends React.Component {
 
   wrapper = () => css`{        
         position: relative;
-        width: ${this.props.width.toString() + this.props.widthunit};
-        height: ${this.props.height.toString() + this.props.heightunit};
+        width: ${this.props.width.toString() + this.props.widthUnit};
+        height: ${this.props.height.toString() + this.props.heightUnit};
         overflow: hidden;
         background-color: ${calculateRgba(this.props.color, 0.2)};
         background-clip: padding-box;
@@ -52,18 +52,18 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   width: PropTypes.number,
-  widthunit: PropTypes.string,
+  widthUnit: PropTypes.string,
   height: PropTypes.number,
-  heightunit: PropTypes.string
+  heightUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
   width: 100,
-  widthunit: 'px',
+  widthUnit: 'px',
   height: 4,
-  heightunit: 'px'
+  heightUnit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'width', 'height'])(Loader);

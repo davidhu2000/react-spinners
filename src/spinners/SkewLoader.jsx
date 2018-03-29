@@ -14,9 +14,9 @@ class Loader extends React.Component {
   style = () => css`{
         width: 0;
         height: 0;
-        border-left: ${this.props.size.toString() + this.props.sizeunit} solid transparent;
-        border-right: ${this.props.size.toString() + this.props.sizeunit} solid transparent;
-        border-bottom: ${this.props.size.toString() + this.props.sizeunit} solid ${this.props.color};
+        border-left: ${this.props.size.toString() + this.props.sizeUnit} solid transparent;
+        border-right: ${this.props.size.toString() + this.props.sizeUnit} solid transparent;
+        border-bottom: ${this.props.size.toString() + this.props.sizeUnit} solid ${this.props.color};
         display: inline-block;
         animation: ${skew} 3s 0s infinite cubic-bezier(.09,.57,.49,.9);
         animation-fill-mode: both;
@@ -33,14 +33,14 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
-  sizeunit: PropTypes.string
+  sizeUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
   size: 20,
-  sizeunit: 'px'
+  sizeUnit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'size'])(Loader);

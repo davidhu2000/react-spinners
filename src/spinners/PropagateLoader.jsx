@@ -46,10 +46,10 @@ const propagate = [
 class Loader extends React.Component {
   style = i => css`{
         position: absolute;
-        font-size: ${(this.props.size / 3).toString() + this.props.sizeunit};
-        height: ${this.props.size.toString() + this.props.sizeunit};
-        width: ${this.props.size.toString() + this.props.sizeunit};
-        height: ${this.props.size.toString() + this.props.sizeunit};
+        font-size: ${(this.props.size / 3).toString() + this.props.sizeUnit};
+        height: ${this.props.size.toString() + this.props.sizeUnit};
+        width: ${this.props.size.toString() + this.props.sizeUnit};
+        height: ${this.props.size.toString() + this.props.sizeUnit};
         background: ${this.props.color};
         border-radius: 50%;
         animation: ${propagate[i]} 1.5s  infinite;
@@ -77,14 +77,14 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   size: PropTypes.number,
   color: PropTypes.string,
-  sizeunit: PropTypes.string
+  sizeUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   size: 15,
   color: '#000000',
-  sizeunit: 'px'
+  sizeUnit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'size'])(Loader);

@@ -15,8 +15,8 @@ class Loader extends React.Component {
   style = rand => css`{
         display: inline-block;
         background-color: ${this.props.color};
-        width: ${this.props.size.toString() + this.props.sizeunit};
-        height: ${this.props.size.toString() + this.props.sizeunit};
+        width: ${this.props.size.toString() + this.props.sizeUnit};
+        height: ${this.props.size.toString() + this.props.sizeUnit};
         margin: ${this.props.margin};
         border-radius: 100%;
         animation-fill-mode: 'both';
@@ -24,7 +24,7 @@ class Loader extends React.Component {
     }`;
 
   wrapper = () => css`{        
-        width: ${((parseFloat(this.props.size) * 3) + (parseFloat(this.props.margin) * 6)).toString + this.props.sizeunit};
+        width: ${((parseFloat(this.props.size) * 3) + (parseFloat(this.props.margin) * 6)).toString + this.props.sizeUnit};
         font-size: 0;
     }`;
 
@@ -49,7 +49,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   margin: PropTypes.string,
-  sizeunit: PropTypes.string
+  sizeUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -57,7 +57,7 @@ Loader.defaultProps = {
   color: '#000000',
   size: 15,
   margin: '2px',
-  sizeunit: 'px'
+  sizeUnit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin'])(Loader);

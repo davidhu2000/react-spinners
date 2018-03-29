@@ -12,8 +12,8 @@ class Loader extends React.Component {
   style = i => css`{
         display: inline-block;
         background-color: ${this.props.color};
-        width: ${this.props.size.toString() + this.props.sizeunit};
-        height: ${this.props.size.toString() + this.props.sizeunit};
+        width: ${this.props.size.toString() + this.props.sizeUnit};
+        height: ${this.props.size.toString() + this.props.sizeUnit};
         margin: ${this.props.margin};
         border-radius: 100%;
         animation: ${beat} 0.7s ${i % 2 ? '0s' : '0.35s'} infinite linear;
@@ -33,7 +33,7 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
-  sizeunit: PropTypes.string,
+  sizeUnit: PropTypes.string,
   margin: PropTypes.string
 };
 
@@ -41,7 +41,7 @@ Loader.defaultProps = {
   loading: true,
   color: '#000000',
   size: 15,
-  sizeunit: 'px',
+  sizeUnit: 'px',
   margin: '2px'
 };
 

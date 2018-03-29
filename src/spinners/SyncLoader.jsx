@@ -12,8 +12,8 @@ const sync = keyframes`
 class Loader extends React.Component {
   style = i => css`{
         background-color: ${this.props.color};
-        width: ${this.props.size.toString() + this.props.sizeunit}
-        height: ${this.props.size.toString() + this.props.sizeunit}
+        width: ${this.props.size.toString() + this.props.sizeUnit}
+        height: ${this.props.size.toString() + this.props.sizeUnit}
         margin: ${this.props.margin};
         border-radius: 100%;
         display: inline-block;
@@ -36,7 +36,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   margin: PropTypes.string,
-  sizeunit: PropTypes.string
+  sizeUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -44,7 +44,7 @@ Loader.defaultProps = {
   color: '#000000',
   size: 15,
   margin: '2px',
-  sizeunit: 'px'
+  sizeUnit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin'])(Loader);

@@ -12,13 +12,13 @@ class Loader extends React.Component {
   color = () => calculateRgba(this.props.color, 0.75);
   before = () => keyframes`
           0% {width: ${this.thickness()}px;box-shadow: ${this.lat()}px ${-this.offset()}px ${this.color()}, ${-this.lat()}px ${this.offset()}px ${this.color()}} 
-          35% {width: ${this.props.size.toString() + this.props.sizeunit};box-shadow: 0 ${-this.offset()}px ${this.color()}, 0 ${this.offset()}px ${this.color()}}
+          35% {width: ${this.props.size.toString() + this.props.sizeUnit};box-shadow: 0 ${-this.offset()}px ${this.color()}, 0 ${this.offset()}px ${this.color()}}
           70% {width: ${this.thickness()}px;box-shadow: ${-this.lat()}px ${-this.offset()}px ${this.color()}, ${this.lat()}px ${this.offset()}px ${this.color()}}
           100% {box-shadow: ${this.lat()}px ${-this.offset()}px ${this.color()}, ${-this.lat()}px ${this.offset()}px ${this.color()}}
         `;
   after = () => keyframes`
           0% {height: ${this.thickness()}px;box-shadow: ${this.offset()}px ${this.lat()}px ${this.color()}, ${-this.offset()}px ${-this.lat()}px ${this.color()}} 
-          35% {height: ${this.props.size.toString() + this.props.sizeunit};box-shadow: ${this.offset()}px 0 ${this.color()}, ${-this.offset()}px 0 ${this.color()}}
+          35% {height: ${this.props.size.toString() + this.props.sizeUnit};box-shadow: ${this.offset()}px 0 ${this.color()}, ${-this.offset()}px 0 ${this.color()}}
           70% {height: ${this.thickness()}px;box-shadow: ${this.offset()}px ${-this.lat()}px ${this.color()}, ${-this.offset()}px ${this.lat()}px ${this.color()}}
           100% {box-shadow: ${this.offset()}px ${this.lat()}px ${this.color()}, ${-this.offset()}px ${-this.lat()}px ${this.color()}}
         `;
@@ -28,9 +28,9 @@ class Loader extends React.Component {
         top: 50%;
         left: 50%;
         display: block;
-        width: ${(this.props.size / 5).toString() + this.props.sizeunit};
-        height: ${(this.props.size / 5).toString() + this.props.sizeunit};
-        border-radius: ${(this.props.size / 10).toString() + this.props.sizeunit};
+        width: ${(this.props.size / 5).toString() + this.props.sizeUnit};
+        height: ${(this.props.size / 5).toString() + this.props.sizeUnit};
+        border-radius: ${(this.props.size / 10).toString() + this.props.sizeUnit};
         transform: translate(-50%, -50%);
         animation-fill-mode: none;
         animation: ${i === 1 ? this.before() : this.after()} 2s infinite;
@@ -38,8 +38,8 @@ class Loader extends React.Component {
 
   wrapper = () => css`{        
         position: relative;
-        width: ${this.props.size.toString() + this.props.sizeunit};
-        height: ${this.props.size.toString() + this.props.sizeunit};
+        width: ${this.props.size.toString() + this.props.sizeUnit};
+        height: ${this.props.size.toString() + this.props.sizeUnit};
         transform: rotate(165deg);
     }`;
 
@@ -56,14 +56,14 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   size: PropTypes.number,
   color: PropTypes.string,
-  sizeunit: PropTypes.string
+  sizeUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   size: 50,
   color: '#000000',
-  sizeunit: 'px'
+  sizeUnit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'size'])(Loader);
