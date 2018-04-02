@@ -40,7 +40,7 @@ class Loader extends React.Component {
         margin-left: -2.7em;
         width: 5.4em;
         height: 5.4em;
-        font-size: ${this.props.size.toSize + this.props.sizeUnit};
+        font-size: ${this.props.size + this.props.sizeUnit};
     }`;
 
 

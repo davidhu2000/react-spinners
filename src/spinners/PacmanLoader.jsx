@@ -44,7 +44,7 @@ class Loader extends React.Component {
         border-top: ${i === 0 ? this.s1() : this.s2()};
         border-left: ${this.s2()};
         border-bottom: ${i === 0 ? this.s2() : this.s1()};
-        border-radius: ${this.props.size} ${this.props.sizeUnit};
+        border-radius: ${this.props.size+this.props.sizeUnit};
         position: absolute;
         animation: ${pacman[i]} 0.8s infinite ease-in-out;
         animation-fill-mode: both;
@@ -53,8 +53,8 @@ class Loader extends React.Component {
   wrapper = () => css`{
         position: relative;
         font-size: 0;
-        height: ${this.props.size} ${this.props.sizeUnit};
-        width: ${this.props.size} ${this.props.sizeUnit};
+        height: ${this.props.size+this.props.sizeUnit};
+        width: ${this.props.size+this.props.sizeUnit};
     }`;
 
   pac = () => this.pacmanStyle(0);

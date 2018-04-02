@@ -12,8 +12,8 @@ const sync = keyframes`
 class Loader extends React.Component {
   style = i => css`{
         background-color: ${this.props.color};
-        width: ${this.props.size} ${this.props.sizeUnit}
-        height: ${this.props.size} ${this.props.sizeUnit}
+        width: ${this.props.size+this.props.sizeUnit}
+        height: ${this.props.size+this.props.sizeUnit}
         margin: ${this.props.margin};
         border-radius: 100%;
         display: inline-block;

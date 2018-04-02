@@ -12,13 +12,13 @@ class Loader extends React.Component {
   color = () => calculateRgba(this.props.color, 0.75);
   before = () => keyframes`
           0% {width: ${this.thickness()}px;box-shadow: ${this.lat()}px ${-this.offset()}px ${this.color()}, ${-this.lat()}px ${this.offset()}px ${this.color()}} 
-          35% {width: ${this.props.size} ${this.props.sizeUnit};box-shadow: 0 ${-this.offset()}px ${this.color()}, 0 ${this.offset()}px ${this.color()}}
+          35% {width: ${this.props.size+this.props.sizeUnit};box-shadow: 0 ${-this.offset()}px ${this.color()}, 0 ${this.offset()}px ${this.color()}}
           70% {width: ${this.thickness()}px;box-shadow: ${-this.lat()}px ${-this.offset()}px ${this.color()}, ${this.lat()}px ${this.offset()}px ${this.color()}}
           100% {box-shadow: ${this.lat()}px ${-this.offset()}px ${this.color()}, ${-this.lat()}px ${this.offset()}px ${this.color()}}
         `;
   after = () => keyframes`
           0% {height: ${this.thickness()}px;box-shadow: ${this.offset()}px ${this.lat()}px ${this.color()}, ${-this.offset()}px ${-this.lat()}px ${this.color()}} 
-          35% {height: ${this.props.size} ${this.props.sizeUnit};box-shadow: ${this.offset()}px 0 ${this.color()}, ${-this.offset()}px 0 ${this.color()}}
+          35% {height: ${this.props.size+this.props.sizeUnit};box-shadow: ${this.offset()}px 0 ${this.color()}, ${-this.offset()}px 0 ${this.color()}}
           70% {height: ${this.thickness()}px;box-shadow: ${this.offset()}px ${-this.lat()}px ${this.color()}, ${-this.offset()}px ${this.lat()}px ${this.color()}}
           100% {box-shadow: ${this.offset()}px ${this.lat()}px ${this.color()}, ${-this.offset()}px ${-this.lat()}px ${this.color()}}
         `;
@@ -38,8 +38,8 @@ class Loader extends React.Component {
 
   wrapper = () => css`{        
         position: relative;
-        width: ${this.props.size} ${this.props.sizeUnit};
-        height: ${this.props.size} ${this.props.sizeUnit};
+        width: ${this.props.size+this.props.sizeUnit};
+        height: ${this.props.size+this.props.sizeUnit};
         transform: rotate(165deg);
     }`;
 

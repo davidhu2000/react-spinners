@@ -14,9 +14,9 @@ class Loader extends React.Component {
   style = () => css`{
         width: 0;
         height: 0;
-        border-left: ${this.props.size} ${this.props.sizeUnit} solid transparent;
-        border-right: ${this.props.size} ${this.props.sizeUnit} solid transparent;
-        border-bottom: ${this.props.size} ${this.props.sizeUnit} solid ${this.props.color};
+        border-left: ${this.props.size+this.props.sizeUnit} solid transparent;
+        border-right: ${this.props.size+this.props.sizeUnit} solid transparent;
+        border-bottom: ${this.props.size+this.props.sizeUnit} solid ${this.props.color};
         display: inline-block;
         animation: ${skew} 3s 0s infinite cubic-bezier(.09,.57,.49,.9);
         animation-fill-mode: both;
