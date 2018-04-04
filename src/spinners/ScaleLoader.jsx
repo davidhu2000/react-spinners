@@ -12,10 +12,10 @@ const scale = keyframes`
 class Loader extends React.Component {
   style = i => css`{
         background-color: ${this.props.color};
-        width: ${this.props.width}px;
-        height: ${this.props.height}px;
+        width: ${this.props.width+this.props.widthUnit};
+        height: ${this.props.height+this.props.heightUnit};
         margin: ${this.props.margin};
-        border-radius: ${this.props.radius}px;
+        border-radius: ${this.props.radius} ${this.props.radiusunit};
         display: inline-block;
         animation: ${scale} 1s ${i * 0.1}s infinite cubic-bezier(.2,.68,.18,1.08);
         animation-fill-mode: both;
@@ -39,7 +39,10 @@ Loader.propTypes = {
   height: PropTypes.number,
   width: PropTypes.number,
   margin: PropTypes.string,
-  radius: PropTypes.number
+  radius: PropTypes.number,
+  heightUnit: PropTypes.string,
+  widthUnit: PropTypes.string,
+  radiusunit: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -48,7 +51,10 @@ Loader.defaultProps = {
   height: 35,
   width: 4,
   margin: '2px',
-  radius: 2
+  radius: 2,
+  heightUnit: 'px',
+  widthUnit: 'px',
+  radiusunit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'height', 'width', 'margin', 'radius'])(Loader);

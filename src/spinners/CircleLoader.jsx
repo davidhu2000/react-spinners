@@ -12,8 +12,8 @@ const circle = keyframes`
 class Loader extends React.Component {
   style = i => css`{
         position: absolute;
-        height: ${this.props.size * (1 - (i / 10))}px;
-        width: ${this.props.size * (1 - (i / 10))}px;
+        height: ${(this.props.size * (1 - (i / 10))).toString + this.props.sizeUnit};
+        width: ${(this.props.size * (1 - (i / 10))).toString + this.props.sizeUnit};
         border: 1px solid ${this.props.color};
         border-radius: 100%;
         transition: 2s;
@@ -27,8 +27,8 @@ class Loader extends React.Component {
 
   wrapper = () => css`{        
         position: relative;
-        width: ${this.props.size}px;
-        height: ${this.props.size}px;
+        width: ${this.props.size+this.props.sizeUnit};
+        height: ${this.props.size+this.props.sizeUnit};
     }`;
 
   render() {
@@ -46,13 +46,15 @@ class Loader extends React.Component {
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
-  size: PropTypes.number
+  size: PropTypes.number,
+  sizeUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
-  size: 50
+  size: 50,
+  sizeUnit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'size'])(Loader);

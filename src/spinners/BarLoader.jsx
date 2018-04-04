@@ -19,7 +19,7 @@ const short = keyframes`
 export class Loader extends React.Component {
   style = i => css`{
         position: absolute;
-        height: ${this.props.height}px;
+        height: ${this.props.height+this.props.heightUnit};
         overflow: hidden;
         background-color: ${this.props.color};
         background-clip: padding-box;
@@ -32,8 +32,8 @@ export class Loader extends React.Component {
 
   wrapper = () => css`{        
         position: relative;
-        width: ${this.props.width}px;
-        height: ${this.props.height}px;
+        width: ${this.props.width+this.props.widthUnit};
+        height: ${this.props.height+this.props.heightUnit};
         overflow: hidden;
         background-color: ${calculateRgba(this.props.color, 0.2)};
         background-clip: padding-box;
@@ -52,14 +52,18 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   width: PropTypes.number,
-  height: PropTypes.number
+  widthUnit: PropTypes.string,
+  height: PropTypes.number,
+  heightUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
   width: 100,
-  height: 4
+  widthUnit: 'px',
+  height: 4,
+  heightUnit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'width', 'height'])(Loader);

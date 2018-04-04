@@ -40,7 +40,7 @@ class Loader extends React.Component {
         margin-left: -2.7em;
         width: 5.4em;
         height: 5.4em;
-        font-size: ${this.props.size};
+        font-size: ${this.props.size + this.props.sizeUnit};
     }`;
 
 
@@ -74,13 +74,15 @@ class Loader extends React.Component {
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
-  size: PropTypes.number
+  size: PropTypes.number,
+  sizeUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
-  size: 15
+  size: 15,
+  sizeUnit: ''
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'size'])(Loader);

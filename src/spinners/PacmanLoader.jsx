@@ -18,7 +18,7 @@ const pacman = [
 class Loader extends React.Component {
   ball = () => keyframes`
       75% {opacity: 0.7}
-      100% {transform: translate(${-4 * this.props.size}px, ${-this.props.size / 4}px)}
+      100% {transform: translate(${(-4 * this.props.size)} ${this.props.sizeUnit}, ${(-this.props.size/4)} ${this.props.sizeUnit})}
     `;
 
   ballStyle = i => css`{
@@ -27,7 +27,7 @@ class Loader extends React.Component {
         background-color: ${this.props.color};
         margin: ${this.props.margin};
         border-radius: 100%;
-        transform: translate(0, ${-this.props.size / 4}px);
+        transform: translate(0, ${(-this.props.size/4)} ${this.props.sizeUnit});
         position: absolute;
         top: 25px;
         left: 100px;
@@ -35,8 +35,8 @@ class Loader extends React.Component {
         animation-fill-mode: both;
     }`;
 
-  s1 = () => `${this.props.size}px solid transparent`;
-  s2 = () => `${this.props.size}px solid ${this.props.color}`;
+  s1 = () => `${this.props.size} ${this.props.sizeUnit} solid transparent`;
+  s2 = () => `${this.props.size} ${this.props.sizeUnit} solid ${this.props.color}`;
   pacmanStyle = i => css`{
         width: 0;
         height: 0;
@@ -44,7 +44,7 @@ class Loader extends React.Component {
         border-top: ${i === 0 ? this.s1() : this.s2()};
         border-left: ${this.s2()};
         border-bottom: ${i === 0 ? this.s2() : this.s1()};
-        border-radius: ${this.props.size}px;
+        border-radius: ${this.props.size+this.props.sizeUnit};
         position: absolute;
         animation: ${pacman[i]} 0.8s infinite ease-in-out;
         animation-fill-mode: both;
@@ -53,8 +53,8 @@ class Loader extends React.Component {
   wrapper = () => css`{
         position: relative;
         font-size: 0;
-        height: ${this.props.size}px;
-        width: ${this.props.size}px;
+        height: ${this.props.size+this.props.sizeUnit};
+        width: ${this.props.size+this.props.sizeUnit};
     }`;
 
   pac = () => this.pacmanStyle(0);
@@ -80,14 +80,16 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
-  margin: PropTypes.string
+  margin: PropTypes.string,
+  sizeUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
   size: 25,
-  margin: '2px'
+  margin: '2px',
+  sizeUnit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin'])(Loader);

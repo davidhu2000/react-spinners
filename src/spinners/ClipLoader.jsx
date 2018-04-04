@@ -13,8 +13,8 @@ const clip = keyframes`
 class Loader extends React.Component {
   style = () => css`{
         background: transparent !important;
-        width: ${this.props.size}px;
-        height: ${this.props.size}px;
+        width: ${this.props.size+this.props.sizeUnit};
+        height: ${this.props.size+this.props.sizeUnit};
         border-radius: 100%;
         border: 2px solid;
         border-color: ${this.props.color};
@@ -32,13 +32,15 @@ class Loader extends React.Component {
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
-  size: PropTypes.number
+  size: PropTypes.number,
+  sizeUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
-  size: 35
+  size: 35,
+  sizeUnit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'size'])(Loader);

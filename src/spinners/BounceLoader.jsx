@@ -11,8 +11,8 @@ const bounce = keyframes`
 class Loader extends React.Component {
   style = i => css`{
         position: absolute;
-        height: ${this.props.size}px;
-        width: ${this.props.size}px;
+        width: ${this.props.size+this.props.sizeUnit};
+        height: ${this.props.size+this.props.sizeUnit};
         background-color: ${this.props.color};
         border-radius: 100%;
         opacity: 0.6;        
@@ -24,8 +24,8 @@ class Loader extends React.Component {
 
   wrapper = () => css`{        
         position: relative;
-        width: ${this.props.size}px;
-        height: ${this.props.size}px;
+        width: ${this.props.size+this.props.sizeUnit};
+        height: ${this.props.size+this.props.sizeUnit};
     }`;
   render() {
     return this.props.loading ?
@@ -39,13 +39,15 @@ class Loader extends React.Component {
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
-  size: PropTypes.number
+  size: PropTypes.number,
+  sizeUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
-  size: 60
+  size: 60,
+  sizeUnit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'size'])(Loader);

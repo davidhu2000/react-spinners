@@ -24,8 +24,8 @@ const odd = keyframes`
 class Loader extends React.Component {
   style = i => css`{
         background-color: ${this.props.color};
-        width: ${this.props.size}px;
-        height: ${this.props.size}px;
+        width: ${this.props.size+this.props.sizeUnit};
+        height: ${this.props.size+this.props.sizeUnit};
         margin: ${this.props.margin};
         border-radius: 100%;
         display: inline-block;
@@ -49,14 +49,16 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
-  margin: PropTypes.string
+  margin: PropTypes.string,
+  sizeUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
   size: 15,
-  margin: '2px'
+  margin: '2px',
+  sizeUnit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin'])(Loader);

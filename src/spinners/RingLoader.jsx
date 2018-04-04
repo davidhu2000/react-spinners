@@ -19,9 +19,9 @@ class Loader extends React.Component {
         position: absolute;
         top: 0;
         left: 0;
-        width: ${this.props.size}px;
-        height: ${this.props.size}px;
-        border: ${this.props.size / 10}px solid ${this.props.color};
+        width: ${this.props.size+this.props.sizeUnit};
+        height: ${this.props.size+this.props.sizeUnit};
+        border: ${(this.props.size / 10)} ${this.props.sizeUnit} solid ${this.props.color};
         opacity: 0.4;
         border-radius: 100%;
         animation-fill-mode: forwards;
@@ -30,8 +30,8 @@ class Loader extends React.Component {
     }`;
 
   wrapper = () => css`{        
-        width: ${this.props.size}px;
-        height: ${this.props.size}px;
+        width: ${this.props.size+this.props.sizeUnit};
+        height: ${this.props.size+this.props.sizeUnit};
         position: relative;
     }`;
 
@@ -47,13 +47,15 @@ class Loader extends React.Component {
 Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
-  size: PropTypes.number
+  size: PropTypes.number,
+  sizeUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
-  size: 60
+  size: 60,
+  sizeUnit: 'px'
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'size'])(Loader);
