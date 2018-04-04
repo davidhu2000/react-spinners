@@ -19,8 +19,8 @@ class Loader extends React.Component {
 
   ball = () => css`{
         background-color: ${this.props.color};
-        width: ${this.props.size+this.props.sizeUnit};
-        height: ${this.props.size+this.props.sizeUnit};
+        width: ${this.props.size + this.props.sizeUnit};
+        height: ${this.props.size + this.props.sizeUnit};
         margin: ${this.props.margin};
         border-radius: 100%;
     }`;

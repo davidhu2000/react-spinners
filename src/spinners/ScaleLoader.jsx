@@ -12,8 +12,8 @@ const scale = keyframes`
 class Loader extends React.Component {
   style = i => css`{
         background-color: ${this.props.color};
-        width: ${this.props.width+this.props.widthUnit};
-        height: ${this.props.height+this.props.heightUnit};
+        width: ${this.props.width + this.props.widthUnit};
+        height: ${this.props.height + this.props.heightUnit};
         margin: ${this.props.margin};
         border-radius: ${this.props.radius} ${this.props.radiusUnit};
         display: inline-block;

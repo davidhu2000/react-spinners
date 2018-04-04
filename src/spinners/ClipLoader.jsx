@@ -13,8 +13,8 @@ const clip = keyframes`
 class Loader extends React.Component {
   style = () => css`{
         background: transparent !important;
-        width: ${this.props.size+this.props.sizeUnit};
-        height: ${this.props.size+this.props.sizeUnit};
+        width: ${this.props.size + this.props.sizeUnit};
+        height: ${this.props.size + this.props.sizeUnit};
         border-radius: 100%;
         border: 2px solid;
         border-color: ${this.props.color};

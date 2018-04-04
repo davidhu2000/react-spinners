@@ -11,8 +11,8 @@ const fade = keyframes`
 class Loader extends React.Component {
   style = i => css`{
         position: absolute;
-        width: ${this.props.width+this.props.widthUnit};
-        height: ${this.props.height+this.props.heightUnit};
+        width: ${this.props.width + this.props.widthUnit};
+        height: ${this.props.height + this.props.heightUnit};
         margin: ${this.props.margin};
         background-color: ${this.props.color};
         border-radius: ${this.props.radius};
