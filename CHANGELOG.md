@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.3.0
+
+- Added `unit` props to each loader to allow `%` units on css
+- **bugfix**: fixed string concatenation on some loaders that prevented the correct rendering.
+
 ## 0.2.6
 
 - **bugfix**: add missing `px` for `border-radius` in `ScaleLoader` styling.
