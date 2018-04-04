@@ -10,6 +10,10 @@ class LoaderItem extends React.Component {
     let defaults = Object.assign({}, spinner.defaultProps);
     delete defaults.color;
     delete defaults.loading;
+    delete defaults.sizeUnit;
+    delete defaults.widthUnit;
+    delete defaults.heightUnit;
+    delete defaults.radiusUnit;
 
     this.state = {
       ...defaults
