@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.3.1
+
+- Moved `babel-plugin-emotion` to devDependencies and updates to 9.1.0.
+
 ## 0.3.0
 
 - Added `unit` props to each loader to allow `%` units on css
