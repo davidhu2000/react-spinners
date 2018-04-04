@@ -82,9 +82,9 @@ Loader.defaultProps = {
   loading: true,
   color: '#000000',
   size: 15,
-  sizeUnit: ''
+  sizeUnit: 'px'
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

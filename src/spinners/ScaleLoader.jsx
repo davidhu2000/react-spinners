@@ -15,7 +15,7 @@ class Loader extends React.Component {
         width: ${this.props.width+this.props.widthUnit};
         height: ${this.props.height+this.props.heightUnit};
         margin: ${this.props.margin};
-        border-radius: ${this.props.radius} ${this.props.radiusunit};
+        border-radius: ${this.props.radius} ${this.props.radiusUnit};
         display: inline-block;
         animation: ${scale} 1s ${i * 0.1}s infinite cubic-bezier(.2,.68,.18,1.08);
         animation-fill-mode: both;
@@ -42,7 +42,7 @@ Loader.propTypes = {
   radius: PropTypes.number,
   heightUnit: PropTypes.string,
   widthUnit: PropTypes.string,
-  radiusunit: PropTypes.string
+  radiusUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -54,9 +54,9 @@ Loader.defaultProps = {
   radius: 2,
   heightUnit: 'px',
   widthUnit: 'px',
-  radiusunit: 'px'
+  radiusUnit: 'px'
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'height', 'width', 'margin', 'radius'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'height', 'width', 'margin', 'radius', 'heightUnit', 'widthUnit', 'radiusUnit'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

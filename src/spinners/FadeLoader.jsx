@@ -117,6 +117,6 @@ Loader.defaultProps = {
   heightUnit: 'px'
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'height', 'width', 'margin', 'radius'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'height', 'width', 'margin', 'radius', 'widthUnit', 'heightUnit'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

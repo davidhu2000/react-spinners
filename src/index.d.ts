@@ -113,7 +113,7 @@ export namespace ReactSpinners {
 		widthUnit?: string;
 		margin?: string;
 		radius?: number;
-		radiusunit?: string;
+		radiusUnit?: string;
 	}
 
 	interface SyncLoaderProps extends CommonProps {
