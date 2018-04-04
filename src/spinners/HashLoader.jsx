@@ -28,9 +28,9 @@ class Loader extends React.Component {
         top: 50%;
         left: 50%;
         display: block;
-        width: ${(this.props.size / 5)} ${this.props.sizeUnit};
-        height: ${(this.props.size / 5)} ${this.props.sizeUnit};
-        border-radius: ${(this.props.size / 10)} ${this.props.sizeUnit};
+        width: ${(this.props.size / 5) + this.props.sizeUnit};
+        height: ${(this.props.size / 5) + this.props.sizeUnit};
+        border-radius: ${(this.props.size / 10) + this.props.sizeUnit};
         transform: translate(-50%, -50%);
         animation-fill-mode: none;
         animation: ${i === 1 ? this.before() : this.after()} 2s infinite;

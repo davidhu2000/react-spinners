@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {createEagerElement} from 'recompose';
 import { Form } from './form';
 
 class LoaderItem extends React.Component {

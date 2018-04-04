@@ -70,9 +70,9 @@
   },
   "dependencies": {
     "babel-plugin-emotion": "^8.0.6",
-    "emotion": "^8.0.8",
+    "emotion": "^9.1.1",
     "prop-types": "^15.5.10",
-    "react-emotion": "^8.0.6",
+    "react-emotion": "^9.1.1",
     "recompose": "0.26.0"
   }
 }

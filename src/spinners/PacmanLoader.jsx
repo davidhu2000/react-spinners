@@ -18,7 +18,7 @@ const pacman = [
 class Loader extends React.Component {
   ball = () => keyframes`
       75% {opacity: 0.7}
-      100% {transform: translate(${(-4 * this.props.size)} ${this.props.sizeUnit}, ${(-this.props.size / 4)} ${this.props.sizeUnit})}
+      100% {transform: translate(${(-4 * this.props.size).toString() + this.props.sizeUnit}, ${(-this.props.size / 4).toString() + this.props.sizeUnit})}
     `;
 
   ballStyle = i => css`{
@@ -27,7 +27,7 @@ class Loader extends React.Component {
         background-color: ${this.props.color};
         margin: ${this.props.margin};
         border-radius: 100%;
-        transform: translate(0, ${(-this.props.size / 4)} ${this.props.sizeUnit});
+        transform: translate(0, ${(-this.props.size / 4).toString() + this.props.sizeUnit});
         position: absolute;
         top: 25px;
         left: 100px;
@@ -35,8 +35,8 @@ class Loader extends React.Component {
         animation-fill-mode: both;
     }`;
 
-  s1 = () => `${this.props.size} ${this.props.sizeUnit} solid transparent`;
-  s2 = () => `${this.props.size} ${this.props.sizeUnit} solid ${this.props.color}`;
+  s1 = () => `${this.props.size.toString() + this.props.sizeUnit} solid transparent`;
+  s2 = () => `${this.props.size.toString() + this.props.sizeUnit} solid ${this.props.color}`;
   pacmanStyle = i => css`{
         width: 0;
         height: 0;
@@ -44,7 +44,7 @@ class Loader extends React.Component {
         border-top: ${i === 0 ? this.s1() : this.s2()};
         border-left: ${this.s2()};
         border-bottom: ${i === 0 ? this.s2() : this.s1()};
-        border-radius: ${this.props.size + this.props.sizeUnit};
+        border-radius: ${this.props.size.toString() + this.props.sizeUnit};
         position: absolute;
         animation: ${pacman[i]} 0.8s infinite ease-in-out;
         animation-fill-mode: both;
@@ -53,15 +53,12 @@ class Loader extends React.Component {
   wrapper = () => css`{
         position: relative;
         font-size: 0;
-        height: ${this.props.size + this.props.sizeUnit};
-        width: ${this.props.size + this.props.sizeUnit};
+        height: ${this.props.size.toString() + this.props.sizeUnit};
+        width: ${this.props.size.toString() + this.props.sizeUnit};
     }`;
 
   pac = () => this.pacmanStyle(0);
-  man = () => css`
-        composes: ${this.pacmanStyle(1)};
-        position: absolute;
-    `;
+  man = () => this.pacmanStyle(1);
 
   render() {
     return this.props.loading ?

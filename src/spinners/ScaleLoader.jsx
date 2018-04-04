@@ -15,7 +15,7 @@ class Loader extends React.Component {
         width: ${this.props.width + this.props.widthUnit};
         height: ${this.props.height + this.props.heightUnit};
         margin: ${this.props.margin};
-        border-radius: ${this.props.radius} ${this.props.radiusUnit};
+        border-radius: ${this.props.radius.toString() + this.props.radiusUnit};
         display: inline-block;
         animation: ${scale} 1s ${i * 0.1}s infinite cubic-bezier(.2,.68,.18,1.08);
         animation-fill-mode: both;

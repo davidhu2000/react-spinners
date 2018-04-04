@@ -11,11 +11,11 @@ const fade = keyframes`
 class Loader extends React.Component {
   style = i => css`{
         position: absolute;
-        width: ${this.props.width + this.props.widthUnit};
-        height: ${this.props.height + this.props.heightUnit};
+        width: ${this.props.width.toString() + this.props.widthUnit};
+        height: ${this.props.height.toString() + this.props.heightUnit};
         margin: ${this.props.margin};
         background-color: ${this.props.color};
-        border-radius: ${this.props.radius};
+        border-radius: ${this.props.radius.toString() + this.props.radiusUnit};
         transition: 2s;
         animation-fill-mode: 'both';
         animation: ${fade} 1.2s ${i * 0.12}s infinite ease-in-out;
@@ -35,48 +35,48 @@ class Loader extends React.Component {
 
   a = () => css`
           composes: ${this.style(1)};
-          top: ${this.radius};
+          top: ${this.radius}px;
           left: 0;
         `;
   b = () => css`
           composes: ${this.style(2)};
-          top: ${this.quarter};
-          left: ${this.quarter};
+          top: ${this.quarter}px;
+          left: ${this.quarter}px;
           transform: rotate(-45deg);
         `;
   c = () => css`
           composes: ${this.style(3)};
           top: 0;
-          left: ${this.radius};
+          left: ${this.radius}px;
           transform: rotate(90deg);
         `;
   d = () => css`
           composes: ${this.style(4)};
-          top: ${-this.quarter};
-          left: ${this.quarter};
+          top: ${-this.quarter}px;
+          left: ${this.quarter}px;
           transform: rotate(45deg);
         `;
   e = () => css`
           composes: ${this.style(5)};
-          top: ${-this.radius};
+          top: ${-this.radius}px;
           left: 0;
         `;
   f = () => css`
           composes: ${this.style(6)};
-          top: ${-this.quarter};
-          left: ${-this.quarter};
+          top: ${-this.quarter}px;
+          left: ${-this.quarter}px;
           transform: rotate(-45deg);
         `;
   g = () => css`
           composes: ${this.style(7)};
           top: 0;
-          left: ${-this.radius};
+          left: ${-this.radius}px;
           transform: rotate(90deg);
         `;
   h = () => css`
           composes: ${this.style(8)};
-          top: ${this.quarter};
-          left: ${-this.quarter};
+          top: ${this.quarter}px;
+          left: ${-this.quarter}px;
           transform: rotate(45deg);
         `;
 
@@ -103,7 +103,8 @@ Loader.propTypes = {
   margin: PropTypes.string,
   radius: PropTypes.number,
   heightUnit: PropTypes.string,
-  widthUnit: PropTypes.string
+  widthUnit: PropTypes.string,
+  radiusUnit: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -114,9 +115,10 @@ Loader.defaultProps = {
   margin: '2px',
   radius: 2,
   widthUnit: 'px',
-  heightUnit: 'px'
+  heightUnit: 'px',
+  radiusUnit: 'px'
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'height', 'width', 'margin', 'radius', 'widthUnit', 'heightUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'height', 'width', 'margin', 'radius', 'widthUnit', 'heightUnit', 'radiusUnit'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

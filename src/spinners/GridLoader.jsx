@@ -24,7 +24,7 @@ class Loader extends React.Component {
     }`;
 
   wrapper = () => css`{        
-        width: ${((parseFloat(this.props.size) * 3) + (parseFloat(this.props.margin) * 6)).toString + this.props.sizeUnit};
+        width: ${((parseFloat(this.props.size) * 3) + (parseFloat(this.props.margin) * 6)).toString() + this.props.sizeUnit};
         font-size: 0;
     }`;
 
