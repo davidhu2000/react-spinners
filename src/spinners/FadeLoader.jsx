@@ -34,47 +34,47 @@ class Loader extends React.Component {
     }`;
 
   a = () => css`
-          composes: ${this.style(1)};
+          ${this.style(1)};
           top: ${this.radius}px;
           left: 0;
         `;
   b = () => css`
-          composes: ${this.style(2)};
+          ${this.style(2)};
           top: ${this.quarter}px;
           left: ${this.quarter}px;
           transform: rotate(-45deg);
         `;
   c = () => css`
-          composes: ${this.style(3)};
+          ${this.style(3)};
           top: 0;
           left: ${this.radius}px;
           transform: rotate(90deg);
         `;
   d = () => css`
-          composes: ${this.style(4)};
+          ${this.style(4)};
           top: ${-this.quarter}px;
           left: ${this.quarter}px;
           transform: rotate(45deg);
         `;
   e = () => css`
-          composes: ${this.style(5)};
+          ${this.style(5)};
           top: ${-this.radius}px;
           left: 0;
         `;
   f = () => css`
-          composes: ${this.style(6)};
+          ${this.style(6)};
           top: ${-this.quarter}px;
           left: ${-this.quarter}px;
           transform: rotate(-45deg);
         `;
   g = () => css`
-          composes: ${this.style(7)};
+          ${this.style(7)};
           top: 0;
           left: ${-this.radius}px;
           transform: rotate(90deg);
         `;
   h = () => css`
-          composes: ${this.style(8)};
+          ${this.style(8)};
           top: ${this.quarter}px;
           left: ${-this.quarter}px;
           transform: rotate(45deg);
