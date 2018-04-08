@@ -26,7 +26,7 @@ class Loader extends React.Component {
     }`;
 
   wrapper = () => css`
-        composes: ${this.ball()};
+        ${this.ball()};
         display: inline-block;
         position: relative;
         animation-fill-mode: both;
@@ -34,12 +34,12 @@ class Loader extends React.Component {
     `;
 
   long = () => css`
-        composes: ${this.ball()};       
-        composes: ${this.style(1)};
+        ${this.ball()};       
+        ${this.style(1)};
     `;
   short = () => css`
-        composes: ${this.ball()};       
-        composes: ${this.style(2)};
+        ${this.ball()};       
+        ${this.style(2)};
     `;
 
   render() {
