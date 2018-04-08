@@ -16,7 +16,7 @@ module.exports = {
         loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015', 'stage-0'],
-          plugins: ['emotion'],
+          plugins: ['emotion']
         }
       }
     ]
