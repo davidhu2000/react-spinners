@@ -35,7 +35,8 @@
     "build": "$npm_execpath run prepublish && webpack",
     "patch": "npm version patch && npm publish",
     "minor": "npm version minor && npm publish",
-    "major": "npm version major && npm publish"
+    "major": "npm version major && npm publish",
+    "watch": "./node_modules/.bin/webpack --watch"
   },
   "types": "./src/index.d.ts",
   "devDependencies": {

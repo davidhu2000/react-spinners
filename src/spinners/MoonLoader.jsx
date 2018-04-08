@@ -26,7 +26,7 @@ class Loader extends React.Component {
     }`;
 
   ball = () => css`
-        composes: ${this.ballStyle(this.moonSize())};
+        ${this.ballStyle(this.moonSize())};
         background-color: ${this.props.color};
         opacity: 0.8;
         position: absolute;
@@ -36,7 +36,7 @@ class Loader extends React.Component {
     `;
     
   circle = () => css`
-        composes: ${this.ballStyle(this.props.size)};
+        ${this.ballStyle(this.props.size)};
         border: ${this.moonSize()}px solid ${this.props.color};
         opacity: 0.1;
     `;
