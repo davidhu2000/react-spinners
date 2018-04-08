@@ -31,6 +31,12 @@ class SpinnerExamples extends React.Component {
 
   updateColor(color) {
     this.setState({ color: color.hex });
+    document.getElementById('header').style.cssText = `
+      background: -webkit-gradient(linear, left top, right top, from(${color.hex}), to(#2b303b));
+      background: -webkit-linear-gradient(left, ${color.hex}, #2b303b);
+      background: -o-linear-gradient(left, ${color.hex}, #2b303b);
+      background: linear-gradient(90deg, ${color.hex}, #2b303b);
+    `;
   }
 
   togglePicker() {
