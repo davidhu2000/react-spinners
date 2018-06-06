@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { keyframes, css } from 'emotion';
+import { keyframes, css, cx } from 'emotion';
 import { onlyUpdateForKeys } from 'recompose';
 
 // This returns an animation
@@ -11,7 +11,7 @@ const clip = keyframes`
 `;
 
 class Loader extends React.Component {
-  style = () => css`{
+  style = () => css`
         background: transparent !important;
         width: ${this.props.size + this.props.sizeUnit};
         height: ${this.props.size + this.props.sizeUnit};
@@ -22,14 +22,13 @@ class Loader extends React.Component {
         display: inline-block;
         animation: ${clip} 0.75s 0s infinite linear;
         animation-fill-mode: both;
-    }`;
-
+  `;
   render() {
-    return this.props.loading ? <div className={this.style()} /> : null;
+    return (this.props.loading ? <div className={Object.keys(this.props.loaderStyle).length === 0 ? this.style() : cx(this.style(), css(this.props.loaderStyle))} /> : null);
   }
 }
-
 Loader.propTypes = {
+  loaderStyle: PropTypes.shape(),
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
@@ -37,12 +36,13 @@ Loader.propTypes = {
 };
 
 Loader.defaultProps = {
+  loaderStyle: {},
   loading: true,
   color: '#000000',
   size: 35,
   sizeUnit: 'px'
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loaderStyle', 'loading', 'color', 'size', 'sizeUnit'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
