@@ -42,8 +42,8 @@ Each loader accepts a `loading` prop as a boolean. The loader will not render an
 }
 ```
 
-### Example
-
+### Examples
+Ring Loader
 ```js
 import React from 'react';
 import { RingLoader } from 'react-spinners';
@@ -66,7 +66,39 @@ class AwesomeComponent extends React.Component {
     )
   }
 }
+```  
+
+
+<details><summary>Clip Loader with Custom CSS</summary>
+<p>
+
+```js
+import React from 'react';
+import { RingLoader } from 'react-spinners';
+
+class AwesomeComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true
+    }
+  }
+  render() {
+    return (
+      <div className='sweet-loading'>
+        <ClipLoader
+          loaderStyle={{display: "block", margin: "0 auto"}}
+          color={'#123abc'}
+          loading={this.state.loading}
+        />
+      </div> 
+    )
+  }
+}
 ```
+
+</p>
+</details>
 
 ## Available Loaders, PropTypes, and Default Values
 
@@ -75,7 +107,10 @@ Common default props for all loaders:
 ```js
 loading: true
 color: '#000000'
+loaderStyle: {}
 ```
+Note:
+For loaderStyle, the resulting CSS will be the combination of the default props and the newly passed in CSS. This typically adjusts the CSS of the wrapper of the loader, not the actual loader properties themselves.
 
 Loader                  | size:int | height:int | width:int | radius:int | margin:str
 -----------------------:|:--------:|:----------:|:---------:|:----------:|:---------:
