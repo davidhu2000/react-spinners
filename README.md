@@ -87,7 +87,7 @@ class AwesomeComponent extends React.Component {
     return (
       <div className='sweet-loading'>
         <ClipLoader
-          loaderStyle={{display: "block", margin: "0 auto"}}
+          loaderStyle={{display: "block", margin: "0 auto", borderColor: 'red'}}
           color={'#123abc'}
           loading={this.state.loading}
         />
@@ -110,7 +110,9 @@ color: '#000000'
 loaderStyle: {}
 ```
 Note:
-For loaderStyle, the resulting CSS will be the combination of the default props and the newly passed in CSS. This typically adjusts the CSS of the wrapper of the loader, not the actual loader properties themselves.
+For loaderStyle, the resulting css will be the combination of the default props and the newly passed in css. This typically adjusts the css of the wrapper of the loader, not the actual loader properties themselves.  
+Instead of writing css properties in kebab-case like regular css, you write them in camelCase, for example background-color would be backgroundColor. You can find out more details [here](https://emotion.sh/docs/object-styles).
+
 
 Loader                  | size:int | height:int | width:int | radius:int | margin:str
 -----------------------:|:--------:|:----------:|:---------:|:----------:|:---------:
