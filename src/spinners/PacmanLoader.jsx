@@ -23,15 +23,15 @@ class Loader extends React.Component {
     `;
 
   ballStyle = i => css`{
-        width: 10px;
-        height: 10px;
+        width: ${(this.props.size / 2.5).toString() + this.props.sizeUnit};
+        height: ${(this.props.size / 2.5).toString() + this.props.sizeUnit};
         background-color: ${this.props.color};
         margin: ${this.props.margin};
         border-radius: 100%;
         transform: translate(0, ${(-this.props.size / 4).toString() + this.props.sizeUnit});
         position: absolute;
-        top: 25px;
-        left: 100px;
+        top: ${this.props.size.toString() + this.props.sizeUnit};
+        left: ${(this.props.size * 4).toString() + this.props.sizeUnit};
         animation: ${this.ball()} 1s ${i * 0.25}s infinite linear;
         animation-fill-mode: both;
     }`;
