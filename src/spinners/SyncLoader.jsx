@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
 import { onlyUpdateForKeys } from 'recompose';
+import { styleLoader } from '../helpers';
 
 const sync = keyframes`
   33% {transform: translateY(10px)}
@@ -21,9 +22,13 @@ class Loader extends React.Component {
         animation-fill-mode: both;
     }`;
 
+  wrapper = () => css`{        
+    }`
+  ;
+
   render() {
     return this.props.loading ?
-      <div>
+      <div className={styleLoader(this.wrapper(), this.props.loaderStyle)}>
         <div className={this.style(1)} />
         <div className={this.style(2)} />
         <div className={this.style(3)} />
@@ -32,6 +37,7 @@ class Loader extends React.Component {
 }
 
 Loader.propTypes = {
+  loaderStyle: PropTypes.shape(),
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
@@ -40,6 +46,7 @@ Loader.propTypes = {
 };
 
 Loader.defaultProps = {
+  loaderStyle: {},
   loading: true,
   color: '#000000',
   size: 15,
@@ -47,6 +54,6 @@ Loader.defaultProps = {
   sizeUnit: 'px'
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin', 'sizeUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loaderStyle', 'loading', 'color', 'size', 'margin', 'sizeUnit'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

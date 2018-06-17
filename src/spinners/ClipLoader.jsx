@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { keyframes, css, cx } from 'emotion';
+import { keyframes, css } from 'emotion';
 import { onlyUpdateForKeys } from 'recompose';
+import { styleLoader } from '../helpers';
 
 // This returns an animation
 const clip = keyframes`
@@ -24,7 +25,9 @@ class Loader extends React.Component {
         animation-fill-mode: both;
   `;
   render() {
-    return (this.props.loading ? <div className={Object.keys(this.props.loaderStyle).length === 0 ? this.style() : cx(this.style(), css(this.props.loaderStyle))} /> : null);
+    return this.props.loading ?
+      <div className={styleLoader(this.style(), this.props.loaderStyle)} />
+      : null;
   }
 }
 Loader.propTypes = {

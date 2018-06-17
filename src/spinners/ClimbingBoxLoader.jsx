@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
 import { onlyUpdateForKeys } from 'recompose';
+import { styleLoader } from '../helpers';
 
 const climbingBox = keyframes`
   0% {transform:translate(0, -1em) rotate(-45deg)} 
@@ -63,7 +64,7 @@ class Loader extends React.Component {
   render() {
     return this.props.loading ?
       <div className={this.container}>
-        <div className={this.wrapper()}>
+        <div className={styleLoader(this.wrapper(), this.props.loaderStyle)}>
           <div className={this.style()} />
           <div className={this.hill()} />
         </div>
@@ -72,6 +73,7 @@ class Loader extends React.Component {
 }
 
 Loader.propTypes = {
+  loaderStyle: PropTypes.shape(),
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
@@ -79,12 +81,13 @@ Loader.propTypes = {
 };
 
 Loader.defaultProps = {
+  loaderStyle: {},
   loading: true,
   color: '#000000',
   size: 15,
   sizeUnit: 'px'
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loaderStyle', 'loading', 'color', 'size', 'sizeUnit'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

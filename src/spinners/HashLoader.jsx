@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
 import { onlyUpdateForKeys } from 'recompose';
-import { calculateRgba } from '../helpers';
+import { calculateRgba, styleLoader } from '../helpers';
 
 
 class Loader extends React.Component {
@@ -45,7 +45,7 @@ class Loader extends React.Component {
 
   render() {
     return this.props.loading ?
-      <div className={this.wrapper()}>
+      <div className={styleLoader(this.wrapper(), this.props.loaderStyle)}>
         <div className={this.style(1)} />
         <div className={this.style(2)} />
       </div> : null;
@@ -53,6 +53,7 @@ class Loader extends React.Component {
 }
 
 Loader.propTypes = {
+  loaderStyle: PropTypes.shape(),
   loading: PropTypes.bool,
   size: PropTypes.number,
   color: PropTypes.string,
@@ -60,13 +61,14 @@ Loader.propTypes = {
 };
 
 Loader.defaultProps = {
+  loaderStyle: {},
   loading: true,
   size: 50,
   color: '#000000',
   sizeUnit: 'px'
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loaderStyle', 'loading', 'color', 'size', 'sizeUnit'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
 
