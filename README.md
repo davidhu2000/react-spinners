@@ -69,7 +69,7 @@ class AwesomeComponent extends React.Component {
 ```  
 
 
-<details><summary>Clip Loader with Custom CSS</summary>
+<details><summary>Clip Loader with Custom CSS, and Size</summary>
 <p>
 
 ```js
@@ -88,6 +88,8 @@ class AwesomeComponent extends React.Component {
       <div className='sweet-loading'>
         <ClipLoader
           loaderStyle={{display: "block", margin: "0 auto", borderColor: 'red'}}
+          sizeUnit={"px"}
+          size={"150"}
           color={'#123abc'}
           loading={this.state.loading}
         />
