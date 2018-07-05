@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
 import { onlyUpdateForKeys } from 'recompose';
-import { styleLoader } from '../helpers';
 
 // This returns an animation
 const pacman = [
@@ -17,53 +16,83 @@ const pacman = [
 ];
 
 class Loader extends React.Component {
-  ball = () => keyframes`
-      75% {opacity: 0.7}
-      100% {transform: translate(${(-4 * this.props.size).toString() + this.props.sizeUnit}, ${(-this.props.size / 4).toString() + this.props.sizeUnit})}
-    `;
+    ball = () => {
+      const { size, sizeUnit } = this.props;
 
-  ballStyle = i => css`{
-        width: ${(this.props.size / 2.5).toString() + this.props.sizeUnit};
-        height: ${(this.props.size / 2.5).toString() + this.props.sizeUnit};
-        background-color: ${this.props.color};
-        margin: ${this.props.margin};
-        border-radius: 100%;
-        transform: translate(0, ${(-this.props.size / 4).toString() + this.props.sizeUnit});
-        position: absolute;
-        top: ${this.props.size.toString() + this.props.sizeUnit};
-        left: ${(this.props.size * 4).toString() + this.props.sizeUnit};
-        animation: ${this.ball()} 1s ${i * 0.25}s infinite linear;
-        animation-fill-mode: both;
-    }`;
+      return keyframes`
+          75% {opacity: 0.7}
+          100% {transform: translate(${-4 * size}${sizeUnit}, ${-size / 4}${sizeUnit})}
+        `;
+    };
 
-  s1 = () => `${this.props.size.toString() + this.props.sizeUnit} solid transparent`;
-  s2 = () => `${this.props.size.toString() + this.props.sizeUnit} solid ${this.props.color}`;
-  pacmanStyle = i => css`{
-        width: 0;
-        height: 0;
-        border-right: ${this.s1()};
-        border-top: ${i === 0 ? this.s1() : this.s2()};
-        border-left: ${this.s2()};
-        border-bottom: ${i === 0 ? this.s2() : this.s1()};
-        border-radius: ${this.props.size.toString() + this.props.sizeUnit};
-        position: absolute;
-        animation: ${pacman[i]} 0.8s infinite ease-in-out;
-        animation-fill-mode: both;
-    }`;
+    ballStyle = i => {
+      const {
+        color, margin, size, sizeUnit
+      } = this.props;
 
-  wrapper = () => css`{
-        position: relative;
-        font-size: 0;
-        height: ${this.props.size.toString() + this.props.sizeUnit};
-        width: ${this.props.size.toString() + this.props.sizeUnit};
-    }`;
+      return css`{
+            width: 10px;
+            height: 10px;
+            background-color: ${color};
+            margin: ${margin};
+            border-radius: 100%;
+            transform: translate(0, ${-size / 4}${sizeUnit});
+            position: absolute;
+            top: 25px;
+            left: 100px;
+            animation: ${this.ball()} 1s ${i * 0.25}s infinite linear;
+            animation-fill-mode: both;
+        }`;
+    };
+
+    s1 = () => {
+      const { size, sizeUnit } = this.props;
+
+      return `${size}${sizeUnit} solid transparent`;
+    };
+
+    s2 = () => {
+      const { size, sizeUnit, color } = this.props;
+
+      return `${size}${sizeUnit} solid ${color}`;
+    };
+
+    pacmanStyle = i => {
+      const { size, sizeUnit } = this.props;
+
+      return css`{
+            width: 0;
+            height: 0;
+            border-right: ${this.s1()};
+            border-top: ${i === 0 ? this.s1() : this.s2()};
+            border-left: ${this.s2()};
+            border-bottom: ${i === 0 ? this.s2() : this.s1()};
+            border-radius: ${size}${sizeUnit};
+            position: absolute;
+            animation: ${pacman[i]} 0.8s infinite ease-in-out;
+            animation-fill-mode: both;
+        }`;
+    };
+
+    wrapper = () => {
+      const { size, sizeUnit } = this.props;
+
+      return css`{
+            position: relative;
+            font-size: 0;
+            height: ${size}${sizeUnit};
+            width: ${size}${sizeUnit};
+        }`;
+    };
 
   pac = () => this.pacmanStyle(0);
   man = () => this.pacmanStyle(1);
 
   render() {
-    return this.props.loading ?
-      <div className={styleLoader(this.wrapper(), this.props.loaderStyle)}>
+    const { loading } = this.props;
+
+    return loading ?
+      <div className={this.wrapper()}>
         <div className={this.pac()} />
         <div className={this.man()} />
         <div className={this.ballStyle(2)} />
@@ -75,7 +104,6 @@ class Loader extends React.Component {
 }
 
 Loader.propTypes = {
-  loaderStyle: PropTypes.shape(),
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
@@ -84,7 +112,6 @@ Loader.propTypes = {
 };
 
 Loader.defaultProps = {
-  loaderStyle: {},
   loading: true,
   color: '#000000',
   size: 25,
@@ -92,6 +119,6 @@ Loader.defaultProps = {
   sizeUnit: 'px'
 };
 
-const Component = onlyUpdateForKeys(['loaderStyle', 'loading', 'color', 'size', 'margin', 'sizeUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin', 'sizeUnit'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

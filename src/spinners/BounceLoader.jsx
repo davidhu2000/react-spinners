@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
 import { onlyUpdateForKeys } from 'recompose';
-import { styleLoader } from '../helpers';
 
 const bounce = keyframes`
   0%, 100% {transform: scale(0)} 
@@ -10,35 +9,44 @@ const bounce = keyframes`
 `;
 
 class Loader extends React.Component {
-  style = i => css`{
-        position: absolute;
-        width: ${this.props.size + this.props.sizeUnit};
-        height: ${this.props.size + this.props.sizeUnit};
-        background-color: ${this.props.color};
-        border-radius: 100%;
-        opacity: 0.6;        
-        top: 0;
-        left: 0;
-        animation-fill-mode: both;
-        animation: ${bounce} 2.1s ${i === 1 ? '1s' : '0s'} infinite ease-in-out;
-    }`;
+    style = i => {
+      const { size, color, sizeUnit } = this.props;
 
-  wrapper = () => css`{        
-        position: relative;
-        width: ${this.props.size + this.props.sizeUnit};
-        height: ${this.props.size + this.props.sizeUnit};
-    }`;
-  render() {
-    return this.props.loading ?
-      <div className={styleLoader(this.wrapper(), this.props.loaderStyle)}>
-        <div className={this.style(1)} />
-        <div className={this.style(2)} />
-      </div> : null;
-  }
+      return css`{
+            position: absolute;
+            height: ${size}${sizeUnit};
+            width: ${size}${sizeUnit};
+            background-color: ${color};
+            border-radius: 100%;
+            opacity: 0.6;        
+            top: 0;
+            left: 0;
+            animation-fill-mode: both;
+            animation: ${bounce} 2.1s ${i === 1 ? '1s' : '0s'} infinite ease-in-out;
+        }`;
+    };
+
+    wrapper = () => {
+      const { size, sizeUnit } = this.props;
+
+      return css`{        
+            position: relative;
+            width: ${size}${sizeUnit};
+            height: ${size}${sizeUnit};
+        }`;
+    };
+    render() {
+      const { loading } = this.props;
+
+      return loading ?
+        <div className={this.wrapper()}>
+          <div className={this.style(1)} />
+          <div className={this.style(2)} />
+        </div> : null;
+    }
 }
 
 Loader.propTypes = {
-  loaderStyle: PropTypes.shape(),
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
@@ -46,13 +54,12 @@ Loader.propTypes = {
 };
 
 Loader.defaultProps = {
-  loaderStyle: {},
   loading: true,
   color: '#000000',
   size: 60,
   sizeUnit: 'px'
 };
 
-const Component = onlyUpdateForKeys(['loaderStyle', 'loading', 'color', 'size', 'sizeUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

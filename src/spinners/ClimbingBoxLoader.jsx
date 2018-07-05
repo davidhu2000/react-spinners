@@ -19,41 +19,53 @@ const climbingBox = keyframes`
 `;
 
 class Loader extends React.Component {
-  style = () => css`{   
-        position: absolute;
-        left: 0;
-        bottom: -0.1em;
-        height: 1em;
-        width: 1em;
-        background-color: transparent;
-        border-radius: 15%;
-        border: 0.25em solid ${this.props.color};
-        transform: translate(0, -1em) rotate(-45deg);
-        animation-fill-mode: both;
-        animation: ${climbingBox} 2.5s infinite cubic-bezier(.79, 0, .47, .97);
-    }`;
+    style = () => {
+      const { color } = this.props;
 
-  wrapper = () => css`{        
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -2.7em;
-        margin-left: -2.7em;
-        width: 5.4em;
-        height: 5.4em;
-        font-size: ${this.props.size + this.props.sizeUnit};
-    }`;
+      return css`{   
+            position: absolute;
+            left: 0;
+            bottom: -0.1em;
+            height: 1em;
+            width: 1em;
+            background-color: transparent;
+            border-radius: 15%;
+            border: 0.25em solid ${color};
+            transform: translate(0, -1em) rotate(-45deg);
+            animation-fill-mode: both;
+            animation: ${climbingBox} 2.5s infinite cubic-bezier(.79, 0, .47, .97);
+        }`;
+    };
+
+    wrapper = () => {
+      const { size, sizeUnit } = this.props;
+
+      return css`{        
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -2.7em;
+            margin-left: -2.7em;
+            width: 5.4em;
+            height: 5.4em;
+            font-size: ${size}${sizeUnit};
+        }`;
+    };
 
 
-  hill = () => css`{
-        position: absolute;
-        width: 7.1em;
-        height: 7.1em;
-        top: 1.7em;
-        left: 1.7em;
-        border-left: 0.25em solid ${this.props.color};
-        transform: rotate(45deg);
-    }`;
+    hill = () => {
+      const { color } = this.props;
+
+      return css`{
+            position: absolute;
+            width: 7.1em;
+            height: 7.1em;
+            top: 1.7em;
+            left: 1.7em;
+            border-left: 0.25em solid ${color};
+            transform: rotate(45deg);
+        }`;
+    };
 
   container = css`{
         position: relative;
@@ -62,7 +74,9 @@ class Loader extends React.Component {
     }`;
 
   render() {
-    return this.props.loading ?
+    const { loading } = this.props;
+
+    return loading ?
       <div className={this.container}>
         <div className={styleLoader(this.wrapper(), this.props.loaderStyle)}>
           <div className={this.style()} />

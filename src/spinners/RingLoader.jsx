@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
 import { onlyUpdateForKeys } from 'recompose';
-import { styleLoader } from '../helpers';
 
 const right = keyframes`
   0% {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)}
@@ -16,37 +15,46 @@ const left = keyframes`
 
 
 class Loader extends React.Component {
-  style = i => css`{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: ${this.props.size.toString() + this.props.sizeUnit};
-        height: ${this.props.size.toString() + this.props.sizeUnit};
-        border: ${(this.props.size / 10).toString() + this.props.sizeUnit} solid ${this.props.color};
-        opacity: 0.4;
-        border-radius: 100%;
-        animation-fill-mode: forwards;
-        perspective: 800px;
-        animation: ${i === 1 ? right : left} 2s 0s infinite linear;
-    }`;
+    style = i => {
+      const { size, sizeUnit, color } = this.props;
 
-  wrapper = () => css`{        
-        width: ${this.props.size.toString() + this.props.sizeUnit};
-        height: ${this.props.size.toString() + this.props.sizeUnit};
-        position: relative;
-    }`;
+      return css`{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: ${size}${sizeUnit};
+            height: ${size}${sizeUnit};
+            border: ${size / 10}${sizeUnit} solid ${color};
+            opacity: 0.4;
+            border-radius: 100%;
+            animation-fill-mode: forwards;
+            perspective: 800px;
+            animation: ${i === 1 ? right : left} 2s 0s infinite linear;
+        }`;
+    };
 
-  render() {
-    return this.props.loading ?
-      <div className={styleLoader(this.wrapper(), this.props.loaderStyle)}>
-        <div className={this.style(1)} />
-        <div className={this.style(2)} />
-      </div> : null;
-  }
+    wrapper = () => {
+      const { size, sizeUnit } = this.props;
+
+      return css`{        
+            width: ${size}${sizeUnit};
+            height: ${size}${sizeUnit};
+            position: relative;
+        }`;
+    };
+
+    render() {
+      const { loading } = this.props;
+
+      return loading ?
+        <div className={this.wrapper()}>
+          <div className={this.style(1)} />
+          <div className={this.style(2)} />
+        </div> : null;
+    }
 }
 
 Loader.propTypes = {
-  loaderStyle: PropTypes.shape(),
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
@@ -54,7 +62,6 @@ Loader.propTypes = {
 };
 
 Loader.defaultProps = {
-  loaderStyle: {},
   loading: true,
   color: '#000000',
   size: 60,

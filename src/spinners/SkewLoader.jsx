@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
 import { onlyUpdateForKeys } from 'recompose';
-import { styleLoader } from '../helpers';
 
 const skew = keyframes`
   25% {transform: perspective(100px) rotateX(180deg) rotateY(0)}
@@ -12,29 +11,30 @@ const skew = keyframes`
 `;
 
 class Loader extends React.Component {
-  style = () => css`{
-        width: 0;
-        height: 0;
-        border-left: ${this.props.size + this.props.sizeUnit} solid transparent;
-        border-right: ${this.props.size + this.props.sizeUnit} solid transparent;
-        border-bottom: ${this.props.size + this.props.sizeUnit} solid ${this.props.color};
-        display: inline-block;
-        animation: ${skew} 3s 0s infinite cubic-bezier(.09,.57,.49,.9);
-        animation-fill-mode: both;
-    }`;
+    style = () => {
+      const { size, sizeUnit, color } = this.props;
 
-  wrapper = () => css`{        
-    }`
+      return css`{
+            width: 0;
+            height: 0;
+            border-left: ${size}${sizeUnit} solid transparent;
+            border-right: ${size}${sizeUnit} solid transparent;
+            border-bottom: ${size}${sizeUnit} solid ${color};
+            display: inline-block;
+            animation: ${skew} 3s 0s infinite cubic-bezier(.09,.57,.49,.9);
+            animation-fill-mode: both;
+        }`;
+    };
 
-  render() {
-    return this.props.loading ?
-      <div className={styleLoader(this.style(), this.props.loaderStyle)} />
-      : null;
-  }
+    render() {
+      const { loading } = this.props;
+
+      return loading ?
+        <div className={this.style()} /> : null;
+    }
 }
 
 Loader.propTypes = {
-  loaderStyle: PropTypes.shape(),
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
@@ -42,13 +42,12 @@ Loader.propTypes = {
 };
 
 Loader.defaultProps = {
-  loaderStyle: {},
   loading: true,
   color: '#000000',
   size: 20,
   sizeUnit: 'px'
 };
 
-const Component = onlyUpdateForKeys(['loaderStyle', 'loading', 'color', 'size'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

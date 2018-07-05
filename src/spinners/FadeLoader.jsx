@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
 import { onlyUpdateForKeys } from 'recompose';
-import { styleLoader } from '../helpers';
 
 const fade = keyframes`
   50% {opacity: 0.3} 
@@ -10,17 +9,23 @@ const fade = keyframes`
 `;
 
 class Loader extends React.Component {
-  style = i => css`{
-        position: absolute;
-        width: ${this.props.width.toString() + this.props.widthUnit};
-        height: ${this.props.height.toString() + this.props.heightUnit};
-        margin: ${this.props.margin};
-        background-color: ${this.props.color};
-        border-radius: ${this.props.radius.toString() + this.props.radiusUnit};
-        transition: 2s;
-        animation-fill-mode: 'both';
-        animation: ${fade} 1.2s ${i * 0.12}s infinite ease-in-out;
-    }`;
+    style = i => {
+      const {
+        height, width, margin, color, radius, widthUnit, heightUnit, radiusUnit
+      } = this.props;
+
+      return css`{
+            position: absolute;
+            width: ${width}${widthUnit};
+            height: ${height}${heightUnit};            
+            margin: ${margin};
+            background-color: ${color};
+            border-radius: ${radius}${radiusUnit};
+            transition: 2s;
+            animation-fill-mode: 'both';
+            animation: ${fade} 1.2s ${i * 0.12}s infinite ease-in-out;
+        }`;
+    };
 
   radius = 20;
   quarter = (this.radius / 2) + (this.radius / 5.5);
@@ -82,8 +87,10 @@ class Loader extends React.Component {
         `;
 
   render() {
-    return this.props.loading ?
-      <div className={styleLoader(this.wrapper(), this.props.loaderStyle)}>
+    const { loading } = this.props;
+
+    return loading ?
+      <div className={this.wrapper()}>
         <div className={this.a()} />
         <div className={this.b()} />
         <div className={this.c()} />
@@ -97,7 +104,6 @@ class Loader extends React.Component {
 }
 
 Loader.propTypes = {
-  loaderStyle: PropTypes.shape(),
   loading: PropTypes.bool,
   color: PropTypes.string,
   height: PropTypes.number,
@@ -110,7 +116,6 @@ Loader.propTypes = {
 };
 
 Loader.defaultProps = {
-  loaderStyle: {},
   loading: true,
   color: '#000000',
   height: 15,
@@ -122,6 +127,6 @@ Loader.defaultProps = {
   radiusUnit: 'px'
 };
 
-const Component = onlyUpdateForKeys(['loaderStyle', 'loading', 'color', 'height', 'width', 'margin', 'radius', 'widthUnit', 'heightUnit', 'radiusUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'height', 'width', 'margin', 'radius', 'widthUnit', 'heightUnit', 'radiusUnit'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

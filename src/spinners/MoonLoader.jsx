@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
 import { onlyUpdateForKeys } from 'recompose';
-import { styleLoader } from '../helpers';
 
 const moon = keyframes`
   100% {transform: rotate(360deg)}
@@ -11,48 +10,65 @@ const moon = keyframes`
 class Loader extends React.Component {
   moonSize = () => this.props.size / 7;
 
-  ballStyle = size => css`{
-        width: ${size.toString() + this.props.sizeUnit};
-        height: ${size.toString() + this.props.sizeUnit};
-        border-radius: 100%;
-    }`;
+  ballStyle = size => {
+    const { sizeUnit } = this.props;
 
-  wrapper = () => css`{
-        position: relative;
-        width: ${(this.props.size + this.moonSize() * 2).toString() + this.props.sizeUnit};
-        height: ${(this.props.size + this.moonSize() * 2).toString() + this.props.sizeUnit};
-        animation: ${moon} 0.6s 0s infinite linear;
-        animation-fill-mode: forwards;
+    return css`{
+          width: ${size}${sizeUnit};
+          height: ${size}${sizeUnit};
+          border-radius: 100%;
+      }`;
+  };
 
-    }`;
+    wrapper = () => {
+      const { size, sizeUnit } = this.props;
 
-  ball = () => css`
-        ${this.ballStyle(this.moonSize())};
-        background-color: ${this.props.color};
-        opacity: 0.8;
-        position: absolute;
-        top: ${((this.props.size / 2) - (this.moonSize() / 2)).toString() + this.props.sizeUnit};
-        animation: ${moon} 0.6s 0s infinite linear;
-        animation-fill-mode: forwards;
-    `;
-    
-  circle = () => css`
-        ${this.ballStyle(this.props.size)};
-        border: ${this.moonSize()}px solid ${this.props.color};
-        opacity: 0.1;
-    `;
+      return css`{
+            position: relative;
+            width: ${size + (this.moonSize() * 2)}${sizeUnit};
+            height: ${size + (this.moonSize() * 2)}${sizeUnit};
+            animation: ${moon} 0.6s 0s infinite linear;
+            animation-fill-mode: forwards;
+        }`;
+    };
 
-  render() {
-    return this.props.loading ?
-      <div className={styleLoader(this.wrapper(), this.props.loaderStyle)}>
-        <div className={this.ball()} />
-        <div className={this.circle()} />
-      </div> : null;
-  }
+    ball = () => {
+      const { color, size, sizeUnit } = this.props;
+
+      return css`
+            composes: ${this.ballStyle(this.moonSize())};
+            background-color: ${color};
+            opacity: 0.8;
+            position: absolute;
+            top: ${(size / 2) - (this.moonSize() / 2)}${sizeUnit};
+            animation: ${moon} 0.6s 0s infinite linear;
+            animation-fill-mode: forwards;
+        `;
+    };
+
+
+    circle = () => {
+      const { size, color } = this.props;
+
+      return css`
+            composes: ${this.ballStyle(size)};
+            border: ${this.moonSize()}px solid ${color};
+            opacity: 0.1;
+        `;
+    };
+
+    render() {
+      const { loading } = this.props;
+
+      return loading ?
+        <div className={this.wrapper()}>
+          <div className={this.ball()} />
+          <div className={this.circle()} />
+        </div> : null;
+    }
 }
 
 Loader.propTypes = {
-  loaderStyle: PropTypes.shape(),
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
@@ -67,6 +83,6 @@ Loader.defaultProps = {
   sizeUnit: 'px'
 };
 
-const Component = onlyUpdateForKeys(['loaderStyle', 'loading', 'color', 'size', 'sizeUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
