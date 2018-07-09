@@ -20,8 +20,8 @@ class Loader extends React.Component {
       return css`{
             display: inline-block;
             background-color: ${color};
-            width: ${size}${sizeUnit};
-            height: ${size}${sizeUnit};
+            width: ${`${size}${sizeUnit}`};
+            height: ${`${size}${sizeUnit}`};
             margin: ${margin};
             border-radius: 100%;
             animation-fill-mode: 'both';
@@ -30,12 +30,16 @@ class Loader extends React.Component {
     };
 
     wrapper = () => {
-      const { size, sizeUnit, margin } = this.props;
+      const {
+        size, sizeUnit, margin, className
+      } = this.props;
 
-      return css`{        
-            width: ${(parseFloat(size) * 3) + (parseFloat(margin) * 6)}${sizeUnit};
+      const wrapper = css`{        
+            width: ${`${(parseFloat(size) * 3) + (parseFloat(margin) * 6)}${sizeUnit}`};
             font-size: 0;
         }`;
+
+      return className ? css`${wrapper};${className}` : wrapper;
     };
 
 
@@ -62,7 +66,8 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   margin: PropTypes.string,
-  sizeUnit: PropTypes.string
+  sizeUnit: PropTypes.string,
+  className: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -70,10 +75,11 @@ Loader.defaultProps = {
   color: '#000000',
   size: 15,
   margin: '2px',
-  sizeUnit: 'px'
+  sizeUnit: 'px',
+  className: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin', 'sizeUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin', 'sizeUnit', 'className'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
 

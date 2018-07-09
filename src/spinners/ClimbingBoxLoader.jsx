@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
 import { onlyUpdateForKeys } from 'recompose';
-import { styleLoader } from '../helpers';
 
 const climbingBox = keyframes`
   0% {transform:translate(0, -1em) rotate(-45deg)} 
@@ -48,7 +47,7 @@ class Loader extends React.Component {
             margin-left: -2.7em;
             width: 5.4em;
             height: 5.4em;
-            font-size: ${size}${sizeUnit};
+            font-size: ${`${size}${sizeUnit}`};
         }`;
     };
 
@@ -67,18 +66,24 @@ class Loader extends React.Component {
         }`;
     };
 
-  container = css`{
-        position: relative;
-        width: 7.1em;
-        height: 7.1em;
-    }`;
+  container = () => {
+    const { className } = this.props;
+
+    const container = css`{
+            position: relative;
+            width: 7.1em;
+            height: 7.1em;
+        }`;
+
+    return className ? css`${container};${className}` : container;
+  };
 
   render() {
     const { loading } = this.props;
 
     return loading ?
-      <div className={this.container}>
-        <div className={styleLoader(this.wrapper(), this.props.loaderStyle)}>
+      <div className={this.container()}>
+        <div className={this.wrapper()}>
           <div className={this.style()} />
           <div className={this.hill()} />
         </div>
@@ -87,21 +92,21 @@ class Loader extends React.Component {
 }
 
 Loader.propTypes = {
-  loaderStyle: PropTypes.shape(),
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
-  sizeUnit: PropTypes.string
+  sizeUnit: PropTypes.string,
+  className: PropTypes.string
 };
 
 Loader.defaultProps = {
-  loaderStyle: {},
   loading: true,
   color: '#000000',
   size: 15,
-  sizeUnit: 'px'
+  sizeUnit: 'px',
+  className: ''
 };
 
-const Component = onlyUpdateForKeys(['loaderStyle', 'loading', 'color', 'size', 'sizeUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'className'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

@@ -27,6 +27,7 @@
     "progress",
     "activity"
   ],
+  "main": "dist/index.js",
   "scripts": {
     "prepublish": "babel --plugins transform-es2015-modules-umd src --ignore __tests__ --out-dir ./dist",
     "lint": "eslint ./src  --ext .js,.jsx",
@@ -74,6 +75,6 @@
     "emotion": "^9.1.1",
     "prop-types": "^15.5.10",
     "react-emotion": "^9.1.1",
-    "recompose": "0.26.0"
+    "recompose": "0.27.1"
   }
 }

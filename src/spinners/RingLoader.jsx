@@ -22,9 +22,9 @@ class Loader extends React.Component {
             position: absolute;
             top: 0;
             left: 0;
-            width: ${size}${sizeUnit};
-            height: ${size}${sizeUnit};
-            border: ${size / 10}${sizeUnit} solid ${color};
+            width: ${`${size}${sizeUnit}`};
+            height: ${`${size}${sizeUnit}`};
+            border: ${`${size / 10}${sizeUnit}`} solid ${color};
             opacity: 0.4;
             border-radius: 100%;
             animation-fill-mode: forwards;
@@ -34,13 +34,15 @@ class Loader extends React.Component {
     };
 
     wrapper = () => {
-      const { size, sizeUnit } = this.props;
+      const { size, sizeUnit, className } = this.props;
 
-      return css`{        
-            width: ${size}${sizeUnit};
-            height: ${size}${sizeUnit};
+      const wrapper = css`{        
+            width: ${`${size}${sizeUnit}`};
+            height: ${`${size}${sizeUnit}`};
             position: relative;
         }`;
+
+      return className ? css`${wrapper};${className}` : wrapper;
     };
 
     render() {
@@ -58,16 +60,18 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
-  sizeUnit: PropTypes.string
+  sizeUnit: PropTypes.string,
+  className: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
   size: 60,
-  sizeUnit: 'px'
+  sizeUnit: 'px',
+  className: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'className'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

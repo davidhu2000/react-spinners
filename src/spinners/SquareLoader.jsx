@@ -12,16 +12,20 @@ const square = keyframes`
 
 class Loader extends React.Component {
     style = () => {
-      const { color, size, sizeUnit } = this.props;
+      const {
+        color, size, sizeUnit, className
+      } = this.props;
 
-      return css`{
+      const style = css`{
             background-color: ${color};
-            width: ${size}${sizeUnit};
-            height: ${size}${sizeUnit};
+            width: ${`${size}${sizeUnit}`};
+            height: ${`${size}${sizeUnit}`};
             display: inline-block;
             animation: ${square} 3s 0s infinite cubic-bezier(.09,.57,.49,.9);
             animation-fill-mode: both;
         }`;
+
+      return className ? css`${style};${className}` : style;
     };
 
     render() {
@@ -36,16 +40,18 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
-  sizeUnit: PropTypes.string
+  sizeUnit: PropTypes.string,
+  className: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
   size: 50,
-  sizeUnit: 'px'
+  sizeUnit: 'px',
+  className: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'className'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

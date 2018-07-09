@@ -32,7 +32,7 @@ Make or add changes, commit your changes:
 
 Make sure to run the necessary tests and lints and fix any errors:
 
-    npm run lint;
+    npm run lintfix;
 
 Push up to Github:
 

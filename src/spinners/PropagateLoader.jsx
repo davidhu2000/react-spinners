@@ -49,9 +49,9 @@ class Loader extends React.Component {
 
       return css`{
             position: absolute;
-            font-size: ${size / 3}${sizeUnit};
-            width: ${size}${sizeUnit};
-            height: ${size}${sizeUnit};
+            font-size: ${`${size / 3}${sizeUnit}`};
+            width: ${`${size}${sizeUnit}`};
+            height: ${`${size}${sizeUnit}`};
             background: ${color};
             border-radius: 50%;
             animation: ${propagate[i]} 1.5s  infinite;
@@ -60,9 +60,15 @@ class Loader extends React.Component {
     };
 
 
-  wrapper = () => css`{
-        position: relative;
-    }`;
+  wrapper = () => {
+    const { className } = this.props;
+
+    const wrapper = css`{
+            position: relative;
+        }`;
+
+    return className ? css`${wrapper};${className}` : wrapper;
+  };
 
   render() {
     const { loading } = this.props;
@@ -83,16 +89,18 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   size: PropTypes.number,
   color: PropTypes.string,
-  sizeUnit: PropTypes.string
+  sizeUnit: PropTypes.string,
+  className: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   size: 15,
   color: '#000000',
-  sizeUnit: 'px'
+  sizeUnit: 'px',
+  className: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'className'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

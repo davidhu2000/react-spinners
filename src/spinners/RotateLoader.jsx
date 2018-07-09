@@ -24,20 +24,25 @@ class Loader extends React.Component {
 
       return css`{
             background-color: ${color};
-            width: ${size}${sizeUnit};
-            height: ${size}${sizeUnit};
+            width: ${`${size}${sizeUnit}`};
+            height: ${`${size}${sizeUnit}`};
             margin: ${margin};
             border-radius: 100%;
         }`;
     };
 
-  wrapper = () => css`
-        ${this.ball()};
-        display: inline-block;
-        position: relative;
-        animation-fill-mode: both;
-        animation: ${rotate} 1s 0s infinite cubic-bezier(.7,-.13,.22,.86);        
-    `;
+  wrapper = () => {
+    const { className } = this.props;
+
+    const wrapper = css`
+            ${this.ball()};
+            display: inline-block;
+            position: relative;
+            animation-fill-mode: both;
+            animation: ${rotate} 1s 0s infinite cubic-bezier(.7,-.13,.22,.86);        
+        `;
+    return className ? css`${wrapper};${className}` : wrapper;
+  };
 
   long = () => css`
         ${this.ball()};       
@@ -64,7 +69,8 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   margin: PropTypes.string,
-  sizeUnit: PropTypes.string
+  sizeUnit: PropTypes.string,
+  className: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -72,9 +78,10 @@ Loader.defaultProps = {
   color: '#000000',
   size: 15,
   margin: '2px',
-  sizeUnit: 'px'
+  sizeUnit: 'px',
+  className: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin', 'className'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

@@ -22,7 +22,7 @@ export class Loader extends React.Component {
 
       return css`{
             position: absolute;
-            height: ${height}${heightUnit};
+            height: ${`${height}${heightUnit}`};
             overflow: hidden;
             background-color: ${color};
             background-clip: padding-box;
@@ -36,17 +36,19 @@ export class Loader extends React.Component {
 
     wrapper = () => {
       const {
-        width, height, color, heightUnit, widthUnit
+        width, height, color, heightUnit, widthUnit, className
       } = this.props;
 
-      return css`{        
+      const wrapper = css`{        
             position: relative;
-            width: ${width}${widthUnit}px;
-            height: ${height}${heightUnit}px;
+            width: ${`${width}${widthUnit}`};
+            height: ${`${height}${heightUnit}`};
             overflow: hidden;
             background-color: ${calculateRgba(color, 0.2)};
             background-clip: padding-box;
         }`;
+
+      return className ? css`${wrapper};${className}` : wrapper;
     };
 
     render() {
@@ -66,7 +68,8 @@ Loader.propTypes = {
   width: PropTypes.number,
   widthUnit: PropTypes.string,
   height: PropTypes.number,
-  heightUnit: PropTypes.string
+  heightUnit: PropTypes.string,
+  className: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -75,9 +78,10 @@ Loader.defaultProps = {
   width: 100,
   widthUnit: 'px',
   height: 4,
-  heightUnit: 'px'
+  heightUnit: 'px',
+  className: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'width', 'height', 'heightUnit', 'widthUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'width', 'height', 'heightUnit', 'widthUnit', 'className'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

@@ -16,11 +16,11 @@ class Loader extends React.Component {
 
       return css`{
             position: absolute;
-            width: ${width}${widthUnit};
-            height: ${height}${heightUnit};            
+            width: ${`${width}${widthUnit}`};
+            height: ${`${height}${heightUnit}`};            
             margin: ${margin};
             background-color: ${color};
-            border-radius: ${radius}${radiusUnit};
+            border-radius: ${`${radius}${radiusUnit}`};
             transition: 2s;
             animation-fill-mode: 'both';
             animation: ${fade} 1.2s ${i * 0.12}s infinite ease-in-out;
@@ -30,14 +30,20 @@ class Loader extends React.Component {
   radius = 20;
   quarter = (this.radius / 2) + (this.radius / 5.5);
 
-  wrapper = () => css`{        
-        position: relative;
-        font-size: 0;
-        top: ${this.radius}px;
-        left: ${this.radius}px;
-        width: ${this.radius * 3}px;
-        height: ${this.radius * 3}px;
-    }`;
+  wrapper = () => {
+    const { className } = this.props;
+
+    const wrapper = css`{        
+            position: relative;
+            font-size: 0;
+            top: ${this.radius}px;
+            left: ${this.radius}px;
+            width: ${this.radius * 3}px;
+            height: ${this.radius * 3}px;
+        }`;
+
+    return className ? css`${wrapper};${className}` : wrapper;
+  };
 
   a = () => css`
           ${this.style(1)};
@@ -112,7 +118,8 @@ Loader.propTypes = {
   radius: PropTypes.number,
   heightUnit: PropTypes.string,
   widthUnit: PropTypes.string,
-  radiusUnit: PropTypes.string
+  radiusUnit: PropTypes.string,
+  className: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -124,9 +131,10 @@ Loader.defaultProps = {
   radius: 2,
   widthUnit: 'px',
   heightUnit: 'px',
-  radiusUnit: 'px'
+  radiusUnit: 'px',
+  className: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'height', 'width', 'margin', 'radius', 'widthUnit', 'heightUnit', 'radiusUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'height', 'width', 'margin', 'radius', 'widthUnit', 'heightUnit', 'radiusUnit', 'className'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

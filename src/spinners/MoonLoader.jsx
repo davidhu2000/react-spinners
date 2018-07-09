@@ -8,14 +8,18 @@ const moon = keyframes`
 `;
 
 class Loader extends React.Component {
-  moonSize = () => this.props.size / 7;
+    moonSize = () => {
+      const { size } = this.props;
+
+      return size / 7;
+    };
 
   ballStyle = size => {
     const { sizeUnit } = this.props;
 
     return css`{
-          width: ${size}${sizeUnit};
-          height: ${size}${sizeUnit};
+          width: ${`${size}${sizeUnit}`};
+          height: ${`${size}${sizeUnit}`};
           border-radius: 100%;
       }`;
   };
@@ -25,8 +29,8 @@ class Loader extends React.Component {
 
       return css`{
             position: relative;
-            width: ${size + (this.moonSize() * 2)}${sizeUnit};
-            height: ${size + (this.moonSize() * 2)}${sizeUnit};
+            width: ${`${size + (this.moonSize() * 2)}${sizeUnit}`};
+            height: ${`${size + (this.moonSize() * 2)}${sizeUnit}`};
             animation: ${moon} 0.6s 0s infinite linear;
             animation-fill-mode: forwards;
         }`;
@@ -36,11 +40,11 @@ class Loader extends React.Component {
       const { color, size, sizeUnit } = this.props;
 
       return css`
-            composes: ${this.ballStyle(this.moonSize())};
+            ${this.ballStyle(this.moonSize())};
             background-color: ${color};
             opacity: 0.8;
             position: absolute;
-            top: ${(size / 2) - (this.moonSize() / 2)}${sizeUnit};
+            top: ${`${(size / 2) - (this.moonSize() / 2)}${sizeUnit}`};
             animation: ${moon} 0.6s 0s infinite linear;
             animation-fill-mode: forwards;
         `;
@@ -48,13 +52,15 @@ class Loader extends React.Component {
 
 
     circle = () => {
-      const { size, color } = this.props;
+      const { size, color, className } = this.props;
 
-      return css`
-            composes: ${this.ballStyle(size)};
+      const wrapper = css`
+            ${this.ballStyle(size)};
             border: ${this.moonSize()}px solid ${color};
             opacity: 0.1;
         `;
+
+      return className ? css`${wrapper};${className}` : wrapper;
     };
 
     render() {
@@ -72,7 +78,8 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
-  sizeUnit: PropTypes.string
+  sizeUnit: PropTypes.string,
+  className: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -80,9 +87,10 @@ Loader.defaultProps = {
   loading: true,
   color: '#000000',
   size: 60,
-  sizeUnit: 'px'
+  sizeUnit: 'px',
+  className: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'className'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

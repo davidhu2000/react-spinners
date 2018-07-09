@@ -17,7 +17,7 @@ class Loader extends React.Component {
 
       return (size - this.thickness()) / 2;
     };
-  offset = () => this.lat() - this.thickness();
+    offset = () => this.lat() - this.thickness();
     color = () => {
       const { color } = this.props;
 
@@ -27,22 +27,32 @@ class Loader extends React.Component {
     before = () => {
       const { size, sizeUnit } = this.props;
 
+      const color = this.color();
+      const lat = this.lat();
+      const thickness = this.thickness();
+      const offset = this.offset();
+
       return keyframes`
-          0% {width: ${this.thickness()}px;box-shadow: ${this.lat()}px ${-this.offset}px ${this.color()}, ${-this.lat()}px ${this.offset}px ${this.color()}} 
-          35% {width: ${size}${sizeUnit};box-shadow: 0 ${-this.offset}px ${this.color()}, 0 ${this.offset}px ${this.color()}}
-          70% {width: ${this.thickness()}px;box-shadow: ${-this.lat()}px ${-this.offset}px ${this.color()}, ${this.lat()}px ${this.offset}px ${this.color()}}
-          100% {box-shadow: ${this.lat()}px ${-this.offset}px ${this.color()}, ${-this.lat()}px ${this.offset}px ${this.color()}}
+          0% {width: ${thickness}px;box-shadow: ${lat}px ${-offset}px ${color}, ${-lat}px ${offset}px ${color}} 
+          35% {width: ${`${size}${sizeUnit}`};box-shadow: 0 ${-offset}px ${color}, 0 ${offset}px ${color}}
+          70% {width: ${thickness}px;box-shadow: ${-lat}px ${-offset}px ${color}, ${lat}px ${offset}px ${color}}
+          100% {box-shadow: ${lat}px ${-offset}px ${color}, ${-lat}px ${offset}px ${color}}
         `;
     };
 
     after = () => {
       const { size, sizeUnit } = this.props;
 
+      const color = this.color();
+      const lat = this.lat();
+      const thickness = this.thickness();
+      const offset = this.offset();
+
       return keyframes`
-          0% {height: ${this.thickness()}px;box-shadow: ${this.offset}px ${this.lat()}px ${this.color()}, ${-this.offset}px ${-this.lat()}px ${this.color()}} 
-          35% {height: ${size}${sizeUnit};box-shadow: ${this.offset}px 0 ${this.color()}, ${-this.offset}px 0 ${this.color()}}
-          70% {height: ${this.thickness()}px;box-shadow: ${this.offset}px ${-this.lat()}px ${this.color()}, ${-this.offset}px ${this.lat()}px ${this.color()}}
-          100% {box-shadow: ${this.offset}px ${this.lat()}px ${this.color()}, ${-this.offset}px ${-this.lat()}px ${this.color()}}
+          0% {height: ${thickness}px;box-shadow: ${offset}px ${lat}px ${color}, ${-offset}px ${-lat}px ${color}} 
+          35% {height: ${`${size}${sizeUnit}`};box-shadow: ${offset}px 0 ${color}, ${-offset}px 0 ${color}}
+          70% {height: ${thickness}px;box-shadow: ${offset}px ${-lat}px ${color}, ${-offset}px ${lat}px ${color}}
+          100% {box-shadow: ${offset}px ${lat}px ${color}, ${-offset}px ${-lat}px ${color}}
         `;
     };
 
@@ -55,9 +65,9 @@ class Loader extends React.Component {
             top: 50%;
             left: 50%;
             display: block;
-            width: ${size / 5}${sizeUnit};
-            height: ${size / 5}${sizeUnit};
-            border-radius: ${size / 10}${sizeUnit};
+            width: ${`${size / 5}${sizeUnit}`};
+            height: ${`${size / 5}${sizeUnit}`};
+            border-radius: ${`${size / 10}${sizeUnit}`};
             transform: translate(-50%, -50%);
             animation-fill-mode: none;
             animation: ${i === 1 ? this.before() : this.after()} 2s infinite;
@@ -65,14 +75,16 @@ class Loader extends React.Component {
     };
 
     wrapper = () => {
-      const { size, sizeUnit } = this.props;
+      const { size, sizeUnit, className } = this.props;
 
-      return css`{        
+      const wrapper = css`{        
             position: relative;
-            width: ${size}${sizeUnit};
-            height: ${size}${sizeUnit};
+            width: ${`${size}${sizeUnit}`};
+            height: ${`${size}${sizeUnit}`};
             transform: rotate(165deg);
         }`;
+
+      return className ? css`${wrapper};${className}` : wrapper;
     };
 
     render() {
@@ -90,17 +102,19 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   size: PropTypes.number,
   color: PropTypes.string,
-  sizeUnit: PropTypes.string
+  sizeUnit: PropTypes.string,
+  className: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   size: 50,
   color: '#000000',
-  sizeUnit: 'px'
+  sizeUnit: 'px',
+  className: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'className'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
 

@@ -12,18 +12,22 @@ const skew = keyframes`
 
 class Loader extends React.Component {
     style = () => {
-      const { size, sizeUnit, color } = this.props;
+      const {
+        size, sizeUnit, color, className
+      } = this.props;
 
-      return css`{
+      const style = css`{
             width: 0;
             height: 0;
-            border-left: ${size}${sizeUnit} solid transparent;
-            border-right: ${size}${sizeUnit} solid transparent;
-            border-bottom: ${size}${sizeUnit} solid ${color};
+            border-left: ${`${size}${sizeUnit}`} solid transparent;
+            border-right: ${`${size}${sizeUnit}`} solid transparent;
+            border-bottom: ${`${size}${sizeUnit}`} solid ${color};
             display: inline-block;
             animation: ${skew} 3s 0s infinite cubic-bezier(.09,.57,.49,.9);
             animation-fill-mode: both;
         }`;
+
+      return className ? css`${style};${className}` : style;
     };
 
     render() {
@@ -38,16 +42,18 @@ Loader.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
-  sizeUnit: PropTypes.string
+  sizeUnit: PropTypes.string,
+  className: PropTypes.string
 };
 
 Loader.defaultProps = {
   loading: true,
   color: '#000000',
   size: 20,
-  sizeUnit: 'px'
+  sizeUnit: 'px',
+  className: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'className'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
