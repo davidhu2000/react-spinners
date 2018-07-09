@@ -36611,7 +36611,7 @@ var _emotion = __webpack_require__(9);
 
 var _recompose = __webpack_require__(10);
 
-var _helpers = __webpack_require__(195);
+var _index = __webpack_require__(195);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36658,7 +36658,7 @@ var Loader = exports.Loader = function (_React$Component) {
           className = _this$props2.className;
 
 
-      var wrapper = /*#__PURE__*/(0, _emotion.css)('{position:relative;width:', '' + width + widthUnit, ';height:', '' + height + heightUnit, ';overflow:hidden;background-color:', (0, _helpers.calculateRgba)(color, 0.2), ';background-clip:padding-box;}');
+      var wrapper = /*#__PURE__*/(0, _emotion.css)('{position:relative;width:', '' + width + widthUnit, ';height:', '' + height + heightUnit, ';overflow:hidden;background-color:', (0, _index.calculateRgba)(color, 0.2), ';background-clip:padding-box;}');
 
       return className ? /*#__PURE__*/(0, _emotion.css)(wrapper, ';', className) : wrapper;
     }, _temp), _possibleConstructorReturn(_this, _ret);
@@ -40276,7 +40276,7 @@ var _emotion = __webpack_require__(9);
 
 var _recompose = __webpack_require__(10);
 
-var _helpers = __webpack_require__(195);
+var _index = __webpack_require__(195);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -40316,7 +40316,7 @@ var Loader = function (_React$Component) {
       var color = _this.props.color;
 
 
-      return (0, _helpers.calculateRgba)(color, 0.75);
+      return (0, _index.calculateRgba)(color, 0.75);
     }, _this.before = function () {
       var _this$props = _this.props,
           size = _this$props.size,
