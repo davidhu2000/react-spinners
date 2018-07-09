@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
 import { onlyUpdateForKeys } from 'recompose';
-import { calculateRgba } from '../helpers';
+import { calculateRgba } from './helpers/index';
 
 const long = keyframes`
   0% {left: -35%;right: 100%} 
