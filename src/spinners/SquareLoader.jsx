@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
 import { onlyUpdateForKeys } from 'recompose';
+import { styleLoader } from '../helpers';
 
 const square = keyframes`
   25% {transform: rotateX(180deg) rotateY(0)}
@@ -22,11 +23,13 @@ class Loader extends React.Component {
 
   render() {
     return this.props.loading ?
-      <div className={this.style()} /> : null;
+      <div className={styleLoader(this.style(), this.props.loaderStyle)} />
+      : null;
   }
 }
 
 Loader.propTypes = {
+  loaderStyle: PropTypes.shape(),
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
@@ -34,12 +37,13 @@ Loader.propTypes = {
 };
 
 Loader.defaultProps = {
+  loaderStyle: {},
   loading: true,
   color: '#000000',
   size: 50,
   sizeUnit: 'px'
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loaderStyle', 'loading', 'color', 'size', 'sizeUnit'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

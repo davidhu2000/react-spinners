@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
 import { onlyUpdateForKeys } from 'recompose';
+import { styleLoader } from '../helpers';
 
 // 1.5 4.5 7.5
 let distance = [1, 3, 5];
@@ -62,7 +63,7 @@ class Loader extends React.Component {
 
   render() {
     return this.props.loading ?
-      <div className={this.wrapper()}>
+      <div className={styleLoader(this.wrapper(), this.props.loaderStyle)}>
         <div className={this.style(0)} />
         <div className={this.style(1)} />
         <div className={this.style(2)} />
@@ -74,6 +75,7 @@ class Loader extends React.Component {
 }
 
 Loader.propTypes = {
+  loaderStyle: PropTypes.shape(),
   loading: PropTypes.bool,
   size: PropTypes.number,
   color: PropTypes.string,
@@ -81,12 +83,13 @@ Loader.propTypes = {
 };
 
 Loader.defaultProps = {
+  loaderStyle: {},
   loading: true,
   size: 15,
   color: '#000000',
   sizeUnit: 'px'
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loaderStyle', 'loading', 'color', 'size', 'sizeUnit'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

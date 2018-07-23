@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
 import { onlyUpdateForKeys } from 'recompose';
+import { styleLoader } from '../helpers';
 
 // This returns an animation
 const pacman = [
@@ -22,15 +23,15 @@ class Loader extends React.Component {
     `;
 
   ballStyle = i => css`{
-        width: 10px;
-        height: 10px;
+        width: ${(this.props.size / 2.5).toString() + this.props.sizeUnit};
+        height: ${(this.props.size / 2.5).toString() + this.props.sizeUnit};
         background-color: ${this.props.color};
         margin: ${this.props.margin};
         border-radius: 100%;
         transform: translate(0, ${(-this.props.size / 4).toString() + this.props.sizeUnit});
         position: absolute;
-        top: 25px;
-        left: 100px;
+        top: ${this.props.size.toString() + this.props.sizeUnit};
+        left: ${(this.props.size * 4).toString() + this.props.sizeUnit};
         animation: ${this.ball()} 1s ${i * 0.25}s infinite linear;
         animation-fill-mode: both;
     }`;
@@ -62,7 +63,7 @@ class Loader extends React.Component {
 
   render() {
     return this.props.loading ?
-      <div className={this.wrapper()}>
+      <div className={styleLoader(this.wrapper(), this.props.loaderStyle)}>
         <div className={this.pac()} />
         <div className={this.man()} />
         <div className={this.ballStyle(2)} />
@@ -74,6 +75,7 @@ class Loader extends React.Component {
 }
 
 Loader.propTypes = {
+  loaderStyle: PropTypes.shape(),
   loading: PropTypes.bool,
   color: PropTypes.string,
   size: PropTypes.number,
@@ -82,6 +84,7 @@ Loader.propTypes = {
 };
 
 Loader.defaultProps = {
+  loaderStyle: {},
   loading: true,
   color: '#000000',
   size: 25,
@@ -89,6 +92,6 @@ Loader.defaultProps = {
   sizeUnit: 'px'
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin', 'sizeUnit'])(Loader);
+const Component = onlyUpdateForKeys(['loaderStyle', 'loading', 'color', 'size', 'margin', 'sizeUnit'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
