@@ -44,7 +44,7 @@ class Loader extends React.Component {
 
   render() {
     return this.props.loading ?
-      <div className={styleLoader(this.style(), this.props.loaderStyle)}>
+      <div className={styleLoader(this.wrapper(), this.props.loaderStyle)}>
         <div className={this.ball()} />
         <div className={this.circle()} />
       </div> : null;
