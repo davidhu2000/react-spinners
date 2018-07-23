@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.3.3
+
+- Add `loaderStyle` prop to loaders to allow more customized loader.
+
 ## 0.3.2
 
 - **bugfix**: fixed rendering issue for FadeLoader, SyncLoader, RotateLoader, and MoonLoader
