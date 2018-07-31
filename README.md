@@ -75,6 +75,13 @@ class AwesomeComponent extends React.Component {
 ```js
 import React from 'react';
 import { RingLoader } from 'react-spinners';
+import {css} from 'react-emotion';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
 
 class AwesomeComponent extends React.Component {
   constructor(props) {
@@ -87,7 +94,7 @@ class AwesomeComponent extends React.Component {
     return (
       <div className='sweet-loading'>
         <ClipLoader
-          loaderStyle={{display: "block", margin: "0 auto", borderColor: 'red'}}
+          className={override}
           sizeUnit={"px"}
           size={"150"}
           color={'#123abc'}
@@ -109,11 +116,14 @@ Common default props for all loaders:
 ```js
 loading: true
 color: '#000000'
-loaderStyle: {}
+className: ''
 ```
 Note:
-For loaderStyle, the resulting css will be the combination of the default props and the newly passed in css. This typically adjusts the css of the wrapper of the loader, not the actual loader properties themselves.  
-Instead of writing css properties in kebab-case like regular css, you write them in camelCase, for example background-color would be backgroundColor. You can find out more details [here](https://emotion.sh/docs/object-styles).
+`className` works exactly like the `className` works with the emotion package.
+You can directly write your css in css syntax without the dirty camelCase css in jss syntax.
+We recommend you to use this awesome library in your project. It supports Server side rendering with HTTP2 Stream! 
+More info about using className [here](https://emotion.sh/docs/css)
+
 
 
 Loader                  | size:int | height:int | width:int | radius:int | margin:str

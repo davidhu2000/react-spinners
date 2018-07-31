@@ -23,7 +23,7 @@ After finishing your feature, to update the `dist` folder, you can run:
 If you want to make changes to the demo page, you can edit the files in `examples` and `docs` folder.
 To see the changes, you can use `webpack` to update the bundle file.
 
-    webpack --watch
+    npm run watch
 
 Make or add changes, commit your changes:
 
