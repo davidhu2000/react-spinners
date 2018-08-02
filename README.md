@@ -89,7 +89,7 @@ class AwesomeComponent extends React.Component {
         <ClipLoader
           loaderStyle={{display: "block", margin: "0 auto", borderColor: 'red'}}
           sizeUnit={"px"}
-          size={"150"}
+          size={150}
           color={'#123abc'}
           loading={this.state.loading}
         />
