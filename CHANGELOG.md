@@ -25,6 +25,8 @@ All notable changes to this project will be documented in this file. This projec
 
 ## 0.3.3
 
+**Note: this release was deprecated through removing `loaderStyle` prop. Please update to 0.4.1 or higher.**
+
 - Add `loaderStyle` prop to loaders to allow more customized loader.
 
 ## 0.3.2
