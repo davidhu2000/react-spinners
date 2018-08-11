@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4.3
+
+- update readme to include unit props for each loader
+
 ## 0.4.2
 
 - fix single loader import.

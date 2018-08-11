@@ -96,7 +96,7 @@ You can directly write your css in css syntax without the dirty camelCase css in
 We recommend you to use this awesome library in your project. It supports Server side rendering with HTTP2 Stream! 
 More info about using className [here](https://emotion.sh/docs/css)
 
-
+For `size`, `height`, and `width` props, there are `sizeUnit`, `heightUnit`, and `widthUnit` prop that accepts `px`, `%`, or `em`. 
 
 Loader                  | size:int | height:int | width:int | radius:int | margin:str
 -----------------------:|:--------:|:----------:|:---------:|:----------:|:---------:
