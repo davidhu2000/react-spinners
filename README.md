@@ -68,7 +68,7 @@ class AwesomeComponent extends React.Component {
         <ClipLoader
           className={override}
           sizeUnit={"px"}
-          size={"150"}
+          size={150}
           color={'#123abc'}
           loading={this.state.loading}
         />
