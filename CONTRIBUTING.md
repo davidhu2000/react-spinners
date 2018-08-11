@@ -18,12 +18,12 @@ Install the necessary dependencies (you can use `npm` or `yarn`):
 
 After finishing your feature, to update the `dist` folder, you can run:
 
-    npm prepublish
+    npm run prepublish
 
 If you want to make changes to the demo page, you can edit the files in `examples` and `docs` folder.
 To see the changes, you can use `webpack` to update the bundle file.
 
-    webpack --watch
+    npm run watch
 
 Make or add changes, commit your changes:
 
@@ -32,7 +32,7 @@ Make or add changes, commit your changes:
 
 Make sure to run the necessary tests and lints and fix any errors:
 
-    npm run lint;
+    npm run lintfix;
 
 Push up to Github:
 

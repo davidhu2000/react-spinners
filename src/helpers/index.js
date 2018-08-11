@@ -1,5 +1,3 @@
-import { css, cx } from 'emotion';
-
 export const calculateRgba = (color, opacity) => {
   if (color[0] === '#') {
     color = color.slice(1);
@@ -16,12 +14,4 @@ export const calculateRgba = (color, opacity) => {
 
   let rgbValues = color.match(/.{2}/g).map(hex => parseInt(hex, 16)).join(', ');
   return `rgba(${rgbValues}, ${opacity})`;
-};
-
-export const styleLoader = (defaultStyle, loaderStyle) => {
-  if (Object.keys(loaderStyle).length === 0) {
-    return defaultStyle;
-  } else {
-    return cx(defaultStyle, css(loaderStyle));
-  }
 };
