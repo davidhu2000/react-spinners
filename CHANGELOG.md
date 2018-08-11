@@ -2,9 +2,15 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4.2
+
+- fix single loader import.
+- add `className` to `index.d.ts`
+- update readme to include single loader import
+
 ## 0.4.1
 
-- Remove second import method from readme. Add deprecation warning to 0,4.0
+- Remove second import method from readme. Add deprecation warning to 0.4.0
 
 ## 0.4.0
 

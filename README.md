@@ -47,7 +47,10 @@ Each loader accepts a `loading` prop as a boolean. The loader will not render an
 ```js
 import React from 'react';
 import { css } from 'react-emotion';
+// First way to import
 import { RingLoader } from 'react-spinners';
+// Another way to import
+import RingLoader from 'react-spinners/RingLoader';
 
 const override = css`
     display: block;
