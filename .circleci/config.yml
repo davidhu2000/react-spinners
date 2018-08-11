@@ -1,7 +1,7 @@
 version: 2 # use CircleCI 2.0
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
-    working_directory: ~/mern-starter # directory where steps will run
+    working_directory: ~/react-spinners # directory where steps will run
     docker: # run the steps with Docker
       - image: circleci/node:8.6.0 # ...with this image as the primary container; this is where all `steps` will run
     steps: # a collection of executable commands 
