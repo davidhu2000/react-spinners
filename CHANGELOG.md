@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4.0
+
+- Add `className` prop to loaders
+- Deprecated `loaderStyle` prop for loaders to follow Emotion module standard
+- Add support to import individual loaders instead of whole package. 
+  - For example: `import RingLoader from 'react-spinners/RingLoader';`
+
 ## 0.3.3
 
 - Add `loaderStyle` prop to loaders to allow more customized loader.

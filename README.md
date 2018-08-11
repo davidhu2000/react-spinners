@@ -43,39 +43,15 @@ Each loader accepts a `loading` prop as a boolean. The loader will not render an
 ```
 
 ### Examples
-Ring Loader
+ 
 ```js
 import React from 'react';
+import { css } from 'react-emotion';
+
+// first import method
 import { RingLoader } from 'react-spinners';
-
-class AwesomeComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true
-    }
-  }
-  render() {
-    return (
-      <div className='sweet-loading'>
-        <RingLoader
-          color={'#123abc'} 
-          loading={this.state.loading} 
-        />
-      </div>
-    )
-  }
-}
-```  
-
-
-<details><summary>Clip Loader with Custom CSS, and Size</summary>
-<p>
-
-```js
-import React from 'react';
-import { RingLoader } from 'react-spinners';
-import {css} from 'react-emotion';
+// second import method
+import RingLoader from 'react-spinners/RingLoader';
 
 const override = css`
     display: block;
@@ -105,9 +81,6 @@ class AwesomeComponent extends React.Component {
   }
 }
 ```
-
-</p>
-</details>
 
 ## Available Loaders, PropTypes, and Default Values
 
