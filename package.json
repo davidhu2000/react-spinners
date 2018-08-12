@@ -34,10 +34,11 @@
     "lintfix": "eslint ./src  --ext .js,.jsx --fix",
     "test": "npm run lint",
     "build": "$npm_execpath run prepublish && webpack",
-    "patch": "npm version patch && npm publish",
-    "minor": "npm version minor && npm publish",
-    "major": "npm version major && npm publish",
-    "watch": "babel-node ./node_modules/.bin/webpack --watch"
+    "patch": "npm version patch && npm publish && clean",
+    "minor": "npm version minor && npm publish && clean",
+    "major": "npm version major && npm publish && clean",
+    "watch": "babel-node ./node_modules/.bin/webpack --watch",
+    "clean": "rm -r helpers/; rm *Loader.js; rm index.js"
   },
   "types": "./src/index.d.ts",
   "devDependencies": {
