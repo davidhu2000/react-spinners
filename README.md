@@ -48,9 +48,9 @@ Each loader accepts a `loading` prop as a boolean. The loader will not render an
 import React from 'react';
 import { css } from 'react-emotion';
 // First way to import
-import { RingLoader } from 'react-spinners';
+import { ClipLoader } from 'react-spinners';
 // Another way to import
-import RingLoader from 'react-spinners/RingLoader';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 const override = css`
     display: block;
@@ -96,7 +96,7 @@ You can directly write your css in css syntax without the dirty camelCase css in
 We recommend you to use this awesome library in your project. It supports Server side rendering with HTTP2 Stream! 
 More info about using className [here](https://emotion.sh/docs/css)
 
-For `size`, `height`, and `width` props, there are `sizeUnit`, `heightUnit`, and `widthUnit` prop that accepts `px`, `%`, or `em`. 
+For `size`, `height`, and `width` props, there are `sizeUnit`, `heightUnit`, and `widthUnit` prop that accepts `px`, `%`, or `em`. The default for the unit prop is `px`.
 
 Loader                  | size:int | height:int | width:int | radius:int | margin:str
 -----------------------:|:--------:|:----------:|:---------:|:----------:|:---------:
