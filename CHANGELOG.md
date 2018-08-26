@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4.4
+
+- fix README example import to using correct loader
+- add default value for unit props to README
+
 ## 0.4.3
 
 - update readme to include unit props for each loader
