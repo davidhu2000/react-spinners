@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4.6
+
+- update how `onlyUpdateForKeys` is imported from `recompose`. Reduced import cost from `26kb` to `19kb`.
+
 ## 0.4.5
 
 - update README `.babelrc` to use `env` preset
