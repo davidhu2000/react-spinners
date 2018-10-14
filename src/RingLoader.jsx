@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
-import { onlyUpdateForKeys } from 'recompose';
+import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const right = keyframes`
   0% {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)}

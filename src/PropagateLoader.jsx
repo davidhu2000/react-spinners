@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
-import { onlyUpdateForKeys } from 'recompose';
+import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 // 1.5 4.5 7.5
 let distance = [1, 3, 5];

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
-import { onlyUpdateForKeys } from 'recompose';
+import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const skew = keyframes`
   25% {transform: perspective(100px) rotateX(180deg) rotateY(0)}
