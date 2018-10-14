@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css } from 'emotion';
-import { onlyUpdateForKeys } from 'recompose';
+import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const beat = keyframes`
   50% {transform: scale(0.75);opacity: 0.2} 
