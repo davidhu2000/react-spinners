@@ -21,8 +21,10 @@
     "react",
     "reactjs",
     "loader",
+    "loaders",
     "loading",
     "spinner",
+    "spinners",
     "halogen",
     "progress",
     "activity"
