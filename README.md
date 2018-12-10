@@ -46,7 +46,7 @@ Each loader accepts a `loading` prop as a boolean. The loader will not render an
  
 ```js
 import React from 'react';
-import { css } from 'react-emotion';
+import { css } from '@emotion/core';
 // First way to import
 import { ClipLoader } from 'react-spinners';
 // Another way to import
@@ -69,7 +69,7 @@ class AwesomeComponent extends React.Component {
     return (
       <div className='sweet-loading'>
         <ClipLoader
-          className={override}
+          css={override}
           sizeUnit={"px"}
           size={150}
           color={'#123abc'}
@@ -88,13 +88,13 @@ Common default props for all loaders:
 ```js
 loading: true
 color: '#000000'
-className: ''
+css: ''
 ```
 Note:
-`className` works exactly like the `className` works with the emotion package.
+`css` works exactly like the `css` works with the emotion package.
 You can directly write your css in css syntax without the dirty camelCase css in jss syntax.
 We recommend you to use this awesome library in your project. It supports Server side rendering with HTTP2 Stream! 
-More info about using className [here](https://emotion.sh/docs/css)
+More info about using `css` [here](https://emotion.sh/docs/introduction)
 
 For `size`, `height`, and `width` props, there are `sizeUnit`, `heightUnit`, and `widthUnit` prop that accepts `px`, `%`, or `em`. The default for the unit prop is `px`.
 

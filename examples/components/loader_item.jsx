@@ -14,7 +14,7 @@ class LoaderItem extends React.Component {
     delete defaults.heightUnit;
     delete defaults.radiusUnit;
     delete defaults.loaderStyle;
-    delete defaults.className;
+    delete defaults.css;
 
     this.state = {
       ...defaults
