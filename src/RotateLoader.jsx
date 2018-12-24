@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { keyframes, css } from '@emotion/core';
+import { keyframes, css } from 'emotion';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const rotate = keyframes`
@@ -32,6 +32,8 @@ class Loader extends React.Component {
     };
 
   wrapper = () => {
+    const { className } = this.props;
+
     const wrapper = css`
             ${this.ball()};
             display: inline-block;
@@ -39,8 +41,7 @@ class Loader extends React.Component {
             animation-fill-mode: both;
             animation: ${rotate} 1s 0s infinite cubic-bezier(.7,-.13,.22,.86);        
         `;
-
-    return this.props.css ? css`${wrapper};${this.props.css}` : wrapper;
+    return className ? css`${wrapper};${className}` : wrapper;
   };
 
   long = () => css`
@@ -56,9 +57,9 @@ class Loader extends React.Component {
     const { loading } = this.props;
 
     return loading ?
-      <div css={this.wrapper()}>
-        <div css={this.long()} />
-        <div css={this.short()} />
+      <div className={this.wrapper()}>
+        <div className={this.long()} />
+        <div className={this.short()} />
       </div> : null;
   }
 }
@@ -69,7 +70,7 @@ Loader.propTypes = {
   size: PropTypes.number,
   margin: PropTypes.string,
   sizeUnit: PropTypes.string,
-  css: PropTypes.string
+  className: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -78,9 +79,9 @@ Loader.defaultProps = {
   size: 15,
   margin: '2px',
   sizeUnit: 'px',
-  css: ''
+  className: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin', 'css'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin', 'className'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

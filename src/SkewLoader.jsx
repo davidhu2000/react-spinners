@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { keyframes, css } from '@emotion/core';
+import { keyframes, css } from 'emotion';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const skew = keyframes`
@@ -13,7 +13,7 @@ const skew = keyframes`
 class Loader extends React.Component {
     style = () => {
       const {
-        size, sizeUnit, color
+        size, sizeUnit, color, className
       } = this.props;
 
       const style = css`{
@@ -27,14 +27,14 @@ class Loader extends React.Component {
             animation-fill-mode: both;
         }`;
 
-      return this.props.css ? css`${style};${this.props.css}` : style;
+      return className ? css`${style};${className}` : style;
     };
 
     render() {
       const { loading } = this.props;
 
       return loading ?
-        <div css={this.style()} /> : null;
+        <div className={this.style()} /> : null;
     }
 }
 
@@ -43,7 +43,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   sizeUnit: PropTypes.string,
-  css: PropTypes.string
+  className: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -51,9 +51,9 @@ Loader.defaultProps = {
   color: '#000000',
   size: 20,
   sizeUnit: 'px',
-  css: ''
+  className: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'css'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'className'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
