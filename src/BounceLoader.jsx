@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { keyframes, css } from '@emotion/core';
+import { keyframes, css } from 'emotion';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const bounce = keyframes`
@@ -27,7 +27,7 @@ class Loader extends React.Component {
     };
 
     wrapper = () => {
-      const { size, sizeUnit } = this.props;
+      const { size, sizeUnit, className } = this.props;
 
       const wrapper = css`{        
             position: relative;
@@ -35,16 +35,15 @@ class Loader extends React.Component {
             height: ${`${size}${sizeUnit}`};
         }`;
 
-      return this.props.css ? css`${wrapper};${this.props.css}` : wrapper;
+      return className ? css`${wrapper};${className}` : wrapper;
     };
-
     render() {
       const { loading } = this.props;
 
       return loading ?
-        <div css={this.wrapper()}>
-          <div css={this.style(1)} />
-          <div css={this.style(2)} />
+        <div className={this.wrapper()}>
+          <div className={this.style(1)} />
+          <div className={this.style(2)} />
         </div> : null;
     }
 }
@@ -54,7 +53,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   sizeUnit: PropTypes.string,
-  css: PropTypes.string
+  className: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -62,9 +61,9 @@ Loader.defaultProps = {
   color: '#000000',
   size: 60,
   sizeUnit: 'px',
-  css: ''
+  className: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'css'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'className'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

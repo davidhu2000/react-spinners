@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { keyframes, css } from '@emotion/core';
+import { keyframes, css } from 'emotion';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const moon = keyframes`
@@ -52,7 +52,7 @@ class Loader extends React.Component {
 
 
     circle = () => {
-      const { size, color } = this.props;
+      const { size, color, className } = this.props;
 
       const wrapper = css`
             ${this.ballStyle(size)};
@@ -60,16 +60,16 @@ class Loader extends React.Component {
             opacity: 0.1;
         `;
 
-      return this.props.css ? css`${wrapper};${this.props.css}` : wrapper;
+      return className ? css`${wrapper};${className}` : wrapper;
     };
 
     render() {
       const { loading } = this.props;
 
       return loading ?
-        <div css={this.wrapper()}>
-          <div css={this.ball()} />
-          <div css={this.circle()} />
+        <div className={this.wrapper()}>
+          <div className={this.ball()} />
+          <div className={this.circle()} />
         </div> : null;
     }
 }
@@ -79,7 +79,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   sizeUnit: PropTypes.string,
-  css: PropTypes.string
+  className: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -87,9 +87,9 @@ Loader.defaultProps = {
   color: '#000000',
   size: 60,
   sizeUnit: 'px',
-  css: ''
+  className: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'css'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'className'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { keyframes, css } from '@emotion/core';
+import { keyframes, css } from 'emotion';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 import { calculateRgba } from './helpers/index';
 
@@ -36,7 +36,7 @@ export class Loader extends React.Component {
 
     wrapper = () => {
       const {
-        width, height, color, heightUnit, widthUnit
+        width, height, color, heightUnit, widthUnit, className
       } = this.props;
 
       const wrapper = css`{        
@@ -48,16 +48,16 @@ export class Loader extends React.Component {
             background-clip: padding-box;
         }`;
 
-      return this.props.css ? css`${wrapper};${this.props.css}` : wrapper;
+      return className ? css`${wrapper};${className}` : wrapper;
     };
 
     render() {
       const { loading } = this.props;
 
       return loading ?
-        <div css={this.wrapper()}>
-          <div css={this.style(1)} />
-          <div css={this.style(2)} />
+        <div className={this.wrapper()}>
+          <div className={this.style(1)} />
+          <div className={this.style(2)} />
         </div> : null;
     }
 }
@@ -69,7 +69,7 @@ Loader.propTypes = {
   widthUnit: PropTypes.string,
   height: PropTypes.number,
   heightUnit: PropTypes.string,
-  css: PropTypes.string
+  className: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -79,9 +79,9 @@ Loader.defaultProps = {
   widthUnit: 'px',
   height: 4,
   heightUnit: 'px',
-  css: ''
+  className: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'width', 'height', 'heightUnit', 'widthUnit', 'css'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'width', 'height', 'heightUnit', 'widthUnit', 'className'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
