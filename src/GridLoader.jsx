@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { keyframes, css } from 'emotion';
+import { keyframes, css } from '@emotion/core';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const grid = keyframes`
@@ -31,7 +31,7 @@ class Loader extends React.Component {
 
     wrapper = () => {
       const {
-        size, sizeUnit, margin, className
+        size, sizeUnit, margin
       } = this.props;
 
       const wrapper = css`{        
@@ -39,7 +39,7 @@ class Loader extends React.Component {
             font-size: 0;
         }`;
 
-      return className ? css`${wrapper};${className}` : wrapper;
+      return this.props.css ? css`${wrapper};${this.props.css}` : wrapper;
     };
 
 
@@ -47,16 +47,16 @@ class Loader extends React.Component {
       const { loading } = this.props;
 
       return loading ?
-        <div className={this.wrapper()}>
-          <div className={this.style(random(100))} />
-          <div className={this.style(random(100))} />
-          <div className={this.style(random(100))} />
-          <div className={this.style(random(100))} />
-          <div className={this.style(random(100))} />
-          <div className={this.style(random(100))} />
-          <div className={this.style(random(100))} />
-          <div className={this.style(random(100))} />
-          <div className={this.style(random(100))} />
+        <div css={this.wrapper()}>
+          <div css={this.style(random(100))} />
+          <div css={this.style(random(100))} />
+          <div css={this.style(random(100))} />
+          <div css={this.style(random(100))} />
+          <div css={this.style(random(100))} />
+          <div css={this.style(random(100))} />
+          <div css={this.style(random(100))} />
+          <div css={this.style(random(100))} />
+          <div css={this.style(random(100))} />
         </div> : null;
     }
 }
@@ -67,7 +67,7 @@ Loader.propTypes = {
   size: PropTypes.number,
   margin: PropTypes.string,
   sizeUnit: PropTypes.string,
-  className: PropTypes.string
+  css: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -76,10 +76,10 @@ Loader.defaultProps = {
   size: 15,
   margin: '2px',
   sizeUnit: 'px',
-  className: ''
+  css: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin', 'sizeUnit', 'className'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin', 'sizeUnit', 'css'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
 
