@@ -1,6 +1,7 @@
+/** @jsx jsx */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { keyframes, css } from '@emotion/core';
+import { keyframes, css, jsx } from '@emotion/core';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const skew = keyframes`
