@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.0
+
+- Update emotion package to emotion 10
+- **Breaking change**: replaced `className` prop with `css` prop to match Emotion 10. 
+
 ## 0.4.8
 
 - update `package.json` to include wider range of version for `recompose`
