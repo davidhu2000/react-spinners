@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.1
+
+- Update demo page link to `https://www.react-spinners.com`
+
 ## 0.5.0
 
 - Update emotion package to emotion 10
