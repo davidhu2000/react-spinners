@@ -4,7 +4,7 @@ export namespace ReactSpinners {
 	interface CommonProps {
 		color?: string;
 		loading?: boolean;
-		className?: string;
+		css?: string;
 	}
 
 	interface BarLoaderProps extends CommonProps {

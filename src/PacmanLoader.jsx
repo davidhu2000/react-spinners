@@ -1,6 +1,7 @@
+/** @jsx jsx */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { keyframes, css } from 'emotion';
+import { keyframes, css, jsx } from '@emotion/core';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 // This returns an animation
@@ -78,7 +79,7 @@ class Loader extends React.Component {
     };
 
     wrapper = () => {
-      const { size, sizeUnit, className } = this.props;
+      const { size, sizeUnit } = this.props;
 
       const wrapper = css`{
             position: relative;
@@ -87,7 +88,7 @@ class Loader extends React.Component {
             width: ${`${size}${sizeUnit}`};
         }`;
 
-      return className ? css`${wrapper};${className}` : wrapper;
+      return this.props.css ? css`${wrapper};${this.props.css}` : wrapper;
     };
 
   pac = () => this.pacmanStyle(0);
@@ -97,13 +98,13 @@ class Loader extends React.Component {
     const { loading } = this.props;
 
     return loading ?
-      <div className={this.wrapper()}>
-        <div className={this.pac()} />
-        <div className={this.man()} />
-        <div className={this.ballStyle(2)} />
-        <div className={this.ballStyle(3)} />
-        <div className={this.ballStyle(4)} />
-        <div className={this.ballStyle(5)} />
+      <div css={this.wrapper()}>
+        <div css={this.pac()} />
+        <div css={this.man()} />
+        <div css={this.ballStyle(2)} />
+        <div css={this.ballStyle(3)} />
+        <div css={this.ballStyle(4)} />
+        <div css={this.ballStyle(5)} />
       </div> : null;
   }
 }
@@ -114,7 +115,7 @@ Loader.propTypes = {
   size: PropTypes.number,
   margin: PropTypes.string,
   sizeUnit: PropTypes.string,
-  className: PropTypes.string
+  css: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -123,9 +124,9 @@ Loader.defaultProps = {
   size: 25,
   margin: '2px',
   sizeUnit: 'px',
-  className: ''
+  css: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin', 'sizeUnit', 'className'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin', 'sizeUnit', 'css'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

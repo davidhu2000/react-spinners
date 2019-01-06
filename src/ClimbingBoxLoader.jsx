@@ -1,6 +1,7 @@
+/** @jsx jsx */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { keyframes, css } from 'emotion';
+import { keyframes, css, jsx } from '@emotion/core';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const climbingBox = keyframes`
@@ -67,25 +68,23 @@ class Loader extends React.Component {
     };
 
   container = () => {
-    const { className } = this.props;
-
     const container = css`{
             position: relative;
             width: 7.1em;
             height: 7.1em;
         }`;
 
-    return className ? css`${container};${className}` : container;
+    return this.props.css ? css`${container};${this.props.css}` : container;
   };
 
   render() {
     const { loading } = this.props;
 
     return loading ?
-      <div className={this.container()}>
-        <div className={this.wrapper()}>
-          <div className={this.style()} />
-          <div className={this.hill()} />
+      <div css={this.container()}>
+        <div css={this.wrapper()}>
+          <div css={this.style()} />
+          <div css={this.hill()} />
         </div>
       </div> : null;
   }
@@ -96,7 +95,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   sizeUnit: PropTypes.string,
-  className: PropTypes.string
+  css: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -104,9 +103,9 @@ Loader.defaultProps = {
   color: '#000000',
   size: 15,
   sizeUnit: 'px',
-  className: ''
+  css: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'className'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'css'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

@@ -1,6 +1,7 @@
+/** @jsx jsx */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { keyframes, css } from 'emotion';
+import { keyframes, css, jsx } from '@emotion/core';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const square = keyframes`
@@ -13,7 +14,7 @@ const square = keyframes`
 class Loader extends React.Component {
     style = () => {
       const {
-        color, size, sizeUnit, className
+        color, size, sizeUnit
       } = this.props;
 
       const style = css`{
@@ -25,14 +26,14 @@ class Loader extends React.Component {
             animation-fill-mode: both;
         }`;
 
-      return className ? css`${style};${className}` : style;
+      return this.props.css ? css`${style};${this.props.css}` : style;
     };
 
     render() {
       const { loading } = this.props;
 
       return loading ?
-        <div className={this.style()} /> : null;
+        <div css={this.style()} /> : null;
     }
 }
 
@@ -41,7 +42,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   sizeUnit: PropTypes.string,
-  className: PropTypes.string
+  css: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -49,9 +50,9 @@ Loader.defaultProps = {
   color: '#000000',
   size: 50,
   sizeUnit: 'px',
-  className: ''
+  css: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'className'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'css'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

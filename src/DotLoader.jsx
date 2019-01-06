@@ -1,6 +1,7 @@
+/** @jsx jsx */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { keyframes, css } from 'emotion';
+import { keyframes, css, jsx } from '@emotion/core';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const rotate = keyframes`
@@ -30,7 +31,7 @@ class Loader extends React.Component {
     };
 
     wrapper = () => {
-      const { size, sizeUnit, className } = this.props;
+      const { size, sizeUnit } = this.props;
 
       const wrapper = css`{        
             position: relative;
@@ -40,16 +41,16 @@ class Loader extends React.Component {
             animation: ${rotate} 2s 0s infinite linear;
         }`;
 
-      return className ? css`${wrapper};${className}` : wrapper;
+      return this.props.css ? css`${wrapper};${this.props.css}` : wrapper;
     };
 
     render() {
       const { loading } = this.props;
 
       return loading ?
-        <div className={this.wrapper()}>
-          <div className={this.style(1)} />
-          <div className={this.style(2)} />
+        <div css={this.wrapper()}>
+          <div css={this.style(1)} />
+          <div css={this.style(2)} />
         </div> : null;
     }
 }
@@ -59,7 +60,7 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   sizeUnit: PropTypes.string,
-  className: PropTypes.string
+  css: PropTypes.string
 };
 
 Loader.defaultProps = {
@@ -67,9 +68,9 @@ Loader.defaultProps = {
   color: '#000000',
   size: 60,
   sizeUnit: 'px',
-  className: ''
+  css: ''
 };
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'className'])(Loader);
+const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'css'])(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
