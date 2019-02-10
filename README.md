@@ -19,7 +19,9 @@ This package is bootstraped using [react-npm-boilerplate](https://github.com/jul
 
 ## Demo
 
-[Demo Page](https://www.react-spinners.com)
+[Demo Page](https://www.react-spinners.com) 
+
+[Play-with and install spinners](https://bitsrc.io/davidhu2000/react-spinners)
 
 ## Installation
 
