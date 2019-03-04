@@ -80,7 +80,10 @@ Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
   sizeUnit: PropTypes.string,
-  css: PropTypes.string
+  css: PropTypes.shape({
+    name: PropTypes.string,
+    styles: PropTypes.string
+  })
 };
 
 Loader.defaultProps = {

@@ -70,7 +70,10 @@ Loader.propTypes = {
   size: PropTypes.number,
   margin: PropTypes.string,
   sizeUnit: PropTypes.string,
-  css: PropTypes.string
+  css: PropTypes.shape({
+    name: PropTypes.string,
+    styles: PropTypes.string
+  })
 };
 
 Loader.defaultProps = {

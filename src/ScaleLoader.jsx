@@ -54,7 +54,10 @@ Loader.propTypes = {
   heightUnit: PropTypes.string,
   widthUnit: PropTypes.string,
   radiusUnit: PropTypes.string,
-  css: PropTypes.string
+  css: PropTypes.shape({
+    name: PropTypes.string,
+    styles: PropTypes.string
+  })
 };
 
 Loader.defaultProps = {
