@@ -88,7 +88,7 @@ Common default props for all loaders:
 ```js
 loading: true
 color: '#000000'
-css: ''
+css: {}
 ```
 Note:
 `css` works exactly like the `css` works with the emotion package.

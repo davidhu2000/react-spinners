@@ -60,7 +60,7 @@ Loader.defaultProps = {
   size: 15,
   margin: '2px',
   sizeUnit: 'px',
-  css: ''
+  css: {}
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin', 'sizeUnit', 'css'])(Loader);

@@ -83,7 +83,7 @@ Loader.defaultProps = {
   widthUnit: 'px',
   height: 4,
   heightUnit: 'px',
-  css: ''
+  css: {}
 };
 
 const Component = onlyUpdateForKeys(['loading', 'color', 'width', 'height', 'heightUnit', 'widthUnit', 'css'])(Loader);
