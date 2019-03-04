@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.2
+
+- **bugfix**: change `css` proptype to `PropTypes.shape({ ... })` instead of `PropTypes.string` to fix console error.
+- Fix a few console warnings on the demo site. 
+
 ## 0.5.1
 
 - Update demo page link to `https://www.react-spinners.com`
