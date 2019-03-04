@@ -25,7 +25,12 @@ class LoaderItem extends React.Component {
 
   update(field) {
     return e => {
-      this.setState({ [field]: e.target.value });
+      let { value } = e.target;
+      if (!value.includes('px')) {
+        value = parseInt(value, 10);
+      }
+
+      this.setState({ [field]: value });
     };
   }
 
@@ -48,7 +53,7 @@ class LoaderItem extends React.Component {
 }
 
 LoaderItem.propTypes = {
-  spinner: PropTypes.element.isRequired,
+  spinner: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired
 };

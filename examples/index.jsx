@@ -64,7 +64,12 @@ class SpinnerExamples extends React.Component {
         </div>
 
         { Object.keys(Spinners).map(name => (
-          <LoaderItem color={color} name={name} spinner={Spinners[name]} />
+          <LoaderItem
+            key={`loader-${name}`}
+            color={color}
+            name={name}
+            spinner={Spinners[name]}
+          />
         )) }
       </div>
     );
