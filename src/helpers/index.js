@@ -15,3 +15,5 @@ export const calculateRgba = (color, opacity) => {
   let rgbValues = color.match(/.{2}/g).map(hex => parseInt(hex, 16)).join(', ');
   return `rgba(${rgbValues}, ${opacity})`;
 };
+
+export * from './proptypes';
