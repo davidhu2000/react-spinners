@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.3
+
+- **bugfix**: update default value for `css` prop to `{}` instead of `""` to fix console error.
+
 ## 0.5.2
 
 - **bugfix**: change `css` proptype to `PropTypes.shape({ ... })` instead of `PropTypes.string` to fix console error.
