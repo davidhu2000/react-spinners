@@ -106,7 +106,7 @@ export const heightWidthDefaults = (height, width) => {
   return Object.assign({}, commonValues, heightWidthValues(height, width));
 };
 
-export const heightWidthRadiusValues = (height, width, radius = 2) => {
+export const heightWidthRadiusDefaults = (height, width, radius = 2) => {
   return Object.assign({}, heightWidthDefaults(height, width), {
     [RADIUS]: radius,
     [RADIUS_UNIT]: 'px',
