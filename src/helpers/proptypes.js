@@ -48,12 +48,6 @@ const size = {
   [SIZE_UNIT]: PropTypes.string
 };
 
-const commonValues = {
-  [LOADING]: true,
-  [COLOR]: '#000000',
-  [CSS]: {}
-};
-
 const heightWidth = {
   [WIDTH]: PropTypes.number,
   [WIDTH_UNIT]: PropTypes.string,
@@ -80,6 +74,12 @@ export const heightWidthRadiusProps = Object.assign({}, heightWidthProps, {
  * DefaultProps object for different loaders
  */
 
+const commonValues = {
+  [LOADING]: true,
+  [COLOR]: '#000000',
+  [CSS]: {}
+};
+
 const heightWidthValues = (height, width) => ({
   [HEIGHT]: height,
   [HEIGHT_UNIT]: 'px',
@@ -97,7 +97,7 @@ export const sizeDefaults = sizeValue => {
 };
 
 export const sizeMarginDefaults = sizeValue => {
-  return Object.assign({}, sizeValues(sizeValue), {
+  return Object.assign({}, sizeDefaults(sizeValue), {
     [MARGIN]: '2px'
   });
 };
