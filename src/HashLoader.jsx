@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { keyframes, css, jsx } from '@emotion/core';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
-import { calculateRgba } from './helpers/index';
+import { calculateRgba, sizeProps, sizeDefaults, sizeKeys } from './helpers/index';
 
 
 class Loader extends React.Component {
@@ -99,26 +99,11 @@ class Loader extends React.Component {
     }
 }
 
-Loader.propTypes = {
-  loading: PropTypes.bool,
-  size: PropTypes.number,
-  color: PropTypes.string,
-  sizeUnit: PropTypes.string,
-  css: PropTypes.shape({
-    name: PropTypes.string,
-    styles: PropTypes.string
-  })
-};
+Loader.propTypes = sizeProps;
 
-Loader.defaultProps = {
-  loading: true,
-  size: 50,
-  color: '#000000',
-  sizeUnit: 'px',
-  css: {}
-};
+Loader.defaultProps = sizeDefaults(50);
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'css'])(Loader);
+const Component = onlyUpdateForKeys(sizeKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
 
