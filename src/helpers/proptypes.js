@@ -30,7 +30,7 @@ const heightWidthString = [HEIGHT, HEIGHT_UNIT, WIDTH, WIDTH_UNIT];
 
 export const sizeKeys = commonStrings.concat(sizeStrings);
 export const sizeMarginKeys = sizeKeys.concat([MARGIN]);
-export const heightWidthKeys = commonStrings.contact(heightWidthString);
+export const heightWidthKeys = commonStrings.concat(heightWidthString);
 export const heightWidthRadiusKeys = heightWidthKeys.concat([
   RADIUS, RADIUS_UNIT, MARGIN
 ]);
