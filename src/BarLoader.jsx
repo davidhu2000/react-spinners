@@ -1,9 +1,8 @@
 /** @jsx jsx */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { keyframes, css, jsx } from '@emotion/core';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
-import { calculateRgba } from './helpers/index';
+import { calculateRgba, heightWidthProps, heightWidthDefaults, heightWidthKeys } from './helpers';
 
 const long = keyframes`
   0% {left: -35%;right: 100%} 
@@ -63,29 +62,10 @@ export class Loader extends React.Component {
     }
 }
 
-Loader.propTypes = {
-  loading: PropTypes.bool,
-  color: PropTypes.string,
-  width: PropTypes.number,
-  widthUnit: PropTypes.string,
-  height: PropTypes.number,
-  heightUnit: PropTypes.string,
-  css: PropTypes.shape({
-    name: PropTypes.string,
-    styles: PropTypes.string
-  })
-};
+Loader.propTypes = heightWidthProps;
 
-Loader.defaultProps = {
-  loading: true,
-  color: '#000000',
-  width: 100,
-  widthUnit: 'px',
-  height: 4,
-  heightUnit: 'px',
-  css: {}
-};
+Loader.defaultProps = heightWidthDefaults(4, 100);
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'width', 'height', 'heightUnit', 'widthUnit', 'css'])(Loader);
+const Component = onlyUpdateForKeys(heightWidthKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
