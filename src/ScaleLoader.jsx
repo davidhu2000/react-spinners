@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { keyframes, css, jsx } from '@emotion/core';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
+import { heightWidthRadiusProps, heightWidthRadiusDefaults, heightWidthRadiusKeys } from './helpers';
 
 const scale = keyframes`
   0% {transform: scaley(1.0)}
@@ -44,35 +44,10 @@ class Loader extends React.Component {
     }
 }
 
-Loader.propTypes = {
-  loading: PropTypes.bool,
-  color: PropTypes.string,
-  height: PropTypes.number,
-  width: PropTypes.number,
-  margin: PropTypes.string,
-  radius: PropTypes.number,
-  heightUnit: PropTypes.string,
-  widthUnit: PropTypes.string,
-  radiusUnit: PropTypes.string,
-  css: PropTypes.shape({
-    name: PropTypes.string,
-    styles: PropTypes.string
-  })
-};
+Loader.propTypes = heightWidthRadiusProps;
 
-Loader.defaultProps = {
-  loading: true,
-  color: '#000000',
-  height: 35,
-  width: 4,
-  margin: '2px',
-  radius: 2,
-  heightUnit: 'px',
-  widthUnit: 'px',
-  radiusUnit: 'px',
-  css: {}
-};
+Loader.defaultProps = heightWidthRadiusDefaults(35, 4, 2);
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'height', 'width', 'margin', 'radius', 'heightUnit', 'widthUnit', 'radiusUnit', 'css'])(Loader);
+const Component = onlyUpdateForKeys(heightWidthRadiusKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

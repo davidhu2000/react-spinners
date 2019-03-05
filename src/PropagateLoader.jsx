@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { keyframes, css, jsx } from '@emotion/core';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
+import { sizeProps, sizeDefaults, sizeKeys } from './helpers';
 
 // 1.5 4.5 7.5
 let distance = [1, 3, 5];
@@ -84,25 +84,10 @@ class Loader extends React.Component {
   }
 }
 
-Loader.propTypes = {
-  loading: PropTypes.bool,
-  size: PropTypes.number,
-  color: PropTypes.string,
-  sizeUnit: PropTypes.string,
-  css: PropTypes.shape({
-    name: PropTypes.string,
-    styles: PropTypes.string
-  })
-};
+Loader.propTypes = sizeProps;
 
-Loader.defaultProps = {
-  loading: true,
-  size: 15,
-  color: '#000000',
-  sizeUnit: 'px',
-  css: {}
-};
+Loader.defaultProps = sizeDefaults(15);
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'css'])(Loader);
+const Component = onlyUpdateForKeys(sizeKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

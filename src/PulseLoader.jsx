@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { keyframes, css, jsx } from '@emotion/core';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
+import { sizeMarginProps, sizeMarginDefaults, sizeMarginKeys } from './helpers';
 
 // This returns an animation
 const pulse = keyframes`
@@ -44,27 +44,10 @@ class Loader extends React.Component {
     }
 }
 
-Loader.propTypes = {
-  loading: PropTypes.bool,
-  color: PropTypes.string,
-  size: PropTypes.number,
-  margin: PropTypes.string,
-  sizeUnit: PropTypes.string,
-  css: PropTypes.shape({
-    name: PropTypes.string,
-    styles: PropTypes.string
-  })
-};
+Loader.propTypes = sizeMarginProps;
 
-Loader.defaultProps = {
-  loading: true,
-  color: '#000000',
-  size: 15,
-  margin: '2px',
-  sizeUnit: 'px',
-  css: {}
-};
+Loader.defaultProps = sizeMarginDefaults(15);
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'margin', 'sizeUnit', 'css'])(Loader);
+const Component = onlyUpdateForKeys(sizeMarginKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
