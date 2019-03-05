@@ -2,7 +2,7 @@
 import React from 'react';
 import { keyframes, css, jsx } from '@emotion/core';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
-import { sizeProps, sizeDefaults } from './helpers';
+import { sizeProps, sizeDefaults, sizeKeys } from './helpers';
 
 const right = keyframes`
   0% {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)}
