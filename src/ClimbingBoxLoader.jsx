@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { keyframes, css, jsx } from '@emotion/core';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
+import { sizeProps, sizeDefaults, sizeKeys } from './helpers';
 
 const climbingBox = keyframes`
   0% {transform:translate(0, -1em) rotate(-45deg)} 
@@ -90,25 +90,10 @@ class Loader extends React.Component {
   }
 }
 
-Loader.propTypes = {
-  loading: PropTypes.bool,
-  color: PropTypes.string,
-  size: PropTypes.number,
-  sizeUnit: PropTypes.string,
-  css: PropTypes.shape({
-    name: PropTypes.string,
-    styles: PropTypes.string
-  })
-};
+Loader.propTypes = sizeProps;
 
-Loader.defaultProps = {
-  loading: true,
-  color: '#000000',
-  size: 15,
-  sizeUnit: 'px',
-  css: {}
-};
+Loader.defaultProps = sizeDefaults(15);
 
-const Component = onlyUpdateForKeys(['loading', 'color', 'size', 'sizeUnit', 'css'])(Loader);
+const Component = onlyUpdateForKeys(sizeKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
