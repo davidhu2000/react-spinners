@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
 
-// 
 /*
- *
  * List of string constants to represent different props
- *
  */
 const LOADING = 'loading';
 const COLOR = 'color';
@@ -20,9 +17,7 @@ const RADIUS_UNIT = 'radiusUnit';
 const MARGIN = 'margin';
 
 /*
- *
  * Array for onlyUpdateForKeys function
- *
  */
 const commonStrings = [LOADING, COLOR, CSS];
 const sizeStrings = [SIZE, SIZE_UNIT];
@@ -37,9 +32,7 @@ export const heightWidthRadiusKeys = heightWidthKeys.concat([
 
 
 /*
- *
  * PropType object for different loaders
- *
  */
 const common = {
   [LOADING]: PropTypes.bool,
@@ -84,9 +77,7 @@ export const heightWidthRadiusProps = Object.assign({}, heightWidthProps, {
 
 
 /*
- *
  * DefaultProps object for different loaders
- *
  */
 
 const heightWidthValues = (height, width) => ({
@@ -96,12 +87,10 @@ const heightWidthValues = (height, width) => ({
   [WIDTH_UNIT]: 'px'
 });
 
-
 const sizeValues = sizeValue => ({
   [SIZE]: sizeValue,
   [SIZE_UNIT]: 'px'
 });
-
 
 export const sizeDefaults = sizeValue => {
   return Object.assign({}, commonValues, sizeValues(sizeValue));
@@ -124,5 +113,3 @@ export const heightWidthRadiusValues = (height, width, radius = 2) => {
     [MARGIN]: '2px'
   });
 };
-
-
