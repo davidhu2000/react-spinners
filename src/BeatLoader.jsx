@@ -2,7 +2,7 @@
 import React from 'react';
 import { keyframes, css, jsx } from '@emotion/core';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
-import { sizeKeys, sizeDefaults, sizeProps } from './helpers';
+import { sizeMarginKeys, sizeMarginDefaults, sizeMarginProps } from './helpers';
 
 const beat = keyframes`
   50% {transform: scale(0.75);opacity: 0.2} 
@@ -41,10 +41,10 @@ class Loader extends React.Component {
     }
 }
 
-Loader.propTypes = sizeProps;
+Loader.propTypes = sizeMarginProps;
 
-Loader.defaultProps = sizeDefaults(15);
+Loader.defaultProps = sizeMarginDefaults(15);
 
-const Component = onlyUpdateForKeys(sizeKeys)(Loader);
+const Component = onlyUpdateForKeys(sizeMarginKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
