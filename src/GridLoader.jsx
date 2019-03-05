@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { keyframes, css, jsx } from '@emotion/core';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 import { sizeMarginProps, sizeMarginDefaults, sizeMarginKeys } from './helpers';
