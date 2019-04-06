@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.4
+
+- refactored proptypes into helper functions. No functionality change here, just some cleanups
+
 ## 0.5.3
 
 - **bugfix**: update default value for `css` prop to `{}` instead of `""` to fix console error.
