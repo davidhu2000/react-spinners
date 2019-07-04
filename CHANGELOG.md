@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.5
+
+- **bugfix**: update `CommonProps` interface `css` prop to used `PrecompiledCss` and `string`. Update PropTypes helper to be able to accept both `PrecompiledCss` and `string`. This is to fix the validation error for the `css` prop.  
+
 ## 0.5.4
 
 - refactored proptypes into helper functions. No functionality change here, just some cleanups
