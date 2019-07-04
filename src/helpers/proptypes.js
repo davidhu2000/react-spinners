@@ -34,13 +34,19 @@ export const heightWidthRadiusKeys = heightWidthKeys.concat([
 /*
  * PropType object for different loaders
  */
+
+const precompiledCssType = PropTypes.shape({
+  name: PropTypes.string,
+  styles: PropTypes.string
+});
+
 const common = {
   [LOADING]: PropTypes.bool,
   [COLOR]: PropTypes.string,
-  [CSS]: PropTypes.shape({
-    name: PropTypes.string,
-    styles: PropTypes.string
-  })
+  [CSS]: PropTypes.oneOfType([
+    PropTypes.string,
+    precompiledCssType
+  ])
 };
 
 const size = {

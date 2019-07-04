@@ -1,10 +1,15 @@
 import * as React from 'react';
 
 export namespace ReactSpinners {
+	interface PrecompiledCss {
+		name: string;
+		styles: string;
+	}
+
 	interface CommonProps {
 		color?: string;
 		loading?: boolean;
-		css?: string;
+		css?: string | PrecompiledCss;
 	}
 
 	interface BarLoaderProps extends CommonProps {
