@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.7
+
+- update README.md `.babelrc` example to use `@babel/<name>` syntax in accordance to latest babel packages
+
 ## 0.5.6
 
 - big update for outdated devDependencies. This version should not affect any existing functionalities.
