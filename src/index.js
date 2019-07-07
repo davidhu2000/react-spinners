@@ -18,7 +18,7 @@ import RotateLoader from './RotateLoader';
 import ScaleLoader from './ScaleLoader';
 import SyncLoader from './SyncLoader';
 
-module.exports = {
+export default {
   BarLoader,
   BeatLoader,
   BounceLoader,
