@@ -1,4 +1,8 @@
 {
-    "presets": ["react", "es2015", "stage-0"],
-    "plugins": ["emotion", "transform-react-jsx"]
+    "presets": ["@babel/preset-react", "@babel/preset-env"],
+    "plugins": [
+        "emotion", 
+        "@babel/plugin-transform-react-jsx", 
+        "@babel/plugin-proposal-class-properties"
+    ]
 }
