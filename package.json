@@ -35,12 +35,12 @@
     "lint": "eslint ./src  --ext .js,.jsx",
     "lintfix": "eslint ./src  --ext .js,.jsx --fix",
     "test": "npm run lint",
-    "build": "$npm_execpath run prepublish && webpack",
+    "build:demo": "babel-node ./node_modules/.bin/webpack --config ./webpack.config.js",
     "patch": "npm version patch && npm publish && npm run clean",
     "minor": "npm version minor && npm publish && npm run clean",
     "major": "npm version major && npm publish && npm run clean",
-    "watch": "babel-node ./node_modules/.bin/webpack --watch",
-    "clean": "rm -rf helpers/; rm -f *Loader.js; rm -f index.js; rm -f docs/main-*; rm -f docs/vendors*"
+    "watch": "babel-node ./node_modules/.bin/webpack --watch --config ./webpack.config.dev.js",
+    "clean": "rm -rf helpers/; rm -f *Loader.js; rm -f index.js; rm -rf docs/js"
   },
   "types": "./src/index.d.ts",
   "devDependencies": {
