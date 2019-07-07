@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.6
+
+- big update for outdated devDependencies. This version should not affect any existing functionalities.
+  - removed eslint related packages. Will be moving to use `tslint` as part of the typescript conversion. 
+  - updated babel plus plugins/presets to latest versions
+  - updated `index.js` import from `module.exports = {...}` to `export default {...}`
+  - webpack changes
+    - added development configuration for easier debugging
+    - add `html-webpack-plugin` to inject the script tags to `index.html`
+
 ## 0.5.5
 
 - **bugfix**: update `CommonProps` interface `css` prop to used `PrecompiledCss` and `string`. Update PropTypes helper to be able to accept both `PrecompiledCss` and `string`. This is to fix the validation error for the `css` prop.  
