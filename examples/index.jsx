@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Code, ColorPicker, LoaderItem } from './components';
-import Spinners from '../src';
+import * as Spinners from '../src';
 
 class SpinnerExamples extends React.Component {
   constructor() {
