@@ -5,9 +5,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   context: __dirname,
   entry: './examples/index.jsx',
-  mode: 'production',
+  mode: 'development',
+  devtool: 'source-map',
   output: {
-    path: path.resolve(__dirname, 'docs'),
+    path: path.resolve(__dirname, 'docs', 'js'),
     filename: '[name]-[hash].js'
   },
   module: {
@@ -19,6 +20,7 @@ module.exports = {
       }
     ]
   },
+  devtool: 'source-maps',
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },
