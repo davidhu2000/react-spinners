@@ -32,9 +32,7 @@
   "main": "dist/index.js",
   "scripts": {
     "prepublish": "babel --plugins transform-es2015-modules-umd,@babel/plugin-transform-react-jsx src --ignore __tests__ --out-dir ./",
-    "lint": "eslint ./src  --ext .js,.jsx",
-    "lintfix": "eslint ./src  --ext .js,.jsx --fix",
-    "test": "npm run lint",
+    "test": "echo 'test'",
     "build:demo": "npm run remove:demo; babel-node ./node_modules/.bin/webpack --config ./webpack.config.js",
     "remove:demo": "rm docs/index.html; rm docs/main*; rm docs/vendors*;",
     "patch": "npm version patch && npm publish && npm run clean",
