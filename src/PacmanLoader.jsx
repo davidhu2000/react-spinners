@@ -82,8 +82,8 @@ class Loader extends React.Component {
     return css`
       position: relative;
       font-size: 0;
-      height: ${`${size}${sizeUnit}`};
-      width: ${`${size}${sizeUnit}`};
+      height: ${`${size * 2}${sizeUnit}`};
+      width: ${`${size * 4 + size / 3}${sizeUnit}`};
     `;
   };
 
