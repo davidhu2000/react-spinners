@@ -31,7 +31,7 @@ class Loader extends React.Component {
     const { loading, css } = this.props;
 
     return loading ? (
-      <div css={css}>
+      <div css={[css]}>
         <div css={this.style(1)} />
         <div css={this.style(2)} />
         <div css={this.style(3)} />
