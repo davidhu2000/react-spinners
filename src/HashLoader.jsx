@@ -3,12 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
-import {
-  calculateRgba,
-  sizeProps,
-  sizeDefaults,
-  sizeKeys
-} from "./helpers/index";
+import { calculateRgba, sizeProps, sizeDefaults, sizeKeys } from "./helpers/index";
 
 class Loader extends React.Component {
   thickness = () => {
@@ -61,7 +56,7 @@ class Loader extends React.Component {
         `;
   };
 
-  style = i => {
+  style = (i) => {
     const { size, sizeUnit } = this.props;
 
     return css`

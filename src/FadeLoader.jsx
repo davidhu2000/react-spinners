@@ -14,17 +14,8 @@ const fade = keyframes`
 `;
 
 class Loader extends React.Component {
-  style = i => {
-    const {
-      height,
-      width,
-      margin,
-      color,
-      radius,
-      widthUnit,
-      heightUnit,
-      radiusUnit
-    } = this.props;
+  style = (i) => {
+    const { height, width, margin, color, radius, widthUnit, heightUnit, radiusUnit } = this.props;
 
     return css`
        {

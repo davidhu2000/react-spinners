@@ -2,12 +2,7 @@
 import React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
-import {
-  calculateRgba,
-  heightWidthProps,
-  heightWidthDefaults,
-  heightWidthKeys
-} from "./helpers";
+import { calculateRgba, heightWidthProps, heightWidthDefaults, heightWidthKeys } from "./helpers";
 
 const long = keyframes`
   0% {left: -35%;right: 100%} 
@@ -22,7 +17,7 @@ const short = keyframes`
 `;
 
 export class Loader extends React.Component {
-  style = i => {
+  style = (i) => {
     const { height, color, heightUnit } = this.props;
 
     return css`

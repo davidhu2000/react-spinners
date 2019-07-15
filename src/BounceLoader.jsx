@@ -10,7 +10,7 @@ const bounce = keyframes`
 `;
 
 class Loader extends React.Component {
-  style = i => {
+  style = (i) => {
     const { size, color, sizeUnit } = this.props;
 
     return css`

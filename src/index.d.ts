@@ -130,55 +130,21 @@ export namespace ReactSpinners {
 }
 
 export class BarLoader extends React.Component<ReactSpinners.BarLoaderProps> {}
-export class BeatLoader extends React.Component<
-  ReactSpinners.BeatLoaderProps
-> {}
-export class BounceLoader extends React.Component<
-  ReactSpinners.BounceLoaderProps
-> {}
-export class CircleLoader extends React.Component<
-  ReactSpinners.CircleLoaderProps
-> {}
-export class ClipLoader extends React.Component<
-  ReactSpinners.ClipLoaderProps
-> {}
-export class ClimbingBoxLoader extends React.Component<
-  ReactSpinners.ClimbingBoxLoaderProps
-> {}
+export class BeatLoader extends React.Component<ReactSpinners.BeatLoaderProps> {}
+export class BounceLoader extends React.Component<ReactSpinners.BounceLoaderProps> {}
+export class CircleLoader extends React.Component<ReactSpinners.CircleLoaderProps> {}
+export class ClipLoader extends React.Component<ReactSpinners.ClipLoaderProps> {}
+export class ClimbingBoxLoader extends React.Component<ReactSpinners.ClimbingBoxLoaderProps> {}
 export class DotLoader extends React.Component<ReactSpinners.DotLoaderProps> {}
-export class FadeLoader extends React.Component<
-  ReactSpinners.FadeLoaderProps
-> {}
-export class GridLoader extends React.Component<
-  ReactSpinners.GridLoaderProps
-> {}
-export class HashLoader extends React.Component<
-  ReactSpinners.HashLoaderProps
-> {}
-export class MoonLoader extends React.Component<
-  ReactSpinners.MoonLoaderProps
-> {}
-export class PacmanLoader extends React.Component<
-  ReactSpinners.PacmanLoaderProps
-> {}
-export class PropagateLoader extends React.Component<
-  ReactSpinners.PropagateLoaderProps
-> {}
-export class PulseLoader extends React.Component<
-  ReactSpinners.PulseLoaderProps
-> {}
-export class RingLoader extends React.Component<
-  ReactSpinners.RingLoaderProps
-> {}
-export class RiseLoader extends React.Component<
-  ReactSpinners.RiseLoaderProps
-> {}
-export class RotateLoader extends React.Component<
-  ReactSpinners.RotateLoaderProps
-> {}
-export class ScaleLoader extends React.Component<
-  ReactSpinners.ScaleLoaderProps
-> {}
-export class SyncLoader extends React.Component<
-  ReactSpinners.SyncLoaderProps
-> {}
+export class FadeLoader extends React.Component<ReactSpinners.FadeLoaderProps> {}
+export class GridLoader extends React.Component<ReactSpinners.GridLoaderProps> {}
+export class HashLoader extends React.Component<ReactSpinners.HashLoaderProps> {}
+export class MoonLoader extends React.Component<ReactSpinners.MoonLoaderProps> {}
+export class PacmanLoader extends React.Component<ReactSpinners.PacmanLoaderProps> {}
+export class PropagateLoader extends React.Component<ReactSpinners.PropagateLoaderProps> {}
+export class PulseLoader extends React.Component<ReactSpinners.PulseLoaderProps> {}
+export class RingLoader extends React.Component<ReactSpinners.RingLoaderProps> {}
+export class RiseLoader extends React.Component<ReactSpinners.RiseLoaderProps> {}
+export class RotateLoader extends React.Component<ReactSpinners.RotateLoaderProps> {}
+export class ScaleLoader extends React.Component<ReactSpinners.ScaleLoaderProps> {}
+export class SyncLoader extends React.Component<ReactSpinners.SyncLoaderProps> {}

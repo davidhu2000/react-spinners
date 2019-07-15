@@ -15,7 +15,7 @@ class Loader extends React.Component {
     return size / 7;
   };
 
-  ballStyle = size => {
+  ballStyle = (size) => {
     const { sizeUnit } = this.props;
 
     return css`

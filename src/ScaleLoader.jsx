@@ -15,17 +15,8 @@ const scale = keyframes`
 `;
 
 class Loader extends React.Component {
-  style = i => {
-    const {
-      color,
-      width,
-      height,
-      margin,
-      radius,
-      widthUnit,
-      heightUnit,
-      radiusUnit
-    } = this.props;
+  style = (i) => {
+    const { color, width, height, margin, radius, widthUnit, heightUnit, radiusUnit } = this.props;
 
     return css`
        {
@@ -35,8 +26,7 @@ class Loader extends React.Component {
         margin: ${margin};
         border-radius: ${`${radius}${radiusUnit}`};
         display: inline-block;
-        animation: ${scale} 1s ${i * 0.1}s infinite
-          cubic-bezier(0.2, 0.68, 0.18, 1.08);
+        animation: ${scale} 1s ${i * 0.1}s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
         animation-fill-mode: both;
       }
     `;

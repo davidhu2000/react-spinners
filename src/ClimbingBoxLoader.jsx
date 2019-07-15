@@ -34,8 +34,7 @@ class Loader extends React.Component {
         border: 0.25em solid ${color};
         transform: translate(0, -1em) rotate(-45deg);
         animation-fill-mode: both;
-        animation: ${climbingBox} 2.5s infinite
-          cubic-bezier(0.79, 0, 0.47, 0.97);
+        animation: ${climbingBox} 2.5s infinite cubic-bezier(0.79, 0, 0.47, 0.97);
       }
     `;
   };

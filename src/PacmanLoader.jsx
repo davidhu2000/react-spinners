@@ -22,12 +22,11 @@ class Loader extends React.Component {
 
     return keyframes`
           75% {opacity: 0.7}
-          100% {transform: translate(${`${-4 * size}${sizeUnit}`}, ${`${-size /
-      4}${sizeUnit}`})}
+          100% {transform: translate(${`${-4 * size}${sizeUnit}`}, ${`${-size / 4}${sizeUnit}`})}
         `;
   };
 
-  ballStyle = i => {
+  ballStyle = (i) => {
     const { color, margin, size, sizeUnit } = this.props;
 
     return css`
@@ -59,7 +58,7 @@ class Loader extends React.Component {
     return `${size}${sizeUnit} solid ${color}`;
   };
 
-  pacmanStyle = i => {
+  pacmanStyle = (i) => {
     const { size, sizeUnit } = this.props;
 
     const s1 = this.s1();

@@ -2,11 +2,7 @@
 import React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
-import {
-  sizeMarginProps,
-  sizeMarginDefaults,
-  sizeMarginKeys
-} from "./helpers/proptypes";
+import { sizeMarginProps, sizeMarginDefaults, sizeMarginKeys } from "./helpers/proptypes";
 
 const sync = keyframes`
   33% {transform: translateY(10px)}
@@ -15,7 +11,7 @@ const sync = keyframes`
 `;
 
 class Loader extends React.Component {
-  style = i => {
+  style = (i) => {
     const { color, size, sizeUnit, margin } = this.props;
 
     return css`

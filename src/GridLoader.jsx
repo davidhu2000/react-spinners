@@ -10,10 +10,10 @@ const grid = keyframes`
   100% {transform: scale(1);opacity: 1}
 `;
 
-const random = top => Math.random() * top;
+const random = (top) => Math.random() * top;
 
 class Loader extends React.Component {
-  style = rand => {
+  style = (rand) => {
     const { color, size, sizeUnit, margin } = this.props;
 
     return css`
@@ -25,8 +25,7 @@ class Loader extends React.Component {
         margin: ${margin};
         border-radius: 100%;
         animation-fill-mode: "both";
-        animation: ${grid} ${rand / 100 + 0.6}s ${rand / 100 - 0.2}s infinite
-          ease;
+        animation: ${grid} ${rand / 100 + 0.6}s ${rand / 100 - 0.2}s infinite ease;
       }
     `;
   };

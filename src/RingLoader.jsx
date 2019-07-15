@@ -15,7 +15,7 @@ const left = keyframes`
 `;
 
 class Loader extends React.Component {
-  style = i => {
+  style = (i) => {
     const { size, sizeUnit, color } = this.props;
 
     return css`

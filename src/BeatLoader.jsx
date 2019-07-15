@@ -10,7 +10,7 @@ const beat = keyframes`
 `;
 
 class Loader extends React.Component {
-  style = i => {
+  style = (i) => {
     const { color, size, sizeUnit, margin } = this.props;
 
     return css`

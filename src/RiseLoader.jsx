@@ -23,7 +23,7 @@ const odd = keyframes`
 `;
 
 class Loader extends React.Component {
-  style = i => {
+  style = (i) => {
     const { color, size, sizeUnit, margin } = this.props;
 
     return css`
@@ -34,8 +34,7 @@ class Loader extends React.Component {
         margin: ${`${margin}`};
         border-radius: 100%;
         display: inline-block;
-        animation: ${i % 2 === 0 ? even : odd} 1s 0s infinite
-          cubic-bezier(0.15, 0.46, 0.9, 0.6);
+        animation: ${i % 2 === 0 ? even : odd} 1s 0s infinite cubic-bezier(0.15, 0.46, 0.9, 0.6);
         animation-fill-mode: both;
       }
     `;

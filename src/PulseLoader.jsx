@@ -12,7 +12,7 @@ const pulse = keyframes`
 `;
 
 class Loader extends React.Component {
-  style = i => {
+  style = (i) => {
     const { color, size, sizeUnit, margin } = this.props;
 
     return css`
@@ -23,8 +23,7 @@ class Loader extends React.Component {
         margin: ${margin};
         border-radius: 100%;
         display: inline-block;
-        animation: ${pulse} 0.75s ${i * 0.12}s infinite
-          cubic-bezier(0.2, 0.68, 0.18, 1.08);
+        animation: ${pulse} 0.75s ${i * 0.12}s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
         animation-fill-mode: both;
       }
     `;
