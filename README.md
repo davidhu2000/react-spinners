@@ -52,6 +52,7 @@ import { ClipLoader } from 'react-spinners';
 // Another way to import
 import ClipLoader from 'react-spinners/ClipLoader';
 
+// Can be a string as well. Need to ensure each key-value pair ends with ;
 const override = css`
     display: block;
     margin: 0 auto;
@@ -98,24 +99,24 @@ More info about using `css` [here](https://emotion.sh/docs/introduction)
 
 For `size`, `height`, and `width` props, there are `sizeUnit`, `heightUnit`, and `widthUnit` prop that accepts `px`, `%`, or `em`. The default for the unit prop is `px`.
 
-Loader                  | size:int | height:int | width:int | radius:int | margin:str
------------------------:|:--------:|:----------:|:---------:|:----------:|:---------:
-BarLoader               |          | `4`        | `100`     |            |
-BeatLoader              | `15`     |            |           |            | `2px`
-BounceLoader            | `60`     |            |           |            |
-CircleLoader            | `50`     |            |           |            |
-ClipLoader              | `35`     |            |           |            |
-ClimbingBoxLoader       | `15`     |            |           |            |
-DotLoader               | `60`     |            |           |            | `2px`
-FadeLoader              |          | `15`       | `5`       | `2`        | `2px`
-GridLoader              | `15`     |            |           |            |
-HashLoader              | `50`     |            |           |            | `2px`
-MoonLoader              | `60`     |            |           |            | `2px`
-PacmanLoader            | `25`     |            |           |            | `2px`
-PropagateLoader         | `15`     |            |           |            |
-PulseLoader             | `15`     |            |           |            | `2px`
-RingLoader              | `60`     |            |           |            | `2px`
-RiseLoader              | `15`     |            |           |            | `2px`
-RotateLoader            | `15`     |            |           |            | `2px`
-ScaleLoader             |          | `35`       | `4`       | `2`        | `2px`
-SyncLoader              | `15`     |            |           |            | `2px`
+           Loader | size:int | height:int | width:int | radius:int | margin:str
+-----------------:|:--------:|:----------:|:---------:|:----------:|:---------:
+        BarLoader |          |    `4`     |   `100`   |            |      
+       BeatLoader |   `15`   |            |           |            |   `2px`
+     BounceLoader |   `60`   |            |           |            |      
+     CircleLoader |   `50`   |            |           |            |      
+       ClipLoader |   `35`   |            |           |            |      
+ClimbingBoxLoader |   `15`   |            |           |            |      
+        DotLoader |   `60`   |            |           |            |   `2px`
+       FadeLoader |          |    `15`    |    `5`    |    `2`     |   `2px`
+       GridLoader |   `15`   |            |           |            |      
+       HashLoader |   `50`   |            |           |            |   `2px`
+       MoonLoader |   `60`   |            |           |            |   `2px`
+     PacmanLoader |   `25`   |            |           |            |   `2px`
+  PropagateLoader |   `15`   |            |           |            |      
+      PulseLoader |   `15`   |            |           |            |   `2px`
+       RingLoader |   `60`   |            |           |            |   `2px`
+       RiseLoader |   `15`   |            |           |            |   `2px`
+     RotateLoader |   `15`   |            |           |            |   `2px`
+      ScaleLoader |          |    `35`    |    `4`    |    `2`     |   `2px`
+       SyncLoader |   `15`   |            |           |            |   `2px`
