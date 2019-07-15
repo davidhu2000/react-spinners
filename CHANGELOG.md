@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.9
+
+- **bugfix**: Fix [issue 61](https://github.com/davidhu2000/react-spinners/issues/61) where css overrides are not applied properly. Updated how the override workings using [emotion composition](https://emotion.sh/docs/composition)
+
 ## 0.5.8
 
 - **bugfix**: Fix [issue 66](https://github.com/davidhu2000/react-spinners/issues/66) where destructuring import no longer works. Updated how components are exported, changed from `export default` to `export const`
