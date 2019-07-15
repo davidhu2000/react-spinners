@@ -1,24 +1,15 @@
 {
   "compilerOptions": {
-    "sourceMap": true, 
-    "strictNullChecks": true, 
-    "module": "esnext", 
-    "jsx": "react", 
-    "target": "es5", 
-    "allowJs": true, 
-    "moduleResolution": "node", 
-    "experimentalDecorators": true, 
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "module": "esnext",
+    "jsx": "react",
+    "target": "es5",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
     "esModuleInterop": true,
-    "declaration": true,
-    "lib": [
-      "dom",
-      "es2017",
-      "es5",
-      "es6",
-      "es7"
-    ]
+    "lib": ["dom", "es2017", "es5", "es6", "es7"]
   },
-  "exclude": [
-    "docs/*"
-  ]
+  "exclude": ["docs/*"]
 }
