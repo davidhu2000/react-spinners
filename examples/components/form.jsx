@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Form = ({ inputs, update }) => (
   <div className="spinner-form">
-    {Object.keys(inputs).map(name => (
+    {Object.keys(inputs).map((name) => (
       <div className="spinner-form-input" key={name}>
         <input
           name={name}

@@ -24,7 +24,7 @@ class LoaderItem extends React.Component {
   }
 
   update(field) {
-    return e => {
+    return (e) => {
       let { value } = e.target;
       if (!value.includes("px")) {
         value = parseInt(value, 10);

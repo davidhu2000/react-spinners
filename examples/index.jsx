@@ -1,7 +1,7 @@
 /* global document, window */
 import React from "react";
 import ReactDOM from "react-dom";
-
+import { css } from "@emotion/core";
 import { Code, ColorPicker, LoaderItem } from "./components";
 import * as Spinners from "../src";
 
@@ -32,9 +32,7 @@ class SpinnerExamples extends React.Component {
   updateColor(color) {
     this.setState({ color: color.hex });
     document.getElementById("header").style.cssText = `
-      background: -webkit-gradient(linear, left top, right top, from(${
-        color.hex
-      }), to(#2b303b));
+      background: -webkit-gradient(linear, left top, right top, from(${color.hex}), to(#2b303b));
       background: -webkit-linear-gradient(left, ${color.hex}, #2b303b);
       background: -o-linear-gradient(left, ${color.hex}, #2b303b);
       background: linear-gradient(90deg, ${color.hex}, #2b303b);
@@ -65,13 +63,8 @@ class SpinnerExamples extends React.Component {
           )}
         </div>
 
-        {Object.keys(Spinners).map(name => (
-          <LoaderItem
-            key={`loader-${name}`}
-            color={color}
-            name={name}
-            spinner={Spinners[name]}
-          />
+        {Object.keys(Spinners).map((name) => (
+          <LoaderItem key={`loader-${name}`} color={color} name={name} spinner={Spinners[name]} />
         ))}
       </div>
     );
