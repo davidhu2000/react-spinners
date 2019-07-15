@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.12
+
+- fix version glitch. No code changes here.
+
+## 0.5.11
+
+- this version should be 0.5.10, but internet issues causesa weird version glitch. Update to 0.5.12 so everything matches.
+
 ## 0.5.10
 
 - update readme to include explanation of css prop can be string as well as css function from @emotion/core
