@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import React from 'react';
-import { keyframes, css, jsx } from '@emotion/core';
-import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
-import { sizeMarginProps, sizeMarginDefaults, sizeMarginKeys } from './helpers';
+import React from "react";
+import { keyframes, css, jsx } from "@emotion/core";
+import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
+import { sizeMarginProps, sizeMarginDefaults, sizeMarginKeys } from "./helpers";
 
 const riseAmount = 30;
 
@@ -23,37 +23,39 @@ const odd = keyframes`
 `;
 
 class Loader extends React.Component {
-    style = i => {
-      const {
-        color, size, sizeUnit, margin
-      } = this.props;
+  style = i => {
+    const { color, size, sizeUnit, margin } = this.props;
 
-      return css`{
-            background-color: ${color};
-            width: ${`${size}${sizeUnit}`};
-            height: ${`${size}${sizeUnit}`};
-            margin: ${`${margin}`};
-            border-radius: 100%;
-            display: inline-block;
-            animation: ${i % 2 === 0 ? even : odd} 1s 0s infinite cubic-bezier(.15,.46,.9,.6);
-            animation-fill-mode: both;
-        }`;
-    };
+    return css`
+       {
+        background-color: ${color};
+        width: ${`${size}${sizeUnit}`};
+        height: ${`${size}${sizeUnit}`};
+        margin: ${`${margin}`};
+        border-radius: 100%;
+        display: inline-block;
+        animation: ${i % 2 === 0 ? even : odd} 1s 0s infinite
+          cubic-bezier(0.15, 0.46, 0.9, 0.6);
+        animation-fill-mode: both;
+      }
+    `;
+  };
 
-    wrapper = () => this.props.css || '';
+  wrapper = () => this.props.css || "";
 
-    render() {
-      const { loading } = this.props;
+  render() {
+    const { loading } = this.props;
 
-      return loading ?
-        <div css={this.wrapper()}>
-          <div css={this.style(1)} />
-          <div css={this.style(2)} />
-          <div css={this.style(3)} />
-          <div css={this.style(4)} />
-          <div css={this.style(5)} />
-        </div> : null;
-    }
+    return loading ? (
+      <div css={this.wrapper()}>
+        <div css={this.style(1)} />
+        <div css={this.style(2)} />
+        <div css={this.style(3)} />
+        <div css={this.style(4)} />
+        <div css={this.style(5)} />
+      </div>
+    ) : null;
+  }
 }
 
 Loader.propTypes = sizeMarginProps;

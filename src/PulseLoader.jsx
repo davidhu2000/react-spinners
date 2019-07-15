@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import React from 'react';
-import { keyframes, css, jsx } from '@emotion/core';
-import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
-import { sizeMarginProps, sizeMarginDefaults, sizeMarginKeys } from './helpers';
+import React from "react";
+import { keyframes, css, jsx } from "@emotion/core";
+import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
+import { sizeMarginProps, sizeMarginDefaults, sizeMarginKeys } from "./helpers";
 
 // This returns an animation
 const pulse = keyframes`
@@ -12,36 +12,37 @@ const pulse = keyframes`
 `;
 
 class Loader extends React.Component {
-    style = i => {
-      const {
-        color, size, sizeUnit, margin
-      } = this.props;
+  style = i => {
+    const { color, size, sizeUnit, margin } = this.props;
 
-      return css`{
-            background-color: ${color};
-            width: ${`${size}${sizeUnit}`};
-            height: ${`${size}${sizeUnit}`};
-            margin: ${margin};
-            border-radius: 100%;
-            display: inline-block;
-            animation: ${pulse} 0.75s ${i * 0.12}s infinite cubic-bezier(.2,.68,.18,1.08);
-            animation-fill-mode: both;
-        }`;
-    };
+    return css`
+       {
+        background-color: ${color};
+        width: ${`${size}${sizeUnit}`};
+        height: ${`${size}${sizeUnit}`};
+        margin: ${margin};
+        border-radius: 100%;
+        display: inline-block;
+        animation: ${pulse} 0.75s ${i * 0.12}s infinite
+          cubic-bezier(0.2, 0.68, 0.18, 1.08);
+        animation-fill-mode: both;
+      }
+    `;
+  };
 
+  wrapper = () => this.props.css || "";
 
-    wrapper = () => this.props.css || '';
+  render() {
+    const { loading } = this.props;
 
-    render() {
-      const { loading } = this.props;
-
-      return loading ?
-        <div css={this.wrapper()}>
-          <div css={this.style(1)} />
-          <div css={this.style(2)} />
-          <div css={this.style(3)} />
-        </div> : null;
-    }
+    return loading ? (
+      <div css={this.wrapper()}>
+        <div css={this.style(1)} />
+        <div css={this.style(2)} />
+        <div css={this.style(3)} />
+      </div>
+    ) : null;
+  }
 }
 
 Loader.propTypes = sizeMarginProps;

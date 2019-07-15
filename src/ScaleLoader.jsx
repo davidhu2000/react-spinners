@@ -1,8 +1,12 @@
 /** @jsx jsx */
-import React from 'react';
-import { keyframes, css, jsx } from '@emotion/core';
-import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
-import { heightWidthRadiusProps, heightWidthRadiusDefaults, heightWidthRadiusKeys } from './helpers';
+import React from "react";
+import { keyframes, css, jsx } from "@emotion/core";
+import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
+import {
+  heightWidthRadiusProps,
+  heightWidthRadiusDefaults,
+  heightWidthRadiusKeys
+} from "./helpers";
 
 const scale = keyframes`
   0% {transform: scaley(1.0)}
@@ -11,37 +15,48 @@ const scale = keyframes`
 `;
 
 class Loader extends React.Component {
-    style = i => {
-      const {
-        color, width, height, margin, radius, widthUnit, heightUnit, radiusUnit
-      } = this.props;
+  style = i => {
+    const {
+      color,
+      width,
+      height,
+      margin,
+      radius,
+      widthUnit,
+      heightUnit,
+      radiusUnit
+    } = this.props;
 
-      return css`{
-            background-color: ${color};
-            width: ${`${width}${widthUnit}`};
-            height: ${`${height}${heightUnit}`};
-            margin: ${margin};
-            border-radius: ${`${radius}${radiusUnit}`};
-            display: inline-block;
-            animation: ${scale} 1s ${i * 0.1}s infinite cubic-bezier(.2,.68,.18,1.08);
-            animation-fill-mode: both;
-        }`;
-    };
+    return css`
+       {
+        background-color: ${color};
+        width: ${`${width}${widthUnit}`};
+        height: ${`${height}${heightUnit}`};
+        margin: ${margin};
+        border-radius: ${`${radius}${radiusUnit}`};
+        display: inline-block;
+        animation: ${scale} 1s ${i * 0.1}s infinite
+          cubic-bezier(0.2, 0.68, 0.18, 1.08);
+        animation-fill-mode: both;
+      }
+    `;
+  };
 
-    wrapper = () => this.props.css || '';
+  wrapper = () => this.props.css || "";
 
-    render() {
-      const { loading } = this.props;
+  render() {
+    const { loading } = this.props;
 
-      return loading ?
-        <div css={this.wrapper()}>
-          <div css={this.style(1)} />
-          <div css={this.style(2)} />
-          <div css={this.style(3)} />
-          <div css={this.style(4)} />
-          <div css={this.style(5)} />
-        </div> : null;
-    }
+    return loading ? (
+      <div css={this.wrapper()}>
+        <div css={this.style(1)} />
+        <div css={this.style(2)} />
+        <div css={this.style(3)} />
+        <div css={this.style(4)} />
+        <div css={this.style(5)} />
+      </div>
+    ) : null;
+  }
 }
 
 Loader.propTypes = heightWidthRadiusProps;

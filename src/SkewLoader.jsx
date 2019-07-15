@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import React from 'react';
-import { keyframes, css, jsx } from '@emotion/core';
-import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
-import { sizeProps, sizeDefaults, sizeKeys } from './helpers';
+import React from "react";
+import { keyframes, css, jsx } from "@emotion/core";
+import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
+import { sizeProps, sizeDefaults, sizeKeys } from "./helpers";
 
 const skew = keyframes`
   25% {transform: perspective(100px) rotateX(180deg) rotateY(0)}
@@ -12,31 +12,35 @@ const skew = keyframes`
 `;
 
 class Loader extends React.Component {
-    style = () => {
-      const {
-        size, sizeUnit, color
-      } = this.props;
+  style = () => {
+    const { size, sizeUnit, color } = this.props;
 
-      const style = css`{
-            width: 0;
-            height: 0;
-            border-left: ${`${size}${sizeUnit}`} solid transparent;
-            border-right: ${`${size}${sizeUnit}`} solid transparent;
-            border-bottom: ${`${size}${sizeUnit}`} solid ${color};
-            display: inline-block;
-            animation: ${skew} 3s 0s infinite cubic-bezier(.09,.57,.49,.9);
-            animation-fill-mode: both;
-        }`;
+    const style = css`
+       {
+        width: 0;
+        height: 0;
+        border-left: ${`${size}${sizeUnit}`} solid transparent;
+        border-right: ${`${size}${sizeUnit}`} solid transparent;
+        border-bottom: ${`${size}${sizeUnit}`} solid ${color};
+        display: inline-block;
+        animation: ${skew} 3s 0s infinite cubic-bezier(0.09, 0.57, 0.49, 0.9);
+        animation-fill-mode: both;
+      }
+    `;
 
-      return this.props.css ? css`${style};${this.props.css}` : style;
-    };
+    return this.props.css
+      ? css`
+          ${style};
+          ${this.props.css}
+        `
+      : style;
+  };
 
-    render() {
-      const { loading } = this.props;
+  render() {
+    const { loading } = this.props;
 
-      return loading ?
-        <div css={this.style()} /> : null;
-    }
+    return loading ? <div css={this.style()} /> : null;
+  }
 }
 
 Loader.propTypes = sizeProps;

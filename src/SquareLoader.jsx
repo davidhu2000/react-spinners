@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import React from 'react';
-import { keyframes, css, jsx } from '@emotion/core';
-import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
-import { sizeProps, sizeKeys, sizeDefaults } from './helpers';
+import React from "react";
+import { keyframes, css, jsx } from "@emotion/core";
+import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
+import { sizeProps, sizeKeys, sizeDefaults } from "./helpers";
 
 const square = keyframes`
   25% {transform: rotateX(180deg) rotateY(0)}
@@ -12,29 +12,33 @@ const square = keyframes`
 `;
 
 class Loader extends React.Component {
-    style = () => {
-      const {
-        color, size, sizeUnit
-      } = this.props;
+  style = () => {
+    const { color, size, sizeUnit } = this.props;
 
-      const style = css`{
-            background-color: ${color};
-            width: ${`${size}${sizeUnit}`};
-            height: ${`${size}${sizeUnit}`};
-            display: inline-block;
-            animation: ${square} 3s 0s infinite cubic-bezier(.09,.57,.49,.9);
-            animation-fill-mode: both;
-        }`;
+    const style = css`
+       {
+        background-color: ${color};
+        width: ${`${size}${sizeUnit}`};
+        height: ${`${size}${sizeUnit}`};
+        display: inline-block;
+        animation: ${square} 3s 0s infinite cubic-bezier(0.09, 0.57, 0.49, 0.9);
+        animation-fill-mode: both;
+      }
+    `;
 
-      return this.props.css ? css`${style};${this.props.css}` : style;
-    };
+    return this.props.css
+      ? css`
+          ${style};
+          ${this.props.css}
+        `
+      : style;
+  };
 
-    render() {
-      const { loading } = this.props;
+  render() {
+    const { loading } = this.props;
 
-      return loading ?
-        <div css={this.style()} /> : null;
-    }
+    return loading ? <div css={this.style()} /> : null;
+  }
 }
 
 Loader.propTypes = sizeProps;

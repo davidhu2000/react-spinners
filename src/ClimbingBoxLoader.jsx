@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import React from 'react';
-import { keyframes, css, jsx } from '@emotion/core';
-import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
-import { sizeProps, sizeDefaults, sizeKeys } from './helpers';
+import React from "react";
+import { keyframes, css, jsx } from "@emotion/core";
+import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
+import { sizeProps, sizeDefaults, sizeKeys } from "./helpers";
 
 const climbingBox = keyframes`
   0% {transform:translate(0, -1em) rotate(-45deg)} 
@@ -19,74 +19,88 @@ const climbingBox = keyframes`
 `;
 
 class Loader extends React.Component {
-    style = () => {
-      const { color } = this.props;
+  style = () => {
+    const { color } = this.props;
 
-      return css`{   
-            position: absolute;
-            left: 0;
-            bottom: -0.1em;
-            height: 1em;
-            width: 1em;
-            background-color: transparent;
-            border-radius: 15%;
-            border: 0.25em solid ${color};
-            transform: translate(0, -1em) rotate(-45deg);
-            animation-fill-mode: both;
-            animation: ${climbingBox} 2.5s infinite cubic-bezier(.79, 0, .47, .97);
-        }`;
-    };
+    return css`
+       {
+        position: absolute;
+        left: 0;
+        bottom: -0.1em;
+        height: 1em;
+        width: 1em;
+        background-color: transparent;
+        border-radius: 15%;
+        border: 0.25em solid ${color};
+        transform: translate(0, -1em) rotate(-45deg);
+        animation-fill-mode: both;
+        animation: ${climbingBox} 2.5s infinite
+          cubic-bezier(0.79, 0, 0.47, 0.97);
+      }
+    `;
+  };
 
-    wrapper = () => {
-      const { size, sizeUnit } = this.props;
+  wrapper = () => {
+    const { size, sizeUnit } = this.props;
 
-      return css`{        
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin-top: -2.7em;
-            margin-left: -2.7em;
-            width: 5.4em;
-            height: 5.4em;
-            font-size: ${`${size}${sizeUnit}`};
-        }`;
-    };
+    return css`
+       {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -2.7em;
+        margin-left: -2.7em;
+        width: 5.4em;
+        height: 5.4em;
+        font-size: ${`${size}${sizeUnit}`};
+      }
+    `;
+  };
 
+  hill = () => {
+    const { color } = this.props;
 
-    hill = () => {
-      const { color } = this.props;
-
-      return css`{
-            position: absolute;
-            width: 7.1em;
-            height: 7.1em;
-            top: 1.7em;
-            left: 1.7em;
-            border-left: 0.25em solid ${color};
-            transform: rotate(45deg);
-        }`;
-    };
+    return css`
+       {
+        position: absolute;
+        width: 7.1em;
+        height: 7.1em;
+        top: 1.7em;
+        left: 1.7em;
+        border-left: 0.25em solid ${color};
+        transform: rotate(45deg);
+      }
+    `;
+  };
 
   container = () => {
-    const container = css`{
-            position: relative;
-            width: 7.1em;
-            height: 7.1em;
-        }`;
+    const container = css`
+       {
+        position: relative;
+        width: 7.1em;
+        height: 7.1em;
+      }
+    `;
 
-    return this.props.css ? css`${container};${this.props.css}` : container;
+    return this.props.css
+      ? css`
+          ${container};
+          ${this.props.css}
+        `
+      : container;
   };
 
   render() {
     const { loading } = this.props;
 
-    return loading ?
+    return loading ? (
       <div css={this.container()}>
         <div css={this.wrapper()}>
           <div css={this.style()} />
           <div css={this.hill()} />
         </div>
-      </div> : null;
+      </div>
+    ) : null;
   }
 }
 
