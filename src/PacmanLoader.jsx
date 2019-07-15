@@ -73,6 +73,7 @@ class Loader extends React.Component {
       position: absolute;
       animation: ${pacman[i]} 0.8s infinite ease-in-out;
       animation-fill-mode: both;
+      z-index: 1;
     `;
   };
 
