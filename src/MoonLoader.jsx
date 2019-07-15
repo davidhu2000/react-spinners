@@ -19,11 +19,9 @@ class Loader extends React.Component {
     const { sizeUnit } = this.props;
 
     return css`
-       {
-        width: ${`${size}${sizeUnit}`};
-        height: ${`${size}${sizeUnit}`};
-        border-radius: 100%;
-      }
+      width: ${`${size}${sizeUnit}`};
+      height: ${`${size}${sizeUnit}`};
+      border-radius: 100%;
     `;
   };
 
@@ -31,13 +29,11 @@ class Loader extends React.Component {
     const { size, sizeUnit } = this.props;
 
     return css`
-       {
-        position: relative;
-        width: ${`${size + this.moonSize() * 2}${sizeUnit}`};
-        height: ${`${size + this.moonSize() * 2}${sizeUnit}`};
-        animation: ${moon} 0.6s 0s infinite linear;
-        animation-fill-mode: forwards;
-      }
+      position: relative;
+      width: ${`${size + this.moonSize() * 2}${sizeUnit}`};
+      height: ${`${size + this.moonSize() * 2}${sizeUnit}`};
+      animation: ${moon} 0.6s 0s infinite linear;
+      animation-fill-mode: forwards;
     `;
   };
 
@@ -58,25 +54,18 @@ class Loader extends React.Component {
   circle = () => {
     const { size, color } = this.props;
 
-    const wrapper = css`
+    return css`
       ${this.ballStyle(size)};
       border: ${this.moonSize()}px solid ${color};
       opacity: 0.1;
     `;
-
-    return this.props.css
-      ? css`
-          ${wrapper};
-          ${this.props.css}
-        `
-      : wrapper;
   };
 
   render() {
-    const { loading } = this.props;
+    const { loading, css } = this.props;
 
     return loading ? (
-      <div css={this.wrapper()}>
+      <div css={[this.wrapper(), css]}>
         <div css={this.ball()} />
         <div css={this.circle()} />
       </div>

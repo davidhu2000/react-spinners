@@ -12,43 +12,32 @@ const rotate = keyframes`
 
 class Loader extends React.Component {
   style = (i) => css`
-     {
-      opacity: 0.8;
-      position: absolute;
-      top: 0;
-      left: ${i % 2 ? -28 : 25}px;
-    }
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    left: ${i % 2 ? -28 : 25}px;
   `;
 
   ball = () => {
     const { color, size, sizeUnit, margin } = this.props;
 
     return css`
-       {
-        background-color: ${color};
-        width: ${`${size}${sizeUnit}`};
-        height: ${`${size}${sizeUnit}`};
-        margin: ${margin};
-        border-radius: 100%;
-      }
+      background-color: ${color};
+      width: ${`${size}${sizeUnit}`};
+      height: ${`${size}${sizeUnit}`};
+      margin: ${margin};
+      border-radius: 100%;
     `;
   };
 
   wrapper = () => {
-    const wrapper = css`
+    return css`
       ${this.ball()};
       display: inline-block;
       position: relative;
       animation-fill-mode: both;
       animation: ${rotate} 1s 0s infinite cubic-bezier(0.7, -0.13, 0.22, 0.86);
     `;
-
-    return this.props.css
-      ? css`
-          ${wrapper};
-          ${this.props.css}
-        `
-      : wrapper;
   };
 
   long = () => css`
@@ -61,10 +50,10 @@ class Loader extends React.Component {
   `;
 
   render() {
-    const { loading } = this.props;
+    const { loading, css } = this.props;
 
     return loading ? (
-      <div css={this.wrapper()}>
+      <div css={[this.wrapper(), css]}>
         <div css={this.long()} />
         <div css={this.short()} />
       </div>

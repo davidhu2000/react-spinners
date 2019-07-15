@@ -23,19 +23,17 @@ class Loader extends React.Component {
     const { color } = this.props;
 
     return css`
-       {
-        position: absolute;
-        left: 0;
-        bottom: -0.1em;
-        height: 1em;
-        width: 1em;
-        background-color: transparent;
-        border-radius: 15%;
-        border: 0.25em solid ${color};
-        transform: translate(0, -1em) rotate(-45deg);
-        animation-fill-mode: both;
-        animation: ${climbingBox} 2.5s infinite cubic-bezier(0.79, 0, 0.47, 0.97);
-      }
+      position: absolute;
+      left: 0;
+      bottom: -0.1em;
+      height: 1em;
+      width: 1em;
+      background-color: transparent;
+      border-radius: 15%;
+      border: 0.25em solid ${color};
+      transform: translate(0, -1em) rotate(-45deg);
+      animation-fill-mode: both;
+      animation: ${climbingBox} 2.5s infinite cubic-bezier(0.79, 0, 0.47, 0.97);
     `;
   };
 
@@ -43,16 +41,14 @@ class Loader extends React.Component {
     const { size, sizeUnit } = this.props;
 
     return css`
-       {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -2.7em;
-        margin-left: -2.7em;
-        width: 5.4em;
-        height: 5.4em;
-        font-size: ${`${size}${sizeUnit}`};
-      }
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -2.7em;
+      margin-left: -2.7em;
+      width: 5.4em;
+      height: 5.4em;
+      font-size: ${`${size}${sizeUnit}`};
     `;
   };
 
@@ -60,40 +56,29 @@ class Loader extends React.Component {
     const { color } = this.props;
 
     return css`
-       {
-        position: absolute;
-        width: 7.1em;
-        height: 7.1em;
-        top: 1.7em;
-        left: 1.7em;
-        border-left: 0.25em solid ${color};
-        transform: rotate(45deg);
-      }
+      position: absolute;
+      width: 7.1em;
+      height: 7.1em;
+      top: 1.7em;
+      left: 1.7em;
+      border-left: 0.25em solid ${color};
+      transform: rotate(45deg);
     `;
   };
 
   container = () => {
-    const container = css`
-       {
-        position: relative;
-        width: 7.1em;
-        height: 7.1em;
-      }
+    return css`
+      position: relative;
+      width: 7.1em;
+      height: 7.1em;
     `;
-
-    return this.props.css
-      ? css`
-          ${container};
-          ${this.props.css}
-        `
-      : container;
   };
 
   render() {
-    const { loading } = this.props;
+    const { loading, css } = this.props;
 
     return loading ? (
-      <div css={this.container()}>
+      <div css={[this.container(), css]}>
         <div css={this.wrapper()}>
           <div css={this.style()} />
           <div css={this.hill()} />
