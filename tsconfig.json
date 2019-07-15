@@ -11,5 +11,5 @@
     "esModuleInterop": true,
     "lib": ["dom", "es2017", "es5", "es6", "es7"]
   },
-  "exclude": ["docs/*"]
+  "exclude": ["docs/*", "webpack.config.*", "*.js"]
 }
