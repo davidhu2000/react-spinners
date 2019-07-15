@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.10
+
+- update readme to include explanation of css prop can be string as well as css function from @emotion/core
+
 ## 0.5.9
 
 - **bugfix**: Fix [issue 61](https://github.com/davidhu2000/react-spinners/issues/61) where css overrides are not applied properly. Updated how the override workings using [emotion composition](https://emotion.sh/docs/composition)
