@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Form } from './form';
+import React from "react";
+import PropTypes from "prop-types";
+import { Form } from "./form";
 
 class LoaderItem extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class LoaderItem extends React.Component {
   update(field) {
     return e => {
       let { value } = e.target;
-      if (!value.includes('px')) {
+      if (!value.includes("px")) {
         value = parseInt(value, 10);
       }
 
@@ -44,7 +44,7 @@ class LoaderItem extends React.Component {
       <div>
         <div className="spinner-item">
           <div className="spinner-title">{name}</div>
-          { this.renderSpinner(spinner) }
+          {this.renderSpinner(spinner)}
           <Form inputs={this.state} update={this.update} />
         </div>
       </div>

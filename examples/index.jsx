@@ -1,15 +1,15 @@
 /* global document, window */
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import { Code, ColorPicker, LoaderItem } from './components';
-import * as Spinners from '../src';
+import { Code, ColorPicker, LoaderItem } from "./components";
+import * as Spinners from "../src";
 
 class SpinnerExamples extends React.Component {
   constructor() {
     super();
     this.state = {
-      color: '#36D7B7',
+      color: "#36D7B7",
       showPicker: false
     };
 
@@ -18,9 +18,9 @@ class SpinnerExamples extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('scroll', () => {
-      let picker = document.getElementsByClassName('color-picker')[0];
-      let top = 370 - (window.scrollY * 2);
+    document.addEventListener("scroll", () => {
+      let picker = document.getElementsByClassName("color-picker")[0];
+      let top = 370 - window.scrollY * 2;
       if (top > 60) {
         picker.style.top = `${top}px`;
       } else {
@@ -31,8 +31,10 @@ class SpinnerExamples extends React.Component {
 
   updateColor(color) {
     this.setState({ color: color.hex });
-    document.getElementById('header').style.cssText = `
-      background: -webkit-gradient(linear, left top, right top, from(${color.hex}), to(#2b303b));
+    document.getElementById("header").style.cssText = `
+      background: -webkit-gradient(linear, left top, right top, from(${
+        color.hex
+      }), to(#2b303b));
       background: -webkit-linear-gradient(left, ${color.hex}, #2b303b);
       background: -o-linear-gradient(left, ${color.hex}, #2b303b);
       background: linear-gradient(90deg, ${color.hex}, #2b303b);
@@ -44,9 +46,7 @@ class SpinnerExamples extends React.Component {
   }
 
   renderSpinner(Spinner) {
-    return (
-      <Spinner color={this.state.color} />
-    );
+    return <Spinner color={this.state.color} />;
   }
 
   render() {
@@ -54,32 +54,34 @@ class SpinnerExamples extends React.Component {
     return (
       <div className="spinner-container">
         <div className="color-picker position-abs">
-          { showPicker ? (
-            <ColorPicker color={color} updateColor={this.updateColor} togglePicker={this.togglePicker} />
+          {showPicker ? (
+            <ColorPicker
+              color={color}
+              updateColor={this.updateColor}
+              togglePicker={this.togglePicker}
+            />
           ) : (
-            <button onClick={this.togglePicker}>
-              Change Color
-            </button>
-          ) }
+            <button onClick={this.togglePicker}>Change Color</button>
+          )}
         </div>
 
-        { Object.keys(Spinners).map(name => (
+        {Object.keys(Spinners).map(name => (
           <LoaderItem
             key={`loader-${name}`}
             color={color}
             name={name}
             spinner={Spinners[name]}
           />
-        )) }
+        ))}
       </div>
     );
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const root = document.getElementById('root');
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.getElementById("root");
   ReactDOM.render(<SpinnerExamples />, root);
 
-  const code = document.getElementById('code');
+  const code = document.getElementById("code");
   ReactDOM.render(<Code />, code);
 });
