@@ -17,42 +17,31 @@ class Loader extends React.Component {
     const { color, size, sizeUnit, margin } = this.props;
 
     return css`
-       {
-        display: inline-block;
-        background-color: ${color};
-        width: ${`${size}${sizeUnit}`};
-        height: ${`${size}${sizeUnit}`};
-        margin: ${margin};
-        border-radius: 100%;
-        animation-fill-mode: "both";
-        animation: ${grid} ${rand / 100 + 0.6}s ${rand / 100 - 0.2}s infinite ease;
-      }
+      display: inline-block;
+      background-color: ${color};
+      width: ${`${size}${sizeUnit}`};
+      height: ${`${size}${sizeUnit}`};
+      margin: ${margin};
+      border-radius: 100%;
+      animation-fill-mode: "both";
+      animation: ${grid} ${rand / 100 + 0.6}s ${rand / 100 - 0.2}s infinite ease;
     `;
   };
 
   wrapper = () => {
     const { size, sizeUnit, margin } = this.props;
 
-    const wrapper = css`
-       {
-        width: ${`${parseFloat(size) * 3 + parseFloat(margin) * 6}${sizeUnit}`};
-        font-size: 0;
-      }
+    return css`
+      width: ${`${parseFloat(size) * 3 + parseFloat(margin) * 6}${sizeUnit}`};
+      font-size: 0;
     `;
-
-    return this.props.css
-      ? css`
-          ${wrapper};
-          ${this.props.css}
-        `
-      : wrapper;
   };
 
   render() {
-    const { loading } = this.props;
+    const { loading, css } = this.props;
 
     return loading ? (
-      <div css={this.wrapper()}>
+      <div css={[this.wrapper(), css]}>
         <div css={this.style(random(100))} />
         <div css={this.style(random(100))} />
         <div css={this.style(random(100))} />

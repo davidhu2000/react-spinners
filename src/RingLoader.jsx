@@ -19,46 +19,35 @@ class Loader extends React.Component {
     const { size, sizeUnit, color } = this.props;
 
     return css`
-       {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: ${`${size}${sizeUnit}`};
-        height: ${`${size}${sizeUnit}`};
-        border: ${`${size / 10}${sizeUnit}`} solid ${color};
-        opacity: 0.4;
-        border-radius: 100%;
-        animation-fill-mode: forwards;
-        perspective: 800px;
-        animation: ${i === 1 ? right : left} 2s 0s infinite linear;
-      }
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: ${`${size}${sizeUnit}`};
+      height: ${`${size}${sizeUnit}`};
+      border: ${`${size / 10}${sizeUnit}`} solid ${color};
+      opacity: 0.4;
+      border-radius: 100%;
+      animation-fill-mode: forwards;
+      perspective: 800px;
+      animation: ${i === 1 ? right : left} 2s 0s infinite linear;
     `;
   };
 
   wrapper = () => {
     const { size, sizeUnit } = this.props;
 
-    const wrapper = css`
-       {
-        width: ${`${size}${sizeUnit}`};
-        height: ${`${size}${sizeUnit}`};
-        position: relative;
-      }
+    return css`
+      width: ${`${size}${sizeUnit}`};
+      height: ${`${size}${sizeUnit}`};
+      position: relative;
     `;
-
-    return this.props.css
-      ? css`
-          ${wrapper};
-          ${this.props.css}
-        `
-      : wrapper;
   };
 
   render() {
-    const { loading } = this.props;
+    const { loading, css } = this.props;
 
     return loading ? (
-      <div css={this.wrapper()}>
+      <div css={[this.wrapper(), css]}>
         <div css={this.style(1)} />
         <div css={this.style(2)} />
       </div>

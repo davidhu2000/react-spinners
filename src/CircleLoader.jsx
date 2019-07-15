@@ -15,47 +15,36 @@ class Loader extends React.Component {
     const { size, color, sizeUnit } = this.props;
 
     return css`
-       {
-        position: absolute;
-        height: ${`${size * (1 - i / 10)}${sizeUnit}`};
-        width: ${`${size * (1 - i / 10)}${sizeUnit}`};
-        border: 1px solid ${color};
-        border-radius: 100%;
-        transition: 2s;
-        border-bottom: none;
-        border-right: none;
-        top: ${i * 0.7 * 2.5}%;
-        left: ${i * 0.35 * 2.5}%;
-        animation-fill-mode: "";
-        animation: ${circle} 1s ${i * 0.2}s infinite linear;
-      }
+      position: absolute;
+      height: ${`${size * (1 - i / 10)}${sizeUnit}`};
+      width: ${`${size * (1 - i / 10)}${sizeUnit}`};
+      border: 1px solid ${color};
+      border-radius: 100%;
+      transition: 2s;
+      border-bottom: none;
+      border-right: none;
+      top: ${i * 0.7 * 2.5}%;
+      left: ${i * 0.35 * 2.5}%;
+      animation-fill-mode: "";
+      animation: ${circle} 1s ${i * 0.2}s infinite linear;
     `;
   };
 
   wrapper = () => {
     const { size, sizeUnit } = this.props;
 
-    const wrapper = css`
-       {
-        position: relative;
-        width: ${`${size}${sizeUnit}`};
-        height: ${`${size}${sizeUnit}`};
-      }
+    return css`
+      position: relative;
+      width: ${`${size}${sizeUnit}`};
+      height: ${`${size}${sizeUnit}`};
     `;
-
-    return this.props.css
-      ? css`
-          ${wrapper};
-          ${this.props.css}
-        `
-      : wrapper;
   };
 
   render() {
-    const { loading } = this.props;
+    const { loading, css } = this.props;
 
     return loading ? (
-      <div css={this.wrapper()}>
+      <div css={[this.wrapper(), css]}>
         <div css={this.style(0)} />
         <div css={this.style(1)} />
         <div css={this.style(2)} />

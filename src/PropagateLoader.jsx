@@ -49,39 +49,28 @@ class Loader extends React.Component {
     const { size, sizeUnit, color } = this.props;
 
     return css`
-       {
-        position: absolute;
-        font-size: ${`${size / 3}${sizeUnit}`};
-        width: ${`${size}${sizeUnit}`};
-        height: ${`${size}${sizeUnit}`};
-        background: ${color};
-        border-radius: 50%;
-        animation: ${propagate[i]} 1.5s infinite;
-        animation-fill-mode: forwards;
-      }
+      position: absolute;
+      font-size: ${`${size / 3}${sizeUnit}`};
+      width: ${`${size}${sizeUnit}`};
+      height: ${`${size}${sizeUnit}`};
+      background: ${color};
+      border-radius: 50%;
+      animation: ${propagate[i]} 1.5s infinite;
+      animation-fill-mode: forwards;
     `;
   };
 
   wrapper = () => {
-    const wrapper = css`
-       {
-        position: relative;
-      }
+    return css`
+      position: relative;
     `;
-
-    return this.props.css
-      ? css`
-          ${wrapper};
-          ${this.props.css}
-        `
-      : wrapper;
   };
 
   render() {
-    const { loading } = this.props;
+    const { loading, css } = this.props;
 
     return loading ? (
-      <div css={this.wrapper()}>
+      <div css={[this.wrapper(), css]}>
         <div css={this.style(0)} />
         <div css={this.style(1)} />
         <div css={this.style(2)} />

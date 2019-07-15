@@ -18,17 +18,15 @@ class Loader extends React.Component {
     const { height, width, margin, color, radius, widthUnit, heightUnit, radiusUnit } = this.props;
 
     return css`
-       {
-        position: absolute;
-        width: ${`${width}${widthUnit}`};
-        height: ${`${height}${heightUnit}`};
-        margin: ${margin};
-        background-color: ${color};
-        border-radius: ${`${radius}${radiusUnit}`};
-        transition: 2s;
-        animation-fill-mode: "both";
-        animation: ${fade} 1.2s ${i * 0.12}s infinite ease-in-out;
-      }
+      position: absolute;
+      width: ${`${width}${widthUnit}`};
+      height: ${`${height}${heightUnit}`};
+      margin: ${margin};
+      background-color: ${color};
+      border-radius: ${`${radius}${radiusUnit}`};
+      transition: 2s;
+      animation-fill-mode: "both";
+      animation: ${fade} 1.2s ${i * 0.12}s infinite ease-in-out;
     `;
   };
 
@@ -36,23 +34,14 @@ class Loader extends React.Component {
   quarter = this.radius / 2 + this.radius / 5.5;
 
   wrapper = () => {
-    const wrapper = css`
-       {
-        position: relative;
-        font-size: 0;
-        top: ${this.radius}px;
-        left: ${this.radius}px;
-        width: ${this.radius * 3}px;
-        height: ${this.radius * 3}px;
-      }
+    return css`
+      position: relative;
+      font-size: 0;
+      top: ${this.radius}px;
+      left: ${this.radius}px;
+      width: ${this.radius * 3}px;
+      height: ${this.radius * 3}px;
     `;
-
-    return this.props.css
-      ? css`
-          ${wrapper};
-          ${this.props.css}
-        `
-      : wrapper;
   };
 
   a = () => css`
@@ -103,10 +92,10 @@ class Loader extends React.Component {
   `;
 
   render() {
-    const { loading } = this.props;
+    const { loading, css } = this.props;
 
     return loading ? (
-      <div css={this.wrapper()}>
+      <div css={[this.wrapper(), css]}>
         <div css={this.a()} />
         <div css={this.b()} />
         <div css={this.c()} />

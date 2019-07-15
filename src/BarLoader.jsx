@@ -43,30 +43,21 @@ export class Loader extends React.Component {
   wrapper = () => {
     const { width, height, color, heightUnit, widthUnit } = this.props;
 
-    const wrapper = css`
-       {
-        position: relative;
-        width: ${`${width}${widthUnit}`};
-        height: ${`${height}${heightUnit}`};
-        overflow: hidden;
-        background-color: ${calculateRgba(color, 0.2)};
-        background-clip: padding-box;
-      }
+    return css`
+      position: relative;
+      width: ${`${width}${widthUnit}`};
+      height: ${`${height}${heightUnit}`};
+      overflow: hidden;
+      background-color: ${calculateRgba(color, 0.2)};
+      background-clip: padding-box;
     `;
-
-    return this.props.css
-      ? css`
-          ${wrapper};
-          ${this.props.css}
-        `
-      : wrapper;
   };
 
   render() {
-    const { loading } = this.props;
+    const { loading, css } = this.props;
 
     return loading ? (
-      <div css={this.wrapper()}>
+      <div css={[this.wrapper(), css]}>
         <div css={this.style(1)} />
         <div css={this.style(2)} />
       </div>
