@@ -1,132 +1,132 @@
-import * as React from 'react';
+import * as React from "react";
 
 export namespace ReactSpinners {
-	interface PrecompiledCss {
-		name: string;
-		styles: string;
-	}
+  interface PrecompiledCss {
+    name: string;
+    styles: string;
+  }
 
-	interface CommonProps {
-		color?: string;
-		loading?: boolean;
-		css?: string | PrecompiledCss;
-	}
+  interface CommonProps {
+    color?: string;
+    loading?: boolean;
+    css?: string | PrecompiledCss;
+  }
 
-	interface BarLoaderProps extends CommonProps {
-		height?: number;
-		heightUnit?: string;
-		width?: number;
-		widthUnit?: string;
-	}
+  interface BarLoaderProps extends CommonProps {
+    height?: number;
+    heightUnit?: string;
+    width?: number;
+    widthUnit?: string;
+  }
 
-	interface BeatLoaderProps extends CommonProps {
-		margin?: string;
-		size?: number;
-		sizeUnit?: string;
-	}
+  interface BeatLoaderProps extends CommonProps {
+    margin?: string;
+    size?: number;
+    sizeUnit?: string;
+  }
 
-	interface BounceLoaderProps extends CommonProps {
-		size?: number;
-		sizeUnit?: string;
-	}
+  interface BounceLoaderProps extends CommonProps {
+    size?: number;
+    sizeUnit?: string;
+  }
 
-	interface CircleLoaderProps extends CommonProps {
-		size?: number;
-		sizeUnit?: string;
-	}
+  interface CircleLoaderProps extends CommonProps {
+    size?: number;
+    sizeUnit?: string;
+  }
 
-	interface ClipLoaderProps extends CommonProps {
-		size?: number;
-		sizeUnit?: string;
-	}
+  interface ClipLoaderProps extends CommonProps {
+    size?: number;
+    sizeUnit?: string;
+  }
 
-	interface ClimbingBoxLoaderProps extends CommonProps {
-		size?: number;
-		sizeUnit?: string;
-	}
+  interface ClimbingBoxLoaderProps extends CommonProps {
+    size?: number;
+    sizeUnit?: string;
+  }
 
-	interface DotLoaderProps extends CommonProps {
-		margin?: string;
-		size?: number;
-		sizeUnit?: string;
-	}
+  interface DotLoaderProps extends CommonProps {
+    margin?: string;
+    size?: number;
+    sizeUnit?: string;
+  }
 
-	interface FadeLoaderProps extends CommonProps {
-		height?: number;
-		heightUnit?: string;
-		width?: number;
-		widthUnit?: string;
-		margin?: string;
-		radius?: number;
-	}
+  interface FadeLoaderProps extends CommonProps {
+    height?: number;
+    heightUnit?: string;
+    width?: number;
+    widthUnit?: string;
+    margin?: string;
+    radius?: number;
+  }
 
-	interface GridLoaderProps extends CommonProps {
-		size?: number;
-		sizeUnit?: string;
-	}
+  interface GridLoaderProps extends CommonProps {
+    size?: number;
+    sizeUnit?: string;
+  }
 
-	interface HashLoaderProps extends CommonProps {
-		margin?: string;
-		size?: number;
-		sizeUnit?: string;
-	}
+  interface HashLoaderProps extends CommonProps {
+    margin?: string;
+    size?: number;
+    sizeUnit?: string;
+  }
 
-	interface MoonLoaderProps extends CommonProps {
-		margin?: string;
-		size?: number;
-		sizeUnit?: string;
-	}
+  interface MoonLoaderProps extends CommonProps {
+    margin?: string;
+    size?: number;
+    sizeUnit?: string;
+  }
 
-	interface PacmanLoaderProps extends CommonProps {
-		margin?: string;
-		size?: number;
-		sizeUnit?: string;
-	}
+  interface PacmanLoaderProps extends CommonProps {
+    margin?: string;
+    size?: number;
+    sizeUnit?: string;
+  }
 
-	interface PropagateLoaderProps extends CommonProps {
-		size?: number;
-		sizeUnit?: string;
-	}
+  interface PropagateLoaderProps extends CommonProps {
+    size?: number;
+    sizeUnit?: string;
+  }
 
-	interface PulseLoaderProps extends CommonProps {
-		margin?: string;
-		size?: number;
-		sizeUnit?: string;
-	}
+  interface PulseLoaderProps extends CommonProps {
+    margin?: string;
+    size?: number;
+    sizeUnit?: string;
+  }
 
-	interface RingLoaderProps extends CommonProps {
-		margin?: string;
-		size?: number;
-		sizeUnit?: string;
-	}
+  interface RingLoaderProps extends CommonProps {
+    margin?: string;
+    size?: number;
+    sizeUnit?: string;
+  }
 
-	interface RiseLoaderProps extends CommonProps {
-		margin?: string;
-		size?: number;
-		sizeUnit?: string;
-	}
+  interface RiseLoaderProps extends CommonProps {
+    margin?: string;
+    size?: number;
+    sizeUnit?: string;
+  }
 
-	interface RotateLoaderProps extends CommonProps {
-		margin?: string;
-		size?: number;
-		sizeUnit?: string;
-	}
+  interface RotateLoaderProps extends CommonProps {
+    margin?: string;
+    size?: number;
+    sizeUnit?: string;
+  }
 
-	interface ScaleLoaderProps extends CommonProps {
-		height?: number;
-		heightUnit?: string;
-		width?: number;
-		widthUnit?: string;
-		margin?: string;
-		radius?: number;
-		radiusUnit?: string;
-	}
+  interface ScaleLoaderProps extends CommonProps {
+    height?: number;
+    heightUnit?: string;
+    width?: number;
+    widthUnit?: string;
+    margin?: string;
+    radius?: number;
+    radiusUnit?: string;
+  }
 
-	interface SyncLoaderProps extends CommonProps {
-		margin?: string;
-		size?: number;
-		sizeUnit?: string;
-	}
+  interface SyncLoaderProps extends CommonProps {
+    margin?: string;
+    size?: number;
+    sizeUnit?: string;
+  }
 }
 
 export class BarLoader extends React.Component<ReactSpinners.BarLoaderProps> {}
