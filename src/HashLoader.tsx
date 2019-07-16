@@ -102,10 +102,6 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   }
 }
 
-Loader.propTypes = sizeProps;
-
-Loader.defaultProps = sizeDefaults(50);
-
 const Component = onlyUpdateForKeys(sizeKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
