@@ -4,8 +4,11 @@ import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { sizeMarginProps, sizeMarginDefaults, sizeMarginKeys } from "./helpers";
 
+import { Keyframes } from "@emotion/serialize";
+import { StyleFunction, PrecompiledCss, LoaderSizeMarginProps, CalcFunction } from "./interfaces";
+
 // This returns an animation
-const pacman = [
+const pacman: Keyframes[] = [
   keyframes`
     0% {transform: rotate(0deg)} 
     50% {transform: rotate(-44deg)}
@@ -16,51 +19,53 @@ const pacman = [
   `
 ];
 
-class Loader extends React.Component {
-  ball = () => {
+class Loader extends React.PureComponent<LoaderSizeMarginProps> {
+  static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(25);
+
+  ball: CalcFunction<Keyframes> = (): Keyframes => {
     const { size, sizeUnit } = this.props;
 
     return keyframes`
       75% {opacity: 0.7}
-      100% {transform: translate(${`${-4 * size}${sizeUnit}`}, ${`${-size / 4}${sizeUnit}`})}
+      100% {transform: translate(${`${-4 * size!}${sizeUnit}`}, ${`${-size! / 4}${sizeUnit}`})}
     `;
   };
 
-  ballStyle = (i) => {
+  ballStyle: StyleFunction = (i: number): PrecompiledCss => {
     const { color, margin, size, sizeUnit } = this.props;
 
     return css`
-      width: ${`${size / 3}${sizeUnit}`};
-      height: ${`${size / 3}${sizeUnit}`};
+      width: ${`${size! / 3}${sizeUnit}`};
+      height: ${`${size! / 3}${sizeUnit}`};
       background-color: ${color};
       margin: ${margin};
       border-radius: 100%;
-      transform: translate(0, ${`${-size / 4}${sizeUnit}`});
+      transform: translate(0, ${`${-size! / 4}${sizeUnit}`});
       position: absolute;
       top: ${size}px;
-      left: ${`${size * 4}${sizeUnit}`};
+      left: ${`${size! * 4}${sizeUnit}`};
       animation: ${this.ball()} 1s ${i * 0.25}s infinite linear;
       animation-fill-mode: both;
     `;
   };
 
-  s1 = () => {
+  s1: CalcFunction<string> = (): string => {
     const { size, sizeUnit } = this.props;
 
     return `${size}${sizeUnit} solid transparent`;
   };
 
-  s2 = () => {
+  s2: CalcFunction<string> = (): string => {
     const { size, sizeUnit, color } = this.props;
 
     return `${size}${sizeUnit} solid ${color}`;
   };
 
-  pacmanStyle = (i) => {
+  pacmanStyle: StyleFunction = (i: number): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
-    const s1 = this.s1();
-    const s2 = this.s2();
+    const s1: string = this.s1();
+    const s2: string = this.s2();
 
     return css`
       width: 0;
@@ -76,7 +81,7 @@ class Loader extends React.Component {
     `;
   };
 
-  wrapper = () => {
+  wrapper: StyleFunction = (): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
     return css`
@@ -87,10 +92,10 @@ class Loader extends React.Component {
     `;
   };
 
-  pac = () => this.pacmanStyle(0);
-  man = () => this.pacmanStyle(1);
+  pac: StyleFunction = (): PrecompiledCss => this.pacmanStyle(0);
+  man: StyleFunction = (): PrecompiledCss => this.pacmanStyle(1);
 
-  render() {
+  render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -105,10 +110,6 @@ class Loader extends React.Component {
     ) : null;
   }
 }
-
-Loader.propTypes = sizeMarginProps;
-
-Loader.defaultProps = sizeMarginDefaults(25);
 
 const Component = onlyUpdateForKeys(sizeMarginKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;

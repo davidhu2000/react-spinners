@@ -2,20 +2,24 @@
 import React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
-import { sizeProps, sizeDefaults, sizeKeys } from "./helpers";
+import { sizeDefaults, sizeKeys } from "./helpers";
+import { Keyframes } from "@emotion/serialize";
+import { StyleFunction, PrecompiledCss, LoaderSizeProps } from "./interfaces";
 
-const right = keyframes`
+const right: Keyframes = keyframes`
   0% {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)}
   100% {transform: rotateX(180deg) rotateY(360deg) rotateZ(360deg)}
 `;
 
-const left = keyframes`
+const left: Keyframes = keyframes`
   0% {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)}
   100% {transform: rotateX(360deg) rotateY(180deg) rotateZ(360deg)}
 `;
 
-class Loader extends React.Component {
-  style = (i) => {
+class Loader extends React.PureComponent<LoaderSizeProps> {
+  static defaultProps: LoaderSizeProps = sizeDefaults(60);
+
+  style: StyleFunction = (i: number): PrecompiledCss => {
     const { size, sizeUnit, color } = this.props;
 
     return css`
@@ -24,7 +28,7 @@ class Loader extends React.Component {
       left: 0;
       width: ${`${size}${sizeUnit}`};
       height: ${`${size}${sizeUnit}`};
-      border: ${`${size / 10}${sizeUnit}`} solid ${color};
+      border: ${`${size! / 10}${sizeUnit}`} solid ${color};
       opacity: 0.4;
       border-radius: 100%;
       animation-fill-mode: forwards;
@@ -33,7 +37,7 @@ class Loader extends React.Component {
     `;
   };
 
-  wrapper = () => {
+  wrapper: StyleFunction = (): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
     return css`
@@ -43,7 +47,7 @@ class Loader extends React.Component {
     `;
   };
 
-  render() {
+  render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -54,10 +58,6 @@ class Loader extends React.Component {
     ) : null;
   }
 }
-
-Loader.propTypes = sizeProps;
-
-Loader.defaultProps = sizeDefaults(60);
 
 const Component = onlyUpdateForKeys(sizeKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;

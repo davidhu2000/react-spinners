@@ -4,7 +4,7 @@ import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { calculateRgba, heightWidthDefaults, heightWidthKeys } from "./helpers";
 import { Keyframes } from "@emotion/serialize";
-import { BarLoaderProps, StyleFunction, PrecompiledCss } from "./interfaces";
+import { LoaderHeightWidthProps, StyleFunction, PrecompiledCss } from "./interfaces";
 
 const long: Keyframes = keyframes`
   0% {left: -35%;right: 100%} 
@@ -18,8 +18,8 @@ const short: Keyframes = keyframes`
   100% {left: 107%;right: -8%}
 `;
 
-export class Loader extends React.PureComponent<BarLoaderProps> {
-  static defaultProps: BarLoaderProps = heightWidthDefaults(4, 100);
+export class Loader extends React.PureComponent<LoaderHeightWidthProps> {
+  static defaultProps: LoaderHeightWidthProps = heightWidthDefaults(4, 100);
 
   style: StyleFunction = (i: number): PrecompiledCss => {
     const { height, color, heightUnit } = this.props;

@@ -2,9 +2,11 @@
 import React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
-import { sizeProps, sizeDefaults, sizeKeys } from "./helpers";
+import { sizeDefaults, sizeKeys } from "./helpers";
+import { Keyframes } from "@emotion/serialize";
+import { StyleFunction, PrecompiledCss, LoaderSizeProps } from "./interfaces";
 
-const climbingBox = keyframes`
+const climbingBox: Keyframes = keyframes`
   0% {transform:translate(0, -1em) rotate(-45deg)} 
   5% {transform:translate(0, -1em) rotate(-50deg)}
   20% {transform:translate(1em, -2em) rotate(47deg)}
@@ -18,8 +20,10 @@ const climbingBox = keyframes`
   100% {transform:translate(0, -1em) rotate(-225deg)}
 `;
 
-class Loader extends React.Component {
-  style = () => {
+class Loader extends React.PureComponent<LoaderSizeProps> {
+  static defaultProps: LoaderSizeProps = sizeDefaults(15);
+
+  style: StyleFunction = (): PrecompiledCss => {
     const { color } = this.props;
 
     return css`
@@ -37,7 +41,7 @@ class Loader extends React.Component {
     `;
   };
 
-  wrapper = () => {
+  wrapper: StyleFunction = (): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
     return css`
@@ -52,7 +56,7 @@ class Loader extends React.Component {
     `;
   };
 
-  hill = () => {
+  hill: StyleFunction = (): PrecompiledCss => {
     const { color } = this.props;
 
     return css`
@@ -66,7 +70,7 @@ class Loader extends React.Component {
     `;
   };
 
-  container = () => {
+  container: StyleFunction = (): PrecompiledCss => {
     return css`
       position: relative;
       width: 7.1em;
@@ -74,7 +78,7 @@ class Loader extends React.Component {
     `;
   };
 
-  render() {
+  render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -87,10 +91,6 @@ class Loader extends React.Component {
     ) : null;
   }
 }
-
-Loader.propTypes = sizeProps;
-
-Loader.defaultProps = sizeDefaults(15);
 
 const Component = onlyUpdateForKeys(sizeKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;

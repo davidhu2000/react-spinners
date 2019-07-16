@@ -8,14 +8,19 @@ import {
   heightWidthRadiusKeys
 } from "./helpers";
 
-const scale = keyframes`
+import { Keyframes } from "@emotion/serialize";
+import { StyleFunction, PrecompiledCss, LoaderHeightWidthRadiusProps } from "./interfaces";
+
+const scale: Keyframes = keyframes`
   0% {transform: scaley(1.0)}
   50% {transform: scaley(0.4)}
   100% {transform: scaley(1.0)}
 `;
 
-class Loader extends React.Component {
-  style = (i) => {
+class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
+  static defaultProps: LoaderHeightWidthRadiusProps = heightWidthRadiusDefaults(35, 4, 2);
+
+  style: StyleFunction = (i: number): PrecompiledCss => {
     const { color, width, height, margin, radius, widthUnit, heightUnit, radiusUnit } = this.props;
 
     return css`
@@ -30,7 +35,7 @@ class Loader extends React.Component {
     `;
   };
 
-  render() {
+  render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -44,10 +49,6 @@ class Loader extends React.Component {
     ) : null;
   }
 }
-
-Loader.propTypes = heightWidthRadiusProps;
-
-Loader.defaultProps = heightWidthRadiusDefaults(35, 4, 2);
 
 const Component = onlyUpdateForKeys(heightWidthRadiusKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;

@@ -3,22 +3,26 @@ import React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { sizeMarginProps, sizeMarginDefaults, sizeMarginKeys } from "./helpers";
+import { Keyframes } from "@emotion/serialize";
+import { StyleFunction, PrecompiledCss, LoaderSizeMarginProps } from "./interfaces";
 
-const rotate = keyframes`
+const rotate: Keyframes = keyframes`
   0% {transform: rotate(0deg)}
   50% {transform: rotate(180deg)}
   100% {transform: rotate(360deg)}
 `;
 
-class Loader extends React.Component {
-  style = (i) => css`
+class Loader extends React.PureComponent<LoaderSizeMarginProps> {
+  static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
+
+  style: StyleFunction = (i: number): PrecompiledCss => css`
     opacity: 0.8;
     position: absolute;
     top: 0;
     left: ${i % 2 ? -28 : 25}px;
   `;
 
-  ball = () => {
+  ball: StyleFunction = (): PrecompiledCss => {
     const { color, size, sizeUnit, margin } = this.props;
 
     return css`
@@ -30,7 +34,7 @@ class Loader extends React.Component {
     `;
   };
 
-  wrapper = () => {
+  wrapper: StyleFunction = (): PrecompiledCss => {
     return css`
       ${this.ball()};
       display: inline-block;
@@ -40,16 +44,16 @@ class Loader extends React.Component {
     `;
   };
 
-  long = () => css`
+  long: StyleFunction = (): PrecompiledCss => css`
     ${this.ball()};
     ${this.style(1)};
   `;
-  short = () => css`
+  short: StyleFunction = (): PrecompiledCss => css`
     ${this.ball()};
     ${this.style(2)};
   `;
 
-  render() {
+  render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -60,10 +64,6 @@ class Loader extends React.Component {
     ) : null;
   }
 }
-
-Loader.propTypes = sizeMarginProps;
-
-Loader.defaultProps = sizeMarginDefaults(15);
 
 const Component = onlyUpdateForKeys(sizeMarginKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;

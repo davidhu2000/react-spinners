@@ -2,22 +2,26 @@
 import React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
-import { sizeProps, sizeDefaults, sizeKeys } from "./helpers";
+import { sizeDefaults, sizeKeys } from "./helpers";
+import { Keyframes } from "@emotion/serialize";
+import { StyleFunction, PrecompiledCss, LoaderSizeProps } from "./interfaces";
 
-const circle = keyframes`
+const circle: Keyframes = keyframes`
   0% {transform: rotate(0deg)} 
   50% {transform: rotate(180deg)}
   100% {transform: rotate(360deg)}
 `;
 
-class Loader extends React.Component {
-  style = (i) => {
+class Loader extends React.PureComponent<LoaderSizeProps> {
+  static defaultProps: LoaderSizeProps = sizeDefaults(50);
+
+  style: StyleFunction = (i: number): PrecompiledCss => {
     const { size, color, sizeUnit } = this.props;
 
     return css`
       position: absolute;
-      height: ${`${size * (1 - i / 10)}${sizeUnit}`};
-      width: ${`${size * (1 - i / 10)}${sizeUnit}`};
+      height: ${`${size! * (1 - i / 10)}${sizeUnit}`};
+      width: ${`${size! * (1 - i / 10)}${sizeUnit}`};
       border: 1px solid ${color};
       border-radius: 100%;
       transition: 2s;
@@ -30,7 +34,7 @@ class Loader extends React.Component {
     `;
   };
 
-  wrapper = () => {
+  wrapper: StyleFunction = (): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
     return css`
@@ -40,7 +44,7 @@ class Loader extends React.Component {
     `;
   };
 
-  render() {
+  render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -54,10 +58,6 @@ class Loader extends React.Component {
     ) : null;
   }
 }
-
-Loader.propTypes = sizeProps;
-
-Loader.defaultProps = sizeDefaults(50);
 
 const Component = onlyUpdateForKeys(sizeKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;

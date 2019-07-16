@@ -2,17 +2,21 @@
 import React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
-import { sizeProps, sizeKeys, sizeDefaults } from "./helpers";
+import { sizeKeys, sizeDefaults } from "./helpers";
+import { Keyframes } from "@emotion/serialize";
+import { StyleFunction, PrecompiledCss, LoaderSizeProps } from "./interfaces";
 
-const square = keyframes`
+const square: Keyframes = keyframes`
   25% {transform: rotateX(180deg) rotateY(0)}
   50% {transform: rotateX(180deg) rotateY(180deg)}
   75% {transform: rotateX(0) rotateY(180deg)}
   100% {transform: rotateX(0) rotateY(0)}
 `;
 
-class Loader extends React.Component {
-  style = () => {
+class Loader extends React.PureComponent<LoaderSizeProps> {
+  static defaultProps: LoaderSizeProps = sizeDefaults(50);
+
+  style: StyleFunction = (): PrecompiledCss => {
     const { color, size, sizeUnit } = this.props;
 
     return css`
@@ -25,16 +29,12 @@ class Loader extends React.Component {
     `;
   };
 
-  render() {
+  render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? <div css={[this.style(), css]} /> : null;
   }
 }
-
-Loader.propTypes = sizeProps;
-
-Loader.defaultProps = sizeDefaults(50);
 
 const Component = onlyUpdateForKeys(sizeKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;

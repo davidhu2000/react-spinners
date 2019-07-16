@@ -3,33 +3,39 @@ import React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { calculateRgba, sizeProps, sizeDefaults, sizeKeys } from "./helpers/index";
+import { Keyframes } from "@emotion/serialize";
+import { StyleFunction, PrecompiledCss, LoaderSizeProps, CalcFunction } from "./interfaces";
 
-class Loader extends React.Component {
-  thickness = () => {
+class Loader extends React.PureComponent<LoaderSizeProps> {
+  static defaultProps: LoaderSizeProps = sizeDefaults(50);
+
+  thickness: CalcFunction<number> = (): number => {
     const { size } = this.props;
 
-    return size / 5;
+    return size! / 5;
   };
 
-  lat = () => {
+  lat: CalcFunction<number> = (): number => {
     const { size } = this.props;
 
-    return (size - this.thickness()) / 2;
+    return (size! - this.thickness()) / 2;
   };
-  offset = () => this.lat() - this.thickness();
-  color = () => {
+
+  offset: CalcFunction<number> = (): number => this.lat() - this.thickness();
+
+  color: CalcFunction<string> = (): string => {
     const { color } = this.props;
 
     return calculateRgba(color, 0.75);
   };
 
-  before = () => {
+  before: CalcFunction<Keyframes> = (): Keyframes => {
     const { size, sizeUnit } = this.props;
 
-    const color = this.color();
-    const lat = this.lat();
-    const thickness = this.thickness();
-    const offset = this.offset();
+    const color: string = this.color();
+    const lat: number = this.lat();
+    const thickness: number = this.thickness();
+    const offset: number = this.offset();
 
     return keyframes`
       0% {width: ${thickness}px;box-shadow: ${lat}px ${-offset}px ${color}, ${-lat}px ${offset}px ${color}} 
@@ -39,13 +45,13 @@ class Loader extends React.Component {
     `;
   };
 
-  after = () => {
+  after: CalcFunction<Keyframes> = (): Keyframes => {
     const { size, sizeUnit } = this.props;
 
-    const color = this.color();
-    const lat = this.lat();
-    const thickness = this.thickness();
-    const offset = this.offset();
+    const color: string = this.color();
+    const lat: number = this.lat();
+    const thickness: number = this.thickness();
+    const offset: number = this.offset();
 
     return keyframes`
       0% {height: ${thickness}px;box-shadow: ${offset}px ${lat}px ${color}, ${-offset}px ${-lat}px ${color}} 
@@ -55,7 +61,7 @@ class Loader extends React.Component {
     `;
   };
 
-  style = (i) => {
+  style: StyleFunction = (i: number): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
     return css`
@@ -64,29 +70,27 @@ class Loader extends React.Component {
       top: 50%;
       left: 50%;
       display: block;
-      width: ${`${size / 5}${sizeUnit}`};
-      height: ${`${size / 5}${sizeUnit}`};
-      border-radius: ${`${size / 10}${sizeUnit}`};
+      width: ${`${size! / 5}${sizeUnit}`};
+      height: ${`${size! / 5}${sizeUnit}`};
+      border-radius: ${`${size! / 10}${sizeUnit}`};
       transform: translate(-50%, -50%);
       animation-fill-mode: none;
       animation: ${i === 1 ? this.before() : this.after()} 2s infinite;
     `;
   };
 
-  wrapper = () => {
+  wrapper: StyleFunction = (): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
     return css`
-       {
-        position: relative;
-        width: ${`${size}${sizeUnit}`};
-        height: ${`${size}${sizeUnit}`};
-        transform: rotate(165deg);
-      }
+      position: relative;
+      width: ${`${size}${sizeUnit}`};
+      height: ${`${size}${sizeUnit}`};
+      transform: rotate(165deg);
     `;
   };
 
-  render() {
+  render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (

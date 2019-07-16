@@ -3,17 +3,21 @@ import React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { sizeMarginProps, sizeMarginDefaults, sizeMarginKeys } from "./helpers";
+import { Keyframes } from "@emotion/serialize";
+import { StyleFunction, PrecompiledCss, LoaderSizeMarginProps } from "./interfaces";
 
-const grid = keyframes`
+const grid: Keyframes = keyframes`
   0% {transform: scale(1)}
   50% {transform: scale(0.5); opacity: 0.7}
   100% {transform: scale(1);opacity: 1}
 `;
 
-const random = (top) => Math.random() * top;
+const random = (top: number) => Math.random() * top;
 
-class Loader extends React.Component {
-  style = (rand) => {
+class Loader extends React.PureComponent<LoaderSizeMarginProps> {
+  static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
+
+  style: StyleFunction = (rand: number): PrecompiledCss => {
     const { color, size, sizeUnit, margin } = this.props;
 
     return css`
@@ -28,16 +32,16 @@ class Loader extends React.Component {
     `;
   };
 
-  wrapper = () => {
+  wrapper: StyleFunction = (): PrecompiledCss => {
     const { size, sizeUnit, margin } = this.props;
 
     return css`
-      width: ${`${parseFloat(size) * 3 + parseFloat(margin) * 6}${sizeUnit}`};
+      width: ${`${parseFloat(size!.toString()) * 3 + parseFloat(margin!) * 6}${sizeUnit}`};
       font-size: 0;
     `;
   };
 
-  render() {
+  render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -55,10 +59,6 @@ class Loader extends React.Component {
     ) : null;
   }
 }
-
-Loader.propTypes = sizeMarginProps;
-
-Loader.defaultProps = sizeMarginDefaults(15);
 
 const Component = onlyUpdateForKeys(sizeMarginKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;

@@ -3,19 +3,25 @@ import React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { sizeProps, sizeDefaults, sizeKeys } from "./helpers";
+import { Keyframes } from "@emotion/serialize";
+import { StyleFunction, PrecompiledCss, LoaderSizeProps, CalcFunction } from "./interfaces";
 
-const moon = keyframes`
+type BallStyleFunction = (size: number) => PrecompiledCss;
+
+const moon: Keyframes = keyframes`
   100% {transform: rotate(360deg)}
 `;
 
-class Loader extends React.Component {
-  moonSize = () => {
+class Loader extends React.PureComponent<LoaderSizeProps> {
+  static defaultProps: LoaderSizeProps = sizeDefaults(60);
+
+  moonSize: CalcFunction<number> = (): number => {
     const { size } = this.props;
 
-    return size / 7;
+    return size! / 7;
   };
 
-  ballStyle = (size) => {
+  ballStyle: BallStyleFunction = (size: number): PrecompiledCss => {
     const { sizeUnit } = this.props;
 
     return css`
@@ -25,19 +31,19 @@ class Loader extends React.Component {
     `;
   };
 
-  wrapper = () => {
+  wrapper: StyleFunction = (): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
     return css`
       position: relative;
-      width: ${`${size + this.moonSize() * 2}${sizeUnit}`};
-      height: ${`${size + this.moonSize() * 2}${sizeUnit}`};
+      width: ${`${size! + this.moonSize() * 2}${sizeUnit}`};
+      height: ${`${size! + this.moonSize() * 2}${sizeUnit}`};
       animation: ${moon} 0.6s 0s infinite linear;
       animation-fill-mode: forwards;
     `;
   };
 
-  ball = () => {
+  ball: CalcFunction<PrecompiledCss> = (): PrecompiledCss => {
     const { color, size, sizeUnit } = this.props;
 
     return css`
@@ -45,23 +51,23 @@ class Loader extends React.Component {
       background-color: ${color};
       opacity: 0.8;
       position: absolute;
-      top: ${`${size / 2 - this.moonSize() / 2}${sizeUnit}`};
+      top: ${`${size! / 2 - this.moonSize() / 2}${sizeUnit}`};
       animation: ${moon} 0.6s 0s infinite linear;
       animation-fill-mode: forwards;
     `;
   };
 
-  circle = () => {
+  circle: CalcFunction<PrecompiledCss> = (): PrecompiledCss => {
     const { size, color } = this.props;
 
     return css`
-      ${this.ballStyle(size)};
+      ${this.ballStyle(size!)};
       border: ${this.moonSize()}px solid ${color};
       opacity: 0.1;
     `;
   };
 
-  render() {
+  render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -72,10 +78,6 @@ class Loader extends React.Component {
     ) : null;
   }
 }
-
-Loader.propTypes = sizeProps;
-
-Loader.defaultProps = sizeDefaults(60);
 
 const Component = onlyUpdateForKeys(sizeKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;

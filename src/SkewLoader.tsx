@@ -3,16 +3,20 @@ import React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { sizeProps, sizeDefaults, sizeKeys } from "./helpers";
+import { Keyframes } from "@emotion/serialize";
+import { StyleFunction, PrecompiledCss, LoaderSizeProps } from "./interfaces";
 
-const skew = keyframes`
+const skew: Keyframes = keyframes`
   25% {transform: perspective(100px) rotateX(180deg) rotateY(0)}
   50% {transform: perspective(100px) rotateX(180deg) rotateY(180deg)}
   75% {transform: perspective(100px) rotateX(0) rotateY(180deg)}
   100% {transform: perspective(100px) rotateX(0) rotateY(0)}
 `;
 
-class Loader extends React.Component {
-  style = () => {
+class Loader extends React.PureComponent<LoaderSizeProps> {
+  static defaultProps: LoaderSizeProps = sizeDefaults(20);
+
+  style: StyleFunction = (): PrecompiledCss => {
     const { size, sizeUnit, color } = this.props;
 
     return css`
@@ -27,16 +31,12 @@ class Loader extends React.Component {
     `;
   };
 
-  render() {
+  render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? <div css={[this.style(), css]} /> : null;
   }
 }
-
-Loader.propTypes = sizeProps;
-
-Loader.defaultProps = sizeDefaults(20);
 
 const Component = onlyUpdateForKeys(sizeKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;
