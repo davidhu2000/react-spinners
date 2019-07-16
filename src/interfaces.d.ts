@@ -3,7 +3,9 @@ export interface PrecompiledCss {
   styles: string;
 }
 
-export type StyleFunction = (i?: number) => PrecompiledCss;
+export type StyleFunction = () => PrecompiledCss;
+
+export type StyleFunctionWithIndex = (i: number) => PrecompiledCss;
 
 export type CalcFunction<T> = () => T;
 

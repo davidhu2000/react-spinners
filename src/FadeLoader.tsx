@@ -4,7 +4,12 @@ import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { heightWidthRadiusKeys, heightWidthRadiusDefaults } from "./helpers";
 import { Keyframes } from "@emotion/serialize";
-import { StyleFunction, PrecompiledCss, LoaderHeightWidthRadiusProps } from "./interfaces";
+import {
+  StyleFunction,
+  PrecompiledCss,
+  LoaderHeightWidthRadiusProps,
+  StyleFunctionWithIndex
+} from "./interfaces";
 
 const fade: Keyframes = keyframes`
   50% {opacity: 0.3} 
@@ -14,7 +19,7 @@ const fade: Keyframes = keyframes`
 class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
   static defaultProps: LoaderHeightWidthRadiusProps = heightWidthRadiusDefaults(15, 5, 2);
 
-  style: StyleFunction = (i: number): PrecompiledCss => {
+  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { height, width, margin, color, radius, widthUnit, heightUnit, radiusUnit } = this.props;
 
     return css`

@@ -4,7 +4,12 @@ import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { sizeDefaults, sizeKeys } from "./helpers";
 import { Keyframes } from "@emotion/serialize";
-import { StyleFunction, PrecompiledCss, LoaderSizeProps } from "./interfaces";
+import {
+  StyleFunction,
+  PrecompiledCss,
+  LoaderSizeProps,
+  StyleFunctionWithIndex
+} from "./interfaces";
 
 const circle: Keyframes = keyframes`
   0% {transform: rotate(0deg)} 
@@ -15,7 +20,7 @@ const circle: Keyframes = keyframes`
 class Loader extends React.PureComponent<LoaderSizeProps> {
   static defaultProps: LoaderSizeProps = sizeDefaults(50);
 
-  style: StyleFunction = (i: number): PrecompiledCss => {
+  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { size, color, sizeUnit } = this.props;
 
     return css`

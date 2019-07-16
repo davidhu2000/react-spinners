@@ -5,7 +5,13 @@ import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { sizeMarginDefaults, sizeMarginKeys } from "./helpers";
 
 import { Keyframes } from "@emotion/serialize";
-import { StyleFunction, PrecompiledCss, LoaderSizeMarginProps, CalcFunction } from "./interfaces";
+import {
+  StyleFunction,
+  PrecompiledCss,
+  LoaderSizeMarginProps,
+  CalcFunction,
+  StyleFunctionWithIndex
+} from "./interfaces";
 
 // This returns an animation
 const pacman: Keyframes[] = [
@@ -31,7 +37,7 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     `;
   };
 
-  ballStyle: StyleFunction = (i: number): PrecompiledCss => {
+  ballstyle: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { color, margin, size, sizeUnit } = this.props;
 
     return css`
@@ -61,7 +67,7 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     return `${size}${sizeUnit} solid ${color}`;
   };
 
-  pacmanStyle: StyleFunction = (i: number): PrecompiledCss => {
+  pacmanstyle: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
     const s1: string = this.s1();

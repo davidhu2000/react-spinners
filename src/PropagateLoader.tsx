@@ -4,7 +4,12 @@ import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { sizeDefaults, sizeKeys } from "./helpers";
 import { Keyframes } from "@emotion/serialize";
-import { StyleFunction, PrecompiledCss, LoaderSizeProps } from "./interfaces";
+import {
+  StyleFunction,
+  PrecompiledCss,
+  LoaderSizeProps,
+  StyleFunctionWithIndex
+} from "./interfaces";
 
 // 1.5 4.5 7.5
 let distance: number[] = [1, 3, 5];
@@ -49,7 +54,7 @@ const propagate: Keyframes[] = [
 class Loader extends React.PureComponent<LoaderSizeProps> {
   static defaultProps: LoaderSizeProps = sizeDefaults(15);
 
-  style: StyleFunction = (i: number): PrecompiledCss => {
+  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { size, sizeUnit, color } = this.props;
 
     return css`

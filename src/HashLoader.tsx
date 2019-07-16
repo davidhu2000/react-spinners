@@ -4,7 +4,13 @@ import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { calculateRgba, sizeDefaults, sizeKeys } from "./helpers/index";
 import { Keyframes } from "@emotion/serialize";
-import { StyleFunction, PrecompiledCss, LoaderSizeProps, CalcFunction } from "./interfaces";
+import {
+  StyleFunction,
+  PrecompiledCss,
+  LoaderSizeProps,
+  CalcFunction,
+  StyleFunctionWithIndex
+} from "./interfaces";
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
   static defaultProps: LoaderSizeProps = sizeDefaults(50);
@@ -61,7 +67,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  style: StyleFunction = (i: number): PrecompiledCss => {
+  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
     return css`

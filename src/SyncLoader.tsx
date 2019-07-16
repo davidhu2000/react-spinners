@@ -4,7 +4,7 @@ import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { sizeMarginDefaults, sizeMarginKeys } from "./helpers/proptypes";
 import { Keyframes } from "@emotion/serialize";
-import { StyleFunction, PrecompiledCss, LoaderSizeMarginProps } from "./interfaces";
+import { PrecompiledCss, LoaderSizeMarginProps, StyleFunctionWithIndex } from "./interfaces";
 
 const sync: Keyframes = keyframes`
   33% {transform: translateY(10px)}
@@ -15,7 +15,7 @@ const sync: Keyframes = keyframes`
 class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
 
-  style: StyleFunction = (i: number): PrecompiledCss => {
+  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { color, size, sizeUnit, margin } = this.props;
 
     return css`

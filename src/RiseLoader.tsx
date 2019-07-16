@@ -5,7 +5,12 @@ import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { sizeMarginDefaults, sizeMarginKeys } from "./helpers";
 
 import { Keyframes } from "@emotion/serialize";
-import { StyleFunction, PrecompiledCss, LoaderSizeMarginProps } from "./interfaces";
+import {
+  StyleFunction,
+  PrecompiledCss,
+  LoaderSizeMarginProps,
+  StyleFunctionWithIndex
+} from "./interfaces";
 
 const riseAmount: number = 30;
 
@@ -28,7 +33,7 @@ const odd: Keyframes = keyframes`
 class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
 
-  style: StyleFunction = (i: number): PrecompiledCss => {
+  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { color, size, sizeUnit, margin } = this.props;
 
     return css`

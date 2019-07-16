@@ -5,7 +5,7 @@ import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { heightWidthRadiusDefaults, heightWidthRadiusKeys } from "./helpers";
 
 import { Keyframes } from "@emotion/serialize";
-import { StyleFunction, PrecompiledCss, LoaderHeightWidthRadiusProps } from "./interfaces";
+import { PrecompiledCss, LoaderHeightWidthRadiusProps, StyleFunctionWithIndex } from "./interfaces";
 
 const scale: Keyframes = keyframes`
   0% {transform: scaley(1.0)}
@@ -16,7 +16,7 @@ const scale: Keyframes = keyframes`
 class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
   static defaultProps: LoaderHeightWidthRadiusProps = heightWidthRadiusDefaults(35, 4, 2);
 
-  style: StyleFunction = (i: number): PrecompiledCss => {
+  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { color, width, height, margin, radius, widthUnit, heightUnit, radiusUnit } = this.props;
 
     return css`
