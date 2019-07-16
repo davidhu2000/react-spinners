@@ -37,7 +37,7 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     `;
   };
 
-  ballstyle: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  ballStyle: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { color, margin, size, sizeUnit } = this.props;
 
     return css`
@@ -67,7 +67,7 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     return `${size}${sizeUnit} solid ${color}`;
   };
 
-  pacmanstyle: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  pacmanStyle: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
     const s1: string = this.s1();

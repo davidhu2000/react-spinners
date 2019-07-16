@@ -32,7 +32,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   color: CalcFunction<string> = (): string => {
     const { color } = this.props;
 
-    return calculateRgba(color, 0.75);
+    return calculateRgba(color!, 0.75);
   };
 
   before: CalcFunction<Keyframes> = (): Keyframes => {

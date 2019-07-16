@@ -4,7 +4,12 @@ import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { sizeMarginDefaults, sizeMarginKeys } from "./helpers";
 import { Keyframes } from "@emotion/serialize";
-import { StyleFunction, PrecompiledCss, LoaderSizeMarginProps } from "./interfaces";
+import {
+  StyleFunction,
+  PrecompiledCss,
+  LoaderSizeMarginProps,
+  StyleFunctionWithIndex
+} from "./interfaces";
 
 const rotate: Keyframes = keyframes`
   0% {transform: rotate(0deg)}
@@ -15,7 +20,7 @@ const rotate: Keyframes = keyframes`
 class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
 
-  style: StyleFunction = (i: number): PrecompiledCss => css`
+  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => css`
     opacity: 0.8;
     position: absolute;
     top: 0;

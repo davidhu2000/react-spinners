@@ -55,7 +55,7 @@ export class Loader extends React.PureComponent<LoaderHeightWidthProps> {
       width: ${`${width}${widthUnit}`};
       height: ${`${height}${heightUnit}`};
       overflow: hidden;
-      background-color: ${calculateRgba(color, 0.2)};
+      background-color: ${calculateRgba(color!, 0.2)};
       background-clip: padding-box;
     `;
   };
