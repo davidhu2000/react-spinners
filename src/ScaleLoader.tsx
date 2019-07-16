@@ -2,11 +2,7 @@
 import React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
-import {
-  heightWidthRadiusProps,
-  heightWidthRadiusDefaults,
-  heightWidthRadiusKeys
-} from "./helpers";
+import { heightWidthRadiusDefaults, heightWidthRadiusKeys } from "./helpers";
 
 import { Keyframes } from "@emotion/serialize";
 import { StyleFunction, PrecompiledCss, LoaderHeightWidthRadiusProps } from "./interfaces";

@@ -2,7 +2,7 @@
 import React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
-import { calculateRgba, sizeProps, sizeDefaults, sizeKeys } from "./helpers/index";
+import { calculateRgba, sizeDefaults, sizeKeys } from "./helpers/index";
 import { Keyframes } from "@emotion/serialize";
 import { StyleFunction, PrecompiledCss, LoaderSizeProps, CalcFunction } from "./interfaces";
 

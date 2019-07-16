@@ -2,7 +2,7 @@
 import React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
-import { sizeMarginProps, sizeMarginDefaults, sizeMarginKeys } from "./helpers/proptypes";
+import { sizeMarginDefaults, sizeMarginKeys } from "./helpers/proptypes";
 import { Keyframes } from "@emotion/serialize";
 import { StyleFunction, PrecompiledCss, LoaderSizeMarginProps } from "./interfaces";
 

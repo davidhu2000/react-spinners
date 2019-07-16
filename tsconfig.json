@@ -9,7 +9,9 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "esModuleInterop": true,
-    "lib": ["dom", "es2017", "es5", "es6", "es7"]
+    "lib": ["dom", "es2017", "es5", "es6", "es7"],
+    "outDir": "./dist",
+    "strict": true
   },
-  "exclude": ["docs/*", "webpack.config.*", "*.js"]
+  "exclude": ["docs/*", "webpack.config.*", "*.js", "examples/*"]
 }
