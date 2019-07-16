@@ -3,14 +3,17 @@ import React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { sizeMarginKeys, sizeMarginDefaults, sizeMarginProps } from "./helpers";
+import { Keyframes } from "@emotion/serialize";
+import { BeatLoaderProps, StyleFunction, PrecompiledCss } from "./interfaces";
 
-const beat = keyframes`
+const beat: Keyframes = keyframes`
   50% {transform: scale(0.75);opacity: 0.2} 
   100% {transform: scale(1);opacity: 1}
 `;
 
-class Loader extends React.Component {
-  style = (i) => {
+class Loader extends React.PureComponent<BeatLoaderProps> {
+  static defaultProps: BeatLoaderProps = sizeMarginDefaults(15);
+  style: StyleFunction = (i: number): PrecompiledCss => {
     const { color, size, sizeUnit, margin } = this.props;
 
     return css`
@@ -25,13 +28,11 @@ class Loader extends React.Component {
     `;
   };
 
-  wrapper = () => this.props.css || "";
-
-  render() {
+  render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
-      <div css={[this.wrapper(), css]}>
+      <div css={[css]}>
         <div css={this.style(1)} />
         <div css={this.style(2)} />
         <div css={this.style(3)} />
@@ -39,10 +40,6 @@ class Loader extends React.Component {
     ) : null;
   }
 }
-
-Loader.propTypes = sizeMarginProps;
-
-Loader.defaultProps = sizeMarginDefaults(15);
 
 const Component = onlyUpdateForKeys(sizeMarginKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;

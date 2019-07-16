@@ -17,3 +17,9 @@ export interface BarLoaderProps extends CommonProps {
   width?: number;
   widthUnit?: string;
 }
+
+export interface BeatLoaderProps extends CommonProps {
+  margin?: string;
+  size?: number;
+  sizeUnit?: string;
+}
