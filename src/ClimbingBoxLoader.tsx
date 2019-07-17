@@ -7,7 +7,7 @@ import { Keyframes } from "@emotion/serialize";
 import { StyleFunction, PrecompiledCss, LoaderSizeProps } from "./interfaces";
 
 const climbingBox: Keyframes = keyframes`
-  0% {transform:translate(0, -1em) rotate(-45deg)} 
+  0% {transform:translate(0, -1em) rotate(-45deg)}
   5% {transform:translate(0, -1em) rotate(-50deg)}
   20% {transform:translate(1em, -2em) rotate(47deg)}
   25% {transform:translate(1em, -2em) rotate(45deg)}
@@ -21,9 +21,9 @@ const climbingBox: Keyframes = keyframes`
 `;
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
-  static defaultProps: LoaderSizeProps = sizeDefaults(15);
+  public static defaultProps: LoaderSizeProps = sizeDefaults(15);
 
-  style: StyleFunction = (): PrecompiledCss => {
+  public style: StyleFunction = (): PrecompiledCss => {
     const { color } = this.props;
 
     return css`
@@ -41,7 +41,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper: StyleFunction = (): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
     return css`
@@ -56,7 +56,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  hill: StyleFunction = (): PrecompiledCss => {
+  public hill: StyleFunction = (): PrecompiledCss => {
     const { color } = this.props;
 
     return css`
@@ -70,7 +70,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  container: StyleFunction = (): PrecompiledCss => {
+  public container: StyleFunction = (): PrecompiledCss => {
     return css`
       position: relative;
       width: 7.1em;
@@ -78,7 +78,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  render(): JSX.Element | null {
+  public render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -92,6 +92,6 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   }
 }
 
-const Component = onlyUpdateForKeys(sizeKeys)(Loader);
+const Component: React.ComponentClass<LoaderSizeProps> = onlyUpdateForKeys(sizeKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

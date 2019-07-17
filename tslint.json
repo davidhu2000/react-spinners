@@ -15,6 +15,7 @@
     "no-console": false,
     "no-conditional-assignment": true,
     "no-duplicate-super": true,
+    "no-shadowed-variable": false,
     "no-duplicate-variable": true,
     "no-empty": true,
     "no-eval": true,
@@ -67,5 +68,5 @@
       "member-variable-declaration"
     ]
   },
-  "rulesDirectory": [],
+  "rulesDirectory": []
 }

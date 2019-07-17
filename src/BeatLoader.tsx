@@ -7,13 +7,13 @@ import { Keyframes } from "@emotion/serialize";
 import { LoaderSizeMarginProps, PrecompiledCss, StyleFunctionWithIndex } from "./interfaces";
 
 const beat: Keyframes = keyframes`
-  50% {transform: scale(0.75);opacity: 0.2} 
+  50% {transform: scale(0.75);opacity: 0.2}
   100% {transform: scale(1);opacity: 1}
 `;
 
 class Loader extends React.PureComponent<LoaderSizeMarginProps> {
-  static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
-  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
+  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { color, size, sizeUnit, margin } = this.props;
 
     return css`
@@ -28,7 +28,7 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     `;
   };
 
-  render(): JSX.Element | null {
+  public render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -41,6 +41,8 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   }
 }
 
-const Component = onlyUpdateForKeys(sizeMarginKeys)(Loader);
+const Component: React.ComponentClass<LoaderSizeMarginProps> = onlyUpdateForKeys(sizeMarginKeys)(
+  Loader
+);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

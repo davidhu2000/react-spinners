@@ -12,21 +12,21 @@ import {
 } from "./interfaces";
 
 const long: Keyframes = keyframes`
-  0% {left: -35%;right: 100%} 
+  0% {left: -35%;right: 100%}
   60% {left: 100%;right: -90%}
   100% {left: 100%;right: -90%}
 `;
 
 const short: Keyframes = keyframes`
-  0% {left: -200%;right: 100%} 
+  0% {left: -200%;right: 100%}
   60% {left: 107%;right: -8%}
   100% {left: 107%;right: -8%}
 `;
 
 export class Loader extends React.PureComponent<LoaderHeightWidthProps> {
-  static defaultProps: LoaderHeightWidthProps = heightWidthDefaults(4, 100);
+  public static defaultProps: LoaderHeightWidthProps = heightWidthDefaults(4, 100);
 
-  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { height, color, heightUnit } = this.props;
 
     return css`
@@ -47,7 +47,7 @@ export class Loader extends React.PureComponent<LoaderHeightWidthProps> {
     `;
   };
 
-  wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper: StyleFunction = (): PrecompiledCss => {
     const { width, height, color, heightUnit, widthUnit } = this.props;
 
     return css`
@@ -60,7 +60,7 @@ export class Loader extends React.PureComponent<LoaderHeightWidthProps> {
     `;
   };
 
-  render(): JSX.Element | null {
+  public render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -72,6 +72,8 @@ export class Loader extends React.PureComponent<LoaderHeightWidthProps> {
   }
 }
 
-const Component = onlyUpdateForKeys(heightWidthKeys)(Loader);
+const Component: React.ComponentClass<LoaderHeightWidthProps> = onlyUpdateForKeys(heightWidthKeys)(
+  Loader
+);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

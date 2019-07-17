@@ -1,12 +1,12 @@
 type RgbaFunction = (color: string, opacity: number) => string;
 
-export const calculateRgba: RgbaFunction = (color, opacity): string => {
+export const calculateRgba: RgbaFunction = (color: string, opacity: number): string => {
   if (color[0] === "#") {
     color = color.slice(1);
   }
 
   if (color.length === 3) {
-    let res = "";
+    let res: string = "";
     color.split("").forEach((c: string) => {
       res += c;
       res += c;
@@ -14,10 +14,11 @@ export const calculateRgba: RgbaFunction = (color, opacity): string => {
     color = res;
   }
 
-  let rgbValues = color
+  let rgbValues: string = color
     .match(/.{2}/g)!
-    .map((hex) => parseInt(hex, 16))
+    .map((hex: string) => parseInt(hex, 16))
     .join(", ");
+
   return `rgba(${rgbValues}, ${opacity})`;
 };
 

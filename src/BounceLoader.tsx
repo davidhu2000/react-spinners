@@ -12,14 +12,14 @@ import {
 } from "./interfaces";
 
 const bounce: Keyframes = keyframes`
-  0%, 100% {transform: scale(0)} 
+  0%, 100% {transform: scale(0)}
   50% {transform: scale(1.0)}
 `;
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
-  static defaultProps = sizeDefaults(60);
+  public static defaultProps: LoaderSizeProps = sizeDefaults(60);
 
-  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { size, color, sizeUnit } = this.props;
 
     return css`
@@ -36,7 +36,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper: StyleFunction = (): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
     return css`
@@ -46,7 +46,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  render(): JSX.Element | null {
+  public render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -58,6 +58,6 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   }
 }
 
-const Component = onlyUpdateForKeys(sizeKeys)(Loader);
+const Component: React.ComponentClass<LoaderSizeProps> = onlyUpdateForKeys(sizeKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
