@@ -1,7 +1,12 @@
-import React from "react";
+import * as React from "react";
 
-class Code extends React.Component {
-  constructor(props) {
+interface CodeState {
+  text: string[];
+  index: number;
+}
+
+class Code extends React.Component<{}, CodeState> {
+  constructor(props: {}) {
     super(props);
     this.state = {
       text: ["yarn add react-spinners", "npm install react-spinners --save"],
@@ -9,8 +14,8 @@ class Code extends React.Component {
     };
   }
 
-  componentDidMount() {
-    let el = document.getElementById("code");
+  componentDidMount(): void {
+    let el: HTMLElement = document.getElementById("code");
     el.addEventListener("click", () => {
       this.setState({
         index: +!this.state.index
@@ -18,7 +23,7 @@ class Code extends React.Component {
     });
   }
 
-  render() {
+  render(): JSX.Element {
     return <span>{this.state.text[this.state.index]}</span>;
   }
 }

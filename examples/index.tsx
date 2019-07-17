@@ -2,12 +2,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { css } from "@emotion/core";
+import { ColorResult } from "react-color";
+
 import { Code, ColorPicker, LoaderItem } from "./components";
 import * as Spinners from "../src";
 
-class SpinnerExamples extends React.Component {
-  constructor() {
-    super();
+interface ExampleState {
+  color: string;
+  showPicker: boolean;
+}
+
+class SpinnerExamples extends React.Component<{}, ExampleState> {
+  constructor(props: {}) {
+    super(props);
     this.state = {
       color: "#36D7B7",
       showPicker: false
@@ -19,7 +26,7 @@ class SpinnerExamples extends React.Component {
 
   componentDidMount() {
     document.addEventListener("scroll", () => {
-      let picker = document.getElementsByClassName("color-picker")[0];
+      let picker: HTMLElement = document.getElementsByClassName("color-picker")[0] as HTMLElement;
       let top = 370 - window.scrollY * 2;
       if (top > 60) {
         picker.style.top = `${top}px`;
@@ -29,7 +36,7 @@ class SpinnerExamples extends React.Component {
     });
   }
 
-  updateColor(color) {
+  updateColor(color: ColorResult): void {
     this.setState({ color: color.hex });
     document.getElementById("header").style.cssText = `
       background: -webkit-gradient(linear, left top, right top, from(${color.hex}), to(#2b303b));
@@ -39,11 +46,11 @@ class SpinnerExamples extends React.Component {
     `;
   }
 
-  togglePicker() {
+  togglePicker(): void {
     this.setState({ showPicker: !this.state.showPicker });
   }
 
-  renderSpinner(Spinner) {
+  renderSpinner(Spinner: React.ComponentType<any>): JSX.Element {
     return <Spinner color={this.state.color} />;
   }
 
@@ -72,9 +79,9 @@ class SpinnerExamples extends React.Component {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const root = document.getElementById("root");
+  const root: HTMLElement = document.getElementById("root");
   ReactDOM.render(<SpinnerExamples />, root);
 
-  const code = document.getElementById("code");
+  const code: HTMLElement = document.getElementById("code");
   ReactDOM.render(<Code />, code);
 });

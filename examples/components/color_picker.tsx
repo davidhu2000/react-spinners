@@ -1,9 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
 import enhanceWithClickOutside from "react-click-outside";
-import { SketchPicker } from "react-color";
+import { SketchPicker, ColorResult } from "react-color";
 
-class Picker extends React.Component {
+interface ColorPickerProps {
+  togglePicker: () => void;
+  color: string;
+  updateColor: (color: ColorResult) => void;
+}
+
+class Picker extends React.Component<ColorPickerProps> {
   handleClickOutside() {
     this.props.togglePicker();
   }
@@ -13,11 +18,5 @@ class Picker extends React.Component {
     return <SketchPicker color={color} onChangeComplete={updateColor} />;
   }
 }
-
-Picker.propTypes = {
-  color: PropTypes.string.isRequired,
-  updateColor: PropTypes.func.isRequired,
-  togglePicker: PropTypes.func.isRequired
-};
 
 export const ColorPicker = enhanceWithClickOutside(Picker);

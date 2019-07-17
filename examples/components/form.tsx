@@ -1,7 +1,15 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const Form = ({ inputs, update }) => (
+interface FormProps {
+  inputs: {
+    [key: string]: number | string;
+  };
+  update: (field: string) => (event: any) => void;
+}
+
+type FormType = (arg: FormProps) => JSX.Element;
+
+const Form: FormType = ({ inputs, update }): JSX.Element => (
   <div className="spinner-form">
     {Object.keys(inputs).map((name) => (
       <div className="spinner-form-input" key={name}>
@@ -17,10 +25,5 @@ const Form = ({ inputs, update }) => (
     ))}
   </div>
 );
-
-Form.propTypes = {
-  inputs: PropTypes.shape().isRequired,
-  update: PropTypes.func.isRequired
-};
 
 export { Form };

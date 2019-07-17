@@ -52,6 +52,8 @@
     "@babel/preset-env": "^7.5.0",
     "@babel/preset-react": "^7.0.0",
     "@types/react": "^16.8.23",
+    "@types/react-click-outside": "^3.0.3",
+    "@types/react-color": "^3.0.1",
     "@types/react-dom": "^16.8.4",
     "babel-loader": "^8.0.6",
     "babel-plugin-emotion": "^10.0.14",

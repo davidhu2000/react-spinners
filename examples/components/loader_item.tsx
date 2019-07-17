@@ -1,8 +1,17 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Form } from "./form";
 
-class LoaderItem extends React.Component {
+interface ItemProps {
+  color: string;
+  name: string;
+  spinner: JSX.Element;
+}
+
+interface ItemState {
+  [key: string]: number | string;
+}
+
+class LoaderItem extends React.Component<ItemProps, ItemState> {
   constructor(props) {
     super(props);
     let { spinner } = props;
@@ -23,7 +32,7 @@ class LoaderItem extends React.Component {
     this.update = this.update.bind(this);
   }
 
-  update(field) {
+  update(field: string) {
     return (e) => {
       let { value } = e.target;
       if (!value.includes("px")) {
@@ -34,7 +43,7 @@ class LoaderItem extends React.Component {
     };
   }
 
-  renderSpinner(Spinner) {
+  renderSpinner(Spinner: React.ComponentType<any>) {
     return <Spinner color={this.props.color} {...this.state} />;
   }
 
@@ -51,11 +60,5 @@ class LoaderItem extends React.Component {
     );
   }
 }
-
-LoaderItem.propTypes = {
-  spinner: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired
-};
 
 export { LoaderItem };
