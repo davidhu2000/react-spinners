@@ -10,7 +10,7 @@
     "esModuleInterop": true,
     "declaration": true,
     "lib": ["dom", "es2017", "es5", "es6", "es7"],
-    "outDir": "./dist",
+    "outDir": ".",
     "strict": true
   },
   "exclude": ["docs/*", "webpack.config.*", "*.js", "examples/*"]
