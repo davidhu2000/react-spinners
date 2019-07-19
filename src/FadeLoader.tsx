@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React from "react";
+import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 import { heightWidthRadiusKeys, heightWidthRadiusDefaults } from "./helpers";
