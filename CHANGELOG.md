@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.13
+
+- fix readme props table formatting. It got a little messy for some reason.
+
 ## 0.5.12
 
 - fix version glitch. No code changes here.
