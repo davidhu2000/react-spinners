@@ -49,7 +49,7 @@ import React from 'react';
 import { css } from '@emotion/core';
 // First way to import
 import { ClipLoader } from 'react-spinners';
-// Another way to import
+// Another way to import. This is recommended to reduce bundle size
 import ClipLoader from 'react-spinners/ClipLoader';
 
 // Can be a string as well. Need to ensure each key-value pair ends with ;
