@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 /*
  * List of string constants to represent different props
  */
@@ -36,39 +34,54 @@ export const heightWidthRadiusKeys: string[] = heightWidthKeys.concat([
  * DefaultProps object for different loaders
  */
 
-const commonValues = {
+interface DefaultProps {
+  [key: string]: boolean | string | {} | number;
+}
+
+type HeightWidthFunction = (height: number, width: number) => DefaultProps;
+type HeightWidthRadiusFunction = (height: number, width: number, radius: number) => DefaultProps;
+type SizeFunction = (size: number) => DefaultProps;
+
+const commonValues: DefaultProps = {
   [LOADING]: true,
   [COLOR]: "#000000",
   [CSS]: {}
 };
 
-const heightWidthValues = (height: number, width: number) => ({
+const heightWidthValues: HeightWidthFunction = (height: number, width: number): DefaultProps => ({
   [HEIGHT]: height,
   [HEIGHT_UNIT]: "px",
   [WIDTH]: width,
   [WIDTH_UNIT]: "px"
 });
 
-const sizeValues = (sizeValue: number) => ({
+const sizeValues: SizeFunction = (sizeValue: number): DefaultProps => ({
   [SIZE]: sizeValue,
   [SIZE_UNIT]: "px"
 });
 
-export const sizeDefaults = (sizeValue: number) => {
+export const sizeDefaults: SizeFunction = (sizeValue: number): DefaultProps => {
   return Object.assign({}, commonValues, sizeValues(sizeValue));
 };
 
-export const sizeMarginDefaults = (sizeValue: number) => {
+export const sizeMarginDefaults: SizeFunction = (sizeValue: number): DefaultProps => {
   return Object.assign({}, sizeDefaults(sizeValue), {
     [MARGIN]: "2px"
   });
 };
 
-export const heightWidthDefaults = (height: number, width: number) => {
+export const heightWidthDefaults: HeightWidthFunction = (
+  height: number,
+  width: number
+): DefaultProps => {
   return Object.assign({}, commonValues, heightWidthValues(height, width));
 };
 
-export const heightWidthRadiusDefaults = (height: number, width: number, radius: number = 2) => {
+export const heightWidthRadiusDefaults: HeightWidthRadiusFunction = (
+  height: number,
+  width: number,
+  radius: number = 2
+): DefaultProps => {
   return Object.assign({}, heightWidthDefaults(height, width), {
     [RADIUS]: radius,
     [RADIUS_UNIT]: "px",
