@@ -9,9 +9,9 @@ interface FormProps {
 
 type FormType = (arg: FormProps) => JSX.Element;
 
-const Form: FormType = ({ inputs, update }): JSX.Element => (
+const Form: FormType = ({ inputs, update }: FormProps): JSX.Element => (
   <div className="spinner-form">
-    {Object.keys(inputs).map((name) => (
+    {Object.keys(inputs).map((name: string) => (
       <div className="spinner-form-input" key={name}>
         <input
           name={name}

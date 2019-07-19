@@ -14,9 +14,9 @@ const scale: Keyframes = keyframes`
 `;
 
 class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
-  static defaultProps: LoaderHeightWidthRadiusProps = heightWidthRadiusDefaults(35, 4, 2);
+  public static defaultProps: LoaderHeightWidthRadiusProps = heightWidthRadiusDefaults(35, 4, 2);
 
-  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { color, width, height, margin, radius, widthUnit, heightUnit, radiusUnit } = this.props;
 
     return css`
@@ -31,7 +31,7 @@ class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
     `;
   };
 
-  render(): JSX.Element | null {
+  public render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -46,6 +46,8 @@ class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
   }
 }
 
-const Component = onlyUpdateForKeys(heightWidthRadiusKeys)(Loader);
+const Component: React.ComponentClass<LoaderHeightWidthRadiusProps> = onlyUpdateForKeys(
+  heightWidthRadiusKeys
+)(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

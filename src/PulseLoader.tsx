@@ -6,17 +6,16 @@ import { sizeMarginDefaults, sizeMarginKeys } from "./helpers";
 import { Keyframes } from "@emotion/serialize";
 import { PrecompiledCss, LoaderSizeMarginProps, StyleFunctionWithIndex } from "./interfaces";
 
-// This returns an animation
 const pulse: Keyframes = keyframes`
-  0% {transform: scale(1);opacity: 1} 
+  0% {transform: scale(1);opacity: 1}
   45% {transform: scale(0.1);opacity: 0.7}
   80% {transform: scale(1);opacity: 1}
 `;
 
 class Loader extends React.PureComponent<LoaderSizeMarginProps> {
-  static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
+  public static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
 
-  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { color, size, sizeUnit, margin } = this.props;
 
     return css`
@@ -31,7 +30,7 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     `;
   };
 
-  render(): JSX.Element | null {
+  public render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -44,6 +43,8 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   }
 }
 
-const Component = onlyUpdateForKeys(sizeMarginKeys)(Loader);
+const Component: React.ComponentClass<LoaderSizeMarginProps> = onlyUpdateForKeys(sizeMarginKeys)(
+  Loader
+);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

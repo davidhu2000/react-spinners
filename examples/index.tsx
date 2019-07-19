@@ -24,10 +24,10 @@ class SpinnerExamples extends React.Component<{}, ExampleState> {
     this.togglePicker = this.togglePicker.bind(this);
   }
 
-  componentDidMount() {
+  public componentDidMount(): void {
     document.addEventListener("scroll", () => {
       let picker: HTMLElement = document.getElementsByClassName("color-picker")[0] as HTMLElement;
-      let top = 370 - window.scrollY * 2;
+      let top: number = 370 - window.scrollY * 2;
       if (top > 60) {
         picker.style.top = `${top}px`;
       } else {
@@ -36,7 +36,7 @@ class SpinnerExamples extends React.Component<{}, ExampleState> {
     });
   }
 
-  updateColor(color: ColorResult): void {
+  public updateColor(color: ColorResult): void {
     this.setState({ color: color.hex });
     document.getElementById("header").style.cssText = `
       background: -webkit-gradient(linear, left top, right top, from(${color.hex}), to(#2b303b));
@@ -46,16 +46,17 @@ class SpinnerExamples extends React.Component<{}, ExampleState> {
     `;
   }
 
-  togglePicker(): void {
+  public togglePicker(): void {
     this.setState({ showPicker: !this.state.showPicker });
   }
 
-  renderSpinner(Spinner: React.ComponentType<any>): JSX.Element {
+  public renderSpinner(Spinner: React.ComponentType<any>): JSX.Element {
     return <Spinner color={this.state.color} />;
   }
 
-  render() {
+  public render(): JSX.Element {
     let { color, showPicker } = this.state;
+
     return (
       <div className="spinner-container">
         <div className="color-picker position-abs">
@@ -70,7 +71,7 @@ class SpinnerExamples extends React.Component<{}, ExampleState> {
           )}
         </div>
 
-        {Object.keys(Spinners).map((name) => (
+        {Object.keys(Spinners).map((name: string) => (
           <LoaderItem key={`loader-${name}`} color={color} name={name} spinner={Spinners[name]} />
         ))}
       </div>

@@ -14,7 +14,7 @@ class Code extends React.Component<{}, CodeState> {
     };
   }
 
-  componentDidMount(): void {
+  public componentDidMount(): void {
     let el: HTMLElement = document.getElementById("code");
     el.addEventListener("click", () => {
       this.setState({
@@ -23,7 +23,7 @@ class Code extends React.Component<{}, CodeState> {
     });
   }
 
-  render(): JSX.Element {
+  public render(): JSX.Element {
     return <span>{this.state.text[this.state.index]}</span>;
   }
 }

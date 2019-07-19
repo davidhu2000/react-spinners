@@ -9,14 +9,15 @@ interface ColorPickerProps {
 }
 
 class Picker extends React.Component<ColorPickerProps> {
-  handleClickOutside() {
+  public handleClickOutside(): void {
     this.props.togglePicker();
   }
 
-  render() {
+  public render(): JSX.Element {
     let { color, updateColor } = this.props;
+
     return <SketchPicker color={color} onChangeComplete={updateColor} />;
   }
 }
 
-export const ColorPicker = enhanceWithClickOutside(Picker);
+export const ColorPicker: React.ComponentClass<ColorPickerProps> = enhanceWithClickOutside(Picker);

@@ -39,7 +39,8 @@
     "minor": "npm version minor && npm publish && npm run clean",
     "major": "npm version major && npm publish && npm run clean",
     "watch": "babel-node ./node_modules/.bin/webpack --watch --config ./webpack.config.dev.js",
-    "clean": "rm -rf helpers/; rm -f *Loader.js; rm -f index.js; rm -rf docs/js"
+    "clean": "rm -rf helpers/; rm -f *Loader.js; rm -f index.js; rm -rf docs/js",
+    "lint": "./node_modules/.bin/tslint --config tslint.json --format stylish --project . --fix"
   },
   "types": "./src/index.d.ts",
   "devDependencies": {

@@ -13,15 +13,15 @@ const moon: Keyframes = keyframes`
 `;
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
-  static defaultProps: LoaderSizeProps = sizeDefaults(60);
+  public static defaultProps: LoaderSizeProps = sizeDefaults(60);
 
-  moonSize: CalcFunction<number> = (): number => {
+  public moonSize: CalcFunction<number> = (): number => {
     const { size } = this.props;
 
     return size! / 7;
   };
 
-  ballStyle: BallStyleFunction = (size: number): PrecompiledCss => {
+  public ballStyle: BallStyleFunction = (size: number): PrecompiledCss => {
     const { sizeUnit } = this.props;
 
     return css`
@@ -31,7 +31,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper: StyleFunction = (): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
     return css`
@@ -43,7 +43,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  ball: CalcFunction<PrecompiledCss> = (): PrecompiledCss => {
+  public ball: CalcFunction<PrecompiledCss> = (): PrecompiledCss => {
     const { color, size, sizeUnit } = this.props;
 
     return css`
@@ -57,7 +57,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  circle: CalcFunction<PrecompiledCss> = (): PrecompiledCss => {
+  public circle: CalcFunction<PrecompiledCss> = (): PrecompiledCss => {
     const { size, color } = this.props;
 
     return css`
@@ -67,7 +67,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  render(): JSX.Element | null {
+  public render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -79,6 +79,6 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   }
 }
 
-const Component = onlyUpdateForKeys(sizeKeys)(Loader);
+const Component: React.ComponentClass<LoaderSizeProps> = onlyUpdateForKeys(sizeKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

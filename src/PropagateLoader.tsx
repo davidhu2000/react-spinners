@@ -16,13 +16,13 @@ let distance: number[] = [1, 3, 5];
 
 const propagate: Keyframes[] = [
   keyframes`
-      25% {transform: translateX(-${distance[0]}rem) scale(0.75)} 
+      25% {transform: translateX(-${distance[0]}rem) scale(0.75)}
       50% {transform: translateX(-${distance[1]}rem) scale(0.6)}
       75% {transform: translateX(-${distance[2]}rem) scale(0.5)}
       95% {transform: translateX(0rem) scale(1)}
     `,
   keyframes`
-      25% {transform: translateX(-${distance[0]}rem) scale(0.75)} 
+      25% {transform: translateX(-${distance[0]}rem) scale(0.75)}
       50% {transform: translateX(-${distance[1]}rem) scale(0.6)}
       75% {transform: translateX(-${distance[1]}rem) scale(0.6)}
       95% {transform: translateX(0rem) scale(1)}
@@ -38,13 +38,13 @@ const propagate: Keyframes[] = [
       95% {transform: translateX(0rem) scale(1)}
     `,
   keyframes`
-      25% {transform: translateX(${distance[0]}rem) scale(0.75)} 
+      25% {transform: translateX(${distance[0]}rem) scale(0.75)}
       50% {transform: translateX(${distance[1]}rem) scale(0.6)}
       75% {transform: translateX(${distance[1]}rem) scale(0.6)}
       95% {transform: translateX(0rem) scale(1)}
     `,
   keyframes`
-      25% {transform: translateX(${distance[0]}rem) scale(0.75)} 
+      25% {transform: translateX(${distance[0]}rem) scale(0.75)}
       50% {transform: translateX(${distance[1]}rem) scale(0.6)}
       75% {transform: translateX(${distance[2]}rem) scale(0.5)}
       95% {transform: translateX(0rem) scale(1)}
@@ -52,9 +52,9 @@ const propagate: Keyframes[] = [
 ];
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
-  static defaultProps: LoaderSizeProps = sizeDefaults(15);
+  public static defaultProps: LoaderSizeProps = sizeDefaults(15);
 
-  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { size, sizeUnit, color } = this.props;
 
     return css`
@@ -69,13 +69,13 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper: StyleFunction = (): PrecompiledCss => {
     return css`
       position: relative;
     `;
   };
 
-  render(): JSX.Element | null {
+  public render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -91,6 +91,6 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   }
 }
 
-const Component = onlyUpdateForKeys(sizeKeys)(Loader);
+const Component: React.ComponentClass<LoaderSizeProps> = onlyUpdateForKeys(sizeKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

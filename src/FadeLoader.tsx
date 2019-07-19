@@ -12,14 +12,16 @@ import {
 } from "./interfaces";
 
 const fade: Keyframes = keyframes`
-  50% {opacity: 0.3} 
+  50% {opacity: 0.3}
   100% {opacity: 1}
 `;
 
 class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
-  static defaultProps: LoaderHeightWidthRadiusProps = heightWidthRadiusDefaults(15, 5, 2);
+  public static defaultProps: LoaderHeightWidthRadiusProps = heightWidthRadiusDefaults(15, 5, 2);
+  public radius: number = 20;
+  public quarter: number = this.radius / 2 + this.radius / 5.5;
 
-  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { height, width, margin, color, radius, widthUnit, heightUnit, radiusUnit } = this.props;
 
     return css`
@@ -35,10 +37,7 @@ class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
     `;
   };
 
-  radius = 20;
-  quarter = this.radius / 2 + this.radius / 5.5;
-
-  wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper: StyleFunction = (): PrecompiledCss => {
     return css`
       position: relative;
       font-size: 0;
@@ -49,54 +48,54 @@ class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
     `;
   };
 
-  a: StyleFunction = (): PrecompiledCss => css`
+  public a: StyleFunction = (): PrecompiledCss => css`
     ${this.style(1)};
     top: ${this.radius}px;
     left: 0;
   `;
-  b: StyleFunction = (): PrecompiledCss => css`
+  public b: StyleFunction = (): PrecompiledCss => css`
     ${this.style(2)};
     top: ${this.quarter}px;
     left: ${this.quarter}px;
     transform: rotate(-45deg);
   `;
-  c: StyleFunction = (): PrecompiledCss => css`
+  public c: StyleFunction = (): PrecompiledCss => css`
     ${this.style(3)};
     top: 0;
     left: ${this.radius}px;
     transform: rotate(90deg);
   `;
-  d: StyleFunction = (): PrecompiledCss => css`
+  public d: StyleFunction = (): PrecompiledCss => css`
     ${this.style(4)};
     top: ${-this.quarter}px;
     left: ${this.quarter}px;
     transform: rotate(45deg);
   `;
-  e: StyleFunction = (): PrecompiledCss => css`
+  public e: StyleFunction = (): PrecompiledCss => css`
     ${this.style(5)};
     top: ${-this.radius}px;
     left: 0;
   `;
-  f: StyleFunction = (): PrecompiledCss => css`
+  public f: StyleFunction = (): PrecompiledCss => css`
     ${this.style(6)};
     top: ${-this.quarter}px;
     left: ${-this.quarter}px;
     transform: rotate(-45deg);
   `;
-  g: StyleFunction = (): PrecompiledCss => css`
+  public g: StyleFunction = (): PrecompiledCss => css`
     ${this.style(7)};
     top: 0;
     left: ${-this.radius}px;
     transform: rotate(90deg);
   `;
-  h: StyleFunction = (): PrecompiledCss => css`
+  public h: StyleFunction = (): PrecompiledCss => css`
     ${this.style(8)};
     top: ${this.quarter}px;
     left: ${-this.quarter}px;
     transform: rotate(45deg);
   `;
 
-  render(): JSX.Element | null {
+  public render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -114,6 +113,8 @@ class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
   }
 }
 
-const Component = onlyUpdateForKeys(heightWidthRadiusKeys)(Loader);
+const Component: React.ComponentClass<LoaderHeightWidthRadiusProps> = onlyUpdateForKeys(
+  heightWidthRadiusKeys
+)(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

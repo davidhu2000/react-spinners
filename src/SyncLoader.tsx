@@ -13,9 +13,9 @@ const sync: Keyframes = keyframes`
 `;
 
 class Loader extends React.PureComponent<LoaderSizeMarginProps> {
-  static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
+  public static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
 
-  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { color, size, sizeUnit, margin } = this.props;
 
     return css`
@@ -30,7 +30,7 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     `;
   };
 
-  render(): JSX.Element | null {
+  public render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -43,6 +43,8 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   }
 }
 
-const Component = onlyUpdateForKeys(sizeMarginKeys)(Loader);
+const Component: React.ComponentClass<LoaderSizeMarginProps> = onlyUpdateForKeys(sizeMarginKeys)(
+  Loader
+);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

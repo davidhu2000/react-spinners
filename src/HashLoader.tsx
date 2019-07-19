@@ -13,29 +13,29 @@ import {
 } from "./interfaces";
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
-  static defaultProps: LoaderSizeProps = sizeDefaults(50);
+  public static defaultProps: LoaderSizeProps = sizeDefaults(50);
 
-  thickness: CalcFunction<number> = (): number => {
+  public thickness: CalcFunction<number> = (): number => {
     const { size } = this.props;
 
     return size! / 5;
   };
 
-  lat: CalcFunction<number> = (): number => {
+  public lat: CalcFunction<number> = (): number => {
     const { size } = this.props;
 
     return (size! - this.thickness()) / 2;
   };
 
-  offset: CalcFunction<number> = (): number => this.lat() - this.thickness();
+  public offset: CalcFunction<number> = (): number => this.lat() - this.thickness();
 
-  color: CalcFunction<string> = (): string => {
+  public color: CalcFunction<string> = (): string => {
     const { color } = this.props;
 
     return calculateRgba(color!, 0.75);
   };
 
-  before: CalcFunction<Keyframes> = (): Keyframes => {
+  public before: CalcFunction<Keyframes> = (): Keyframes => {
     const { size, sizeUnit } = this.props;
 
     const color: string = this.color();
@@ -44,14 +44,14 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     const offset: number = this.offset();
 
     return keyframes`
-      0% {width: ${thickness}px;box-shadow: ${lat}px ${-offset}px ${color}, ${-lat}px ${offset}px ${color}} 
+      0% {width: ${thickness}px;box-shadow: ${lat}px ${-offset}px ${color}, ${-lat}px ${offset}px ${color}}
       35% {width: ${`${size}${sizeUnit}`};box-shadow: 0 ${-offset}px ${color}, 0 ${offset}px ${color}}
       70% {width: ${thickness}px;box-shadow: ${-lat}px ${-offset}px ${color}, ${lat}px ${offset}px ${color}}
       100% {box-shadow: ${lat}px ${-offset}px ${color}, ${-lat}px ${offset}px ${color}}
     `;
   };
 
-  after: CalcFunction<Keyframes> = (): Keyframes => {
+  public after: CalcFunction<Keyframes> = (): Keyframes => {
     const { size, sizeUnit } = this.props;
 
     const color: string = this.color();
@@ -60,14 +60,14 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     const offset: number = this.offset();
 
     return keyframes`
-      0% {height: ${thickness}px;box-shadow: ${offset}px ${lat}px ${color}, ${-offset}px ${-lat}px ${color}} 
+      0% {height: ${thickness}px;box-shadow: ${offset}px ${lat}px ${color}, ${-offset}px ${-lat}px ${color}}
       35% {height: ${`${size}${sizeUnit}`};box-shadow: ${offset}px 0 ${color}, ${-offset}px 0 ${color}}
       70% {height: ${thickness}px;box-shadow: ${offset}px ${-lat}px ${color}, ${-offset}px ${lat}px ${color}}
       100% {box-shadow: ${offset}px ${lat}px ${color}, ${-offset}px ${-lat}px ${color}}
     `;
   };
 
-  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
     return css`
@@ -85,7 +85,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper: StyleFunction = (): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
     return css`
@@ -96,7 +96,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  render(): JSX.Element | null {
+  public render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -108,6 +108,6 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   }
 }
 
-const Component = onlyUpdateForKeys(sizeKeys)(Loader);
+const Component: React.ComponentClass<LoaderSizeProps> = onlyUpdateForKeys(sizeKeys)(Loader);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

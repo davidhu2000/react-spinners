@@ -4,18 +4,20 @@ import { Form } from "./form";
 interface ItemProps {
   color: string;
   name: string;
-  spinner: JSX.Element;
+  spinner: React.ComponentClass<any>;
 }
 
 interface ItemState {
   [key: string]: number | string;
 }
 
+type UpdateFunction = (e: React.ChangeEvent<any>) => void;
+
 class LoaderItem extends React.Component<ItemProps, ItemState> {
-  constructor(props) {
+  constructor(props: ItemProps) {
     super(props);
     let { spinner } = props;
-    let defaults = Object.assign({}, spinner.defaultProps);
+    let defaults: any = Object.assign({}, spinner.defaultProps);
     delete defaults.color;
     delete defaults.loading;
     delete defaults.sizeUnit;
@@ -32,8 +34,8 @@ class LoaderItem extends React.Component<ItemProps, ItemState> {
     this.update = this.update.bind(this);
   }
 
-  update(field: string) {
-    return (e) => {
+  public update(field: string): UpdateFunction {
+    return (e: React.ChangeEvent<any>): void => {
       let { value } = e.target;
       if (!value.includes("px")) {
         value = parseInt(value, 10);
@@ -43,12 +45,13 @@ class LoaderItem extends React.Component<ItemProps, ItemState> {
     };
   }
 
-  renderSpinner(Spinner: React.ComponentType<any>) {
+  public renderSpinner(Spinner: React.ComponentType<any>): JSX.Element {
     return <Spinner color={this.props.color} {...this.state} />;
   }
 
-  render() {
+  public render(): JSX.Element {
     let { name, spinner } = this.props;
+
     return (
       <div>
         <div className="spinner-item">

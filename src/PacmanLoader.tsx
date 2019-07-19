@@ -13,22 +13,21 @@ import {
   StyleFunctionWithIndex
 } from "./interfaces";
 
-// This returns an animation
 const pacman: Keyframes[] = [
   keyframes`
-    0% {transform: rotate(0deg)} 
+    0% {transform: rotate(0deg)}
     50% {transform: rotate(-44deg)}
   `,
   keyframes`
-    0% {transform: rotate(0deg)} 
+    0% {transform: rotate(0deg)}
     50% {transform: rotate(44deg)}
   `
 ];
 
 class Loader extends React.PureComponent<LoaderSizeMarginProps> {
-  static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(25);
+  public static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(25);
 
-  ball: CalcFunction<Keyframes> = (): Keyframes => {
+  public ball: CalcFunction<Keyframes> = (): Keyframes => {
     const { size, sizeUnit } = this.props;
 
     return keyframes`
@@ -37,7 +36,7 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     `;
   };
 
-  ballStyle: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public ballStyle: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { color, margin, size, sizeUnit } = this.props;
 
     return css`
@@ -55,19 +54,19 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     `;
   };
 
-  s1: CalcFunction<string> = (): string => {
+  public s1: CalcFunction<string> = (): string => {
     const { size, sizeUnit } = this.props;
 
     return `${size}${sizeUnit} solid transparent`;
   };
 
-  s2: CalcFunction<string> = (): string => {
+  public s2: CalcFunction<string> = (): string => {
     const { size, sizeUnit, color } = this.props;
 
     return `${size}${sizeUnit} solid ${color}`;
   };
 
-  pacmanStyle: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public pacmanStyle: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
     const s1: string = this.s1();
@@ -87,7 +86,7 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     `;
   };
 
-  wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper: StyleFunction = (): PrecompiledCss => {
     const { size, sizeUnit } = this.props;
 
     return css`
@@ -98,10 +97,10 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     `;
   };
 
-  pac: StyleFunction = (): PrecompiledCss => this.pacmanStyle(0);
-  man: StyleFunction = (): PrecompiledCss => this.pacmanStyle(1);
+  public pac: StyleFunction = (): PrecompiledCss => this.pacmanStyle(0);
+  public man: StyleFunction = (): PrecompiledCss => this.pacmanStyle(1);
 
-  render(): JSX.Element | null {
+  public render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -117,6 +116,8 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   }
 }
 
-const Component = onlyUpdateForKeys(sizeMarginKeys)(Loader);
+const Component: React.ComponentClass<LoaderSizeMarginProps> = onlyUpdateForKeys(sizeMarginKeys)(
+  Loader
+);
 Component.defaultProps = Loader.defaultProps;
 export default Component;

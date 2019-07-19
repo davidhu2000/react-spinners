@@ -18,16 +18,16 @@ const rotate: Keyframes = keyframes`
 `;
 
 class Loader extends React.PureComponent<LoaderSizeMarginProps> {
-  static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
+  public static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
 
-  style: StyleFunctionWithIndex = (i: number): PrecompiledCss => css`
+  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => css`
     opacity: 0.8;
     position: absolute;
     top: 0;
     left: ${i % 2 ? -28 : 25}px;
   `;
 
-  ball: StyleFunction = (): PrecompiledCss => {
+  public ball: StyleFunction = (): PrecompiledCss => {
     const { color, size, sizeUnit, margin } = this.props;
 
     return css`
@@ -39,7 +39,7 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     `;
   };
 
-  wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper: StyleFunction = (): PrecompiledCss => {
     return css`
       ${this.ball()};
       display: inline-block;
@@ -49,16 +49,16 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     `;
   };
 
-  long: StyleFunction = (): PrecompiledCss => css`
+  public long: StyleFunction = (): PrecompiledCss => css`
     ${this.ball()};
     ${this.style(1)};
   `;
-  short: StyleFunction = (): PrecompiledCss => css`
+  public short: StyleFunction = (): PrecompiledCss => css`
     ${this.ball()};
     ${this.style(2)};
   `;
 
-  render(): JSX.Element | null {
+  public render(): JSX.Element | null {
     const { loading, css } = this.props;
 
     return loading ? (
@@ -70,6 +70,8 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   }
 }
 
-const Component = onlyUpdateForKeys(sizeMarginKeys)(Loader);
+const Component: React.ComponentClass<LoaderSizeMarginProps> = onlyUpdateForKeys(sizeMarginKeys)(
+  Loader
+);
 Component.defaultProps = Loader.defaultProps;
 export default Component;
