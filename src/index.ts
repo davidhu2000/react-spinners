@@ -16,26 +16,35 @@ import RingLoaderComponent from "./RingLoader";
 import RiseLoaderComponent from "./RiseLoader";
 import RotateLoaderComponent from "./RotateLoader";
 import ScaleLoaderComponent from "./ScaleLoader";
+import SkewLoaderComponent from "./SkewLoader";
+import SquareLoaderComponent from "./SquareLoader";
 import SyncLoaderComponent from "./SyncLoader";
 
-import { LoaderHeightWidthProps, LoaderSizeMarginProps, LoaderSizeProps } from "./interfaces";
+import {
+  LoaderHeightWidthProps,
+  LoaderSizeMarginProps,
+  LoaderSizeProps,
+  LoaderHeightWidthRadiusProps
+} from "./interfaces";
 
 export const BarLoader: React.ComponentClass<LoaderHeightWidthProps> = BarLoaderComponent;
 export const BeatLoader: React.ComponentClass<LoaderSizeMarginProps> = BeatLoaderComponent;
 export const BounceLoader: React.ComponentClass<LoaderSizeProps> = BounceLoaderComponent;
 export const CircleLoader: React.ComponentClass<LoaderSizeProps> = CircleLoaderComponent;
 export const ClimbingBoxLoader: React.ComponentClass<LoaderSizeProps> = ClimbingBoxLoaderComponent;
-export const ClipLoader = ClipLoaderComponent;
-export const DotLoader = DotLoaderComponent;
-export const FadeLoader = FadeLoaderComponent;
-export const GridLoader = GridLoaderComponent;
-export const HashLoader = HashLoaderComponent;
-export const MoonLoader = MoonLoaderComponent;
-export const PacmanLoader = PacmanLoaderComponent;
-export const PropagateLoader = PropagateLoaderComponent;
-export const PulseLoader = PulseLoaderComponent;
-export const RingLoader = RingLoaderComponent;
-export const RiseLoader = RiseLoaderComponent;
-export const RotateLoader = RotateLoaderComponent;
-export const ScaleLoader = ScaleLoaderComponent;
-export const SyncLoader = SyncLoaderComponent;
+export const ClipLoader: React.ComponentClass<LoaderSizeProps> = ClipLoaderComponent;
+export const DotLoader: React.ComponentClass<LoaderSizeProps> = DotLoaderComponent;
+export const FadeLoader: React.ComponentClass<LoaderHeightWidthRadiusProps> = FadeLoaderComponent;
+export const GridLoader: React.ComponentClass<LoaderSizeMarginProps> = GridLoaderComponent;
+export const HashLoader: React.ComponentClass<LoaderSizeProps> = HashLoaderComponent;
+export const MoonLoader: React.ComponentClass<LoaderSizeProps> = MoonLoaderComponent;
+export const PacmanLoader: React.ComponentClass<LoaderSizeMarginProps> = PacmanLoaderComponent;
+export const PropagateLoader: React.ComponentClass<LoaderSizeProps> = PropagateLoaderComponent;
+export const PulseLoader: React.ComponentClass<LoaderSizeMarginProps> = PulseLoaderComponent;
+export const RingLoader: React.ComponentClass<LoaderSizeProps> = RingLoaderComponent;
+export const RiseLoader: React.ComponentClass<LoaderSizeMarginProps> = RiseLoaderComponent;
+export const RotateLoader: React.ComponentClass<LoaderSizeMarginProps> = RotateLoaderComponent;
+export const ScaleLoader: React.ComponentClass<LoaderHeightWidthRadiusProps> = ScaleLoaderComponent;
+export const SkewLoader: React.ComponentClass<LoaderSizeProps> = SkewLoaderComponent;
+export const SquareLoader: React.ComponentClass<LoaderSizeProps> = SquareLoaderComponent;
+export const SyncLoader: React.ComponentClass<LoaderSizeProps> = SyncLoaderComponent;
