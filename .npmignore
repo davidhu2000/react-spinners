@@ -8,3 +8,9 @@
 .eslintrc
 npm-debug.log
 lib
+
+examples
+docs
+webpack.config.*
+prettier.config.js
+template.html
