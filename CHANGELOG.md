@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.0-alpha.0
+
+- This is a complete rewrite of the entire package. It is now 100% written in Typescript. The core functionality of the package remains, just now there is better type definitions of each loader. 
+- `prop-types` is no longer a dependency for this package, types are completed handled by TypeScript. 
+- refactored interfaces into a few grouping for easy maintenance: height/width, size, size/margin, height/width/radius
+- set up tslint to ensure consistent formatting. 
+
 ## 0.5.13
 
 - fix readme props table formatting. It got a little messy for some reason.
