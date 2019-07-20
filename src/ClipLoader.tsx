@@ -1,9 +1,10 @@
 /** @jsx jsx */
 import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
-import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
-import { sizeDefaults, sizeKeys } from "./helpers/proptypes";
 import { Keyframes } from "@emotion/serialize";
+import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
+
+import { sizeDefaults, sizeKeys } from "./helpers/proptypes";
 import { StyleFunction, PrecompiledCss, LoaderSizeProps } from "./interfaces";
 
 const clip: Keyframes = keyframes`

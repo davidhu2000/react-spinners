@@ -1,9 +1,10 @@
 /** @jsx jsx */
 import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
-import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
-import { sizeMarginKeys, sizeMarginDefaults } from "./helpers";
 import { Keyframes } from "@emotion/serialize";
+import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
+
+import { sizeMarginKeys, sizeMarginDefaults } from "./helpers";
 import { LoaderSizeMarginProps, PrecompiledCss, StyleFunctionWithIndex } from "./interfaces";
 
 const beat: Keyframes = keyframes`
