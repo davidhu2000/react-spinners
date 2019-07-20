@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "sourceMap": false,
+    "strictNullChecks": true,
+    "module": "esnext",
+    "jsx": "react",
+    "target": "es5",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "lib": ["dom", "es2017", "es5", "es6", "es7"],
+    "outDir": ".",
+    "strict": true
+  },
+  "exclude": ["docs/*", "webpack.config.*", "*.js", "examples/*"]
+}

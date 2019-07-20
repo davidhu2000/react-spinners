@@ -3,6 +3,7 @@
     "plugins": [
         "emotion", 
         "@babel/plugin-transform-react-jsx", 
-        "@babel/plugin-proposal-class-properties"
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-transform-typescript"
     ]
 }

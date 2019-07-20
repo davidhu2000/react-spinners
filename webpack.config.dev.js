@@ -1,37 +1,44 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = {
   context: __dirname,
-  entry: './examples/index.jsx',
-  mode: 'development',
-  devtool: 'source-map',
+  entry: "./examples/index.tsx",
+  mode: "development",
+  devtool: "source-map",
   output: {
-    path: path.resolve(__dirname, 'docs', 'js'),
-    filename: '[name]-[hash].js'
+    path: path.resolve(__dirname, "docs", "js"),
+    filename: "[name]-[hash].js"
   },
   module: {
     rules: [
       {
-        test: [/\.jsx?$/, /\.js?$/],
-        exclude: /(node_modules)/,
-        loader: 'babel-loader'
+        test: /\.(t|j)sx?$/,
+        loader: "ts-loader",
+        options: {
+          transpileOnly: true
+        }
       }
     ]
   },
-  devtool: 'source-maps',
+  devtool: "source-maps",
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ["*", ".js", ".jsx", ".ts", ".tsx"]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'template.html'),
-      filename: path.join(__dirname, 'docs', 'index.html'),
-      inject: 'head'
+      template: path.join(__dirname, "template.html"),
+      filename: path.join(__dirname, "docs", "index.html"),
+      inject: "head"
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      checkSyntacticErrors: true,
+      tsconfig: "./tsconfig.json"
     })
   ],
   optimization: {
-    splitChunks: { chunks: 'all' }
+    splitChunks: { chunks: "all" }
   }
 };

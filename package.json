@@ -1,6 +1,6 @@
 {
   "name": "react-spinners",
-  "version": "0.5.13",
+  "version": "0.6.0-alpha.0",
   "description": "A collection of react loading spinners",
   "repository": {
     "type": "git",
@@ -31,15 +31,16 @@
   ],
   "main": "dist/index.js",
   "scripts": {
-    "prepublish": "babel --plugins transform-es2015-modules-umd,@babel/plugin-transform-react-jsx src --ignore __tests__ --out-dir ./",
-    "test": "echo 'test'",
+    "prepare": "./node_modules/.bin/tsc",
+    "test": "npm run lint",
     "build:demo": "npm run remove:demo; babel-node ./node_modules/.bin/webpack --config ./webpack.config.js",
     "remove:demo": "rm docs/index.html; rm docs/main*; rm docs/vendors*;",
-    "patch": "npm version patch && npm publish && npm run clean",
-    "minor": "npm version minor && npm publish && npm run clean",
-    "major": "npm version major && npm publish && npm run clean",
+    "patch": "npm version patch && npm publish --next && npm run clean",
+    "minor": "npm version minor && npm publish --next && npm run clean",
+    "major": "npm version major && npm publish --next && npm run clean",
     "watch": "babel-node ./node_modules/.bin/webpack --watch --config ./webpack.config.dev.js",
-    "clean": "rm -rf helpers/; rm -f *Loader.js; rm -f index.js; rm -rf docs/js"
+    "clean": "rm -rf helpers/; rm -f *Loader.js; rm -f *Loader.d.ts; rm -f index.js; rm -f index.d.ts; rm -f interfaces.js; rm -f interfaces.d.ts; rm -rf docs/js",
+    "lint": "./node_modules/.bin/tslint --config tslint.json --format stylish --project . --fix"
   },
   "types": "./src/index.d.ts",
   "devDependencies": {
@@ -48,16 +49,26 @@
     "@babel/node": "^7.5.0",
     "@babel/plugin-proposal-class-properties": "^7.5.0",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/plugin-transform-typescript": "^7.5.1",
     "@babel/preset-env": "^7.5.0",
     "@babel/preset-react": "^7.0.0",
+    "@types/react": "^16.8.23",
+    "@types/react-click-outside": "^3.0.3",
+    "@types/react-color": "^3.0.1",
+    "@types/react-dom": "^16.8.4",
     "babel-loader": "^8.0.6",
     "babel-plugin-emotion": "^10.0.14",
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
+    "fork-ts-checker-webpack-plugin": "^1.3.7",
     "html-webpack-plugin": "^3.2.0",
     "react": "^16.7.0",
     "react-click-outside": "^3.0.0",
     "react-color": "^2.17.3",
     "react-dom": "^16.7.0",
+    "ts-loader": "^6.0.4",
+    "tslint": "^5.18.0",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.5.2",
     "webpack": "^4.35.2",
     "webpack-cli": "^3.3.5"
   },
@@ -67,7 +78,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.4",
-    "prop-types": "^15.5.10",
+    "@types/recompose": "^0.30.6",
     "recompose": "0.27.1 - 0.30.0"
   }
 }
