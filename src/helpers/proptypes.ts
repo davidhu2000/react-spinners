@@ -34,7 +34,7 @@ export const heightWidthRadiusKeys: string[] = heightWidthKeys.concat([
  * DefaultProps object for different loaders
  */
 
-interface DefaultProps {
+export interface DefaultProps {
   [key: string]: boolean | string | {} | number;
 }
 
