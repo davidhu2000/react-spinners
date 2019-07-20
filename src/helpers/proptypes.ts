@@ -39,7 +39,7 @@ export interface DefaultProps {
 }
 
 type HeightWidthFunction = (height: number, width: number) => DefaultProps;
-type HeightWidthRadiusFunction = (height: number, width: number, radius: number) => DefaultProps;
+type HeightWidthRadiusFunction = (height: number, width: number, radius?: number) => DefaultProps;
 type SizeFunction = (size: number) => DefaultProps;
 
 const commonValues: DefaultProps = {

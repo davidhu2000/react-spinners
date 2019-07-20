@@ -223,5 +223,10 @@ describe("Default Props functions for different loaders", () => {
       expect(defaultProps2).toHaveProperty("radius");
       expect(defaultProps2.radius).toEqual(6);
     });
+
+    it("radius value should default to 2", () => {
+      let defaultProps: DefaultProps = heightWidthRadiusDefaults(5, 6);
+      expect(defaultProps.radius).toEqual(2);
+    });
   });
 });
