@@ -19,5 +19,8 @@ jobs: # a collection of steps
           paths:
             - ./node_modules
       - run:
-          name: verify lint issues
+          name: Lint issues
           command: npm run lint
+      - run:
+          name: Jest tests
+          command: npm run test:jest
