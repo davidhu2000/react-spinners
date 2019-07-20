@@ -41,7 +41,7 @@
     "watch": "babel-node ./node_modules/.bin/webpack --watch --config ./webpack.config.dev.js",
     "clean": "rm -rf helpers/; rm -f *Loader.js; rm -f *Loader.d.ts; rm -f index.js; rm -f index.d.ts; rm -f interfaces.js; rm -f interfaces.d.ts; rm -rf docs/js",
     "lint": "./node_modules/.bin/tslint --config tslint.json --format stylish --project . --fix",
-    "test:jest": "./node_modules.bin/jest"
+    "test:jest": "./node_modules/.bin/jest"
   },
   "types": "./src/index.d.ts",
   "devDependencies": {
