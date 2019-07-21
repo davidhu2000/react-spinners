@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BarLoader should match snapshot 1`] = `
+@keyframes animation-0 {
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+
+  60% {
+    left: 100%;
+    right: -90%;
+  }
+
+  100% {
+    left: 100%;
+    right: -90%;
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    left: -200%;
+    right: 100%;
+  }
+
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+
+  100% {
+    left: 107%;
+    right: -8%;
+  }
+}
+
+.emotion-2 {
+  position: relative;
+  width: 100px;
+  height: 4px;
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.2);
+  background-clip: padding-box;
+}
+
+.emotion-0 {
+  position: absolute;
+  height: 4px;
+  overflow: hidden;
+  background-color: #000000;
+  background-clip: padding-box;
+  display: block;
+  border-radius: 2px;
+  will-change: left,right;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation: animation-0 2.1s  cubic-bezier(0.65,0.815,0.735,0.395) infinite;
+  animation: animation-0 2.1s  cubic-bezier(0.65,0.815,0.735,0.395) infinite;
+}
+
+.emotion-1 {
+  position: absolute;
+  height: 4px;
+  overflow: hidden;
+  background-color: #000000;
+  background-clip: padding-box;
+  display: block;
+  border-radius: 2px;
+  will-change: left,right;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation: animation-1 2.1s 1.15s cubic-bezier(0.165,0.84,0.44,1) infinite;
+  animation: animation-1 2.1s 1.15s cubic-bezier(0.165,0.84,0.44,1) infinite;
+}
+
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  height={4}
+  heightUnit="px"
+  loading={true}
+  width={100}
+  widthUnit="px"
+>
+  <Loader
+    color="#000000"
+    css={Object {}}
+    height={4}
+    heightUnit="px"
+    loading={true}
+    width={100}
+    widthUnit="px"
+  >
+    <div
+      className="emotion-2"
+    >
+      <div
+        className="emotion-0"
+      />
+      <div
+        className="emotion-1"
+      />
+    </div>
+  </Loader>
+</onlyUpdateForKeys(Loader)>
+`;
