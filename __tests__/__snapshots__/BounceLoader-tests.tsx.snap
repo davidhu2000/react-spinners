@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BounceLoader should match snapshot 1`] = `
+@keyframes animation-0 {
+  0%, 100% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+
+  50% {
+    -webkit-transform: scale(1.0);
+    -ms-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+@keyframes animation-0 {
+  0%, 100% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+
+  50% {
+    -webkit-transform: scale(1.0);
+    -ms-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+.emotion-2 {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.emotion-0 {
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  background-color: #000000;
+  border-radius: 100%;
+  opacity: 0.6;
+  top: 0;
+  left: 0;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: animation-0 2.1s 1s infinite ease-in-out;
+  animation: animation-0 2.1s 1s infinite ease-in-out;
+}
+
+.emotion-1 {
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  background-color: #000000;
+  border-radius: 100%;
+  opacity: 0.6;
+  top: 0;
+  left: 0;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: animation-0 2.1s 0s infinite ease-in-out;
+  animation: animation-0 2.1s 0s infinite ease-in-out;
+}
+
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  loading={true}
+  size={60}
+  sizeUnit="px"
+>
+  <Loader
+    color="#000000"
+    css={Object {}}
+    loading={true}
+    size={60}
+    sizeUnit="px"
+  >
+    <div
+      className="emotion-2"
+    >
+      <div
+        className="emotion-0"
+      />
+      <div
+        className="emotion-1"
+      />
+    </div>
+  </Loader>
+</onlyUpdateForKeys(Loader)>
+`;
