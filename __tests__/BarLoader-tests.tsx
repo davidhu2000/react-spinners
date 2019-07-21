@@ -26,6 +26,7 @@ describe("BarLoader", () => {
     expect(loader).toHaveStyleRule("height", "4px");
     expect(loader).toHaveStyleRule("width", "100px");
     expect(loader).toHaveStyleRule("background-color", "rgba(0,0,0,0.2)");
+    expect(loader.find("div div")).toHaveStyleRule("background-color", "#000000");
   });
 
   it("should render null if loading prop is set as false", () => {
