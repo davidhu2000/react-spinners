@@ -21,12 +21,12 @@ describe("BarLoader", () => {
     expect(props).toEqual(heightWidthDefaults(4, 100));
   });
 
-  it("should contain styles created using default props", () => {
-    props = loader.props();
+  it("parent div should contain styles created using default props", () => {
     expect(loader).toHaveStyleRule("height", "4px");
     expect(loader).toHaveStyleRule("width", "100px");
     expect(loader).toHaveStyleRule("background-color", "rgba(0,0,0,0.2)");
     expect(loader.find("div div")).toHaveStyleRule("background-color", "#000000");
+    expect(loader.find("div div")).toHaveStyleRule("height", "4px");
   });
 
   it("should render null if loading prop is set as false", () => {
@@ -38,18 +38,23 @@ describe("BarLoader", () => {
     loader = mount(<BarLoader color="#e2e2e2" />);
     expect(loader).not.toHaveStyleRule("background-color", "rgba(0,0,0,0.2)");
     expect(loader).toHaveStyleRule("background-color", "rgba(226,226,226,0.2)");
+    expect(loader.find("div div")).toHaveStyleRule("background-color", "#e2e2e2");
   });
 
   it("renders the correct height based on props", () => {
     loader = mount(<BarLoader height={10} />);
     expect(loader).not.toHaveStyleRule("height", "4px");
     expect(loader).toHaveStyleRule("height", "10px");
+    expect(loader.find("div div")).not.toHaveStyleRule("height", "4px");
+    expect(loader.find("div div")).toHaveStyleRule("height", "10px");
   });
 
   it("renders the correct heightUnit basd on passed in props", () => {
     loader = mount(<BarLoader heightUnit="%" />);
     expect(loader).not.toHaveStyleRule("height", "4px");
     expect(loader).toHaveStyleRule("height", "4%");
+    expect(loader.find("div div")).not.toHaveStyleRule("height", "4px");
+    expect(loader.find("div div")).toHaveStyleRule("height", "4%");
   });
 
   it("renders the correct width based on props", () => {
