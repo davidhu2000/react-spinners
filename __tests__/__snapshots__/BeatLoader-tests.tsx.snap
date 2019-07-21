@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BeatLoader should match snapshot 1`] = `
+@keyframes animation-0 {
+  50% {
+    -webkit-transform: scale(0.75);
+    -ms-transform: scale(0.75);
+    transform: scale(0.75);
+    opacity: 0.2;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  50% {
+    -webkit-transform: scale(0.75);
+    -ms-transform: scale(0.75);
+    transform: scale(0.75);
+    opacity: 0.2;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.emotion-0 {
+  display: inline-block;
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  -webkit-animation: animation-0 0.7s 0s infinite linear;
+  animation: animation-0 0.7s 0s infinite linear;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.emotion-1 {
+  display: inline-block;
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  -webkit-animation: animation-0 0.7s 0.35s infinite linear;
+  animation: animation-0 0.7s 0.35s infinite linear;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  loading={true}
+  margin="2px"
+  size={15}
+  sizeUnit="px"
+>
+  <Loader
+    color="#000000"
+    css={Object {}}
+    loading={true}
+    margin="2px"
+    size={15}
+    sizeUnit="px"
+  >
+    <div
+      className="emotion-3"
+    >
+      <div
+        className="emotion-0"
+      />
+      <div
+        className="emotion-1"
+      />
+      <div
+        className="emotion-0"
+      />
+    </div>
+  </Loader>
+</onlyUpdateForKeys(Loader)>
+`;
