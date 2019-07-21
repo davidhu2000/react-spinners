@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.0-alpha.1
+
+- This is a complete rewrite of the package. 100% of the code is now in TypeScript. This will show inidividual type definitions for each loader. 
+- `prop-types` has been removed as a dependency. This is now handled by typings. 
+- set up `ts-lint` and `prettier` to help ensure code consistency.
+
 ## 0.5.13
 
 - fix readme props table formatting. It got a little messy for some reason.
