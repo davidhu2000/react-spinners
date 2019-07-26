@@ -1,0 +1,383 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CircleLoader should match snapshot 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.emotion-5 {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.emotion-0 {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border: 1px solid #000000;
+  border-radius: 100%;
+  -webkit-transition: 2s;
+  transition: 2s;
+  border-bottom: none;
+  border-right: none;
+  top: 0%;
+  left: 0%;
+  -webkit-animation-fill-mode: "";
+  animation-fill-mode: "";
+  -webkit-animation: animation-0 1s 0s infinite linear;
+  animation: animation-0 1s 0s infinite linear;
+}
+
+.emotion-1 {
+  position: absolute;
+  height: 45px;
+  width: 45px;
+  border: 1px solid #000000;
+  border-radius: 100%;
+  -webkit-transition: 2s;
+  transition: 2s;
+  border-bottom: none;
+  border-right: none;
+  top: 1.75%;
+  left: 0.875%;
+  -webkit-animation-fill-mode: "";
+  animation-fill-mode: "";
+  -webkit-animation: animation-0 1s 0.2s infinite linear;
+  animation: animation-0 1s 0.2s infinite linear;
+}
+
+.emotion-2 {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #000000;
+  border-radius: 100%;
+  -webkit-transition: 2s;
+  transition: 2s;
+  border-bottom: none;
+  border-right: none;
+  top: 3.5%;
+  left: 1.75%;
+  -webkit-animation-fill-mode: "";
+  animation-fill-mode: "";
+  -webkit-animation: animation-0 1s 0.4s infinite linear;
+  animation: animation-0 1s 0.4s infinite linear;
+}
+
+.emotion-3 {
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  border: 1px solid #000000;
+  border-radius: 100%;
+  -webkit-transition: 2s;
+  transition: 2s;
+  border-bottom: none;
+  border-right: none;
+  top: 5.249999999999999%;
+  left: 2.6249999999999996%;
+  -webkit-animation-fill-mode: "";
+  animation-fill-mode: "";
+  -webkit-animation: animation-0 1s 0.6000000000000001s infinite linear;
+  animation: animation-0 1s 0.6000000000000001s infinite linear;
+}
+
+.emotion-4 {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  border: 1px solid #000000;
+  border-radius: 100%;
+  -webkit-transition: 2s;
+  transition: 2s;
+  border-bottom: none;
+  border-right: none;
+  top: 7%;
+  left: 3.5%;
+  -webkit-animation-fill-mode: "";
+  animation-fill-mode: "";
+  -webkit-animation: animation-0 1s 0.8s infinite linear;
+  animation: animation-0 1s 0.8s infinite linear;
+}
+
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  loading={true}
+  size={50}
+  sizeUnit="px"
+>
+  <Loader
+    color="#000000"
+    css={Object {}}
+    loading={true}
+    size={50}
+    sizeUnit="px"
+  >
+    <div
+      className="emotion-5"
+    >
+      <div
+        className="emotion-0"
+      />
+      <div
+        className="emotion-1"
+      />
+      <div
+        className="emotion-2"
+      />
+      <div
+        className="emotion-3"
+      />
+      <div
+        className="emotion-4"
+      />
+    </div>
+  </Loader>
+</onlyUpdateForKeys(Loader)>
+`;
+
+exports[`ClimbingBoxLoader should match snapshot 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: translate(0,-1em) rotate(-45deg);
+    -ms-transform: translate(0,-1em) rotate(-45deg);
+    transform: translate(0,-1em) rotate(-45deg);
+  }
+
+  5% {
+    -webkit-transform: translate(0,-1em) rotate(-50deg);
+    -ms-transform: translate(0,-1em) rotate(-50deg);
+    transform: translate(0,-1em) rotate(-50deg);
+  }
+
+  20% {
+    -webkit-transform: translate(1em,-2em) rotate(47deg);
+    -ms-transform: translate(1em,-2em) rotate(47deg);
+    transform: translate(1em,-2em) rotate(47deg);
+  }
+
+  25% {
+    -webkit-transform: translate(1em,-2em) rotate(45deg);
+    -ms-transform: translate(1em,-2em) rotate(45deg);
+    transform: translate(1em,-2em) rotate(45deg);
+  }
+
+  30% {
+    -webkit-transform: translate(1em,-2em) rotate(40deg);
+    -ms-transform: translate(1em,-2em) rotate(40deg);
+    transform: translate(1em,-2em) rotate(40deg);
+  }
+
+  45% {
+    -webkit-transform: translate(2em,-3em) rotate(137deg);
+    -ms-transform: translate(2em,-3em) rotate(137deg);
+    transform: translate(2em,-3em) rotate(137deg);
+  }
+
+  50% {
+    -webkit-transform: translate(2em,-3em) rotate(135deg);
+    -ms-transform: translate(2em,-3em) rotate(135deg);
+    transform: translate(2em,-3em) rotate(135deg);
+  }
+
+  55% {
+    -webkit-transform: translate(2em,-3em) rotate(130deg);
+    -ms-transform: translate(2em,-3em) rotate(130deg);
+    transform: translate(2em,-3em) rotate(130deg);
+  }
+
+  70% {
+    -webkit-transform: translate(3em,-4em) rotate(217deg);
+    -ms-transform: translate(3em,-4em) rotate(217deg);
+    transform: translate(3em,-4em) rotate(217deg);
+  }
+
+  75% {
+    -webkit-transform: translate(3em,-4em) rotate(220deg);
+    -ms-transform: translate(3em,-4em) rotate(220deg);
+    transform: translate(3em,-4em) rotate(220deg);
+  }
+
+  100% {
+    -webkit-transform: translate(0,-1em) rotate(-225deg);
+    -ms-transform: translate(0,-1em) rotate(-225deg);
+    transform: translate(0,-1em) rotate(-225deg);
+  }
+}
+
+.emotion-3 {
+  position: relative;
+  width: 7.1em;
+  height: 7.1em;
+}
+
+.emotion-2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -2.7em;
+  margin-left: -2.7em;
+  width: 5.4em;
+  height: 5.4em;
+  font-size: 15px;
+}
+
+.emotion-0 {
+  position: absolute;
+  left: 0;
+  bottom: -0.1em;
+  height: 1em;
+  width: 1em;
+  background-color: transparent;
+  border-radius: 15%;
+  border: 0.25em solid #000000;
+  -webkit-transform: translate(0,-1em) rotate(-45deg);
+  -ms-transform: translate(0,-1em) rotate(-45deg);
+  transform: translate(0,-1em) rotate(-45deg);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: animation-0 2.5s infinite cubic-bezier(0.79,0,0.47,0.97);
+  animation: animation-0 2.5s infinite cubic-bezier(0.79,0,0.47,0.97);
+}
+
+.emotion-1 {
+  position: absolute;
+  width: 7.1em;
+  height: 7.1em;
+  top: 1.7em;
+  left: 1.7em;
+  border-left: 0.25em solid #000000;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  loading={true}
+  size={15}
+  sizeUnit="px"
+>
+  <Loader
+    color="#000000"
+    css={Object {}}
+    loading={true}
+    size={15}
+    sizeUnit="px"
+  >
+    <div
+      className="emotion-3"
+    >
+      <div
+        className="emotion-2"
+      >
+        <div
+          className="emotion-0"
+        />
+        <div
+          className="emotion-1"
+        />
+      </div>
+    </div>
+  </Loader>
+</onlyUpdateForKeys(Loader)>
+`;
