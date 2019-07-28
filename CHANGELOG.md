@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.0-alpha.2
+
+- **bugfix**: update `tsconfig.json` `module` property to `commonjs` instead of `esnext`. This caused import errors as seen in [issue 74](https://github.com/davidhu2000/react-spinners/issues/74)  
+- added tests for `BarLoader`, `BeatLoader`, `BounceLoader`, `CircleLoader`, and `ClimbingBoxLoader`
+
 ## 0.6.0-alpha.1
 
 - This is a complete rewrite of the package. 100% of the code is now in TypeScript. This will show inidividual type definitions for each loader. 
