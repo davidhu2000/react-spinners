@@ -2,7 +2,7 @@
   "compilerOptions": {
     "sourceMap": false,
     "strictNullChecks": true,
-    "module": "esnext",
+    "module": "commonjs",
     "jsx": "react",
     "target": "es5",
     "moduleResolution": "node",
