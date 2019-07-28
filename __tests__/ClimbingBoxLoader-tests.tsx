@@ -26,8 +26,8 @@ describe("ClimbingBoxLoader", () => {
   });
 
   it("children div should contain styles created using default props", () => {
-    expect(loader.find("div div div")).toHaveStyleRule("border", "0.25em solid #000000");
-    expect(loader.find("div div div")).toHaveStyleRule("border-left", "0.25em solid #000000");
+    expect(loader.find("div div div").at(0)).toHaveStyleRule("border", "0.25em solid #000000");
+    expect(loader.find("div div div").at(1)).toHaveStyleRule("border-left", "0.25em solid #000000");
   });
 
   it("should render null if loading prop is set as false", () => {
@@ -37,38 +37,31 @@ describe("ClimbingBoxLoader", () => {
 
   it("renders the correct color based on prop", () => {
     loader = mount(<ClimbingBoxLoader color="#e2e2e2" />);
-    expect(loader.find("div div div")).not.toHaveStyleRule("border", "0.25em solid #000000");
-    expect(loader.find("div div div")).toHaveStyleRule("border", "025em solid #e2e2e2");
+    expect(loader.find("div div div").at(0)).not.toHaveStyleRule("border", "0.25em solid #000000");
+    expect(loader.find("div div div").at(0)).toHaveStyleRule("border", "0.25em solid #e2e2e2");
+    expect(loader.find("div div div").at(1)).not.toHaveStyleRule(
+      "border-left",
+      "0.25em solid #000000"
+    );
+    expect(loader.find("div div div").at(1)).toHaveStyleRule("border-left", "0.25em solid #e2e2e2");
   });
 
   it("renders the correct size for the parent div based on props", () => {
     loader = mount(<ClimbingBoxLoader size={18} />);
-    expect(loader).not.toHaveStyleRule("height", "15px");
-    expect(loader).not.toHaveStyleRule("width", "15px");
-    expect(loader).toHaveStyleRule("height", "18px");
-    expect(loader).toHaveStyleRule("width", "18px");
-  });
-
-  it("renders the correct size for the child div based on props", () => {
-    loader = mount(<ClimbingBoxLoader size={18} />);
-    expect(loader.find("div div")).not.toHaveStyleRule("height", "15px");
-    expect(loader.find("div div")).not.toHaveStyleRule("width", "15px");
-    expect(loader.find("div div")).toHaveStyleRule("height", "18px");
-    expect(loader.find("div div")).toHaveStyleRule("width", "18px");
-  });
-
-  it("renders the correct heightUnit based on props", () => {
-    loader = mount(<ClimbingBoxLoader sizeUnit="%" />);
-    expect(loader.find("div div")).not.toHaveStyleRule("height", "15px");
-    expect(loader.find("div div")).not.toHaveStyleRule("width", "15px");
-    expect(loader.find("div div")).toHaveStyleRule("height", "15%");
-    expect(loader.find("div div")).toHaveStyleRule("width", "15%");
+    expect(loader.find("div div")).not.toHaveStyleRule("font-size", "15px");
+    expect(loader.find("div div")).toHaveStyleRule("font-size", "18px");
   });
 
   it("renders the css override based on props", () => {
-    loader = mount(<ClimbingBoxLoader css={"position: absolute; overflow: scroll;"} />);
+    loader = mount(
+      <ClimbingBoxLoader css={"position: absolute; width: 100px; height: 200px; color: blue;"} />
+    );
     expect(loader).not.toHaveStyleRule("position", "relative");
+    expect(loader).not.toHaveStyleRule("width", "7.1em");
+    expect(loader).not.toHaveStyleRule("height", "7.1em");
     expect(loader).toHaveStyleRule("position", "absolute");
-    expect(loader).toHaveStyleRule("overflow", "scroll");
+    expect(loader).toHaveStyleRule("width", "100px");
+    expect(loader).toHaveStyleRule("height", "200px");
+    expect(loader).toHaveStyleRule("color", "blue");
   });
 });
