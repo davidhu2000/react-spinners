@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClipLoader should match snapshot 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg) scale(1);
+    -ms-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg) scale(0.8);
+    -ms-transform: rotate(180deg) scale(0.8);
+    transform: rotate(180deg) scale(0.8);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg) scale(1);
+    -ms-transform: rotate(360deg) scale(1);
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.emotion-0 {
+  background: transparent !important;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  border: 2px solid;
+  border-color: #000000;
+  border-bottom-color: transparent;
+  display: inline-block;
+  -webkit-animation: animation-0 0.75s 0s infinite linear;
+  animation: animation-0 0.75s 0s infinite linear;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  loading={true}
+  size={35}
+  sizeUnit="px"
+>
+  <Loader
+    color="#000000"
+    css={Object {}}
+    loading={true}
+    size={35}
+    sizeUnit="px"
+  >
+    <div
+      className="emotion-0"
+    />
+  </Loader>
+</onlyUpdateForKeys(Loader)>
+`;
