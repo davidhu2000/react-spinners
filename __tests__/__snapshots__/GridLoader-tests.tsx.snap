@@ -1,0 +1,373 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridLoader should match snapshot 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+    opacity: 0.7;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+    opacity: 0.7;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+    opacity: 0.7;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+    opacity: 0.7;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+    opacity: 0.7;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+    opacity: 0.7;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+    opacity: 0.7;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+    opacity: 0.7;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+    opacity: 0.7;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.emotion-9 {
+  width: 57px;
+  font-size: 0;
+}
+
+.emotion-0 {
+  display: inline-block;
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  -webkit-animation-fill-mode: "both";
+  animation-fill-mode: "both";
+  -webkit-animation: animation-0 0.823990274441971s 0.02399027444197105s infinite ease;
+  animation: animation-0 0.823990274441971s 0.02399027444197105s infinite ease;
+}
+
+.emotion-1 {
+  display: inline-block;
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  -webkit-animation-fill-mode: "both";
+  animation-fill-mode: "both";
+  -webkit-animation: animation-0 0.7466570233090694s -0.05334297669093063s infinite ease;
+  animation: animation-0 0.7466570233090694s -0.05334297669093063s infinite ease;
+}
+
+.emotion-2 {
+  display: inline-block;
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  -webkit-animation-fill-mode: "both";
+  animation-fill-mode: "both";
+  -webkit-animation: animation-0 0.8134715789251311s 0.013471578925131122s infinite ease;
+  animation: animation-0 0.8134715789251311s 0.013471578925131122s infinite ease;
+}
+
+.emotion-3 {
+  display: inline-block;
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  -webkit-animation-fill-mode: "both";
+  animation-fill-mode: "both";
+  -webkit-animation: animation-0 0.7975381723620812s -0.0024618276379187176s infinite ease;
+  animation: animation-0 0.7975381723620812s -0.0024618276379187176s infinite ease;
+}
+
+.emotion-4 {
+  display: inline-block;
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  -webkit-animation-fill-mode: "both";
+  animation-fill-mode: "both";
+  -webkit-animation: animation-0 1.551152086062423s 0.7511520860624232s infinite ease;
+  animation: animation-0 1.551152086062423s 0.7511520860624232s infinite ease;
+}
+
+.emotion-5 {
+  display: inline-block;
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  -webkit-animation-fill-mode: "both";
+  animation-fill-mode: "both";
+  -webkit-animation: animation-0 0.820527349439459s 0.020527349439459053s infinite ease;
+  animation: animation-0 0.820527349439459s 0.020527349439459053s infinite ease;
+}
+
+.emotion-6 {
+  display: inline-block;
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  -webkit-animation-fill-mode: "both";
+  animation-fill-mode: "both";
+  -webkit-animation: animation-0 0.6352524708104211s -0.16474752918957886s infinite ease;
+  animation: animation-0 0.6352524708104211s -0.16474752918957886s infinite ease;
+}
+
+.emotion-7 {
+  display: inline-block;
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  -webkit-animation-fill-mode: "both";
+  animation-fill-mode: "both";
+  -webkit-animation: animation-0 1.1919296484185682s 0.3919296484185681s infinite ease;
+  animation: animation-0 1.1919296484185682s 0.3919296484185681s infinite ease;
+}
+
+.emotion-8 {
+  display: inline-block;
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  -webkit-animation-fill-mode: "both";
+  animation-fill-mode: "both";
+  -webkit-animation: animation-0 0.8400769968149256s 0.04007699681492566s infinite ease;
+  animation: animation-0 0.8400769968149256s 0.04007699681492566s infinite ease;
+}
+
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  loading={true}
+  margin="2px"
+  size={15}
+  sizeUnit="px"
+>
+  <Loader
+    color="#000000"
+    css={Object {}}
+    loading={true}
+    margin="2px"
+    size={15}
+    sizeUnit="px"
+  >
+    <div
+      className="emotion-9"
+    >
+      <div
+        className="emotion-0"
+      />
+      <div
+        className="emotion-1"
+      />
+      <div
+        className="emotion-2"
+      />
+      <div
+        className="emotion-3"
+      />
+      <div
+        className="emotion-4"
+      />
+      <div
+        className="emotion-5"
+      />
+      <div
+        className="emotion-6"
+      />
+      <div
+        className="emotion-7"
+      />
+      <div
+        className="emotion-8"
+      />
+    </div>
+  </Loader>
+</onlyUpdateForKeys(Loader)>
+`;

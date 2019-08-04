@@ -1,0 +1,301 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FadeLoader should match snapshot 1`] = `
+@keyframes animation-0 {
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.emotion-8 {
+  position: relative;
+  font-size: 0;
+  top: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+}
+
+.emotion-0 {
+  position: absolute;
+  width: 5px;
+  height: 15px;
+  margin: 2px;
+  background-color: #000000;
+  border-radius: 2px;
+  -webkit-transition: 2s;
+  transition: 2s;
+  -webkit-animation-fill-mode: "both";
+  animation-fill-mode: "both";
+  -webkit-animation: animation-0 1.2s 0.12s infinite ease-in-out;
+  animation: animation-0 1.2s 0.12s infinite ease-in-out;
+  top: 20px;
+  left: 0;
+}
+
+.emotion-1 {
+  position: absolute;
+  width: 5px;
+  height: 15px;
+  margin: 2px;
+  background-color: #000000;
+  border-radius: 2px;
+  -webkit-transition: 2s;
+  transition: 2s;
+  -webkit-animation-fill-mode: "both";
+  animation-fill-mode: "both";
+  -webkit-animation: animation-0 1.2s 0.24s infinite ease-in-out;
+  animation: animation-0 1.2s 0.24s infinite ease-in-out;
+  top: 13.636363636363637px;
+  left: 13.636363636363637px;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.emotion-2 {
+  position: absolute;
+  width: 5px;
+  height: 15px;
+  margin: 2px;
+  background-color: #000000;
+  border-radius: 2px;
+  -webkit-transition: 2s;
+  transition: 2s;
+  -webkit-animation-fill-mode: "both";
+  animation-fill-mode: "both";
+  -webkit-animation: animation-0 1.2s 0.36s infinite ease-in-out;
+  animation: animation-0 1.2s 0.36s infinite ease-in-out;
+  top: 0;
+  left: 20px;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.emotion-3 {
+  position: absolute;
+  width: 5px;
+  height: 15px;
+  margin: 2px;
+  background-color: #000000;
+  border-radius: 2px;
+  -webkit-transition: 2s;
+  transition: 2s;
+  -webkit-animation-fill-mode: "both";
+  animation-fill-mode: "both";
+  -webkit-animation: animation-0 1.2s 0.48s infinite ease-in-out;
+  animation: animation-0 1.2s 0.48s infinite ease-in-out;
+  top: -13.636363636363637px;
+  left: 13.636363636363637px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.emotion-4 {
+  position: absolute;
+  width: 5px;
+  height: 15px;
+  margin: 2px;
+  background-color: #000000;
+  border-radius: 2px;
+  -webkit-transition: 2s;
+  transition: 2s;
+  -webkit-animation-fill-mode: "both";
+  animation-fill-mode: "both";
+  -webkit-animation: animation-0 1.2s 0.6s infinite ease-in-out;
+  animation: animation-0 1.2s 0.6s infinite ease-in-out;
+  top: -20px;
+  left: 0;
+}
+
+.emotion-5 {
+  position: absolute;
+  width: 5px;
+  height: 15px;
+  margin: 2px;
+  background-color: #000000;
+  border-radius: 2px;
+  -webkit-transition: 2s;
+  transition: 2s;
+  -webkit-animation-fill-mode: "both";
+  animation-fill-mode: "both";
+  -webkit-animation: animation-0 1.2s 0.72s infinite ease-in-out;
+  animation: animation-0 1.2s 0.72s infinite ease-in-out;
+  top: -13.636363636363637px;
+  left: -13.636363636363637px;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.emotion-6 {
+  position: absolute;
+  width: 5px;
+  height: 15px;
+  margin: 2px;
+  background-color: #000000;
+  border-radius: 2px;
+  -webkit-transition: 2s;
+  transition: 2s;
+  -webkit-animation-fill-mode: "both";
+  animation-fill-mode: "both";
+  -webkit-animation: animation-0 1.2s 0.84s infinite ease-in-out;
+  animation: animation-0 1.2s 0.84s infinite ease-in-out;
+  top: 0;
+  left: -20px;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.emotion-7 {
+  position: absolute;
+  width: 5px;
+  height: 15px;
+  margin: 2px;
+  background-color: #000000;
+  border-radius: 2px;
+  -webkit-transition: 2s;
+  transition: 2s;
+  -webkit-animation-fill-mode: "both";
+  animation-fill-mode: "both";
+  -webkit-animation: animation-0 1.2s 0.96s infinite ease-in-out;
+  animation: animation-0 1.2s 0.96s infinite ease-in-out;
+  top: 13.636363636363637px;
+  left: -13.636363636363637px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  height={15}
+  heightUnit="px"
+  loading={true}
+  margin="2px"
+  radius={2}
+  radiusUnit="px"
+  width={5}
+  widthUnit="px"
+>
+  <Loader
+    color="#000000"
+    css={Object {}}
+    height={15}
+    heightUnit="px"
+    loading={true}
+    margin="2px"
+    radius={2}
+    radiusUnit="px"
+    width={5}
+    widthUnit="px"
+  >
+    <div
+      className="emotion-8"
+    >
+      <div
+        className="emotion-0"
+      />
+      <div
+        className="emotion-1"
+      />
+      <div
+        className="emotion-2"
+      />
+      <div
+        className="emotion-3"
+      />
+      <div
+        className="emotion-4"
+      />
+      <div
+        className="emotion-5"
+      />
+      <div
+        className="emotion-6"
+      />
+      <div
+        className="emotion-7"
+      />
+    </div>
+  </Loader>
+</onlyUpdateForKeys(Loader)>
+`;

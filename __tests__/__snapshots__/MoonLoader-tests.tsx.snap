@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoonLoader should match snapshot 1`] = `
+@keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.emotion-2 {
+  position: relative;
+  width: 77.14285714285714px;
+  height: 77.14285714285714px;
+  -webkit-animation: animation-0 0.6s 0s infinite linear;
+  animation: animation-0 0.6s 0s infinite linear;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.emotion-0 {
+  width: 8.571428571428571px;
+  height: 8.571428571428571px;
+  border-radius: 100%;
+  background-color: #000000;
+  opacity: 0.8;
+  position: absolute;
+  top: 25.714285714285715px;
+  -webkit-animation: animation-0 0.6s 0s infinite linear;
+  animation: animation-0 0.6s 0s infinite linear;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.emotion-1 {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  border: 8.571428571428571px solid #000000;
+  opacity: 0.1;
+}
+
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  loading={true}
+  size={60}
+  sizeUnit="px"
+>
+  <Loader
+    color="#000000"
+    css={Object {}}
+    loading={true}
+    size={60}
+    sizeUnit="px"
+  >
+    <div
+      className="emotion-2"
+    >
+      <div
+        className="emotion-0"
+      />
+      <div
+        className="emotion-1"
+      />
+    </div>
+  </Loader>
+</onlyUpdateForKeys(Loader)>
+`;
