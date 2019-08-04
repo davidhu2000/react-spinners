@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.0-alpha.3
+
+- fix missing `"` from `.babelrc` in readme per [PR #77](https://github.com/davidhu2000/react-spinners/pull/77)
+- add tests for `ClipLoader`, `DotLoader`, `FadeLoader`, `GridLoader`, `HashLoader`, and `MoonLoader`
+
 ## 0.6.0-alpha.2
 
 - **bugfix**: update `tsconfig.json` `module` property to `commonjs` instead of `esnext`. This caused import errors as seen in [issue 74](https://github.com/davidhu2000/react-spinners/issues/74)  
