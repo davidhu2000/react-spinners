@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PropagateLoader should match snapshot 1`] = `
+@keyframes animation-0 {
+  25% {
+    -webkit-transform: translateX(-1rem) scale(0.75);
+    -ms-transform: translateX(-1rem) scale(0.75);
+    transform: translateX(-1rem) scale(0.75);
+  }
+
+  50% {
+    -webkit-transform: translateX(-3rem) scale(0.6);
+    -ms-transform: translateX(-3rem) scale(0.6);
+    transform: translateX(-3rem) scale(0.6);
+  }
+
+  75% {
+    -webkit-transform: translateX(-5rem) scale(0.5);
+    -ms-transform: translateX(-5rem) scale(0.5);
+    transform: translateX(-5rem) scale(0.5);
+  }
+
+  95% {
+    -webkit-transform: translateX(0rem) scale(1);
+    -ms-transform: translateX(0rem) scale(1);
+    transform: translateX(0rem) scale(1);
+  }
+}
+
+@keyframes animation-1 {
+  25% {
+    -webkit-transform: translateX(-1rem) scale(0.75);
+    -ms-transform: translateX(-1rem) scale(0.75);
+    transform: translateX(-1rem) scale(0.75);
+  }
+
+  50% {
+    -webkit-transform: translateX(-3rem) scale(0.6);
+    -ms-transform: translateX(-3rem) scale(0.6);
+    transform: translateX(-3rem) scale(0.6);
+  }
+
+  75% {
+    -webkit-transform: translateX(-3rem) scale(0.6);
+    -ms-transform: translateX(-3rem) scale(0.6);
+    transform: translateX(-3rem) scale(0.6);
+  }
+
+  95% {
+    -webkit-transform: translateX(0rem) scale(1);
+    -ms-transform: translateX(0rem) scale(1);
+    transform: translateX(0rem) scale(1);
+  }
+}
+
+@keyframes animation-2 {
+  25% {
+    -webkit-transform: translateX(-1rem) scale(0.75);
+    -ms-transform: translateX(-1rem) scale(0.75);
+    transform: translateX(-1rem) scale(0.75);
+  }
+
+  75% {
+    -webkit-transform: translateX(-1rem) scale(0.75);
+    -ms-transform: translateX(-1rem) scale(0.75);
+    transform: translateX(-1rem) scale(0.75);
+  }
+
+  95% {
+    -webkit-transform: translateX(0rem) scale(1);
+    -ms-transform: translateX(0rem) scale(1);
+    transform: translateX(0rem) scale(1);
+  }
+}
+
+@keyframes animation-3 {
+  25% {
+    -webkit-transform: translateX(1rem) scale(0.75);
+    -ms-transform: translateX(1rem) scale(0.75);
+    transform: translateX(1rem) scale(0.75);
+  }
+
+  75% {
+    -webkit-transform: translateX(1rem) scale(0.75);
+    -ms-transform: translateX(1rem) scale(0.75);
+    transform: translateX(1rem) scale(0.75);
+  }
+
+  95% {
+    -webkit-transform: translateX(0rem) scale(1);
+    -ms-transform: translateX(0rem) scale(1);
+    transform: translateX(0rem) scale(1);
+  }
+}
+
+@keyframes animation-4 {
+  25% {
+    -webkit-transform: translateX(1rem) scale(0.75);
+    -ms-transform: translateX(1rem) scale(0.75);
+    transform: translateX(1rem) scale(0.75);
+  }
+
+  50% {
+    -webkit-transform: translateX(3rem) scale(0.6);
+    -ms-transform: translateX(3rem) scale(0.6);
+    transform: translateX(3rem) scale(0.6);
+  }
+
+  75% {
+    -webkit-transform: translateX(3rem) scale(0.6);
+    -ms-transform: translateX(3rem) scale(0.6);
+    transform: translateX(3rem) scale(0.6);
+  }
+
+  95% {
+    -webkit-transform: translateX(0rem) scale(1);
+    -ms-transform: translateX(0rem) scale(1);
+    transform: translateX(0rem) scale(1);
+  }
+}
+
+@keyframes animation-5 {
+  25% {
+    -webkit-transform: translateX(1rem) scale(0.75);
+    -ms-transform: translateX(1rem) scale(0.75);
+    transform: translateX(1rem) scale(0.75);
+  }
+
+  50% {
+    -webkit-transform: translateX(3rem) scale(0.6);
+    -ms-transform: translateX(3rem) scale(0.6);
+    transform: translateX(3rem) scale(0.6);
+  }
+
+  75% {
+    -webkit-transform: translateX(5rem) scale(0.5);
+    -ms-transform: translateX(5rem) scale(0.5);
+    transform: translateX(5rem) scale(0.5);
+  }
+
+  95% {
+    -webkit-transform: translateX(0rem) scale(1);
+    -ms-transform: translateX(0rem) scale(1);
+    transform: translateX(0rem) scale(1);
+  }
+}
+
+.emotion-6 {
+  position: relative;
+}
+
+.emotion-0 {
+  position: absolute;
+  font-size: 5px;
+  width: 15px;
+  height: 15px;
+  background: #000000;
+  border-radius: 50%;
+  -webkit-animation: animation-0 1.5s infinite;
+  animation: animation-0 1.5s infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.emotion-1 {
+  position: absolute;
+  font-size: 5px;
+  width: 15px;
+  height: 15px;
+  background: #000000;
+  border-radius: 50%;
+  -webkit-animation: animation-1 1.5s infinite;
+  animation: animation-1 1.5s infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.emotion-2 {
+  position: absolute;
+  font-size: 5px;
+  width: 15px;
+  height: 15px;
+  background: #000000;
+  border-radius: 50%;
+  -webkit-animation: animation-2 1.5s infinite;
+  animation: animation-2 1.5s infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.emotion-3 {
+  position: absolute;
+  font-size: 5px;
+  width: 15px;
+  height: 15px;
+  background: #000000;
+  border-radius: 50%;
+  -webkit-animation: animation-3 1.5s infinite;
+  animation: animation-3 1.5s infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.emotion-4 {
+  position: absolute;
+  font-size: 5px;
+  width: 15px;
+  height: 15px;
+  background: #000000;
+  border-radius: 50%;
+  -webkit-animation: animation-4 1.5s infinite;
+  animation: animation-4 1.5s infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.emotion-5 {
+  position: absolute;
+  font-size: 5px;
+  width: 15px;
+  height: 15px;
+  background: #000000;
+  border-radius: 50%;
+  -webkit-animation: animation-5 1.5s infinite;
+  animation: animation-5 1.5s infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  loading={true}
+  size={15}
+  sizeUnit="px"
+>
+  <Loader
+    color="#000000"
+    css={Object {}}
+    loading={true}
+    size={15}
+    sizeUnit="px"
+  >
+    <div
+      className="emotion-6"
+    >
+      <div
+        className="emotion-0"
+      />
+      <div
+        className="emotion-1"
+      />
+      <div
+        className="emotion-2"
+      />
+      <div
+        className="emotion-3"
+      />
+      <div
+        className="emotion-4"
+      />
+      <div
+        className="emotion-5"
+      />
+    </div>
+  </Loader>
+</onlyUpdateForKeys(Loader)>
+`;
