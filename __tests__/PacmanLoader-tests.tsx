@@ -10,6 +10,8 @@ import { sizeMarginDefaults } from "../src/helpers";
 describe("PacmanLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeMarginProps;
+  let defaultSize: number = 25;
+  let defaultColor: string = "#000000";
 
   it("should match snapshot", () => {
     loader = mount(<PacmanLoader />);
@@ -18,25 +20,25 @@ describe("PacmanLoader", () => {
 
   it("should contain default props if no props are passed", () => {
     props = loader.props();
-    expect(props).toEqual(sizeMarginDefaults(25));
+    expect(props).toEqual(sizeMarginDefaults(defaultSize));
   });
 
   it("parent div should contain styles created using default props", () => {
-    expect(loader).toHaveStyleRule("height", "25px");
-    expect(loader).toHaveStyleRule("width", "25px");
+    expect(loader).toHaveStyleRule("height", `${defaultSize}px`);
+    expect(loader).toHaveStyleRule("width", `${defaultSize}px`);
   });
 
   it("child div should contain styles created using default props", () => {
-    expect(loader.find("div div").at(0)).toHaveStyleRule("border-radius", "25px");
-    expect(loader.find("div div").at(1)).toHaveStyleRule("border-radius", "25px");
+    expect(loader.find("div div").at(0)).toHaveStyleRule("border-radius", `${defaultSize}px`);
+    expect(loader.find("div div").at(1)).toHaveStyleRule("border-radius", `${defaultSize}px`);
 
     for (let i: number = 2; i < 6; i++) {
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", "#000000");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${25 / 3}px`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${25 / 3}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize / 3}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize / 3}px`);
       expect(loader.find("div div").at(i)).toHaveStyleRule("margin", "2px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("top", "25px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("left", "100px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule("top", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("left", `${defaultSize * 4}px`);
     }
   });
 
@@ -46,33 +48,41 @@ describe("PacmanLoader", () => {
   });
 
   it("renders the correct color based on prop", () => {
-    loader = mount(<PacmanLoader color="#e2e2e2" />);
+    let color: string = "#e2e2e2";
+    loader = mount(<PacmanLoader color={color} />);
     for (let i: number = 2; i < 6; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("background-color", "#000000");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", "#e2e2e2");
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", color);
     }
   });
 
   it("renders the correct size for the parent div based on props", () => {
-    loader = mount(<PacmanLoader size={18} />);
-    expect(loader).not.toHaveStyleRule("width", "25px");
-    expect(loader).toHaveStyleRule("width", "18px");
+    let size: number = 18;
+    loader = mount(<PacmanLoader size={size} />);
+    expect(loader).not.toHaveStyleRule("width", `${defaultSize}px`);
+    expect(loader).toHaveStyleRule("width", `${size}px`);
 
-    expect(loader.find("div div").at(0)).not.toHaveStyleRule("border-radius", `${25 / 3}px`);
-    expect(loader.find("div div").at(0)).toHaveStyleRule("border-radius", "18px");
-    expect(loader.find("div div").at(1)).not.toHaveStyleRule("border-radius", `${25 / 3}px`);
-    expect(loader.find("div div").at(1)).toHaveStyleRule("border-radius", "18px");
+    expect(loader.find("div div").at(0)).not.toHaveStyleRule(
+      "border-radius",
+      `${defaultSize / 3}px`
+    );
+    expect(loader.find("div div").at(0)).toHaveStyleRule("border-radius", `${size}px`);
+    expect(loader.find("div div").at(1)).not.toHaveStyleRule(
+      "border-radius",
+      `${defaultSize / 3}px`
+    );
+    expect(loader.find("div div").at(1)).toHaveStyleRule("border-radius", `${size}px`);
 
     for (let i: number = 2; i < 6; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("height", `${25 / 3}px`);
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("width", `${25 / 3}px`);
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("top", "25px");
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("left", "100px");
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("height", `${defaultSize / 3}px`);
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("width", `${defaultSize / 3}px`);
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("top", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("left", `${defaultSize * 4}px`);
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", "6px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", "6px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("top", "18px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("left", "72px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size / 3}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size / 3}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("top", `${size}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("left", `${size * 4}px`);
     }
   });
 
