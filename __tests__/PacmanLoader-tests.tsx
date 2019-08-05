@@ -23,12 +23,10 @@ describe("PacmanLoader", () => {
     expect(props).toEqual(sizeMarginDefaults(defaultSize));
   });
 
-  it("parent div should contain styles created using default props", () => {
+  it("should contain styles created using default props", () => {
     expect(loader).toHaveStyleRule("height", `${defaultSize}px`);
     expect(loader).toHaveStyleRule("width", `${defaultSize}px`);
-  });
 
-  it("child div should contain styles created using default props", () => {
     expect(loader.find("div div").at(0)).toHaveStyleRule("border-radius", `${defaultSize}px`);
     expect(loader.find("div div").at(1)).toHaveStyleRule("border-radius", `${defaultSize}px`);
 
@@ -47,7 +45,7 @@ describe("PacmanLoader", () => {
     expect(loader.isEmptyRender()).toBe(true);
   });
 
-  it("renders the correct color based on prop", () => {
+  it("should render the correct color based on prop", () => {
     let color: string = "#e2e2e2";
     loader = mount(<PacmanLoader color={color} />);
     for (let i: number = 2; i < 6; i++) {
@@ -56,7 +54,7 @@ describe("PacmanLoader", () => {
     }
   });
 
-  it("renders the correct size for the parent div based on props", () => {
+  it("should render the correct size based on props", () => {
     let size: number = 18;
     loader = mount(<PacmanLoader size={size} />);
     expect(loader).not.toHaveStyleRule("width", `${defaultSize}px`);
@@ -86,7 +84,7 @@ describe("PacmanLoader", () => {
     }
   });
 
-  it("renders the css override based on props", () => {
+  it("should render the css override based on props", () => {
     loader = mount(
       <PacmanLoader css={"position: fixed; width: 100px; height: 200px; color: blue;"} />
     );
