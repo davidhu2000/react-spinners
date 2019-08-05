@@ -37,7 +37,7 @@ describe("PulseLoader", () => {
     expect(loader.isEmptyRender()).toBe(true);
   });
 
-  it("renders the correct color based on prop", () => {
+  it("should render the correct color based on prop", () => {
     let color: string = "#e2e2e2";
     loader = mount(<PulseLoader color={color} />);
     for (let i: number = 0; i < 3; i++) {
@@ -46,7 +46,7 @@ describe("PulseLoader", () => {
     }
   });
 
-  it("renders the correct size for the parent div based on props", () => {
+  it("should render the correct size based on props", () => {
     let size: number = 18;
     loader = mount(<PulseLoader size={18} />);
 
@@ -59,7 +59,7 @@ describe("PulseLoader", () => {
     }
   });
 
-  it("renders the css override based on props", () => {
+  it("should render the css override based on props", () => {
     loader = mount(<PulseLoader css={"position: fixed; width: 100px; color: blue;"} />);
     expect(loader).toHaveStyleRule("position", "fixed");
     expect(loader).toHaveStyleRule("width", "100px");

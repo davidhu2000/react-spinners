@@ -37,7 +37,7 @@ describe("SyncLoader", () => {
     expect(loader.isEmptyRender()).toBe(true);
   });
 
-  it("renders the correct color based on prop", () => {
+  it("should render the correct color based on prop", () => {
     let color: string = "#e2e2e2";
     loader = mount(<SyncLoader color={color} />);
 
@@ -47,7 +47,7 @@ describe("SyncLoader", () => {
     }
   });
 
-  it("renders the correct size for the parent div based on props", () => {
+  it("should render the correct size based on props", () => {
     let size: number = 18;
     loader = mount(<SyncLoader size={size} />);
 
@@ -60,7 +60,7 @@ describe("SyncLoader", () => {
     }
   });
 
-  it("renders the css override based on props", () => {
+  it("should render the css override based on props", () => {
     loader = mount(<SyncLoader css={"position: fixed; width: 100px; color: blue;"} />);
 
     expect(loader).toHaveStyleRule("position", "fixed");

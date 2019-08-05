@@ -39,7 +39,7 @@ describe("RingLoader", () => {
     expect(loader.isEmptyRender()).toBe(true);
   });
 
-  it("renders the correct color based on props", () => {
+  it("should render the correct color based on props", () => {
     let color: string = "#e2e2e2";
     loader = mount(<RingLoader color={color} />);
 
@@ -53,7 +53,7 @@ describe("RingLoader", () => {
     }
   });
 
-  it("renders the correct size for the parent div based on props", () => {
+  it("should render the correct size based on props", () => {
     let size: number = 21;
     loader = mount(<RingLoader size={size} />);
 
@@ -76,7 +76,7 @@ describe("RingLoader", () => {
     }
   });
 
-  it("renders the css override based on props", () => {
+  it("should render the css override based on props", () => {
     loader = mount(<RingLoader css={"position: absolute; color: blue;"} />);
 
     expect(loader).not.toHaveStyleRule("position", "relative");

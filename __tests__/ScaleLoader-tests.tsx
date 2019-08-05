@@ -40,7 +40,7 @@ describe("ScaleLoader", () => {
     expect(loader.isEmptyRender()).toBe(true);
   });
 
-  it("renders the correct color based on prop", () => {
+  it("should render the correct color based on prop", () => {
     let color: string = "#e2e2e2";
     loader = mount(<ScaleLoader color={color} />);
     for (let i: number = 0; i < 5; i++) {
@@ -49,7 +49,7 @@ describe("ScaleLoader", () => {
     }
   });
 
-  it("renders the correct size for the parent div based on props", () => {
+  it("should render the correct size based on props", () => {
     let height: number = 18;
     let width: number = 20;
     let radius: number = 5;
@@ -62,7 +62,7 @@ describe("ScaleLoader", () => {
     expect(loader.find("div div")).toHaveStyleRule("border-radius", `${radius}px`);
   });
 
-  it("renders the css override based on props", () => {
+  it("should render the css override based on props", () => {
     loader = mount(
       <ScaleLoader css={"position: absolute; width: 100px; height: 200px; color: blue;"} />
     );

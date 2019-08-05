@@ -34,7 +34,7 @@ describe("SkewLoader", () => {
     expect(loader.isEmptyRender()).toBe(true);
   });
 
-  it("renders the correct color based on props", () => {
+  it("should render the correct color based on props", () => {
     let color: string = "#e2e2e2";
     loader = mount(<SkewLoader color={color} />);
 
@@ -42,7 +42,7 @@ describe("SkewLoader", () => {
     expect(loader).toHaveStyleRule("border-bottom", `${defaultSize}px solid ${color}`);
   });
 
-  it("renders the correct size based on props", () => {
+  it("should render the correct size based on props", () => {
     let size: number = 21;
     loader = mount(<SkewLoader size={size} />);
 
@@ -55,7 +55,7 @@ describe("SkewLoader", () => {
     expect(loader).toHaveStyleRule("border-bottom", `${size}px solid ${defaultColor}`);
   });
 
-  it("renders the css override based on props", () => {
+  it("should render the css override based on props", () => {
     loader = mount(<SkewLoader css={"position: absolute; color: blue; display: block"} />);
 
     expect(loader).not.toHaveStyleRule("display", "inline-block");

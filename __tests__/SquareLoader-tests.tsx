@@ -34,14 +34,14 @@ describe("SquareLoader", () => {
     expect(loader.isEmptyRender()).toBe(true);
   });
 
-  it("renders the correct color based on props", () => {
+  it("should render the correct color based on props", () => {
     let color: string = "#e2e2e2";
     loader = mount(<SquareLoader color={color} />);
     expect(loader).not.toHaveStyleRule("background-color", defaultColor);
     expect(loader).toHaveStyleRule("background-color", color);
   });
 
-  it("renders the correct size based on props", () => {
+  it("should render the correct size based on props", () => {
     let size: number = 21;
     loader = mount(<SquareLoader size={size} />);
 
@@ -52,7 +52,7 @@ describe("SquareLoader", () => {
     expect(loader).toHaveStyleRule("width", `${size}px`);
   });
 
-  it("renders the css override based on props", () => {
+  it("should render the css override based on props", () => {
     loader = mount(<SquareLoader css={"position: absolute; color: blue; display: block"} />);
 
     expect(loader).not.toHaveStyleRule("display", "inline-block");

@@ -42,7 +42,7 @@ describe("RotateLoader", () => {
     expect(loader.isEmptyRender()).toBe(true);
   });
 
-  it("renders the correct color based on prop", () => {
+  it("should render the correct color based on prop", () => {
     let color: string = "#e2e2e2";
     loader = mount(<RotateLoader color={color} />);
     expect(loader).not.toHaveStyleRule("background-color", defaultColor);
@@ -54,7 +54,7 @@ describe("RotateLoader", () => {
     }
   });
 
-  it("renders the correct size for the parent div based on props", () => {
+  it("should render the correct size based on props", () => {
     let size: number = 18;
     loader = mount(<RotateLoader size={size} />);
 
@@ -73,7 +73,7 @@ describe("RotateLoader", () => {
     }
   });
 
-  it("renders the css override based on props", () => {
+  it("should render the css override based on props", () => {
     loader = mount(<RotateLoader css={"position: fixed; width: 100px; color: blue;"} />);
     expect(loader).not.toHaveStyleRule("position", "relative");
     expect(loader).toHaveStyleRule("position", "fixed");
