@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RiseLoader should match snapshot 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scale(0.4);
+    -ms-transform: scale(0.4);
+    transform: scale(0.4);
+  }
+
+  25% {
+    -webkit-transform: translateY(30px);
+    -ms-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+
+  50% {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  75% {
+    -webkit-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0) scale(0.75);
+    -ms-transform: translateY(0) scale(0.75);
+    transform: translateY(0) scale(0.75);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  25% {
+    -webkit-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  50% {
+    -webkit-transform: scale(0.4);
+    -ms-transform: scale(0.4);
+    transform: scale(0.4);
+  }
+
+  75% {
+    -webkit-transform: translateY(30px);
+    -ms-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0) scale(1.0);
+    -ms-transform: translateY(0) scale(1.0);
+    transform: translateY(0) scale(1.0);
+  }
+}
+
+.emotion-0 {
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: animation-0 1s 0s infinite cubic-bezier(0.15,0.46,0.9,0.6);
+  animation: animation-0 1s 0s infinite cubic-bezier(0.15,0.46,0.9,0.6);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.emotion-1 {
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: animation-1 1s 0s infinite cubic-bezier(0.15,0.46,0.9,0.6);
+  animation: animation-1 1s 0s infinite cubic-bezier(0.15,0.46,0.9,0.6);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  loading={true}
+  margin="2px"
+  size={15}
+  sizeUnit="px"
+>
+  <Loader
+    color="#000000"
+    css={Object {}}
+    loading={true}
+    margin="2px"
+    size={15}
+    sizeUnit="px"
+  >
+    <div
+      className="emotion-5"
+    >
+      <div
+        className="emotion-0"
+      />
+      <div
+        className="emotion-1"
+      />
+      <div
+        className="emotion-0"
+      />
+      <div
+        className="emotion-1"
+      />
+      <div
+        className="emotion-0"
+      />
+    </div>
+  </Loader>
+</onlyUpdateForKeys(Loader)>
+`;

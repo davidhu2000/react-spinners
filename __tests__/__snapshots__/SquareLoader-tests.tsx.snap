@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SquareLoader should match snapshot 1`] = `
+@keyframes animation-0 {
+  25% {
+    -webkit-transform: rotateX(180deg) rotateY(0);
+    -ms-transform: rotateX(180deg) rotateY(0);
+    transform: rotateX(180deg) rotateY(0);
+  }
+
+  50% {
+    -webkit-transform: rotateX(180deg) rotateY(180deg);
+    -ms-transform: rotateX(180deg) rotateY(180deg);
+    transform: rotateX(180deg) rotateY(180deg);
+  }
+
+  75% {
+    -webkit-transform: rotateX(0) rotateY(180deg);
+    -ms-transform: rotateX(0) rotateY(180deg);
+    transform: rotateX(0) rotateY(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotateX(0) rotateY(0);
+    -ms-transform: rotateX(0) rotateY(0);
+    transform: rotateX(0) rotateY(0);
+  }
+}
+
+.emotion-0 {
+  background-color: #000000;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  -webkit-animation: animation-0 3s 0s infinite cubic-bezier(0.09,0.57,0.49,0.9);
+  animation: animation-0 3s 0s infinite cubic-bezier(0.09,0.57,0.49,0.9);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  loading={true}
+  size={50}
+  sizeUnit="px"
+>
+  <Loader
+    color="#000000"
+    css={Object {}}
+    loading={true}
+    size={50}
+    sizeUnit="px"
+  >
+    <div
+      className="emotion-0"
+    />
+  </Loader>
+</onlyUpdateForKeys(Loader)>
+`;

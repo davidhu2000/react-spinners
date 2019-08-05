@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PulseLoader should match snapshot 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  45% {
+    -webkit-transform: scale(0.1);
+    -ms-transform: scale(0.1);
+    transform: scale(0.1);
+    opacity: 0.7;
+  }
+
+  80% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  45% {
+    -webkit-transform: scale(0.1);
+    -ms-transform: scale(0.1);
+    transform: scale(0.1);
+    opacity: 0.7;
+  }
+
+  80% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  45% {
+    -webkit-transform: scale(0.1);
+    -ms-transform: scale(0.1);
+    transform: scale(0.1);
+    opacity: 0.7;
+  }
+
+  80% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.emotion-0 {
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: animation-0 0.75s 0.12s infinite cubic-bezier(0.2,0.68,0.18,1.08);
+  animation: animation-0 0.75s 0.12s infinite cubic-bezier(0.2,0.68,0.18,1.08);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.emotion-1 {
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: animation-0 0.75s 0.24s infinite cubic-bezier(0.2,0.68,0.18,1.08);
+  animation: animation-0 0.75s 0.24s infinite cubic-bezier(0.2,0.68,0.18,1.08);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.emotion-2 {
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: animation-0 0.75s 0.36s infinite cubic-bezier(0.2,0.68,0.18,1.08);
+  animation: animation-0 0.75s 0.36s infinite cubic-bezier(0.2,0.68,0.18,1.08);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  loading={true}
+  margin="2px"
+  size={15}
+  sizeUnit="px"
+>
+  <Loader
+    color="#000000"
+    css={Object {}}
+    loading={true}
+    margin="2px"
+    size={15}
+    sizeUnit="px"
+  >
+    <div
+      className="emotion-3"
+    >
+      <div
+        className="emotion-0"
+      />
+      <div
+        className="emotion-1"
+      />
+      <div
+        className="emotion-2"
+      />
+    </div>
+  </Loader>
+</onlyUpdateForKeys(Loader)>
+`;

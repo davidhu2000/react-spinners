@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PacmanLoader should match snapshot 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(-44deg);
+    -ms-transform: rotate(-44deg);
+    transform: rotate(-44deg);
+  }
+}
+
+@keyframes animation-1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(44deg);
+    -ms-transform: rotate(44deg);
+    transform: rotate(44deg);
+  }
+}
+
+@keyframes animation-2 {
+  75% {
+    opacity: 0.7;
+  }
+
+  100% {
+    -webkit-transform: translate(-100px,-6.25px);
+    -ms-transform: translate(-100px,-6.25px);
+    transform: translate(-100px,-6.25px);
+  }
+}
+
+@keyframes animation-2 {
+  75% {
+    opacity: 0.7;
+  }
+
+  100% {
+    -webkit-transform: translate(-100px,-6.25px);
+    -ms-transform: translate(-100px,-6.25px);
+    transform: translate(-100px,-6.25px);
+  }
+}
+
+@keyframes animation-2 {
+  75% {
+    opacity: 0.7;
+  }
+
+  100% {
+    -webkit-transform: translate(-100px,-6.25px);
+    -ms-transform: translate(-100px,-6.25px);
+    transform: translate(-100px,-6.25px);
+  }
+}
+
+@keyframes animation-2 {
+  75% {
+    opacity: 0.7;
+  }
+
+  100% {
+    -webkit-transform: translate(-100px,-6.25px);
+    -ms-transform: translate(-100px,-6.25px);
+    transform: translate(-100px,-6.25px);
+  }
+}
+
+.emotion-6 {
+  position: relative;
+  font-size: 0;
+  height: 25px;
+  width: 25px;
+}
+
+.emotion-0 {
+  width: 0;
+  height: 0;
+  border-right: 25px solid transparent;
+  border-top: 25px solid transparent;
+  border-left: 25px solid #000000;
+  border-bottom: 25px solid #000000;
+  border-radius: 25px;
+  position: absolute;
+  -webkit-animation: animation-0 0.8s infinite ease-in-out;
+  animation: animation-0 0.8s infinite ease-in-out;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.emotion-1 {
+  width: 0;
+  height: 0;
+  border-right: 25px solid transparent;
+  border-top: 25px solid #000000;
+  border-left: 25px solid #000000;
+  border-bottom: 25px solid transparent;
+  border-radius: 25px;
+  position: absolute;
+  -webkit-animation: animation-1 0.8s infinite ease-in-out;
+  animation: animation-1 0.8s infinite ease-in-out;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.emotion-2 {
+  width: 8.333333333333334px;
+  height: 8.333333333333334px;
+  background-color: #000000;
+  margin: 2px;
+  border-radius: 100%;
+  -webkit-transform: translate(0,-6.25px);
+  -ms-transform: translate(0,-6.25px);
+  transform: translate(0,-6.25px);
+  position: absolute;
+  top: 25px;
+  left: 100px;
+  -webkit-animation: animation-2 1s 0.5s infinite linear;
+  animation: animation-2 1s 0.5s infinite linear;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.emotion-3 {
+  width: 8.333333333333334px;
+  height: 8.333333333333334px;
+  background-color: #000000;
+  margin: 2px;
+  border-radius: 100%;
+  -webkit-transform: translate(0,-6.25px);
+  -ms-transform: translate(0,-6.25px);
+  transform: translate(0,-6.25px);
+  position: absolute;
+  top: 25px;
+  left: 100px;
+  -webkit-animation: animation-2 1s 0.75s infinite linear;
+  animation: animation-2 1s 0.75s infinite linear;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.emotion-4 {
+  width: 8.333333333333334px;
+  height: 8.333333333333334px;
+  background-color: #000000;
+  margin: 2px;
+  border-radius: 100%;
+  -webkit-transform: translate(0,-6.25px);
+  -ms-transform: translate(0,-6.25px);
+  transform: translate(0,-6.25px);
+  position: absolute;
+  top: 25px;
+  left: 100px;
+  -webkit-animation: animation-2 1s 1s infinite linear;
+  animation: animation-2 1s 1s infinite linear;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.emotion-5 {
+  width: 8.333333333333334px;
+  height: 8.333333333333334px;
+  background-color: #000000;
+  margin: 2px;
+  border-radius: 100%;
+  -webkit-transform: translate(0,-6.25px);
+  -ms-transform: translate(0,-6.25px);
+  transform: translate(0,-6.25px);
+  position: absolute;
+  top: 25px;
+  left: 100px;
+  -webkit-animation: animation-2 1s 1.25s infinite linear;
+  animation: animation-2 1s 1.25s infinite linear;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  loading={true}
+  margin="2px"
+  size={25}
+  sizeUnit="px"
+>
+  <Loader
+    color="#000000"
+    css={Object {}}
+    loading={true}
+    margin="2px"
+    size={25}
+    sizeUnit="px"
+  >
+    <div
+      className="emotion-6"
+    >
+      <div
+        className="emotion-0"
+      />
+      <div
+        className="emotion-1"
+      />
+      <div
+        className="emotion-2"
+      />
+      <div
+        className="emotion-3"
+      />
+      <div
+        className="emotion-4"
+      />
+      <div
+        className="emotion-5"
+      />
+    </div>
+  </Loader>
+</onlyUpdateForKeys(Loader)>
+`;

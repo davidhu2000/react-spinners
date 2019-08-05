@@ -11,7 +11,7 @@ const riseAmount: number = 30;
 
 const even: Keyframes = keyframes`
   0% {transform: scale(1.1)}
-  25% {translateY(-${riseAmount}px)}
+  25% {transform: translateY(-${riseAmount}px)}
   50% {transform: scale(0.4)}
   75% {transform: translateY(${riseAmount}px)}
   100% {transform: translateY(0) scale(1.0)}
@@ -19,7 +19,7 @@ const even: Keyframes = keyframes`
 
 const odd: Keyframes = keyframes`
   0% {transform: scale(0.4)}
-  25% {translateY(${riseAmount}px)}
+  25% {transform: translateY(${riseAmount}px)}
   50% {transform: scale(1.1)}
   75% {transform: translateY(${-riseAmount}px)}
   100% {transform: translateY(0) scale(0.75)}
