@@ -10,6 +10,8 @@ import { sizeMarginDefaults } from "../src/helpers";
 describe("RiseLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeMarginProps;
+  let defaultSize: number = 15;
+  let defaultColor: string = "#000000";
 
   it("should match snapshot", () => {
     loader = mount(<RiseLoader />);
@@ -18,14 +20,14 @@ describe("RiseLoader", () => {
 
   it("should contain default props if no props are passed", () => {
     props = loader.props();
-    expect(props).toEqual(sizeMarginDefaults(15));
+    expect(props).toEqual(sizeMarginDefaults(defaultSize));
   });
 
   it("should contain styles created using default props", () => {
     for (let i: number = 0; i < 5; i++) {
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", "#000000");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", "15px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", "15px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}px`);
       expect(loader.find("div div").at(i)).toHaveStyleRule("margin", "2px");
     }
   });
@@ -36,22 +38,24 @@ describe("RiseLoader", () => {
   });
 
   it("renders the correct color based on prop", () => {
-    loader = mount(<RiseLoader color="#e2e2e2" />);
+    let color: string = "#e2e2e2";
+    loader = mount(<RiseLoader color={color} />);
     for (let i: number = 0; i < 5; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("background-color", "#000000");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", "#e2e2e2");
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", color);
     }
   });
 
   it("renders the correct size for the parent div based on props", () => {
-    loader = mount(<RiseLoader size={18} />);
+    let size: number = 18;
+    loader = mount(<RiseLoader size={size} />);
 
     for (let i: number = 0; i < 5; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("height", "15px");
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("width", "15px");
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("height", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("width", `${defaultSize}px`);
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", "18px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", "18px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}px`);
     }
   });
 

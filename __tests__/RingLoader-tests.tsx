@@ -10,6 +10,8 @@ import { sizeDefaults } from "../src/helpers";
 describe("RingLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeProps;
+  let defaultSize: number = 60;
+  let defaultColor: string = "#000000";
 
   it("should match snapshot", () => {
     loader = mount(<RingLoader />);
@@ -22,13 +24,13 @@ describe("RingLoader", () => {
   });
 
   it("should contain styles created using default props", () => {
-    expect(loader).toHaveStyleRule("height", "60px");
-    expect(loader).toHaveStyleRule("width", "60px");
+    expect(loader).toHaveStyleRule("height", `${defaultSize}px`);
+    expect(loader).toHaveStyleRule("width", `${defaultSize}px`);
 
     for (let i: number = 0; i < 2; i++) {
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", "60px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", "60px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("border", "6px solid #000000");
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("border", `6px solid ${defaultColor}`);
     }
   });
 
@@ -42,7 +44,10 @@ describe("RingLoader", () => {
     loader = mount(<RingLoader color={color} />);
 
     for (let i: number = 0; i < 2; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("border", "6px solid #000000");
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "border",
+        `6px solid ${defaultColor}`
+      );
 
       expect(loader.find("div div").at(i)).toHaveStyleRule("border", `6px solid ${color}`);
     }
@@ -52,14 +57,14 @@ describe("RingLoader", () => {
     let size: number = 21;
     loader = mount(<RingLoader size={size} />);
 
-    expect(loader).not.toHaveStyleRule("height", "60px");
-    expect(loader).not.toHaveStyleRule("width", "60px");
-    expect(loader).toHaveStyleRule("height", "21px");
-    expect(loader).toHaveStyleRule("width", "21px");
+    expect(loader).not.toHaveStyleRule("height", `${defaultSize}px`);
+    expect(loader).not.toHaveStyleRule("width", `${defaultSize}px`);
+    expect(loader).toHaveStyleRule("height", `${size}px`);
+    expect(loader).toHaveStyleRule("width", `${size}px`);
 
     for (let i: number = 0; i < 2; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("height", "60px");
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("width", "60px");
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("height", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("width", `${defaultSize}px`);
       expect(loader.find("div div").at(i)).not.toHaveStyleRule("border", "6px solid #000000");
 
       expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}px`);

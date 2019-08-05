@@ -10,6 +10,8 @@ import { sizeMarginDefaults } from "../src/helpers";
 describe("RotateLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeMarginProps;
+  let defaultSize: number = 15;
+  let defaultColor: string = "#000000";
 
   it("should match snapshot", () => {
     loader = mount(<RotateLoader />);
@@ -18,19 +20,19 @@ describe("RotateLoader", () => {
 
   it("should contain default props if no props are passed", () => {
     props = loader.props();
-    expect(props).toEqual(sizeMarginDefaults(15));
+    expect(props).toEqual(sizeMarginDefaults(defaultSize));
   });
 
   it("should contain styles created using default props", () => {
-    expect(loader).toHaveStyleRule("background-color", "#000000");
-    expect(loader).toHaveStyleRule("height", "15px");
-    expect(loader).toHaveStyleRule("width", "15px");
+    expect(loader).toHaveStyleRule("background-color", defaultColor);
+    expect(loader).toHaveStyleRule("height", `${defaultSize}px`);
+    expect(loader).toHaveStyleRule("width", `${defaultSize}px`);
     expect(loader).toHaveStyleRule("margin", "2px");
 
     for (let i: number = 0; i < 2; i++) {
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", "#000000");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", "15px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", "15px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}px`);
       expect(loader.find("div div").at(i)).toHaveStyleRule("margin", "2px");
     }
   });
@@ -43,11 +45,11 @@ describe("RotateLoader", () => {
   it("renders the correct color based on prop", () => {
     let color: string = "#e2e2e2";
     loader = mount(<RotateLoader color={color} />);
-    expect(loader).not.toHaveStyleRule("background-color", "#000000");
+    expect(loader).not.toHaveStyleRule("background-color", defaultColor);
     expect(loader).toHaveStyleRule("background-color", color);
 
     for (let i: number = 0; i < 2; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("background-color", "#000000");
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("background-color", defaultColor);
       expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", color);
     }
   });
@@ -56,15 +58,15 @@ describe("RotateLoader", () => {
     let size: number = 18;
     loader = mount(<RotateLoader size={size} />);
 
-    expect(loader).not.toHaveStyleRule("height", "15px");
-    expect(loader).not.toHaveStyleRule("width", "15px");
+    expect(loader).not.toHaveStyleRule("height", `${defaultSize}px`);
+    expect(loader).not.toHaveStyleRule("width", `${defaultSize}px`);
 
     expect(loader).toHaveStyleRule("height", `${size}px`);
     expect(loader).toHaveStyleRule("width", `${size}px`);
 
     for (let i: number = 0; i < 2; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("height", "15px");
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("width", "15px");
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("height", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("width", `${defaultSize}px`);
 
       expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}px`);
       expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}px`);

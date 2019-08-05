@@ -10,6 +10,8 @@ import { sizeDefaults } from "../src/helpers";
 describe("PropagateLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeProps;
+  let defaultSize: number = 15;
+  let defaultColor: string = "#000000";
 
   it("should match snapshot", () => {
     loader = mount(<PropagateLoader />);
@@ -23,10 +25,10 @@ describe("PropagateLoader", () => {
 
   it("should contain styles created using default props", () => {
     for (let i: number = 0; i < 6; i++) {
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", "15px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", "15px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background", "#000000");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("font-size", "5px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("background", defaultColor);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("font-size", `${defaultSize / 3}px`);
     }
   });
 
@@ -40,7 +42,7 @@ describe("PropagateLoader", () => {
     loader = mount(<PropagateLoader color={color} />);
 
     for (let i: number = 0; i < 6; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("background", "#000000");
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("background", defaultColor);
 
       expect(loader.find("div div").at(i)).toHaveStyleRule("background", color);
     }
@@ -51,9 +53,9 @@ describe("PropagateLoader", () => {
     loader = mount(<PropagateLoader size={size} />);
 
     for (let i: number = 0; i < 6; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("height", "15px");
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("width", "15px");
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("font-size", "5px");
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("height", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("width", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("font-size", `${defaultSize / 3}px`);
 
       expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}px`);
       expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}px`);

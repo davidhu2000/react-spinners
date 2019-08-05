@@ -10,6 +10,8 @@ import { sizeMarginDefaults } from "../src/helpers";
 describe("PulseLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeMarginProps;
+  let defaultSize: number = 15;
+  let defaultColor: string = "#000000";
 
   it("should match snapshot", () => {
     loader = mount(<PulseLoader />);
@@ -18,14 +20,14 @@ describe("PulseLoader", () => {
 
   it("should contain default props if no props are passed", () => {
     props = loader.props();
-    expect(props).toEqual(sizeMarginDefaults(15));
+    expect(props).toEqual(sizeMarginDefaults(defaultSize));
   });
 
   it("should contain styles created using default props", () => {
     for (let i: number = 0; i < 3; i++) {
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", "#000000");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", "15px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", "15px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}px`);
       expect(loader.find("div div").at(i)).toHaveStyleRule("margin", "2px");
     }
   });
@@ -36,22 +38,24 @@ describe("PulseLoader", () => {
   });
 
   it("renders the correct color based on prop", () => {
-    loader = mount(<PulseLoader color="#e2e2e2" />);
+    let color: string = "#e2e2e2";
+    loader = mount(<PulseLoader color={color} />);
     for (let i: number = 0; i < 3; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("background-color", "#000000");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", "#e2e2e2");
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", color);
     }
   });
 
   it("renders the correct size for the parent div based on props", () => {
+    let size: number = 18;
     loader = mount(<PulseLoader size={18} />);
 
     for (let i: number = 0; i < 3; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("height", "15px");
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("width", "15px");
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("height", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule("width", `${defaultSize}px`);
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", "18px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", "18px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}px`);
     }
   });
 
