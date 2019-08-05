@@ -10,6 +10,10 @@ import { heightWidthRadiusDefaults } from "../src/helpers";
 describe("ScaleLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderHeightWidthRadiusProps;
+  let defaultColor: string = "#000000";
+  let defaultHeight: number = 35;
+  let defaultWidth: number = 4;
+  let defaultRadius: number = 2;
 
   it("should match snapshot", () => {
     loader = mount(<ScaleLoader />);
@@ -18,16 +22,16 @@ describe("ScaleLoader", () => {
 
   it("should contain default props if no props are passed", () => {
     props = loader.props();
-    expect(props).toEqual(heightWidthRadiusDefaults(35, 4, 2));
+    expect(props).toEqual(heightWidthRadiusDefaults(defaultHeight, defaultWidth, defaultRadius));
   });
 
   it("should contain styles created using default props", () => {
     for (let i: number = 0; i < 5; i++) {
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", "#000000");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", "35px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", "4px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultHeight}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultWidth}px`);
       expect(loader.find("div div").at(i)).toHaveStyleRule("margin", "2px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("border-radius", "2px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule("border-radius", `${defaultRadius}px`);
     }
   });
 
@@ -37,21 +41,25 @@ describe("ScaleLoader", () => {
   });
 
   it("renders the correct color based on prop", () => {
-    loader = mount(<ScaleLoader color="#e2e2e2" />);
+    let color: string = "#e2e2e2";
+    loader = mount(<ScaleLoader color={color} />);
     for (let i: number = 0; i < 5; i++) {
-      expect(loader.find("div div")).not.toHaveStyleRule("background-color", "#000000");
-      expect(loader.find("div div")).toHaveStyleRule("background-color", "#e2e2e2");
+      expect(loader.find("div div")).not.toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("div div")).toHaveStyleRule("background-color", color);
     }
   });
 
   it("renders the correct size for the parent div based on props", () => {
-    loader = mount(<ScaleLoader height={18} width={20} radius={5} />);
-    expect(loader.find("div div")).not.toHaveStyleRule("height", "35px");
-    expect(loader.find("div div")).not.toHaveStyleRule("width", "4px");
-    expect(loader.find("div div")).not.toHaveStyleRule("border-radius", "2px");
-    expect(loader.find("div div")).toHaveStyleRule("height", "18px");
-    expect(loader.find("div div")).toHaveStyleRule("width", "20px");
-    expect(loader.find("div div")).toHaveStyleRule("border-radius", "5px");
+    let height: number = 18;
+    let width: number = 20;
+    let radius: number = 5;
+    loader = mount(<ScaleLoader height={height} width={width} radius={radius} />);
+    expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultHeight}px`);
+    expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultWidth}px`);
+    expect(loader.find("div div")).not.toHaveStyleRule("border-radius", `${defaultRadius}px`);
+    expect(loader.find("div div")).toHaveStyleRule("height", `${height}px`);
+    expect(loader.find("div div")).toHaveStyleRule("width", `${width}px`);
+    expect(loader.find("div div")).toHaveStyleRule("border-radius", `${radius}px`);
   });
 
   it("renders the css override based on props", () => {
