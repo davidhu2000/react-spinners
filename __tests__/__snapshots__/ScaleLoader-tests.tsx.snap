@@ -1,0 +1,214 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScaleLoader should match snapshot 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scaley(1.0);
+    -ms-transform: scaley(1.0);
+    transform: scaley(1.0);
+  }
+
+  50% {
+    -webkit-transform: scaley(0.4);
+    -ms-transform: scaley(0.4);
+    transform: scaley(0.4);
+  }
+
+  100% {
+    -webkit-transform: scaley(1.0);
+    -ms-transform: scaley(1.0);
+    transform: scaley(1.0);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scaley(1.0);
+    -ms-transform: scaley(1.0);
+    transform: scaley(1.0);
+  }
+
+  50% {
+    -webkit-transform: scaley(0.4);
+    -ms-transform: scaley(0.4);
+    transform: scaley(0.4);
+  }
+
+  100% {
+    -webkit-transform: scaley(1.0);
+    -ms-transform: scaley(1.0);
+    transform: scaley(1.0);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scaley(1.0);
+    -ms-transform: scaley(1.0);
+    transform: scaley(1.0);
+  }
+
+  50% {
+    -webkit-transform: scaley(0.4);
+    -ms-transform: scaley(0.4);
+    transform: scaley(0.4);
+  }
+
+  100% {
+    -webkit-transform: scaley(1.0);
+    -ms-transform: scaley(1.0);
+    transform: scaley(1.0);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scaley(1.0);
+    -ms-transform: scaley(1.0);
+    transform: scaley(1.0);
+  }
+
+  50% {
+    -webkit-transform: scaley(0.4);
+    -ms-transform: scaley(0.4);
+    transform: scaley(0.4);
+  }
+
+  100% {
+    -webkit-transform: scaley(1.0);
+    -ms-transform: scaley(1.0);
+    transform: scaley(1.0);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: scaley(1.0);
+    -ms-transform: scaley(1.0);
+    transform: scaley(1.0);
+  }
+
+  50% {
+    -webkit-transform: scaley(0.4);
+    -ms-transform: scaley(0.4);
+    transform: scaley(0.4);
+  }
+
+  100% {
+    -webkit-transform: scaley(1.0);
+    -ms-transform: scaley(1.0);
+    transform: scaley(1.0);
+  }
+}
+
+.emotion-0 {
+  background-color: #000000;
+  width: 4px;
+  height: 35px;
+  margin: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  -webkit-animation: animation-0 1s 0.1s infinite cubic-bezier(0.2,0.68,0.18,1.08);
+  animation: animation-0 1s 0.1s infinite cubic-bezier(0.2,0.68,0.18,1.08);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.emotion-1 {
+  background-color: #000000;
+  width: 4px;
+  height: 35px;
+  margin: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  -webkit-animation: animation-0 1s 0.2s infinite cubic-bezier(0.2,0.68,0.18,1.08);
+  animation: animation-0 1s 0.2s infinite cubic-bezier(0.2,0.68,0.18,1.08);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.emotion-2 {
+  background-color: #000000;
+  width: 4px;
+  height: 35px;
+  margin: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  -webkit-animation: animation-0 1s 0.30000000000000004s infinite cubic-bezier(0.2,0.68,0.18,1.08);
+  animation: animation-0 1s 0.30000000000000004s infinite cubic-bezier(0.2,0.68,0.18,1.08);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.emotion-3 {
+  background-color: #000000;
+  width: 4px;
+  height: 35px;
+  margin: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  -webkit-animation: animation-0 1s 0.4s infinite cubic-bezier(0.2,0.68,0.18,1.08);
+  animation: animation-0 1s 0.4s infinite cubic-bezier(0.2,0.68,0.18,1.08);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.emotion-4 {
+  background-color: #000000;
+  width: 4px;
+  height: 35px;
+  margin: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  -webkit-animation: animation-0 1s 0.5s infinite cubic-bezier(0.2,0.68,0.18,1.08);
+  animation: animation-0 1s 0.5s infinite cubic-bezier(0.2,0.68,0.18,1.08);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  height={35}
+  heightUnit="px"
+  loading={true}
+  margin="2px"
+  radius={2}
+  radiusUnit="px"
+  width={4}
+  widthUnit="px"
+>
+  <Loader
+    color="#000000"
+    css={Object {}}
+    height={35}
+    heightUnit="px"
+    loading={true}
+    margin="2px"
+    radius={2}
+    radiusUnit="px"
+    width={4}
+    widthUnit="px"
+  >
+    <div
+      className="emotion-5"
+    >
+      <div
+        className="emotion-0"
+      />
+      <div
+        className="emotion-1"
+      />
+      <div
+        className="emotion-2"
+      />
+      <div
+        className="emotion-3"
+      />
+      <div
+        className="emotion-4"
+      />
+    </div>
+  </Loader>
+</onlyUpdateForKeys(Loader)>
+`;
