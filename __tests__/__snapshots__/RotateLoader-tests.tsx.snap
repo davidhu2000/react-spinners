@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RotateLoader should match snapshot 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.emotion-2 {
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  display: inline-block;
+  position: relative;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: animation-0 1s 0s infinite cubic-bezier(0.7,-0.13,0.22,0.86);
+  animation: animation-0 1s 0s infinite cubic-bezier(0.7,-0.13,0.22,0.86);
+}
+
+.emotion-0 {
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  left: -28px;
+}
+
+.emotion-1 {
+  background-color: #000000;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 100%;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  left: 25px;
+}
+
+<onlyUpdateForKeys(Loader)
+  color="#000000"
+  css={Object {}}
+  loading={true}
+  margin="2px"
+  size={15}
+  sizeUnit="px"
+>
+  <Loader
+    color="#000000"
+    css={Object {}}
+    loading={true}
+    margin="2px"
+    size={15}
+    sizeUnit="px"
+  >
+    <div
+      className="emotion-2"
+    >
+      <div
+        className="emotion-0"
+      />
+      <div
+        className="emotion-1"
+      />
+    </div>
+  </Loader>
+</onlyUpdateForKeys(Loader)>
+`;
