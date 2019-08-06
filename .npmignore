@@ -18,3 +18,4 @@ __tests__
 .github
 .circleci
 coverage
+src
