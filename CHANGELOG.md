@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.0-alpha.6
+
+- add `src` folder to `npmignore`. Previous version wasn't ruthless enough in saving data. 
+
+Old:
+```
+npm notice version:       0.6.0-alpha.5
+npm notice package size:  26.1 kB
+npm notice unpacked size: 191.2 kB
+```
+New:
+```
+npm notice version:       0.6.0-alpha.6
+npm notice package size:  TBD kB
+npm notice unpacked size: TBD kB
+```
+
 ## 0.6.0-alpha.5
 
 - update `npmignore` to include `__tests__`, `.github`, `.circleci`, `coverage`. This helped to reduce package size. Help to save some data. 
