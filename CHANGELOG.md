@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.0-alpha.5
+
+- update `npmignore` to include `__tests__`, `.github`, `.circleci`, `coverage`
+
 ## 0.6.0-alpha.4
 
 - **bugfix**: update `package.json` `main` value from `dist/index.js` to `index.js` to fix codeSandbox import issue. 
