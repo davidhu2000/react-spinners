@@ -14,3 +14,7 @@ docs
 webpack.config.*
 prettier.config.js
 template.html
+__tests__
+.github
+.circleci
+coverage
