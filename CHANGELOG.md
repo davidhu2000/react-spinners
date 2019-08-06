@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.0-alpha.4
+
+- **bugfix**: update `package.json` `main` value from `dist/index.js` to `index.js` to fix codeSandbox import issue. 
+- **bugfix**: add missing `transform` key to the `25%` keyframe. It was just `25% {translateY(-${riseAmount}px)}` before. Now it is corrected. 
+- add tests for all the loaders. Fixed up a few tests using default variables, namely the first 3 letters in the alphabet. 
+
 ## 0.6.0-alpha.3
 
 - fix missing `"` from `.babelrc` in readme per [PR #77](https://github.com/davidhu2000/react-spinners/pull/77)
