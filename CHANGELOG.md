@@ -4,7 +4,21 @@ All notable changes to this project will be documented in this file. This projec
 
 ## 0.6.0-alpha.5
 
-- update `npmignore` to include `__tests__`, `.github`, `.circleci`, `coverage`
+- update `npmignore` to include `__tests__`, `.github`, `.circleci`, `coverage`. This helped to reduce package size. Help to save some data. 
+
+Old: 
+
+```
+npm notice version:       0.6.0-alpha.4
+npm notice package size:  85.6 kB
+npm notice unpacked size: 850.4 kB
+```
+New:
+```
+npm notice version:       0.6.0-alpha.5
+npm notice package size:  26.1 kB
+npm notice unpacked size: 191.2 kB
+```
 
 ## 0.6.0-alpha.4
 
