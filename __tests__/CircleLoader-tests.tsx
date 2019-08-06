@@ -10,6 +10,9 @@ import { sizeDefaults } from "../src/helpers";
 describe("CircleLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeProps;
+  let defaultColor: string = "#000000";
+  let defaultSize: number = 50;
+  let defaultUnit: string = "px";
 
   it("should match snapshot", () => {
     loader = mount(<CircleLoader />);
@@ -18,18 +21,15 @@ describe("CircleLoader", () => {
 
   it("should contain default props if no props are passed", () => {
     props = loader.props();
-    expect(props).toEqual(sizeDefaults(50));
+    expect(props).toEqual(sizeDefaults(defaultSize));
   });
 
-  it("parent div should contain styles created using default props", () => {
-    expect(loader).toHaveStyleRule("height", "50px");
-    expect(loader).toHaveStyleRule("width", "50px");
-  });
-
-  it("children div should contain styles created using default props", () => {
-    expect(loader.find("div div")).toHaveStyleRule("height", "50px");
-    expect(loader.find("div div")).toHaveStyleRule("width", "50px");
-    expect(loader.find("div div")).toHaveStyleRule("border", "1px solid #000000");
+  it("should contain styles created using default props", () => {
+    expect(loader).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+    expect(loader.find("div div")).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader.find("div div")).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+    expect(loader.find("div div")).toHaveStyleRule("border", `1px solid ${defaultColor}`);
   });
 
   it("should render null if loading prop is set as false", () => {
@@ -37,37 +37,38 @@ describe("CircleLoader", () => {
     expect(loader.isEmptyRender()).toBe(true);
   });
 
-  it("renders the correct color based on prop", () => {
-    loader = mount(<CircleLoader color="#e2e2e2" />);
-    expect(loader.find("div div")).not.toHaveStyleRule("border", "1px solid #000000");
-    expect(loader.find("div div")).toHaveStyleRule("border", "1px solid #e2e2e2");
+  it("should render the correct color based on prop", () => {
+    let color: string = "#e2e2e2";
+    loader = mount(<CircleLoader color={color} />);
+    expect(loader.find("div div")).not.toHaveStyleRule("border", `1px solid ${defaultColor}`);
+    expect(loader.find("div div")).toHaveStyleRule("border", `1px solid ${color}`);
   });
 
-  it("renders the correct size for the parent div based on props", () => {
-    loader = mount(<CircleLoader size={18} />);
-    expect(loader).not.toHaveStyleRule("height", "50px");
-    expect(loader).not.toHaveStyleRule("width", "50px");
-    expect(loader).toHaveStyleRule("height", "18px");
-    expect(loader).toHaveStyleRule("width", "18px");
+  it("should render the correct size for the parent div based on props", () => {
+    let size: number = 18;
+    loader = mount(<CircleLoader size={size} />);
+
+    expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+    expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+
+    expect(loader).toHaveStyleRule("height", `${size}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("width", `${size}${defaultUnit}`);
+    expect(loader.find("div div")).toHaveStyleRule("height", `${size}${defaultUnit}`);
+    expect(loader.find("div div")).toHaveStyleRule("width", `${size}${defaultUnit}`);
   });
 
-  it("renders the correct size for the child div based on props", () => {
-    loader = mount(<CircleLoader size={18} />);
-    expect(loader.find("div div")).not.toHaveStyleRule("height", "50px");
-    expect(loader.find("div div")).not.toHaveStyleRule("width", "50px");
-    expect(loader.find("div div")).toHaveStyleRule("height", "18px");
-    expect(loader.find("div div")).toHaveStyleRule("width", "18px");
+  it("should render the correct heightUnit based on props", () => {
+    let unit: string = "%";
+    loader = mount(<CircleLoader sizeUnit={unit} />);
+    expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+    expect(loader.find("div div")).toHaveStyleRule("height", `${defaultSize}${unit}`);
+    expect(loader.find("div div")).toHaveStyleRule("width", `${defaultSize}${unit}`);
   });
 
-  it("renders the correct heightUnit based on props", () => {
-    loader = mount(<CircleLoader sizeUnit="%" />);
-    expect(loader.find("div div")).not.toHaveStyleRule("height", "50px");
-    expect(loader.find("div div")).not.toHaveStyleRule("width", "50px");
-    expect(loader.find("div div")).toHaveStyleRule("height", "50%");
-    expect(loader.find("div div")).toHaveStyleRule("width", "50%");
-  });
-
-  it("renders the css override based on props", () => {
+  it("should render the css override based on props", () => {
     loader = mount(<CircleLoader css={"position: absolute; overflow: scroll;"} />);
     expect(loader).not.toHaveStyleRule("position", "relative");
     expect(loader).toHaveStyleRule("position", "absolute");
