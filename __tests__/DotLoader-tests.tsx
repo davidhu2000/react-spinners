@@ -10,6 +10,9 @@ import { sizeDefaults } from "../src/helpers";
 describe("DotLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeProps;
+  let defaultColor: string = "#000000";
+  let defaultSize: number = 60;
+  let defaultUnit: string = "px";
 
   it("should match snapshot", () => {
     loader = mount(<DotLoader />);
@@ -18,18 +21,19 @@ describe("DotLoader", () => {
 
   it("should contain default props if no props are passed", () => {
     props = loader.props();
-    expect(props).toEqual(sizeDefaults(60));
+    expect(props).toEqual(sizeDefaults(defaultSize));
   });
 
-  it("parent div should contain styles created using default props", () => {
-    expect(loader).toHaveStyleRule("height", "60px");
-    expect(loader).toHaveStyleRule("width", "60px");
-    expect(loader.find("div div").at(0)).toHaveStyleRule("background-color", "#000000");
-    expect(loader.find("div div").at(0)).toHaveStyleRule("height", "30px");
-    expect(loader.find("div div").at(0)).toHaveStyleRule("width", "30px");
-    expect(loader.find("div div").at(1)).toHaveStyleRule("background-color", "#000000");
-    expect(loader.find("div div").at(1)).toHaveStyleRule("height", "30px");
-    expect(loader.find("div div").at(1)).toHaveStyleRule("width", "30px");
+  it("should contain styles created using default props", () => {
+    let childSize: number = defaultSize / 2;
+    expect(loader).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+
+    for (let i: number = 0; i < 2; i++) {
+      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${childSize}${defaultUnit}`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${childSize}${defaultUnit}`);
+    }
   });
 
   it("should render null if loading prop is set as false", () => {
@@ -37,27 +41,38 @@ describe("DotLoader", () => {
     expect(loader.isEmptyRender()).toBe(true);
   });
 
-  it("renders the correct color based on prop", () => {
-    loader = mount(<DotLoader color="#e2e2e2" />);
-    expect(loader.find("div div")).not.toHaveStyleRule("background-color", "#000000");
-    expect(loader.find("div div")).toHaveStyleRule("background-color", "#e2e2e2");
+  it("should render the correct color based on prop", () => {
+    let color: string = "#e2e2e2";
+    loader = mount(<DotLoader color={color} />);
+    expect(loader.find("div div")).not.toHaveStyleRule("background-color", defaultColor);
+    expect(loader.find("div div")).toHaveStyleRule("background-color", color);
   });
 
-  it("renders the correct size for the parent div based on props", () => {
-    loader = mount(<DotLoader size={18} />);
-    expect(loader).not.toHaveStyleRule("height", "60px");
-    expect(loader).not.toHaveStyleRule("width", "60px");
-    expect(loader).toHaveStyleRule("height", "18px");
-    expect(loader).toHaveStyleRule("width", "18px");
+  it("should render the correct size based on props", () => {
+    let size: number = 18;
+    loader = mount(<DotLoader size={size} />);
+    expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("height", `${size}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("width", `${size}${defaultUnit}`);
   });
 
-  it("renders the css override based on props", () => {
+  it("should render the correct sizeUnit based on props", () => {
+    let unit: string = "%";
+    loader = mount(<DotLoader sizeUnit={unit} />);
+    expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("height", `${defaultSize}${unit}`);
+    expect(loader).toHaveStyleRule("width", `${defaultSize}${unit}`);
+  });
+
+  it("should render the css override based on props", () => {
     loader = mount(
       <DotLoader css={"position: absolute; width: 100px; height: 200px; color: blue;"} />
     );
     expect(loader).not.toHaveStyleRule("position", "relative");
-    expect(loader).not.toHaveStyleRule("width", "60px");
-    expect(loader).not.toHaveStyleRule("height", "60px");
+    expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+    expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
     expect(loader).toHaveStyleRule("position", "absolute");
     expect(loader).toHaveStyleRule("width", "100px");
     expect(loader).toHaveStyleRule("height", "200px");
