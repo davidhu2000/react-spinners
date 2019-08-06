@@ -10,6 +10,10 @@ import { sizeMarginDefaults } from "../src/helpers";
 describe("GridLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeMarginProps;
+  let defaultColor: string = "#000000";
+  let defaultSize: number = 15;
+  let defaultUnit: string = "px";
+  let wrapperWidthDefault: number = parseFloat(defaultSize.toString()) * 3 + parseFloat("2px") * 6;
 
   it("should match snapshot", () => {
     loader = mount(<GridLoader />);
@@ -18,18 +22,19 @@ describe("GridLoader", () => {
 
   it("should contain default props if no props are passed", () => {
     props = loader.props();
-    expect(props).toEqual(sizeMarginDefaults(15));
+    expect(props).toEqual(sizeMarginDefaults(defaultSize));
   });
 
-  it("parent div should contain styles created using default props", () => {
-    expect(loader).toHaveStyleRule("width", "57px");
-  });
+  it("should contain styles created using default props", () => {
+    expect(loader).toHaveStyleRule("width", `${wrapperWidthDefault}${defaultUnit}`);
 
-  it("child div should contain styles created using default props", () => {
     for (let i: number = 0; i < 9; i++) {
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", "#000000");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", "15px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", "15px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "height",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
       expect(loader.find("div div").at(i)).toHaveStyleRule("margin", "2px");
     }
   });
@@ -39,36 +44,43 @@ describe("GridLoader", () => {
     expect(loader.isEmptyRender()).toBe(true);
   });
 
-  it("renders the correct color based on prop", () => {
-    loader = mount(<GridLoader color="#e2e2e2" />);
-    expect(loader.find("div div")).not.toHaveStyleRule("background-color", "#000000");
-    expect(loader.find("div div")).toHaveStyleRule("background-color", "#e2e2e2");
+  it("should render the correct color based on prop", () => {
+    let color: string = "#e2e2e2";
+    loader = mount(<GridLoader color={color} />);
+    expect(loader.find("div div")).not.toHaveStyleRule("background-color", defaultColor);
+    expect(loader.find("div div")).toHaveStyleRule("background-color", color);
   });
 
-  it("renders the correct size for the parent div based on props", () => {
-    loader = mount(<GridLoader size={18} />);
-    expect(loader).not.toHaveStyleRule("width", "57px");
-    expect(loader).toHaveStyleRule("width", "66px");
+  it("should render the correct size for the parent div based on props", () => {
+    let size: number = 18;
+    let wrapperWidth: number = parseFloat(size.toString()) * 3 + parseFloat("2px") * 6;
 
-    expect(loader.find("div div")).not.toHaveStyleRule("height", "60px");
-    expect(loader.find("div div")).toHaveStyleRule("height", "18px");
+    loader = mount(<GridLoader size={size} />);
+    expect(loader).not.toHaveStyleRule("width", `${wrapperWidthDefault}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("width", `${wrapperWidth}${defaultUnit}`);
 
     for (let i: number = 0; i < 9; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("height", "15px");
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("width", "15px");
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "height",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "width",
+        `${defaultSize}${defaultUnit}`
+      );
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", "18px");
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", "18px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
     }
   });
 
-  it("renders the css override based on props", () => {
+  it("should render the css override based on props", () => {
     loader = mount(
-      <GridLoader css={"font-size: 15px; width: 100px; height: 200px; color: blue;"} />
+      <GridLoader css={"font-size: 11px; width: 100px; height: 200px; color: blue;"} />
     );
     expect(loader).not.toHaveStyleRule("font-size", "0");
     expect(loader).not.toHaveStyleRule("width", "57px");
-    expect(loader).toHaveStyleRule("font-size", "15px");
+    expect(loader).toHaveStyleRule("font-size", "11px");
     expect(loader).toHaveStyleRule("width", "100px");
   });
 });
