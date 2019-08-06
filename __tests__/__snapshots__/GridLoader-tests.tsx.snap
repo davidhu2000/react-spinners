@@ -213,8 +213,8 @@ exports[`GridLoader should match snapshot 1`] = `
   border-radius: 100%;
   -webkit-animation-fill-mode: "both";
   animation-fill-mode: "both";
-  -webkit-animation: animation-0 0.823990274441971s 0.02399027444197105s infinite ease;
-  animation: animation-0 0.823990274441971s 0.02399027444197105s infinite ease;
+  -webkit-animation: animation-0 1.451411883131914s 0.6514118831319142s infinite ease;
+  animation: animation-0 1.451411883131914s 0.6514118831319142s infinite ease;
 }
 
 .emotion-1 {
@@ -226,8 +226,8 @@ exports[`GridLoader should match snapshot 1`] = `
   border-radius: 100%;
   -webkit-animation-fill-mode: "both";
   animation-fill-mode: "both";
-  -webkit-animation: animation-0 0.7466570233090694s -0.05334297669093063s infinite ease;
-  animation: animation-0 0.7466570233090694s -0.05334297669093063s infinite ease;
+  -webkit-animation: animation-0 0.9861421379263186s 0.18614213792631856s infinite ease;
+  animation: animation-0 0.9861421379263186s 0.18614213792631856s infinite ease;
 }
 
 .emotion-2 {
@@ -239,8 +239,8 @@ exports[`GridLoader should match snapshot 1`] = `
   border-radius: 100%;
   -webkit-animation-fill-mode: "both";
   animation-fill-mode: "both";
-  -webkit-animation: animation-0 0.8134715789251311s 0.013471578925131122s infinite ease;
-  animation: animation-0 0.8134715789251311s 0.013471578925131122s infinite ease;
+  -webkit-animation: animation-0 0.9371196166800847s 0.1371196166800847s infinite ease;
+  animation: animation-0 0.9371196166800847s 0.1371196166800847s infinite ease;
 }
 
 .emotion-3 {
@@ -252,8 +252,8 @@ exports[`GridLoader should match snapshot 1`] = `
   border-radius: 100%;
   -webkit-animation-fill-mode: "both";
   animation-fill-mode: "both";
-  -webkit-animation: animation-0 0.7975381723620812s -0.0024618276379187176s infinite ease;
-  animation: animation-0 0.7975381723620812s -0.0024618276379187176s infinite ease;
+  -webkit-animation: animation-0 0.9567568543180507s 0.15675685431805075s infinite ease;
+  animation: animation-0 0.9567568543180507s 0.15675685431805075s infinite ease;
 }
 
 .emotion-4 {
@@ -265,8 +265,8 @@ exports[`GridLoader should match snapshot 1`] = `
   border-radius: 100%;
   -webkit-animation-fill-mode: "both";
   animation-fill-mode: "both";
-  -webkit-animation: animation-0 1.551152086062423s 0.7511520860624232s infinite ease;
-  animation: animation-0 1.551152086062423s 0.7511520860624232s infinite ease;
+  -webkit-animation: animation-0 1.0468944474571393s 0.24689444745713945s infinite ease;
+  animation: animation-0 1.0468944474571393s 0.24689444745713945s infinite ease;
 }
 
 .emotion-5 {
@@ -278,8 +278,8 @@ exports[`GridLoader should match snapshot 1`] = `
   border-radius: 100%;
   -webkit-animation-fill-mode: "both";
   animation-fill-mode: "both";
-  -webkit-animation: animation-0 0.820527349439459s 0.020527349439459053s infinite ease;
-  animation: animation-0 0.820527349439459s 0.020527349439459053s infinite ease;
+  -webkit-animation: animation-0 0.7308646265271298s -0.06913537347287019s infinite ease;
+  animation: animation-0 0.7308646265271298s -0.06913537347287019s infinite ease;
 }
 
 .emotion-6 {
@@ -291,8 +291,8 @@ exports[`GridLoader should match snapshot 1`] = `
   border-radius: 100%;
   -webkit-animation-fill-mode: "both";
   animation-fill-mode: "both";
-  -webkit-animation: animation-0 0.6352524708104211s -0.16474752918957886s infinite ease;
-  animation: animation-0 0.6352524708104211s -0.16474752918957886s infinite ease;
+  -webkit-animation: animation-0 0.883016164222936s 0.08301616422293606s infinite ease;
+  animation: animation-0 0.883016164222936s 0.08301616422293606s infinite ease;
 }
 
 .emotion-7 {
@@ -304,8 +304,8 @@ exports[`GridLoader should match snapshot 1`] = `
   border-radius: 100%;
   -webkit-animation-fill-mode: "both";
   animation-fill-mode: "both";
-  -webkit-animation: animation-0 1.1919296484185682s 0.3919296484185681s infinite ease;
-  animation: animation-0 1.1919296484185682s 0.3919296484185681s infinite ease;
+  -webkit-animation: animation-0 1.1892953208517194s 0.3892953208517193s infinite ease;
+  animation: animation-0 1.1892953208517194s 0.3892953208517193s infinite ease;
 }
 
 .emotion-8 {
@@ -317,8 +317,8 @@ exports[`GridLoader should match snapshot 1`] = `
   border-radius: 100%;
   -webkit-animation-fill-mode: "both";
   animation-fill-mode: "both";
-  -webkit-animation: animation-0 0.8400769968149256s 0.04007699681492566s infinite ease;
-  animation: animation-0 0.8400769968149256s 0.04007699681492566s infinite ease;
+  -webkit-animation: animation-0 1.0851852415196035s 0.2851852415196034s infinite ease;
+  animation: animation-0 1.0851852415196035s 0.2851852415196034s infinite ease;
 }
 
 <onlyUpdateForKeys(Loader)
