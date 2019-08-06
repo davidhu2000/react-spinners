@@ -44,7 +44,7 @@ describe("ClimbingBoxLoader", () => {
     expect(loader.isEmptyRender()).toBe(true);
   });
 
-  it("renders the correct color based on prop", () => {
+  it("should render the correct color based on prop", () => {
     let color: string = "#e2e2e2";
     loader = mount(<ClimbingBoxLoader color={color} />);
 
@@ -64,21 +64,21 @@ describe("ClimbingBoxLoader", () => {
     );
   });
 
-  it("renders the correct size for the parent div based on props", () => {
+  it("should render the correct size based on props", () => {
     let size: number = 18;
     loader = mount(<ClimbingBoxLoader size={size} />);
     expect(loader.find("div div")).not.toHaveStyleRule("font-size", `${defaultSize}${defaultUnit}`);
     expect(loader.find("div div")).toHaveStyleRule("font-size", `${size}${defaultUnit}`);
   });
 
-  it("renders the correct sizeUnit for the parent div based on props", () => {
+  it("should render the correct sizeUnit based on props", () => {
     let unit: string = "%";
     loader = mount(<ClimbingBoxLoader sizeUnit={unit} />);
     expect(loader.find("div div")).not.toHaveStyleRule("font-size", `${defaultSize}${defaultUnit}`);
     expect(loader.find("div div")).toHaveStyleRule("font-size", `${defaultSize}${unit}`);
   });
 
-  it("renders the css override based on props", () => {
+  it("should render the css override based on props", () => {
     loader = mount(
       <ClimbingBoxLoader css={"position: absolute; width: 100px; height: 200px; color: blue;"} />
     );
