@@ -12,6 +12,7 @@ describe("PulseLoader", () => {
   let props: LoaderSizeMarginProps;
   let defaultSize: number = 15;
   let defaultColor: string = "#000000";
+  let defaultUnit: string = "px";
 
   it("should match snapshot", () => {
     loader = mount(<PulseLoader />);
@@ -26,8 +27,11 @@ describe("PulseLoader", () => {
   it("should contain styles created using default props", () => {
     for (let i: number = 0; i < 3; i++) {
       expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize}px`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "height",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
       expect(loader.find("div div").at(i)).toHaveStyleRule("margin", "2px");
     }
   });
@@ -48,14 +52,39 @@ describe("PulseLoader", () => {
 
   it("should render the correct size based on props", () => {
     let size: number = 18;
-    loader = mount(<PulseLoader size={18} />);
+    loader = mount(<PulseLoader size={size} />);
 
     for (let i: number = 0; i < 3; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("height", `${defaultSize}px`);
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("width", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "height",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "width",
+        `${defaultSize}${defaultUnit}`
+      );
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}px`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
+    }
+  });
+
+  it("should render the correct sizeUnit based on props", () => {
+    let unit: string = "%";
+    loader = mount(<PulseLoader sizeUnit={unit} />);
+
+    for (let i: number = 0; i < 3; i++) {
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "height",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "width",
+        `${defaultSize}${defaultUnit}`
+      );
+
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize}${unit}`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${unit}`);
     }
   });
 
