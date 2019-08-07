@@ -12,6 +12,7 @@ describe("PropagateLoader", () => {
   let props: LoaderSizeProps;
   let defaultSize: number = 15;
   let defaultColor: string = "#000000";
+  let defaultUnit: string = "px";
 
   it("should match snapshot", () => {
     loader = mount(<PropagateLoader />);
@@ -20,15 +21,21 @@ describe("PropagateLoader", () => {
 
   it("should contain default props if no props are passed", () => {
     props = loader.props();
-    expect(props).toEqual(sizeDefaults(15));
+    expect(props).toEqual(sizeDefaults(defaultSize));
   });
 
   it("should contain styles created using default props", () => {
     for (let i: number = 0; i < 6; i++) {
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize}px`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "height",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
       expect(loader.find("div div").at(i)).toHaveStyleRule("background", defaultColor);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("font-size", `${defaultSize / 3}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "font-size",
+        `${defaultSize / 3}${defaultUnit}`
+      );
     }
   });
 
@@ -53,13 +60,52 @@ describe("PropagateLoader", () => {
     loader = mount(<PropagateLoader size={size} />);
 
     for (let i: number = 0; i < 6; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("height", `${defaultSize}px`);
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("width", `${defaultSize}px`);
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("font-size", `${defaultSize / 3}px`);
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "height",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "width",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "font-size",
+        `${defaultSize / 3}${defaultUnit}`
+      );
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}px`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}px`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("font-size", `${size / 3}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "font-size",
+        `${size / 3}${defaultUnit}`
+      );
+    }
+  });
+
+  it("should render the correct sizeUnit based on props", () => {
+    let unit: string = "%";
+    loader = mount(<PropagateLoader sizeUnit={unit} />);
+
+    for (let i: number = 0; i < 6; i++) {
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "height",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "width",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "font-size",
+        `${defaultSize / 3}${defaultUnit}`
+      );
+
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize}${unit}`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${unit}`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "font-size",
+        `${defaultSize / 3}${unit}`
+      );
     }
   });
 
