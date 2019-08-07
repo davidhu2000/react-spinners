@@ -12,6 +12,7 @@ describe("RotateLoader", () => {
   let props: LoaderSizeMarginProps;
   let defaultSize: number = 15;
   let defaultColor: string = "#000000";
+  let defaultUnit: string = "px";
 
   it("should match snapshot", () => {
     loader = mount(<RotateLoader />);
@@ -25,14 +26,17 @@ describe("RotateLoader", () => {
 
   it("should contain styles created using default props", () => {
     expect(loader).toHaveStyleRule("background-color", defaultColor);
-    expect(loader).toHaveStyleRule("height", `${defaultSize}px`);
-    expect(loader).toHaveStyleRule("width", `${defaultSize}px`);
+    expect(loader).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
     expect(loader).toHaveStyleRule("margin", "2px");
 
     for (let i: number = 0; i < 2; i++) {
       expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize}px`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "height",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
       expect(loader.find("div div").at(i)).toHaveStyleRule("margin", "2px");
     }
   });
@@ -58,18 +62,49 @@ describe("RotateLoader", () => {
     let size: number = 18;
     loader = mount(<RotateLoader size={size} />);
 
-    expect(loader).not.toHaveStyleRule("height", `${defaultSize}px`);
-    expect(loader).not.toHaveStyleRule("width", `${defaultSize}px`);
+    expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
-    expect(loader).toHaveStyleRule("height", `${size}px`);
-    expect(loader).toHaveStyleRule("width", `${size}px`);
+    expect(loader).toHaveStyleRule("height", `${size}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("width", `${size}${defaultUnit}`);
 
     for (let i: number = 0; i < 2; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("height", `${defaultSize}px`);
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("width", `${defaultSize}px`);
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "height",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "width",
+        `${defaultSize}${defaultUnit}`
+      );
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}px`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
+    }
+  });
+
+  it("should render the correct sizeUnit based on props", () => {
+    let unit: string = "%";
+    loader = mount(<RotateLoader sizeUnit={unit} />);
+
+    expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+
+    expect(loader).toHaveStyleRule("height", `${defaultSize}${unit}`);
+    expect(loader).toHaveStyleRule("width", `${defaultSize}${unit}`);
+
+    for (let i: number = 0; i < 2; i++) {
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "height",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "width",
+        `${defaultSize}${defaultUnit}`
+      );
+
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize}${unit}`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${unit}`);
     }
   });
 
