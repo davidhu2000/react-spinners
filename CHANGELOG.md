@@ -25,8 +25,8 @@ npm notice unpacked size: 138.5 kB
 New:
 ```
 npm notice version:       0.6.0-alpha.7
-npm notice package size:  TBD kB
-npm notice unpacked size: TBD kB
+npm notice package size:  16.7 kB
+npm notice unpacked size: 132.1 kB
 ```
 
 ## 0.6.0-alpha.6
