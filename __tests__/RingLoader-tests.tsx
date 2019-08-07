@@ -12,6 +12,7 @@ describe("RingLoader", () => {
   let props: LoaderSizeProps;
   let defaultSize: number = 60;
   let defaultColor: string = "#000000";
+  let defaultUnit: string = "px";
 
   it("should match snapshot", () => {
     loader = mount(<RingLoader />);
@@ -20,17 +21,23 @@ describe("RingLoader", () => {
 
   it("should contain default props if no props are passed", () => {
     props = loader.props();
-    expect(props).toEqual(sizeDefaults(60));
+    expect(props).toEqual(sizeDefaults(defaultSize));
   });
 
   it("should contain styles created using default props", () => {
-    expect(loader).toHaveStyleRule("height", `${defaultSize}px`);
-    expect(loader).toHaveStyleRule("width", `${defaultSize}px`);
+    expect(loader).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
     for (let i: number = 0; i < 2; i++) {
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize}px`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}px`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("border", `6px solid ${defaultColor}`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "height",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "border",
+        `${defaultSize / 10}${defaultUnit} solid ${defaultColor}`
+      );
     }
   });
 
@@ -46,10 +53,13 @@ describe("RingLoader", () => {
     for (let i: number = 0; i < 2; i++) {
       expect(loader.find("div div").at(i)).not.toHaveStyleRule(
         "border",
-        `6px solid ${defaultColor}`
+        `${defaultSize / 10}${defaultUnit} solid ${defaultColor}`
       );
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("border", `6px solid ${color}`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "border",
+        `${defaultSize / 10}${defaultUnit} solid ${color}`
+      );
     }
   });
 
@@ -57,21 +67,62 @@ describe("RingLoader", () => {
     let size: number = 21;
     loader = mount(<RingLoader size={size} />);
 
-    expect(loader).not.toHaveStyleRule("height", `${defaultSize}px`);
-    expect(loader).not.toHaveStyleRule("width", `${defaultSize}px`);
-    expect(loader).toHaveStyleRule("height", `${size}px`);
-    expect(loader).toHaveStyleRule("width", `${size}px`);
+    expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("height", `${size}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("width", `${size}${defaultUnit}`);
 
     for (let i: number = 0; i < 2; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("height", `${defaultSize}px`);
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("width", `${defaultSize}px`);
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("border", "6px solid #000000");
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "height",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "width",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "border",
+        `${defaultSize / 10}${defaultUnit} solid ${defaultColor}`
+      );
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}px`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}px`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
       expect(loader.find("div div").at(i)).toHaveStyleRule(
         "border",
-        `${size / 10}px solid #000000`
+        `${size / 10}${defaultUnit} solid ${defaultColor}`
+      );
+    }
+  });
+
+  it("should render the correct sizeUnit based on props", () => {
+    let unit: string = "%";
+    loader = mount(<RingLoader sizeUnit={unit} />);
+
+    expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("height", `${defaultSize}${unit}`);
+    expect(loader).toHaveStyleRule("width", `${defaultSize}${unit}`);
+
+    for (let i: number = 0; i < 2; i++) {
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "height",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "width",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        "border",
+        `${defaultSize / 10}${defaultUnit} solid ${defaultColor}`
+      );
+
+      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize}${unit}`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${unit}`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "border",
+        `${defaultSize / 10}${unit} solid ${defaultColor}`
       );
     }
   });
