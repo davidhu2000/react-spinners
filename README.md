@@ -97,7 +97,7 @@ You can directly write your css in css syntax without the dirty camelCase css in
 We recommend you to use this awesome library in your project. It supports Server side rendering with HTTP2 Stream! 
 More info about using `css` [here](https://emotion.sh/docs/introduction)
 
-For `size`, `height`, and `width` props, there are `sizeUnit`, `heightUnit`, and `widthUnit` prop that accepts `px`, `%`, or `em`. The default for the unit prop is `px`.
+For `size`, `height`, `width`, and `radius` props, there are `sizeUnit`, `heightUnit`, `widthUnit` and `radiusUnit` prop that accepts `px`, `%`, or `em`. The default for the unit prop is `px`.
 
 |            Loader | size:int | height:int | width:int | radius:int | margin:str |
 | ----------------: | :------: | :--------: | :-------: | :--------: | :--------: |
