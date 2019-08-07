@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.0-alpha.7
+
+- update readme to include `radius` and `radiusUnit` prop description. 
+- update all the tests to use default variables.
+- add the following to `.npmignore` to further reduce package size. 
+``
+tslint.json
+jest.config.js
+CODEOWNERS
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+CHANGELOG.md
+```
+
+Old:
+```
+npm notice version:       0.6.0-alpha.6
+npm notice package size:  19.8 kB
+npm notice unpacked size: 138.5 kB
+```
+New:
+```
+npm notice version:       0.6.0-alpha.7
+npm notice package size:  TBD kB
+npm notice unpacked size: TBD kB
+```
+
 ## 0.6.0-alpha.6
 
 - add `src` folder to `npmignore`. Previous version wasn't ruthless enough in saving data. 
