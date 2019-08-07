@@ -12,6 +12,7 @@ describe("SquareLoader", () => {
   let props: LoaderSizeProps;
   let defaultSize: number = 50;
   let defaultColor: string = "#000000";
+  let defaultUnit: string = "px";
 
   it("should match snapshot", () => {
     loader = mount(<SquareLoader />);
@@ -24,8 +25,8 @@ describe("SquareLoader", () => {
   });
 
   it("should contain styles created using default props", () => {
-    expect(loader).toHaveStyleRule("height", `${defaultSize}px`);
-    expect(loader).toHaveStyleRule("width", `${defaultSize}px`);
+    expect(loader).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
     expect(loader).toHaveStyleRule("background-color", defaultColor);
   });
 
@@ -45,11 +46,22 @@ describe("SquareLoader", () => {
     let size: number = 21;
     loader = mount(<SquareLoader size={size} />);
 
-    expect(loader).not.toHaveStyleRule("height", `${defaultSize}px`);
-    expect(loader).not.toHaveStyleRule("width", `${defaultSize}px`);
+    expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
-    expect(loader).toHaveStyleRule("height", `${size}px`);
-    expect(loader).toHaveStyleRule("width", `${size}px`);
+    expect(loader).toHaveStyleRule("height", `${size}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("width", `${size}${defaultUnit}`);
+  });
+
+  it("should render the correct sizeUnit based on props", () => {
+    let unit: string = "%";
+    loader = mount(<SquareLoader sizeUnit={unit} />);
+
+    expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+
+    expect(loader).toHaveStyleRule("height", `${defaultSize}${unit}`);
+    expect(loader).toHaveStyleRule("width", `${defaultSize}${unit}`);
   });
 
   it("should render the css override based on props", () => {

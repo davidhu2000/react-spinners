@@ -74,7 +74,7 @@ describe("SkewLoader", () => {
     expect(loader).toHaveStyleRule("border-bottom", `${size}${defaultUnit} solid ${defaultColor}`);
   });
 
-  it("should render the correct size based on props", () => {
+  it("should render the correct sizeUnit based on props", () => {
     let unit: string = "%";
     loader = mount(<SkewLoader sizeUnit={unit} />);
 
