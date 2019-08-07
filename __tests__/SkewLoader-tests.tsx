@@ -12,6 +12,7 @@ describe("SkewLoader", () => {
   let props: LoaderSizeProps;
   let defaultSize: number = 20;
   let defaultColor: string = "#000000";
+  let defaultUnit: string = "px";
 
   it("should match snapshot", () => {
     loader = mount(<SkewLoader />);
@@ -24,9 +25,15 @@ describe("SkewLoader", () => {
   });
 
   it("should contain styles created using default props", () => {
-    expect(loader).toHaveStyleRule("border-left", `${defaultSize}px solid transparent`);
-    expect(loader).toHaveStyleRule("border-right", `${defaultSize}px solid transparent`);
-    expect(loader).toHaveStyleRule("border-bottom", `${defaultSize}px solid ${defaultColor}`);
+    expect(loader).toHaveStyleRule("border-left", `${defaultSize}${defaultUnit} solid transparent`);
+    expect(loader).toHaveStyleRule(
+      "border-right",
+      `${defaultSize}${defaultUnit} solid transparent`
+    );
+    expect(loader).toHaveStyleRule(
+      "border-bottom",
+      `${defaultSize}${defaultUnit} solid ${defaultColor}`
+    );
   });
 
   it("should render null if loading prop is set as false", () => {
@@ -38,21 +45,55 @@ describe("SkewLoader", () => {
     let color: string = "#e2e2e2";
     loader = mount(<SkewLoader color={color} />);
 
-    expect(loader).not.toHaveStyleRule("border-bottom", `${defaultSize}px solid ${defaultColor}`);
-    expect(loader).toHaveStyleRule("border-bottom", `${defaultSize}px solid ${color}`);
+    expect(loader).not.toHaveStyleRule(
+      "border-bottom",
+      `${defaultSize}${defaultUnit} solid ${defaultColor}`
+    );
+    expect(loader).toHaveStyleRule("border-bottom", `${defaultSize}${defaultUnit} solid ${color}`);
   });
 
   it("should render the correct size based on props", () => {
     let size: number = 21;
     loader = mount(<SkewLoader size={size} />);
 
-    expect(loader).not.toHaveStyleRule("border-left", `${defaultSize}px solid transparent`);
-    expect(loader).not.toHaveStyleRule("border-right", `${defaultSize}px solid transparent`);
-    expect(loader).not.toHaveStyleRule("border-bottom", `${defaultSize}px solid ${defaultColor}`);
+    expect(loader).not.toHaveStyleRule(
+      "border-left",
+      `${defaultSize}${defaultUnit} solid transparent`
+    );
+    expect(loader).not.toHaveStyleRule(
+      "border-right",
+      `${defaultSize}${defaultUnit} solid transparent`
+    );
+    expect(loader).not.toHaveStyleRule(
+      "border-bottom",
+      `${defaultSize}${defaultUnit} solid ${defaultColor}`
+    );
 
-    expect(loader).toHaveStyleRule("border-left", `${size}px solid transparent`);
-    expect(loader).toHaveStyleRule("border-right", `${size}px solid transparent`);
-    expect(loader).toHaveStyleRule("border-bottom", `${size}px solid ${defaultColor}`);
+    expect(loader).toHaveStyleRule("border-left", `${size}${defaultUnit} solid transparent`);
+    expect(loader).toHaveStyleRule("border-right", `${size}${defaultUnit} solid transparent`);
+    expect(loader).toHaveStyleRule("border-bottom", `${size}${defaultUnit} solid ${defaultColor}`);
+  });
+
+  it("should render the correct sizeUnit based on props", () => {
+    let unit: string = "%";
+    loader = mount(<SkewLoader sizeUnit={unit} />);
+
+    expect(loader).not.toHaveStyleRule(
+      "border-left",
+      `${defaultSize}${defaultUnit} solid transparent`
+    );
+    expect(loader).not.toHaveStyleRule(
+      "border-right",
+      `${defaultSize}${defaultUnit} solid transparent`
+    );
+    expect(loader).not.toHaveStyleRule(
+      "border-bottom",
+      `${defaultSize}${defaultUnit} solid ${defaultColor}`
+    );
+
+    expect(loader).toHaveStyleRule("border-left", `${defaultSize}${unit} solid transparent`);
+    expect(loader).toHaveStyleRule("border-right", `${defaultSize}${unit} solid transparent`);
+    expect(loader).toHaveStyleRule("border-bottom", `${defaultSize}${unit} solid ${defaultColor}`);
   });
 
   it("should render the css override based on props", () => {
