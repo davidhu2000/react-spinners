@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.0-alpha.8
+
+- updated rgba conversion function to handle basic colors. Now supports these basically colors
+    - maroon, red, orange, yellow, olive, green, purple, fuchsia, lime, teal, aqua, blue, navy, black, gray, silver, white
+
 ## 0.6.0-alpha.7
 
 - update readme to include `radius` and `radiusUnit` prop description. 
