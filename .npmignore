@@ -19,3 +19,9 @@ __tests__
 .circleci
 coverage
 src
+tslint.json
+jest.config.js
+CODEOWNERS
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+CHANGELOG.md
