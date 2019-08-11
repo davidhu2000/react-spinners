@@ -166,7 +166,7 @@ exports[`ScaleLoader should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-<onlyUpdateForKeys(Loader)
+<Loader
   color="#000000"
   css={Object {}}
   height={35}
@@ -178,37 +178,24 @@ exports[`ScaleLoader should match snapshot 1`] = `
   width={4}
   widthUnit="px"
 >
-  <Loader
-    color="#000000"
-    css={Object {}}
-    height={35}
-    heightUnit="px"
-    loading={true}
-    margin="2px"
-    radius={2}
-    radiusUnit="px"
-    width={4}
-    widthUnit="px"
+  <div
+    className="emotion-5"
   >
     <div
-      className="emotion-5"
-    >
-      <div
-        className="emotion-0"
-      />
-      <div
-        className="emotion-1"
-      />
-      <div
-        className="emotion-2"
-      />
-      <div
-        className="emotion-3"
-      />
-      <div
-        className="emotion-4"
-      />
-    </div>
-  </Loader>
-</onlyUpdateForKeys(Loader)>
+      className="emotion-0"
+    />
+    <div
+      className="emotion-1"
+    />
+    <div
+      className="emotion-2"
+    />
+    <div
+      className="emotion-3"
+    />
+    <div
+      className="emotion-4"
+    />
+  </div>
+</Loader>
 `;

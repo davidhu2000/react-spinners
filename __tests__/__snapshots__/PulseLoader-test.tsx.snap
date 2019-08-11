@@ -109,7 +109,7 @@ exports[`PulseLoader should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-<onlyUpdateForKeys(Loader)
+<Loader
   color="#000000"
   css={Object {}}
   loading={true}
@@ -117,27 +117,18 @@ exports[`PulseLoader should match snapshot 1`] = `
   size={15}
   sizeUnit="px"
 >
-  <Loader
-    color="#000000"
-    css={Object {}}
-    loading={true}
-    margin="2px"
-    size={15}
-    sizeUnit="px"
+  <div
+    className="emotion-3"
   >
     <div
-      className="emotion-3"
-    >
-      <div
-        className="emotion-0"
-      />
-      <div
-        className="emotion-1"
-      />
-      <div
-        className="emotion-2"
-      />
-    </div>
-  </Loader>
-</onlyUpdateForKeys(Loader)>
+      className="emotion-0"
+    />
+    <div
+      className="emotion-1"
+    />
+    <div
+      className="emotion-2"
+    />
+  </div>
+</Loader>
 `;

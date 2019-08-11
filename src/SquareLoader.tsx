@@ -2,9 +2,8 @@
 import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
-import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 
-import { sizeKeys, sizeDefaults } from "./helpers";
+import { sizeDefaults } from "./helpers";
 import { StyleFunction, PrecompiledCss, LoaderSizeProps } from "./interfaces";
 
 const square: Keyframes = keyframes`
@@ -37,6 +36,4 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   }
 }
 
-const Component: React.ComponentClass<LoaderSizeProps> = onlyUpdateForKeys(sizeKeys)(Loader);
-Component.defaultProps = Loader.defaultProps;
-export default Component;
+export default Loader;

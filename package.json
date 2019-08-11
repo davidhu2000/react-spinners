@@ -89,8 +89,6 @@
     "react-dom": "^16.0.0"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.4",
-    "@types/recompose": "^0.30.6",
-    "recompose": "0.27.1 - 0.30.0"
+    "@emotion/core": "^10.0.4"
   }
 }

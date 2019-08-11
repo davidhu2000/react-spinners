@@ -40,23 +40,15 @@ exports[`SkewLoader should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-<onlyUpdateForKeys(Loader)
+<Loader
   color="#000000"
   css={Object {}}
   loading={true}
   size={20}
   sizeUnit="px"
 >
-  <Loader
-    color="#000000"
-    css={Object {}}
-    loading={true}
-    size={20}
-    sizeUnit="px"
-  >
-    <div
-      className="emotion-0"
-    />
-  </Loader>
-</onlyUpdateForKeys(Loader)>
+  <div
+    className="emotion-0"
+  />
+</Loader>
 `;

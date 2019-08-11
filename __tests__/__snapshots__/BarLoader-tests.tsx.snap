@@ -74,7 +74,7 @@ exports[`BarLoader should match snapshot 1`] = `
   animation: animation-1 2.1s 1.15s cubic-bezier(0.165,0.84,0.44,1) infinite;
 }
 
-<onlyUpdateForKeys(Loader)
+<Loader
   color="#000000"
   css={Object {}}
   height={4}
@@ -83,25 +83,15 @@ exports[`BarLoader should match snapshot 1`] = `
   width={100}
   widthUnit="px"
 >
-  <Loader
-    color="#000000"
-    css={Object {}}
-    height={4}
-    heightUnit="px"
-    loading={true}
-    width={100}
-    widthUnit="px"
+  <div
+    className="emotion-2"
   >
     <div
-      className="emotion-2"
-    >
-      <div
-        className="emotion-0"
-      />
-      <div
-        className="emotion-1"
-      />
-    </div>
-  </Loader>
-</onlyUpdateForKeys(Loader)>
+      className="emotion-0"
+    />
+    <div
+      className="emotion-1"
+    />
+  </div>
+</Loader>
 `;

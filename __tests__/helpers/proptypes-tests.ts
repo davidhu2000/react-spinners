@@ -1,96 +1,10 @@
 import {
-  sizeKeys,
-  sizeMarginKeys,
-  heightWidthKeys,
-  heightWidthRadiusKeys,
   sizeDefaults,
   DefaultProps,
   sizeMarginDefaults,
   heightWidthDefaults,
   heightWidthRadiusDefaults
 } from "../../src/helpers";
-
-describe("Arrays for onlyUpdateForKeys function", () => {
-  describe("sizeKeys", () => {
-    it("should be an array of length 5", () => {
-      expect(Array.isArray(sizeKeys)).toBe(true);
-      expect(sizeKeys).toHaveLength(5);
-    });
-
-    it("should contain the common props: loading, color, css", () => {
-      expect(sizeKeys).toContain("loading");
-      expect(sizeKeys).toContain("color");
-      expect(sizeKeys).toContain("css");
-    });
-
-    it("should contain size and size unit keys", () => {
-      expect(sizeKeys).toContain("size");
-      expect(sizeKeys).toContain("sizeUnit");
-    });
-  });
-
-  describe("sizeMarginKeys", () => {
-    it("should be an array of length 6", () => {
-      expect(Array.isArray(sizeMarginKeys)).toBe(true);
-      expect(sizeMarginKeys).toHaveLength(6);
-    });
-
-    it("should contain the common props: loading, color, css", () => {
-      expect(sizeMarginKeys).toContain("loading");
-      expect(sizeMarginKeys).toContain("color");
-      expect(sizeMarginKeys).toContain("css");
-    });
-
-    it("should contain size and size unit keys", () => {
-      expect(sizeMarginKeys).toContain("size");
-      expect(sizeMarginKeys).toContain("sizeUnit");
-      expect(sizeMarginKeys).toContain("margin");
-    });
-  });
-
-  describe("heightWidthKeys", () => {
-    it("should be an array of length 7", () => {
-      expect(Array.isArray(heightWidthKeys)).toBe(true);
-      expect(heightWidthKeys).toHaveLength(7);
-    });
-
-    it("should contain the common props: loading, color, css", () => {
-      expect(heightWidthKeys).toContain("loading");
-      expect(heightWidthKeys).toContain("color");
-      expect(heightWidthKeys).toContain("css");
-    });
-
-    it("should contain size and size unit keys", () => {
-      expect(heightWidthKeys).toContain("height");
-      expect(heightWidthKeys).toContain("heightUnit");
-      expect(heightWidthKeys).toContain("width");
-      expect(heightWidthKeys).toContain("widthUnit");
-    });
-  });
-
-  describe("heightWidthRadiusKeys", () => {
-    it("should be an array of length 7", () => {
-      expect(Array.isArray(heightWidthRadiusKeys)).toBe(true);
-      expect(heightWidthRadiusKeys).toHaveLength(10);
-    });
-
-    it("should contain the common props: loading, color, css", () => {
-      expect(heightWidthRadiusKeys).toContain("loading");
-      expect(heightWidthRadiusKeys).toContain("color");
-      expect(heightWidthRadiusKeys).toContain("css");
-    });
-
-    it("should contain size and size unit keys", () => {
-      expect(heightWidthRadiusKeys).toContain("height");
-      expect(heightWidthRadiusKeys).toContain("heightUnit");
-      expect(heightWidthRadiusKeys).toContain("width");
-      expect(heightWidthRadiusKeys).toContain("widthUnit");
-      expect(heightWidthRadiusKeys).toContain("radius");
-      expect(heightWidthRadiusKeys).toContain("radiusUnit");
-      expect(heightWidthRadiusKeys).toContain("margin");
-    });
-  });
-});
 
 describe("Default Props functions for different loaders", () => {
   describe("sizeDefaults", () => {

@@ -227,42 +227,34 @@ exports[`PropagateLoader should match snapshot 1`] = `
   animation-fill-mode: forwards;
 }
 
-<onlyUpdateForKeys(Loader)
+<Loader
   color="#000000"
   css={Object {}}
   loading={true}
   size={15}
   sizeUnit="px"
 >
-  <Loader
-    color="#000000"
-    css={Object {}}
-    loading={true}
-    size={15}
-    sizeUnit="px"
+  <div
+    className="emotion-6"
   >
     <div
-      className="emotion-6"
-    >
-      <div
-        className="emotion-0"
-      />
-      <div
-        className="emotion-1"
-      />
-      <div
-        className="emotion-2"
-      />
-      <div
-        className="emotion-3"
-      />
-      <div
-        className="emotion-4"
-      />
-      <div
-        className="emotion-5"
-      />
-    </div>
-  </Loader>
-</onlyUpdateForKeys(Loader)>
+      className="emotion-0"
+    />
+    <div
+      className="emotion-1"
+    />
+    <div
+      className="emotion-2"
+    />
+    <div
+      className="emotion-3"
+    />
+    <div
+      className="emotion-4"
+    />
+    <div
+      className="emotion-5"
+    />
+  </div>
+</Loader>
 `;

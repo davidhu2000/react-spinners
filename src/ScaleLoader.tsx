@@ -2,9 +2,8 @@
 import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
-import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 
-import { heightWidthRadiusDefaults, heightWidthRadiusKeys } from "./helpers";
+import { heightWidthRadiusDefaults } from "./helpers";
 import { PrecompiledCss, LoaderHeightWidthRadiusProps, StyleFunctionWithIndex } from "./interfaces";
 
 const scale: Keyframes = keyframes`
@@ -46,8 +45,4 @@ class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
   }
 }
 
-const Component: React.ComponentClass<LoaderHeightWidthRadiusProps> = onlyUpdateForKeys(
-  heightWidthRadiusKeys
-)(Loader);
-Component.defaultProps = Loader.defaultProps;
-export default Component;
+export default Loader;
