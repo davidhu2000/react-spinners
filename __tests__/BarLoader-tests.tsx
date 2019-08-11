@@ -15,6 +15,10 @@ describe("BarLoader", () => {
   let defaultWidth: number = 100;
   let defaultUnit: string = "px";
 
+  afterEach(() => {
+    loader.detach();
+  });
+
   it("should match snapshot", () => {
     loader = mount(<BarLoader />);
     expect(loader).toMatchSnapshot();
