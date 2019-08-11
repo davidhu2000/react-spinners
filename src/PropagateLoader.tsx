@@ -3,7 +3,7 @@ import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
-import { sizeDefaults, sizeKeys } from "./helpers";
+import { sizeDefaults } from "./helpers";
 import {
   StyleFunction,
   PrecompiledCss,

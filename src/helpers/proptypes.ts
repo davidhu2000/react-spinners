@@ -15,22 +15,6 @@ const RADIUS_UNIT: string = "radiusUnit";
 const MARGIN: string = "margin";
 
 /*
- * Array for onlyUpdateForKeys function
- */
-const commonStrings: string[] = [LOADING, COLOR, CSS];
-const sizeStrings: string[] = [SIZE, SIZE_UNIT];
-const heightWidthString: string[] = [HEIGHT, HEIGHT_UNIT, WIDTH, WIDTH_UNIT];
-
-export const sizeKeys: string[] = commonStrings.concat(sizeStrings);
-export const sizeMarginKeys: string[] = sizeKeys.concat([MARGIN]);
-export const heightWidthKeys: string[] = commonStrings.concat(heightWidthString);
-export const heightWidthRadiusKeys: string[] = heightWidthKeys.concat([
-  RADIUS,
-  RADIUS_UNIT,
-  MARGIN
-]);
-
-/*
  * DefaultProps object for different loaders
  */
 
