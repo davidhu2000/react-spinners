@@ -64,7 +64,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-emotion": "^10.0.14",
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
-    "coveralls": "^3.0.5",
+    "coveralls": "^3.0.6",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",
