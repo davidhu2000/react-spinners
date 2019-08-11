@@ -47,7 +47,7 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
       border-radius: 100%;
       transform: translate(0, ${`${-size! / 4}${sizeUnit}`});
       position: absolute;
-      top: ${size}px;
+      top: ${`${size}${sizeUnit}`};
       left: ${`${size! * 4}${sizeUnit}`};
       animation: ${this.ball()} 1s ${i * 0.25}s infinite linear;
       animation-fill-mode: both;

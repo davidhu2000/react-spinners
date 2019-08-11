@@ -119,7 +119,7 @@ describe("PacmanLoader", () => {
     loader = mount(<PacmanLoader sizeUnit={unit} />);
 
     expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-    expect(loader).toHaveStyleRule("width", `${unit}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("width", `${defaultSize}${unit}`);
 
     expect(loader.find("div div").at(0)).not.toHaveStyleRule(
       "border-radius",
