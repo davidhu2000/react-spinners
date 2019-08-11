@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.0-alpha.9
+
+- **bugfix**: Fix issue where `PacmanLoader` `top` css property does not respect the `sizeUnit` prop. It was hardcoded to be `px` instead of using `sizeUnit` prop. 
+- update javascript bundle files for demo site.
+
 ## 0.6.0-alpha.8
 
 - updated rgba conversion function to handle basic colors. Now supports these basically colors
