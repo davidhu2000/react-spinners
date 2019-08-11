@@ -21,7 +21,7 @@ All notable changes to this project will be documented in this file. This projec
 - update readme to include `radius` and `radiusUnit` prop description. 
 - update all the tests to use default variables.
 - add the following to `.npmignore` to further reduce package size. 
-``
+```
 tslint.json
 jest.config.js
 CODEOWNERS
