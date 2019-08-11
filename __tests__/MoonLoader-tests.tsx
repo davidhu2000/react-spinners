@@ -15,10 +15,6 @@ describe("MoonLoader", () => {
   let defaultUnit: string = "px";
   let defaultWrapperSize: number = defaultSize + (defaultSize / 7) * 2;
 
-  afterEach(() => {
-    loader.detach();
-  });
-
   it("should match snapshot", () => {
     loader = mount(<MoonLoader />);
     expect(loader).toMatchSnapshot();

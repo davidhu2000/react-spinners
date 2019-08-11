@@ -14,10 +14,6 @@ describe("HashLoader", () => {
   let defaultSize: number = 50;
   let defaultUnit: string = "px";
 
-  afterEach(() => {
-    loader.detach();
-  });
-
   it("should match snapshot", () => {
     loader = mount(<HashLoader />);
     expect(loader).toMatchSnapshot();

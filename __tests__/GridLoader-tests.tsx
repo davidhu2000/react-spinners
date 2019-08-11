@@ -15,10 +15,6 @@ describe("GridLoader", () => {
   let defaultUnit: string = "px";
   let wrapperWidthDefault: number = parseFloat(defaultSize.toString()) * 3 + parseFloat("2px") * 6;
 
-  afterEach(() => {
-    loader.detach();
-  });
-
   it("should match snapshot", () => {
     loader = mount(<GridLoader />);
     expect(loader).toMatchSnapshot();

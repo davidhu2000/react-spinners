@@ -14,10 +14,6 @@ describe("ClimbingBoxLoader", () => {
   let defaultSize: number = 15;
   let defaultUnit: string = "px";
 
-  afterEach(() => {
-    loader.detach();
-  });
-
   it("should match snapshot", () => {
     loader = mount(<ClimbingBoxLoader />);
     expect(loader).toMatchSnapshot();
