@@ -14,6 +14,10 @@ describe("ClipLoader", () => {
   let defaultSize: number = 35;
   let defaultUnit: string = "px";
 
+  afterEach(() => {
+    loader.detach();
+  });
+
   it("should match snapshot", () => {
     loader = mount(<ClipLoader />);
     expect(loader).toMatchSnapshot();

@@ -14,6 +14,10 @@ describe("DotLoader", () => {
   let defaultSize: number = 60;
   let defaultUnit: string = "px";
 
+  afterEach(() => {
+    loader.detach();
+  });
+
   it("should match snapshot", () => {
     loader = mount(<DotLoader />);
     expect(loader).toMatchSnapshot();

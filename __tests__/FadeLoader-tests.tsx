@@ -16,6 +16,10 @@ describe("FadeLoader", () => {
   let defaultRadius: number = 2;
   let defaultUnit: string = "px";
 
+  afterEach(() => {
+    loader.detach();
+  });
+
   it("should match snapshot", () => {
     loader = mount(<FadeLoader />);
     expect(loader).toMatchSnapshot();

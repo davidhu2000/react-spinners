@@ -14,6 +14,10 @@ describe("RiseLoader", () => {
   let defaultColor: string = "#000000";
   let defaultUnit: string = "px";
 
+  afterEach(() => {
+    loader.detach();
+  });
+
   it("should match snapshot", () => {
     loader = mount(<RiseLoader />);
     expect(loader).toMatchSnapshot();
