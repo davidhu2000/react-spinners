@@ -41,7 +41,7 @@ exports[`GridLoader should match snapshot 1`] = `
   animation: animation-0 1.1s 0.3s infinite ease;
 }
 
-<onlyUpdateForKeys(Loader)
+<Loader
   color="#000000"
   css={Object {}}
   loading={true}
@@ -49,45 +49,36 @@ exports[`GridLoader should match snapshot 1`] = `
   size={15}
   sizeUnit="px"
 >
-  <Loader
-    color="#000000"
-    css={Object {}}
-    loading={true}
-    margin="2px"
-    size={15}
-    sizeUnit="px"
+  <div
+    className="emotion-9"
   >
     <div
-      className="emotion-9"
-    >
-      <div
-        className="emotion-0"
-      />
-      <div
-        className="emotion-0"
-      />
-      <div
-        className="emotion-0"
-      />
-      <div
-        className="emotion-0"
-      />
-      <div
-        className="emotion-0"
-      />
-      <div
-        className="emotion-0"
-      />
-      <div
-        className="emotion-0"
-      />
-      <div
-        className="emotion-0"
-      />
-      <div
-        className="emotion-0"
-      />
-    </div>
-  </Loader>
-</onlyUpdateForKeys(Loader)>
+      className="emotion-0"
+    />
+    <div
+      className="emotion-0"
+    />
+    <div
+      className="emotion-0"
+    />
+    <div
+      className="emotion-0"
+    />
+    <div
+      className="emotion-0"
+    />
+    <div
+      className="emotion-0"
+    />
+    <div
+      className="emotion-0"
+    />
+    <div
+      className="emotion-0"
+    />
+    <div
+      className="emotion-0"
+    />
+  </div>
+</Loader>
 `;

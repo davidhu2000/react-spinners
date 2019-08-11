@@ -36,23 +36,15 @@ exports[`ClipLoader should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-<onlyUpdateForKeys(Loader)
+<Loader
   color="#000000"
   css={Object {}}
   loading={true}
   size={35}
   sizeUnit="px"
 >
-  <Loader
-    color="#000000"
-    css={Object {}}
-    loading={true}
-    size={35}
-    sizeUnit="px"
-  >
-    <div
-      className="emotion-0"
-    />
-  </Loader>
-</onlyUpdateForKeys(Loader)>
+  <div
+    className="emotion-0"
+  />
+</Loader>
 `;

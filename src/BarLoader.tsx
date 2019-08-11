@@ -2,9 +2,8 @@
 import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
-import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 
-import { calculateRgba, heightWidthDefaults, heightWidthKeys } from "./helpers";
+import { calculateRgba, heightWidthDefaults } from "./helpers";
 import {
   LoaderHeightWidthProps,
   StyleFunction,
@@ -73,8 +72,4 @@ export class Loader extends React.PureComponent<LoaderHeightWidthProps> {
   }
 }
 
-const Component: React.ComponentClass<LoaderHeightWidthProps> = onlyUpdateForKeys(heightWidthKeys)(
-  Loader
-);
-Component.defaultProps = Loader.defaultProps;
-export default Component;
+export default Loader;

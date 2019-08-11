@@ -116,34 +116,26 @@ exports[`ClimbingBoxLoader should match snapshot 1`] = `
   transform: rotate(45deg);
 }
 
-<onlyUpdateForKeys(Loader)
+<Loader
   color="#000000"
   css={Object {}}
   loading={true}
   size={15}
   sizeUnit="px"
 >
-  <Loader
-    color="#000000"
-    css={Object {}}
-    loading={true}
-    size={15}
-    sizeUnit="px"
+  <div
+    className="emotion-3"
   >
     <div
-      className="emotion-3"
+      className="emotion-2"
     >
       <div
-        className="emotion-2"
-      >
-        <div
-          className="emotion-0"
-        />
-        <div
-          className="emotion-1"
-        />
-      </div>
+        className="emotion-0"
+      />
+      <div
+        className="emotion-1"
+      />
     </div>
-  </Loader>
-</onlyUpdateForKeys(Loader)>
+  </div>
+</Loader>
 `;

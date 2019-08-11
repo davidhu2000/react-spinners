@@ -2,9 +2,8 @@
 import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
-import onlyUpdateForKeys from "recompose/onlyUpdateForKeys";
 
-import { sizeMarginKeys, sizeMarginDefaults } from "./helpers";
+import { sizeMarginDefaults } from "./helpers";
 import { LoaderSizeMarginProps, PrecompiledCss, StyleFunctionWithIndex } from "./interfaces";
 
 const beat: Keyframes = keyframes`
@@ -42,8 +41,4 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   }
 }
 
-const Component: React.ComponentClass<LoaderSizeMarginProps> = onlyUpdateForKeys(sizeMarginKeys)(
-  Loader
-);
-Component.defaultProps = Loader.defaultProps;
-export default Component;
+export default Loader;
