@@ -24,3 +24,6 @@ jobs: # a collection of steps
       - run:
           name: Jest tests
           command: npm run test:jest
+      - run:
+          name: Report coverage
+          command: npm run coveralls
