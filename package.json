@@ -47,7 +47,7 @@
   "types": "./src/index.d.ts",
   "devDependencies": {
     "@babel/cli": "^7.5.0",
-    "@babel/core": "^7.5.0",
+    "@babel/core": "^7.5.5",
     "@babel/node": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.0",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
