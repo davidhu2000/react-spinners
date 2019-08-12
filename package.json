@@ -62,7 +62,7 @@
     "@types/react-color": "^3.0.1",
     "@types/react-dom": "^16.8.4",
     "babel-loader": "^8.0.6",
-    "babel-plugin-emotion": "^10.0.14",
+    "babel-plugin-emotion": "^10.0.15",
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
     "coveralls": "^3.0.6",
     "enzyme": "^3.10.0",
