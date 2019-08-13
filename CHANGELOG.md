@@ -106,6 +106,8 @@ npm notice unpacked size: 191.2 kB
 
 ## 0.5.13
 
+**Note: this release has a critical [issue](https://github.com/davidhu2000/react-spinners/issues/74) and was deprecated. Please use <= 0.5.12 or > 0.6.0.**
+
 - fix readme props table formatting. It got a little messy for some reason.
 
 ## 0.5.12
