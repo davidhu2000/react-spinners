@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.0-beta.1
+
+- updated `devDependencies` to latest versions.
+
 ## 0.6.0-alpha.10
 
 - Removed `recompose` from the list of dependencies. We currently wants the component to update for all prop changes, so the `onlyUpdateForKeys` was passed in all the props anyways, so it wasn't doing much. 
