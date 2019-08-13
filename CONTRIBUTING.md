@@ -16,23 +16,29 @@ Install the necessary dependencies (you can use `npm` or `yarn`):
 
     npm install
 
-After finishing your feature, to update the `dist` folder, you can run:
+If you want to make changes to the demo page, you can edit the files in `examples` and `docs` folder. 
 
-    npm run prepublish
-
-If you want to make changes to the demo page, you can edit the files in `examples` and `docs` folder.
-To see the changes, you can use `webpack` to update the bundle file.
+To see the changes to the loaders or the demo site, you can use `webpack` to update the bundle file.
 
     npm run watch
 
-Make or add changes, commit your changes:
+And open `./docs/index.html` in your favorite browser. 
+
+After all the changes are made, make sure nothing changed in the demo site by running
+
+    npm run build:demo
+
+And commit the file changes in the docs folder.
+
+Then commit your changes:
 
     git add -A;
     git commit -m 'Awesome new feature';
 
 Make sure to run the necessary tests and lints and fix any errors:
 
-    npm run lintfix;
+    npm run lint;
+    npm run test:jest;
 
 Push up to Github:
 
