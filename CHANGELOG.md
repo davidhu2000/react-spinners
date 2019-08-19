@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.0
+
+- Offical release for the TypeScript rewrite! 
+- Major changes: 
+    - Add support for types for individual loader imports
+    - Add support for using basic color name as props instead of only color hashes
+    - Reduced total package size from around 850kb to 135gb
+    - Fix `main` key value in `package.json` to point to the correct `index.js`
+    - Removed `prop-types` and `recompose` from dependencies
+    - Added tests to get to 100% code coverage
+
 ## 0.6.0-beta.1
 
 - updated `devDependencies` to latest versions.
