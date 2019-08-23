@@ -96,7 +96,7 @@ npm notice unpacked size: 191.2 kB
 ## 0.6.0-alpha.4
 
 - **bugfix**: update `package.json` `main` value from `dist/index.js` to `index.js` to fix codeSandbox import issue. 
-- **bugfix**: add missing `transform` key to the `25%` keyframe. It was just `25% {translateY(-${riseAmount}px)}` before. Now it is corrected. 
+- **bugfix**: add missing `transform` key to the `25%` keyframe in RiseLoader. It was just `25% {translateY(-${riseAmount}px)}` before. Now it is corrected. 
 - add tests for all the loaders. Fixed up a few tests using default variables, namely the first 3 letters in the alphabet. 
 
 ## 0.6.0-alpha.3
