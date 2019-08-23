@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.1
+
+- **bugfix**: Fix [issue 109](https://github.com/davidhu2000/react-spinners/issues/109) where `Math.random` is stubbed out in the `GridLoader` component instead in the tests, causing `Math.random` to not work properly if `GridLoader` is used. 
+
 ## 0.6.0
 
 - Offical release for the TypeScript rewrite! 
