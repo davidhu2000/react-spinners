@@ -11,14 +11,6 @@ import {
   StyleFunctionWithIndex
 } from "./interfaces";
 
-interface MockMath {
-  random: () => number;
-}
-
-const mockMath: MockMath = Object.create(global.Math);
-mockMath.random = (): number => 0.5;
-global.Math = mockMath as Math;
-
 const grid: Keyframes = keyframes`
   0% {transform: scale(1)}
   50% {transform: scale(0.5); opacity: 0.7}
