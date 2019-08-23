@@ -7,6 +7,14 @@ import GridLoader from "../src/GridLoader";
 import { LoaderSizeMarginProps } from "../src/interfaces";
 import { sizeMarginDefaults } from "../src/helpers";
 
+interface MockMath {
+  random: () => number;
+}
+
+const mockMath: MockMath = Object.create(global.Math);
+mockMath.random = (): number => 0.5;
+global.Math = mockMath as Math;
+
 describe("GridLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeMarginProps;
