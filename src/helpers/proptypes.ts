@@ -24,7 +24,7 @@ export interface DefaultProps {
 
 type HeightWidthFunction = (height: number, width: number) => DefaultProps;
 type HeightWidthRadiusFunction = (height: number, width: number, radius?: number) => DefaultProps;
-type SizeFunction = (size: number) => DefaultProps;
+type SizeFunction = (size: number) => any;
 
 const commonValues: DefaultProps = {
   [LOADING]: true,
@@ -40,8 +40,7 @@ const heightWidthValues: HeightWidthFunction = (height: number, width: number): 
 });
 
 const sizeValues: SizeFunction = (sizeValue: number): DefaultProps => ({
-  [SIZE]: sizeValue,
-  [SIZE_UNIT]: "px"
+  [SIZE]: sizeValue
 });
 
 export const sizeDefaults: SizeFunction = (sizeValue: number): DefaultProps => {

@@ -28,8 +28,7 @@ export interface LoaderHeightWidthProps extends CommonProps {
 }
 
 export interface LoaderSizeProps extends CommonProps {
-  size?: number;
-  sizeUnit?: string;
+  size?: number | string;
 }
 
 export interface LoaderSizeMarginProps extends LoaderSizeProps {
