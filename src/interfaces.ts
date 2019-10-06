@@ -3,6 +3,11 @@ export interface PrecompiledCss {
   styles: string;
 }
 
+export interface LengthObject {
+  value: number;
+  unit: string;
+}
+
 export type StyleFunction = () => PrecompiledCss;
 
 export type StyleFunctionWithIndex = (i: number) => PrecompiledCss;
