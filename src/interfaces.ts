@@ -3,6 +3,11 @@ export interface PrecompiledCss {
   styles: string;
 }
 
+export interface LengthObject {
+  value: number;
+  unit: string;
+}
+
 export type StyleFunction = () => PrecompiledCss;
 
 export type StyleFunctionWithIndex = (i: number) => PrecompiledCss;
@@ -23,9 +28,10 @@ export interface LoaderHeightWidthProps extends CommonProps {
 }
 
 export interface LoaderSizeProps extends CommonProps {
-  size?: number;
-  sizeUnit?: string;
+  size?: number | string;
 }
+
+export type LoaderSizeDefaultProps = Required<LoaderSizeProps>;
 
 export interface LoaderSizeMarginProps extends LoaderSizeProps {
   margin?: string;
