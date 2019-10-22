@@ -24,7 +24,8 @@ import {
   LoaderHeightWidthProps,
   LoaderSizeMarginProps,
   LoaderSizeProps,
-  LoaderHeightWidthRadiusProps
+  LoaderHeightWidthRadiusProps,
+  LoaderSizeMarginSecondaryColorProps
 } from "./interfaces";
 
 export const BarLoader: React.ComponentClass<LoaderHeightWidthProps> = BarLoaderComponent;
@@ -38,7 +39,7 @@ export const FadeLoader: React.ComponentClass<LoaderHeightWidthRadiusProps> = Fa
 export const GridLoader: React.ComponentClass<LoaderSizeMarginProps> = GridLoaderComponent;
 export const HashLoader: React.ComponentClass<LoaderSizeProps> = HashLoaderComponent;
 export const MoonLoader: React.ComponentClass<LoaderSizeProps> = MoonLoaderComponent;
-export const PacmanLoader: React.ComponentClass<LoaderSizeMarginProps> = PacmanLoaderComponent;
+export const PacmanLoader: React.ComponentClass<LoaderSizeMarginSecondaryColorProps> = PacmanLoaderComponent;
 export const PropagateLoader: React.ComponentClass<LoaderSizeProps> = PropagateLoaderComponent;
 export const PulseLoader: React.ComponentClass<LoaderSizeMarginProps> = PulseLoaderComponent;
 export const RingLoader: React.ComponentClass<LoaderSizeProps> = RingLoaderComponent;

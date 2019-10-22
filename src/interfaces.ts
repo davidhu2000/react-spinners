@@ -41,3 +41,7 @@ export interface LoaderHeightWidthRadiusProps extends LoaderHeightWidthProps {
   radius?: number;
   radiusUnit?: string;
 }
+
+export interface LoaderSizeMarginSecondaryColorProps extends LoaderSizeMarginProps {
+  color2?: string;
+}

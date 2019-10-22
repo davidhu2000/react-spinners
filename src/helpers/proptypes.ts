@@ -3,6 +3,7 @@
  */
 const LOADING: string = "loading";
 const COLOR: string = "color";
+const COLOR2: string = "color2";
 const CSS: string = "css";
 const SIZE: string = "size";
 const SIZE_UNIT: string = "sizeUnit";
@@ -25,6 +26,7 @@ export interface DefaultProps {
 type HeightWidthFunction = (height: number, width: number) => DefaultProps;
 type HeightWidthRadiusFunction = (height: number, width: number, radius?: number) => DefaultProps;
 type SizeFunction = (size: number) => DefaultProps;
+type SizeSecondaryColorFunction = (size: number, color2: string) => DefaultProps;
 
 const commonValues: DefaultProps = {
   [LOADING]: true,
@@ -51,6 +53,16 @@ export const sizeDefaults: SizeFunction = (sizeValue: number): DefaultProps => {
 export const sizeMarginDefaults: SizeFunction = (sizeValue: number): DefaultProps => {
   return Object.assign({}, sizeDefaults(sizeValue), {
     [MARGIN]: "2px"
+  });
+};
+
+export const sizeMarginSecondaryColorDefaults: SizeSecondaryColorFunction = (
+  sizeValue: number,
+  color2: string
+): DefaultProps => {
+  return Object.assign({}, sizeDefaults(sizeValue), {
+    [MARGIN]: "2px",
+    [COLOR2]: color2
   });
 };
 

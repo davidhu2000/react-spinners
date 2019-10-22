@@ -3,11 +3,11 @@ import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
-import { sizeMarginDefaults } from "./helpers";
+import { sizeMarginSecondaryColorDefaults } from "./helpers";
 import {
   StyleFunction,
   PrecompiledCss,
-  LoaderSizeMarginProps,
+  LoaderSizeMarginSecondaryColorProps,
   CalcFunction,
   StyleFunctionWithIndex
 } from "./interfaces";
@@ -23,8 +23,11 @@ const pacman: Keyframes[] = [
   `
 ];
 
-class Loader extends React.PureComponent<LoaderSizeMarginProps> {
-  public static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(25);
+class Loader extends React.PureComponent<LoaderSizeMarginSecondaryColorProps> {
+  public static defaultProps: LoaderSizeMarginSecondaryColorProps = sizeMarginSecondaryColorDefaults(
+    25,
+    ""
+  );
 
   public ball: CalcFunction<Keyframes> = (): Keyframes => {
     const { size, sizeUnit } = this.props;
@@ -36,12 +39,16 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   };
 
   public ballStyle: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
-    const { color, margin, size, sizeUnit } = this.props;
+    console.debug(this.props);
+    const { color, color2, margin, size, sizeUnit } = this.props;
+    let c: string = color;
+
+    if (color2 !== undefined && color2.length !== 0) c = color2;
 
     return css`
       width: ${`${size! / 3}${sizeUnit}`};
       height: ${`${size! / 3}${sizeUnit}`};
-      background-color: ${color};
+      background-color: ${c};
       margin: ${margin};
       border-radius: 100%;
       transform: translate(0, ${`${-size! / 4}${sizeUnit}`});
@@ -82,6 +89,7 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
       position: absolute;
       animation: ${pacman[i]} 0.8s infinite ease-in-out;
       animation-fill-mode: both;
+      z-index: 1;
     `;
   };
 

@@ -15,7 +15,7 @@ const Form: FormType = ({ inputs, update }: FormProps): JSX.Element => (
       <div className="spinner-form-input" key={name}>
         <input
           name={name}
-          type={name === "margin" ? "text" : "number"}
+          type={["margin", "color2"].indexOf(name) !== -1 ? "text" : "number"}
           value={inputs[name]}
           onChange={update(name)}
         />
