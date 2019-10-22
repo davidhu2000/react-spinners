@@ -37,10 +37,7 @@ class LoaderItem extends React.Component<ItemProps, ItemState> {
   public update(field: string): UpdateFunction {
     return (e: React.ChangeEvent<any>): void => {
       let { value } = e.target;
-      if (!value.includes("px")) {
-        value = parseInt(value, 10);
-      }
-
+      if (!isNaN(value)) value = parseInt(value, 10);
       this.setState({ [field]: value });
     };
   }
