@@ -23,8 +23,14 @@ This package is bootstraped using [react-npm-boilerplate](https://github.com/jul
 
 ## Installation
 
+With Yarn:
 ```bash
-npm install react-spinners --save
+yarn add react-spinners
+```
+
+or alternatively using npm:
+```bash
+npm i -S react-spinners
 ```
 
 ## Usage
