@@ -76,7 +76,7 @@
     "react-click-outside": "^3.0.0",
     "react-color": "^2.17.3",
     "react-dom": "^16.9.0",
-    "ts-jest": "^24.0.2",
+    "ts-jest": "^24.1.0",
     "ts-loader": "^6.0.4",
     "tslint": "^5.18.0",
     "tslint-react": "^4.0.0",
