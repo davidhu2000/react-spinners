@@ -22,9 +22,7 @@ interface CommonProps {
 
 export interface LoaderHeightWidthProps extends CommonProps {
   height?: number;
-  heightUnit?: string;
   width?: number;
-  widthUnit?: string;
 }
 
 export interface LoaderSizeProps extends CommonProps {
@@ -38,5 +36,4 @@ export interface LoaderSizeMarginProps extends LoaderSizeProps {
 export interface LoaderHeightWidthRadiusProps extends LoaderHeightWidthProps {
   margin?: string;
   radius?: number;
-  radiusUnit?: string;
 }
