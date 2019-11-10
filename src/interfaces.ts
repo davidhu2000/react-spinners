@@ -20,20 +20,22 @@ interface CommonProps {
   css?: string | PrecompiledCss;
 }
 
+type LengthType = number | string;
+
 export interface LoaderHeightWidthProps extends CommonProps {
-  height?: number;
-  width?: number;
+  height?: LengthType;
+  width?: LengthType;
 }
 
 export interface LoaderSizeProps extends CommonProps {
-  size?: number | string;
+  size?: LengthType;
 }
 
 export interface LoaderSizeMarginProps extends LoaderSizeProps {
-  margin?: string;
+  margin?: LengthType;
 }
 
 export interface LoaderHeightWidthRadiusProps extends LoaderHeightWidthProps {
-  margin?: string;
-  radius?: number;
+  margin?: LengthType;
+  radius?: LengthType;
 }
