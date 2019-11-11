@@ -62,8 +62,8 @@ describe("BounceLoader", () => {
     it("should render the size as is when size is a string with valid css unit", () => {
       let size: string = "18px";
       loader = mount(<BounceLoader size={size} />);
-      expect(loader).not.toHaveStyleRule("height", `${defaultSize}`);
-      expect(loader).not.toHaveStyleRule("width", `${defaultSize}`);
+      expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
       expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
       expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
@@ -78,8 +78,8 @@ describe("BounceLoader", () => {
       let unit: string = "ad";
       let size: string = `${length}${unit}`;
       loader = mount(<BounceLoader size={size} />);
-      expect(loader).not.toHaveStyleRule("height", `${defaultSize}`);
-      expect(loader).not.toHaveStyleRule("width", `${defaultSize}`);
+      expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
       expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
       expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
