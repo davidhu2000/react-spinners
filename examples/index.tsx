@@ -6,6 +6,7 @@ import { ColorResult } from "react-color";
 
 import { Code, ColorPicker, LoaderItem } from "./components";
 import * as Spinners from "../src";
+import BounceLoader from "../src/BounceLoader";
 
 interface ExampleState {
   color: string;
@@ -71,9 +72,16 @@ class SpinnerExamples extends React.Component<{}, ExampleState> {
           )}
         </div>
 
-        {Object.keys(Spinners).map((name: string) => (
+        <BounceLoader
+          size={100}
+          css={css`
+            color: blue;
+          `}
+        />
+
+        {/* {Object.keys(Spinners).map((name: string) => (
           <LoaderItem key={`loader-${name}`} color={color} name={name} spinner={Spinners[name]} />
-        ))}
+        ))} */}
       </div>
     );
   }

@@ -3,7 +3,7 @@ import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
-import { sizeMarginDefaults } from "./helpers";
+import { sizeMarginDefaults, cssValue } from "./helpers";
 import { LoaderSizeMarginProps, PrecompiledCss, StyleFunctionWithIndex } from "./interfaces";
 
 const beat: Keyframes = keyframes`
@@ -14,14 +14,14 @@ const beat: Keyframes = keyframes`
 class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   public static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
   public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
-    const { color, size, sizeUnit, margin } = this.props;
+    const { color, size, margin } = this.props;
 
     return css`
       display: inline-block;
       background-color: ${color};
-      width: ${`${size}${sizeUnit}`};
-      height: ${`${size}${sizeUnit}`};
-      margin: ${margin};
+      width: ${cssValue(size!)};
+      height: ${cssValue(size!)};
+      margin: ${cssValue(margin!)};
       border-radius: 100%;
       animation: ${beat} 0.7s ${i % 2 ? "0s" : "0.35s"} infinite linear;
       animation-fill-mode: both;

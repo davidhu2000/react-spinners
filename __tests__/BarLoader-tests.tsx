@@ -46,36 +46,69 @@ describe("BarLoader", () => {
     expect(loader.find("div div")).toHaveStyleRule("background-color", color);
   });
 
-  it("should render the correct height based on props", () => {
-    let height: number = 10;
-    loader = mount(<BarLoader height={height} />);
-    expect(loader).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
-    expect(loader).toHaveStyleRule("height", `${height}${defaultUnit}`);
-    expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
-    expect(loader.find("div div")).toHaveStyleRule("height", `${height}${defaultUnit}`);
+  describe("height prop", () => {
+    it("should render the height with px unit when size is a number", () => {
+      let height: number = 10;
+      loader = mount(<BarLoader height={height} />);
+      expect(loader).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("height", `${height}${defaultUnit}`);
+      expect(loader.find("div div")).not.toHaveStyleRule(
+        "height",
+        `${defaultHeight}${defaultUnit}`
+      );
+      expect(loader.find("div div")).toHaveStyleRule("height", `${height}${defaultUnit}`);
+    });
+
+    it("should render the height as is when height is a string with valid css unit", () => {
+      let height: string = "18%";
+      loader = mount(<BarLoader height={height} />);
+      expect(loader).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("height", `${height}`);
+      expect(loader.find("div div")).not.toHaveStyleRule(
+        "height",
+        `${defaultHeight}${defaultUnit}`
+      );
+      expect(loader.find("div div")).toHaveStyleRule("height", `${height}`);
+    });
+
+    it("should render the height with default unit of px when the unit is incorrect", () => {
+      let length: number = 18;
+      let unit: string = "ad";
+      let height: string = `${length}${unit}`;
+      loader = mount(<BarLoader height={height} />);
+      expect(loader).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("height", `${length}${defaultUnit}`);
+      expect(loader.find("div div")).not.toHaveStyleRule(
+        "height",
+        `${defaultHeight}${defaultUnit}`
+      );
+      expect(loader.find("div div")).toHaveStyleRule("height", `${length}${defaultUnit}`);
+    });
   });
 
-  it("should render the correct heightUnit basd on passed in props", () => {
-    let unit: string = "%";
-    loader = mount(<BarLoader heightUnit={unit} />);
-    expect(loader).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
-    expect(loader).toHaveStyleRule("height", `${defaultHeight}${unit}`);
-    expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
-    expect(loader.find("div div")).toHaveStyleRule("height", `${defaultHeight}${unit}`);
-  });
+  describe("width prop", () => {
+    it("should render the width with px unit when size is a number", () => {
+      let width: number = 10;
+      loader = mount(<BarLoader width={10} />);
+      expect(loader).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("width", `${width}${defaultUnit}`);
+    });
 
-  it("should render the correct width based on props", () => {
-    let width: number = 10;
-    loader = mount(<BarLoader width={10} />);
-    expect(loader).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
-    expect(loader).toHaveStyleRule("width", `${width}${defaultUnit}`);
-  });
+    it("should render the height as is when height is a string with valid css unit", () => {
+      let width: string = "18%";
+      loader = mount(<BarLoader width={width} />);
+      expect(loader).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("width", `${width}`);
+    });
 
-  it("should render the correct widthUnit basd on passed in props", () => {
-    let unit: string = "%";
-    loader = mount(<BarLoader widthUnit="%" />);
-    expect(loader).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
-    expect(loader).toHaveStyleRule("width", `${defaultWidth}${unit}`);
+    it("should render the width with default unit of px when the unit is incorrect", () => {
+      let length: number = 18;
+      let unit: string = "ad";
+      let width: string = `${length}${unit}`;
+      loader = mount(<BarLoader width={width} />);
+      expect(loader).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("width", `${length}${defaultUnit}`);
+    });
   });
 
   it("should render the css override based on props", () => {
