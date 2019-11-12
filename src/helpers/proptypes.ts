@@ -28,7 +28,7 @@ export function sizeDefaults(sizeValue: number): Required<LoaderSizeProps> {
 
 export function sizeMarginDefaults(sizeValue: number): Required<LoaderSizeMarginProps> {
   return Object.assign({}, sizeDefaults(sizeValue), {
-    margin: "2px"
+    margin: 2
   });
 }
 
@@ -49,6 +49,6 @@ export function heightWidthRadiusDefaults(
 ): Required<LoaderHeightWidthRadiusProps> {
   return Object.assign({}, heightWidthDefaults(height, width), {
     radius,
-    margin: "2px"
+    margin: 2
   });
 }
