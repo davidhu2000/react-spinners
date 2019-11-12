@@ -76,10 +76,12 @@ exports[`BarLoader should match snapshot 1`] = `
 
 <Loader
   color="#000000"
-  css=""
+  css={Object {}}
   height={4}
+  heightUnit="px"
   loading={true}
   width={100}
+  widthUnit="px"
 >
   <div
     className="emotion-2"

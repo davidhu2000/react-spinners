@@ -3,7 +3,7 @@ import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
-import { sizeDefaults, cssValue } from "./helpers";
+import { sizeDefaults } from "./helpers";
 import {
   StyleFunction,
   PrecompiledCss,
@@ -17,15 +17,15 @@ const bounce: Keyframes = keyframes`
 `;
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
-  public static defaultProps: Required<LoaderSizeProps> = sizeDefaults(60);
+  public static defaultProps: LoaderSizeProps = sizeDefaults(60);
 
   public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
-    const { color, size } = this.props;
+    const { size, color, sizeUnit } = this.props;
 
     return css`
       position: absolute;
-      height: ${cssValue(size!)};
-      width: ${cssValue(size!)};
+      height: ${`${size}${sizeUnit}`};
+      width: ${`${size}${sizeUnit}`};
       background-color: ${color};
       border-radius: 100%;
       opacity: 0.6;
@@ -37,12 +37,12 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   };
 
   public wrapper: StyleFunction = (): PrecompiledCss => {
-    const { size } = this.props;
+    const { size, sizeUnit } = this.props;
 
     return css`
       position: relative;
-      width: ${cssValue(size!)};
-      height: ${cssValue(size!)};
+      width: ${`${size}${sizeUnit}`};
+      height: ${`${size}${sizeUnit}`};
     `;
   };
 

@@ -44,50 +44,27 @@ describe("BounceLoader", () => {
     expect(loader.find("div div")).toHaveStyleRule("background-color", color);
   });
 
-  describe("size prop", () => {
-    it("should render the size with px unit when size is a number", () => {
-      let size: number = 18;
-      loader = mount(<BounceLoader size={size} />);
-      expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
-      expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+  it("should render the correct size based on props", () => {
+    let size: number = 18;
+    loader = mount(<BounceLoader size={size} />);
+    expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+    expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
-      expect(loader).toHaveStyleRule("height", `${size}${defaultUnit}`);
-      expect(loader).toHaveStyleRule("width", `${size}${defaultUnit}`);
-      expect(loader.find("div div")).toHaveStyleRule("height", `${size}${defaultUnit}`);
-      expect(loader.find("div div")).toHaveStyleRule("width", `${size}${defaultUnit}`);
-    });
+    expect(loader).toHaveStyleRule("height", `${size}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("width", `${size}${defaultUnit}`);
+    expect(loader.find("div div")).toHaveStyleRule("height", `${size}${defaultUnit}`);
+    expect(loader.find("div div")).toHaveStyleRule("width", `${size}${defaultUnit}`);
+  });
 
-    it("should render the size as is when size is a string with valid css unit", () => {
-      let size: string = "18px";
-      loader = mount(<BounceLoader size={size} />);
-      expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
-      expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-
-      expect(loader).toHaveStyleRule("height", `${size}`);
-      expect(loader).toHaveStyleRule("width", `${size}`);
-      expect(loader.find("div div")).toHaveStyleRule("height", `${size}`);
-      expect(loader.find("div div")).toHaveStyleRule("width", `${size}`);
-    });
-
-    it("should render the size with default unit of px when the unit is incorrect", () => {
-      let length: number = 18;
-      let unit: string = "ad";
-      let size: string = `${length}${unit}`;
-      loader = mount(<BounceLoader size={size} />);
-      expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
-      expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-
-      expect(loader).toHaveStyleRule("height", `${length}${defaultUnit}`);
-      expect(loader).toHaveStyleRule("width", `${length}${defaultUnit}`);
-      expect(loader.find("div div")).toHaveStyleRule("height", `${length}${defaultUnit}`);
-      expect(loader.find("div div")).toHaveStyleRule("width", `${length}${defaultUnit}`);
-    });
+  it("should render the correct sizeUnit based on props", () => {
+    let unit: string = "%";
+    loader = mount(<BounceLoader sizeUnit={unit} />);
+    expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+    expect(loader.find("div div")).toHaveStyleRule("height", `${defaultSize}${unit}`);
+    expect(loader.find("div div")).toHaveStyleRule("width", `${defaultSize}${unit}`);
   });
 
   it("should render the css override based on props", () => {
