@@ -1,74 +1,54 @@
-/*
- * List of string constants to represent different props
- */
-const LOADING: string = "loading";
-const COLOR: string = "color";
-const CSS: string = "css";
-const SIZE: string = "size";
-const SIZE_UNIT: string = "sizeUnit";
-const WIDTH: string = "width";
-const WIDTH_UNIT: string = "widthUnit";
-const HEIGHT: string = "height";
-const HEIGHT_UNIT: string = "heightUnit";
-const RADIUS: string = "radius";
-const RADIUS_UNIT: string = "radiusUnit";
-const MARGIN: string = "margin";
+import {
+  LoaderHeightWidthProps,
+  LoaderSizeProps,
+  PrecompiledCss,
+  LoaderSizeMarginProps,
+  LoaderHeightWidthRadiusProps
+} from "../interfaces";
 
 /*
  * DefaultProps object for different loaders
  */
 
-export interface DefaultProps {
-  [key: string]: boolean | string | {} | number;
+interface CommonDefaults {
+  loading: boolean;
+  color: string;
+  css: string | PrecompiledCss;
 }
 
-type HeightWidthFunction = (height: number, width: number) => DefaultProps;
-type HeightWidthRadiusFunction = (height: number, width: number, radius?: number) => DefaultProps;
-type SizeFunction = (size: number) => DefaultProps;
-
-const commonValues: DefaultProps = {
-  [LOADING]: true,
-  [COLOR]: "#000000",
-  [CSS]: {}
+const commonValues: CommonDefaults = {
+  loading: true,
+  color: "#000000",
+  css: ""
 };
 
-const heightWidthValues: HeightWidthFunction = (height: number, width: number): DefaultProps => ({
-  [HEIGHT]: height,
-  [HEIGHT_UNIT]: "px",
-  [WIDTH]: width,
-  [WIDTH_UNIT]: "px"
-});
+export function sizeDefaults(sizeValue: number): Required<LoaderSizeProps> {
+  return Object.assign({}, commonValues, { size: sizeValue });
+}
 
-const sizeValues: SizeFunction = (sizeValue: number): DefaultProps => ({
-  [SIZE]: sizeValue,
-  [SIZE_UNIT]: "px"
-});
-
-export const sizeDefaults: SizeFunction = (sizeValue: number): DefaultProps => {
-  return Object.assign({}, commonValues, sizeValues(sizeValue));
-};
-
-export const sizeMarginDefaults: SizeFunction = (sizeValue: number): DefaultProps => {
+export function sizeMarginDefaults(sizeValue: number): Required<LoaderSizeMarginProps> {
   return Object.assign({}, sizeDefaults(sizeValue), {
-    [MARGIN]: "2px"
+    margin: "2px"
   });
-};
+}
 
-export const heightWidthDefaults: HeightWidthFunction = (
+export function heightWidthDefaults(
   height: number,
   width: number
-): DefaultProps => {
-  return Object.assign({}, commonValues, heightWidthValues(height, width));
-};
+): Required<LoaderHeightWidthProps> {
+  return Object.assign({}, commonValues, {
+    height,
+    width
+  });
+}
 
-export const heightWidthRadiusDefaults: HeightWidthRadiusFunction = (
+export function heightWidthRadiusDefaults(
   height: number,
   width: number,
   radius: number = 2
-): DefaultProps => {
+): Required<LoaderHeightWidthRadiusProps> {
   return Object.assign({}, heightWidthDefaults(height, width), {
-    [RADIUS]: radius,
-    [RADIUS_UNIT]: "px",
-    [MARGIN]: "2px"
+    radius,
+    margin: "2px"
   });
-};
+}
