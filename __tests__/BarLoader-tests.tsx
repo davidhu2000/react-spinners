@@ -77,7 +77,7 @@ describe("BarLoader", () => {
       let height: string = `${length}${unit}`;
       loader = mount(<BarLoader height={height} />);
       expect(loader).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
-      expect(loader).toHaveStyleRule("height", `${height}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("height", `${length}${defaultUnit}`);
       expect(loader.find("div div")).not.toHaveStyleRule(
         "height",
         `${defaultHeight}${defaultUnit}`
