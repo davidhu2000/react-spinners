@@ -67,8 +67,7 @@
       "variable-declaration",
       "member-variable-declaration"
     ],
-    "semicolon": false,
-    "object-literal-key-quotes": false
+    "semicolon": false
   },
   "rulesDirectory": []
 }

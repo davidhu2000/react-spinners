@@ -61,10 +61,11 @@ exports[`BeatLoader should match snapshot 1`] = `
 
 <Loader
   color="#000000"
-  css=""
+  css={Object {}}
   loading={true}
   margin="2px"
   size={15}
+  sizeUnit="px"
 >
   <div
     className="emotion-3"
