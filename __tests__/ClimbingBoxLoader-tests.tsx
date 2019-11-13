@@ -8,7 +8,7 @@ import { LoaderSizeProps } from "../src/interfaces";
 import { sizeDefaults } from "../src/helpers";
 
 describe("ClimbingBoxLoader", () => {
-  let loader: ReactWrapper;
+  let loader: ReactWrapper<LoaderSizeProps, null, ClimbingBoxLoader>;
   let props: LoaderSizeProps;
   let defaultColor: string = "#000000";
   let defaultSize: number = 15;

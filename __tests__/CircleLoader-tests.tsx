@@ -8,7 +8,7 @@ import { LoaderSizeProps } from "../src/interfaces";
 import { sizeDefaults } from "../src/helpers";
 
 describe("CircleLoader", () => {
-  let loader: ReactWrapper;
+  let loader: ReactWrapper<LoaderSizeProps, null, CircleLoader>;
   let props: LoaderSizeProps;
   let defaultColor: string = "#000000";
   let defaultSize: number = 50;

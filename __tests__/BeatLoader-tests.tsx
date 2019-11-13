@@ -8,7 +8,7 @@ import { LoaderSizeMarginProps } from "../src/interfaces";
 import { sizeMarginDefaults } from "../src/helpers";
 
 describe("BeatLoader", () => {
-  let loader: ReactWrapper;
+  let loader: ReactWrapper<LoaderSizeMarginProps, null, BeatLoader>;
   let props: LoaderSizeMarginProps;
   let defaultColor: string = "#000000";
   let defaultSize: number = 15;

@@ -8,7 +8,7 @@ import { LoaderSizeProps } from "../src/interfaces";
 import { sizeDefaults } from "../src/helpers";
 
 describe("BounceLoader", () => {
-  let loader: ReactWrapper;
+  let loader: ReactWrapper<LoaderSizeProps, null, BounceLoader>;
   let props: LoaderSizeProps;
   let defaultColor: string = "#000000";
   let defaultSize: number = 60;

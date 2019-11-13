@@ -8,7 +8,7 @@ import { LoaderHeightWidthProps } from "../src/interfaces";
 import { heightWidthDefaults } from "../src/helpers";
 
 describe("BarLoader", () => {
-  let loader: ReactWrapper;
+  let loader: ReactWrapper<LoaderHeightWidthProps, null, BarLoader>;
   let props: LoaderHeightWidthProps;
   let defaultColor: string = "#000000";
   let defaultHeight: number = 4;

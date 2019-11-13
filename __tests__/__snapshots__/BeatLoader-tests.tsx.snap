@@ -63,7 +63,7 @@ exports[`BeatLoader should match snapshot 1`] = `
   color="#000000"
   css=""
   loading={true}
-  margin="2px"
+  margin={2}
   size={15}
 >
   <div
