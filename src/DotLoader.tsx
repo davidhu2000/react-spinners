@@ -3,7 +3,7 @@ import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
-import { sizeDefaults } from "./helpers";
+import { sizeDefaults, parseLengthAndUnit, cssValue } from "./helpers";
 import {
   StyleFunction,
   PrecompiledCss,
@@ -24,14 +24,15 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   public static defaultProps: LoaderSizeProps = sizeDefaults(60);
 
   public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
-    const { size, sizeUnit, color } = this.props;
+    const { size, color } = this.props;
+    let { value, unit } = parseLengthAndUnit(size!);
 
     return css`
       position: absolute;
       top: ${i % 2 ? "0" : "auto"};
       bottom: ${i % 2 ? "auto" : "0"};
-      height: ${`${size! / 2}${sizeUnit}`};
-      width: ${`${size! / 2}${sizeUnit}`};
+      height: ${`${value! / 2}${unit}`};
+      width: ${`${value! / 2}${unit}`};
       background-color: ${color};
       border-radius: 100%;
       animation-fill-mode: forwards;
@@ -40,12 +41,12 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   };
 
   public wrapper: StyleFunction = (): PrecompiledCss => {
-    const { size, sizeUnit } = this.props;
+    const { size } = this.props;
 
     return css`
       position: relative;
-      width: ${`${size}${sizeUnit}`};
-      height: ${`${size}${sizeUnit}`};
+      width: ${cssValue(size!)};
+      height: ${cssValue(size!)};
       animation-fill-mode: forwards;
       animation: ${rotate} 2s 0s infinite linear;
     `;
