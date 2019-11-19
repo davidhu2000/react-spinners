@@ -188,11 +188,10 @@ exports[`PacmanLoader should match snapshot 1`] = `
 
 <Loader
   color="#000000"
-  css={Object {}}
+  css=""
   loading={true}
-  margin="2px"
+  margin={2}
   size={25}
-  sizeUnit="px"
 >
   <div
     className="emotion-6"
