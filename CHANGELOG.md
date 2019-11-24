@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.7.0-alpha.1
+
+- **BREAKING CHANGE**: all unit props are deprecated, including `sizeUnit`, `heightUnit`, `widthUnit`, and `radiusUnit`. The `size`, `height`, `width`, and `radius` props now accepts `number` and `string`. 
+  - If value is number, default to `px`
+  - If value is string with valid css unit, return the input value
+  - If value is string with invalid css unit, output warning console log and default to `px`
+- `margin` prop now work the same way as other length props. Can accept `number` and `string`
+- `css` prop default is now `""`. No functionality change here
+
 ## 0.6.1
 
 - **bugfix**: Fix [issue 109](https://github.com/davidhu2000/react-spinners/issues/109) where `Math.random` is stubbed out in the `GridLoader` component instead in the tests, causing `Math.random` to not work properly if `GridLoader` is used. 
