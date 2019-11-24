@@ -14,6 +14,7 @@ describe("FadeLoader", () => {
   let defaultHeight: number = 15;
   let defaultWidth: number = 5;
   let defaultRadius: number = 2;
+  let defaultMargin: number = 2;
   let defaultUnit: string = "px";
 
   it("should match snapshot", () => {
@@ -37,7 +38,10 @@ describe("FadeLoader", () => {
         "width",
         `${defaultWidth}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).toHaveStyleRule("margin", "2px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "margin",
+        `${defaultMargin}${defaultUnit}`
+      );
       expect(loader.find("div div").at(i)).toHaveStyleRule(
         "border-radius",
         `${defaultRadius}${defaultUnit}`
@@ -196,6 +200,52 @@ describe("FadeLoader", () => {
           "border-radius",
           `${length}${defaultUnit}`
         );
+      }
+    });
+  });
+
+  describe("margin props", () => {
+    it("should render the margin with px unit when margin is a number", () => {
+      let margin: number = 18;
+      loader = mount(<FadeLoader margin={margin} />);
+
+      for (let i: number = 0; i < 8; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "margin",
+          `${defaultMargin}${defaultUnit}`
+        );
+
+        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}${defaultUnit}`);
+      }
+    });
+
+    it("should render the margin as is when margin is a string with valid css unit", () => {
+      let margin: string = "18px";
+      loader = mount(<FadeLoader margin={margin} />);
+
+      for (let i: number = 0; i < 8; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "margin",
+          `${defaultMargin}${defaultUnit}`
+        );
+
+        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}`);
+      }
+    });
+
+    it("should render the margin with default unit of px when the unit is incorrect", () => {
+      let length: number = 18;
+      let unit: string = "ad";
+      let margin: string = `${length}${unit}`;
+      loader = mount(<FadeLoader margin={margin} />);
+
+      for (let i: number = 0; i < 8; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "margin",
+          `${defaultMargin}${defaultUnit}`
+        );
+
+        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${length}${defaultUnit}`);
       }
     });
   });

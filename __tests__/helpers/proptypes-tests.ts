@@ -58,7 +58,7 @@ describe("Default Props functions for different loaders", () => {
       expect(defaultProps1).toHaveProperty("size");
       expect(defaultProps1.size).toEqual(1);
       expect(defaultProps1).toHaveProperty("margin");
-      expect(defaultProps1.margin).toEqual("2px");
+      expect(defaultProps1.margin).toEqual(2);
 
       let defaultProps2: Required<LoaderSizeMarginProps> = sizeMarginDefaults(2);
       expect(defaultProps2).toHaveProperty("size");

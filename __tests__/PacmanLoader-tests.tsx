@@ -48,7 +48,10 @@ describe("PacmanLoader", () => {
         "width",
         `${defaultSize / 3}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).toHaveStyleRule("margin", "2px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "margin",
+        `${defaultMargin}${defaultUnit}`
+      );
       expect(loader.find("div div").at(i)).toHaveStyleRule("top", `${defaultSize}${defaultUnit}`);
       expect(loader.find("div div").at(i)).toHaveStyleRule(
         "left",

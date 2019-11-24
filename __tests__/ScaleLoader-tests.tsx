@@ -42,7 +42,10 @@ describe("ScaleLoader", () => {
         "border-radius",
         `${defaultRadius}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).toHaveStyleRule("margin", "2px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "margin",
+        `${defaultMargin}${defaultUnit}`
+      );
     }
   });
 

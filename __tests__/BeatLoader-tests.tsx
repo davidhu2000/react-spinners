@@ -29,7 +29,7 @@ describe("BeatLoader", () => {
     props = loader.props();
     expect(loader.find("div div")).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
     expect(loader.find("div div")).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-    expect(loader.find("div div")).toHaveStyleRule("margin", "2px");
+    expect(loader.find("div div")).toHaveStyleRule("margin", `${defaultMargin}${defaultUnit}`);
     expect(loader.find("div div")).toHaveStyleRule("background-color", defaultColor);
   });
 

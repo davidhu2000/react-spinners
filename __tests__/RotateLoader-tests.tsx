@@ -29,7 +29,7 @@ describe("RotateLoader", () => {
     expect(loader).toHaveStyleRule("background-color", defaultColor);
     expect(loader).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
     expect(loader).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-    expect(loader).toHaveStyleRule("margin", "2px");
+    expect(loader).toHaveStyleRule("margin", `${defaultMargin}${defaultUnit}`);
 
     for (let i: number = 0; i < 2; i++) {
       expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
@@ -38,7 +38,10 @@ describe("RotateLoader", () => {
         `${defaultSize}${defaultUnit}`
       );
       expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("margin", "2px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "margin",
+        `${defaultMargin}${defaultUnit}`
+      );
     }
   });
 
