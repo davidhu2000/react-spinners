@@ -81,36 +81,112 @@ describe("HashLoader", () => {
     }
   });
 
-  it("should render the correct sizeUnit based on props", () => {
-    let unit: string = "%";
+  describe("size props", () => {
+    it("should render the size with px unit when size is a number", () => {
+      let size: number = 18;
 
-    loader = mount(<HashLoader sizeUnit={unit} />);
-    expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
-    expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-    expect(loader).toHaveStyleRule("height", `${defaultSize}${unit}`);
-    expect(loader).toHaveStyleRule("width", `${defaultSize}${unit}`);
+      loader = mount(<HashLoader size={size} />);
+      expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("height", `${size}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("width", `${size}${defaultUnit}`);
 
-    for (let i: number = 0; i < 2; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "height",
-        `${defaultSize / 5}${defaultUnit}`
-      );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "width",
-        `${defaultSize / 5}${defaultUnit}`
-      );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "border-radius",
-        `${defaultSize / 10}${defaultUnit}`
-      );
+      for (let i: number = 0; i < 2; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "height",
+          `${defaultSize / 5}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "width",
+          `${defaultSize / 5}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "border-radius",
+          `${defaultSize / 10}${defaultUnit}`
+        );
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize / 5}${unit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize / 5}${unit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
-        "border-radius",
-        `${defaultSize / 10}${unit}`
-      );
-    }
+        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size / 5}${defaultUnit}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size / 5}${defaultUnit}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule(
+          "border-radius",
+          `${size / 10}${defaultUnit}`
+        );
+      }
+    });
+
+    it("should render the size as is when size is a string with valid css unit", () => {
+      let length: number = 18;
+      let unit: string = "px";
+      let size: string = `${length}${unit}`;
+
+      loader = mount(<HashLoader size={size} />);
+      expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("height", `${size}`);
+      expect(loader).toHaveStyleRule("width", `${size}`);
+
+      for (let i: number = 0; i < 2; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "height",
+          `${defaultSize / 5}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "width",
+          `${defaultSize / 5}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "border-radius",
+          `${defaultSize / 10}${defaultUnit}`
+        );
+
+        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${length / 5}${unit}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${length / 5}${unit}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule(
+          "border-radius",
+          `${length / 10}${unit}`
+        );
+      }
+    });
+
+    it("should render the size with default unit of px when the unit is incorrect", () => {
+      let length: number = 18;
+      let unit: string = "ad";
+      let size: string = `${length}${unit}`;
+
+      loader = mount(<HashLoader size={size} />);
+      expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("height", `${length}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("width", `${length}${defaultUnit}`);
+
+      for (let i: number = 0; i < 2; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "height",
+          `${defaultSize / 5}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "width",
+          `${defaultSize / 5}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "border-radius",
+          `${defaultSize / 10}${defaultUnit}`
+        );
+
+        expect(loader.find("div div").at(i)).toHaveStyleRule(
+          "height",
+          `${length / 5}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).toHaveStyleRule(
+          "width",
+          `${length / 5}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).toHaveStyleRule(
+          "border-radius",
+          `${length / 10}${defaultUnit}`
+        );
+      }
+    });
   });
 
   it("should render the css override based on props", () => {

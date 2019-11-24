@@ -38,10 +38,9 @@ exports[`ClipLoader should match snapshot 1`] = `
 
 <Loader
   color="#000000"
-  css={Object {}}
+  css=""
   loading={true}
   size={35}
-  sizeUnit="px"
 >
   <div
     className="emotion-0"

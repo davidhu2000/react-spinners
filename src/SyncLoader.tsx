@@ -5,6 +5,7 @@ import { Keyframes } from "@emotion/serialize";
 
 import { sizeMarginDefaults } from "./helpers/proptypes";
 import { PrecompiledCss, LoaderSizeMarginProps, StyleFunctionWithIndex } from "./interfaces";
+import { cssValue } from "./helpers";
 
 const sync: Keyframes = keyframes`
   33% {transform: translateY(10px)}
@@ -16,13 +17,13 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   public static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
 
   public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
-    const { color, size, sizeUnit, margin } = this.props;
+    const { color, size, margin } = this.props;
 
     return css`
       background-color: ${color};
-      width: ${`${size}${sizeUnit}`};
-      height: ${`${size}${sizeUnit}`};
-      margin: ${margin};
+      width: ${cssValue(size!)};
+      height: ${cssValue(size!)};
+      margin: ${cssValue(margin!)};
       border-radius: 100%;
       display: inline-block;
       animation: ${sync} 0.6s ${i * 0.07}s infinite ease-in-out;

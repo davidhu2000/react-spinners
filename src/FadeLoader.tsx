@@ -3,7 +3,7 @@ import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
-import { heightWidthRadiusDefaults } from "./helpers";
+import { heightWidthRadiusDefaults, cssValue } from "./helpers";
 import {
   StyleFunction,
   PrecompiledCss,
@@ -22,15 +22,15 @@ class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
   public quarter: number = this.radius / 2 + this.radius / 5.5;
 
   public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
-    const { height, width, margin, color, radius, widthUnit, heightUnit, radiusUnit } = this.props;
+    const { height, width, margin, color, radius } = this.props;
 
     return css`
       position: absolute;
-      width: ${`${width}${widthUnit}`};
-      height: ${`${height}${heightUnit}`};
-      margin: ${margin};
+      width: ${cssValue(width!)};
+      height: ${cssValue(height!)};
+      margin: ${cssValue(margin!)};
       background-color: ${color};
-      border-radius: ${`${radius}${radiusUnit}`};
+      border-radius: ${cssValue(radius!)};
       transition: 2s;
       animation-fill-mode: "both";
       animation: ${fade} 1.2s ${i * 0.12}s infinite ease-in-out;

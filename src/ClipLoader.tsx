@@ -3,7 +3,7 @@ import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
-import { sizeDefaults } from "./helpers/proptypes";
+import { sizeDefaults, cssValue } from "./helpers";
 import { StyleFunction, PrecompiledCss, LoaderSizeProps } from "./interfaces";
 
 const clip: Keyframes = keyframes`
@@ -16,12 +16,12 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   public static defaultProps: LoaderSizeProps = sizeDefaults(35);
 
   public style: StyleFunction = (): PrecompiledCss => {
-    const { size, sizeUnit, color } = this.props;
+    const { size, color } = this.props;
 
     return css`
       background: transparent !important;
-      width: ${`${size}${sizeUnit}`};
-      height: ${`${size}${sizeUnit}`};
+      width: ${cssValue(size!)};
+      height: ${cssValue(size!)};
       border-radius: 100%;
       border: 2px solid;
       border-color: ${color};

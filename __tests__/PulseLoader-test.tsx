@@ -11,6 +11,7 @@ describe("PulseLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeMarginProps;
   let defaultSize: number = 15;
+  let defaultMargin: number = 2;
   let defaultColor: string = "#000000";
   let defaultUnit: string = "px";
 
@@ -32,7 +33,10 @@ describe("PulseLoader", () => {
         `${defaultSize}${defaultUnit}`
       );
       expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("margin", "2px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "margin",
+        `${defaultMargin}${defaultUnit}`
+      );
     }
   });
 
@@ -50,42 +54,108 @@ describe("PulseLoader", () => {
     }
   });
 
-  it("should render the correct size based on props", () => {
-    let size: number = 18;
-    loader = mount(<PulseLoader size={size} />);
+  describe("size props", () => {
+    it("should render the size with px unit when size is a number", () => {
+      let size: number = 18;
+      loader = mount(<PulseLoader size={size} />);
 
-    for (let i: number = 0; i < 3; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "height",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "width",
-        `${defaultSize}${defaultUnit}`
-      );
+      for (let i: number = 0; i < 3; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "height",
+          `${defaultSize}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "width",
+          `${defaultSize}${defaultUnit}`
+        );
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
-    }
+        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
+      }
+    });
+
+    it("should render the size as is when size is a string with valid css unit", () => {
+      let size: string = "18px";
+      loader = mount(<PulseLoader size={size} />);
+
+      for (let i: number = 0; i < 3; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "height",
+          `${defaultSize}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "width",
+          `${defaultSize}${defaultUnit}`
+        );
+
+        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}`);
+      }
+    });
+
+    it("should render the size with default unit of px when the unit is incorrect", () => {
+      let length: number = 18;
+      let unit: string = "ad";
+      let size: string = `${length}${unit}`;
+      loader = mount(<PulseLoader size={size} />);
+
+      for (let i: number = 0; i < 3; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "height",
+          `${defaultSize}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "width",
+          `${defaultSize}${defaultUnit}`
+        );
+
+        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${length}${defaultUnit}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${length}${defaultUnit}`);
+      }
+    });
   });
 
-  it("should render the correct sizeUnit based on props", () => {
-    let unit: string = "%";
-    loader = mount(<PulseLoader sizeUnit={unit} />);
+  describe("margin props", () => {
+    it("should render the margin with px unit when margin is a number", () => {
+      let margin: number = 18;
+      loader = mount(<PulseLoader margin={margin} />);
 
-    for (let i: number = 0; i < 3; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "height",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "width",
-        `${defaultSize}${defaultUnit}`
-      );
+      for (let i: number = 0; i < 3; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "margin",
+          `${defaultMargin}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}${defaultUnit}`);
+      }
+    });
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize}${unit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${unit}`);
-    }
+    it("should render the margin as is when margin is a string with valid css unit", () => {
+      let margin: string = "18px";
+      loader = mount(<PulseLoader margin={margin} />);
+
+      for (let i: number = 0; i < 3; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "margin",
+          `${defaultMargin}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}`);
+      }
+    });
+
+    it("should render the margin with default unit of px when the unit is incorrect", () => {
+      let length: number = 18;
+      let unit: string = "ad";
+      let margin: string = `${length}${unit}`;
+      loader = mount(<PulseLoader margin={margin} />);
+
+      for (let i: number = 0; i < 3; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "margin",
+          `${defaultMargin}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${length}${defaultUnit}`);
+      }
+    });
   });
 
   it("should render the css override based on props", () => {

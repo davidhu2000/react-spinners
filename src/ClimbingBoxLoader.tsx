@@ -3,7 +3,7 @@ import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
-import { sizeDefaults } from "./helpers";
+import { sizeDefaults, cssValue } from "./helpers";
 import { StyleFunction, PrecompiledCss, LoaderSizeProps } from "./interfaces";
 
 const climbingBox: Keyframes = keyframes`
@@ -42,7 +42,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   };
 
   public wrapper: StyleFunction = (): PrecompiledCss => {
-    const { size, sizeUnit } = this.props;
+    const { size } = this.props;
 
     return css`
       position: absolute;
@@ -52,7 +52,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
       margin-left: -2.7em;
       width: 5.4em;
       height: 5.4em;
-      font-size: ${`${size}${sizeUnit}`};
+      font-size: ${cssValue(size!)};
     `;
   };
 

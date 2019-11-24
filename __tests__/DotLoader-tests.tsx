@@ -8,7 +8,7 @@ import { LoaderSizeProps } from "../src/interfaces";
 import { sizeDefaults } from "../src/helpers";
 
 describe("DotLoader", () => {
-  let loader: ReactWrapper;
+  let loader: ReactWrapper<LoaderSizeProps, null, DotLoader>;
   let props: LoaderSizeProps;
   let defaultColor: string = "#000000";
   let defaultSize: number = 60;
@@ -48,22 +48,35 @@ describe("DotLoader", () => {
     expect(loader.find("div div")).toHaveStyleRule("background-color", color);
   });
 
-  it("should render the correct size based on props", () => {
-    let size: number = 18;
-    loader = mount(<DotLoader size={size} />);
-    expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
-    expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-    expect(loader).toHaveStyleRule("height", `${size}${defaultUnit}`);
-    expect(loader).toHaveStyleRule("width", `${size}${defaultUnit}`);
-  });
+  describe("size props", () => {
+    it("should render the size with px unit when size is a number", () => {
+      let size: number = 18;
+      loader = mount(<DotLoader size={size} />);
+      expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("height", `${size}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("width", `${size}${defaultUnit}`);
+    });
 
-  it("should render the correct sizeUnit based on props", () => {
-    let unit: string = "%";
-    loader = mount(<DotLoader sizeUnit={unit} />);
-    expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
-    expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-    expect(loader).toHaveStyleRule("height", `${defaultSize}${unit}`);
-    expect(loader).toHaveStyleRule("width", `${defaultSize}${unit}`);
+    it("should render the size as is when size is a string with valid css unit", () => {
+      let size: string = "18px";
+      loader = mount(<DotLoader size={size} />);
+      expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("height", `${size}`);
+      expect(loader).toHaveStyleRule("width", `${size}`);
+    });
+
+    it("should render the size with default unit of px when the unit is incorrect", () => {
+      let length: number = 18;
+      let unit: string = "ad";
+      let size: string = `${length}${unit}`;
+      loader = mount(<DotLoader size={size} />);
+      expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("height", `${length}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("width", `${length}${defaultUnit}`);
+    });
   });
 
   it("should render the css override based on props", () => {

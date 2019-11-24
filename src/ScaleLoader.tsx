@@ -3,7 +3,7 @@ import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
-import { heightWidthRadiusDefaults } from "./helpers";
+import { heightWidthRadiusDefaults, cssValue } from "./helpers";
 import { PrecompiledCss, LoaderHeightWidthRadiusProps, StyleFunctionWithIndex } from "./interfaces";
 
 const scale: Keyframes = keyframes`
@@ -16,14 +16,14 @@ class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
   public static defaultProps: LoaderHeightWidthRadiusProps = heightWidthRadiusDefaults(35, 4, 2);
 
   public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
-    const { color, width, height, margin, radius, widthUnit, heightUnit, radiusUnit } = this.props;
+    const { color, width, height, margin, radius } = this.props;
 
     return css`
       background-color: ${color};
-      width: ${`${width}${widthUnit}`};
-      height: ${`${height}${heightUnit}`};
-      margin: ${margin};
-      border-radius: ${`${radius}${radiusUnit}`};
+      width: ${cssValue(width!)};
+      height: ${cssValue(height!)};
+      margin: ${cssValue(margin!)};
+      border-radius: ${cssValue(radius!)};
       display: inline-block;
       animation: ${scale} 1s ${i * 0.1}s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
       animation-fill-mode: both;

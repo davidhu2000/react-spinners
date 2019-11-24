@@ -14,6 +14,7 @@ describe("ScaleLoader", () => {
   let defaultHeight: number = 35;
   let defaultWidth: number = 4;
   let defaultRadius: number = 2;
+  let defaultMargin: number = 2;
   let defaultUnit: string = "px";
 
   it("should match snapshot", () => {
@@ -41,7 +42,10 @@ describe("ScaleLoader", () => {
         "border-radius",
         `${defaultRadius}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).toHaveStyleRule("margin", "2px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "margin",
+        `${defaultMargin}${defaultUnit}`
+      );
     }
   });
 
@@ -59,52 +63,149 @@ describe("ScaleLoader", () => {
     }
   });
 
-  it("should render the correct height based on props", () => {
-    let height: number = 18;
-    loader = mount(<ScaleLoader height={height} />);
-    expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
-    expect(loader.find("div div")).toHaveStyleRule("height", `${height}${defaultUnit}`);
+  describe("height props", () => {
+    it("should render the height with px unit when height is a number", () => {
+      let height: number = 18;
+      loader = mount(<ScaleLoader height={height} />);
+
+      expect(loader.find("div div")).not.toHaveStyleRule(
+        "height",
+        `${defaultHeight}${defaultUnit}`
+      );
+      expect(loader.find("div div")).toHaveStyleRule("height", `${height}${defaultUnit}`);
+    });
+
+    it("should render the height as is when height is a string with valid css unit", () => {
+      let height: string = "18px";
+      loader = mount(<ScaleLoader height={height} />);
+
+      expect(loader.find("div div")).not.toHaveStyleRule(
+        "height",
+        `${defaultHeight}${defaultUnit}`
+      );
+      expect(loader.find("div div")).toHaveStyleRule("height", `${height}`);
+    });
+
+    it("should render the height with default unit of px when the unit is incorrect", () => {
+      let length: number = 18;
+      let unit: string = "ad";
+      let height: string = `${length}${unit}`;
+      loader = mount(<ScaleLoader height={height} />);
+
+      expect(loader.find("div div")).not.toHaveStyleRule(
+        "height",
+        `${defaultHeight}${defaultUnit}`
+      );
+      expect(loader.find("div div")).toHaveStyleRule("height", `${length}${defaultUnit}`);
+    });
   });
 
-  it("should render the correct heightUnit based on props", () => {
-    let unit: string = "%";
-    loader = mount(<ScaleLoader heightUnit={unit} />);
-    expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
-    expect(loader.find("div div")).toHaveStyleRule("height", `${defaultHeight}${unit}`);
+  describe("width props", () => {
+    it("should render the width with px unit when width is a number", () => {
+      let width: number = 18;
+      loader = mount(<ScaleLoader width={width} />);
+
+      expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
+      expect(loader.find("div div")).toHaveStyleRule("width", `${width}${defaultUnit}`);
+    });
+
+    it("should render the width as is when width is a string with valid css unit", () => {
+      let width: string = "18px";
+      loader = mount(<ScaleLoader width={width} />);
+
+      expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
+      expect(loader.find("div div")).toHaveStyleRule("width", `${width}`);
+    });
+
+    it("should render the width with default unit of px when the unit is incorrect", () => {
+      let length: number = 18;
+      let unit: string = "ad";
+      let width: string = `${length}${unit}`;
+      loader = mount(<ScaleLoader width={width} />);
+
+      expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
+      expect(loader.find("div div")).toHaveStyleRule("width", `${length}${defaultUnit}`);
+    });
   });
 
-  it("should render the correct width based on props", () => {
-    let width: number = 20;
-    loader = mount(<ScaleLoader width={width} />);
-    expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
-    expect(loader.find("div div")).toHaveStyleRule("width", `${width}${defaultUnit}`);
+  describe("radius props", () => {
+    it("should render the radius with px unit when radius is a number", () => {
+      let radius: number = 18;
+      loader = mount(<ScaleLoader radius={radius} />);
+
+      expect(loader.find("div div")).not.toHaveStyleRule(
+        "border-radius",
+        `${defaultRadius}${defaultUnit}`
+      );
+      expect(loader.find("div div")).toHaveStyleRule("border-radius", `${radius}${defaultUnit}`);
+    });
+
+    it("should render the radius as is when radius is a string with valid css unit", () => {
+      let radius: string = "18px";
+      loader = mount(<ScaleLoader radius={radius} />);
+
+      expect(loader.find("div div")).not.toHaveStyleRule(
+        "border-radius",
+        `${defaultRadius}${defaultUnit}`
+      );
+      expect(loader.find("div div")).toHaveStyleRule("border-radius", `${radius}`);
+    });
+
+    it("should render the radius with default unit of px when the unit is incorrect", () => {
+      let length: number = 18;
+      let unit: string = "ad";
+      let radius: string = `${length}${unit}`;
+      loader = mount(<ScaleLoader radius={radius} />);
+
+      expect(loader.find("div div")).not.toHaveStyleRule(
+        "border-radius",
+        `${defaultRadius}${defaultUnit}`
+      );
+      expect(loader.find("div div")).toHaveStyleRule("border-radius", `${length}${defaultUnit}`);
+    });
   });
 
-  it("should render the correct widthUnit based on props", () => {
-    let unit: string = "%";
-    loader = mount(<ScaleLoader widthUnit={unit} />);
-    expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
-    expect(loader.find("div div")).toHaveStyleRule("width", `${defaultWidth}${unit}`);
-  });
+  describe("margin props", () => {
+    it("should render the margin with px unit when margin is a number", () => {
+      let margin: number = 18;
+      loader = mount(<ScaleLoader margin={margin} />);
 
-  it("should render the correct radius based on props", () => {
-    let radius: number = 5;
-    loader = mount(<ScaleLoader radius={radius} />);
-    expect(loader.find("div div")).not.toHaveStyleRule(
-      "border-radius",
-      `${defaultRadius}${defaultUnit}`
-    );
-    expect(loader.find("div div")).toHaveStyleRule("border-radius", `${radius}${defaultUnit}`);
-  });
+      for (let i: number = 0; i < 5; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "margin",
+          `${defaultMargin}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}${defaultUnit}`);
+      }
+    });
 
-  it("should render the correct radiusUnit based on props", () => {
-    let unit: string = "%";
-    loader = mount(<ScaleLoader radiusUnit={unit} />);
-    expect(loader.find("div div")).not.toHaveStyleRule(
-      "border-radius",
-      `${defaultRadius}${defaultUnit}`
-    );
-    expect(loader.find("div div")).toHaveStyleRule("border-radius", `${defaultRadius}${unit}`);
+    it("should render the margin as is when margin is a string with valid css unit", () => {
+      let margin: string = "18px";
+      loader = mount(<ScaleLoader margin={margin} />);
+
+      for (let i: number = 0; i < 5; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "margin",
+          `${defaultMargin}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}`);
+      }
+    });
+
+    it("should render the margin with default unit of px when the unit is incorrect", () => {
+      let length: number = 18;
+      let unit: string = "ad";
+      let margin: string = `${length}${unit}`;
+      loader = mount(<ScaleLoader margin={margin} />);
+
+      for (let i: number = 0; i < 5; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "margin",
+          `${defaultMargin}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${length}${defaultUnit}`);
+      }
+    });
   });
 
   it("should render the css override based on props", () => {

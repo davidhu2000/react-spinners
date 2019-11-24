@@ -3,7 +3,7 @@ import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
-import { calculateRgba, heightWidthDefaults } from "./helpers";
+import { calculateRgba, heightWidthDefaults, cssValue } from "./helpers";
 import {
   LoaderHeightWidthProps,
   StyleFunction,
@@ -27,11 +27,11 @@ export class Loader extends React.PureComponent<LoaderHeightWidthProps> {
   public static defaultProps: LoaderHeightWidthProps = heightWidthDefaults(4, 100);
 
   public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
-    const { height, color, heightUnit } = this.props;
+    const { height, color } = this.props;
 
     return css`
       position: absolute;
-      height: ${`${height}${heightUnit}`};
+      height: ${cssValue(height!)};
       overflow: hidden;
       background-color: ${color};
       background-clip: padding-box;
@@ -48,12 +48,12 @@ export class Loader extends React.PureComponent<LoaderHeightWidthProps> {
   };
 
   public wrapper: StyleFunction = (): PrecompiledCss => {
-    const { width, height, color, heightUnit, widthUnit } = this.props;
+    const { width, height, color } = this.props;
 
     return css`
       position: relative;
-      width: ${`${width}${widthUnit}`};
-      height: ${`${height}${heightUnit}`};
+      width: ${cssValue(width!)};
+      height: ${cssValue(height!)};
       overflow: hidden;
       background-color: ${calculateRgba(color!, 0.2)};
       background-clip: padding-box;

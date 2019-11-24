@@ -3,7 +3,7 @@ import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
-import { sizeMarginDefaults } from "./helpers";
+import { sizeMarginDefaults, cssValue } from "./helpers";
 import { PrecompiledCss, LoaderSizeMarginProps, StyleFunctionWithIndex } from "./interfaces";
 
 const riseAmount: number = 30;
@@ -28,13 +28,13 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   public static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
 
   public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
-    const { color, size, sizeUnit, margin } = this.props;
+    const { color, size, margin } = this.props;
 
     return css`
       background-color: ${color};
-      width: ${`${size}${sizeUnit}`};
-      height: ${`${size}${sizeUnit}`};
-      margin: ${`${margin}`};
+      width: ${cssValue(size!)};
+      height: ${cssValue(size!)};
+      margin: ${cssValue(margin!)};
       border-radius: 100%;
       display: inline-block;
       animation: ${i % 2 === 0 ? even : odd} 1s 0s infinite cubic-bezier(0.15, 0.46, 0.9, 0.6);
