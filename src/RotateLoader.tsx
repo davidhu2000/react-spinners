@@ -3,7 +3,7 @@ import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
-import { sizeMarginDefaults } from "./helpers";
+import { sizeMarginDefaults, cssValue } from "./helpers";
 import {
   StyleFunction,
   PrecompiledCss,
@@ -28,13 +28,13 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   `;
 
   public ball: StyleFunction = (): PrecompiledCss => {
-    const { color, size, sizeUnit, margin } = this.props;
+    const { color, size, margin } = this.props;
 
     return css`
       background-color: ${color};
-      width: ${`${size}${sizeUnit}`};
-      height: ${`${size}${sizeUnit}`};
-      margin: ${margin};
+      width: ${cssValue(size!)};
+      height: ${cssValue(size!)};
+      margin: ${cssValue(margin!)};
       border-radius: 100%;
     `;
   };
