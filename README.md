@@ -71,8 +71,7 @@ class AwesomeComponent extends React.Component {
       <div className='sweet-loading'>
         <ClipLoader
           css={override}
-          sizeUnit={"px"}
-          size={150}
+          size={150} // or 150px
           color={'#123abc'}
           loading={this.state.loading}
         />
@@ -97,26 +96,32 @@ You can directly write your css in css syntax without the dirty camelCase css in
 We recommend you to use this awesome library in your project. It supports Server side rendering with HTTP2 Stream! 
 More info about using `css` [here](https://emotion.sh/docs/introduction)
 
-For `size`, `height`, `width`, and `radius` props, there are `sizeUnit`, `heightUnit`, `widthUnit` and `radiusUnit` prop that accepts `px`, `%`, or `em`. The default for the unit prop is `px`.
+For `size`, `height`, `width`, and `radius` props, the input can be number or string.
 
-|            Loader | size:int | height:int | width:int | radius:int | margin:str |
+- If value is number, the loader will default to css unit `px`. 
+- If value is string, the loader will verify the unit against valid css units.
+  - If unit is valid, return the original value
+  - If unit is invalid, output warning console log and default to `px`.
+
+
+|            Loader |   size   |   height   |   width   |   radius   |  margin    |
 | ----------------: | :------: | :--------: | :-------: | :--------: | :--------: |
 |         BarLoader |          |    `4`     |   `100`   |            |
-|        BeatLoader |   `15`   |            |           |            |   `2px`    |
+|        BeatLoader |   `15`   |            |           |            |    `2`     |
 |      BounceLoader |   `60`   |            |           |            |
 |      CircleLoader |   `50`   |            |           |            |
 |        ClipLoader |   `35`   |            |           |            |
 | ClimbingBoxLoader |   `15`   |            |           |            |
-|         DotLoader |   `60`   |            |           |            |   `2px`    |
-|        FadeLoader |          |    `15`    |    `5`    |    `2`     |   `2px`    |
+|         DotLoader |   `60`   |            |           |            |    `2`     |
+|        FadeLoader |          |    `15`    |    `5`    |    `2`     |    `2`     |
 |        GridLoader |   `15`   |            |           |            |
-|        HashLoader |   `50`   |            |           |            |   `2px`    |
-|        MoonLoader |   `60`   |            |           |            |   `2px`    |
-|      PacmanLoader |   `25`   |            |           |            |   `2px`    |
+|        HashLoader |   `50`   |            |           |            |    `2`     |
+|        MoonLoader |   `60`   |            |           |            |    `2`     |
+|      PacmanLoader |   `25`   |            |           |            |    `2`     |
 |   PropagateLoader |   `15`   |            |           |            |
-|       PulseLoader |   `15`   |            |           |            |   `2px`    |
-|        RingLoader |   `60`   |            |           |            |   `2px`    |
-|        RiseLoader |   `15`   |            |           |            |   `2px`    |
-|      RotateLoader |   `15`   |            |           |            |   `2px`    |
-|       ScaleLoader |          |    `35`    |    `4`    |    `2`     |   `2px`    |
-|        SyncLoader |   `15`   |            |           |            |   `2px`    |
+|       PulseLoader |   `15`   |            |           |            |    `2`     |
+|        RingLoader |   `60`   |            |           |            |    `2`     |
+|        RiseLoader |   `15`   |            |           |            |    `2`     |
+|      RotateLoader |   `15`   |            |           |            |    `2`     |
+|       ScaleLoader |          |    `35`    |    `4`    |    `2`     |    `2`     |
+|        SyncLoader |   `15`   |            |           |            |    `2`     |
