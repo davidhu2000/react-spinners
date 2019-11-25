@@ -37,9 +37,9 @@ describe("RotateLoader", () => {
         `${defaultSize}${defaultUnit}`
       );
       expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      let left: number = (i % 2 ? 1 : -1) * (26 + defaultMargin);
+      let leftDefault: number = (i % 2 ? 1 : -1) * (26 + defaultMargin);
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("left", `${left}${defaultUnit}`);
+      expect(loader.find("div div").at(i)).toHaveStyleRule("left", `${leftDefault}${defaultUnit}`);
     }
   });
 
