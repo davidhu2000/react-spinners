@@ -2,9 +2,14 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.7.0-alpha.2
+
+- **bugfix**: Fix [issue #139](https://github.com/davidhu2000/react-spinners/issues/139). The margin prop on `RotateLoader` does what we expect it to do, expand the spacing between the dots.
+- updated webpack config to split up npm files to avoid brower having to reload them on each change.
+
 ## 0.7.0-alpha.1
 
-- **BREAKING CHANGE**: all unit props are deprecated, including `sizeUnit`, `heightUnit`, `widthUnit`, and `radiusUnit`. The `size`, `height`, `width`, and `radius` props now accepts `number` and `string`. 
+- **BREAKING CHANGE**: all unit props are deprecated, including `sizeUnit`, `heightUnit`, `widthUnit`, and `radiusUnit`. The `size`, `height`, `width`, and `radius` props now accepts `number` and `string`.
   - If value is number, default to `px`
   - If value is string with valid css unit, return the input value
   - If value is string with invalid css unit, output warning console log and default to `px`
@@ -13,18 +18,18 @@ All notable changes to this project will be documented in this file. This projec
 
 ## 0.6.1
 
-- **bugfix**: Fix [issue 109](https://github.com/davidhu2000/react-spinners/issues/109) where `Math.random` is stubbed out in the `GridLoader` component instead in the tests, causing `Math.random` to not work properly if `GridLoader` is used. 
+- **bugfix**: Fix [issue 109](https://github.com/davidhu2000/react-spinners/issues/109) where `Math.random` is stubbed out in the `GridLoader` component instead in the tests, causing `Math.random` to not work properly if `GridLoader` is used.
 
 ## 0.6.0
 
-- Offical release for the TypeScript rewrite! 
-- Major changes: 
-    - Add support for types for individual loader imports
-    - Add support for using basic color name as props instead of only color hashes
-    - Reduced total package size from around 850kb to 135gb
-    - Fix `main` key value in `package.json` to point to the correct `index.js`
-    - Removed `prop-types` and `recompose` from dependencies
-    - Added tests to get to 100% code coverage
+- Offical release for the TypeScript rewrite!
+- Major changes:
+  - Add support for types for individual loader imports
+  - Add support for using basic color name as props instead of only color hashes
+  - Reduced total package size from around 850kb to 135gb
+  - Fix `main` key value in `package.json` to point to the correct `index.js`
+  - Removed `prop-types` and `recompose` from dependencies
+  - Added tests to get to 100% code coverage
 
 ## 0.6.0-beta.1
 
@@ -32,23 +37,24 @@ All notable changes to this project will be documented in this file. This projec
 
 ## 0.6.0-alpha.10
 
-- Removed `recompose` from the list of dependencies. We currently wants the component to update for all prop changes, so the `onlyUpdateForKeys` was passed in all the props anyways, so it wasn't doing much. 
+- Removed `recompose` from the list of dependencies. We currently wants the component to update for all prop changes, so the `onlyUpdateForKeys` was passed in all the props anyways, so it wasn't doing much.
 
 ## 0.6.0-alpha.9
 
-- **bugfix**: Fix issue where `PacmanLoader` `top` css property does not respect the `sizeUnit` prop. It was hardcoded to be `px` instead of using `sizeUnit` prop. 
+- **bugfix**: Fix issue where `PacmanLoader` `top` css property does not respect the `sizeUnit` prop. It was hardcoded to be `px` instead of using `sizeUnit` prop.
 - update javascript bundle files for demo site.
 
 ## 0.6.0-alpha.8
 
 - updated rgba conversion function to handle basic colors. Now supports these basically colors
-    - maroon, red, orange, yellow, olive, green, purple, fuchsia, lime, teal, aqua, blue, navy, black, gray, silver, white
+  - maroon, red, orange, yellow, olive, green, purple, fuchsia, lime, teal, aqua, blue, navy, black, gray, silver, white
 
 ## 0.6.0-alpha.7
 
-- update readme to include `radius` and `radiusUnit` prop description. 
+- update readme to include `radius` and `radiusUnit` prop description.
 - update all the tests to use default variables.
-- add the following to `.npmignore` to further reduce package size. 
+- add the following to `.npmignore` to further reduce package size.
+
 ```
 tslint.json
 jest.config.js
@@ -59,12 +65,15 @@ CHANGELOG.md
 ```
 
 Old:
+
 ```
 npm notice version:       0.6.0-alpha.6
 npm notice package size:  19.8 kB
 npm notice unpacked size: 138.5 kB
 ```
+
 New:
+
 ```
 npm notice version:       0.6.0-alpha.7
 npm notice package size:  16.7 kB
@@ -73,15 +82,18 @@ npm notice unpacked size: 132.1 kB
 
 ## 0.6.0-alpha.6
 
-- add `src` folder to `npmignore`. Previous version wasn't ruthless enough in saving data. 
+- add `src` folder to `npmignore`. Previous version wasn't ruthless enough in saving data.
 
 Old:
+
 ```
 npm notice version:       0.6.0-alpha.5
 npm notice package size:  26.1 kB
 npm notice unpacked size: 191.2 kB
 ```
+
 New:
+
 ```
 npm notice version:       0.6.0-alpha.6
 npm notice package size:  19.8 kB
@@ -90,16 +102,18 @@ npm notice unpacked size: 138.5 kB
 
 ## 0.6.0-alpha.5
 
-- update `npmignore` to include `__tests__`, `.github`, `.circleci`, `coverage`. This helped to reduce package size. Help to save some data. 
+- update `npmignore` to include `__tests__`, `.github`, `.circleci`, `coverage`. This helped to reduce package size. Help to save some data.
 
-Old: 
+Old:
 
 ```
 npm notice version:       0.6.0-alpha.4
 npm notice package size:  85.6 kB
 npm notice unpacked size: 850.4 kB
 ```
+
 New:
+
 ```
 npm notice version:       0.6.0-alpha.5
 npm notice package size:  26.1 kB
@@ -108,9 +122,9 @@ npm notice unpacked size: 191.2 kB
 
 ## 0.6.0-alpha.4
 
-- **bugfix**: update `package.json` `main` value from `dist/index.js` to `index.js` to fix codeSandbox import issue. 
-- **bugfix**: add missing `transform` key to the `25%` keyframe in RiseLoader. It was just `25% {translateY(-${riseAmount}px)}` before. Now it is corrected. 
-- add tests for all the loaders. Fixed up a few tests using default variables, namely the first 3 letters in the alphabet. 
+- **bugfix**: update `package.json` `main` value from `dist/index.js` to `index.js` to fix codeSandbox import issue.
+- **bugfix**: add missing `transform` key to the `25%` keyframe in RiseLoader. It was just `25% {translateY(-${riseAmount}px)}` before. Now it is corrected.
+- add tests for all the loaders. Fixed up a few tests using default variables, namely the first 3 letters in the alphabet.
 
 ## 0.6.0-alpha.3
 
@@ -119,13 +133,13 @@ npm notice unpacked size: 191.2 kB
 
 ## 0.6.0-alpha.2
 
-- **bugfix**: update `tsconfig.json` `module` property to `commonjs` instead of `esnext`. This caused import errors as seen in [issue 74](https://github.com/davidhu2000/react-spinners/issues/74)  
+- **bugfix**: update `tsconfig.json` `module` property to `commonjs` instead of `esnext`. This caused import errors as seen in [issue 74](https://github.com/davidhu2000/react-spinners/issues/74)
 - added tests for `BarLoader`, `BeatLoader`, `BounceLoader`, `CircleLoader`, and `ClimbingBoxLoader`
 
 ## 0.6.0-alpha.1
 
-- This is a complete rewrite of the package. 100% of the code is now in TypeScript. This will show inidividual type definitions for each loader. 
-- `prop-types` has been removed as a dependency. This is now handled by typings. 
+- This is a complete rewrite of the package. 100% of the code is now in TypeScript. This will show inidividual type definitions for each loader.
+- `prop-types` has been removed as a dependency. This is now handled by typings.
 - set up `ts-lint` and `prettier` to help ensure code consistency.
 
 ## 0.5.13
@@ -161,7 +175,7 @@ npm notice unpacked size: 191.2 kB
 ## 0.5.6
 
 - big update for outdated devDependencies. This version should not affect any existing functionalities.
-  - removed eslint related packages. Will be moving to use `tslint` as part of the typescript conversion. 
+  - removed eslint related packages. Will be moving to use `tslint` as part of the typescript conversion.
   - updated babel plus plugins/presets to latest versions
   - updated `index.js` import from `module.exports = {...}` to `export default {...}`
   - webpack changes
@@ -170,7 +184,7 @@ npm notice unpacked size: 191.2 kB
 
 ## 0.5.5
 
-- **bugfix**: update `CommonProps` interface `css` prop to used `PrecompiledCss` and `string`. Update PropTypes helper to be able to accept both `PrecompiledCss` and `string`. This is to fix the validation error for the `css` prop.  
+- **bugfix**: update `CommonProps` interface `css` prop to used `PrecompiledCss` and `string`. Update PropTypes helper to be able to accept both `PrecompiledCss` and `string`. This is to fix the validation error for the `css` prop.
 
 ## 0.5.4
 
@@ -183,7 +197,7 @@ npm notice unpacked size: 191.2 kB
 ## 0.5.2
 
 - **bugfix**: change `css` proptype to `PropTypes.shape({ ... })` instead of `PropTypes.string` to fix console error.
-- Fix a few console warnings on the demo site. 
+- Fix a few console warnings on the demo site.
 
 ## 0.5.1
 
@@ -192,7 +206,7 @@ npm notice unpacked size: 191.2 kB
 ## 0.5.0
 
 - Update emotion package to emotion 10
-- **Breaking change**: replaced `className` prop with `css` prop to match Emotion 10. 
+- **Breaking change**: replaced `className` prop with `css` prop to match Emotion 10.
 
 ## 0.4.8
 
@@ -299,13 +313,13 @@ npm notice unpacked size: 191.2 kB
 
 **Note: this release has a critical issue and was deprecated. Please update to 0.2.1 or higher.**
 
-- update `emotion` package version from `7.2.0` to `8.0.6`. 
+- update `emotion` package version from `7.2.0` to `8.0.6`.
 
 ## 0.1.7
 
 **Note: this release has a critical issue and was deprecated. Please update to 0.2.1 or higher.**
 
-- update dependencies versions. 
+- update dependencies versions.
 
 ## 0.1.6
 
@@ -317,13 +331,13 @@ npm notice unpacked size: 191.2 kB
 
 **Note: this release has a critical issue and was deprecated. Please update to 0.2.1 or higher.**
 
-- updated readme. 
+- updated readme.
 
 ## 0.1.4
 
 **Note: this release has a critical issue and was deprecated. Please update to 0.2.1 or higher.**
 
-- **bugfix**: fixed `PulseLoader` size default prop to be the correct type. 
+- **bugfix**: fixed `PulseLoader` size default prop to be the correct type.
 
 ## 0.1.3
 
@@ -345,7 +359,7 @@ npm notice unpacked size: 191.2 kB
 
 - update readme to include note about `react-emotion` plugin for babel.
 - fixed circleci badge to go to circle ci instead of npm.
-- removed flow from test script. 
+- removed flow from test script.
 
 ## 0.1.0
 
