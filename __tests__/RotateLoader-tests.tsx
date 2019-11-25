@@ -29,7 +29,6 @@ describe("RotateLoader", () => {
     expect(loader).toHaveStyleRule("background-color", defaultColor);
     expect(loader).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
     expect(loader).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-    expect(loader).toHaveStyleRule("margin", `${defaultMargin}${defaultUnit}`);
 
     for (let i: number = 0; i < 2; i++) {
       expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
@@ -38,10 +37,9 @@ describe("RotateLoader", () => {
         `${defaultSize}${defaultUnit}`
       );
       expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
-        "margin",
-        `${defaultMargin}${defaultUnit}`
-      );
+      let leftDefault: number = (i % 2 ? 1 : -1) * (26 + defaultMargin);
+
+      expect(loader.find("div div").at(i)).toHaveStyleRule("left", `${leftDefault}${defaultUnit}`);
     }
   });
 
@@ -171,31 +169,32 @@ describe("RotateLoader", () => {
       let margin: number = 18;
       loader = mount(<RotateLoader margin={margin} />);
 
-      expect(loader).not.toHaveStyleRule("margin", `${defaultMargin}${defaultUnit}`);
-      expect(loader).toHaveStyleRule("margin", `${margin}${defaultUnit}`);
-
       for (let i: number = 0; i < 2; i++) {
+        let leftDefault: number = (i % 2 ? 1 : -1) * (26 + defaultMargin);
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-          "margin",
-          `${defaultMargin}${defaultUnit}`
+          "left",
+          `${leftDefault}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}${defaultUnit}`);
+
+        let left: number = (i % 2 ? 1 : -1) * (26 + margin);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("left", `${left}${defaultUnit}`);
       }
     });
 
     it("should render the margin as is when margin is a string with valid css unit", () => {
-      let margin: string = "18px";
+      let length: number = 18;
+      let unit: string = "px";
+      let margin: string = `${length}${unit}`;
       loader = mount(<RotateLoader margin={margin} />);
 
-      expect(loader).not.toHaveStyleRule("margin", `${defaultMargin}${defaultUnit}`);
-      expect(loader).toHaveStyleRule("margin", `${margin}`);
-
       for (let i: number = 0; i < 2; i++) {
+        let leftDefault: number = (i % 2 ? 1 : -1) * (26 + defaultMargin);
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-          "margin",
-          `${defaultMargin}${defaultUnit}`
+          "left",
+          `${leftDefault}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}`);
+        let left: number = (i % 2 ? 1 : -1) * (26 + length);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("left", `${left}${unit}`);
       }
     });
 
@@ -205,15 +204,14 @@ describe("RotateLoader", () => {
       let margin: string = `${length}${unit}`;
       loader = mount(<RotateLoader margin={margin} />);
 
-      expect(loader).not.toHaveStyleRule("margin", `${defaultMargin}${defaultUnit}`);
-      expect(loader).toHaveStyleRule("margin", `${length}${defaultUnit}`);
-
       for (let i: number = 0; i < 2; i++) {
+        let leftDefault: number = (i % 2 ? 1 : -1) * (26 + defaultMargin);
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-          "margin",
-          `${defaultMargin}${defaultUnit}`
+          "left",
+          `${leftDefault}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${length}${defaultUnit}`);
+        let left: number = (i % 2 ? 1 : -1) * (26 + length);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("left", `${left}${defaultUnit}`);
       }
     });
   });

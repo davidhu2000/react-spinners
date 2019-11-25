@@ -3,7 +3,7 @@ import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
-import { sizeMarginDefaults, cssValue } from "./helpers";
+import { sizeMarginDefaults, cssValue, parseLengthAndUnit } from "./helpers";
 import {
   StyleFunction,
   PrecompiledCss,
@@ -20,21 +20,26 @@ const rotate: Keyframes = keyframes`
 class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   public static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
 
-  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => css`
-    opacity: 0.8;
-    position: absolute;
-    top: 0;
-    left: ${i % 2 ? -28 : 25}px;
-  `;
+  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+    let { margin } = this.props;
+    let { value } = parseLengthAndUnit(margin!);
+    let left: number = (i % 2 ? -1 : 1) * (26 + value);
+
+    return css`
+      opacity: 0.8;
+      position: absolute;
+      top: 0;
+      left: ${left}px;
+    `;
+  };
 
   public ball: StyleFunction = (): PrecompiledCss => {
-    const { color, size, margin } = this.props;
+    const { color, size } = this.props;
 
     return css`
       background-color: ${color};
       width: ${cssValue(size!)};
       height: ${cssValue(size!)};
-      margin: ${cssValue(margin!)};
       border-radius: 100%;
     `;
   };

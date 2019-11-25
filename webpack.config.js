@@ -8,8 +8,8 @@ module.exports = {
   entry: "./examples/index.tsx",
   mode: "production",
   output: {
-    path: path.resolve(__dirname, "docs"),
-    filename: "[name]-[hash].js"
+    path: path.resolve(__dirname, "docs", "javascripts"),
+    filename: "[name]-[contenthash].js"
   },
   module: {
     rules: [
@@ -37,6 +37,19 @@ module.exports = {
     })
   ],
   optimization: {
-    splitChunks: { chunks: "all" }
+    splitChunks: {
+      chunks: "all",
+      maxInitialRequests: Infinity,
+      minSize: 10000,
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name(module) {
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+            return `npm-${packageName.replace("@", "")}`;
+          }
+        }
+      }
+    }
   }
 };
