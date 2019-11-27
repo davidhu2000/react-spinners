@@ -94,7 +94,8 @@ css: "";
 
 Color prop accepts a color hash. It also accepts basic colors. This is the list of colors accepted:
 
-> maroon,red,orange,yellow,olive,green,purple,fuchsia,lime,teal,aqua,blue,navy,black,gray,silver,white
+> maroon, red, orange, yellow, olive, green, purple, white,
+> fuchsia, lime, teal, aqua, blue, navy, black, gray, silver
 
 Note:
 `css` works exactly like the `css` works with the emotion package.
