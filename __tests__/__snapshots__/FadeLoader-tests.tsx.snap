@@ -94,7 +94,6 @@ exports[`FadeLoader should match snapshot 1`] = `
   position: absolute;
   width: 5px;
   height: 15px;
-  margin: 2px;
   background-color: #000000;
   border-radius: 2px;
   -webkit-transition: 2s;
@@ -111,7 +110,6 @@ exports[`FadeLoader should match snapshot 1`] = `
   position: absolute;
   width: 5px;
   height: 15px;
-  margin: 2px;
   background-color: #000000;
   border-radius: 2px;
   -webkit-transition: 2s;
@@ -131,7 +129,6 @@ exports[`FadeLoader should match snapshot 1`] = `
   position: absolute;
   width: 5px;
   height: 15px;
-  margin: 2px;
   background-color: #000000;
   border-radius: 2px;
   -webkit-transition: 2s;
@@ -151,7 +148,6 @@ exports[`FadeLoader should match snapshot 1`] = `
   position: absolute;
   width: 5px;
   height: 15px;
-  margin: 2px;
   background-color: #000000;
   border-radius: 2px;
   -webkit-transition: 2s;
@@ -171,7 +167,6 @@ exports[`FadeLoader should match snapshot 1`] = `
   position: absolute;
   width: 5px;
   height: 15px;
-  margin: 2px;
   background-color: #000000;
   border-radius: 2px;
   -webkit-transition: 2s;
@@ -188,7 +183,6 @@ exports[`FadeLoader should match snapshot 1`] = `
   position: absolute;
   width: 5px;
   height: 15px;
-  margin: 2px;
   background-color: #000000;
   border-radius: 2px;
   -webkit-transition: 2s;
@@ -208,7 +202,6 @@ exports[`FadeLoader should match snapshot 1`] = `
   position: absolute;
   width: 5px;
   height: 15px;
-  margin: 2px;
   background-color: #000000;
   border-radius: 2px;
   -webkit-transition: 2s;
@@ -228,7 +221,6 @@ exports[`FadeLoader should match snapshot 1`] = `
   position: absolute;
   width: 5px;
   height: 15px;
-  margin: 2px;
   background-color: #000000;
   border-radius: 2px;
   -webkit-transition: 2s;
