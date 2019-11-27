@@ -19,14 +19,14 @@ const fade: Keyframes = keyframes`
 class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
   public static defaultProps: LoaderHeightWidthRadiusProps = heightWidthRadiusDefaults(15, 5, 2);
 
-  public radius: any = () => {
+  public radius = (): number => {
     let { margin } = this.props;
     let { value } = parseLengthAndUnit(margin!);
 
     return value + 18;
   };
 
-  public quarter: any = () => {
+  public quarter = (): number => {
     return this.radius() / 2 + this.radius() / 5.5;
   };
 
