@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.7.0-alpha.4
+
+- update default value for `css` prop on README to be `""` instead of `{}`
+- add list of available color words that the `color` prop accepts.
+- run prettier to format readme
+
 ## 0.7.0-alpha.3
 
 - **bugfix**: Fix [issue #140](https://github.com/davidhu2000/react-spinners/issues/140). The margin prop on `FadeLoader` does what we expect it to do, expand the spacing between the lines.
