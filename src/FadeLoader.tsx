@@ -3,7 +3,7 @@ import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
-import { heightWidthRadiusDefaults, cssValue } from "./helpers";
+import { heightWidthRadiusDefaults, cssValue, parseLengthAndUnit } from "./helpers";
 import {
   StyleFunction,
   PrecompiledCss,
@@ -18,8 +18,17 @@ const fade: Keyframes = keyframes`
 
 class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
   public static defaultProps: LoaderHeightWidthRadiusProps = heightWidthRadiusDefaults(15, 5, 2);
-  public radius: number = 20;
-  public quarter: number = this.radius / 2 + this.radius / 5.5;
+
+  public radius = (): number => {
+    let { margin } = this.props;
+    let { value } = parseLengthAndUnit(margin!);
+
+    return value + 18;
+  };
+
+  public quarter = (): number => {
+    return this.radius() / 2 + this.radius() / 5.5;
+  };
 
   public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { height, width, margin, color, radius } = this.props;
@@ -41,57 +50,57 @@ class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
     return css`
       position: relative;
       font-size: 0;
-      top: ${this.radius}px;
-      left: ${this.radius}px;
-      width: ${this.radius * 3}px;
-      height: ${this.radius * 3}px;
+      top: ${this.radius()}px;
+      left: ${this.radius()}px;
+      width: ${this.radius() * 3}px;
+      height: ${this.radius() * 3}px;
     `;
   };
 
   public a: StyleFunction = (): PrecompiledCss => css`
     ${this.style(1)};
-    top: ${this.radius}px;
+    top: ${this.radius()}px;
     left: 0;
   `;
   public b: StyleFunction = (): PrecompiledCss => css`
     ${this.style(2)};
-    top: ${this.quarter}px;
-    left: ${this.quarter}px;
+    top: ${this.quarter()}px;
+    left: ${this.quarter()}px;
     transform: rotate(-45deg);
   `;
   public c: StyleFunction = (): PrecompiledCss => css`
     ${this.style(3)};
     top: 0;
-    left: ${this.radius}px;
+    left: ${this.radius()}px;
     transform: rotate(90deg);
   `;
   public d: StyleFunction = (): PrecompiledCss => css`
     ${this.style(4)};
-    top: ${-this.quarter}px;
-    left: ${this.quarter}px;
+    top: ${-this.quarter()}px;
+    left: ${this.quarter()}px;
     transform: rotate(45deg);
   `;
   public e: StyleFunction = (): PrecompiledCss => css`
     ${this.style(5)};
-    top: ${-this.radius}px;
+    top: ${-this.radius()}px;
     left: 0;
   `;
   public f: StyleFunction = (): PrecompiledCss => css`
     ${this.style(6)};
-    top: ${-this.quarter}px;
-    left: ${-this.quarter}px;
+    top: ${-this.quarter()}px;
+    left: ${-this.quarter()}px;
     transform: rotate(-45deg);
   `;
   public g: StyleFunction = (): PrecompiledCss => css`
     ${this.style(7)};
     top: 0;
-    left: ${-this.radius}px;
+    left: ${-this.radius()}px;
     transform: rotate(90deg);
   `;
   public h: StyleFunction = (): PrecompiledCss => css`
     ${this.style(8)};
-    top: ${this.quarter}px;
-    left: ${-this.quarter}px;
+    top: ${this.quarter()}px;
+    left: ${-this.quarter()}px;
     transform: rotate(45deg);
   `;
 
