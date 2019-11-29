@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.7.0-alpha.5
+
+- clean up readme. break up prop section with individual prop headers
+
 ## 0.7.0-alpha.4
 
 - update default value for `css` prop on README to be `""` instead of `{}`

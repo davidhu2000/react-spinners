@@ -31,7 +31,7 @@ npm install react-spinners --save
 
 Each loader has their own default properties. You can overwrite the defaults by passing props into the loaders.
 
-Each loader accepts a `loading` prop as a boolean. The loader will not render anything if `loading` is `false`. The `loading` prop defaults to `true`.
+Each loader accepts a `loading` prop as a boolean. The loader will render `null` if `loading` is `false`. 
 
 **IMPORTANT**: This package uses [emotion](https://github.com/emotion-js/emotion). Remember to add the plugin to `.babelrc`, for example:
 
@@ -42,7 +42,7 @@ Each loader accepts a `loading` prop as a boolean. The loader will not render an
 }
 ```
 
-### Examples
+### Example
 
 ```js
 import React from "react";
@@ -92,23 +92,30 @@ color: "#000000";
 css: "";
 ```
 
-Color prop accepts a color hash. It also accepts basic colors. This is the list of colors accepted:
+### `color` prop
+
+`color` prop accepts a color hash in the format of `#XXXXXX` or `#XXX`. It also accepts basic colors listed below:
 
 > maroon, red, orange, yellow, olive, green, purple, white,
 > fuchsia, lime, teal, aqua, blue, navy, black, gray, silver
 
-Note:
+### `css` prop
+
 `css` works exactly like the `css` works with the emotion package.
 You can directly write your css in css syntax without the dirty camelCase css in jss syntax.
 We recommend you to use this awesome library in your project. It supports Server side rendering with HTTP2 Stream!
 More info about using `css` [here](https://emotion.sh/docs/introduction)
 
-For `size`, `height`, `width`, and `radius` props, the input can be number or string.
+### `size`, `height`, `width`, and `radius` props
+
+The input to these props can be number or string.
 
 - If value is number, the loader will default to css unit `px`.
 - If value is string, the loader will verify the unit against valid css units.
   - If unit is valid, return the original value
   - If unit is invalid, output warning console log and default to `px`.
+
+The table below has the default values for each loader.
 
 |            Loader | size | height | width | radius | margin |
 | ----------------: | :--: | :----: | :---: | :----: | :----: |
