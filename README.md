@@ -28,9 +28,10 @@ With Yarn:
 yarn add react-spinners
 ```
 
-or alternatively using npm:
+With npm:
+
 ```bash
-npm i -S react-spinners
+npm install --save react-spinners
 ```
 
 ## Usage
