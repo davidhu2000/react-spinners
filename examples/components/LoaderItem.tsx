@@ -20,11 +20,6 @@ class LoaderItem extends React.Component<ItemProps, ItemState> {
     let defaults: any = Object.assign({}, spinner.defaultProps);
     delete defaults.color;
     delete defaults.loading;
-    delete defaults.sizeUnit;
-    delete defaults.widthUnit;
-    delete defaults.heightUnit;
-    delete defaults.radiusUnit;
-    delete defaults.loaderStyle;
     delete defaults.css;
 
     this.state = {
@@ -37,7 +32,8 @@ class LoaderItem extends React.Component<ItemProps, ItemState> {
   public update(field: string): UpdateFunction {
     return (e: React.ChangeEvent<any>): void => {
       let { value } = e.target;
-      if (!value.includes("px")) {
+
+      if (value && !/[^0-9]/.test(value)) {
         value = parseInt(value, 10);
       }
 

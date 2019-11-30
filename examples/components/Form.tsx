@@ -13,12 +13,7 @@ const Form: FormType = ({ inputs, update }: FormProps): JSX.Element => (
   <div className="spinner-form">
     {Object.keys(inputs).map((name: string) => (
       <div className="spinner-form-input" key={name}>
-        <input
-          name={name}
-          type={name === "margin" ? "text" : "number"}
-          value={inputs[name]}
-          onChange={update(name)}
-        />
+        <input name={name} type={"text"} value={inputs[name]} onChange={update(name)} />
         <span className="bar" />
         <label htmlFor={name}>{name}</label>
       </div>

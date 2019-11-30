@@ -8,7 +8,7 @@ import { LoaderSizeProps } from "../src/interfaces";
 import { sizeDefaults } from "../src/helpers";
 
 describe("ClimbingBoxLoader", () => {
-  let loader: ReactWrapper;
+  let loader: ReactWrapper<LoaderSizeProps, null, ClimbingBoxLoader>;
   let props: LoaderSizeProps;
   let defaultColor: string = "#000000";
   let defaultSize: number = 15;
@@ -64,18 +64,38 @@ describe("ClimbingBoxLoader", () => {
     );
   });
 
-  it("should render the correct size based on props", () => {
-    let size: number = 18;
-    loader = mount(<ClimbingBoxLoader size={size} />);
-    expect(loader.find("div div")).not.toHaveStyleRule("font-size", `${defaultSize}${defaultUnit}`);
-    expect(loader.find("div div")).toHaveStyleRule("font-size", `${size}${defaultUnit}`);
-  });
+  describe("size props", () => {
+    it("should render the size with px unit when size is a number", () => {
+      let size: number = 18;
+      loader = mount(<ClimbingBoxLoader size={size} />);
+      expect(loader.find("div div")).not.toHaveStyleRule(
+        "font-size",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div")).toHaveStyleRule("font-size", `${size}${defaultUnit}`);
+    });
 
-  it("should render the correct sizeUnit based on props", () => {
-    let unit: string = "%";
-    loader = mount(<ClimbingBoxLoader sizeUnit={unit} />);
-    expect(loader.find("div div")).not.toHaveStyleRule("font-size", `${defaultSize}${defaultUnit}`);
-    expect(loader.find("div div")).toHaveStyleRule("font-size", `${defaultSize}${unit}`);
+    it("should render the size as is when size is a string with valid css unit", () => {
+      let size: string = "18px";
+      loader = mount(<ClimbingBoxLoader size={size} />);
+      expect(loader.find("div div")).not.toHaveStyleRule(
+        "font-size",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div")).toHaveStyleRule("font-size", `${size}`);
+    });
+
+    it("should render the size with default unit of px when the unit is incorrect", () => {
+      let length: number = 18;
+      let unit: string = "ad";
+      let size: string = `${length}${unit}`;
+      loader = mount(<ClimbingBoxLoader size={size} />);
+      expect(loader.find("div div")).not.toHaveStyleRule(
+        "font-size",
+        `${defaultSize}${defaultUnit}`
+      );
+      expect(loader.find("div div")).toHaveStyleRule("font-size", `${length}${defaultUnit}`);
+    });
   });
 
   it("should render the css override based on props", () => {

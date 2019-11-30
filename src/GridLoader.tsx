@@ -3,12 +3,13 @@ import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
-import { sizeMarginDefaults } from "./helpers";
+import { sizeMarginDefaults, cssValue, parseLengthAndUnit } from "./helpers";
 import {
   StyleFunction,
   PrecompiledCss,
   LoaderSizeMarginProps,
-  StyleFunctionWithIndex
+  StyleFunctionWithIndex,
+  LengthObject
 } from "./interfaces";
 
 const grid: Keyframes = keyframes`
@@ -24,14 +25,14 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   public static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
 
   public style: StyleFunctionWithIndex = (rand: number): PrecompiledCss => {
-    const { color, size, sizeUnit, margin } = this.props;
+    const { color, size, margin } = this.props;
 
     return css`
       display: inline-block;
       background-color: ${color};
-      width: ${`${size}${sizeUnit}`};
-      height: ${`${size}${sizeUnit}`};
-      margin: ${margin};
+      width: ${cssValue(size!)};
+      height: ${cssValue(size!)};
+      margin: ${cssValue(margin!)};
       border-radius: 100%;
       animation-fill-mode: "both";
       animation: ${grid} ${rand / 100 + 0.6}s ${rand / 100 - 0.2}s infinite ease;
@@ -39,10 +40,15 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   };
 
   public wrapper: StyleFunction = (): PrecompiledCss => {
-    const { size, sizeUnit, margin } = this.props;
+    const { size, margin } = this.props;
+    let sizeWithUnit: LengthObject = parseLengthAndUnit(size!);
+    let marginWithUnit: LengthObject = parseLengthAndUnit(margin!);
+
+    let width: string = `${parseFloat(sizeWithUnit.value.toString()) * 3 +
+      parseFloat(marginWithUnit.value.toString()) * 6}${sizeWithUnit.unit}`;
 
     return css`
-      width: ${`${parseFloat(size!.toString()) * 3 + parseFloat(margin!) * 6}${sizeUnit}`};
+      width: ${width};
       font-size: 0;
     `;
   };

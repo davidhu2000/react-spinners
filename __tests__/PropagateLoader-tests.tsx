@@ -82,31 +82,87 @@ describe("PropagateLoader", () => {
     }
   });
 
-  it("should render the correct sizeUnit based on props", () => {
-    let unit: string = "%";
-    loader = mount(<PropagateLoader sizeUnit={unit} />);
+  describe("size props", () => {
+    it("should render the size with px unit when size is a number", () => {
+      let size: number = 18;
+      loader = mount(<PropagateLoader size={size} />);
+      for (let i: number = 0; i < 6; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "height",
+          `${defaultSize}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "width",
+          `${defaultSize}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "font-size",
+          `${defaultSize / 3}${defaultUnit}`
+        );
 
-    for (let i: number = 0; i < 6; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "height",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "width",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "font-size",
-        `${defaultSize / 3}${defaultUnit}`
-      );
+        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule(
+          "font-size",
+          `${size / 3}${defaultUnit}`
+        );
+      }
+    });
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize}${unit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${unit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
-        "font-size",
-        `${defaultSize / 3}${unit}`
-      );
-    }
+    it("should render the size as is when size is a string with valid css unit", () => {
+      let length: number = 18;
+      let unit: string = "px";
+      let size: string = `${length}${unit}`;
+
+      loader = mount(<PropagateLoader size={size} />);
+      for (let i: number = 0; i < 6; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "height",
+          `${defaultSize}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "width",
+          `${defaultSize}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "font-size",
+          `${defaultSize / 3}${defaultUnit}`
+        );
+
+        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("font-size", `${length / 3}${unit}`);
+      }
+    });
+
+    it("should render the size with default unit of px when the unit is incorrect", () => {
+      let length: number = 18;
+      let unit: string = "ad";
+      let size: string = `${length}${unit}`;
+      loader = mount(<PropagateLoader size={size} />);
+
+      for (let i: number = 0; i < 6; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "height",
+          `${defaultSize}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "width",
+          `${defaultSize}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "font-size",
+          `${defaultSize / 3}${defaultUnit}`
+        );
+
+        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${length}${defaultUnit}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${length}${defaultUnit}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule(
+          "font-size",
+          `${length / 3}${defaultUnit}`
+        );
+      }
+    });
   });
 
   it("should render the css override based on props", () => {

@@ -3,7 +3,7 @@ import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
-import { sizeDefaults } from "./helpers";
+import { sizeDefaults, cssValue } from "./helpers";
 import { StyleFunction, PrecompiledCss, LoaderSizeProps } from "./interfaces";
 
 const skew: Keyframes = keyframes`
@@ -17,14 +17,14 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   public static defaultProps: LoaderSizeProps = sizeDefaults(20);
 
   public style: StyleFunction = (): PrecompiledCss => {
-    const { size, sizeUnit, color } = this.props;
+    const { size, color } = this.props;
 
     return css`
       width: 0;
       height: 0;
-      border-left: ${`${size}${sizeUnit}`} solid transparent;
-      border-right: ${`${size}${sizeUnit}`} solid transparent;
-      border-bottom: ${`${size}${sizeUnit}`} solid ${color};
+      border-left: ${cssValue(size!)} solid transparent;
+      border-right: ${cssValue(size!)} solid transparent;
+      border-bottom: ${cssValue(size!)} solid ${color};
       display: inline-block;
       animation: ${skew} 3s 0s infinite cubic-bezier(0.09, 0.57, 0.49, 0.9);
       animation-fill-mode: both;

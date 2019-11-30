@@ -168,15 +168,12 @@ exports[`ScaleLoader should match snapshot 1`] = `
 
 <Loader
   color="#000000"
-  css={Object {}}
+  css=""
   height={35}
-  heightUnit="px"
   loading={true}
-  margin="2px"
+  margin={2}
   radius={2}
-  radiusUnit="px"
   width={4}
-  widthUnit="px"
 >
   <div
     className="emotion-5"

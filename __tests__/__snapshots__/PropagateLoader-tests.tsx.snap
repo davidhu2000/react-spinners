@@ -229,10 +229,9 @@ exports[`PropagateLoader should match snapshot 1`] = `
 
 <Loader
   color="#000000"
-  css={Object {}}
+  css=""
   loading={true}
   size={15}
-  sizeUnit="px"
 >
   <div
     className="emotion-6"

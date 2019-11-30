@@ -11,6 +11,7 @@ describe("PacmanLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeMarginProps;
   let defaultSize: number = 25;
+  let defaultMargin: number = 2;
   let defaultColor: string = "#000000";
   let defaultUnit: string = "px";
 
@@ -47,7 +48,10 @@ describe("PacmanLoader", () => {
         "width",
         `${defaultSize / 3}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).toHaveStyleRule("margin", "2px");
+      expect(loader.find("div div").at(i)).toHaveStyleRule(
+        "margin",
+        `${defaultMargin}${defaultUnit}`
+      );
       expect(loader.find("div div").at(i)).toHaveStyleRule("top", `${defaultSize}${defaultUnit}`);
       expect(loader.find("div div").at(i)).toHaveStyleRule(
         "left",
@@ -70,92 +74,204 @@ describe("PacmanLoader", () => {
     }
   });
 
-  it("should render the correct size based on props", () => {
-    let size: number = 18;
-    loader = mount(<PacmanLoader size={size} />);
+  describe("size props", () => {
+    it("should render the size with px unit when size is a number", () => {
+      let size: number = 18;
+      loader = mount(<PacmanLoader size={size} />);
 
-    expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-    expect(loader).toHaveStyleRule("width", `${size}${defaultUnit}`);
+      expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("width", `${size}${defaultUnit}`);
 
-    expect(loader.find("div div").at(0)).not.toHaveStyleRule(
-      "border-radius",
-      `${defaultSize / 3}${defaultUnit}`
-    );
-    expect(loader.find("div div").at(1)).not.toHaveStyleRule(
-      "border-radius",
-      `${defaultSize / 3}${defaultUnit}`
-    );
-
-    expect(loader.find("div div").at(0)).toHaveStyleRule("border-radius", `${size}${defaultUnit}`);
-    expect(loader.find("div div").at(1)).toHaveStyleRule("border-radius", `${size}${defaultUnit}`);
-
-    for (let i: number = 2; i < 6; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "height",
+      expect(loader.find("div div").at(0)).not.toHaveStyleRule(
+        "border-radius",
         `${defaultSize / 3}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "width",
+      expect(loader.find("div div").at(1)).not.toHaveStyleRule(
+        "border-radius",
         `${defaultSize / 3}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "top",
-        `${defaultSize}${defaultUnit}`
+
+      expect(loader.find("div div").at(0)).toHaveStyleRule(
+        "border-radius",
+        `${size}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "left",
-        `${defaultSize * 4}${defaultUnit}`
+      expect(loader.find("div div").at(1)).toHaveStyleRule(
+        "border-radius",
+        `${size}${defaultUnit}`
       );
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size / 3}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size / 3}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("top", `${size}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("left", `${size * 4}${defaultUnit}`);
-    }
+      for (let i: number = 2; i < 6; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "height",
+          `${defaultSize / 3}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "width",
+          `${defaultSize / 3}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "top",
+          `${defaultSize}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "left",
+          `${defaultSize * 4}${defaultUnit}`
+        );
+
+        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size / 3}${defaultUnit}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size / 3}${defaultUnit}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("top", `${size}${defaultUnit}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("left", `${size * 4}${defaultUnit}`);
+      }
+    });
+
+    it("should render the size as is when size is a string with valid css unit", () => {
+      let length: number = 18;
+      let unit: string = "px";
+      let size: string = `${length}${unit}`;
+      loader = mount(<PacmanLoader size={size} />);
+
+      expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("width", `${size}`);
+
+      expect(loader.find("div div").at(0)).not.toHaveStyleRule(
+        "border-radius",
+        `${defaultSize / 3}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(1)).not.toHaveStyleRule(
+        "border-radius",
+        `${defaultSize / 3}${defaultUnit}`
+      );
+
+      expect(loader.find("div div").at(0)).toHaveStyleRule("border-radius", `${size}`);
+      expect(loader.find("div div").at(1)).toHaveStyleRule("border-radius", `${size}`);
+
+      for (let i: number = 2; i < 6; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "height",
+          `${defaultSize / 3}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "width",
+          `${defaultSize / 3}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "top",
+          `${defaultSize}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "left",
+          `${defaultSize * 4}${defaultUnit}`
+        );
+
+        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${length / 3}${unit}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${length / 3}${unit}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("top", `${length}${unit}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("left", `${length * 4}${unit}`);
+      }
+    });
+
+    it("should render the size with default unit of px when the unit is incorrect", () => {
+      let length: number = 18;
+      let unit: string = "ad";
+      let size: string = `${length}${unit}`;
+      loader = mount(<PacmanLoader size={size} />);
+
+      expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader).toHaveStyleRule("width", `${length}${defaultUnit}`);
+
+      expect(loader.find("div div").at(0)).not.toHaveStyleRule(
+        "border-radius",
+        `${defaultSize / 3}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(1)).not.toHaveStyleRule(
+        "border-radius",
+        `${defaultSize / 3}${defaultUnit}`
+      );
+
+      expect(loader.find("div div").at(0)).toHaveStyleRule(
+        "border-radius",
+        `${length}${defaultUnit}`
+      );
+      expect(loader.find("div div").at(1)).toHaveStyleRule(
+        "border-radius",
+        `${length}${defaultUnit}`
+      );
+
+      for (let i: number = 2; i < 6; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "height",
+          `${defaultSize / 3}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "width",
+          `${defaultSize / 3}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "top",
+          `${defaultSize}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "left",
+          `${defaultSize * 4}${defaultUnit}`
+        );
+
+        expect(loader.find("div div").at(i)).toHaveStyleRule(
+          "height",
+          `${length / 3}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).toHaveStyleRule(
+          "width",
+          `${length / 3}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).toHaveStyleRule("top", `${length}${defaultUnit}`);
+        expect(loader.find("div div").at(i)).toHaveStyleRule("left", `${length * 4}${defaultUnit}`);
+      }
+    });
   });
 
-  it("should render the correct sizeUnit based on props", () => {
-    let unit: string = "%";
-    loader = mount(<PacmanLoader sizeUnit={unit} />);
+  describe("margin props", () => {
+    it("should render the margin with px unit when margin is a number", () => {
+      let margin: number = 18;
+      loader = mount(<PacmanLoader margin={margin} />);
+      for (let i: number = 2; i < 6; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "margin",
+          `${defaultMargin}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}${defaultUnit}`);
+      }
+    });
 
-    expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-    expect(loader).toHaveStyleRule("width", `${defaultSize}${unit}`);
+    it("should render the margin as is when margin is a string with valid css unit", () => {
+      let length: number = 18;
+      let unit: string = "px";
+      let margin: string = `${length}${unit}`;
 
-    expect(loader.find("div div").at(0)).not.toHaveStyleRule(
-      "border-radius",
-      `${defaultSize / 3}${defaultUnit}`
-    );
-    expect(loader.find("div div").at(1)).not.toHaveStyleRule(
-      "border-radius",
-      `${defaultSize / 3}${defaultUnit}`
-    );
+      loader = mount(<PacmanLoader margin={margin} />);
+      for (let i: number = 2; i < 6; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "margin",
+          `${defaultMargin}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}`);
+      }
+    });
 
-    expect(loader.find("div div").at(0)).toHaveStyleRule("border-radius", `${defaultSize}${unit}`);
-    expect(loader.find("div div").at(1)).toHaveStyleRule("border-radius", `${defaultSize}${unit}`);
+    it("should render the margin with default unit of px when the unit is incorrect", () => {
+      let length: number = 18;
+      let unit: string = "ad";
+      let margin: string = `${length}${unit}`;
 
-    for (let i: number = 2; i < 6; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "height",
-        `${defaultSize / 3}${defaultUnit}`
-      );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "width",
-        `${defaultSize / 3}${defaultUnit}`
-      );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "top",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
-        "left",
-        `${defaultSize * 4}${defaultUnit}`
-      );
-
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${defaultSize / 3}${unit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize / 3}${unit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("top", `${defaultSize}${unit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("left", `${defaultSize * 4}${unit}`);
-    }
+      loader = mount(<PacmanLoader margin={margin} />);
+      for (let i: number = 2; i < 6; i++) {
+        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+          "margin",
+          `${defaultMargin}${defaultUnit}`
+        );
+        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${length}${defaultUnit}`);
+      }
+    });
   });
 
   it("should render the css override based on props", () => {

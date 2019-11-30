@@ -37,9 +37,9 @@ npm i -S react-spinners
 
 Each loader has their own default properties. You can overwrite the defaults by passing props into the loaders.
 
-Each loader accepts a `loading` prop as a boolean. The loader will not render anything if `loading` is `false`. The `loading` prop defaults to `true`.
+Each loader accepts a `loading` prop as a boolean. The loader will render `null` if `loading` is `false`. 
 
-**IMPORTANT**: This package uses [emotion](https://github.com/emotion-js/emotion). Remember to add the plugin to `.babelrc`, for example: 
+**IMPORTANT**: This package uses [emotion](https://github.com/emotion-js/emotion). Remember to add the plugin to `.babelrc`, for example:
 
 ```
 {
@@ -48,21 +48,21 @@ Each loader accepts a `loading` prop as a boolean. The loader will not render an
 }
 ```
 
-### Examples
- 
+### Example
+
 ```js
-import React from 'react';
-import { css } from '@emotion/core';
+import React from "react";
+import { css } from "@emotion/core";
 // First way to import
-import { ClipLoader } from 'react-spinners';
+import { ClipLoader } from "react-spinners";
 // Another way to import. This is recommended to reduce bundle size
-import ClipLoader from 'react-spinners/ClipLoader';
+import ClipLoader from "react-spinners/ClipLoader";
 
 // Can be a string as well. Need to ensure each key-value pair ends with ;
 const override = css`
-    display: block;
-    margin: 0 auto;
-    border-color: red;
+  display: block;
+  margin: 0 auto;
+  border-color: red;
 `;
 
 class AwesomeComponent extends React.Component {
@@ -70,20 +70,20 @@ class AwesomeComponent extends React.Component {
     super(props);
     this.state = {
       loading: true
-    }
+    };
   }
+
   render() {
     return (
-      <div className='sweet-loading'>
+      <div className="sweet-loading">
         <ClipLoader
           css={override}
-          sizeUnit={"px"}
-          size={150}
-          color={'#123abc'}
+          size={150} // or 150px
+          color={"#123abc"}
           loading={this.state.loading}
         />
-      </div> 
-    )
+      </div>
+    );
   }
 }
 ```
@@ -93,36 +93,54 @@ class AwesomeComponent extends React.Component {
 Common default props for all loaders:
 
 ```js
-loading: true
-color: '#000000'
-css: {}
+loading: true;
+color: "#000000";
+css: "";
 ```
-Note:
+
+### `color` prop
+
+`color` prop accepts a color hash in the format of `#XXXXXX` or `#XXX`. It also accepts basic colors listed below:
+
+> maroon, red, orange, yellow, olive, green, purple, white,
+> fuchsia, lime, teal, aqua, blue, navy, black, gray, silver
+
+### `css` prop
+
 `css` works exactly like the `css` works with the emotion package.
 You can directly write your css in css syntax without the dirty camelCase css in jss syntax.
-We recommend you to use this awesome library in your project. It supports Server side rendering with HTTP2 Stream! 
+We recommend you to use this awesome library in your project. It supports Server side rendering with HTTP2 Stream!
 More info about using `css` [here](https://emotion.sh/docs/introduction)
 
-For `size`, `height`, `width`, and `radius` props, there are `sizeUnit`, `heightUnit`, `widthUnit` and `radiusUnit` prop that accepts `px`, `%`, or `em`. The default for the unit prop is `px`.
+### `size`, `height`, `width`, and `radius` props
 
-|            Loader | size:int | height:int | width:int | radius:int | margin:str |
-| ----------------: | :------: | :--------: | :-------: | :--------: | :--------: |
-|         BarLoader |          |    `4`     |   `100`   |            |
-|        BeatLoader |   `15`   |            |           |            |   `2px`    |
-|      BounceLoader |   `60`   |            |           |            |
-|      CircleLoader |   `50`   |            |           |            |
-|        ClipLoader |   `35`   |            |           |            |
-| ClimbingBoxLoader |   `15`   |            |           |            |
-|         DotLoader |   `60`   |            |           |            |   `2px`    |
-|        FadeLoader |          |    `15`    |    `5`    |    `2`     |   `2px`    |
-|        GridLoader |   `15`   |            |           |            |
-|        HashLoader |   `50`   |            |           |            |   `2px`    |
-|        MoonLoader |   `60`   |            |           |            |   `2px`    |
-|      PacmanLoader |   `25`   |            |           |            |   `2px`    |
-|   PropagateLoader |   `15`   |            |           |            |
-|       PulseLoader |   `15`   |            |           |            |   `2px`    |
-|        RingLoader |   `60`   |            |           |            |   `2px`    |
-|        RiseLoader |   `15`   |            |           |            |   `2px`    |
-|      RotateLoader |   `15`   |            |           |            |   `2px`    |
-|       ScaleLoader |          |    `35`    |    `4`    |    `2`     |   `2px`    |
-|        SyncLoader |   `15`   |            |           |            |   `2px`    |
+The input to these props can be number or string.
+
+- If value is number, the loader will default to css unit `px`.
+- If value is string, the loader will verify the unit against valid css units.
+  - If unit is valid, return the original value
+  - If unit is invalid, output warning console log and default to `px`.
+
+The table below has the default values for each loader.
+
+|            Loader | size | height | width | radius | margin |
+| ----------------: | :--: | :----: | :---: | :----: | :----: |
+|         BarLoader |      |  `4`   | `100` |        |
+|        BeatLoader | `15` |        |       |        |  `2`   |
+|      BounceLoader | `60` |        |       |        |
+|      CircleLoader | `50` |        |       |        |
+|        ClipLoader | `35` |        |       |        |
+| ClimbingBoxLoader | `15` |        |       |        |
+|         DotLoader | `60` |        |       |        |  `2`   |
+|        FadeLoader |      |  `15`  |  `5`  |  `2`   |  `2`   |
+|        GridLoader | `15` |        |       |        |
+|        HashLoader | `50` |        |       |        |  `2`   |
+|        MoonLoader | `60` |        |       |        |  `2`   |
+|      PacmanLoader | `25` |        |       |        |  `2`   |
+|   PropagateLoader | `15` |        |       |        |
+|       PulseLoader | `15` |        |       |        |  `2`   |
+|        RingLoader | `60` |        |       |        |  `2`   |
+|        RiseLoader | `15` |        |       |        |  `2`   |
+|      RotateLoader | `15` |        |       |        |  `2`   |
+|       ScaleLoader |      |  `35`  |  `4`  |  `2`   |  `2`   |
+|        SyncLoader | `15` |        |       |        |  `2`   |

@@ -27,7 +27,7 @@ const cssUnit: { [unit: string]: boolean } = {
  * @param {(number | string)} size
  * @return {LengthObject} LengthObject
  */
-export function unitConverter(size: number | string): LengthObject {
+export function parseLengthAndUnit(size: number | string): LengthObject {
   if (typeof size === "number") {
     return {
       value: size,
@@ -57,4 +57,16 @@ export function unitConverter(size: number | string): LengthObject {
     value,
     unit: "px"
   };
+}
+
+/**
+ * Take value as an input and return valid css value
+ *
+ * @param {(number | string)} value
+ * @return {string} valid css value
+ */
+export function cssValue(value: number | string): string {
+  let lengthWithunit: LengthObject = parseLengthAndUnit(value!);
+
+  return `${lengthWithunit.value}${lengthWithunit.unit}`;
 }
