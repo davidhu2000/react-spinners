@@ -79,7 +79,8 @@ class AwesomeComponent extends React.Component {
       <div className="sweet-loading">
         <ClipLoader
           css={override}
-          size={150} // or 150px
+          size={150}
+        //size={"150px"} this also works
           color={"#123abc"}
           loading={this.state.loading}
         />

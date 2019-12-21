@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.7.1
+
+- run `npm audit fix` to fix vulnerability in `serialslize-javascript` package
+- update README to showcase number and string input for size prop.
+
 ## 0.7.0
 
 - **BREAKING CHANGE**: all unit props have been removed to simplify the component API. See change log for `0.7.0-alpha.1` for more details.
