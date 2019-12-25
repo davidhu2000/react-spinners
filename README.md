@@ -19,11 +19,12 @@ This package is bootstraped using [react-npm-boilerplate](https://github.com/jul
 
 ## Demo
 
-[Demo Page](https://www.react-spinners.com)
+[Demo Page](https://www.davidhu.io/react-spinners)
 
 ## Installation
 
 With Yarn:
+
 ```bash
 yarn add react-spinners
 ```
@@ -38,7 +39,7 @@ npm install --save react-spinners
 
 Each loader has their own default properties. You can overwrite the defaults by passing props into the loaders.
 
-Each loader accepts a `loading` prop as a boolean. The loader will render `null` if `loading` is `false`. 
+Each loader accepts a `loading` prop as a boolean. The loader will render `null` if `loading` is `false`.
 
 **IMPORTANT**: This package uses [emotion](https://github.com/emotion-js/emotion). Remember to add the plugin to `.babelrc`, for example:
 
@@ -80,7 +81,7 @@ class AwesomeComponent extends React.Component {
         <ClipLoader
           css={override}
           size={150}
-        //size={"150px"} this also works
+          //size={"150px"} this also works
           color={"#123abc"}
           loading={this.state.loading}
         />
