@@ -132,8 +132,9 @@ The table below has the default values for each loader.
 |        BeatLoader | `15` |        |       |        |  `2`   |
 |      BounceLoader | `60` |        |       |        |
 |      CircleLoader | `50` |        |       |        |
-|        ClipLoader | `35` |        |       |        |
 | ClimbingBoxLoader | `15` |        |       |        |
+|        ClipLoader | `35` |        |       |        |
+|       ClockLoader | `50` |        |       |        |
 |         DotLoader | `60` |        |       |        |  `2`   |
 |        FadeLoader |      |  `15`  |  `5`  |  `2`   |  `2`   |
 |        GridLoader | `15` |        |       |        |
