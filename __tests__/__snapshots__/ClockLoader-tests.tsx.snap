@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClockLoader should match snapshot 1`] = `
+@keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.emotion-0 {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  box-shadow: inset 0px 0px 0px 2px #000000;
+  border-radius: 50%;
+}
+
+.emotion-0:after,
+.emotion-0:before {
+  position: absolute;
+  content: "";
+  background-color: #000000;
+}
+
+.emotion-0:after {
+  width: 20.833333333333336px;
+  height: 2px;
+  top: 24px;
+  left: 24px;
+  -webkit-transform-origin: 1px 1px;
+  -ms-transform-origin: 1px 1px;
+  transform-origin: 1px 1px;
+  -webkit-animation: animation-0 2s linear infinite;
+  animation: animation-0 2s linear infinite;
+}
+
+.emotion-0:before {
+  width: 16.666666666666668px;
+  height: 2px;
+  top: 24px;
+  left: 24px;
+  -webkit-transform-origin: 1px 1px;
+  -ms-transform-origin: 1px 1px;
+  transform-origin: 1px 1px;
+  -webkit-animation: animation-0 8s linear infinite;
+  animation: animation-0 8s linear infinite;
+}
+
+<Loader
+  color="#000000"
+  css=""
+  loading={true}
+  size={50}
+>
+  <div
+    className="emotion-0"
+  />
+</Loader>
+`;

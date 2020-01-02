@@ -4,6 +4,7 @@ import BounceLoaderComponent from "./BounceLoader";
 import CircleLoaderComponent from "./CircleLoader";
 import ClimbingBoxLoaderComponent from "./ClimbingBoxLoader";
 import ClipLoaderComponent from "./ClipLoader";
+import ClockLoaderComponent from "./ClockLoader";
 import DotLoaderComponent from "./DotLoader";
 import FadeLoaderComponent from "./FadeLoader";
 import GridLoaderComponent from "./GridLoader";
@@ -33,6 +34,7 @@ export const BounceLoader: React.ComponentClass<LoaderSizeProps> = BounceLoaderC
 export const CircleLoader: React.ComponentClass<LoaderSizeProps> = CircleLoaderComponent;
 export const ClimbingBoxLoader: React.ComponentClass<LoaderSizeProps> = ClimbingBoxLoaderComponent;
 export const ClipLoader: React.ComponentClass<LoaderSizeProps> = ClipLoaderComponent;
+export const ClockLoader: React.ComponentClass<LoaderSizeProps> = ClockLoaderComponent;
 export const DotLoader: React.ComponentClass<LoaderSizeProps> = DotLoaderComponent;
 export const FadeLoader: React.ComponentClass<LoaderHeightWidthRadiusProps> = FadeLoaderComponent;
 export const GridLoader: React.ComponentClass<LoaderSizeMarginProps> = GridLoaderComponent;
