@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.8.0
+
+- Added a new loader: `ClockLoader`
+- No other functionality changes
+- Fix default value table in README to alphabetize correctly
+
 ## 0.7.2
 
 - update README demo site url
@@ -9,11 +15,11 @@ All notable changes to this project will be documented in this file. This projec
 ## 0.7.1
 
 - run `npm audit fix` to fix vulnerability in `serialslize-javascript` package
-- update README to showcase number and string input for size prop.
+- update README to showcase number and string input for size prop
 
 ## 0.7.0
 
-- **BREAKING CHANGE**: all unit props have been removed to simplify the component API. See change log for `0.7.0-alpha.1` for more details.
+- **BREAKING CHANGE**: all unit props have been removed to simplify the component API. See change log for `0.7.0-alpha.1` for more details
 
 ## 0.7.0-beta.1
 
@@ -26,21 +32,21 @@ All notable changes to this project will be documented in this file. This projec
 ## 0.7.0-alpha.4
 
 - update default value for `css` prop on README to be `""` instead of `{}`
-- add list of available color words that the `color` prop accepts.
+- add list of available color words that the `color` prop accepts
 - run prettier to format readme
 
 ## 0.7.0-alpha.3
 
-- **bugfix**: Fix [issue #140](https://github.com/davidhu2000/react-spinners/issues/140). The margin prop on `FadeLoader` does what we expect it to do, expand the spacing between the lines.
+- **bugfix**: Fix [issue #140](https://github.com/davidhu2000/react-spinners/issues/140). The margin prop on `FadeLoader` does what we expect it to do, expand the spacing between the lines
 
 ## 0.7.0-alpha.2
 
-- **bugfix**: Fix [issue #139](https://github.com/davidhu2000/react-spinners/issues/139). The margin prop on `RotateLoader` does what we expect it to do, expand the spacing between the dots.
-- updated webpack config to split up npm files to avoid brower having to reload them on each change.
+- **bugfix**: Fix [issue #139](https://github.com/davidhu2000/react-spinners/issues/139). The margin prop on `RotateLoader` does what we expect it to do, expand the spacing between the dots
+- updated webpack config to split up npm files to avoid brower having to reload them on each change
 
 ## 0.7.0-alpha.1
 
-- **BREAKING CHANGE**: all unit props are deprecated, including `sizeUnit`, `heightUnit`, `widthUnit`, and `radiusUnit`. The `size`, `height`, `width`, and `radius` props now accepts `number` and `string`.
+- **BREAKING CHANGE**: all unit props are deprecated, including `sizeUnit`, `heightUnit`, `widthUnit`, and `radiusUnit`. The `size`, `height`, `width`, and `radius` props now accepts `number` and `string`
   - If value is number, default to `px`
   - If value is string with valid css unit, return the input value
   - If value is string with invalid css unit, output warning console log and default to `px`
@@ -49,7 +55,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ## 0.6.1
 
-- **bugfix**: Fix [issue 109](https://github.com/davidhu2000/react-spinners/issues/109) where `Math.random` is stubbed out in the `GridLoader` component instead in the tests, causing `Math.random` to not work properly if `GridLoader` is used.
+- **bugfix**: Fix [issue 109](https://github.com/davidhu2000/react-spinners/issues/109) where `Math.random` is stubbed out in the `GridLoader` component instead in the tests, causing `Math.random` to not work properly if `GridLoader` is used
 
 ## 0.6.0
 
@@ -64,16 +70,16 @@ All notable changes to this project will be documented in this file. This projec
 
 ## 0.6.0-beta.1
 
-- updated `devDependencies` to latest versions.
+- updated `devDependencies` to latest versions
 
 ## 0.6.0-alpha.10
 
-- Removed `recompose` from the list of dependencies. We currently wants the component to update for all prop changes, so the `onlyUpdateForKeys` was passed in all the props anyways, so it wasn't doing much.
+- Removed `recompose` from the list of dependencies. We currently wants the component to update for all prop changes, so the `onlyUpdateForKeys` was passed in all the props anyways, so it wasn't doing much
 
 ## 0.6.0-alpha.9
 
-- **bugfix**: Fix issue where `PacmanLoader` `top` css property does not respect the `sizeUnit` prop. It was hardcoded to be `px` instead of using `sizeUnit` prop.
-- update javascript bundle files for demo site.
+- **bugfix**: Fix issue where `PacmanLoader` `top` css property does not respect the `sizeUnit` prop. It was hardcoded to be `px` instead of using `sizeUnit` prop
+- update javascript bundle files for demo site
 
 ## 0.6.0-alpha.8
 
@@ -82,9 +88,9 @@ All notable changes to this project will be documented in this file. This projec
 
 ## 0.6.0-alpha.7
 
-- update readme to include `radius` and `radiusUnit` prop description.
-- update all the tests to use default variables.
-- add the following to `.npmignore` to further reduce package size.
+- update readme to include `radius` and `radiusUnit` prop description
+- update all the tests to use default variables
+- add the following to `.npmignore` to further reduce package size
 
 ```
 tslint.json
@@ -113,7 +119,7 @@ npm notice unpacked size: 132.1 kB
 
 ## 0.6.0-alpha.6
 
-- add `src` folder to `npmignore`. Previous version wasn't ruthless enough in saving data.
+- add `src` folder to `npmignore`. Previous version wasn't ruthless enough in saving data
 
 Old:
 
@@ -133,7 +139,7 @@ npm notice unpacked size: 138.5 kB
 
 ## 0.6.0-alpha.5
 
-- update `npmignore` to include `__tests__`, `.github`, `.circleci`, `coverage`. This helped to reduce package size. Help to save some data.
+- update `npmignore` to include `__tests__`, `.github`, `.circleci`, `coverage`. This helped to reduce package size. Help to save some data
 
 Old:
 
@@ -153,9 +159,9 @@ npm notice unpacked size: 191.2 kB
 
 ## 0.6.0-alpha.4
 
-- **bugfix**: update `package.json` `main` value from `dist/index.js` to `index.js` to fix codeSandbox import issue.
-- **bugfix**: add missing `transform` key to the `25%` keyframe in RiseLoader. It was just `25% {translateY(-${riseAmount}px)}` before. Now it is corrected.
-- add tests for all the loaders. Fixed up a few tests using default variables, namely the first 3 letters in the alphabet.
+- **bugfix**: update `package.json` `main` value from `dist/index.js` to `index.js` to fix codeSandbox import issue
+- **bugfix**: add missing `transform` key to the `25%` keyframe in RiseLoader. It was just `25% {translateY(-${riseAmount}px)}` before. Now it is corrected
+- add tests for all the loaders. Fixed up a few tests using default variables, namely the first 3 letters in the alphabet
 
 ## 0.6.0-alpha.3
 
@@ -169,23 +175,23 @@ npm notice unpacked size: 191.2 kB
 
 ## 0.6.0-alpha.1
 
-- This is a complete rewrite of the package. 100% of the code is now in TypeScript. This will show inidividual type definitions for each loader.
-- `prop-types` has been removed as a dependency. This is now handled by typings.
-- set up `ts-lint` and `prettier` to help ensure code consistency.
+- This is a complete rewrite of the package. 100% of the code is now in TypeScript. This will show inidividual type definitions for each loader
+- `prop-types` has been removed as a dependency. This is now handled by typings
+- set up `ts-lint` and `prettier` to help ensure code consistency
 
 ## 0.5.13
 
 **Note: this release has a critical [issue](https://github.com/davidhu2000/react-spinners/issues/74) and was deprecated. Please use <= 0.5.12 or > 0.6.0.**
 
-- fix readme props table formatting. It got a little messy for some reason.
+- fix readme props table formatting. It got a little messy for some reason
 
 ## 0.5.12
 
-- fix version glitch. No code changes here.
+- fix version glitch. No code changes here
 
 ## 0.5.11
 
-- this version should be 0.5.10, but internet issues causesa weird version glitch. Update to 0.5.12 so everything matches.
+- this version should be 0.5.10, but internet issues causesa weird version glitch. Update to 0.5.12 so everything matches
 
 ## 0.5.10
 
@@ -215,7 +221,7 @@ npm notice unpacked size: 191.2 kB
 
 ## 0.5.5
 
-- **bugfix**: update `CommonProps` interface `css` prop to used `PrecompiledCss` and `string`. Update PropTypes helper to be able to accept both `PrecompiledCss` and `string`. This is to fix the validation error for the `css` prop.
+- **bugfix**: update `CommonProps` interface `css` prop to used `PrecompiledCss` and `string`. Update PropTypes helper to be able to accept both `PrecompiledCss` and `string`. This is to fix the validation error for the `css` prop
 
 ## 0.5.4
 
@@ -223,12 +229,12 @@ npm notice unpacked size: 191.2 kB
 
 ## 0.5.3
 
-- **bugfix**: update default value for `css` prop to `{}` instead of `""` to fix console error.
+- **bugfix**: update default value for `css` prop to `{}` instead of `""` to fix console error
 
 ## 0.5.2
 
 - **bugfix**: change `css` proptype to `PropTypes.shape({ ... })` instead of `PropTypes.string` to fix console error.
-- Fix a few console warnings on the demo site.
+- Fix a few console warnings on the demo site
 
 ## 0.5.1
 
@@ -237,7 +243,7 @@ npm notice unpacked size: 191.2 kB
 ## 0.5.0
 
 - Update emotion package to emotion 10
-- **Breaking change**: replaced `className` prop with `css` prop to match Emotion 10.
+- **Breaking change**: replaced `className` prop with `css` prop to match Emotion 10
 
 ## 0.4.8
 
@@ -249,7 +255,7 @@ npm notice unpacked size: 191.2 kB
 
 ## 0.4.6
 
-- update how `onlyUpdateForKeys` is imported from `recompose`. Reduced import cost from `26kb` to `19kb`.
+- update how `onlyUpdateForKeys` is imported from `recompose`. Reduced import cost from `26kb` to `19kb`
 
 ## 0.4.5
 
@@ -266,7 +272,7 @@ npm notice unpacked size: 191.2 kB
 
 ## 0.4.2
 
-- fix single loader import.
+- fix single loader import
 - add `className` to `index.d.ts`
 - update readme to include single loader import
 
@@ -285,7 +291,7 @@ npm notice unpacked size: 191.2 kB
 
 **Note: this release was deprecated through removing `loaderStyle` prop. Please update to 0.4.1 or higher.**
 
-- Add `loaderStyle` prop to loaders to allow more customized loader.
+- Add `loaderStyle` prop to loaders to allow more customized loader
 
 ## 0.3.2
 
@@ -293,16 +299,16 @@ npm notice unpacked size: 191.2 kB
 
 ## 0.3.1
 
-- Moved `babel-plugin-emotion` to devDependencies and updates to 9.1.0.
+- Moved `babel-plugin-emotion` to devDependencies and updates to 9.1.0
 
 ## 0.3.0
 
 - Added `unit` props to each loader to allow `%` units on css
-- **bugfix**: fixed string concatenation on some loaders that prevented the correct rendering.
+- **bugfix**: fixed string concatenation on some loaders that prevented the correct rendering
 
 ## 0.2.6
 
-- **bugfix**: add missing `px` for `border-radius` in `ScaleLoader` styling.
+- **bugfix**: add missing `px` for `border-radius` in `ScaleLoader` styling
 - add `minor` and `major` versioning scripts to `package.json`
 
 ## 0.2.5
@@ -311,22 +317,22 @@ npm notice unpacked size: 191.2 kB
 
 ## 0.2.4
 
-- removed codesponsers from readme.
+- removed codesponsers from readme
 
 ## 0.2.3
 
 - updated devDendencies to latest stable versions
 - removed unused npm scripts from `package.json`
-- minor linting fixes after update.
-- add `^16.0.0` to `react` and `react-dom` peerDependencies.
+- minor linting fixes after update
+- add `^16.0.0` to `react` and `react-dom` peerDependencies
 
 ## 0.2.2
 
-- **bugfix**: change `borderRadius` to `border-radius` in `RingLoader` so the browser will recognize the css.
+- **bugfix**: change `borderRadius` to `border-radius` in `RingLoader` so the browser will recognize the css
 
 ## 0.2.1
 
-- **bugfix**: moved `prop-types` to from devDependencies to dependencies. This fixes the `Package not found` error for projects that do not include `prop-types` as a dependency.
+- **bugfix**: moved `prop-types` to from devDependencies to dependencies. This fixes the `Package not found` error for projects that do not include `prop-types` as a dependency
 
 ## 0.2.0
 
@@ -338,62 +344,62 @@ npm notice unpacked size: 191.2 kB
 
 **Note: this release has a critical issue and was deprecated. Please update to 0.2.1 or higher.**
 
-- **bugfix**: moved `emotion` from devDependency to dependency. This fixed the `Package not found` error.
+- **bugfix**: moved `emotion` from devDependency to dependency. This fixed the `Package not found` error
 
 ## 0.1.8
 
 **Note: this release has a critical issue and was deprecated. Please update to 0.2.1 or higher.**
 
-- update `emotion` package version from `7.2.0` to `8.0.6`.
+- update `emotion` package version from `7.2.0` to `8.0.6`
 
 ## 0.1.7
 
 **Note: this release has a critical issue and was deprecated. Please update to 0.2.1 or higher.**
 
-- update dependencies versions.
+- update dependencies versions
 
 ## 0.1.6
 
 **Note: this release has a critical issue and was deprecated. Please update to 0.2.1 or higher.**
 
-- fixed some typo in readme.
+- fixed some typo in readme
 
 ## 0.1.5
 
 **Note: this release has a critical issue and was deprecated. Please update to 0.2.1 or higher.**
 
-- updated readme.
+- updated readme
 
 ## 0.1.4
 
 **Note: this release has a critical issue and was deprecated. Please update to 0.2.1 or higher.**
 
-- **bugfix**: fixed `PulseLoader` size default prop to be the correct type.
+- **bugfix**: fixed `PulseLoader` size default prop to be the correct type
 
 ## 0.1.3
 
 **Note: this release has a critical issue and was deprecated. Please update to 0.2.1 or higher.**
 
-- **bugfix**: moved `recompose` from devDependency to dependency.
-- update author field in `package.json`.
+- **bugfix**: moved `recompose` from devDependency to dependency
+- update author field in `package.json`
 
 ## 0.1.2
 
 **Note: this release has a critical issue and was deprecated. Please update to 0.2.1 or higher.**
 
-- update margin column in readme proptype table.
-- update contributors list in `package.json`.
+- update margin column in readme proptype table
+- update contributors list in `package.json`
 
 ## 0.1.1
 
 **Note: this release has a critical issue and was deprecated. Please update to 0.2.1 or higher.**
 
-- update readme to include note about `react-emotion` plugin for babel.
-- fixed circleci badge to go to circle ci instead of npm.
-- removed flow from test script.
+- update readme to include note about `react-emotion` plugin for babel
+- fixed circleci badge to go to circle ci instead of npm
+- removed flow from test script
 
 ## 0.1.0
 
 **Note: this release has a critical issue and was deprecated. Please update to 0.2.1 or higher.**
 
-- removed `domkit` as a dependency and replaced it with `emotion`. This package now officially supports `Server Side Rendering.
+- removed `domkit` as a dependency and replaced it with `emotion`. This package now officially supports `Server Side Rendering
