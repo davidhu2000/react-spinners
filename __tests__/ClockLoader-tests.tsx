@@ -1,12 +1,12 @@
 import * as React from "react";
 import { mount, ReactWrapper } from "enzyme";
+import { css } from "@emotion/core";
 import { matchers } from "jest-emotion";
 expect.extend(matchers);
 
 import ClockLoader from "../src/ClockLoader";
 import { LoaderSizeProps } from "../src/interfaces";
 import { sizeDefaults } from "../src/helpers";
-import { css } from "@emotion/core";
 
 describe("ClockLoader", () => {
   let loader: ReactWrapper<LoaderSizeProps, null, ClockLoader>;
