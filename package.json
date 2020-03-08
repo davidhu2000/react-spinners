@@ -79,7 +79,7 @@
     "react-dom": "^16.9.0",
     "ts-jest": "^24.1.0",
     "ts-loader": "^6.0.4",
-    "tslint": "^5.18.0",
+    "tslint": "^5.20.1",
     "tslint-react": "^4.0.0",
     "typescript": "^3.5.3",
     "webpack": "^4.39.1",
