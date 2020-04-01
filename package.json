@@ -83,7 +83,7 @@
     "tslint-react": "^4.0.0",
     "typescript": "^3.5.3",
     "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6"
+    "webpack-cli": "^3.3.11"
   },
   "peerDependencies": {
     "react": "^16.0.0",
