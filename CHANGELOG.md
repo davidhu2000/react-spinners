@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.8.2
+
+- Add `box-sizing: content-box;` to MoonLoader. See [PR](https://github.com/davidhu2000/react-spinners/pull/162) for more details.
+
 ## 0.8.1
 
 - clean up README example: removed unrecommended import, removed comment out size prop, and bolded text for size prop being string and number
