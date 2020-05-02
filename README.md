@@ -55,9 +55,6 @@ Each loader accepts a `loading` prop as a boolean. The loader will render `null`
 ```js
 import React from "react";
 import { css } from "@emotion/core";
-// First way to import
-import { ClipLoader } from "react-spinners";
-// Another way to import. This is recommended to reduce bundle size
 import ClipLoader from "react-spinners/ClipLoader";
 
 // Can be a string as well. Need to ensure each key-value pair ends with ;
@@ -81,7 +78,6 @@ class AwesomeComponent extends React.Component {
         <ClipLoader
           css={override}
           size={150}
-          //size={"150px"} this also works
           color={"#123abc"}
           loading={this.state.loading}
         />
@@ -117,7 +113,7 @@ More info about using `css` [here](https://emotion.sh/docs/introduction)
 
 ### `size`, `height`, `width`, and `radius` props
 
-The input to these props can be number or string.
+The input to these props can be *number* or *string*.
 
 - If value is number, the loader will default to css unit `px`.
 - If value is string, the loader will verify the unit against valid css units.
