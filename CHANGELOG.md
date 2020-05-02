@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.8.3
+
+- **Security**: Bump acorn from 5.7.3 to 5.7.4 due to `Regular Expression Denial of Service`. Details [here](https://github.com/advisories/GHSA-6chw-6frg-f759)
+
 ## 0.8.2
 
 - Add `box-sizing: content-box;` to MoonLoader. See [PR](https://github.com/davidhu2000/react-spinners/pull/162) for more details.
