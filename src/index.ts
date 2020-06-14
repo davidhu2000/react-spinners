@@ -13,6 +13,7 @@ import MoonLoaderComponent from "./MoonLoader";
 import PacmanLoaderComponent from "./PacmanLoader";
 import PropagateLoaderComponent from "./PropagateLoader";
 import PulseLoaderComponent from "./PulseLoader";
+import PuffLoaderComponent from "./PuffLoader";
 import RingLoaderComponent from "./RingLoader";
 import RiseLoaderComponent from "./RiseLoader";
 import RotateLoaderComponent from "./RotateLoader";
@@ -43,6 +44,7 @@ export const MoonLoader: React.ComponentClass<LoaderSizeProps> = MoonLoaderCompo
 export const PacmanLoader: React.ComponentClass<LoaderSizeMarginProps> = PacmanLoaderComponent;
 export const PropagateLoader: React.ComponentClass<LoaderSizeProps> = PropagateLoaderComponent;
 export const PulseLoader: React.ComponentClass<LoaderSizeMarginProps> = PulseLoaderComponent;
+export const PuffLoader: React.ComponentClass<LoaderSizeProps> = PuffLoaderComponent;
 export const RingLoader: React.ComponentClass<LoaderSizeProps> = RingLoaderComponent;
 export const RiseLoader: React.ComponentClass<LoaderSizeMarginProps> = RiseLoaderComponent;
 export const RotateLoader: React.ComponentClass<LoaderSizeMarginProps> = RotateLoaderComponent;
