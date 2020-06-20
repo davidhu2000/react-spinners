@@ -138,6 +138,7 @@ The table below has the default values for each loader.
 |        MoonLoader | `60` |        |       |        |  `2`   |
 |      PacmanLoader | `25` |        |       |        |  `2`   |
 |   PropagateLoader | `15` |        |       |        |
+|        PuffLoader | `60` |        |       |        |
 |       PulseLoader | `15` |        |       |        |  `2`   |
 |        RingLoader | `60` |        |       |        |  `2`   |
 |        RiseLoader | `15` |        |       |        |  `2`   |
