@@ -4,7 +4,7 @@ import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
 import { heightWidthRadiusDefaults, cssValue, parseLengthAndUnit } from "./helpers";
-import { StyleFunction, LoaderHeightWidthRadiusProps } from "./interfaces";
+import { LoaderHeightWidthRadiusProps } from "./interfaces";
 
 const fade: Keyframes = keyframes`
   50% {opacity: 0.3}
@@ -41,7 +41,7 @@ class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
     `;
   };
 
-  public wrapper: StyleFunction = (): SerializedStyles => {
+  public wrapper = (): SerializedStyles => {
     return css`
       position: relative;
       font-size: 0;
@@ -52,47 +52,47 @@ class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
     `;
   };
 
-  public a: StyleFunction = (): SerializedStyles => css`
+  public a = (): SerializedStyles => css`
     ${this.style(1)};
     top: ${this.radius()}px;
     left: 0;
   `;
-  public b: StyleFunction = (): SerializedStyles => css`
+  public b = (): SerializedStyles => css`
     ${this.style(2)};
     top: ${this.quarter()}px;
     left: ${this.quarter()}px;
     transform: rotate(-45deg);
   `;
-  public c: StyleFunction = (): SerializedStyles => css`
+  public c = (): SerializedStyles => css`
     ${this.style(3)};
     top: 0;
     left: ${this.radius()}px;
     transform: rotate(90deg);
   `;
-  public d: StyleFunction = (): SerializedStyles => css`
+  public d = (): SerializedStyles => css`
     ${this.style(4)};
     top: ${-this.quarter()}px;
     left: ${this.quarter()}px;
     transform: rotate(45deg);
   `;
-  public e: StyleFunction = (): SerializedStyles => css`
+  public e = (): SerializedStyles => css`
     ${this.style(5)};
     top: ${-this.radius()}px;
     left: 0;
   `;
-  public f: StyleFunction = (): SerializedStyles => css`
+  public f = (): SerializedStyles => css`
     ${this.style(6)};
     top: ${-this.quarter()}px;
     left: ${-this.quarter()}px;
     transform: rotate(-45deg);
   `;
-  public g: StyleFunction = (): SerializedStyles => css`
+  public g = (): SerializedStyles => css`
     ${this.style(7)};
     top: 0;
     left: ${-this.radius()}px;
     transform: rotate(90deg);
   `;
-  public h: StyleFunction = (): SerializedStyles => css`
+  public h = (): SerializedStyles => css`
     ${this.style(8)};
     top: ${this.quarter()}px;
     left: ${-this.quarter()}px;

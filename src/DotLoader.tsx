@@ -1,15 +1,10 @@
 /** @jsx jsx */
 import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
-import { Keyframes } from "@emotion/serialize";
+import { Keyframes, SerializedStyles } from "@emotion/serialize";
 
 import { sizeDefaults, parseLengthAndUnit, cssValue } from "./helpers";
-import {
-  StyleFunction,
-  PrecompiledCss,
-  LoaderSizeProps,
-  StyleFunctionWithIndex
-} from "./interfaces";
+import { LoaderSizeProps } from "./interfaces";
 
 const rotate: Keyframes = keyframes`
   100% {transform: rotate(360deg)}
@@ -23,7 +18,7 @@ const bounce: Keyframes = keyframes`
 class Loader extends React.PureComponent<LoaderSizeProps> {
   public static defaultProps = sizeDefaults(60);
 
-  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public style = (i: number): SerializedStyles => {
     const { size, color } = this.props;
     const { value, unit } = parseLengthAndUnit(size || Loader.defaultProps.size);
 
@@ -40,7 +35,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  public wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper = (): SerializedStyles => {
     const { size } = this.props;
 
     return css`

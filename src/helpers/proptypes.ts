@@ -1,7 +1,7 @@
+import { SerializedStyles } from "@emotion/core";
 import {
   LoaderHeightWidthProps,
   LoaderSizeProps,
-  PrecompiledCss,
   LoaderSizeMarginProps,
   LoaderHeightWidthRadiusProps
 } from "../interfaces";
@@ -13,7 +13,7 @@ import {
 interface CommonDefaults {
   loading: boolean;
   color: string;
-  css: string | PrecompiledCss;
+  css: string | SerializedStyles;
 }
 
 const commonValues: CommonDefaults = {
