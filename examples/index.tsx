@@ -1,7 +1,6 @@
 /* global document, window */
 import * as React from "react";
 import ReactDOM from "react-dom";
-import { css } from "@emotion/core";
 import { ColorResult } from "react-color";
 
 import { Code, ColorPicker, LoaderItem } from "./components";
@@ -12,22 +11,19 @@ interface ExampleState {
   showPicker: boolean;
 }
 
-class SpinnerExamples extends React.Component<{}, ExampleState> {
-  constructor(props: {}) {
+class SpinnerExamples extends React.Component<unknown, ExampleState> {
+  constructor(props: unknown) {
     super(props);
     this.state = {
       color: "#36D7B7",
       showPicker: false
     };
-
-    this.updateColor = this.updateColor.bind(this);
-    this.togglePicker = this.togglePicker.bind(this);
   }
 
   public componentDidMount(): void {
     document.addEventListener("scroll", () => {
-      let picker: HTMLElement = document.getElementsByClassName("color-picker")[0] as HTMLElement;
-      let top: number = 370 - window.scrollY * 2;
+      const picker: HTMLElement = document.getElementsByClassName("color-picker")[0] as HTMLElement;
+      const top = 370 - window.scrollY * 2;
       if (top > 60) {
         picker.style.top = `${top}px`;
       } else {
@@ -36,7 +32,7 @@ class SpinnerExamples extends React.Component<{}, ExampleState> {
     });
   }
 
-  public updateColor(color: ColorResult): void {
+  public updateColor = (color: ColorResult): void => {
     this.setState({ color: color.hex });
     document.getElementById("header").style.cssText = `
       background: -webkit-gradient(linear, left top, right top, from(${color.hex}), to(#2b303b));
@@ -44,18 +40,18 @@ class SpinnerExamples extends React.Component<{}, ExampleState> {
       background: -o-linear-gradient(left, ${color.hex}, #2b303b);
       background: linear-gradient(90deg, ${color.hex}, #2b303b);
     `;
-  }
+  };
 
-  public togglePicker(): void {
+  public togglePicker = (): void => {
     this.setState({ showPicker: !this.state.showPicker });
-  }
+  };
 
-  public renderSpinner(Spinner: React.ComponentType<any>): JSX.Element {
+  public renderSpinner(Spinner): JSX.Element {
     return <Spinner color={this.state.color} />;
   }
 
   public render(): JSX.Element {
-    let { color, showPicker } = this.state;
+    const { color, showPicker } = this.state;
 
     return (
       <div className="spinner-container">
