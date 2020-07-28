@@ -4,7 +4,7 @@ interface FormProps {
   inputs: {
     [key: string]: number | string;
   };
-  update: (field: string) => (event) => void;
+  update: (field: string) => (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 type FormType = (arg: FormProps) => JSX.Element;
