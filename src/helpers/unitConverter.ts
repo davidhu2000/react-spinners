@@ -35,14 +35,14 @@ export function parseLengthAndUnit(size: number | string): LengthObject {
     };
   }
   let value: number;
-  let valueString: string = size.match(/^[0-9.]*/)!.toString();
+  const valueString: string = (size.match(/^[0-9.]*/) || "").toString();
   if (valueString.includes(".")) {
     value = parseFloat(valueString);
   } else {
     value = parseInt(valueString, 10);
   }
 
-  let unit: string = size.match(/[^0-9]*$/)!.toString();
+  const unit: string = (size.match(/[^0-9]*$/) || "").toString();
 
   if (cssUnit[unit]) {
     return {
@@ -66,7 +66,7 @@ export function parseLengthAndUnit(size: number | string): LengthObject {
  * @return {string} valid css value
  */
 export function cssValue(value: number | string): string {
-  let lengthWithunit: LengthObject = parseLengthAndUnit(value!);
+  const lengthWithunit: LengthObject = parseLengthAndUnit(value);
 
   return `${lengthWithunit.value}${lengthWithunit.unit}`;
 }

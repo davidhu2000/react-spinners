@@ -30,7 +30,7 @@ export const calculateRgba: RgbaFunction = (color: string, opacity: number): str
   }
 
   if (color.length === 3) {
-    let res: string = "";
+    let res = "";
     color.split("").forEach((c: string) => {
       res += c;
       res += c;
@@ -38,8 +38,7 @@ export const calculateRgba: RgbaFunction = (color: string, opacity: number): str
     color = res;
   }
 
-  let rgbValues: string = color
-    .match(/.{2}/g)!
+  const rgbValues: string = (color.match(/.{2}/g) || [])
     .map((hex: string) => parseInt(hex, 16))
     .join(", ");
 

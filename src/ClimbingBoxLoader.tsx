@@ -21,7 +21,7 @@ const climbingBox: Keyframes = keyframes`
 `;
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
-  public static defaultProps: LoaderSizeProps = sizeDefaults(15);
+  public static defaultProps = sizeDefaults(15);
 
   public style = (): SerializedStyles => {
     const { color } = this.props;
@@ -52,7 +52,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
       margin-left: -2.7em;
       width: 5.4em;
       height: 5.4em;
-      font-size: ${cssValue(size!)};
+      font-size: ${cssValue(size || Loader.defaultProps.size)};
     `;
   };
 

@@ -45,7 +45,7 @@ export function heightWidthDefaults(
 export function heightWidthRadiusDefaults(
   height: number,
   width: number,
-  radius: number = 2
+  radius = 2
 ): Required<LoaderHeightWidthRadiusProps> {
   return Object.assign({}, heightWidthDefaults(height, width), {
     radius,
