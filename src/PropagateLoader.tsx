@@ -1,18 +1,13 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
 import { sizeDefaults, parseLengthAndUnit } from "./helpers";
-import {
-  StyleFunction,
-  PrecompiledCss,
-  LoaderSizeProps,
-  StyleFunctionWithIndex
-} from "./interfaces";
+import { LoaderSizeProps } from "./interfaces";
 
 // 1.5 4.5 7.5
-let distance: number[] = [1, 3, 5];
+const distance: number[] = [1, 3, 5];
 
 const propagate: Keyframes[] = [
   keyframes`
@@ -52,11 +47,11 @@ const propagate: Keyframes[] = [
 ];
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
-  public static defaultProps: LoaderSizeProps = sizeDefaults(15);
+  public static defaultProps = sizeDefaults(15);
 
-  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public style = (i: number): SerializedStyles => {
     const { size, color } = this.props;
-    let { value, unit } = parseLengthAndUnit(size!);
+    const { value, unit } = parseLengthAndUnit(size || Loader.defaultProps.size);
 
     return css`
       position: absolute;
@@ -70,7 +65,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  public wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper = (): SerializedStyles => {
     return css`
       position: relative;
     `;

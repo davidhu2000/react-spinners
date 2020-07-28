@@ -1,44 +1,39 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
 import { calculateRgba, sizeDefaults, parseLengthAndUnit, cssValue } from "./helpers/index";
-import {
-  StyleFunction,
-  PrecompiledCss,
-  LoaderSizeProps,
-  CalcFunction,
-  StyleFunctionWithIndex
-} from "./interfaces";
+import { LoaderSizeProps } from "./interfaces";
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
-  public static defaultProps: LoaderSizeProps = sizeDefaults(50);
+  public static defaultProps = sizeDefaults(50);
 
-  public thickness: CalcFunction<number> = (): number => {
+  public thickness = (): number => {
     const { size } = this.props;
-    let { value } = parseLengthAndUnit(size!);
+    const { value } = parseLengthAndUnit(size || Loader.defaultProps.size);
 
     return value / 5;
   };
 
-  public lat: CalcFunction<number> = (): number => {
+  public lat = (): number => {
     const { size } = this.props;
-    let { value } = parseLengthAndUnit(size!);
+    const { value } = parseLengthAndUnit(size || Loader.defaultProps.size);
 
-    return (value! - this.thickness()) / 2;
+    return (value - this.thickness()) / 2;
   };
 
-  public offset: CalcFunction<number> = (): number => this.lat() - this.thickness();
+  public offset = (): number => this.lat() - this.thickness();
 
-  public color: CalcFunction<string> = (): string => {
+  public color = (): string => {
     const { color } = this.props;
 
-    return calculateRgba(color!, 0.75);
+    return calculateRgba(color || Loader.defaultProps.color, 0.75);
   };
 
-  public before: CalcFunction<Keyframes> = (): Keyframes => {
-    const { size } = this.props;
+  public before = (): Keyframes => {
+    let { size } = this.props;
+    size = size || Loader.defaultProps.size;
 
     const color: string = this.color();
     const lat: number = this.lat();
@@ -47,14 +42,15 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
 
     return keyframes`
       0% {width: ${thickness}px;box-shadow: ${lat}px ${-offset}px ${color}, ${-lat}px ${offset}px ${color}}
-      35% {width: ${cssValue(size!)};box-shadow: 0 ${-offset}px ${color}, 0 ${offset}px ${color}}
+      35% {width: ${cssValue(size)};box-shadow: 0 ${-offset}px ${color}, 0 ${offset}px ${color}}
       70% {width: ${thickness}px;box-shadow: ${-lat}px ${-offset}px ${color}, ${lat}px ${offset}px ${color}}
       100% {box-shadow: ${lat}px ${-offset}px ${color}, ${-lat}px ${offset}px ${color}}
     `;
   };
 
-  public after: CalcFunction<Keyframes> = (): Keyframes => {
-    const { size } = this.props;
+  public after = (): Keyframes => {
+    let { size } = this.props;
+    size = size || Loader.defaultProps.size;
 
     const color: string = this.color();
     const lat: number = this.lat();
@@ -63,15 +59,15 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
 
     return keyframes`
       0% {height: ${thickness}px;box-shadow: ${offset}px ${lat}px ${color}, ${-offset}px ${-lat}px ${color}}
-      35% {height: ${cssValue(size!)};box-shadow: ${offset}px 0 ${color}, ${-offset}px 0 ${color}}
+      35% {height: ${cssValue(size)};box-shadow: ${offset}px 0 ${color}, ${-offset}px 0 ${color}}
       70% {height: ${thickness}px;box-shadow: ${offset}px ${-lat}px ${color}, ${-offset}px ${lat}px ${color}}
       100% {box-shadow: ${offset}px ${lat}px ${color}, ${-offset}px ${-lat}px ${color}}
     `;
   };
 
-  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public style = (i: number): SerializedStyles => {
     const { size } = this.props;
-    let { value, unit } = parseLengthAndUnit(size!);
+    const { value, unit } = parseLengthAndUnit(size || Loader.defaultProps.size);
 
     return css`
       position: absolute;
@@ -88,13 +84,14 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  public wrapper: StyleFunction = (): PrecompiledCss => {
-    const { size } = this.props;
+  public wrapper = (): SerializedStyles => {
+    let { size } = this.props;
+    size = size || Loader.defaultProps.size;
 
     return css`
       position: relative;
-      width: ${cssValue(size!)};
-      height: ${cssValue(size!)};
+      width: ${cssValue(size)};
+      height: ${cssValue(size)};
       transform: rotate(165deg);
     `;
   };

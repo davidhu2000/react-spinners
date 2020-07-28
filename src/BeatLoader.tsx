@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
 import { sizeMarginDefaults, cssValue } from "./helpers";
-import { LoaderSizeMarginProps, PrecompiledCss, StyleFunctionWithIndex } from "./interfaces";
+import { LoaderSizeMarginProps } from "./interfaces";
 
 const beat: Keyframes = keyframes`
   50% {transform: scale(0.75);opacity: 0.2}
@@ -12,16 +12,17 @@ const beat: Keyframes = keyframes`
 `;
 
 class Loader extends React.PureComponent<LoaderSizeMarginProps> {
-  public static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
-  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public static defaultProps = sizeMarginDefaults(15);
+
+  public style = (i: number): SerializedStyles => {
     const { color, size, margin } = this.props;
 
     return css`
       display: inline-block;
       background-color: ${color};
-      width: ${cssValue(size!)};
-      height: ${cssValue(size!)};
-      margin: ${cssValue(margin!)};
+      width: ${cssValue(size || Loader.defaultProps.size)};
+      height: ${cssValue(size || Loader.defaultProps.size)};
+      margin: ${cssValue(margin || Loader.defaultProps.margin)};
       border-radius: 100%;
       animation: ${beat} 0.7s ${i % 2 ? "0s" : "0.35s"} infinite linear;
       animation-fill-mode: both;

@@ -1,26 +1,17 @@
-export interface PrecompiledCss {
-  name: string;
-  styles: string;
-}
+import { SerializedStyles } from "@emotion/core";
 
 export interface LengthObject {
   value: number;
   unit: string;
 }
 
-export type StyleFunction = () => PrecompiledCss;
-
-export type StyleFunctionWithIndex = (i: number) => PrecompiledCss;
-
-export type CalcFunction<T> = () => T;
-
 interface CommonProps {
   color?: string;
   loading?: boolean;
-  css?: string | PrecompiledCss;
+  css?: string | SerializedStyles;
 }
 
-type LengthType = number | string;
+export type LengthType = number | string;
 
 export interface LoaderHeightWidthProps extends CommonProps {
   height?: LengthType;

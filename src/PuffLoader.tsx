@@ -1,36 +1,36 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
 import { sizeDefaults, cssValue } from "./helpers";
-import {
-  StyleFunction,
-  PrecompiledCss,
-  LoaderSizeProps,
-  StyleFunctionWithIndex
-} from "./interfaces";
+import { LoaderSizeProps, LengthType } from "./interfaces";
 
-const puff: Keyframes[] = [keyframes`
+const puff: Keyframes[] = [
+  keyframes`
   0%  {transform: scale(0)}
   100% {transform: scale(1.0)}
 `,
- keyframes`
+  keyframes`
   0%  {opacity: 1}
   100% {opacity: 0}
-`];
-
+`
+];
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
-  public static defaultProps: Required<LoaderSizeProps> = sizeDefaults(60);
+  public static defaultProps = sizeDefaults(60);
 
-  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
-    const { color, size } = this.props;
+  public getSize = (): LengthType => {
+    return this.props.size || Loader.defaultProps.size;
+  };
+
+  public style = (i: number): SerializedStyles => {
+    const { color } = this.props;
 
     return css`
       position: absolute;
-      height: ${cssValue(size!)};
-      width: ${cssValue(size!)};
+      height: ${cssValue(this.getSize())};
+      width: ${cssValue(this.getSize())};
       border: thick solid ${color};
       border-radius: 50%;
       opacity: 1;
@@ -40,18 +40,17 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
       animation: ${puff[0]}, ${puff[1]};
       animation-duration: 2s;
       animation-iteration-count: infinite;
-      animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1), cubic-bezier(0.3, 0.61, 0.355, 1);
+      animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1),
+        cubic-bezier(0.3, 0.61, 0.355, 1);
       animation-delay: ${i === 1 ? "-1s" : "0s"};
     `;
   };
 
-  public wrapper: StyleFunction = (): PrecompiledCss => {
-    const { size } = this.props;
-
+  public wrapper = (): SerializedStyles => {
     return css`
       position: relative;
-      width: ${cssValue(size!)};
-      height: ${cssValue(size!)};
+      width: ${cssValue(this.getSize())};
+      height: ${cssValue(this.getSize())};
     `;
   };
 

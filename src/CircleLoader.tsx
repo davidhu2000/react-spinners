@@ -18,16 +18,16 @@ const circle: Keyframes = keyframes`
 `;
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
-  public static defaultProps: LoaderSizeProps = sizeDefaults(50);
+  public static defaultProps = sizeDefaults(50);
 
   public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
     const { size, color } = this.props;
-    let { value, unit } = parseLengthAndUnit(size!);
+    const { value, unit } = parseLengthAndUnit(size || Loader.defaultProps.size);
 
     return css`
       position: absolute;
-      height: ${`${value! * (1 - i / 10)}${unit}`};
-      width: ${`${value! * (1 - i / 10)}${unit}`};
+      height: ${`${value * (1 - i / 10)}${unit}`};
+      width: ${`${value * (1 - i / 10)}${unit}`};
       border: 1px solid ${color};
       border-radius: 100%;
       transition: 2s;
@@ -45,8 +45,8 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
 
     return css`
       position: relative;
-      width: ${cssValue(size!)};
-      height: ${cssValue(size!)};
+      width: ${cssValue(size || Loader.defaultProps.size)};
+      height: ${cssValue(size || Loader.defaultProps.size)};
     `;
   };
 

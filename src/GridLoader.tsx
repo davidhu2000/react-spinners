@@ -1,16 +1,10 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
 import { sizeMarginDefaults, cssValue, parseLengthAndUnit } from "./helpers";
-import {
-  StyleFunction,
-  PrecompiledCss,
-  LoaderSizeMarginProps,
-  StyleFunctionWithIndex,
-  LengthObject
-} from "./interfaces";
+import { LoaderSizeMarginProps, LengthObject } from "./interfaces";
 
 const grid: Keyframes = keyframes`
   0% {transform: scale(1)}
@@ -22,30 +16,32 @@ type RandomFunction = (top: number) => number;
 const random: RandomFunction = (top: number): number => Math.random() * top;
 
 class Loader extends React.PureComponent<LoaderSizeMarginProps> {
-  public static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
+  public static defaultProps = sizeMarginDefaults(15);
 
-  public style: StyleFunctionWithIndex = (rand: number): PrecompiledCss => {
+  public style = (rand: number): SerializedStyles => {
     const { color, size, margin } = this.props;
 
     return css`
       display: inline-block;
       background-color: ${color};
-      width: ${cssValue(size!)};
-      height: ${cssValue(size!)};
-      margin: ${cssValue(margin!)};
+      width: ${cssValue(size || Loader.defaultProps.size)};
+      height: ${cssValue(size || Loader.defaultProps.size)};
+      margin: ${cssValue(margin || Loader.defaultProps.size)};
       border-radius: 100%;
       animation-fill-mode: "both";
       animation: ${grid} ${rand / 100 + 0.6}s ${rand / 100 - 0.2}s infinite ease;
     `;
   };
 
-  public wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper = (): SerializedStyles => {
     const { size, margin } = this.props;
-    let sizeWithUnit: LengthObject = parseLengthAndUnit(size!);
-    let marginWithUnit: LengthObject = parseLengthAndUnit(margin!);
+    const sizeWithUnit: LengthObject = parseLengthAndUnit(size || Loader.defaultProps.size);
+    const marginWithUnit: LengthObject = parseLengthAndUnit(margin || Loader.defaultProps.margin);
 
-    let width: string = `${parseFloat(sizeWithUnit.value.toString()) * 3 +
-      parseFloat(marginWithUnit.value.toString()) * 6}${sizeWithUnit.unit}`;
+    const width = `${
+      parseFloat(sizeWithUnit.value.toString()) * 3 +
+      parseFloat(marginWithUnit.value.toString()) * 6
+    }${sizeWithUnit.unit}`;
 
     return css`
       width: ${width};
