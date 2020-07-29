@@ -15,7 +15,7 @@ class Code extends React.Component<unknown, CodeState> {
   }
 
   public componentDidMount(): void {
-    const el: HTMLElement = document.getElementById("code");
+    const el: HTMLElement = document.getElementById("code") as HTMLElement;
     el.addEventListener("click", () => {
       this.setState({
         index: +!this.state.index

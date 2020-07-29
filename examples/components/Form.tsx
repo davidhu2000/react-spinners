@@ -2,7 +2,7 @@ import * as React from "react";
 
 interface FormProps {
   inputs: {
-    [key: string]: number | string;
+    [key: string]: number | string | undefined;
   };
   update: (field: string) => (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
