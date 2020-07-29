@@ -7,5 +7,10 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "prettier"
-  ]
+  ],
+  settings: {
+    react: {
+      version: "detect"
+    }
+  }
 };

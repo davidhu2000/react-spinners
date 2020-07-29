@@ -10,10 +10,10 @@ import { sizeMarginDefaults } from "../src/helpers";
 describe("BeatLoader", () => {
   let loader: ReactWrapper<LoaderSizeMarginProps, null, BeatLoader>;
   let props: LoaderSizeMarginProps;
-  let defaultColor: string = "#000000";
-  let defaultSize: number = 15;
-  let defaultMargin: number = 2;
-  let defaultUnit: string = "px";
+  const defaultColor = "#000000";
+  const defaultSize = 15;
+  const defaultMargin = 2;
+  const defaultUnit = "px";
 
   it("should match snapshot", () => {
     loader = mount(<BeatLoader />);
@@ -46,7 +46,7 @@ describe("BeatLoader", () => {
 
   describe("size prop", () => {
     it("should render the size with px unit when size is a number", () => {
-      let size: number = 18;
+      const size = 18;
       loader = mount(<BeatLoader size={18} />);
       expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
       expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
@@ -55,7 +55,7 @@ describe("BeatLoader", () => {
     });
 
     it("should render the size as is when size is a string with valid css unit", () => {
-      let size: string = "18px";
+      const size = "18px";
       loader = mount(<BeatLoader size={size} />);
       expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
       expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
@@ -64,9 +64,9 @@ describe("BeatLoader", () => {
     });
 
     it("should render the size with default unit of px when the unit is incorrect", () => {
-      let length: number = 18;
-      let unit: string = "ad";
-      let size: string = `${length}${unit}`;
+      const length = 18;
+      const unit = "ad";
+      const size = `${length}${unit}`;
       loader = mount(<BeatLoader size={size} />);
       expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
       expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
@@ -77,7 +77,7 @@ describe("BeatLoader", () => {
 
   describe("margin prop", () => {
     it("should render the margin with px unit when margin is a number", () => {
-      let margin: number = 18;
+      const margin = 18;
       loader = mount(<BeatLoader margin={18} />);
       expect(loader.find("div div")).not.toHaveStyleRule(
         "margin",
@@ -87,7 +87,7 @@ describe("BeatLoader", () => {
     });
 
     it("should render the margin as is when margin is a string with valid css unit", () => {
-      let margin: string = "18px";
+      const margin = "18px";
       loader = mount(<BeatLoader margin={margin} />);
       expect(loader.find("div div")).not.toHaveStyleRule(
         "margin",
@@ -97,9 +97,9 @@ describe("BeatLoader", () => {
     });
 
     it("should render the margin with default unit of px when the unit is incorrect", () => {
-      let length: number = 18;
-      let unit: string = "ad";
-      let margin: string = `${length}${unit}`;
+      const length = 18;
+      const unit = "ad";
+      const margin = `${length}${unit}`;
       loader = mount(<BeatLoader margin={margin} />);
       expect(loader.find("div div")).not.toHaveStyleRule(
         "margin",

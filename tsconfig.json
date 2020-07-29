@@ -22,5 +22,5 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true
   },
-  "exclude": ["docs/*", "webpack.config.*", "*.js", "examples/*", "__tests__"]
+  "exclude": ["docs/*", "webpack.config.*", "*.js"]
 }

@@ -1,10 +1,9 @@
 import { parseLengthAndUnit, cssValue } from "../../src/helpers";
-import { LengthObject } from "../../src/interfaces";
 
 describe("unitConverter", () => {
   describe("parseLengthAndUnit", () => {
-    let spy: jest.SpyInstance = jest.spyOn(console, "warn");
-    let output: LengthObject = {
+    const spy = jest.spyOn(console, "warn");
+    const output = {
       value: 12,
       unit: "px"
     };
@@ -24,7 +23,7 @@ describe("unitConverter", () => {
     });
 
     it("take a string with valid css float unit and return an object with value and unit", () => {
-      let output: LengthObject = {
+      const output = {
         value: 12.5,
         unit: "px"
       };

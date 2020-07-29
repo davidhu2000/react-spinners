@@ -10,10 +10,10 @@ import { sizeMarginDefaults } from "../src/helpers";
 describe("PacmanLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeMarginProps;
-  let defaultSize: number = 25;
-  let defaultMargin: number = 2;
-  let defaultColor: string = "#000000";
-  let defaultUnit: string = "px";
+  const defaultSize = 25;
+  const defaultMargin = 2;
+  const defaultColor = "#000000";
+  const defaultUnit = "px";
 
   it("should match snapshot", () => {
     loader = mount(<PacmanLoader />);
@@ -38,7 +38,7 @@ describe("PacmanLoader", () => {
       `${defaultSize}${defaultUnit}`
     );
 
-    for (let i: number = 2; i < 6; i++) {
+    for (let i = 2; i < 6; i++) {
       expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
       expect(loader.find("div div").at(i)).toHaveStyleRule(
         "height",
@@ -66,9 +66,9 @@ describe("PacmanLoader", () => {
   });
 
   it("should render the correct color based on prop", () => {
-    let color: string = "#e2e2e2";
+    const color = "#e2e2e2";
     loader = mount(<PacmanLoader color={color} />);
-    for (let i: number = 2; i < 6; i++) {
+    for (let i = 2; i < 6; i++) {
       expect(loader.find("div div").at(i)).not.toHaveStyleRule("background-color", defaultColor);
       expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", color);
     }
@@ -76,7 +76,7 @@ describe("PacmanLoader", () => {
 
   describe("size props", () => {
     it("should render the size with px unit when size is a number", () => {
-      let size: number = 18;
+      const size = 18;
       loader = mount(<PacmanLoader size={size} />);
 
       expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
@@ -100,7 +100,7 @@ describe("PacmanLoader", () => {
         `${size}${defaultUnit}`
       );
 
-      for (let i: number = 2; i < 6; i++) {
+      for (let i = 2; i < 6; i++) {
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize / 3}${defaultUnit}`
@@ -126,9 +126,9 @@ describe("PacmanLoader", () => {
     });
 
     it("should render the size as is when size is a string with valid css unit", () => {
-      let length: number = 18;
-      let unit: string = "px";
-      let size: string = `${length}${unit}`;
+      const length = 18;
+      const unit = "px";
+      const size = `${length}${unit}`;
       loader = mount(<PacmanLoader size={size} />);
 
       expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
@@ -146,7 +146,7 @@ describe("PacmanLoader", () => {
       expect(loader.find("div div").at(0)).toHaveStyleRule("border-radius", `${size}`);
       expect(loader.find("div div").at(1)).toHaveStyleRule("border-radius", `${size}`);
 
-      for (let i: number = 2; i < 6; i++) {
+      for (let i = 2; i < 6; i++) {
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize / 3}${defaultUnit}`
@@ -172,9 +172,9 @@ describe("PacmanLoader", () => {
     });
 
     it("should render the size with default unit of px when the unit is incorrect", () => {
-      let length: number = 18;
-      let unit: string = "ad";
-      let size: string = `${length}${unit}`;
+      const length = 18;
+      const unit = "ad";
+      const size = `${length}${unit}`;
       loader = mount(<PacmanLoader size={size} />);
 
       expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
@@ -198,7 +198,7 @@ describe("PacmanLoader", () => {
         `${length}${defaultUnit}`
       );
 
-      for (let i: number = 2; i < 6; i++) {
+      for (let i = 2; i < 6; i++) {
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize / 3}${defaultUnit}`
@@ -232,9 +232,9 @@ describe("PacmanLoader", () => {
 
   describe("margin props", () => {
     it("should render the margin with px unit when margin is a number", () => {
-      let margin: number = 18;
+      const margin = 18;
       loader = mount(<PacmanLoader margin={margin} />);
-      for (let i: number = 2; i < 6; i++) {
+      for (let i = 2; i < 6; i++) {
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`
@@ -244,12 +244,12 @@ describe("PacmanLoader", () => {
     });
 
     it("should render the margin as is when margin is a string with valid css unit", () => {
-      let length: number = 18;
-      let unit: string = "px";
-      let margin: string = `${length}${unit}`;
+      const length = 18;
+      const unit = "px";
+      const margin = `${length}${unit}`;
 
       loader = mount(<PacmanLoader margin={margin} />);
-      for (let i: number = 2; i < 6; i++) {
+      for (let i = 2; i < 6; i++) {
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`
@@ -259,12 +259,12 @@ describe("PacmanLoader", () => {
     });
 
     it("should render the margin with default unit of px when the unit is incorrect", () => {
-      let length: number = 18;
-      let unit: string = "ad";
-      let margin: string = `${length}${unit}`;
+      const length = 18;
+      const unit = "ad";
+      const margin = `${length}${unit}`;
 
       loader = mount(<PacmanLoader margin={margin} />);
-      for (let i: number = 2; i < 6; i++) {
+      for (let i = 2; i < 6; i++) {
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`
