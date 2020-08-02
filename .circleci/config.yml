@@ -18,9 +18,9 @@ jobs: # a collection of steps
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run:
-          name: Lint issues
-          command: npm run lint
+      # - run:
+      #     name: Lint issues
+      #     command: npm run lint
       - run:
           name: Jest tests
           command: npm run jest
