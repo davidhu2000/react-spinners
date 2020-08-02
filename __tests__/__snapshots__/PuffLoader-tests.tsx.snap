@@ -72,8 +72,8 @@ exports[`PuffLoader should match snapshot 1`] = `
   animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-  -webkit-animation-timing-function: cubic-bezier(0.165,0.84,0.44,1),cubic-bezier(0.3,0.61,0.355,1);
-  animation-timing-function: cubic-bezier(0.165,0.84,0.44,1),cubic-bezier(0.3,0.61,0.355,1);
+  -webkit-animation-timing-function: cubic-bezier(0.165,0.84,0.44,1), cubic-bezier(0.3,0.61,0.355,1);
+  animation-timing-function: cubic-bezier(0.165,0.84,0.44,1), cubic-bezier(0.3,0.61,0.355,1);
   -webkit-animation-delay: -1s;
   animation-delay: -1s;
 }
@@ -95,8 +95,8 @@ exports[`PuffLoader should match snapshot 1`] = `
   animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-  -webkit-animation-timing-function: cubic-bezier(0.165,0.84,0.44,1),cubic-bezier(0.3,0.61,0.355,1);
-  animation-timing-function: cubic-bezier(0.165,0.84,0.44,1),cubic-bezier(0.3,0.61,0.355,1);
+  -webkit-animation-timing-function: cubic-bezier(0.165,0.84,0.44,1), cubic-bezier(0.3,0.61,0.355,1);
+  animation-timing-function: cubic-bezier(0.165,0.84,0.44,1), cubic-bezier(0.3,0.61,0.355,1);
   -webkit-animation-delay: 0s;
   animation-delay: 0s;
 }
