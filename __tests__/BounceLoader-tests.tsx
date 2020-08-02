@@ -10,9 +10,9 @@ import { sizeDefaults } from "../src/helpers";
 describe("BounceLoader", () => {
   let loader: ReactWrapper<LoaderSizeProps, null, BounceLoader>;
   let props: LoaderSizeProps;
-  let defaultColor = "#000000";
-  let defaultSize = 60;
-  let defaultUnit = "px";
+  const defaultColor = "#000000";
+  const defaultSize = 60;
+  const defaultUnit = "px";
 
   it("should match snapshot", () => {
     loader = mount(<BounceLoader />);

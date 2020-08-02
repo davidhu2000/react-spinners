@@ -10,9 +10,9 @@ import { sizeDefaults } from "../src/helpers";
 describe("SkewLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeProps;
-  let defaultSize = 20;
-  let defaultColor = "#000000";
-  let defaultUnit = "px";
+  const defaultSize = 20;
+  const defaultColor = "#000000";
+  const defaultUnit = "px";
 
   it("should match snapshot", () => {
     loader = mount(<SkewLoader />);

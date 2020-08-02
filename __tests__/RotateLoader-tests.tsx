@@ -188,12 +188,12 @@ describe("RotateLoader", () => {
       loader = mount(<RotateLoader margin={margin} />);
 
       for (let i = 0; i < 2; i++) {
-        let leftDefault = (i % 2 ? 1 : -1) * (26 + defaultMargin);
+        const leftDefault = (i % 2 ? 1 : -1) * (26 + defaultMargin);
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
           "left",
           `${leftDefault}${defaultUnit}`
         );
-        let left = (i % 2 ? 1 : -1) * (26 + length);
+        const left = (i % 2 ? 1 : -1) * (26 + length);
         expect(loader.find("div div").at(i)).toHaveStyleRule("left", `${left}${unit}`);
       }
     });
@@ -205,12 +205,12 @@ describe("RotateLoader", () => {
       loader = mount(<RotateLoader margin={margin} />);
 
       for (let i = 0; i < 2; i++) {
-        let leftDefault = (i % 2 ? 1 : -1) * (26 + defaultMargin);
+        const leftDefault = (i % 2 ? 1 : -1) * (26 + defaultMargin);
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
           "left",
           `${leftDefault}${defaultUnit}`
         );
-        let left = (i % 2 ? 1 : -1) * (26 + length);
+        const left = (i % 2 ? 1 : -1) * (26 + length);
         expect(loader.find("div div").at(i)).toHaveStyleRule("left", `${left}${defaultUnit}`);
       }
     });

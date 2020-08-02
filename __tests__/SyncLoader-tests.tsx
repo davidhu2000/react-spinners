@@ -10,10 +10,10 @@ import { sizeMarginDefaults } from "../src/helpers";
 describe("SyncLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeMarginProps;
-  let defaultSize = 15;
-  let defaultMargin = 2;
-  let defaultColor = "#000000";
-  let defaultUnit = "px";
+  const defaultSize = 15;
+  const defaultMargin = 2;
+  const defaultColor = "#000000";
+  const defaultUnit = "px";
 
   it("should match snapshot", () => {
     loader = mount(<SyncLoader />);

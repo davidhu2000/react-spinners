@@ -18,10 +18,10 @@ global.Math = mockMath as Math;
 describe("GridLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeMarginProps;
-  let defaultColor = "#000000";
-  let defaultSize = 15;
-  let defaultUnit = "px";
-  let wrapperWidthDefault = parseFloat(defaultSize.toString()) * 3 + parseFloat("2px") * 6;
+  const defaultColor = "#000000";
+  const defaultSize = 15;
+  const defaultUnit = "px";
+  const wrapperWidthDefault = parseFloat(defaultSize.toString()) * 3 + parseFloat("2px") * 6;
 
   it("should match snapshot", () => {
     loader = mount(<GridLoader />);
@@ -61,7 +61,7 @@ describe("GridLoader", () => {
 
   it("should render the correct size for the parent div based on props", () => {
     const size = 18;
-    let wrapperWidth = parseFloat(size.toString()) * 3 + parseFloat("2px") * 6;
+    const wrapperWidth = parseFloat(size.toString()) * 3 + parseFloat("2px") * 6;
 
     loader = mount(<GridLoader size={size} />);
     expect(loader).not.toHaveStyleRule("width", `${wrapperWidthDefault}${defaultUnit}`);

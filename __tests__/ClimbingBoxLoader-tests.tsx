@@ -10,9 +10,9 @@ import { sizeDefaults } from "../src/helpers";
 describe("ClimbingBoxLoader", () => {
   let loader: ReactWrapper<LoaderSizeProps, null, ClimbingBoxLoader>;
   let props: LoaderSizeProps;
-  let defaultColor = "#000000";
-  let defaultSize = 15;
-  let defaultUnit = "px";
+  const defaultColor = "#000000";
+  const defaultSize = 15;
+  const defaultUnit = "px";
 
   it("should match snapshot", () => {
     loader = mount(<ClimbingBoxLoader />);

@@ -10,9 +10,9 @@ import { sizeDefaults } from "../src/helpers";
 describe("CircleLoader", () => {
   let loader: ReactWrapper<LoaderSizeProps, null, CircleLoader>;
   let props: LoaderSizeProps;
-  let defaultColor = "#000000";
-  let defaultSize = 50;
-  let defaultUnit = "px";
+  const defaultColor = "#000000";
+  const defaultSize = 50;
+  const defaultUnit = "px";
 
   it("should match snapshot", () => {
     loader = mount(<CircleLoader />);

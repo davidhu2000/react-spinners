@@ -10,9 +10,9 @@ import { sizeDefaults } from "../src/helpers";
 describe("PropagateLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeProps;
-  let defaultSize = 15;
-  let defaultColor = "#000000";
-  let defaultUnit = "px";
+  const defaultSize = 15;
+  const defaultColor = "#000000";
+  const defaultUnit = "px";
 
   it("should match snapshot", () => {
     loader = mount(<PropagateLoader />);
