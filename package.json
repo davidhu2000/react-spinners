@@ -31,7 +31,6 @@
   ],
   "main": "index.js",
   "scripts": {
-    "prepare": "./node_modules/.bin/tsc",
     "test": "npm run lint",
     "build:demo": "npm run remove:demo; babel-node ./node_modules/.bin/webpack --config ./webpack.config.js",
     "remove:demo": "rm docs/index.html; rm docs/javascripts/*",
