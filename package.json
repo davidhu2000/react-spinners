@@ -72,7 +72,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.4.0",
     "eslint": "^7.5.0",
-    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-react": "^7.20.4",
     "fork-ts-checker-webpack-plugin": "^3.0.1",
     "html-webpack-plugin": "^3.2.0",
