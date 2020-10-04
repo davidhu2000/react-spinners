@@ -1,23 +1,28 @@
 import * as React from "react";
-import { Form } from "./Form";
+import Form from "./Form";
+import { LoaderSizeMarginProps, LoaderHeightWidthRadiusProps } from "../../src/interfaces";
+
+type TProps = LoaderSizeMarginProps & LoaderHeightWidthRadiusProps;
 
 interface ItemProps {
   color: string;
   name: string;
-  spinner: React.ComponentClass<any>;
+  Spinner: React.ComponentType<TProps>;
 }
 
 interface ItemState {
-  [key: string]: number | string;
+  height?: number | string;
+  width?: number | string;
+  radius?: number | string;
+  margin?: number | string;
+  size?: number | string;
 }
-
-type UpdateFunction = (e: React.ChangeEvent<any>) => void;
 
 class LoaderItem extends React.Component<ItemProps, ItemState> {
   constructor(props: ItemProps) {
     super(props);
-    let { spinner } = props;
-    let defaults: any = Object.assign({}, spinner.defaultProps);
+    const { Spinner } = props;
+    const defaults: typeof Spinner.defaultProps = Object.assign({}, Spinner.defaultProps);
     delete defaults.color;
     delete defaults.loading;
     delete defaults.css;
@@ -25,13 +30,11 @@ class LoaderItem extends React.Component<ItemProps, ItemState> {
     this.state = {
       ...defaults
     };
-
-    this.update = this.update.bind(this);
   }
 
-  public update(field: string): UpdateFunction {
-    return (e: React.ChangeEvent<any>): void => {
-      let { value } = e.target;
+  public update = (field: string) => {
+    return (e: React.ChangeEvent<HTMLInputElement>): void => {
+      let value: number | string = e.target.value;
 
       if (value && !/[^0-9]/.test(value)) {
         value = parseInt(value, 10);
@@ -39,25 +42,19 @@ class LoaderItem extends React.Component<ItemProps, ItemState> {
 
       this.setState({ [field]: value });
     };
-  }
-
-  public renderSpinner(Spinner: React.ComponentType<any>): JSX.Element {
-    return <Spinner color={this.props.color} {...this.state} />;
-  }
+  };
 
   public render(): JSX.Element {
-    let { name, spinner } = this.props;
+    const { name, Spinner } = this.props;
 
     return (
-      <div>
-        <div className="spinner-item">
-          <div className="spinner-title">{name}</div>
-          {this.renderSpinner(spinner)}
-          <Form inputs={this.state} update={this.update} />
-        </div>
+      <div className="spinner-item">
+        <div className="spinner-title">{name}</div>
+        <Spinner color={this.props.color} {...this.state} />
+        <Form inputs={this.state} update={this.update} />
       </div>
     );
   }
 }
 
-export { LoaderItem };
+export default LoaderItem;

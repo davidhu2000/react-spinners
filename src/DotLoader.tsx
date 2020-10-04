@@ -1,15 +1,10 @@
 /** @jsx jsx */
 import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
-import { Keyframes } from "@emotion/serialize";
+import { Keyframes, SerializedStyles } from "@emotion/serialize";
 
 import { sizeDefaults, parseLengthAndUnit, cssValue } from "./helpers";
-import {
-  StyleFunction,
-  PrecompiledCss,
-  LoaderSizeProps,
-  StyleFunctionWithIndex
-} from "./interfaces";
+import { LoaderSizeProps } from "./interfaces";
 
 const rotate: Keyframes = keyframes`
   100% {transform: rotate(360deg)}
@@ -21,18 +16,18 @@ const bounce: Keyframes = keyframes`
 `;
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
-  public static defaultProps: LoaderSizeProps = sizeDefaults(60);
+  public static defaultProps = sizeDefaults(60);
 
-  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public style = (i: number): SerializedStyles => {
     const { size, color } = this.props;
-    let { value, unit } = parseLengthAndUnit(size!);
+    const { value, unit } = parseLengthAndUnit(size || Loader.defaultProps.size);
 
     return css`
       position: absolute;
       top: ${i % 2 ? "0" : "auto"};
       bottom: ${i % 2 ? "auto" : "0"};
-      height: ${`${value! / 2}${unit}`};
-      width: ${`${value! / 2}${unit}`};
+      height: ${`${value / 2}${unit}`};
+      width: ${`${value / 2}${unit}`};
       background-color: ${color};
       border-radius: 100%;
       animation-fill-mode: forwards;
@@ -40,13 +35,13 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  public wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper = (): SerializedStyles => {
     const { size } = this.props;
 
     return css`
       position: relative;
-      width: ${cssValue(size!)};
-      height: ${cssValue(size!)};
+      width: ${cssValue(size || Loader.defaultProps.size)};
+      height: ${cssValue(size || Loader.defaultProps.size)};
       animation-fill-mode: forwards;
       animation: ${rotate} 2s 0s infinite linear;
     `;

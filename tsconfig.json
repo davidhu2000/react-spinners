@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
+    "alwaysStrict": true,
     "sourceMap": false,
     "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "strictBindCallApply": true,
     "module": "commonjs",
     "jsx": "react",
     "target": "es5",
@@ -11,7 +15,12 @@
     "declaration": true,
     "lib": ["dom", "es2017", "es5", "es6", "es7"],
     "outDir": ".",
-    "strict": true
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
-  "exclude": ["docs/*", "webpack.config.*", "*.js", "examples/*", "__tests__"]
+  "exclude": ["docs/*", "webpack.config.*", "*.js", "__tests__", "examples"]
 }

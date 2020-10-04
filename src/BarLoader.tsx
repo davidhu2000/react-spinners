@@ -1,15 +1,10 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
 import { calculateRgba, heightWidthDefaults, cssValue } from "./helpers";
-import {
-  LoaderHeightWidthProps,
-  StyleFunction,
-  PrecompiledCss,
-  StyleFunctionWithIndex
-} from "./interfaces";
+import { LoaderHeightWidthProps } from "./interfaces";
 
 const long: Keyframes = keyframes`
   0% {left: -35%;right: 100%}
@@ -24,14 +19,14 @@ const short: Keyframes = keyframes`
 `;
 
 export class Loader extends React.PureComponent<LoaderHeightWidthProps> {
-  public static defaultProps: LoaderHeightWidthProps = heightWidthDefaults(4, 100);
+  public static defaultProps = heightWidthDefaults(4, 100);
 
-  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public style = (i: number): SerializedStyles => {
     const { height, color } = this.props;
 
     return css`
       position: absolute;
-      height: ${cssValue(height!)};
+      height: ${cssValue(height || Loader.defaultProps.height)};
       overflow: hidden;
       background-color: ${color};
       background-clip: padding-box;
@@ -47,15 +42,15 @@ export class Loader extends React.PureComponent<LoaderHeightWidthProps> {
     `;
   };
 
-  public wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper = (): SerializedStyles => {
     const { width, height, color } = this.props;
 
     return css`
       position: relative;
-      width: ${cssValue(width!)};
-      height: ${cssValue(height!)};
+      width: ${cssValue(width || Loader.defaultProps.width)};
+      height: ${cssValue(height || Loader.defaultProps.height)};
       overflow: hidden;
-      background-color: ${calculateRgba(color!, 0.2)};
+      background-color: ${calculateRgba(color || Loader.defaultProps.color, 0.2)};
       background-clip: padding-box;
     `;
   };

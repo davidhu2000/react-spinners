@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
 import { sizeDefaults, cssValue } from "./helpers";
-import { StyleFunction, PrecompiledCss, LoaderSizeProps } from "./interfaces";
+import { LoaderSizeProps } from "./interfaces";
 
 const clip: Keyframes = keyframes`
   0% {transform: rotate(0deg) scale(1)}
@@ -13,15 +13,15 @@ const clip: Keyframes = keyframes`
 `;
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
-  public static defaultProps: LoaderSizeProps = sizeDefaults(35);
+  public static defaultProps = sizeDefaults(35);
 
-  public style: StyleFunction = (): PrecompiledCss => {
+  public style = (): SerializedStyles => {
     const { size, color } = this.props;
 
     return css`
       background: transparent !important;
-      width: ${cssValue(size!)};
-      height: ${cssValue(size!)};
+      width: ${cssValue(size || Loader.defaultProps.size)};
+      height: ${cssValue(size || Loader.defaultProps.size)};
       border-radius: 100%;
       border: 2px solid;
       border-color: ${color};

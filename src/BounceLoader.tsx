@@ -1,15 +1,10 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
 import { sizeDefaults, cssValue } from "./helpers";
-import {
-  StyleFunction,
-  PrecompiledCss,
-  LoaderSizeProps,
-  StyleFunctionWithIndex
-} from "./interfaces";
+import { LoaderSizeProps } from "./interfaces";
 
 const bounce: Keyframes = keyframes`
   0%, 100% {transform: scale(0)}
@@ -17,16 +12,16 @@ const bounce: Keyframes = keyframes`
 `;
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
-  public static defaultProps: Required<LoaderSizeProps> = sizeDefaults(60);
+  public static defaultProps = sizeDefaults(60);
 
-  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public style = (i: number): SerializedStyles => {
     const { color, size } = this.props;
 
     return css`
       position: absolute;
-      height: ${cssValue(size!)};
-      width: ${cssValue(size!)};
-      background-color: ${color};
+      height: ${cssValue(size || Loader.defaultProps.size)};
+      width: ${cssValue(size || Loader.defaultProps.size)};
+      background-color: ${color || Loader.defaultProps.color};
       border-radius: 100%;
       opacity: 0.6;
       top: 0;
@@ -36,13 +31,13 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  public wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper = (): SerializedStyles => {
     const { size } = this.props;
 
     return css`
       position: relative;
-      width: ${cssValue(size!)};
-      height: ${cssValue(size!)};
+      width: ${cssValue(size || Loader.defaultProps.size)};
+      height: ${cssValue(size || Loader.defaultProps.size)};
     `;
   };
 

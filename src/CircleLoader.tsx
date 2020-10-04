@@ -3,13 +3,8 @@ import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
 
 import { sizeDefaults, cssValue, parseLengthAndUnit } from "./helpers";
-import { Keyframes } from "@emotion/serialize";
-import {
-  StyleFunction,
-  PrecompiledCss,
-  LoaderSizeProps,
-  StyleFunctionWithIndex
-} from "./interfaces";
+import { Keyframes, SerializedStyles } from "@emotion/serialize";
+import { LoaderSizeProps } from "./interfaces";
 
 const circle: Keyframes = keyframes`
   0% {transform: rotate(0deg)}
@@ -18,16 +13,16 @@ const circle: Keyframes = keyframes`
 `;
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
-  public static defaultProps: LoaderSizeProps = sizeDefaults(50);
+  public static defaultProps = sizeDefaults(50);
 
-  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public style = (i: number): SerializedStyles => {
     const { size, color } = this.props;
-    let { value, unit } = parseLengthAndUnit(size!);
+    const { value, unit } = parseLengthAndUnit(size || Loader.defaultProps.size);
 
     return css`
       position: absolute;
-      height: ${`${value! * (1 - i / 10)}${unit}`};
-      width: ${`${value! * (1 - i / 10)}${unit}`};
+      height: ${`${value * (1 - i / 10)}${unit}`};
+      width: ${`${value * (1 - i / 10)}${unit}`};
       border: 1px solid ${color};
       border-radius: 100%;
       transition: 2s;
@@ -40,13 +35,13 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  public wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper = (): SerializedStyles => {
     const { size } = this.props;
 
     return css`
       position: relative;
-      width: ${cssValue(size!)};
-      height: ${cssValue(size!)};
+      width: ${cssValue(size || Loader.defaultProps.size)};
+      height: ${cssValue(size || Loader.defaultProps.size)};
     `;
   };
 

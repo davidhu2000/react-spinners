@@ -23,7 +23,7 @@ jobs: # a collection of steps
           command: npm run lint
       - run:
           name: Jest tests
-          command: npm run test:jest
+          command: npm run jest
       - run:
           name: Report coverage
           command: npm run coveralls

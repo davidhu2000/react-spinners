@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
 import { sizeDefaults, cssValue } from "./helpers";
-import { StyleFunction, PrecompiledCss, LoaderSizeProps } from "./interfaces";
+import { LoaderSizeProps } from "./interfaces";
 
 const climbingBox: Keyframes = keyframes`
   0% {transform:translate(0, -1em) rotate(-45deg)}
@@ -21,9 +21,9 @@ const climbingBox: Keyframes = keyframes`
 `;
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
-  public static defaultProps: LoaderSizeProps = sizeDefaults(15);
+  public static defaultProps = sizeDefaults(15);
 
-  public style: StyleFunction = (): PrecompiledCss => {
+  public style = (): SerializedStyles => {
     const { color } = this.props;
 
     return css`
@@ -41,7 +41,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  public wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper = (): SerializedStyles => {
     const { size } = this.props;
 
     return css`
@@ -52,11 +52,11 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
       margin-left: -2.7em;
       width: 5.4em;
       height: 5.4em;
-      font-size: ${cssValue(size!)};
+      font-size: ${cssValue(size || Loader.defaultProps.size)};
     `;
   };
 
-  public hill: StyleFunction = (): PrecompiledCss => {
+  public hill = (): SerializedStyles => {
     const { color } = this.props;
 
     return css`
@@ -70,7 +70,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  public container: StyleFunction = (): PrecompiledCss => {
+  public container = (): SerializedStyles => {
     return css`
       position: relative;
       width: 7.1em;

@@ -1,28 +1,26 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
 import { sizeDefaults, parseLengthAndUnit, cssValue } from "./helpers";
-import { StyleFunction, PrecompiledCss, LoaderSizeProps, CalcFunction } from "./interfaces";
-
-type BallStyleFunction = (size: number) => PrecompiledCss;
+import { LoaderSizeProps } from "./interfaces";
 
 const moon: Keyframes = keyframes`
   100% {transform: rotate(360deg)}
 `;
 
 class Loader extends React.PureComponent<LoaderSizeProps> {
-  public static defaultProps: LoaderSizeProps = sizeDefaults(60);
+  public static defaultProps = sizeDefaults(60);
 
-  public moonSize: CalcFunction<number> = (): number => {
+  public moonSize = (): number => {
     const { size } = this.props;
-    let { value } = parseLengthAndUnit(size!);
+    const { value } = parseLengthAndUnit(size || Loader.defaultProps.size);
 
     return value / 7;
   };
 
-  public ballStyle: BallStyleFunction = (size: number): PrecompiledCss => {
+  public ballStyle = (size: number): SerializedStyles => {
     return css`
       width: ${cssValue(size)};
       height: ${cssValue(size)};
@@ -30,9 +28,9 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  public wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper = (): SerializedStyles => {
     const { size } = this.props;
-    let { value, unit } = parseLengthAndUnit(size!);
+    const { value, unit } = parseLengthAndUnit(size || Loader.defaultProps.size);
 
     return css`
       position: relative;
@@ -43,9 +41,9 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  public ball: CalcFunction<PrecompiledCss> = (): PrecompiledCss => {
+  public ball = (): SerializedStyles => {
     const { color, size } = this.props;
-    let { value, unit } = parseLengthAndUnit(size!);
+    const { value, unit } = parseLengthAndUnit(size || Loader.defaultProps.size);
 
     return css`
       ${this.ballStyle(this.moonSize())};
@@ -58,9 +56,9 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     `;
   };
 
-  public circle: CalcFunction<PrecompiledCss> = (): PrecompiledCss => {
+  public circle = (): SerializedStyles => {
     const { size, color } = this.props;
-    let { value } = parseLengthAndUnit(size!);
+    const { value } = parseLengthAndUnit(size || Loader.defaultProps.size);
 
     return css`
       ${this.ballStyle(value)};

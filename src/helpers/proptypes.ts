@@ -1,7 +1,7 @@
+import { SerializedStyles } from "@emotion/core";
 import {
   LoaderHeightWidthProps,
   LoaderSizeProps,
-  PrecompiledCss,
   LoaderSizeMarginProps,
   LoaderHeightWidthRadiusProps
 } from "../interfaces";
@@ -13,7 +13,7 @@ import {
 interface CommonDefaults {
   loading: boolean;
   color: string;
-  css: string | PrecompiledCss;
+  css: string | SerializedStyles;
 }
 
 const commonValues: CommonDefaults = {
@@ -45,7 +45,7 @@ export function heightWidthDefaults(
 export function heightWidthRadiusDefaults(
   height: number,
   width: number,
-  radius: number = 2
+  radius = 2
 ): Required<LoaderHeightWidthRadiusProps> {
   return Object.assign({}, heightWidthDefaults(height, width), {
     radius,

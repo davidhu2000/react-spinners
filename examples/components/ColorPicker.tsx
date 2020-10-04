@@ -14,10 +14,10 @@ class Picker extends React.Component<ColorPickerProps> {
   }
 
   public render(): JSX.Element {
-    let { color, updateColor } = this.props;
+    const { color, updateColor } = this.props;
 
     return <SketchPicker color={color} onChangeComplete={updateColor} />;
   }
 }
 
-export const ColorPicker: React.ComponentClass<ColorPickerProps> = enhanceWithClickOutside(Picker);
+export default enhanceWithClickOutside(Picker);

@@ -1,16 +1,10 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
 import { sizeMarginDefaults, parseLengthAndUnit, cssValue } from "./helpers";
-import {
-  StyleFunction,
-  PrecompiledCss,
-  LoaderSizeMarginProps,
-  CalcFunction,
-  StyleFunctionWithIndex
-} from "./interfaces";
+import { LoaderSizeMarginProps, LengthType } from "./interfaces";
 
 const pacman: Keyframes[] = [
   keyframes`
@@ -24,11 +18,14 @@ const pacman: Keyframes[] = [
 ];
 
 class Loader extends React.PureComponent<LoaderSizeMarginProps> {
-  public static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(25);
+  public static defaultProps = sizeMarginDefaults(25);
 
-  public ball: CalcFunction<Keyframes> = (): Keyframes => {
-    const { size } = this.props;
-    let { value, unit } = parseLengthAndUnit(size!);
+  public getSize = (): LengthType => {
+    return this.props.size || Loader.defaultProps.size;
+  };
+
+  public ball = (): Keyframes => {
+    const { value, unit } = parseLengthAndUnit(this.getSize());
 
     return keyframes`
       75% {opacity: 0.7}
@@ -36,15 +33,15 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     `;
   };
 
-  public ballStyle: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
-    const { color, margin, size } = this.props;
-    let { value, unit } = parseLengthAndUnit(size!);
+  public ballStyle = (i: number): SerializedStyles => {
+    const { color, margin } = this.props;
+    const { value, unit } = parseLengthAndUnit(this.getSize());
 
     return css`
       width: ${`${value / 3}${unit}`};
       height: ${`${value / 3}${unit}`};
       background-color: ${color};
-      margin: ${cssValue(margin!)};
+      margin: ${cssValue(margin || Loader.defaultProps.margin)};
       border-radius: 100%;
       transform: translate(0, ${`${-value / 4}${unit}`});
       position: absolute;
@@ -55,21 +52,17 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     `;
   };
 
-  public s1: CalcFunction<string> = (): string => {
-    const { size } = this.props;
-
-    return `${cssValue(size!)} solid transparent`;
+  public s1 = (): string => {
+    return `${cssValue(this.getSize())} solid transparent`;
   };
 
-  public s2: CalcFunction<string> = (): string => {
-    const { size, color } = this.props;
+  public s2 = (): string => {
+    const { color } = this.props;
 
-    return `${cssValue(size!)} solid ${color}`;
+    return `${cssValue(this.getSize())} solid ${color}`;
   };
 
-  public pacmanStyle: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
-    const { size } = this.props;
-
+  public pacmanStyle = (i: number): SerializedStyles => {
     const s1: string = this.s1();
     const s2: string = this.s2();
 
@@ -80,26 +73,24 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
       border-top: ${i === 0 ? s1 : s2};
       border-left: ${s2};
       border-bottom: ${i === 0 ? s2 : s1};
-      border-radius: ${cssValue(size!)};
+      border-radius: ${cssValue(this.getSize())};
       position: absolute;
       animation: ${pacman[i]} 0.8s infinite ease-in-out;
       animation-fill-mode: both;
     `;
   };
 
-  public wrapper: StyleFunction = (): PrecompiledCss => {
-    const { size } = this.props;
-
+  public wrapper = (): SerializedStyles => {
     return css`
       position: relative;
       font-size: 0;
-      height: ${cssValue(size!)};
-      width: ${cssValue(size!)};
+      height: ${cssValue(this.getSize())};
+      width: ${cssValue(this.getSize())};
     `;
   };
 
-  public pac: StyleFunction = (): PrecompiledCss => this.pacmanStyle(0);
-  public man: StyleFunction = (): PrecompiledCss => this.pacmanStyle(1);
+  public pac = (): SerializedStyles => this.pacmanStyle(0);
+  public man = (): SerializedStyles => this.pacmanStyle(1);
 
   public render(): JSX.Element | null {
     const { loading, css } = this.props;

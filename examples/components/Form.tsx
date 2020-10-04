@@ -2,9 +2,9 @@ import * as React from "react";
 
 interface FormProps {
   inputs: {
-    [key: string]: number | string;
+    [key: string]: number | string | undefined;
   };
-  update: (field: string) => (event: any) => void;
+  update: (field: string) => (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 type FormType = (arg: FormProps) => JSX.Element;
@@ -21,4 +21,4 @@ const Form: FormType = ({ inputs, update }: FormProps): JSX.Element => (
   </div>
 );
 
-export { Form };
+export default Form;

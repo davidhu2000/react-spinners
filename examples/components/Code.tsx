@@ -5,8 +5,8 @@ interface CodeState {
   index: number;
 }
 
-class Code extends React.Component<{}, CodeState> {
-  constructor(props: {}) {
+class Code extends React.Component<unknown, CodeState> {
+  constructor(props: unknown) {
     super(props);
     this.state = {
       text: ["yarn add react-spinners", "npm install react-spinners --save"],
@@ -15,7 +15,7 @@ class Code extends React.Component<{}, CodeState> {
   }
 
   public componentDidMount(): void {
-    let el: HTMLElement = document.getElementById("code");
+    const el: HTMLElement = document.getElementById("code") as HTMLElement;
     el.addEventListener("click", () => {
       this.setState({
         index: +!this.state.index
@@ -28,4 +28,4 @@ class Code extends React.Component<{}, CodeState> {
   }
 }
 
-export { Code };
+export default Code;

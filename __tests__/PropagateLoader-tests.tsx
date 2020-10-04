@@ -10,9 +10,9 @@ import { sizeDefaults } from "../src/helpers";
 describe("PropagateLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeProps;
-  let defaultSize: number = 15;
-  let defaultColor: string = "#000000";
-  let defaultUnit: string = "px";
+  const defaultSize = 15;
+  const defaultColor = "#000000";
+  const defaultUnit = "px";
 
   it("should match snapshot", () => {
     loader = mount(<PropagateLoader />);
@@ -25,7 +25,7 @@ describe("PropagateLoader", () => {
   });
 
   it("should contain styles created using default props", () => {
-    for (let i: number = 0; i < 6; i++) {
+    for (let i = 0; i < 6; i++) {
       expect(loader.find("div div").at(i)).toHaveStyleRule(
         "height",
         `${defaultSize}${defaultUnit}`
@@ -45,10 +45,10 @@ describe("PropagateLoader", () => {
   });
 
   it("should render the correct color based on props", () => {
-    let color: string = "#e2e2e2";
+    const color = "#e2e2e2";
     loader = mount(<PropagateLoader color={color} />);
 
-    for (let i: number = 0; i < 6; i++) {
+    for (let i = 0; i < 6; i++) {
       expect(loader.find("div div").at(i)).not.toHaveStyleRule("background", defaultColor);
 
       expect(loader.find("div div").at(i)).toHaveStyleRule("background", color);
@@ -56,10 +56,10 @@ describe("PropagateLoader", () => {
   });
 
   it("should render the correct size based on props", () => {
-    let size: number = 21;
+    const size = 21;
     loader = mount(<PropagateLoader size={size} />);
 
-    for (let i: number = 0; i < 6; i++) {
+    for (let i = 0; i < 6; i++) {
       expect(loader.find("div div").at(i)).not.toHaveStyleRule(
         "height",
         `${defaultSize}${defaultUnit}`
@@ -84,9 +84,9 @@ describe("PropagateLoader", () => {
 
   describe("size props", () => {
     it("should render the size with px unit when size is a number", () => {
-      let size: number = 18;
+      const size = 18;
       loader = mount(<PropagateLoader size={size} />);
-      for (let i: number = 0; i < 6; i++) {
+      for (let i = 0; i < 6; i++) {
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize}${defaultUnit}`
@@ -110,12 +110,12 @@ describe("PropagateLoader", () => {
     });
 
     it("should render the size as is when size is a string with valid css unit", () => {
-      let length: number = 18;
-      let unit: string = "px";
-      let size: string = `${length}${unit}`;
+      const length = 18;
+      const unit = "px";
+      const size = `${length}${unit}`;
 
       loader = mount(<PropagateLoader size={size} />);
-      for (let i: number = 0; i < 6; i++) {
+      for (let i = 0; i < 6; i++) {
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize}${defaultUnit}`
@@ -136,12 +136,12 @@ describe("PropagateLoader", () => {
     });
 
     it("should render the size with default unit of px when the unit is incorrect", () => {
-      let length: number = 18;
-      let unit: string = "ad";
-      let size: string = `${length}${unit}`;
+      const length = 18;
+      const unit = "ad";
+      const size = `${length}${unit}`;
       loader = mount(<PropagateLoader size={size} />);
 
-      for (let i: number = 0; i < 6; i++) {
+      for (let i = 0; i < 6; i++) {
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize}${defaultUnit}`

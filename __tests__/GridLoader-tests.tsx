@@ -12,16 +12,16 @@ interface MockMath {
 }
 
 const mockMath: MockMath = Object.create(global.Math);
-mockMath.random = (): number => 0.5;
+mockMath.random = () => 0.5;
 global.Math = mockMath as Math;
 
 describe("GridLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeMarginProps;
-  let defaultColor: string = "#000000";
-  let defaultSize: number = 15;
-  let defaultUnit: string = "px";
-  let wrapperWidthDefault: number = parseFloat(defaultSize.toString()) * 3 + parseFloat("2px") * 6;
+  const defaultColor = "#000000";
+  const defaultSize = 15;
+  const defaultUnit = "px";
+  const wrapperWidthDefault = parseFloat(defaultSize.toString()) * 3 + parseFloat("2px") * 6;
 
   it("should match snapshot", () => {
     loader = mount(<GridLoader />);
@@ -36,7 +36,7 @@ describe("GridLoader", () => {
   it("should contain styles created using default props", () => {
     expect(loader).toHaveStyleRule("width", `${wrapperWidthDefault}${defaultUnit}`);
 
-    for (let i: number = 0; i < 9; i++) {
+    for (let i = 0; i < 9; i++) {
       expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
       expect(loader.find("div div").at(i)).toHaveStyleRule(
         "height",
@@ -53,21 +53,21 @@ describe("GridLoader", () => {
   });
 
   it("should render the correct color based on prop", () => {
-    let color: string = "#e2e2e2";
+    const color = "#e2e2e2";
     loader = mount(<GridLoader color={color} />);
     expect(loader.find("div div")).not.toHaveStyleRule("background-color", defaultColor);
     expect(loader.find("div div")).toHaveStyleRule("background-color", color);
   });
 
   it("should render the correct size for the parent div based on props", () => {
-    let size: number = 18;
-    let wrapperWidth: number = parseFloat(size.toString()) * 3 + parseFloat("2px") * 6;
+    const size = 18;
+    const wrapperWidth = parseFloat(size.toString()) * 3 + parseFloat("2px") * 6;
 
     loader = mount(<GridLoader size={size} />);
     expect(loader).not.toHaveStyleRule("width", `${wrapperWidthDefault}${defaultUnit}`);
     expect(loader).toHaveStyleRule("width", `${wrapperWidth}${defaultUnit}`);
 
-    for (let i: number = 0; i < 9; i++) {
+    for (let i = 0; i < 9; i++) {
       expect(loader.find("div div").at(i)).not.toHaveStyleRule(
         "height",
         `${defaultSize}${defaultUnit}`

@@ -10,10 +10,10 @@ import { sizeMarginDefaults } from "../src/helpers";
 describe("PulseLoader", () => {
   let loader: ReactWrapper;
   let props: LoaderSizeMarginProps;
-  let defaultSize: number = 15;
-  let defaultMargin: number = 2;
-  let defaultColor: string = "#000000";
-  let defaultUnit: string = "px";
+  const defaultSize = 15;
+  const defaultMargin = 2;
+  const defaultColor = "#000000";
+  const defaultUnit = "px";
 
   it("should match snapshot", () => {
     loader = mount(<PulseLoader />);
@@ -26,7 +26,7 @@ describe("PulseLoader", () => {
   });
 
   it("should contain styles created using default props", () => {
-    for (let i: number = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i++) {
       expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
       expect(loader.find("div div").at(i)).toHaveStyleRule(
         "height",
@@ -46,9 +46,9 @@ describe("PulseLoader", () => {
   });
 
   it("should render the correct color based on prop", () => {
-    let color: string = "#e2e2e2";
+    const color = "#e2e2e2";
     loader = mount(<PulseLoader color={color} />);
-    for (let i: number = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i++) {
       expect(loader.find("div div").at(i)).not.toHaveStyleRule("background-color", defaultColor);
       expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", color);
     }
@@ -56,10 +56,10 @@ describe("PulseLoader", () => {
 
   describe("size props", () => {
     it("should render the size with px unit when size is a number", () => {
-      let size: number = 18;
+      const size = 18;
       loader = mount(<PulseLoader size={size} />);
 
-      for (let i: number = 0; i < 3; i++) {
+      for (let i = 0; i < 3; i++) {
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize}${defaultUnit}`
@@ -75,10 +75,10 @@ describe("PulseLoader", () => {
     });
 
     it("should render the size as is when size is a string with valid css unit", () => {
-      let size: string = "18px";
+      const size = "18px";
       loader = mount(<PulseLoader size={size} />);
 
-      for (let i: number = 0; i < 3; i++) {
+      for (let i = 0; i < 3; i++) {
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize}${defaultUnit}`
@@ -94,12 +94,12 @@ describe("PulseLoader", () => {
     });
 
     it("should render the size with default unit of px when the unit is incorrect", () => {
-      let length: number = 18;
-      let unit: string = "ad";
-      let size: string = `${length}${unit}`;
+      const length = 18;
+      const unit = "ad";
+      const size = `${length}${unit}`;
       loader = mount(<PulseLoader size={size} />);
 
-      for (let i: number = 0; i < 3; i++) {
+      for (let i = 0; i < 3; i++) {
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize}${defaultUnit}`
@@ -117,10 +117,10 @@ describe("PulseLoader", () => {
 
   describe("margin props", () => {
     it("should render the margin with px unit when margin is a number", () => {
-      let margin: number = 18;
+      const margin = 18;
       loader = mount(<PulseLoader margin={margin} />);
 
-      for (let i: number = 0; i < 3; i++) {
+      for (let i = 0; i < 3; i++) {
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`
@@ -130,10 +130,10 @@ describe("PulseLoader", () => {
     });
 
     it("should render the margin as is when margin is a string with valid css unit", () => {
-      let margin: string = "18px";
+      const margin = "18px";
       loader = mount(<PulseLoader margin={margin} />);
 
-      for (let i: number = 0; i < 3; i++) {
+      for (let i = 0; i < 3; i++) {
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`
@@ -143,12 +143,12 @@ describe("PulseLoader", () => {
     });
 
     it("should render the margin with default unit of px when the unit is incorrect", () => {
-      let length: number = 18;
-      let unit: string = "ad";
-      let margin: string = `${length}${unit}`;
+      const length = 18;
+      const unit = "ad";
+      const margin = `${length}${unit}`;
       loader = mount(<PulseLoader margin={margin} />);
 
-      for (let i: number = 0; i < 3; i++) {
+      for (let i = 0; i < 3; i++) {
         expect(loader.find("div div").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`

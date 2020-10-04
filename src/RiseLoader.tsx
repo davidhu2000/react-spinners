@@ -1,12 +1,12 @@
 /** @jsx jsx */
 import * as React from "react";
 import { keyframes, css, jsx } from "@emotion/core";
-import { Keyframes } from "@emotion/serialize";
+import { Keyframes, SerializedStyles } from "@emotion/serialize";
 
 import { sizeMarginDefaults, cssValue } from "./helpers";
-import { PrecompiledCss, LoaderSizeMarginProps, StyleFunctionWithIndex } from "./interfaces";
+import { LoaderSizeMarginProps } from "./interfaces";
 
-const riseAmount: number = 30;
+const riseAmount = 30;
 
 const even: Keyframes = keyframes`
   0% {transform: scale(1.1)}
@@ -25,16 +25,16 @@ const odd: Keyframes = keyframes`
 `;
 
 class Loader extends React.PureComponent<LoaderSizeMarginProps> {
-  public static defaultProps: LoaderSizeMarginProps = sizeMarginDefaults(15);
+  public static defaultProps = sizeMarginDefaults(15);
 
-  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public style = (i: number): SerializedStyles => {
     const { color, size, margin } = this.props;
 
     return css`
       background-color: ${color};
-      width: ${cssValue(size!)};
-      height: ${cssValue(size!)};
-      margin: ${cssValue(margin!)};
+      width: ${cssValue(size || Loader.defaultProps.size)};
+      height: ${cssValue(size || Loader.defaultProps.size)};
+      margin: ${cssValue(margin || Loader.defaultProps.margin)};
       border-radius: 100%;
       display: inline-block;
       animation: ${i % 2 === 0 ? even : odd} 1s 0s infinite cubic-bezier(0.15, 0.46, 0.9, 0.6);

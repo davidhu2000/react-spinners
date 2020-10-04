@@ -1,15 +1,10 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 import { Keyframes } from "@emotion/serialize";
 
 import { heightWidthRadiusDefaults, cssValue, parseLengthAndUnit } from "./helpers";
-import {
-  StyleFunction,
-  PrecompiledCss,
-  LoaderHeightWidthRadiusProps,
-  StyleFunctionWithIndex
-} from "./interfaces";
+import { LoaderHeightWidthRadiusProps } from "./interfaces";
 
 const fade: Keyframes = keyframes`
   50% {opacity: 0.3}
@@ -17,11 +12,11 @@ const fade: Keyframes = keyframes`
 `;
 
 class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
-  public static defaultProps: LoaderHeightWidthRadiusProps = heightWidthRadiusDefaults(15, 5, 2);
+  public static defaultProps = heightWidthRadiusDefaults(15, 5, 2);
 
   public radius = (): number => {
-    let { margin } = this.props;
-    let { value } = parseLengthAndUnit(margin!);
+    const { margin } = this.props;
+    const { value } = parseLengthAndUnit(margin || Loader.defaultProps.margin);
 
     return value + 18;
   };
@@ -30,23 +25,23 @@ class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
     return this.radius() / 2 + this.radius() / 5.5;
   };
 
-  public style: StyleFunctionWithIndex = (i: number): PrecompiledCss => {
+  public style = (i: number): SerializedStyles => {
     const { height, width, margin, color, radius } = this.props;
 
     return css`
       position: absolute;
-      width: ${cssValue(width!)};
-      height: ${cssValue(height!)};
-      margin: ${cssValue(margin!)};
+      width: ${cssValue(width || Loader.defaultProps.width)};
+      height: ${cssValue(height || Loader.defaultProps.height)};
+      margin: ${cssValue(margin || Loader.defaultProps.margin)};
       background-color: ${color};
-      border-radius: ${cssValue(radius!)};
+      border-radius: ${cssValue(radius || Loader.defaultProps.radius)};
       transition: 2s;
       animation-fill-mode: "both";
       animation: ${fade} 1.2s ${i * 0.12}s infinite ease-in-out;
     `;
   };
 
-  public wrapper: StyleFunction = (): PrecompiledCss => {
+  public wrapper = (): SerializedStyles => {
     return css`
       position: relative;
       font-size: 0;
@@ -57,47 +52,47 @@ class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
     `;
   };
 
-  public a: StyleFunction = (): PrecompiledCss => css`
+  public a = (): SerializedStyles => css`
     ${this.style(1)};
     top: ${this.radius()}px;
     left: 0;
   `;
-  public b: StyleFunction = (): PrecompiledCss => css`
+  public b = (): SerializedStyles => css`
     ${this.style(2)};
     top: ${this.quarter()}px;
     left: ${this.quarter()}px;
     transform: rotate(-45deg);
   `;
-  public c: StyleFunction = (): PrecompiledCss => css`
+  public c = (): SerializedStyles => css`
     ${this.style(3)};
     top: 0;
     left: ${this.radius()}px;
     transform: rotate(90deg);
   `;
-  public d: StyleFunction = (): PrecompiledCss => css`
+  public d = (): SerializedStyles => css`
     ${this.style(4)};
     top: ${-this.quarter()}px;
     left: ${this.quarter()}px;
     transform: rotate(45deg);
   `;
-  public e: StyleFunction = (): PrecompiledCss => css`
+  public e = (): SerializedStyles => css`
     ${this.style(5)};
     top: ${-this.radius()}px;
     left: 0;
   `;
-  public f: StyleFunction = (): PrecompiledCss => css`
+  public f = (): SerializedStyles => css`
     ${this.style(6)};
     top: ${-this.quarter()}px;
     left: ${-this.quarter()}px;
     transform: rotate(-45deg);
   `;
-  public g: StyleFunction = (): PrecompiledCss => css`
+  public g = (): SerializedStyles => css`
     ${this.style(7)};
     top: 0;
     left: ${-this.radius()}px;
     transform: rotate(90deg);
   `;
-  public h: StyleFunction = (): PrecompiledCss => css`
+  public h = (): SerializedStyles => css`
     ${this.style(8)};
     top: ${this.quarter()}px;
     left: ${-this.quarter()}px;
