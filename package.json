@@ -82,7 +82,7 @@
     "react-click-outside": "^3.0.0",
     "react-color": "^2.18.1",
     "react-dom": "^16.9.0",
-    "ts-jest": "^24.1.0",
+    "ts-jest": "^26.4.1",
     "ts-loader": "^6.0.4",
     "typescript": "^3.9.7",
     "webpack": "^4.39.1",
