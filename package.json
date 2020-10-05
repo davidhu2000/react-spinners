@@ -83,7 +83,7 @@
     "react-color": "^2.18.1",
     "react-dom": "^16.9.0",
     "ts-jest": "^26.4.1",
-    "ts-loader": "^6.0.4",
+    "ts-loader": "^8.0.4",
     "typescript": "^3.9.7",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.6"
