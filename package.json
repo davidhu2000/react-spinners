@@ -62,7 +62,7 @@
     "@types/react-click-outside": "^3.0.3",
     "@types/react-color": "^3.0.4",
     "@types/react-dom": "^16.8.5",
-    "@typescript-eslint/eslint-plugin": "^3.7.0",
+    "@typescript-eslint/eslint-plugin": "^4.0.0",
     "@typescript-eslint/parser": "^3.7.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-emotion": "^10.0.33",
