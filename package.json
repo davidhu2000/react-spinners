@@ -86,7 +86,7 @@
     "ts-loader": "^8.0.4",
     "typescript": "^3.9.7",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.6"
+    "webpack-cli": "^3.3.12"
   },
   "peerDependencies": {
     "react": "^16.0.0",
