@@ -78,7 +78,7 @@
     "html-webpack-plugin": "^4.5.0",
     "jest": "^26.5.0",
     "jest-emotion": "^10.0.32",
-    "react": "^16.9.0",
+    "react": "^16.13.1",
     "react-click-outside": "^3.0.0",
     "react-color": "^2.18.1",
     "react-dom": "^16.9.0",
