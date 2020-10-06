@@ -31,10 +31,7 @@ module.exports = {
       filename: path.join(__dirname, "docs", "index.html"),
       inject: "head"
     }),
-    new ForkTsCheckerWebpackPlugin({
-      checkSyntacticErrors: true,
-      tsconfig: "./tsconfig.json"
-    })
+    new ForkTsCheckerWebpackPlugin()
   ],
   optimization: {
     splitChunks: {
