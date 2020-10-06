@@ -6,24 +6,24 @@ jobs: # a collection of steps
       - image: circleci/node:latest # ...with this image as the primary container; this is where all `steps` will run
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
-      - run:
-          name: Update npm
-          command: "sudo npm install -g npm@latest"
-      - restore_cache: # special step to restore the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
-          command: npm install
-      - save_cache: # special step to save the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
+          command: yarn install --immutable
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
-            - ./node_modules
+            - ~/.cache/yarn
       - run:
           name: Lint issues
-          command: npm run lint
+          command: yarn run lint
       - run:
           name: Jest tests
-          command: npm run jest
+          command: yarn run jest
       - run:
           name: Report coverage
-          command: npm run coveralls
+          command: yarn run coveralls
