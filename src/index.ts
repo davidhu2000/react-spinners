@@ -1,54 +1,23 @@
-import BarLoaderComponent from "./BarLoader";
-import BeatLoaderComponent from "./BeatLoader";
-import BounceLoaderComponent from "./BounceLoader";
-import CircleLoaderComponent from "./CircleLoader";
-import ClimbingBoxLoaderComponent from "./ClimbingBoxLoader";
-import ClipLoaderComponent from "./ClipLoader";
-import ClockLoaderComponent from "./ClockLoader";
-import DotLoaderComponent from "./DotLoader";
-import FadeLoaderComponent from "./FadeLoader";
-import GridLoaderComponent from "./GridLoader";
-import HashLoaderComponent from "./HashLoader";
-import MoonLoaderComponent from "./MoonLoader";
-import PacmanLoaderComponent from "./PacmanLoader";
-import PropagateLoaderComponent from "./PropagateLoader";
-import PulseLoaderComponent from "./PulseLoader";
-import PuffLoaderComponent from "./PuffLoader";
-import RingLoaderComponent from "./RingLoader";
-import RiseLoaderComponent from "./RiseLoader";
-import RotateLoaderComponent from "./RotateLoader";
-import ScaleLoaderComponent from "./ScaleLoader";
-import SkewLoaderComponent from "./SkewLoader";
-import SquareLoaderComponent from "./SquareLoader";
-import SyncLoaderComponent from "./SyncLoader";
-
-import {
-  LoaderHeightWidthProps,
-  LoaderSizeMarginProps,
-  LoaderSizeProps,
-  LoaderHeightWidthRadiusProps
-} from "./interfaces";
-
-export const BarLoader: React.ComponentClass<LoaderHeightWidthProps> = BarLoaderComponent;
-export const BeatLoader: React.ComponentClass<LoaderSizeMarginProps> = BeatLoaderComponent;
-export const BounceLoader: React.ComponentClass<LoaderSizeProps> = BounceLoaderComponent;
-export const CircleLoader: React.ComponentClass<LoaderSizeProps> = CircleLoaderComponent;
-export const ClimbingBoxLoader: React.ComponentClass<LoaderSizeProps> = ClimbingBoxLoaderComponent;
-export const ClipLoader: React.ComponentClass<LoaderSizeProps> = ClipLoaderComponent;
-export const ClockLoader: React.ComponentClass<LoaderSizeProps> = ClockLoaderComponent;
-export const DotLoader: React.ComponentClass<LoaderSizeProps> = DotLoaderComponent;
-export const FadeLoader: React.ComponentClass<LoaderHeightWidthRadiusProps> = FadeLoaderComponent;
-export const GridLoader: React.ComponentClass<LoaderSizeMarginProps> = GridLoaderComponent;
-export const HashLoader: React.ComponentClass<LoaderSizeProps> = HashLoaderComponent;
-export const MoonLoader: React.ComponentClass<LoaderSizeProps> = MoonLoaderComponent;
-export const PacmanLoader: React.ComponentClass<LoaderSizeMarginProps> = PacmanLoaderComponent;
-export const PropagateLoader: React.ComponentClass<LoaderSizeProps> = PropagateLoaderComponent;
-export const PulseLoader: React.ComponentClass<LoaderSizeMarginProps> = PulseLoaderComponent;
-export const PuffLoader: React.ComponentClass<LoaderSizeProps> = PuffLoaderComponent;
-export const RingLoader: React.ComponentClass<LoaderSizeProps> = RingLoaderComponent;
-export const RiseLoader: React.ComponentClass<LoaderSizeMarginProps> = RiseLoaderComponent;
-export const RotateLoader: React.ComponentClass<LoaderSizeMarginProps> = RotateLoaderComponent;
-export const ScaleLoader: React.ComponentClass<LoaderHeightWidthRadiusProps> = ScaleLoaderComponent;
-export const SkewLoader: React.ComponentClass<LoaderSizeProps> = SkewLoaderComponent;
-export const SquareLoader: React.ComponentClass<LoaderSizeProps> = SquareLoaderComponent;
-export const SyncLoader: React.ComponentClass<LoaderSizeProps> = SyncLoaderComponent;
+export { default as BarLoader } from "./BarLoader";
+export { default as BeatLoader } from "./BeatLoader";
+export { default as BounceLoader } from "./BounceLoader";
+export { default as CircleLoader } from "./CircleLoader";
+export { default as ClimbingBoxLoader } from "./ClimbingBoxLoader";
+export { default as ClipLoader } from "./ClipLoader";
+export { default as ClockLoader } from "./ClockLoader";
+export { default as DotLoader } from "./DotLoader";
+export { default as FadeLoader } from "./FadeLoader";
+export { default as GridLoader } from "./GridLoader";
+export { default as HashLoader } from "./HashLoader";
+export { default as MoonLoader } from "./MoonLoader";
+export { default as PacmanLoader } from "./PacmanLoader";
+export { default as PropagateLoader } from "./PropagateLoader";
+export { default as PulseLoader } from "./PulseLoader";
+export { default as PuffLoader } from "./PuffLoader";
+export { default as RingLoader } from "./RingLoader";
+export { default as RiseLoader } from "./RiseLoader";
+export { default as RotateLoader } from "./RotateLoader";
+export { default as ScaleLoader } from "./ScaleLoader";
+export { default as SkewLoader } from "./SkewLoader";
+export { default as SquareLoader } from "./SquareLoader";
+export { default as SyncLoader } from "./SyncLoader";
