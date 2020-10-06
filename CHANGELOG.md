@@ -2,9 +2,13 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.10.0-alpha.2
+
+- add `sideEffects` property to `package.json` to fix tree shaking
+
 ## 0.10.0-alpha.1
 
-- updated all dependencies to the latest version. 
+- updated all dependencies to the latest version.
 - switched from using npm to yarn
 - deprecated ts-lint in favor of eslint
 - updated how loaders are exported to support tree shaking
