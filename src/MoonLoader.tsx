@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import * as React from "react";
 import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
-import { Keyframes } from "@emotion/serialize";
 
 import { sizeDefaults, parseLengthAndUnit, cssValue } from "./helpers";
 import { LoaderSizeProps } from "./interfaces";
 
-const moon: Keyframes = keyframes`
+const moon = keyframes`
   100% {transform: rotate(360deg)}
 `;
 

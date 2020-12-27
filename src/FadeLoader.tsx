@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import * as React from "react";
 import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
-import { Keyframes } from "@emotion/serialize";
 
 import { heightWidthRadiusDefaults, cssValue, parseLengthAndUnit } from "./helpers";
 import { LoaderHeightWidthRadiusProps } from "./interfaces";
 
-const fade: Keyframes = keyframes`
+const fade = keyframes`
   50% {opacity: 0.3}
   100% {opacity: 1}
 `;

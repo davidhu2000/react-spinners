@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
-import { Keyframes, SerializedStyles } from "@emotion/serialize";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 
 import { heightWidthRadiusDefaults, cssValue } from "./helpers";
 import { LoaderHeightWidthRadiusProps } from "./interfaces";
 
-const scale: Keyframes = keyframes`
+const scale = keyframes`
   0% {transform: scaley(1.0)}
   50% {transform: scaley(0.4)}
   100% {transform: scaley(1.0)}

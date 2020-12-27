@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import * as React from "react";
 import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
-import { Keyframes } from "@emotion/serialize";
 
 import { sizeMarginDefaults, cssValue, parseLengthAndUnit } from "./helpers";
 import { LoaderSizeMarginProps, LengthObject } from "./interfaces";
 
-const grid: Keyframes = keyframes`
+const grid = keyframes`
   0% {transform: scale(1)}
   50% {transform: scale(0.5); opacity: 0.7}
   100% {transform: scale(1);opacity: 1}

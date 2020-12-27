@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import * as React from "react";
 import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
-import { Keyframes } from "@emotion/serialize";
 
 import { sizeMarginDefaults, parseLengthAndUnit, cssValue } from "./helpers";
 import { LoaderSizeMarginProps, LengthType } from "./interfaces";
 
-const pacman: Keyframes[] = [
+const pacman = [
   keyframes`
     0% {transform: rotate(0deg)}
     50% {transform: rotate(-44deg)}
@@ -24,7 +23,7 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     return this.props.size || Loader.defaultProps.size;
   };
 
-  public ball = (): Keyframes => {
+  public ball = () => {
     const { value, unit } = parseLengthAndUnit(this.getSize());
 
     return keyframes`

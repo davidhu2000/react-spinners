@@ -1,14 +1,13 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
-import { Keyframes, SerializedStyles } from "@emotion/serialize";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 
 import { sizeMarginDefaults, cssValue } from "./helpers";
 import { LoaderSizeMarginProps } from "./interfaces";
 
 const riseAmount = 30;
 
-const even: Keyframes = keyframes`
+const even = keyframes`
   0% {transform: scale(1.1)}
   25% {transform: translateY(-${riseAmount}px)}
   50% {transform: scale(0.4)}
@@ -16,7 +15,7 @@ const even: Keyframes = keyframes`
   100% {transform: translateY(0) scale(1.0)}
 `;
 
-const odd: Keyframes = keyframes`
+const odd = keyframes`
   0% {transform: scale(0.4)}
   25% {transform: translateY(${riseAmount}px)}
   50% {transform: scale(1.1)}
