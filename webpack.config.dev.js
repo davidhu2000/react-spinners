@@ -7,7 +7,7 @@ module.exports = {
   context: __dirname,
   entry: "./examples/index.tsx",
   mode: "development",
-  devtool: "source-map",
+  devtool: "eval",
   output: {
     path: path.resolve(__dirname, "docs", "js"),
     filename: "[name]-[hash].js"
@@ -23,7 +23,6 @@ module.exports = {
       }
     ]
   },
-  devtool: "source-maps",
   resolve: {
     extensions: ["*", ".js", ".jsx", ".ts", ".tsx"]
   },
