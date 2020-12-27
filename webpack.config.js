@@ -31,7 +31,12 @@ module.exports = {
       filename: path.join(__dirname, "docs", "index.html"),
       inject: "head"
     }),
-    new ForkTsCheckerWebpackPlugin()
+    new ForkTsCheckerWebpackPlugin({
+      typescript: true,
+      eslint: {
+        files: './src/**/*.{ts,tsx}'
+      }
+    })
   ],
   optimization: {
     splitChunks: {

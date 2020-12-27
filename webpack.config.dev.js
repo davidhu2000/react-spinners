@@ -7,7 +7,7 @@ module.exports = {
   context: __dirname,
   entry: "./examples/index.tsx",
   mode: "development",
-  devtool: "source-map",
+  devtool: "eval",
   output: {
     path: path.resolve(__dirname, "docs", "js"),
     filename: "[name]-[hash].js"
@@ -23,7 +23,6 @@ module.exports = {
       }
     ]
   },
-  devtool: "source-maps",
   resolve: {
     extensions: ["*", ".js", ".jsx", ".ts", ".tsx"]
   },
@@ -33,9 +32,11 @@ module.exports = {
       filename: path.join(__dirname, "docs", "index.html"),
       inject: "head"
     }),
-    new ForkTsCheckerWebpackPlugin({
-      checkSyntacticErrors: true,
-      tsconfig: "./tsconfig.json"
+     new ForkTsCheckerWebpackPlugin({
+      typescript: true,
+      eslint: {
+        files: './src/**/*.{ts,tsx}'
+      }
     })
   ],
   optimization: {
