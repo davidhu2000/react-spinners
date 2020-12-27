@@ -10,7 +10,7 @@ const sync = keyframes`
   33% {transform: translateY(10px)}
   66% {transform: translateY(-10px)}
   100% {transform: translateY(0)}
-`; 
+`;
 
 class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   public static defaultProps = sizeMarginDefaults(15);
