@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import * as React from "react";
 import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
+import { Keyframes } from "@emotion/serialize";
 
 import { sizeMarginDefaults, parseLengthAndUnit, cssValue } from "./helpers";
 import { LoaderSizeMarginProps, LengthType } from "./interfaces";
@@ -23,7 +24,7 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     return this.props.size || Loader.defaultProps.size;
   };
 
-  public ball = () => {
+  public ball = (): Keyframes => {
     const { value, unit } = parseLengthAndUnit(this.getSize());
 
     return keyframes`
