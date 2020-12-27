@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.10.0-alpha.3 (*IN PROGRESS*)
+
+- update most of devDenpendencies
+- add `react ^17.0.0` and `react-dom ^17.0.0` into peerDependencies to fix [#321](https://github.com/davidhu2000/react-spinners/issues/321)
+
 ## 0.10.0-alpha.2
 
 - add `sideEffects` property to `package.json` to fix tree shaking
