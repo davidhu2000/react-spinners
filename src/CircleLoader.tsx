@@ -49,13 +49,13 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
     const { loading, css } = this.props;
 
     return loading ? (
-      <div css={[this.wrapper(), css]}>
-        <div css={this.style(0)} />
-        <div css={this.style(1)} />
-        <div css={this.style(2)} />
-        <div css={this.style(3)} />
-        <div css={this.style(4)} />
-      </div>
+      <span css={[this.wrapper(), css]}>
+        <span css={this.style(0)} />
+        <span css={this.style(1)} />
+        <span css={this.style(2)} />
+        <span css={this.style(3)} />
+        <span css={this.style(4)} />
+      </span>
     ) : null;
   }
 }

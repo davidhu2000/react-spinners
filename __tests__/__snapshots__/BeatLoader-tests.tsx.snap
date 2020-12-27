@@ -66,18 +66,18 @@ exports[`BeatLoader should match snapshot 1`] = `
   margin={2}
   size={15}
 >
-  <div
+  <span
     className="emotion-3"
   >
-    <div
+    <span
       className="emotion-0"
     />
-    <div
+    <span
       className="emotion-1"
     />
-    <div
+    <span
       className="emotion-0"
     />
-  </div>
+  </span>
 </Loader>
 `;

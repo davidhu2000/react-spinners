@@ -46,7 +46,7 @@ exports[`SkewLoader should match snapshot 1`] = `
   loading={true}
   size={20}
 >
-  <div
+  <span
     className="emotion-0"
   />
 </Loader>

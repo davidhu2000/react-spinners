@@ -203,24 +203,24 @@ exports[`CircleLoader should match snapshot 1`] = `
   loading={true}
   size={50}
 >
-  <div
+  <span
     className="emotion-5"
   >
-    <div
+    <span
       className="emotion-0"
     />
-    <div
+    <span
       className="emotion-1"
     />
-    <div
+    <span
       className="emotion-2"
     />
-    <div
+    <span
       className="emotion-3"
     />
-    <div
+    <span
       className="emotion-4"
     />
-  </div>
+  </span>
 </Loader>
 `;

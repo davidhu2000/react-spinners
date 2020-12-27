@@ -63,7 +63,7 @@ exports[`ClockLoader should match snapshot 1`] = `
   loading={true}
   size={50}
 >
-  <div
+  <span
     className="emotion-0"
   />
 </Loader>

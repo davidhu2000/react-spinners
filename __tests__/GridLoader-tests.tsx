@@ -37,13 +37,13 @@ describe("GridLoader", () => {
     expect(loader).toHaveStyleRule("width", `${wrapperWidthDefault}${defaultUnit}`);
 
     for (let i = 0; i < 9; i++) {
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
+      expect(loader.find("span span").at(i)).toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
         "height",
         `${defaultSize}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("margin", "2px");
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("margin", "2px");
     }
   });
 
@@ -55,11 +55,11 @@ describe("GridLoader", () => {
   it("should render the correct color based on prop", () => {
     const color = "#e2e2e2";
     loader = mount(<GridLoader color={color} />);
-    expect(loader.find("div div")).not.toHaveStyleRule("background-color", defaultColor);
-    expect(loader.find("div div")).toHaveStyleRule("background-color", color);
+    expect(loader.find("span span")).not.toHaveStyleRule("background-color", defaultColor);
+    expect(loader.find("span span")).toHaveStyleRule("background-color", color);
   });
 
-  it("should render the correct size for the parent div based on props", () => {
+  it("should render the correct size for the parent span based on props", () => {
     const size = 18;
     const wrapperWidth = parseFloat(size.toString()) * 3 + parseFloat("2px") * 6;
 
@@ -68,17 +68,17 @@ describe("GridLoader", () => {
     expect(loader).toHaveStyleRule("width", `${wrapperWidth}${defaultUnit}`);
 
     for (let i = 0; i < 9; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
         "height",
         `${defaultSize}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
         "width",
         `${defaultSize}${defaultUnit}`
       );
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
     }
   });
 

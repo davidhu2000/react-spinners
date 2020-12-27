@@ -29,8 +29,8 @@ describe("BarLoader", () => {
     expect(loader).toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
     expect(loader).toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
     expect(loader).toHaveStyleRule("background-color", "rgba(0,0,0,0.2)");
-    expect(loader.find("div div")).toHaveStyleRule("background-color", defaultColor);
-    expect(loader.find("div div")).toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
+    expect(loader.find("span span")).toHaveStyleRule("background-color", defaultColor);
+    expect(loader.find("span span")).toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
   });
 
   it("should render null if loading prop is set as false", () => {
@@ -43,7 +43,7 @@ describe("BarLoader", () => {
     loader = mount(<BarLoader color={color} />);
     expect(loader).not.toHaveStyleRule("background-color", "rgba(0,0,0,0.2)");
     expect(loader).toHaveStyleRule("background-color", "rgba(226,226,226,0.2)");
-    expect(loader.find("div div")).toHaveStyleRule("background-color", color);
+    expect(loader.find("span span")).toHaveStyleRule("background-color", color);
   });
 
   describe("height prop", () => {
@@ -52,11 +52,11 @@ describe("BarLoader", () => {
       loader = mount(<BarLoader height={height} />);
       expect(loader).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
       expect(loader).toHaveStyleRule("height", `${height}${defaultUnit}`);
-      expect(loader.find("div div")).not.toHaveStyleRule(
+      expect(loader.find("span span")).not.toHaveStyleRule(
         "height",
         `${defaultHeight}${defaultUnit}`
       );
-      expect(loader.find("div div")).toHaveStyleRule("height", `${height}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("height", `${height}${defaultUnit}`);
     });
 
     it("should render the height as is when height is a string with valid css unit", () => {
@@ -64,11 +64,11 @@ describe("BarLoader", () => {
       loader = mount(<BarLoader height={height} />);
       expect(loader).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
       expect(loader).toHaveStyleRule("height", `${height}`);
-      expect(loader.find("div div")).not.toHaveStyleRule(
+      expect(loader.find("span span")).not.toHaveStyleRule(
         "height",
         `${defaultHeight}${defaultUnit}`
       );
-      expect(loader.find("div div")).toHaveStyleRule("height", `${height}`);
+      expect(loader.find("span span")).toHaveStyleRule("height", `${height}`);
     });
 
     it("should render the height with default unit of px when the unit is incorrect", () => {
@@ -78,11 +78,11 @@ describe("BarLoader", () => {
       loader = mount(<BarLoader height={height} />);
       expect(loader).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
       expect(loader).toHaveStyleRule("height", `${length}${defaultUnit}`);
-      expect(loader.find("div div")).not.toHaveStyleRule(
+      expect(loader.find("span span")).not.toHaveStyleRule(
         "height",
         `${defaultHeight}${defaultUnit}`
       );
-      expect(loader.find("div div")).toHaveStyleRule("height", `${length}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("height", `${length}${defaultUnit}`);
     });
   });
 

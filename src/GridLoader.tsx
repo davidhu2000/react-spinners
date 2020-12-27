@@ -53,17 +53,17 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     const { loading, css } = this.props;
 
     return loading ? (
-      <div css={[this.wrapper(), css]}>
-        <div css={this.style(random(100))} />
-        <div css={this.style(random(100))} />
-        <div css={this.style(random(100))} />
-        <div css={this.style(random(100))} />
-        <div css={this.style(random(100))} />
-        <div css={this.style(random(100))} />
-        <div css={this.style(random(100))} />
-        <div css={this.style(random(100))} />
-        <div css={this.style(random(100))} />
-      </div>
+      <span css={[this.wrapper(), css]}>
+        <span css={this.style(random(100))} />
+        <span css={this.style(random(100))} />
+        <span css={this.style(random(100))} />
+        <span css={this.style(random(100))} />
+        <span css={this.style(random(100))} />
+        <span css={this.style(random(100))} />
+        <span css={this.style(random(100))} />
+        <span css={this.style(random(100))} />
+        <span css={this.style(random(100))} />
+      </span>
     ) : null;
   }
 }

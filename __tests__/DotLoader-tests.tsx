@@ -30,9 +30,9 @@ describe("DotLoader", () => {
     expect(loader).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
     for (let i = 0; i < 2; i++) {
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${childSize}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${childSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${childSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${childSize}${defaultUnit}`);
     }
   });
 
@@ -44,8 +44,8 @@ describe("DotLoader", () => {
   it("should render the correct color based on prop", () => {
     const color = "#e2e2e2";
     loader = mount(<DotLoader color={color} />);
-    expect(loader.find("div div")).not.toHaveStyleRule("background-color", defaultColor);
-    expect(loader.find("div div")).toHaveStyleRule("background-color", color);
+    expect(loader.find("span span")).not.toHaveStyleRule("background-color", defaultColor);
+    expect(loader.find("span span")).toHaveStyleRule("background-color", color);
   });
 
   describe("size props", () => {

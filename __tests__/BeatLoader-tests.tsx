@@ -27,10 +27,10 @@ describe("BeatLoader", () => {
 
   it("should contain styles created using default props", () => {
     props = loader.props();
-    expect(loader.find("div div")).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
-    expect(loader.find("div div")).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-    expect(loader.find("div div")).toHaveStyleRule("margin", `${defaultMargin}${defaultUnit}`);
-    expect(loader.find("div div")).toHaveStyleRule("background-color", defaultColor);
+    expect(loader.find("span span")).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader.find("span span")).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+    expect(loader.find("span span")).toHaveStyleRule("margin", `${defaultMargin}${defaultUnit}`);
+    expect(loader.find("span span")).toHaveStyleRule("background-color", defaultColor);
   });
 
   it("should render null if loading prop is set as false", () => {
@@ -40,27 +40,27 @@ describe("BeatLoader", () => {
 
   it("should render the correct color based on prop", () => {
     loader = mount(<BeatLoader color="#e2e2e2" />);
-    expect(loader.find("div div")).not.toHaveStyleRule("background-color", defaultColor);
-    expect(loader.find("div div")).toHaveStyleRule("background-color", "#e2e2e2");
+    expect(loader.find("span span")).not.toHaveStyleRule("background-color", defaultColor);
+    expect(loader.find("span span")).toHaveStyleRule("background-color", "#e2e2e2");
   });
 
   describe("size prop", () => {
     it("should render the size with px unit when size is a number", () => {
       const size = 18;
       loader = mount(<BeatLoader size={18} />);
-      expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).toHaveStyleRule("height", `${size}${defaultUnit}`);
-      expect(loader.find("div div")).toHaveStyleRule("width", `${size}${defaultUnit}`);
+      expect(loader.find("span span")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("height", `${size}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("width", `${size}${defaultUnit}`);
     });
 
     it("should render the size as is when size is a string with valid css unit", () => {
       const size = "18px";
       loader = mount(<BeatLoader size={size} />);
-      expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).toHaveStyleRule("height", `${size}`);
-      expect(loader.find("div div")).toHaveStyleRule("width", `${size}`);
+      expect(loader.find("span span")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("height", `${size}`);
+      expect(loader.find("span span")).toHaveStyleRule("width", `${size}`);
     });
 
     it("should render the size with default unit of px when the unit is incorrect", () => {
@@ -68,10 +68,10 @@ describe("BeatLoader", () => {
       const unit = "ad";
       const size = `${length}${unit}`;
       loader = mount(<BeatLoader size={size} />);
-      expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).toHaveStyleRule("height", `${length}${defaultUnit}`);
-      expect(loader.find("div div")).toHaveStyleRule("width", `${length}${defaultUnit}`);
+      expect(loader.find("span span")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("height", `${length}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("width", `${length}${defaultUnit}`);
     });
   });
 
@@ -79,21 +79,21 @@ describe("BeatLoader", () => {
     it("should render the margin with px unit when margin is a number", () => {
       const margin = 18;
       loader = mount(<BeatLoader margin={18} />);
-      expect(loader.find("div div")).not.toHaveStyleRule(
+      expect(loader.find("span span")).not.toHaveStyleRule(
         "margin",
         `${defaultMargin}${defaultUnit}`
       );
-      expect(loader.find("div div")).toHaveStyleRule("margin", `${margin}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("margin", `${margin}${defaultUnit}`);
     });
 
     it("should render the margin as is when margin is a string with valid css unit", () => {
       const margin = "18px";
       loader = mount(<BeatLoader margin={margin} />);
-      expect(loader.find("div div")).not.toHaveStyleRule(
+      expect(loader.find("span span")).not.toHaveStyleRule(
         "margin",
         `${defaultMargin}${defaultUnit}`
       );
-      expect(loader.find("div div")).toHaveStyleRule("margin", `${margin}`);
+      expect(loader.find("span span")).toHaveStyleRule("margin", `${margin}`);
     });
 
     it("should render the margin with default unit of px when the unit is incorrect", () => {
@@ -101,11 +101,11 @@ describe("BeatLoader", () => {
       const unit = "ad";
       const margin = `${length}${unit}`;
       loader = mount(<BeatLoader margin={margin} />);
-      expect(loader.find("div div")).not.toHaveStyleRule(
+      expect(loader.find("span span")).not.toHaveStyleRule(
         "margin",
         `${defaultMargin}${defaultUnit}`
       );
-      expect(loader.find("div div")).toHaveStyleRule("margin", `${length}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("margin", `${length}${defaultUnit}`);
     });
   });
 

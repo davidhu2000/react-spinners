@@ -24,7 +24,7 @@ describe("ClipLoader", () => {
     expect(props).toEqual(sizeDefaults(defaultSize));
   });
 
-  it("parent div should contain styles created using default props", () => {
+  it("parent span should contain styles created using default props", () => {
     expect(loader).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
     expect(loader).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
     expect(loader).toHaveStyleRule("border-color", defaultColor);

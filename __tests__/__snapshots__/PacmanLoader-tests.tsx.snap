@@ -193,27 +193,27 @@ exports[`PacmanLoader should match snapshot 1`] = `
   margin={2}
   size={25}
 >
-  <div
+  <span
     className="emotion-6"
   >
-    <div
+    <span
       className="emotion-0"
     />
-    <div
+    <span
       className="emotion-1"
     />
-    <div
+    <span
       className="emotion-2"
     />
-    <div
+    <span
       className="emotion-3"
     />
-    <div
+    <span
       className="emotion-4"
     />
-    <div
+    <span
       className="emotion-5"
     />
-  </div>
+  </span>
 </Loader>
 `;

@@ -56,15 +56,15 @@ exports[`MoonLoader should match snapshot 1`] = `
   loading={true}
   size={60}
 >
-  <div
+  <span
     className="emotion-2"
   >
-    <div
+    <span
       className="emotion-0"
     />
-    <div
+    <span
       className="emotion-1"
     />
-  </div>
+  </span>
 </Loader>
 `;
