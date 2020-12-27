@@ -103,16 +103,16 @@ class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
     const { loading, css } = this.props;
 
     return loading ? (
-      <div css={[this.wrapper(), css]}>
-        <div css={this.a()} />
-        <div css={this.b()} />
-        <div css={this.c()} />
-        <div css={this.d()} />
-        <div css={this.e()} />
-        <div css={this.f()} />
-        <div css={this.g()} />
-        <div css={this.h()} />
-      </div>
+      <span css={[this.wrapper(), css]}>
+        <span css={this.a()} />
+        <span css={this.b()} />
+        <span css={this.c()} />
+        <span css={this.d()} />
+        <span css={this.e()} />
+        <span css={this.f()} />
+        <span css={this.g()} />
+        <span css={this.h()} />
+      </span>
     ) : null;
   }
 }

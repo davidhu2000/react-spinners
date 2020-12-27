@@ -122,19 +122,19 @@ exports[`ClimbingBoxLoader should match snapshot 1`] = `
   loading={true}
   size={15}
 >
-  <div
+  <span
     className="emotion-3"
   >
-    <div
+    <span
       className="emotion-2"
     >
-      <div
+      <span
         className="emotion-0"
       />
-      <div
+      <span
         className="emotion-1"
       />
-    </div>
-  </div>
+    </span>
+  </span>
 </Loader>
 `;

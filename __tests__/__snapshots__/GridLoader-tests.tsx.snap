@@ -48,36 +48,36 @@ exports[`GridLoader should match snapshot 1`] = `
   margin={2}
   size={15}
 >
-  <div
+  <span
     className="emotion-9"
   >
-    <div
+    <span
       className="emotion-0"
     />
-    <div
+    <span
       className="emotion-0"
     />
-    <div
+    <span
       className="emotion-0"
     />
-    <div
+    <span
       className="emotion-0"
     />
-    <div
+    <span
       className="emotion-0"
     />
-    <div
+    <span
       className="emotion-0"
     />
-    <div
+    <span
       className="emotion-0"
     />
-    <div
+    <span
       className="emotion-0"
     />
-    <div
+    <span
       className="emotion-0"
     />
-  </div>
+  </span>
 </Loader>
 `;

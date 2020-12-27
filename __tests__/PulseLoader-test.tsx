@@ -27,13 +27,13 @@ describe("PulseLoader", () => {
 
   it("should contain styles created using default props", () => {
     for (let i = 0; i < 3; i++) {
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
+      expect(loader.find("span span").at(i)).toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
         "height",
         `${defaultSize}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
         "margin",
         `${defaultMargin}${defaultUnit}`
       );
@@ -49,8 +49,8 @@ describe("PulseLoader", () => {
     const color = "#e2e2e2";
     loader = mount(<PulseLoader color={color} />);
     for (let i = 0; i < 3; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", color);
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("background-color", color);
     }
   });
 
@@ -60,17 +60,17 @@ describe("PulseLoader", () => {
       loader = mount(<PulseLoader size={size} />);
 
       for (let i = 0; i < 3; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "width",
           `${defaultSize}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
-        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
       }
     });
 
@@ -79,17 +79,17 @@ describe("PulseLoader", () => {
       loader = mount(<PulseLoader size={size} />);
 
       for (let i = 0; i < 3; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "width",
           `${defaultSize}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}`);
-        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${size}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${size}`);
       }
     });
 
@@ -100,17 +100,17 @@ describe("PulseLoader", () => {
       loader = mount(<PulseLoader size={size} />);
 
       for (let i = 0; i < 3; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "width",
           `${defaultSize}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${length}${defaultUnit}`);
-        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${length}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${length}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${length}${defaultUnit}`);
       }
     });
   });
@@ -121,11 +121,11 @@ describe("PulseLoader", () => {
       loader = mount(<PulseLoader margin={margin} />);
 
       for (let i = 0; i < 3; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${margin}${defaultUnit}`);
       }
     });
 
@@ -134,11 +134,11 @@ describe("PulseLoader", () => {
       loader = mount(<PulseLoader margin={margin} />);
 
       for (let i = 0; i < 3; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${margin}`);
       }
     });
 
@@ -149,11 +149,11 @@ describe("PulseLoader", () => {
       loader = mount(<PulseLoader margin={margin} />);
 
       for (let i = 0; i < 3; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${length}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${length}${defaultUnit}`);
       }
     });
   });

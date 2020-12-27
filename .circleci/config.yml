@@ -23,7 +23,7 @@ jobs: # a collection of steps
           command: yarn run lint
       - run:
           name: Jest tests
-          command: yarn run jest
+          command: yarn run jest --silent
       - run:
           name: Report coverage
           command: yarn run coveralls

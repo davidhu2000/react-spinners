@@ -96,14 +96,14 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     const { loading, css } = this.props;
 
     return loading ? (
-      <div css={[this.wrapper(), css]}>
-        <div css={this.pac()} />
-        <div css={this.man()} />
-        <div css={this.ballStyle(2)} />
-        <div css={this.ballStyle(3)} />
-        <div css={this.ballStyle(4)} />
-        <div css={this.ballStyle(5)} />
-      </div>
+      <span css={[this.wrapper(), css]}>
+        <span css={this.pac()} />
+        <span css={this.man()} />
+        <span css={this.ballStyle(2)} />
+        <span css={this.ballStyle(3)} />
+        <span css={this.ballStyle(4)} />
+        <span css={this.ballStyle(5)} />
+      </span>
     ) : null;
   }
 }

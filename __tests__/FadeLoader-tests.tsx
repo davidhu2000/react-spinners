@@ -29,20 +29,20 @@ describe("FadeLoader", () => {
 
   it("should contain styles created using default props", () => {
     for (let i = 0; i < 8; i++) {
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
+      expect(loader.find("span span").at(i)).toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
         "height",
         `${defaultHeight}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
         "width",
         `${defaultWidth}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
         "margin",
         `${defaultMargin}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
         "border-radius",
         `${defaultRadius}${defaultUnit}`
       );
@@ -56,8 +56,8 @@ describe("FadeLoader", () => {
 
   it("should render the correct color based on prop", () => {
     loader = mount(<FadeLoader color="#e2e2e2" />);
-    expect(loader.find("div div")).not.toHaveStyleRule("background-color", defaultColor);
-    expect(loader.find("div div")).toHaveStyleRule("background-color", "#e2e2e2");
+    expect(loader.find("span span")).not.toHaveStyleRule("background-color", defaultColor);
+    expect(loader.find("span span")).toHaveStyleRule("background-color", "#e2e2e2");
   });
 
   describe("height props", () => {
@@ -66,12 +66,12 @@ describe("FadeLoader", () => {
       loader = mount(<FadeLoader height={height} />);
 
       for (let i = 0; i < 8; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultHeight}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${height}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${height}${defaultUnit}`);
       }
     });
 
@@ -80,12 +80,12 @@ describe("FadeLoader", () => {
       loader = mount(<FadeLoader height={height} />);
 
       for (let i = 0; i < 8; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultHeight}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${height}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${height}`);
       }
     });
 
@@ -96,12 +96,12 @@ describe("FadeLoader", () => {
       loader = mount(<FadeLoader height={height} />);
 
       for (let i = 0; i < 8; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultHeight}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${length}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${length}${defaultUnit}`);
       }
     });
   });
@@ -112,12 +112,12 @@ describe("FadeLoader", () => {
       loader = mount(<FadeLoader width={width} />);
 
       for (let i = 0; i < 8; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "width",
           `${defaultWidth}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${width}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${width}${defaultUnit}`);
       }
     });
 
@@ -126,12 +126,12 @@ describe("FadeLoader", () => {
       loader = mount(<FadeLoader width={width} />);
 
       for (let i = 0; i < 8; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "width",
           `${defaultWidth}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${width}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${width}`);
       }
     });
 
@@ -142,12 +142,12 @@ describe("FadeLoader", () => {
       loader = mount(<FadeLoader width={width} />);
 
       for (let i = 0; i < 8; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "width",
           `${defaultWidth}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${length}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${length}${defaultUnit}`);
       }
     });
   });
@@ -158,12 +158,12 @@ describe("FadeLoader", () => {
       loader = mount(<FadeLoader radius={radius} />);
 
       for (let i = 0; i < 8; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "border-radius",
           `${defaultRadius}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule(
+        expect(loader.find("span span").at(i)).toHaveStyleRule(
           "border-radius",
           `${radius}${defaultUnit}`
         );
@@ -175,12 +175,12 @@ describe("FadeLoader", () => {
       loader = mount(<FadeLoader radius={radius} />);
 
       for (let i = 0; i < 8; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "border-radius",
           `${defaultRadius}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("border-radius", `${radius}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("border-radius", `${radius}`);
       }
     });
 
@@ -191,12 +191,12 @@ describe("FadeLoader", () => {
       loader = mount(<FadeLoader radius={radius} />);
 
       for (let i = 0; i < 8; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "border-radius",
           `${defaultRadius}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule(
+        expect(loader.find("span span").at(i)).toHaveStyleRule(
           "border-radius",
           `${length}${defaultUnit}`
         );
@@ -210,12 +210,12 @@ describe("FadeLoader", () => {
       loader = mount(<FadeLoader margin={margin} />);
 
       for (let i = 0; i < 8; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${margin}${defaultUnit}`);
       }
     });
 
@@ -224,12 +224,12 @@ describe("FadeLoader", () => {
       loader = mount(<FadeLoader margin={margin} />);
 
       for (let i = 0; i < 8; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${margin}`);
       }
     });
 
@@ -240,12 +240,12 @@ describe("FadeLoader", () => {
       loader = mount(<FadeLoader margin={margin} />);
 
       for (let i = 0; i < 8; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${length}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${length}${defaultUnit}`);
       }
     });
   });

@@ -26,13 +26,13 @@ describe("PropagateLoader", () => {
 
   it("should contain styles created using default props", () => {
     for (let i = 0; i < 6; i++) {
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
         "height",
         `${defaultSize}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background", defaultColor);
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("background", defaultColor);
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
         "font-size",
         `${defaultSize / 3}${defaultUnit}`
       );
@@ -49,9 +49,9 @@ describe("PropagateLoader", () => {
     loader = mount(<PropagateLoader color={color} />);
 
     for (let i = 0; i < 6; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("background", defaultColor);
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("background", defaultColor);
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background", color);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("background", color);
     }
   });
 
@@ -60,22 +60,22 @@ describe("PropagateLoader", () => {
     loader = mount(<PropagateLoader size={size} />);
 
     for (let i = 0; i < 6; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
         "height",
         `${defaultSize}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
         "width",
         `${defaultSize}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
         "font-size",
         `${defaultSize / 3}${defaultUnit}`
       );
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
         "font-size",
         `${size / 3}${defaultUnit}`
       );
@@ -87,22 +87,22 @@ describe("PropagateLoader", () => {
       const size = 18;
       loader = mount(<PropagateLoader size={size} />);
       for (let i = 0; i < 6; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "width",
           `${defaultSize}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "font-size",
           `${defaultSize / 3}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
-        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
-        expect(loader.find("div div").at(i)).toHaveStyleRule(
+        expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule(
           "font-size",
           `${size / 3}${defaultUnit}`
         );
@@ -116,22 +116,22 @@ describe("PropagateLoader", () => {
 
       loader = mount(<PropagateLoader size={size} />);
       for (let i = 0; i < 6; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "width",
           `${defaultSize}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "font-size",
           `${defaultSize / 3}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}`);
-        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}`);
-        expect(loader.find("div div").at(i)).toHaveStyleRule("font-size", `${length / 3}${unit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${size}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${size}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("font-size", `${length / 3}${unit}`);
       }
     });
 
@@ -142,22 +142,22 @@ describe("PropagateLoader", () => {
       loader = mount(<PropagateLoader size={size} />);
 
       for (let i = 0; i < 6; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "width",
           `${defaultSize}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "font-size",
           `${defaultSize / 3}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${length}${defaultUnit}`);
-        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${length}${defaultUnit}`);
-        expect(loader.find("div div").at(i)).toHaveStyleRule(
+        expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${length}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${length}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule(
           "font-size",
           `${length / 3}${defaultUnit}`
         );

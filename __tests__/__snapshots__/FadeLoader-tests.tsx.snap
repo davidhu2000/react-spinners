@@ -253,33 +253,33 @@ exports[`FadeLoader should match snapshot 1`] = `
   radius={2}
   width={5}
 >
-  <div
+  <span
     className="emotion-8"
   >
-    <div
+    <span
       className="emotion-0"
     />
-    <div
+    <span
       className="emotion-1"
     />
-    <div
+    <span
       className="emotion-2"
     />
-    <div
+    <span
       className="emotion-3"
     />
-    <div
+    <span
       className="emotion-4"
     />
-    <div
+    <span
       className="emotion-5"
     />
-    <div
+    <span
       className="emotion-6"
     />
-    <div
+    <span
       className="emotion-7"
     />
-  </div>
+  </span>
 </Loader>
 `;

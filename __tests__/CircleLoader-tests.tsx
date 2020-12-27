@@ -27,9 +27,9 @@ describe("CircleLoader", () => {
   it("should contain styles created using default props", () => {
     expect(loader).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
     expect(loader).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-    expect(loader.find("div div")).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
-    expect(loader.find("div div")).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-    expect(loader.find("div div")).toHaveStyleRule("border", `1px solid ${defaultColor}`);
+    expect(loader.find("span span")).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+    expect(loader.find("span span")).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+    expect(loader.find("span span")).toHaveStyleRule("border", `1px solid ${defaultColor}`);
   });
 
   it("should render null if loading prop is set as false", () => {
@@ -40,8 +40,8 @@ describe("CircleLoader", () => {
   it("should render the correct color based on prop", () => {
     const color = "#e2e2e2";
     loader = mount(<CircleLoader color={color} />);
-    expect(loader.find("div div")).not.toHaveStyleRule("border", `1px solid ${defaultColor}`);
-    expect(loader.find("div div")).toHaveStyleRule("border", `1px solid ${color}`);
+    expect(loader.find("span span")).not.toHaveStyleRule("border", `1px solid ${defaultColor}`);
+    expect(loader.find("span span")).toHaveStyleRule("border", `1px solid ${color}`);
   });
 
   describe("size prop", () => {
@@ -50,13 +50,13 @@ describe("CircleLoader", () => {
       loader = mount(<CircleLoader size={size} />);
       expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
       expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
       expect(loader).toHaveStyleRule("height", `${size}${defaultUnit}`);
       expect(loader).toHaveStyleRule("width", `${size}${defaultUnit}`);
-      expect(loader.find("div div")).toHaveStyleRule("height", `${size}${defaultUnit}`);
-      expect(loader.find("div div")).toHaveStyleRule("width", `${size}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("height", `${size}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("width", `${size}${defaultUnit}`);
     });
 
     it("should render the size as is when size is a string with valid css unit", () => {
@@ -64,13 +64,13 @@ describe("CircleLoader", () => {
       loader = mount(<CircleLoader size={size} />);
       expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
       expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
       expect(loader).toHaveStyleRule("height", `${size}`);
       expect(loader).toHaveStyleRule("width", `${size}`);
-      expect(loader.find("div div")).toHaveStyleRule("height", `${size}`);
-      expect(loader.find("div div")).toHaveStyleRule("width", `${size}`);
+      expect(loader.find("span span")).toHaveStyleRule("height", `${size}`);
+      expect(loader.find("span span")).toHaveStyleRule("width", `${size}`);
     });
 
     it("should render the size with default unit of px when the unit is incorrect", () => {
@@ -80,13 +80,13 @@ describe("CircleLoader", () => {
       loader = mount(<CircleLoader size={size} />);
       expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
       expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
       expect(loader).toHaveStyleRule("height", `${length}${defaultUnit}`);
       expect(loader).toHaveStyleRule("width", `${length}${defaultUnit}`);
-      expect(loader.find("div div")).toHaveStyleRule("height", `${length}${defaultUnit}`);
-      expect(loader.find("div div")).toHaveStyleRule("width", `${length}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("height", `${length}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("width", `${length}${defaultUnit}`);
     });
   });
 

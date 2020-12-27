@@ -42,7 +42,7 @@ exports[`ClipLoader should match snapshot 1`] = `
   loading={true}
   size={35}
 >
-  <div
+  <span
     className="emotion-0"
   />
 </Loader>

@@ -29,20 +29,20 @@ describe("ScaleLoader", () => {
 
   it("should contain styles created using default props", () => {
     for (let i = 0; i < 5; i++) {
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
+      expect(loader.find("span span").at(i)).toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
         "height",
         `${defaultHeight}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
         "width",
         `${defaultWidth}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
         "border-radius",
         `${defaultRadius}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
         "margin",
         `${defaultMargin}${defaultUnit}`
       );
@@ -58,8 +58,8 @@ describe("ScaleLoader", () => {
     const color = "#e2e2e2";
     loader = mount(<ScaleLoader color={color} />);
     for (let i = 0; i < 5; i++) {
-      expect(loader.find("div div")).not.toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("div div")).toHaveStyleRule("background-color", color);
+      expect(loader.find("span span")).not.toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("span span")).toHaveStyleRule("background-color", color);
     }
   });
 
@@ -68,22 +68,22 @@ describe("ScaleLoader", () => {
       const height = 18;
       loader = mount(<ScaleLoader height={height} />);
 
-      expect(loader.find("div div")).not.toHaveStyleRule(
+      expect(loader.find("span span")).not.toHaveStyleRule(
         "height",
         `${defaultHeight}${defaultUnit}`
       );
-      expect(loader.find("div div")).toHaveStyleRule("height", `${height}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("height", `${height}${defaultUnit}`);
     });
 
     it("should render the height as is when height is a string with valid css unit", () => {
       const height = "18px";
       loader = mount(<ScaleLoader height={height} />);
 
-      expect(loader.find("div div")).not.toHaveStyleRule(
+      expect(loader.find("span span")).not.toHaveStyleRule(
         "height",
         `${defaultHeight}${defaultUnit}`
       );
-      expect(loader.find("div div")).toHaveStyleRule("height", `${height}`);
+      expect(loader.find("span span")).toHaveStyleRule("height", `${height}`);
     });
 
     it("should render the height with default unit of px when the unit is incorrect", () => {
@@ -92,11 +92,11 @@ describe("ScaleLoader", () => {
       const height = `${length}${unit}`;
       loader = mount(<ScaleLoader height={height} />);
 
-      expect(loader.find("div div")).not.toHaveStyleRule(
+      expect(loader.find("span span")).not.toHaveStyleRule(
         "height",
         `${defaultHeight}${defaultUnit}`
       );
-      expect(loader.find("div div")).toHaveStyleRule("height", `${length}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("height", `${length}${defaultUnit}`);
     });
   });
 
@@ -105,16 +105,16 @@ describe("ScaleLoader", () => {
       const width = 18;
       loader = mount(<ScaleLoader width={width} />);
 
-      expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
-      expect(loader.find("div div")).toHaveStyleRule("width", `${width}${defaultUnit}`);
+      expect(loader.find("span span")).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("width", `${width}${defaultUnit}`);
     });
 
     it("should render the width as is when width is a string with valid css unit", () => {
       const width = "18px";
       loader = mount(<ScaleLoader width={width} />);
 
-      expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
-      expect(loader.find("div div")).toHaveStyleRule("width", `${width}`);
+      expect(loader.find("span span")).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("width", `${width}`);
     });
 
     it("should render the width with default unit of px when the unit is incorrect", () => {
@@ -123,8 +123,8 @@ describe("ScaleLoader", () => {
       const width = `${length}${unit}`;
       loader = mount(<ScaleLoader width={width} />);
 
-      expect(loader.find("div div")).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
-      expect(loader.find("div div")).toHaveStyleRule("width", `${length}${defaultUnit}`);
+      expect(loader.find("span span")).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("width", `${length}${defaultUnit}`);
     });
   });
 
@@ -133,22 +133,22 @@ describe("ScaleLoader", () => {
       const radius = 18;
       loader = mount(<ScaleLoader radius={radius} />);
 
-      expect(loader.find("div div")).not.toHaveStyleRule(
+      expect(loader.find("span span")).not.toHaveStyleRule(
         "border-radius",
         `${defaultRadius}${defaultUnit}`
       );
-      expect(loader.find("div div")).toHaveStyleRule("border-radius", `${radius}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("border-radius", `${radius}${defaultUnit}`);
     });
 
     it("should render the radius as is when radius is a string with valid css unit", () => {
       const radius = "18px";
       loader = mount(<ScaleLoader radius={radius} />);
 
-      expect(loader.find("div div")).not.toHaveStyleRule(
+      expect(loader.find("span span")).not.toHaveStyleRule(
         "border-radius",
         `${defaultRadius}${defaultUnit}`
       );
-      expect(loader.find("div div")).toHaveStyleRule("border-radius", `${radius}`);
+      expect(loader.find("span span")).toHaveStyleRule("border-radius", `${radius}`);
     });
 
     it("should render the radius with default unit of px when the unit is incorrect", () => {
@@ -157,11 +157,11 @@ describe("ScaleLoader", () => {
       const radius = `${length}${unit}`;
       loader = mount(<ScaleLoader radius={radius} />);
 
-      expect(loader.find("div div")).not.toHaveStyleRule(
+      expect(loader.find("span span")).not.toHaveStyleRule(
         "border-radius",
         `${defaultRadius}${defaultUnit}`
       );
-      expect(loader.find("div div")).toHaveStyleRule("border-radius", `${length}${defaultUnit}`);
+      expect(loader.find("span span")).toHaveStyleRule("border-radius", `${length}${defaultUnit}`);
     });
   });
 
@@ -171,11 +171,11 @@ describe("ScaleLoader", () => {
       loader = mount(<ScaleLoader margin={margin} />);
 
       for (let i = 0; i < 5; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${margin}${defaultUnit}`);
       }
     });
 
@@ -184,11 +184,11 @@ describe("ScaleLoader", () => {
       loader = mount(<ScaleLoader margin={margin} />);
 
       for (let i = 0; i < 5; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${margin}`);
       }
     });
 
@@ -199,11 +199,11 @@ describe("ScaleLoader", () => {
       loader = mount(<ScaleLoader margin={margin} />);
 
       for (let i = 0; i < 5; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${length}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${length}${defaultUnit}`);
       }
     });
   });

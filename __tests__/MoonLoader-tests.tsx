@@ -28,21 +28,21 @@ describe("MoonLoader", () => {
   it("should contain styles created using default props", () => {
     expect(loader).toHaveStyleRule("height", `${defaultWrapperSize}${defaultUnit}`);
     expect(loader).toHaveStyleRule("width", `${defaultWrapperSize}${defaultUnit}`);
-    expect(loader.find("div div").at(0)).toHaveStyleRule("background-color", defaultColor);
-    expect(loader.find("div div").at(0)).toHaveStyleRule(
+    expect(loader.find("span span").at(0)).toHaveStyleRule("background-color", defaultColor);
+    expect(loader.find("span span").at(0)).toHaveStyleRule(
       "height",
       `${defaultSize / 7}${defaultUnit}`
     );
-    expect(loader.find("div div").at(0)).toHaveStyleRule(
+    expect(loader.find("span span").at(0)).toHaveStyleRule(
       "width",
       `${defaultSize / 7}${defaultUnit}`
     );
-    expect(loader.find("div div").at(1)).toHaveStyleRule(
+    expect(loader.find("span span").at(1)).toHaveStyleRule(
       "border",
       `${defaultSize / 7}${defaultUnit} solid ${defaultColor}`
     );
-    expect(loader.find("div div").at(1)).toHaveStyleRule("height", `60${defaultUnit}`);
-    expect(loader.find("div div").at(1)).toHaveStyleRule("width", `60${defaultUnit}`);
+    expect(loader.find("span span").at(1)).toHaveStyleRule("height", `60${defaultUnit}`);
+    expect(loader.find("span span").at(1)).toHaveStyleRule("width", `60${defaultUnit}`);
   });
 
   it("should render null if loading prop is set as false", () => {
@@ -53,8 +53,8 @@ describe("MoonLoader", () => {
   it("should render the correct color based on prop", () => {
     const color = "#e2e2e2";
     loader = mount(<MoonLoader color={color} />);
-    expect(loader.find("div div")).not.toHaveStyleRule("background-color", defaultColor);
-    expect(loader.find("div div")).toHaveStyleRule("background-color", color);
+    expect(loader.find("span span")).not.toHaveStyleRule("background-color", defaultColor);
+    expect(loader.find("span span")).toHaveStyleRule("background-color", color);
   });
 
   it("should render the correct size based on props", () => {

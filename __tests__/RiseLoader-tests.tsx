@@ -27,13 +27,13 @@ describe("RiseLoader", () => {
 
   it("should contain styles created using default props", () => {
     for (let i = 0; i < 5; i++) {
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
+      expect(loader.find("span span").at(i)).toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
         "height",
         `${defaultSize}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
         "margin",
         `${defaultMargin}${defaultUnit}`
       );
@@ -49,8 +49,8 @@ describe("RiseLoader", () => {
     const color = "#e2e2e2";
     loader = mount(<RiseLoader color={color} />);
     for (let i = 0; i < 5; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("background-color", color);
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("background-color", defaultColor);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("background-color", color);
     }
   });
 
@@ -59,17 +59,17 @@ describe("RiseLoader", () => {
     loader = mount(<RiseLoader size={size} />);
 
     for (let i = 0; i < 5; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
         "height",
         `${defaultSize}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
         "width",
         `${defaultSize}${defaultUnit}`
       );
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
     }
   });
 
@@ -79,17 +79,17 @@ describe("RiseLoader", () => {
       loader = mount(<RiseLoader size={size} />);
 
       for (let i = 0; i < 5; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "width",
           `${defaultSize}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
-        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${size}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${size}${defaultUnit}`);
       }
     });
 
@@ -98,17 +98,17 @@ describe("RiseLoader", () => {
       loader = mount(<RiseLoader size={size} />);
 
       for (let i = 0; i < 5; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "width",
           `${defaultSize}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size}`);
-        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${size}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${size}`);
       }
     });
 
@@ -119,17 +119,17 @@ describe("RiseLoader", () => {
       loader = mount(<RiseLoader size={size} />);
 
       for (let i = 0; i < 5; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "width",
           `${defaultSize}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${length}${defaultUnit}`);
-        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${length}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${length}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${length}${defaultUnit}`);
       }
     });
   });
@@ -140,11 +140,11 @@ describe("RiseLoader", () => {
       loader = mount(<RiseLoader margin={margin} />);
 
       for (let i = 0; i < 5; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${margin}${defaultUnit}`);
       }
     });
 
@@ -153,11 +153,11 @@ describe("RiseLoader", () => {
       loader = mount(<RiseLoader margin={margin} />);
 
       for (let i = 0; i < 5; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${margin}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${margin}`);
       }
     });
 
@@ -168,11 +168,11 @@ describe("RiseLoader", () => {
       loader = mount(<RiseLoader margin={margin} />);
 
       for (let i = 0; i < 5; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "margin",
           `${defaultMargin}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).toHaveStyleRule("margin", `${length}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${length}${defaultUnit}`);
       }
     });
   });

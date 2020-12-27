@@ -34,13 +34,13 @@ class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
     const { loading, css } = this.props;
 
     return loading ? (
-      <div css={[css]}>
-        <div css={this.style(1)} />
-        <div css={this.style(2)} />
-        <div css={this.style(3)} />
-        <div css={this.style(4)} />
-        <div css={this.style(5)} />
-      </div>
+      <span css={[css]}>
+        <span css={this.style(1)} />
+        <span css={this.style(2)} />
+        <span css={this.style(3)} />
+        <span css={this.style(4)} />
+        <span css={this.style(5)} />
+      </span>
     ) : null;
   }
 }

@@ -28,15 +28,15 @@ describe("HashLoader", () => {
     expect(loader).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
     for (let i = 0; i < 2; i++) {
-      expect(loader.find("div div").at(0)).toHaveStyleRule(
+      expect(loader.find("span span").at(0)).toHaveStyleRule(
         "height",
         `${defaultSize / 5}${defaultUnit}`
       );
-      expect(loader.find("div div").at(0)).toHaveStyleRule(
+      expect(loader.find("span span").at(0)).toHaveStyleRule(
         "width",
         `${defaultSize / 5}${defaultUnit}`
       );
-      expect(loader.find("div div").at(0)).toHaveStyleRule(
+      expect(loader.find("span span").at(0)).toHaveStyleRule(
         "border-radius",
         `${defaultSize / 10}${defaultUnit}`
       );
@@ -58,22 +58,22 @@ describe("HashLoader", () => {
     expect(loader).toHaveStyleRule("width", `${size}${defaultUnit}`);
 
     for (let i = 0; i < 2; i++) {
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
         "height",
         `${defaultSize / 5}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
         "width",
         `${defaultSize / 5}${defaultUnit}`
       );
-      expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
         "border-radius",
         `${defaultSize / 10}${defaultUnit}`
       );
 
-      expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size / 5}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size / 5}${defaultUnit}`);
-      expect(loader.find("div div").at(i)).toHaveStyleRule(
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${size / 5}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${size / 5}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
         "border-radius",
         `${size / 10}${defaultUnit}`
       );
@@ -91,22 +91,22 @@ describe("HashLoader", () => {
       expect(loader).toHaveStyleRule("width", `${size}${defaultUnit}`);
 
       for (let i = 0; i < 2; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize / 5}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "width",
           `${defaultSize / 5}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "border-radius",
           `${defaultSize / 10}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${size / 5}${defaultUnit}`);
-        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${size / 5}${defaultUnit}`);
-        expect(loader.find("div div").at(i)).toHaveStyleRule(
+        expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${size / 5}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${size / 5}${defaultUnit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule(
           "border-radius",
           `${size / 10}${defaultUnit}`
         );
@@ -125,22 +125,22 @@ describe("HashLoader", () => {
       expect(loader).toHaveStyleRule("width", `${size}`);
 
       for (let i = 0; i < 2; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize / 5}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "width",
           `${defaultSize / 5}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "border-radius",
           `${defaultSize / 10}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule("height", `${length / 5}${unit}`);
-        expect(loader.find("div div").at(i)).toHaveStyleRule("width", `${length / 5}${unit}`);
-        expect(loader.find("div div").at(i)).toHaveStyleRule(
+        expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${length / 5}${unit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${length / 5}${unit}`);
+        expect(loader.find("span span").at(i)).toHaveStyleRule(
           "border-radius",
           `${length / 10}${unit}`
         );
@@ -159,28 +159,28 @@ describe("HashLoader", () => {
       expect(loader).toHaveStyleRule("width", `${length}${defaultUnit}`);
 
       for (let i = 0; i < 2; i++) {
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "height",
           `${defaultSize / 5}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "width",
           `${defaultSize / 5}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).not.toHaveStyleRule(
+        expect(loader.find("span span").at(i)).not.toHaveStyleRule(
           "border-radius",
           `${defaultSize / 10}${defaultUnit}`
         );
 
-        expect(loader.find("div div").at(i)).toHaveStyleRule(
+        expect(loader.find("span span").at(i)).toHaveStyleRule(
           "height",
           `${length / 5}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).toHaveStyleRule(
+        expect(loader.find("span span").at(i)).toHaveStyleRule(
           "width",
           `${length / 5}${defaultUnit}`
         );
-        expect(loader.find("div div").at(i)).toHaveStyleRule(
+        expect(loader.find("span span").at(i)).toHaveStyleRule(
           "border-radius",
           `${length / 10}${defaultUnit}`
         );
