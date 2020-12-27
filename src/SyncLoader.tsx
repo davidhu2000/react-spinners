@@ -1,13 +1,12 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
-import { Keyframes, SerializedStyles } from "@emotion/serialize";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 
 import { sizeMarginDefaults } from "./helpers/proptypes";
 import { LoaderSizeMarginProps } from "./interfaces";
 import { cssValue } from "./helpers";
 
-const sync: Keyframes = keyframes`
+const sync = keyframes`
   33% {transform: translateY(10px)}
   66% {transform: translateY(-10px)}
   100% {transform: translateY(0)}

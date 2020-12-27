@@ -1,15 +1,14 @@
 /** @jsx jsx */
 import * as React from "react";
 import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
-import { Keyframes } from "@emotion/serialize";
 
 import { sizeDefaults, parseLengthAndUnit } from "./helpers";
 import { LoaderSizeProps } from "./interfaces";
 
 // 1.5 4.5 7.5
-const distance: number[] = [1, 3, 5];
+const distance = [1, 3, 5];
 
-const propagate: Keyframes[] = [
+const propagate = [
   keyframes`
       25% {transform: translateX(-${distance[0]}rem) scale(0.75)}
       50% {transform: translateX(-${distance[1]}rem) scale(0.6)}

@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
-import { Keyframes, SerializedStyles } from "@emotion/serialize";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 
 import { sizeDefaults, cssValue } from "./helpers";
 import { LoaderSizeProps } from "./interfaces";
 
-const square: Keyframes = keyframes`
+const square = keyframes`
   25% {transform: rotateX(180deg) rotateY(0)}
   50% {transform: rotateX(180deg) rotateY(180deg)}
   75% {transform: rotateX(0) rotateY(180deg)}

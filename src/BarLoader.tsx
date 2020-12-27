@@ -1,18 +1,17 @@
 /** @jsx jsx */
 import * as React from "react";
 import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
-import { Keyframes } from "@emotion/serialize";
 
 import { calculateRgba, heightWidthDefaults, cssValue } from "./helpers";
 import { LoaderHeightWidthProps } from "./interfaces";
 
-const long: Keyframes = keyframes`
+const long = keyframes`
   0% {left: -35%;right: 100%}
   60% {left: 100%;right: -90%}
   100% {left: 100%;right: -90%}
 `;
 
-const short: Keyframes = keyframes`
+const short = keyframes`
   0% {left: -200%;right: 100%}
   60% {left: 107%;right: -8%}
   100% {left: 107%;right: -8%}

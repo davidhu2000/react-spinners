@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 
 import { sizeDefaults, cssValue, parseLengthAndUnit } from "./helpers";
-import { Keyframes, SerializedStyles } from "@emotion/serialize";
 import { LoaderSizeProps } from "./interfaces";
 
-const circle: Keyframes = keyframes`
+const circle = keyframes`
   0% {transform: rotate(0deg)}
   50% {transform: rotate(180deg)}
   100% {transform: rotate(360deg)}

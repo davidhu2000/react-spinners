@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import * as React from "react";
 import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
-import { Keyframes } from "@emotion/serialize";
 
 import { sizeDefaults, cssValue } from "./helpers";
 import { LoaderSizeProps, LengthType } from "./interfaces";
 
-const puff: Keyframes[] = [
+const puff = [
   keyframes`
   0%  {transform: scale(0)}
   100% {transform: scale(1.0)}

@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import * as React from "react";
 import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
-import { Keyframes } from "@emotion/serialize";
 
 import { sizeDefaults, cssValue } from "./helpers";
 import { LoaderSizeProps } from "./interfaces";
 
-const bounce: Keyframes = keyframes`
+const bounce = keyframes`
   0%, 100% {transform: scale(0)}
   50% {transform: scale(1.0)}
 `;

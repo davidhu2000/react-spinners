@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
-import { Keyframes, SerializedStyles } from "@emotion/serialize";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 
 import { sizeMarginDefaults, cssValue } from "./helpers";
 import { LoaderSizeMarginProps } from "./interfaces";
 
-const pulse: Keyframes = keyframes`
+const pulse = keyframes`
   0% {transform: scale(1);opacity: 1}
   45% {transform: scale(0.1);opacity: 0.7}
   80% {transform: scale(1);opacity: 1}

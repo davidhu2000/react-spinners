@@ -6,7 +6,7 @@ import { Keyframes } from "@emotion/serialize";
 import { sizeMarginDefaults, parseLengthAndUnit, cssValue } from "./helpers";
 import { LoaderSizeMarginProps, LengthType } from "./interfaces";
 
-const pacman: Keyframes[] = [
+const pacman = [
   keyframes`
     0% {transform: rotate(0deg)}
     50% {transform: rotate(-44deg)}

@@ -1,16 +1,15 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx } from "@emotion/core";
-import { Keyframes, SerializedStyles } from "@emotion/serialize";
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
 
 import { sizeDefaults, parseLengthAndUnit, cssValue } from "./helpers";
 import { LoaderSizeProps } from "./interfaces";
 
-const rotate: Keyframes = keyframes`
+const rotate = keyframes`
   100% {transform: rotate(360deg)}
 `;
 
-const bounce: Keyframes = keyframes`
+const bounce = keyframes`
   0%, 100% {transform: scale(0)}
   50% {transform: scale(1.0)}
 `;

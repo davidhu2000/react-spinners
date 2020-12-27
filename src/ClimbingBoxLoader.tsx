@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import * as React from "react";
 import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
-import { Keyframes } from "@emotion/serialize";
 
 import { sizeDefaults, cssValue } from "./helpers";
 import { LoaderSizeProps } from "./interfaces";
 
-const climbingBox: Keyframes = keyframes`
+const climbingBox = keyframes`
   0% {transform:translate(0, -1em) rotate(-45deg)}
   5% {transform:translate(0, -1em) rotate(-50deg)}
   20% {transform:translate(1em, -2em) rotate(47deg)}

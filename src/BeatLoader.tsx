@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import * as React from "react";
 import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
-import { Keyframes } from "@emotion/serialize";
 
 import { sizeMarginDefaults, cssValue } from "./helpers";
 import { LoaderSizeMarginProps } from "./interfaces";
 
-const beat: Keyframes = keyframes`
+const beat = keyframes`
   50% {transform: scale(0.75);opacity: 0.2}
   100% {transform: scale(1);opacity: 1}
 `;
