@@ -6,6 +6,9 @@ All notable changes to this project will be documented in this file. This projec
 
 - update most of devDenpendencies
 - add `react ^17.0.0` and `react-dom ^17.0.0` into peerDependencies to fix [#321](https://github.com/davidhu2000/react-spinners/issues/321)
+- update `div` to `span` to fix `<div> cannot appear as a descendant of <p>` per [#159](https://github.com/davidhu2000/react-spinners/issues/159). PR #325
+- removed `Keyframes` typing to allow for inferring PR #326
+- another round of update for all dependencies to the latest version except for `react-color`, `react`, `react-dom`, and `@motion/core`. These 4 packages have caused issues during the update and will save them for another time. 
 
 ## 0.10.0-alpha.2
 
