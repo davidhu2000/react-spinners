@@ -2,16 +2,20 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.10.1
+
+- Update README using react hooks. Move react class example under a summary tag.
+
 ## 0.10.0
 
 - update `div` to `span` to fix `<div> cannot appear as a descendant of <p>` per [#159](https://github.com/davidhu2000/react-spinners/issues/159). [PR #325](https://github.com/davidhu2000/react-spinners/pull/325)
-- Using [lodash-es](https://github.com/lodash/lodash/blob/4.17.20-es/package.json#L10-L14) as a reference, added `type: module` to `package.json` as an attempt to implement tree shaking via [PR #327](https://github.com/davidhu2000/react-spinners/pull/327). 
+- Using [lodash-es](https://github.com/lodash/lodash/blob/4.17.20-es/package.json#L10-L14) as a reference, added `type: module` to `package.json` as an attempt to implement tree shaking via [PR #327](https://github.com/davidhu2000/react-spinners/pull/327).
 - replaced tslint with eslint, and npm with yarn.
 
 ## 0.10.0-beta.3
 
 - Update `.npmignore` to ignore the `.cjs` files so they are not included in the published build.
-- Add `.yarn` and `.yarnrc` to `.npmignore`. 
+- Add `.yarn` and `.yarnrc` to `.npmignore`.
 
 Old:
 
@@ -31,21 +35,21 @@ npm notice unpacked size: 167.1 kB
 npm notice total files:   65
 ```
 
-## 0.10.0-beta.2 
+## 0.10.0-beta.2
 
-- Using [lodash-es](https://github.com/lodash/lodash/blob/4.17.20-es/package.json#L10-L14) as a reference, added `type: module` to `package.json` as an attempt to fix tree shaking via [PR #327](https://github.com/davidhu2000/react-spinners/pull/327). 
-- Renamed relevant `.js` files to `.cjs` so they are treated as CommonJs. Otherwise we get errors like `ReferenceError: module is not defined` when running certain commands, like `yarn`. 
+- Using [lodash-es](https://github.com/lodash/lodash/blob/4.17.20-es/package.json#L10-L14) as a reference, added `type: module` to `package.json` as an attempt to fix tree shaking via [PR #327](https://github.com/davidhu2000/react-spinners/pull/327).
+- Renamed relevant `.js` files to `.cjs` so they are treated as CommonJs. Otherwise we get errors like `ReferenceError: module is not defined` when running certain commands, like `yarn`.
 
 ## 0.10.0-beta.1
 
-- No changes here. Upgrading alpha to beta. 
+- No changes here. Upgrading alpha to beta.
 
 ## 0.10.0-alpha.3
 
 - add `react ^17.0.0` and `react-dom ^17.0.0` into peerDependencies to fix [#321](https://github.com/davidhu2000/react-spinners/issues/321)
 - update `div` to `span` to fix `<div> cannot appear as a descendant of <p>` per [#159](https://github.com/davidhu2000/react-spinners/issues/159). [PR #325](https://github.com/davidhu2000/react-spinners/pull/325)
 - removed `Keyframes` typing to allow for inferring [PR #326](https://github.com/davidhu2000/react-spinners/pull/326)
-- another round of update for all devDependencies to the latest version except for `react-color`, `react`, `react-dom`, and `@motion/core`. These 4 packages have caused issues during the update and will save them for another time. 
+- another round of update for all devDependencies to the latest version except for `react-color`, `react`, `react-dom`, and `@motion/core`. These 4 packages have caused issues during the update and will save them for another time.
 
 ## 0.10.0-alpha.2
 
