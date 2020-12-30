@@ -1,6 +1,6 @@
 import * as React from "react";
 import { mount, ReactWrapper } from "enzyme";
-import { matchers } from "jest-emotion";
+import { matchers } from '@emotion/jest';
 expect.extend(matchers);
 
 import PacmanLoader from "../src/PacmanLoader";
