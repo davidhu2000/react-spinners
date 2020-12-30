@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.11.0-alpha.1 (In Progress)
+
+- updated emotion to v11. [PR #329](https://github.com/davidhu2000/react-spinners/pull/329)
+
 ## 0.10.1
 
 - Update README using react hooks. Move react class example under a summary tag.
