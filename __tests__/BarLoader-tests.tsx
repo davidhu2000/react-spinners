@@ -1,6 +1,6 @@
 import * as React from "react";
 import { mount, ReactWrapper } from "enzyme";
-import { matchers } from "jest-emotion";
+import { matchers } from "@emotion/jest";
 expect.extend(matchers);
 
 import BarLoader from "../src/BarLoader";
@@ -28,7 +28,7 @@ describe("BarLoader", () => {
   it("should contain styles created using default props", () => {
     expect(loader).toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
     expect(loader).toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
-    expect(loader).toHaveStyleRule("background-color", "rgba(0,0,0,0.2)");
+    expect(loader).toHaveStyleRule("background-color", "rgba(0, 0, 0, 0.2)");
     expect(loader.find("span span")).toHaveStyleRule("background-color", defaultColor);
     expect(loader.find("span span")).toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
   });
@@ -41,8 +41,8 @@ describe("BarLoader", () => {
   it("should render the correct color based on passed in prop", () => {
     const color = "#e2e2e2";
     loader = mount(<BarLoader color={color} />);
-    expect(loader).not.toHaveStyleRule("background-color", "rgba(0,0,0,0.2)");
-    expect(loader).toHaveStyleRule("background-color", "rgba(226,226,226,0.2)");
+    expect(loader).not.toHaveStyleRule("background-color", "rgba(0, 0, 0, 0.2)");
+    expect(loader).toHaveStyleRule("background-color", "rgba(226, 226, 226, 0.2)");
     expect(loader.find("span span")).toHaveStyleRule("background-color", color);
   });
 

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { mount, ReactWrapper } from "enzyme";
-import { css } from "@emotion/core";
-import { matchers } from "jest-emotion";
+import { css } from '@emotion/react';
+import { matchers } from '@emotion/jest';
 expect.extend(matchers);
 
 import ClockLoader from "../src/ClockLoader";

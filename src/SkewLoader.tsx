@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from "@emotion/core";
+import { keyframes, css, jsx, SerializedStyles } from '@emotion/react';
 
 import { sizeDefaults, cssValue } from "./helpers";
 import { LoaderSizeProps, LengthType } from "./interfaces";

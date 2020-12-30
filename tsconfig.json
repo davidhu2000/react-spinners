@@ -6,7 +6,7 @@
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
     "strictBindCallApply": true,
-    "module": "commonjs",
+    "module": "es2015",
     "jsx": "react",
     "target": "es5",
     "moduleResolution": "node",

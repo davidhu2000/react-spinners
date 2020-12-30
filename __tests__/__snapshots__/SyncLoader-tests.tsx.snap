@@ -4,18 +4,21 @@ exports[`SyncLoader should match snapshot 1`] = `
 @keyframes animation-0 {
   33% {
     -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
     -ms-transform: translateY(10px);
     transform: translateY(10px);
   }
 
   66% {
     -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
     -ms-transform: translateY(-10px);
     transform: translateY(-10px);
   }
 
   100% {
     -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
   }
@@ -24,18 +27,21 @@ exports[`SyncLoader should match snapshot 1`] = `
 @keyframes animation-0 {
   33% {
     -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
     -ms-transform: translateY(10px);
     transform: translateY(10px);
   }
 
   66% {
     -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
     -ms-transform: translateY(-10px);
     transform: translateY(-10px);
   }
 
   100% {
     -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
   }
@@ -44,24 +50,27 @@ exports[`SyncLoader should match snapshot 1`] = `
 @keyframes animation-0 {
   33% {
     -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
     -ms-transform: translateY(10px);
     transform: translateY(10px);
   }
 
   66% {
     -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
     -ms-transform: translateY(-10px);
     transform: translateY(-10px);
   }
 
   100% {
     -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
   }
 }
 
-.emotion-0 {
+.emotion-01j1i60w {
   background-color: #000000;
   width: 15px;
   height: 15px;
@@ -74,7 +83,7 @@ exports[`SyncLoader should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-.emotion-1 {
+.emotion-0wbrves {
   background-color: #000000;
   width: 15px;
   height: 15px;
@@ -87,7 +96,7 @@ exports[`SyncLoader should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-.emotion-2 {
+.emotion-01ctme5z {
   background-color: #000000;
   width: 15px;
   height: 15px;
@@ -108,17 +117,21 @@ exports[`SyncLoader should match snapshot 1`] = `
   size={15}
 >
   <span
-    className="emotion-3"
+    className="emotion-0"
   >
     <span
-      className="emotion-0"
-    />
-    <span
-      className="emotion-1"
-    />
-    <span
-      className="emotion-2"
-    />
+      className="emotion-01xdhyk6"
+    >
+      <span
+        className="emotion-01j1i60w"
+      />
+      <span
+        className="emotion-0wbrves"
+      />
+      <span
+        className="emotion-01ctme5z"
+      />
+    </span>
   </span>
 </Loader>
 `;

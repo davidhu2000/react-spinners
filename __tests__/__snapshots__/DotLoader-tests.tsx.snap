@@ -4,6 +4,7 @@ exports[`DotLoader should match snapshot 1`] = `
 @keyframes animation-0 {
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -12,12 +13,14 @@ exports[`DotLoader should match snapshot 1`] = `
 @keyframes animation-1 {
   0%, 100% {
     -webkit-transform: scale(0);
+    -moz-transform: scale(0);
     -ms-transform: scale(0);
     transform: scale(0);
   }
 
   50% {
     -webkit-transform: scale(1.0);
+    -moz-transform: scale(1.0);
     -ms-transform: scale(1.0);
     transform: scale(1.0);
   }
@@ -26,18 +29,20 @@ exports[`DotLoader should match snapshot 1`] = `
 @keyframes animation-1 {
   0%, 100% {
     -webkit-transform: scale(0);
+    -moz-transform: scale(0);
     -ms-transform: scale(0);
     transform: scale(0);
   }
 
   50% {
     -webkit-transform: scale(1.0);
+    -moz-transform: scale(1.0);
     -ms-transform: scale(1.0);
     transform: scale(1.0);
   }
 }
 
-.emotion-2 {
+.emotion-01kttl6 {
   position: relative;
   width: 60px;
   height: 60px;
@@ -47,7 +52,7 @@ exports[`DotLoader should match snapshot 1`] = `
   animation: animation-0 2s 0s infinite linear;
 }
 
-.emotion-0 {
+.emotion-09m4dtm {
   position: absolute;
   top: 0;
   bottom: auto;
@@ -61,7 +66,7 @@ exports[`DotLoader should match snapshot 1`] = `
   animation: animation-1 2s 0s infinite linear;
 }
 
-.emotion-1 {
+.emotion-0rv9a72 {
   position: absolute;
   top: auto;
   bottom: 0;
@@ -82,14 +87,18 @@ exports[`DotLoader should match snapshot 1`] = `
   size={60}
 >
   <span
-    className="emotion-2"
+    className="emotion-0"
   >
     <span
-      className="emotion-0"
-    />
-    <span
-      className="emotion-1"
-    />
+      className="emotion-01kttl6"
+    >
+      <span
+        className="emotion-09m4dtm"
+      />
+      <span
+        className="emotion-0rv9a72"
+      />
+    </span>
   </span>
 </Loader>
 `;

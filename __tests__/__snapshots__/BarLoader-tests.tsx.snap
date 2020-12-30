@@ -35,43 +35,46 @@ exports[`BarLoader should match snapshot 1`] = `
   }
 }
 
-.emotion-2 {
+.emotion-018btcsr {
   position: relative;
   width: 100px;
   height: 4px;
   overflow: hidden;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
   background-clip: padding-box;
 }
 
-.emotion-0 {
+.emotion-0sqdys8 {
   position: absolute;
   height: 4px;
   overflow: hidden;
   background-color: #000000;
+  -webkit-background-clip: padding-box;
   background-clip: padding-box;
   display: block;
   border-radius: 2px;
   will-change: left,right;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-  -webkit-animation: animation-0 2.1s  cubic-bezier(0.65,0.815,0.735,0.395) infinite;
-  animation: animation-0 2.1s  cubic-bezier(0.65,0.815,0.735,0.395) infinite;
+  -webkit-animation: animation-0 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+  animation: animation-0 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
 }
 
-.emotion-1 {
+.emotion-0ps9j9u {
   position: absolute;
   height: 4px;
   overflow: hidden;
   background-color: #000000;
+  -webkit-background-clip: padding-box;
   background-clip: padding-box;
   display: block;
   border-radius: 2px;
   will-change: left,right;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-  -webkit-animation: animation-1 2.1s 1.15s cubic-bezier(0.165,0.84,0.44,1) infinite;
-  animation: animation-1 2.1s 1.15s cubic-bezier(0.165,0.84,0.44,1) infinite;
+  -webkit-animation: animation-1 2.1s 1.15s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+  animation: animation-1 2.1s 1.15s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
 }
 
 <Loader
@@ -82,14 +85,18 @@ exports[`BarLoader should match snapshot 1`] = `
   width={100}
 >
   <span
-    className="emotion-2"
+    className="emotion-0"
   >
     <span
-      className="emotion-0"
-    />
-    <span
-      className="emotion-1"
-    />
+      className="emotion-018btcsr"
+    >
+      <span
+        className="emotion-0sqdys8"
+      />
+      <span
+        className="emotion-0ps9j9u"
+      />
+    </span>
   </span>
 </Loader>
 `;

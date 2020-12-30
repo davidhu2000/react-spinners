@@ -4,18 +4,21 @@ exports[`CircleLoader should match snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   50% {
     -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -24,18 +27,21 @@ exports[`CircleLoader should match snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   50% {
     -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -44,18 +50,21 @@ exports[`CircleLoader should match snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   50% {
     -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -64,18 +73,21 @@ exports[`CircleLoader should match snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   50% {
     -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -84,30 +96,33 @@ exports[`CircleLoader should match snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   50% {
     -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
   }
 
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
 
-.emotion-5 {
+.emotion-0yrmx0p {
   position: relative;
   width: 50px;
   height: 50px;
 }
 
-.emotion-0 {
+.emotion-018jumju {
   position: absolute;
   height: 50px;
   width: 50px;
@@ -125,7 +140,7 @@ exports[`CircleLoader should match snapshot 1`] = `
   animation: animation-0 1s 0s infinite linear;
 }
 
-.emotion-1 {
+.emotion-01ix8i79 {
   position: absolute;
   height: 45px;
   width: 45px;
@@ -143,7 +158,7 @@ exports[`CircleLoader should match snapshot 1`] = `
   animation: animation-0 1s 0.2s infinite linear;
 }
 
-.emotion-2 {
+.emotion-0mdd9ud {
   position: absolute;
   height: 40px;
   width: 40px;
@@ -161,7 +176,7 @@ exports[`CircleLoader should match snapshot 1`] = `
   animation: animation-0 1s 0.4s infinite linear;
 }
 
-.emotion-3 {
+.emotion-0qbu4to {
   position: absolute;
   height: 35px;
   width: 35px;
@@ -179,7 +194,7 @@ exports[`CircleLoader should match snapshot 1`] = `
   animation: animation-0 1s 0.6000000000000001s infinite linear;
 }
 
-.emotion-4 {
+.emotion-01wtwgn9 {
   position: absolute;
   height: 30px;
   width: 30px;
@@ -204,23 +219,27 @@ exports[`CircleLoader should match snapshot 1`] = `
   size={50}
 >
   <span
-    className="emotion-5"
+    className="emotion-0"
   >
     <span
-      className="emotion-0"
-    />
-    <span
-      className="emotion-1"
-    />
-    <span
-      className="emotion-2"
-    />
-    <span
-      className="emotion-3"
-    />
-    <span
-      className="emotion-4"
-    />
+      className="emotion-0yrmx0p"
+    >
+      <span
+        className="emotion-018jumju"
+      />
+      <span
+        className="emotion-01ix8i79"
+      />
+      <span
+        className="emotion-0mdd9ud"
+      />
+      <span
+        className="emotion-0qbu4to"
+      />
+      <span
+        className="emotion-01wtwgn9"
+      />
+    </span>
   </span>
 </Loader>
 `;

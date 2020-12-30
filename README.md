@@ -54,7 +54,7 @@ Each loader accepts a `loading` prop as a boolean. The loader will render `null`
 
 ```js
 import { useState } from "react";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
 
 // Can be a string as well. Need to ensure each key-value pair ends with ;
@@ -89,7 +89,7 @@ export default App;
 
 ```js
 import React from "react";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
 
 // Can be a string as well. Need to ensure each key-value pair ends with ;

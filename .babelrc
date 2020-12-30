@@ -1,7 +1,7 @@
 {
   "presets": ["@babel/preset-react", "@babel/preset-env"],
   "plugins": [
-    "emotion",
+    "@emotion",
     "@babel/plugin-transform-react-jsx",
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-transform-typescript"
