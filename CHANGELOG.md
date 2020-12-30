@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.10.0-beta.1
+
+- No changes here. Upgrading alpha to beta. 
+
 ## 0.10.0-alpha.3
 
 - add `react ^17.0.0` and `react-dom ^17.0.0` into peerDependencies to fix [#321](https://github.com/davidhu2000/react-spinners/issues/321)
