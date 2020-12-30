@@ -19,7 +19,10 @@ npm notice total files:   69
 New:
 
 ```
-TBD
+npm notice version:       0.10.0-beta.3
+npm notice package size:  21.3 kB
+npm notice unpacked size: 167.1 kB
+npm notice total files:   65
 ```
 
 ## 0.10.0-beta.2 
