@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.10.0
+
+- update `div` to `span` to fix `<div> cannot appear as a descendant of <p>` per [#159](https://github.com/davidhu2000/react-spinners/issues/159). [PR #325](https://github.com/davidhu2000/react-spinners/pull/325)
+- Using [lodash-es](https://github.com/lodash/lodash/blob/4.17.20-es/package.json#L10-L14) as a reference, added `type: module` to `package.json` as an attempt to implement tree shaking via [PR #327](https://github.com/davidhu2000/react-spinners/pull/327). 
+- replaced tslint with eslint, and npm with yarn.
+
 ## 0.10.0-beta.3
 
 - Update `.npmignore` to ignore the `.cjs` files so they are not included in the published build.
