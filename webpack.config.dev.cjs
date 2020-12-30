@@ -10,7 +10,7 @@ module.exports = {
   devtool: "eval",
   output: {
     path: path.resolve(__dirname, "docs", "js"),
-    filename: "[name]-[hash].js"
+    filename: "[name]-[contenthash].js"
   },
   module: {
     rules: [
@@ -32,10 +32,10 @@ module.exports = {
       filename: path.join(__dirname, "docs", "index.html"),
       inject: "head"
     }),
-     new ForkTsCheckerWebpackPlugin({
+    new ForkTsCheckerWebpackPlugin({
       typescript: true,
       eslint: {
-        files: './src/**/*.{ts,tsx}'
+        files: "./src/**/*.{ts,tsx}"
       }
     })
   ],
