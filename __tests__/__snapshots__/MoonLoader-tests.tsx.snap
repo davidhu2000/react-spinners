@@ -4,6 +4,7 @@ exports[`MoonLoader should match snapshot 1`] = `
 @keyframes animation-0 {
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -12,12 +13,13 @@ exports[`MoonLoader should match snapshot 1`] = `
 @keyframes animation-0 {
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
 
-.emotion-2 {
+.emotion-01683kmo {
   position: relative;
   width: 77.14285714285714px;
   height: 77.14285714285714px;
@@ -27,7 +29,7 @@ exports[`MoonLoader should match snapshot 1`] = `
   animation-fill-mode: forwards;
 }
 
-.emotion-0 {
+.emotion-042s4e8 {
   width: 8.571428571428571px;
   height: 8.571428571428571px;
   border-radius: 100%;
@@ -41,7 +43,7 @@ exports[`MoonLoader should match snapshot 1`] = `
   animation-fill-mode: forwards;
 }
 
-.emotion-1 {
+.emotion-01a1rv6j {
   width: 60px;
   height: 60px;
   border-radius: 100%;
@@ -57,14 +59,18 @@ exports[`MoonLoader should match snapshot 1`] = `
   size={60}
 >
   <span
-    className="emotion-2"
+    className="emotion-0"
   >
     <span
-      className="emotion-0"
-    />
-    <span
-      className="emotion-1"
-    />
+      className="emotion-01683kmo"
+    >
+      <span
+        className="emotion-042s4e8"
+      />
+      <span
+        className="emotion-01a1rv6j"
+      />
+    </span>
   </span>
 </Loader>
 `;

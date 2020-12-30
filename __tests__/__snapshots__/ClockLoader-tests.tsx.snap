@@ -4,6 +4,7 @@ exports[`ClockLoader should match snapshot 1`] = `
 @keyframes animation-0 {
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -12,12 +13,13 @@ exports[`ClockLoader should match snapshot 1`] = `
 @keyframes animation-0 {
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
 
-.emotion-0 {
+.emotion-032xao6 {
   position: relative;
   width: 50px;
   height: 50px;
@@ -26,32 +28,28 @@ exports[`ClockLoader should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.emotion-0:after,
-.emotion-0:before {
+.emotion-032xao6:after,
+.emotion-032xao6:before {
   position: absolute;
   content: "";
   background-color: #000000;
 }
 
-.emotion-0:after {
+.emotion-032xao6:after {
   width: 20.833333333333336px;
   height: 2px;
   top: 24px;
   left: 24px;
-  -webkit-transform-origin: 1px 1px;
-  -ms-transform-origin: 1px 1px;
   transform-origin: 1px 1px;
   -webkit-animation: animation-0 2s linear infinite;
   animation: animation-0 2s linear infinite;
 }
 
-.emotion-0:before {
+.emotion-032xao6:before {
   width: 16.666666666666668px;
   height: 2px;
   top: 24px;
   left: 24px;
-  -webkit-transform-origin: 1px 1px;
-  -ms-transform-origin: 1px 1px;
   transform-origin: 1px 1px;
   -webkit-animation: animation-0 8s linear infinite;
   animation: animation-0 8s linear infinite;
@@ -65,6 +63,10 @@ exports[`ClockLoader should match snapshot 1`] = `
 >
   <span
     className="emotion-0"
-  />
+  >
+    <span
+      className="emotion-032xao6"
+    />
+  </span>
 </Loader>
 `;

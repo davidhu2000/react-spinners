@@ -81,7 +81,7 @@ exports[`FadeLoader should match snapshot 1`] = `
   }
 }
 
-.emotion-8 {
+.emotion-0kud8pv {
   position: relative;
   font-size: 0;
   top: 20px;
@@ -90,7 +90,7 @@ exports[`FadeLoader should match snapshot 1`] = `
   height: 60px;
 }
 
-.emotion-0 {
+.emotion-0ls5g3w {
   position: absolute;
   width: 5px;
   height: 15px;
@@ -107,7 +107,7 @@ exports[`FadeLoader should match snapshot 1`] = `
   left: 0;
 }
 
-.emotion-1 {
+.emotion-09mx5xc {
   position: absolute;
   width: 5px;
   height: 15px;
@@ -123,11 +123,12 @@ exports[`FadeLoader should match snapshot 1`] = `
   top: 13.636363636363637px;
   left: 13.636363636363637px;
   -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 
-.emotion-2 {
+.emotion-0fkrw1z {
   position: absolute;
   width: 5px;
   height: 15px;
@@ -143,11 +144,12 @@ exports[`FadeLoader should match snapshot 1`] = `
   top: 0;
   left: 20px;
   -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 
-.emotion-3 {
+.emotion-0w0winf {
   position: absolute;
   width: 5px;
   height: 15px;
@@ -163,11 +165,12 @@ exports[`FadeLoader should match snapshot 1`] = `
   top: -13.636363636363637px;
   left: 13.636363636363637px;
   -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
-.emotion-4 {
+.emotion-01caczn4 {
   position: absolute;
   width: 5px;
   height: 15px;
@@ -184,7 +187,7 @@ exports[`FadeLoader should match snapshot 1`] = `
   left: 0;
 }
 
-.emotion-5 {
+.emotion-06e71m9 {
   position: absolute;
   width: 5px;
   height: 15px;
@@ -200,11 +203,12 @@ exports[`FadeLoader should match snapshot 1`] = `
   top: -13.636363636363637px;
   left: -13.636363636363637px;
   -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 
-.emotion-6 {
+.emotion-01ngsrc8 {
   position: absolute;
   width: 5px;
   height: 15px;
@@ -220,11 +224,12 @@ exports[`FadeLoader should match snapshot 1`] = `
   top: 0;
   left: -20px;
   -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 
-.emotion-7 {
+.emotion-01e93agn {
   position: absolute;
   width: 5px;
   height: 15px;
@@ -240,6 +245,7 @@ exports[`FadeLoader should match snapshot 1`] = `
   top: 13.636363636363637px;
   left: -13.636363636363637px;
   -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
@@ -254,32 +260,36 @@ exports[`FadeLoader should match snapshot 1`] = `
   width={5}
 >
   <span
-    className="emotion-8"
+    className="emotion-0"
   >
     <span
-      className="emotion-0"
-    />
-    <span
-      className="emotion-1"
-    />
-    <span
-      className="emotion-2"
-    />
-    <span
-      className="emotion-3"
-    />
-    <span
-      className="emotion-4"
-    />
-    <span
-      className="emotion-5"
-    />
-    <span
-      className="emotion-6"
-    />
-    <span
-      className="emotion-7"
-    />
+      className="emotion-0kud8pv"
+    >
+      <span
+        className="emotion-0ls5g3w"
+      />
+      <span
+        className="emotion-09mx5xc"
+      />
+      <span
+        className="emotion-0fkrw1z"
+      />
+      <span
+        className="emotion-0w0winf"
+      />
+      <span
+        className="emotion-01caczn4"
+      />
+      <span
+        className="emotion-06e71m9"
+      />
+      <span
+        className="emotion-01ngsrc8"
+      />
+      <span
+        className="emotion-01e93agn"
+      />
+    </span>
   </span>
 </Loader>
 `;

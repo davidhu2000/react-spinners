@@ -4,12 +4,14 @@ exports[`PacmanLoader should match snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   50% {
     -webkit-transform: rotate(-44deg);
+    -moz-transform: rotate(-44deg);
     -ms-transform: rotate(-44deg);
     transform: rotate(-44deg);
   }
@@ -18,12 +20,14 @@ exports[`PacmanLoader should match snapshot 1`] = `
 @keyframes animation-1 {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   50% {
     -webkit-transform: rotate(44deg);
+    -moz-transform: rotate(44deg);
     -ms-transform: rotate(44deg);
     transform: rotate(44deg);
   }
@@ -35,9 +39,10 @@ exports[`PacmanLoader should match snapshot 1`] = `
   }
 
   100% {
-    -webkit-transform: translate(-100px,-6.25px);
-    -ms-transform: translate(-100px,-6.25px);
-    transform: translate(-100px,-6.25px);
+    -webkit-transform: translate(-100px, -6.25px);
+    -moz-transform: translate(-100px, -6.25px);
+    -ms-transform: translate(-100px, -6.25px);
+    transform: translate(-100px, -6.25px);
   }
 }
 
@@ -47,9 +52,10 @@ exports[`PacmanLoader should match snapshot 1`] = `
   }
 
   100% {
-    -webkit-transform: translate(-100px,-6.25px);
-    -ms-transform: translate(-100px,-6.25px);
-    transform: translate(-100px,-6.25px);
+    -webkit-transform: translate(-100px, -6.25px);
+    -moz-transform: translate(-100px, -6.25px);
+    -ms-transform: translate(-100px, -6.25px);
+    transform: translate(-100px, -6.25px);
   }
 }
 
@@ -59,9 +65,10 @@ exports[`PacmanLoader should match snapshot 1`] = `
   }
 
   100% {
-    -webkit-transform: translate(-100px,-6.25px);
-    -ms-transform: translate(-100px,-6.25px);
-    transform: translate(-100px,-6.25px);
+    -webkit-transform: translate(-100px, -6.25px);
+    -moz-transform: translate(-100px, -6.25px);
+    -ms-transform: translate(-100px, -6.25px);
+    transform: translate(-100px, -6.25px);
   }
 }
 
@@ -71,20 +78,21 @@ exports[`PacmanLoader should match snapshot 1`] = `
   }
 
   100% {
-    -webkit-transform: translate(-100px,-6.25px);
-    -ms-transform: translate(-100px,-6.25px);
-    transform: translate(-100px,-6.25px);
+    -webkit-transform: translate(-100px, -6.25px);
+    -moz-transform: translate(-100px, -6.25px);
+    -ms-transform: translate(-100px, -6.25px);
+    transform: translate(-100px, -6.25px);
   }
 }
 
-.emotion-6 {
+.emotion-0113v409 {
   position: relative;
   font-size: 0;
   height: 25px;
   width: 25px;
 }
 
-.emotion-0 {
+.emotion-0e1cvz7 {
   width: 0;
   height: 0;
   border-right: 25px solid transparent;
@@ -99,7 +107,7 @@ exports[`PacmanLoader should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-.emotion-1 {
+.emotion-01p1b5e4 {
   width: 0;
   height: 0;
   border-right: 25px solid transparent;
@@ -114,15 +122,16 @@ exports[`PacmanLoader should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-.emotion-2 {
+.emotion-05j85ug {
   width: 8.333333333333334px;
   height: 8.333333333333334px;
   background-color: #000000;
   margin: 2px;
   border-radius: 100%;
-  -webkit-transform: translate(0,-6.25px);
-  -ms-transform: translate(0,-6.25px);
-  transform: translate(0,-6.25px);
+  -webkit-transform: translate(0, -6.25px);
+  -moz-transform: translate(0, -6.25px);
+  -ms-transform: translate(0, -6.25px);
+  transform: translate(0, -6.25px);
   position: absolute;
   top: 25px;
   left: 100px;
@@ -132,15 +141,16 @@ exports[`PacmanLoader should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-.emotion-3 {
+.emotion-01cna3gb {
   width: 8.333333333333334px;
   height: 8.333333333333334px;
   background-color: #000000;
   margin: 2px;
   border-radius: 100%;
-  -webkit-transform: translate(0,-6.25px);
-  -ms-transform: translate(0,-6.25px);
-  transform: translate(0,-6.25px);
+  -webkit-transform: translate(0, -6.25px);
+  -moz-transform: translate(0, -6.25px);
+  -ms-transform: translate(0, -6.25px);
+  transform: translate(0, -6.25px);
   position: absolute;
   top: 25px;
   left: 100px;
@@ -150,15 +160,16 @@ exports[`PacmanLoader should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-.emotion-4 {
+.emotion-0e4u31e {
   width: 8.333333333333334px;
   height: 8.333333333333334px;
   background-color: #000000;
   margin: 2px;
   border-radius: 100%;
-  -webkit-transform: translate(0,-6.25px);
-  -ms-transform: translate(0,-6.25px);
-  transform: translate(0,-6.25px);
+  -webkit-transform: translate(0, -6.25px);
+  -moz-transform: translate(0, -6.25px);
+  -ms-transform: translate(0, -6.25px);
+  transform: translate(0, -6.25px);
   position: absolute;
   top: 25px;
   left: 100px;
@@ -168,15 +179,16 @@ exports[`PacmanLoader should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-.emotion-5 {
+.emotion-030u7o4 {
   width: 8.333333333333334px;
   height: 8.333333333333334px;
   background-color: #000000;
   margin: 2px;
   border-radius: 100%;
-  -webkit-transform: translate(0,-6.25px);
-  -ms-transform: translate(0,-6.25px);
-  transform: translate(0,-6.25px);
+  -webkit-transform: translate(0, -6.25px);
+  -moz-transform: translate(0, -6.25px);
+  -ms-transform: translate(0, -6.25px);
+  transform: translate(0, -6.25px);
   position: absolute;
   top: 25px;
   left: 100px;
@@ -194,26 +206,30 @@ exports[`PacmanLoader should match snapshot 1`] = `
   size={25}
 >
   <span
-    className="emotion-6"
+    className="emotion-0"
   >
     <span
-      className="emotion-0"
-    />
-    <span
-      className="emotion-1"
-    />
-    <span
-      className="emotion-2"
-    />
-    <span
-      className="emotion-3"
-    />
-    <span
-      className="emotion-4"
-    />
-    <span
-      className="emotion-5"
-    />
+      className="emotion-0113v409"
+    >
+      <span
+        className="emotion-0e1cvz7"
+      />
+      <span
+        className="emotion-01p1b5e4"
+      />
+      <span
+        className="emotion-05j85ug"
+      />
+      <span
+        className="emotion-01cna3gb"
+      />
+      <span
+        className="emotion-0e4u31e"
+      />
+      <span
+        className="emotion-030u7o4"
+      />
+    </span>
   </span>
 </Loader>
 `;

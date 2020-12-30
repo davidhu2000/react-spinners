@@ -4,12 +4,14 @@ exports[`RingLoader should match snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    -moz-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
 
   100% {
     -webkit-transform: rotateX(180deg) rotateY(360deg) rotateZ(360deg);
+    -moz-transform: rotateX(180deg) rotateY(360deg) rotateZ(360deg);
     -ms-transform: rotateX(180deg) rotateY(360deg) rotateZ(360deg);
     transform: rotateX(180deg) rotateY(360deg) rotateZ(360deg);
   }
@@ -18,24 +20,26 @@ exports[`RingLoader should match snapshot 1`] = `
 @keyframes animation-1 {
   0% {
     -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    -moz-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
 
   100% {
     -webkit-transform: rotateX(360deg) rotateY(180deg) rotateZ(360deg);
+    -moz-transform: rotateX(360deg) rotateY(180deg) rotateZ(360deg);
     -ms-transform: rotateX(360deg) rotateY(180deg) rotateZ(360deg);
     transform: rotateX(360deg) rotateY(180deg) rotateZ(360deg);
   }
 }
 
-.emotion-2 {
+.emotion-01n5ab60 {
   width: 60px;
   height: 60px;
   position: relative;
 }
 
-.emotion-0 {
+.emotion-0hajlmr {
   position: absolute;
   top: 0;
   left: 0;
@@ -46,15 +50,12 @@ exports[`RingLoader should match snapshot 1`] = `
   border-radius: 100%;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-  -webkit-perspective: 800px;
-  -moz-perspective: 800px;
-  -ms-perspective: 800px;
   perspective: 800px;
   -webkit-animation: animation-0 2s 0s infinite linear;
   animation: animation-0 2s 0s infinite linear;
 }
 
-.emotion-1 {
+.emotion-0vrt42o {
   position: absolute;
   top: 0;
   left: 0;
@@ -65,9 +66,6 @@ exports[`RingLoader should match snapshot 1`] = `
   border-radius: 100%;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-  -webkit-perspective: 800px;
-  -moz-perspective: 800px;
-  -ms-perspective: 800px;
   perspective: 800px;
   -webkit-animation: animation-1 2s 0s infinite linear;
   animation: animation-1 2s 0s infinite linear;
@@ -80,14 +78,18 @@ exports[`RingLoader should match snapshot 1`] = `
   size={60}
 >
   <span
-    className="emotion-2"
+    className="emotion-0"
   >
     <span
-      className="emotion-0"
-    />
-    <span
-      className="emotion-1"
-    />
+      className="emotion-01n5ab60"
+    >
+      <span
+        className="emotion-0hajlmr"
+      />
+      <span
+        className="emotion-0vrt42o"
+      />
+    </span>
   </span>
 </Loader>
 `;

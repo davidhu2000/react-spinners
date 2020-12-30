@@ -4,55 +4,56 @@ exports[`HashLoader should match snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     width: 10px;
-    box-shadow: 20px -10px rgba(0,0,0,0.75),-20px 10px rgba(0,0,0,0.75);
+    box-shadow: 20px -10px rgba(0, 0, 0, 0.75),-20px 10px rgba(0, 0, 0, 0.75);
   }
 
   35% {
     width: 50px;
-    box-shadow: 0 -10px rgba(0,0,0,0.75),0 10px rgba(0,0,0,0.75);
+    box-shadow: 0 -10px rgba(0, 0, 0, 0.75),0 10px rgba(0, 0, 0, 0.75);
   }
 
   70% {
     width: 10px;
-    box-shadow: -20px -10px rgba(0,0,0,0.75),20px 10px rgba(0,0,0,0.75);
+    box-shadow: -20px -10px rgba(0, 0, 0, 0.75),20px 10px rgba(0, 0, 0, 0.75);
   }
 
   100% {
-    box-shadow: 20px -10px rgba(0,0,0,0.75),-20px 10px rgba(0,0,0,0.75);
+    box-shadow: 20px -10px rgba(0, 0, 0, 0.75),-20px 10px rgba(0, 0, 0, 0.75);
   }
 }
 
 @keyframes animation-1 {
   0% {
     height: 10px;
-    box-shadow: 10px 20px rgba(0,0,0,0.75),-10px -20px rgba(0,0,0,0.75);
+    box-shadow: 10px 20px rgba(0, 0, 0, 0.75),-10px -20px rgba(0, 0, 0, 0.75);
   }
 
   35% {
     height: 50px;
-    box-shadow: 10px 0 rgba(0,0,0,0.75),-10px 0 rgba(0,0,0,0.75);
+    box-shadow: 10px 0 rgba(0, 0, 0, 0.75),-10px 0 rgba(0, 0, 0, 0.75);
   }
 
   70% {
     height: 10px;
-    box-shadow: 10px -20px rgba(0,0,0,0.75),-10px 20px rgba(0,0,0,0.75);
+    box-shadow: 10px -20px rgba(0, 0, 0, 0.75),-10px 20px rgba(0, 0, 0, 0.75);
   }
 
   100% {
-    box-shadow: 10px 20px rgba(0,0,0,0.75),-10px -20px rgba(0,0,0,0.75);
+    box-shadow: 10px 20px rgba(0, 0, 0, 0.75),-10px -20px rgba(0, 0, 0, 0.75);
   }
 }
 
-.emotion-2 {
+.emotion-0606pct {
   position: relative;
   width: 50px;
   height: 50px;
   -webkit-transform: rotate(165deg);
+  -moz-transform: rotate(165deg);
   -ms-transform: rotate(165deg);
   transform: rotate(165deg);
 }
 
-.emotion-0 {
+.emotion-013gcv1c {
   position: absolute;
   content: "";
   top: 50%;
@@ -61,16 +62,17 @@ exports[`HashLoader should match snapshot 1`] = `
   width: 10px;
   height: 10px;
   border-radius: 5px;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   -webkit-animation-fill-mode: none;
   animation-fill-mode: none;
   -webkit-animation: animation-0 2s infinite;
   animation: animation-0 2s infinite;
 }
 
-.emotion-1 {
+.emotion-0c0c1dy {
   position: absolute;
   content: "";
   top: 50%;
@@ -79,9 +81,10 @@ exports[`HashLoader should match snapshot 1`] = `
   width: 10px;
   height: 10px;
   border-radius: 5px;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   -webkit-animation-fill-mode: none;
   animation-fill-mode: none;
   -webkit-animation: animation-1 2s infinite;
@@ -95,14 +98,18 @@ exports[`HashLoader should match snapshot 1`] = `
   size={50}
 >
   <span
-    className="emotion-2"
+    className="emotion-0"
   >
     <span
-      className="emotion-0"
-    />
-    <span
-      className="emotion-1"
-    />
+      className="emotion-0606pct"
+    >
+      <span
+        className="emotion-013gcv1c"
+      />
+      <span
+        className="emotion-0c0c1dy"
+      />
+    </span>
   </span>
 </Loader>
 `;
