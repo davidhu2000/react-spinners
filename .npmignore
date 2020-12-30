@@ -9,10 +9,12 @@
 npm-debug.log
 lib
 
+.yarn/*
+.yarnrc
 examples
 docs
 webpack.config.*
-prettier.config.js
+prettier.config.cjs
 template.html
 __tests__
 .github
@@ -20,7 +22,7 @@ __tests__
 coverage
 src
 tslint.json
-jest.config.js
+jest.config.cjs
 CODEOWNERS
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
