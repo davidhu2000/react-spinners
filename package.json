@@ -31,7 +31,6 @@
   ],
   "main": "index.js",
   "type": "module",
-  "module": "index.js",
   "scripts": {
     "prepare": "./node_modules/.bin/tsc --build tsconfig.build.json",
     "test": "npm run lint",
