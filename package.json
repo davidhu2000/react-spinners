@@ -30,6 +30,8 @@
     "activity"
   ],
   "main": "index.js",
+  "type": "module",
+  "module": "index.js",
   "scripts": {
     "prepare": "./node_modules/.bin/tsc --build tsconfig.build.json",
     "test": "npm run lint",
@@ -45,7 +47,6 @@
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "remove:tag": "npm dist-tag rm react-spinners"
   },
-  "types": "./src/index.d.ts",
   "devDependencies": {
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
