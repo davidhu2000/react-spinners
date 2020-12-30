@@ -53,6 +53,41 @@ Each loader accepts a `loading` prop as a boolean. The loader will render `null`
 ### Example
 
 ```js
+import { useState } from "react";
+import { css } from "@emotion/core";
+import ClipLoader from "react-spinners/ClipLoader";
+
+// Can be a string as well. Need to ensure each key-value pair ends with ;
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+
+function App() {
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#ffffff");
+
+  return (
+    <div className="sweet-loading">
+      <button onClick={() => setLoading(!loading)}>Toggle Loader</button>
+      <input
+        value={color}
+        onChange={(input) => setColor(input.target.value)}
+        placeholder="Color of the loader"
+      />
+
+      <ClipLoader color={color} loading={loading} css={override} size={150} />
+    </div>
+  );
+}
+
+export default App;
+```
+
+<details><summary>Example using React Class</summary>
+
+```js
 import React from "react";
 import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -75,17 +110,14 @@ class AwesomeComponent extends React.Component {
   render() {
     return (
       <div className="sweet-loading">
-        <ClipLoader
-          css={override}
-          size={150}
-          color={"#123abc"}
-          loading={this.state.loading}
-        />
+        <ClipLoader css={override} size={150} color={"#123abc"} loading={this.state.loading} />
       </div>
     );
   }
 }
 ```
+
+</details>
 
 ## Available Loaders, PropTypes, and Default Values
 
@@ -113,7 +145,7 @@ More info about using `css` [here](https://emotion.sh/docs/introduction)
 
 ### `size`, `height`, `width`, and `radius` props
 
-The input to these props can be *number* or *string*.
+The input to these props can be _number_ or _string_.
 
 - If value is number, the loader will default to css unit `px`.
 - If value is string, the loader will verify the unit against valid css units.
