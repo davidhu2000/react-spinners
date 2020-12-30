@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.10.0-beta.2 
+
+- Using [lodash-es](https://github.com/lodash/lodash/blob/4.17.20-es/package.json#L10-L14) as a reference, added `type: module` to `package.json` as an attempt to fix tree shaking via [PR #327](https://github.com/davidhu2000/react-spinners/pull/327). 
+- Renamed relevant `.js` files to `.cjs` so they are treated as CommonJs. Otherwise we get errors like `ReferenceError: module is not defined` when running certain commands, like `yarn`. 
+
 ## 0.10.0-beta.1
 
 - No changes here. Upgrading alpha to beta. 
