@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.10.0-beta.3
+
+- Update `.npmignore` to ignore the `.cjs` files so they are not included in the published build.
+- Add `.yarn` and `.yarnrc` to `.npmignore`. 
+
+Old:
+
+```
+npm notice version:       0.10.0-beta.2
+npm notice package size:  1.2 MB
+npm notice unpacked size: 5.3 MB
+npm notice total files:   69
+```
+
+New:
+
+```
+TBD
+```
+
 ## 0.10.0-beta.2 
 
 - Using [lodash-es](https://github.com/lodash/lodash/blob/4.17.20-es/package.json#L10-L14) as a reference, added `type: module` to `package.json` as an attempt to fix tree shaking via [PR #327](https://github.com/davidhu2000/react-spinners/pull/327). 
