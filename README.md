@@ -46,7 +46,7 @@ Each loader accepts a `loading` prop as a boolean. The loader will render `null`
 ```
 {
     "presets": ["@babel/preset-react", "@babel/preset-env"],
-    "plugins": ["emotion"]
+    "plugins": ["@emotion"]
 }
 ```
 
