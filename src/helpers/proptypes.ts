@@ -23,7 +23,7 @@ const commonValues: CommonDefaults = {
 };
 
 export function sizeDefaults(sizeValue: number): Required<LoaderSizeProps> {
-  return Object.assign({}, commonValues, { size: sizeValue });
+  return Object.assign({}, commonValues, { size: sizeValue, animationDelay: 0 });
 }
 
 export function sizeMarginDefaults(sizeValue: number): Required<LoaderSizeMarginProps> {
@@ -38,7 +38,8 @@ export function heightWidthDefaults(
 ): Required<LoaderHeightWidthProps> {
   return Object.assign({}, commonValues, {
     height,
-    width
+    width,
+    animationDelay: 0
   });
 }
 
