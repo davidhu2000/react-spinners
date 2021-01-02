@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.10.2
+
+- **bugfix**: the tsconfig compiler option was not overriding properly, so the outputted files are es2015 (with import syntax) vs commonjs (with require syntax. This could cause similar issues like [#74](https://github.com/davidhu2000/react-spinners/issues/74).
+
 ## 0.10.1
 
 - Update README using react hooks. Move react class example under a summary tag.
