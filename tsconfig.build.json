@@ -1,7 +1,4 @@
 {
   "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "module": "commonjs"
-  },
   "exclude": ["docs/*", "webpack.config.*", "*.js", "__tests__", "examples"]
 }

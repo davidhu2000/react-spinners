@@ -14,7 +14,7 @@ lib
 examples
 docs
 webpack.config.*
-prettier.config.cjs
+prettier.config.js
 template.html
 __tests__
 .github
@@ -22,7 +22,7 @@ __tests__
 coverage
 src
 tslint.json
-jest.config.cjs
+jest.config.js
 CODEOWNERS
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
