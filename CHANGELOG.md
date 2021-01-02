@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.10.4
+
+- Add `.eslintrc.*` to `.npmignore` to reduce packge size.
+
 ## 0.10.3
 
 - **bugfix**: Reverted `type:module` change in `package.json` due to [issue #336](https://github.com/davidhu2000/react-spinners/issues/336). This is causing a `Must use import to load ES Module` error.
