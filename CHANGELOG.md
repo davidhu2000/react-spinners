@@ -2,19 +2,25 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.10.3
+
+- **bugfix**: Reverted `type:module` change in `package.json` due to [issue #336](https://github.com/davidhu2000/react-spinners/issues/336). This is causing a `Must use import to load ES Module` error.
+
 ## 0.10.2
+
+**Note: this release has a critical issue and was deprecated. Please update to 0.10.3 or higher.**
 
 - **bugfix**: the tsconfig compiler option was not overriding properly, so the outputted files are es2015 (with import syntax) vs commonjs (with require syntax. This could cause similar issues like [#74](https://github.com/davidhu2000/react-spinners/issues/74).
 
 ## 0.10.1
 
-**Note: this release has a critical issue and was deprecated. Please update to 0.10.2 or higher.**
+**Note: this release has a critical issue and was deprecated. Please update to 0.10.3 or higher.**
 
 - Update README using react hooks. Move react class example under a summary tag.
 
 ## 0.10.0
 
-**Note: this release has a critical issue and was deprecated. Please update to 0.10.2 or higher.**
+**Note: this release has a critical issue and was deprecated. Please update to 0.10.3 or higher.**
 
 - update `div` to `span` to fix `<div> cannot appear as a descendant of <p>` per [#159](https://github.com/davidhu2000/react-spinners/issues/159). [PR #325](https://github.com/davidhu2000/react-spinners/pull/325)
 - Using [lodash-es](https://github.com/lodash/lodash/blob/4.17.20-es/package.json#L10-L14) as a reference, added `type: module` to `package.json` as an attempt to implement tree shaking via [PR #327](https://github.com/davidhu2000/react-spinners/pull/327).
