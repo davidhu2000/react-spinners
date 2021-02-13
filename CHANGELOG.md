@@ -10,6 +10,10 @@ All notable changes to this project will be documented in this file. This projec
 
 - updated emotion to v11. [PR #329](https://github.com/davidhu2000/react-spinners/pull/329)
 
+## 0.10.5
+
+- **bugfix**: Fixed MoonLoader display issue [#342](https://github.com/davidhu2000/react-spinners/pull/342)
+
 ## 0.10.4
 
 - Add `.eslintrc.*` to `.npmignore` to reduce packge size.

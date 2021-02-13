@@ -64,6 +64,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
       border: ${this.moonSize()}px solid ${color};
       opacity: 0.1;
       box-sizing: content-box;
+      position: absolute;
     `;
   };
 
