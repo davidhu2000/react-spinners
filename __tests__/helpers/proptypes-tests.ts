@@ -11,7 +11,7 @@ describe("Default Props functions for different loaders", () => {
       expect(typeof sizeDefaults).toEqual("function");
     });
 
-    it("should return an object containing the common props: loading, color, css", () => {
+    it("should return an object containing the common props: loading, color, css, speedMultiplier", () => {
       const defaultProps = sizeDefaults(1);
       expect(defaultProps).toHaveProperty("loading");
       expect(defaultProps.loading).toEqual(true);
@@ -19,6 +19,8 @@ describe("Default Props functions for different loaders", () => {
       expect(defaultProps.color).toEqual("#000000");
       expect(defaultProps).toHaveProperty("css");
       expect(defaultProps.css).toEqual("");
+      expect(defaultProps).toHaveProperty("speedMultiplier");
+      expect(defaultProps.speedMultiplier).toEqual(1);
     });
 
     it("should return the size as the passed in size value", () => {
@@ -37,7 +39,7 @@ describe("Default Props functions for different loaders", () => {
       expect(typeof sizeMarginDefaults).toEqual("function");
     });
 
-    it("should return an object containing the common props: loading, color, css", () => {
+    it("should return an object containing the common props: loading, color, css, speedMultiplier", () => {
       const defaultProps = sizeMarginDefaults(1);
       expect(defaultProps).toHaveProperty("loading");
       expect(defaultProps.loading).toEqual(true);
@@ -45,6 +47,8 @@ describe("Default Props functions for different loaders", () => {
       expect(defaultProps.color).toEqual("#000000");
       expect(defaultProps).toHaveProperty("css");
       expect(defaultProps.css).toEqual("");
+      expect(defaultProps).toHaveProperty("speedMultiplier");
+      expect(defaultProps.speedMultiplier).toEqual(1);
     });
 
     it("should return the size as the passed in size value", () => {
@@ -65,7 +69,7 @@ describe("Default Props functions for different loaders", () => {
       expect(typeof heightWidthDefaults).toEqual("function");
     });
 
-    it("should return an object containing the common props: loading, color, css", () => {
+    it("should return an object containing the common props: loading, color, css, speedMultiplier", () => {
       const defaultProps = heightWidthDefaults(1, 1);
       expect(defaultProps).toHaveProperty("loading");
       expect(defaultProps.loading).toEqual(true);
@@ -73,6 +77,8 @@ describe("Default Props functions for different loaders", () => {
       expect(defaultProps.color).toEqual("#000000");
       expect(defaultProps).toHaveProperty("css");
       expect(defaultProps.css).toEqual("");
+      expect(defaultProps).toHaveProperty("speedMultiplier");
+      expect(defaultProps.speedMultiplier).toEqual(1);
     });
 
     it("should return the height/width as the passed in height/width value", () => {
@@ -95,7 +101,7 @@ describe("Default Props functions for different loaders", () => {
       expect(typeof heightWidthRadiusDefaults).toEqual("function");
     });
 
-    it("should return an object containing the common props: loading, color, css", () => {
+    it("should return an object containing the common props: loading, color, css, speedMultiplier", () => {
       const defaultProps = heightWidthRadiusDefaults(1, 1, 1);
       expect(defaultProps).toHaveProperty("loading");
       expect(defaultProps.loading).toEqual(true);
@@ -103,6 +109,8 @@ describe("Default Props functions for different loaders", () => {
       expect(defaultProps.color).toEqual("#000000");
       expect(defaultProps).toHaveProperty("css");
       expect(defaultProps.css).toEqual("");
+      expect(defaultProps).toHaveProperty("speedMultiplier");
+      expect(defaultProps.speedMultiplier).toEqual(1);
     });
 
     it("should return the height/width as the passed in height/width value", () => {
