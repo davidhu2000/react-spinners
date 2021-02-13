@@ -48,6 +48,7 @@ exports[`MoonLoader should match snapshot 1`] = `
   border: 8.571428571428571px solid #000000;
   opacity: 0.1;
   box-sizing: content-box;
+  position: absolute;
 }
 
 <Loader
