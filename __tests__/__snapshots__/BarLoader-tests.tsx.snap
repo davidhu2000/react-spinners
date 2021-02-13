@@ -45,7 +45,7 @@ exports[`BarLoader should match snapshot 1`] = `
   background-clip: padding-box;
 }
 
-.emotion-0sqdys8 {
+.emotion-014j30wi {
   position: absolute;
   height: 4px;
   overflow: hidden;
@@ -61,7 +61,7 @@ exports[`BarLoader should match snapshot 1`] = `
   animation: animation-0 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
 }
 
-.emotion-0ps9j9u {
+.emotion-0arw02b {
   position: absolute;
   height: 4px;
   overflow: hidden;
@@ -82,6 +82,7 @@ exports[`BarLoader should match snapshot 1`] = `
   css=""
   height={4}
   loading={true}
+  speedMultiplier={1}
   width={100}
 >
   <span
@@ -91,10 +92,10 @@ exports[`BarLoader should match snapshot 1`] = `
       className="emotion-018btcsr"
     >
       <span
-        className="emotion-0sqdys8"
+        className="emotion-014j30wi"
       />
       <span
-        className="emotion-0ps9j9u"
+        className="emotion-0arw02b"
       />
     </span>
   </span>
