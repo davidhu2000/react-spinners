@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-## 0.10.5
+## 0.10.6
 
 - **bugfix**: Fixed MoonLoader display issue [#342](https://github.com/davidhu2000/react-spinners/pull/342)
 
