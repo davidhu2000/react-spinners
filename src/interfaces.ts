@@ -9,6 +9,7 @@ interface CommonProps {
   color?: string;
   loading?: boolean;
   css?: string | SerializedStyles;
+  animationDelay?: number;
 }
 
 export type LengthType = number | string;

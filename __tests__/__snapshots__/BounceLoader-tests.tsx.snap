@@ -66,6 +66,7 @@ exports[`BounceLoader should match snapshot 1`] = `
 }
 
 <Loader
+  animationDelay={0}
   color="#000000"
   css=""
   loading={true}

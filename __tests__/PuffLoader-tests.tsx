@@ -44,13 +44,23 @@ describe("PuffLoader", () => {
     expect(loader.find("span span")).toHaveStyleRule("border", `thick solid ${color}`);
   });
 
+  it("should render the correct animation delay based on prop", () => {
+    const animationDelay = -0.3;
+    loader = mount(<PuffLoader animationDelay={animationDelay} />);
+    expect(loader.find("span span").at(0)).toHaveStyleRule("animation-delay", "-1.3s");
+    expect(loader.find("span span").at(1)).toHaveStyleRule("animation-delay", "-0.3s");
+  });
+
   describe("size prop", () => {
     it("should render the size with px unit when size is a number", () => {
       const size = 18;
       loader = mount(<PuffLoader size={size} />);
       expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
       expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("span span")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span")).not.toHaveStyleRule(
+        "height",
+        `${defaultSize}${defaultUnit}`
+      );
       expect(loader.find("span span")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
       expect(loader).toHaveStyleRule("height", `${size}${defaultUnit}`);
@@ -64,7 +74,10 @@ describe("PuffLoader", () => {
       loader = mount(<PuffLoader size={size} />);
       expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
       expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("span span")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span")).not.toHaveStyleRule(
+        "height",
+        `${defaultSize}${defaultUnit}`
+      );
       expect(loader.find("span span")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
       expect(loader).toHaveStyleRule("height", `${size}`);
@@ -80,7 +93,10 @@ describe("PuffLoader", () => {
       loader = mount(<PuffLoader size={size} />);
       expect(loader).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
       expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("span span")).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span")).not.toHaveStyleRule(
+        "height",
+        `${defaultSize}${defaultUnit}`
+      );
       expect(loader.find("span span")).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
       expect(loader).toHaveStyleRule("height", `${length}${defaultUnit}`);
