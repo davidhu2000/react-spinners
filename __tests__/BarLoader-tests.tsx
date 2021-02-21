@@ -4,7 +4,7 @@ import { matchers } from "@emotion/jest";
 expect.extend(matchers);
 
 import BarLoader from "../src/BarLoader";
-import { commonSpecs, cssSpecs, speedMultiplierSpecs } from "./sharedSpecs/";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs/";
 import { heightWidthDefaults } from "../src/helpers";
 
 describe("BarLoader", () => {
@@ -35,70 +35,22 @@ describe("BarLoader", () => {
     expect(loader.find("span span")).toHaveStyleRule("background-color", color);
   });
 
-  describe("height prop", () => {
-    it("should render the height with px unit when size is a number", () => {
-      const height = 10;
-      const loader = mount(<BarLoader height={height} />);
-      expect(loader).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
-      expect(loader).toHaveStyleRule("height", `${height}${defaultUnit}`);
-      expect(loader.find("span span")).not.toHaveStyleRule(
-        "height",
-        `${defaultHeight}${defaultUnit}`
-      );
-      expect(loader.find("span span")).toHaveStyleRule("height", `${height}${defaultUnit}`);
-    });
+  const heightExpectStatements = (loader: ReactWrapper, length: number, unit?: string) => {
+    expect(loader).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("height", `${length}${unit || defaultUnit}`);
+    expect(loader.find("span span")).not.toHaveStyleRule(
+      "height",
+      `${defaultHeight}${defaultUnit}`
+    );
+    expect(loader.find("span span")).toHaveStyleRule("height", `${length}${unit || defaultUnit}`);
+  };
+  lengthSpecs(BarLoader, "height", heightExpectStatements);
 
-    it("should render the height as is when height is a string with valid css unit", () => {
-      const height = "18%";
-      const loader = mount(<BarLoader height={height} />);
-      expect(loader).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
-      expect(loader).toHaveStyleRule("height", `${height}`);
-      expect(loader.find("span span")).not.toHaveStyleRule(
-        "height",
-        `${defaultHeight}${defaultUnit}`
-      );
-      expect(loader.find("span span")).toHaveStyleRule("height", `${height}`);
-    });
-
-    it("should render the height with default unit of px when the unit is incorrect", () => {
-      const length = 18;
-      const unit = "ad";
-      const height = `${length}${unit}`;
-      const loader = mount(<BarLoader height={height} />);
-      expect(loader).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
-      expect(loader).toHaveStyleRule("height", `${length}${defaultUnit}`);
-      expect(loader.find("span span")).not.toHaveStyleRule(
-        "height",
-        `${defaultHeight}${defaultUnit}`
-      );
-      expect(loader.find("span span")).toHaveStyleRule("height", `${length}${defaultUnit}`);
-    });
-  });
-
-  describe("width prop", () => {
-    it("should render the width with px unit when size is a number", () => {
-      const width = 10;
-      const loader = mount(<BarLoader width={10} />);
-      expect(loader).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
-      expect(loader).toHaveStyleRule("width", `${width}${defaultUnit}`);
-    });
-
-    it("should render the height as is when height is a string with valid css unit", () => {
-      const width = "18%";
-      const loader = mount(<BarLoader width={width} />);
-      expect(loader).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
-      expect(loader).toHaveStyleRule("width", `${width}`);
-    });
-
-    it("should render the width with default unit of px when the unit is incorrect", () => {
-      const length = 18;
-      const unit = "ad";
-      const width = `${length}${unit}`;
-      const loader = mount(<BarLoader width={width} />);
-      expect(loader).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
-      expect(loader).toHaveStyleRule("width", `${length}${defaultUnit}`);
-    });
-  });
+  const widthExpectStatements = (loader: ReactWrapper, length: number, unit?: string) => {
+    expect(loader).not.toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
+    expect(loader).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
+  };
+  lengthSpecs(BarLoader, "width", widthExpectStatements);
 
   const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
     expect(loader.find("span span").at(0)).toHaveStyleRule(
