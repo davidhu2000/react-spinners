@@ -1,6 +1,8 @@
 import React from "react";
 import { css } from "@emotion/react";
 import { mount } from "enzyme";
+import { matchers } from "@emotion/jest";
+expect.extend(matchers);
 
 function cssSpecs(Loader: typeof React.Component): void {
   describe("css props", () => {
