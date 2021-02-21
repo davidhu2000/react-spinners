@@ -1,13 +1,8 @@
 import * as React from "react";
 import { mount } from "enzyme";
 import { matchers } from "@emotion/jest";
-import BarLoader from "../../src/BarLoader";
-import PulseLoader from "../../src/PulseLoader";
-import { LoaderHeightWidthProps, LoaderSizeMarginProps } from "../../src/interfaces";
 expect.extend(matchers);
 
-export function commonSpecs(Loader: typeof BarLoader, defaultProps: LoaderHeightWidthProps): void;
-export function commonSpecs(Loader: typeof PulseLoader, defaultProps: LoaderSizeMarginProps): void;
 export function commonSpecs(Loader: typeof React.Component, defaultProps: unknown): void {
   it("should match snapshot", () => {
     const loader = mount(<Loader />);
