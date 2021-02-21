@@ -47,7 +47,7 @@ describe("FadeLoader", () => {
     expect(loader.find("span span")).toHaveStyleRule("background-color", "#e2e2e2");
   });
 
-  const lengthExpectStatements = (property) => (
+  const lengthExpectStatements = (property: string) => (
     loader: ReactWrapper,
     length: number,
     unit?: string
