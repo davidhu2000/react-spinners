@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HashLoader should match snapshot 1`] = `
+exports[`HashLoader common specs should match snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     width: 10px;
