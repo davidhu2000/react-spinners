@@ -17,13 +17,17 @@ const short = keyframes`
   100% {left: 107%;right: -8%}
 `;
 
-export class Loader extends React.PureComponent<LoaderHeightWidthProps> {
+class Loader extends React.PureComponent<LoaderHeightWidthProps> {
   public static defaultProps = heightWidthDefaults(4, 100);
 
   public style = (i: number): SerializedStyles => {
-    const { height, color } = this.props;
+    const { height, color, speedMultiplier } = this.props;
 
-    const speedMultiplier = this.props.speedMultiplier || Loader.defaultProps.speedMultiplier;
+    let multiplier = speedMultiplier || Loader.defaultProps.speedMultiplier;
+
+    if (speedMultiplier === 0) {
+      multiplier = 0;
+    }
 
     return css`
       position: absolute;
@@ -35,8 +39,8 @@ export class Loader extends React.PureComponent<LoaderHeightWidthProps> {
       border-radius: 2px;
       will-change: left, right;
       animation-fill-mode: forwards;
-      animation: ${i === 1 ? long : short} ${2.1 / speedMultiplier}s
-        ${i === 2 ? `${1.15 / speedMultiplier}s` : ""}
+      animation: ${i === 1 ? long : short} ${2.1 / multiplier}s
+        ${i === 2 ? `${1.15 / multiplier}s` : ""}
         ${i === 1
           ? "cubic-bezier(0.65, 0.815, 0.735, 0.395)"
           : "cubic-bezier(0.165, 0.84, 0.44, 1)"}
