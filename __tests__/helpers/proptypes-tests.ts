@@ -4,6 +4,7 @@ import {
   heightWidthDefaults,
   heightWidthRadiusDefaults
 } from "../../src/helpers";
+import { CommonProps } from "../../src/interfaces";
 
 function isFunctionSpec<T>(defaultsFunction: T) {
   it("should be a function", () => {
@@ -11,9 +12,9 @@ function isFunctionSpec<T>(defaultsFunction: T) {
   });
 }
 
-const defaultPropsSpec = (defaultsFunction, inputs) => {
+function defaultPropsSpec<T extends CommonProps>(defaultProps: T) {
   it("should return an object containing the common props: loading, color, css, speedMultiplier", () => {
-    const defaultProps = defaultsFunction(...inputs);
+    // const defaultProps = defaultsFunction(...inputs);
     expect(defaultProps).toHaveProperty("loading");
     expect(defaultProps.loading).toEqual(true);
     expect(defaultProps).toHaveProperty("color");
@@ -23,13 +24,13 @@ const defaultPropsSpec = (defaultsFunction, inputs) => {
     expect(defaultProps).toHaveProperty("speedMultiplier");
     expect(defaultProps.speedMultiplier).toEqual(1);
   });
-};
+}
 
 describe("Default Props functions for different loaders", () => {
   describe("sizeDefaults", () => {
     isFunctionSpec(sizeDefaults);
 
-    defaultPropsSpec(sizeDefaults, [1]);
+    defaultPropsSpec(sizeDefaults(1));
 
     it("should return the size as the passed in size value", () => {
       const defaultProps1 = sizeDefaults(1);
@@ -45,7 +46,7 @@ describe("Default Props functions for different loaders", () => {
   describe("sizeMarginDefaults", () => {
     isFunctionSpec(sizeMarginDefaults);
 
-    defaultPropsSpec(sizeMarginDefaults, [1]);
+    defaultPropsSpec(sizeMarginDefaults(1));
 
     it("should return the size as the passed in size value", () => {
       const defaultProps1 = sizeMarginDefaults(1);
@@ -63,7 +64,7 @@ describe("Default Props functions for different loaders", () => {
   describe("heightWidthDefaults", () => {
     isFunctionSpec(heightWidthDefaults);
 
-    defaultPropsSpec(heightWidthDefaults, [1, 1]);
+    defaultPropsSpec(heightWidthDefaults(1, 1));
 
     it("should return the height/width as the passed in height/width value", () => {
       const defaultProps1 = heightWidthDefaults(1, 2);
@@ -83,7 +84,7 @@ describe("Default Props functions for different loaders", () => {
   describe("heightWidthRadiusDefaults", () => {
     isFunctionSpec(heightWidthRadiusDefaults);
 
-    defaultPropsSpec(heightWidthRadiusDefaults, [1, 1, 1]);
+    defaultPropsSpec(heightWidthRadiusDefaults(1, 1, 1));
 
     it("should return the height/width as the passed in height/width value", () => {
       const defaultProps1 = heightWidthRadiusDefaults(1, 2, 3);
