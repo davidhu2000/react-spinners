@@ -1,17 +1,20 @@
 import * as React from "react";
-import { mount } from "enzyme";
+import { mount, ReactWrapper } from "enzyme";
 import { matchers } from "@emotion/jest";
 expect.extend(matchers);
 
 import PulseLoader from "../src/PulseLoader";
 import { sizeMarginDefaults } from "../src/helpers";
 import { commonSpecs } from "./sharedSpecs/commonSpecs";
+import { speedMultiplierSpecs } from "./sharedSpecs/speedMultiplerSpecs";
 
 describe("PulseLoader", () => {
   const defaultSize = 15;
   const defaultMargin = 2;
   const defaultColor = "#000000";
   const defaultUnit = "px";
+  const defaultSpeed = 0.75;
+  const defaultDelay = 0.12;
 
   commonSpecs(PulseLoader, sizeMarginDefaults(defaultSize));
 
@@ -146,6 +149,21 @@ describe("PulseLoader", () => {
       }
     });
   });
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    for (let i = 0; i < 3; i++) {
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
+        "animation",
+        expect.stringContaining(`${defaultSpeed * multiplier}s`)
+      );
+
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
+        "animation",
+        expect.stringContaining(`${(i + 1) * defaultDelay * multiplier}s`)
+      );
+    }
+  };
+  speedMultiplierSpecs(PulseLoader, speedMultiplierExpectStatements);
 
   it("should render the css override based on props", () => {
     const loader = mount(<PulseLoader css={"position: fixed; width: 100px; color: blue;"} />);
