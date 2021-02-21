@@ -5,11 +5,11 @@ import {
   heightWidthRadiusDefaults
 } from "../../src/helpers";
 
-const isFunctionSpec = (defaultsFunction) => {
+function isFunctionSpec<T>(defaultsFunction: T) {
   it("should be a function", () => {
     expect(typeof defaultsFunction).toEqual("function");
   });
-};
+}
 
 const defaultPropsSpec = (defaultsFunction, inputs) => {
   it("should return an object containing the common props: loading, color, css, speedMultiplier", () => {
