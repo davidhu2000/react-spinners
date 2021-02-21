@@ -3,7 +3,7 @@ import * as React from "react";
 import ReactDOM from "react-dom";
 import { ColorResult } from "react-color";
 
-import { Code, ColorPicker, LoaderItem } from "./components";
+import { Code, ColorPicker, LoaderItem, SpeedMultiplierInput } from "./components";
 import * as Spinners from "../src";
 import { LoaderSizeMarginProps, LoaderHeightWidthRadiusProps } from "../src/interfaces";
 
@@ -20,6 +20,7 @@ Object.keys(Spinners).forEach((key) => {
 interface ExampleState {
   color: string;
   showPicker: boolean;
+  speedMultiplier: number;
 }
 
 class SpinnerExamples extends React.Component<unknown, ExampleState> {
@@ -27,6 +28,7 @@ class SpinnerExamples extends React.Component<unknown, ExampleState> {
     super(props);
     this.state = {
       color: "#36D7B7",
+      speedMultiplier: 1,
       showPicker: false
     };
   }
@@ -54,16 +56,24 @@ class SpinnerExamples extends React.Component<unknown, ExampleState> {
     `;
   };
 
+  public updateMultiplier = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({
+      speedMultiplier: parseFloat(e.target.value)
+    });
+  };
+
   public togglePicker = (): void => {
     this.setState({ showPicker: !this.state.showPicker });
   };
 
   public render(): JSX.Element {
-    const { color, showPicker } = this.state;
+    const { color, showPicker, speedMultiplier } = this.state;
 
     return (
       <div className="spinner-container">
         <div className="color-picker position-abs">
+          <SpeedMultiplierInput value={this.state.speedMultiplier} update={this.updateMultiplier} />
+          <br />
           {showPicker ? (
             <ColorPicker
               color={color}
@@ -80,6 +90,7 @@ class SpinnerExamples extends React.Component<unknown, ExampleState> {
             key={`loader-${name}`}
             color={color}
             name={name}
+            speedMultiplier={speedMultiplier}
             Spinner={files[name].default}
           />
         ))}
