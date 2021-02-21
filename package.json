@@ -44,8 +44,8 @@
     "jest": "./node_modules/.bin/jest --runInBand",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "remove:tag": "npm dist-tag rm react-spinners",
-    "publish:alpha": "npm publish --tag alpha",
-    "publish:beta": "npm publish --tag beta"
+    "publish:alpha": "npm publish --tag alpha && npm run clean",
+    "publish:beta": "npm publish --tag beta && npm run clean"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
