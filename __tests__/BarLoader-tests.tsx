@@ -140,4 +140,12 @@ describe("BarLoader", () => {
       animationSpeedSpec(Infinity);
     });
   });
+
+  it("should render the css override based on props", () => {
+    const loader = mount(<BarLoader css={"position: absolute; overflow: scroll;"} />);
+    expect(loader).not.toHaveStyleRule("position", "relative");
+    expect(loader).toHaveStyleRule("position", "absolute");
+    expect(loader).not.toHaveStyleRule("overflow", "hidden");
+    expect(loader).toHaveStyleRule("overflow", "scroll");
+  });
 });

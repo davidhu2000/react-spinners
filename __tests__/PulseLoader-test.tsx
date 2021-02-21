@@ -146,4 +146,11 @@ describe("PulseLoader", () => {
       }
     });
   });
+
+  it("should render the css override based on props", () => {
+    const loader = mount(<PulseLoader css={"position: fixed; width: 100px; color: blue;"} />);
+    expect(loader).toHaveStyleRule("position", "fixed");
+    expect(loader).toHaveStyleRule("width", "100px");
+    expect(loader).toHaveStyleRule("color", "blue");
+  });
 });
