@@ -4,9 +4,8 @@ import { matchers } from "@emotion/jest";
 expect.extend(matchers);
 
 import BarLoader from "../src/BarLoader";
-import { commonSpecs } from "./sharedSpecs/commonSpecs";
+import { commonSpecs, speedMultiplierSpecs } from "./sharedSpecs/";
 import { heightWidthDefaults } from "../src/helpers";
-import { speedMultiplierSpecs } from "./sharedSpecs/speedMultiplerSpecs";
 
 describe("BarLoader", () => {
   const defaultColor = "#000000";
@@ -115,12 +114,4 @@ describe("BarLoader", () => {
     );
   };
   speedMultiplierSpecs(BarLoader, speedMultiplierExpectStatements);
-
-  it("should render the css override based on props", () => {
-    const loader = mount(<BarLoader css={"position: absolute; overflow: scroll;"} />);
-    expect(loader).not.toHaveStyleRule("position", "relative");
-    expect(loader).toHaveStyleRule("position", "absolute");
-    expect(loader).not.toHaveStyleRule("overflow", "hidden");
-    expect(loader).toHaveStyleRule("overflow", "scroll");
-  });
 });

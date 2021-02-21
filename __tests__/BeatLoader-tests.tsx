@@ -5,7 +5,7 @@ expect.extend(matchers);
 
 import BeatLoader from "../src/BeatLoader";
 import { sizeMarginDefaults } from "../src/helpers";
-import { commonSpecs } from "./sharedSpecs/commonSpecs";
+import { commonSpecs, cssSpecs } from "./sharedSpecs";
 
 describe("BeatLoader", () => {
   const defaultColor = "#000000";
@@ -14,6 +14,7 @@ describe("BeatLoader", () => {
   const defaultUnit = "px";
 
   commonSpecs(BeatLoader, sizeMarginDefaults(defaultSize));
+  cssSpecs(BeatLoader);
 
   it("should contain styles created using default props", () => {
     const loader = mount(<BeatLoader />);
@@ -101,11 +102,5 @@ describe("BeatLoader", () => {
       );
       expect(loader.find("span span")).toHaveStyleRule("margin", `${length}${defaultUnit}`);
     });
-  });
-
-  it("should render the css override based on props", () => {
-    const loader = mount(<BeatLoader css={"position: absolute; overflow: scroll;"} />);
-    expect(loader).toHaveStyleRule("position", "absolute");
-    expect(loader).toHaveStyleRule("overflow", "scroll");
   });
 });

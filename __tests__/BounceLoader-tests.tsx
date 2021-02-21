@@ -5,7 +5,7 @@ expect.extend(matchers);
 
 import BounceLoader from "../src/BounceLoader";
 import { sizeDefaults } from "../src/helpers";
-import { commonSpecs } from "./sharedSpecs/commonSpecs";
+import { commonSpecs } from "./sharedSpecs";
 
 describe("BounceLoader", () => {
   const defaultColor = "#000000";
