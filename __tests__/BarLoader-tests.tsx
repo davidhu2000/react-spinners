@@ -100,7 +100,7 @@ describe("BarLoader", () => {
     });
   });
 
-  const speecMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
     expect(loader.find("span span").at(0)).toHaveStyleRule(
       "animation",
       expect.stringContaining(`${defaultSpeed * multiplier}s`)
