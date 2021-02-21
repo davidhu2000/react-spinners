@@ -1,17 +1,20 @@
 import * as React from "react";
-import { mount } from "enzyme";
+import { mount, ReactWrapper } from "enzyme";
 import { matchers } from "@emotion/jest";
 expect.extend(matchers);
 
 import BarLoader from "../src/BarLoader";
 import { commonSpecs } from "./sharedSpecs/commonSpecs";
 import { heightWidthDefaults } from "../src/helpers";
+import { speedMultiplierSpecs } from "./sharedSpecs/speedMultiplerSpecs";
 
 describe("BarLoader", () => {
   const defaultColor = "#000000";
   const defaultHeight = 4;
   const defaultWidth = 100;
   const defaultUnit = "px";
+  const defaultSpeed = 2.1;
+  const defaultDelay = 1.15;
 
   commonSpecs(BarLoader, heightWidthDefaults(defaultHeight, defaultWidth));
 
@@ -97,49 +100,21 @@ describe("BarLoader", () => {
     });
   });
 
-  describe("speedMultipler prop", () => {
-    const defaultSpeed = 2.1;
-    const defaultDelay = 1.15;
-    let loader = mount(<BarLoader />);
-
-    const animationSpeedSpec = (multiplier: number) => {
-      expect(loader.find("span span").at(0)).toHaveStyleRule(
-        "animation",
-        expect.stringContaining(`${defaultSpeed * multiplier}s`)
-      );
-      expect(loader.find("span span").at(1)).toHaveStyleRule(
-        "animation",
-        expect.stringContaining(`${defaultSpeed * multiplier}s`)
-      );
-
-      expect(loader.find("span span").at(1)).toHaveStyleRule(
-        "animation",
-        expect.stringContaining(`${defaultDelay * multiplier}s`)
-      );
-    };
-
-    it("should use default speed and delay if speedMultipler is not passed in", () => {
-      animationSpeedSpec(1);
-    });
-
-    it("should double the animation speed if passed in as 2", () => {
-      const speedMultiplier = 2;
-      loader = mount(<BarLoader speedMultiplier={speedMultiplier} />);
-      animationSpeedSpec(0.5);
-    });
-
-    it("should half the animation speed if passed in as 0.5", () => {
-      const speedMultiplier = 0.5;
-      loader = mount(<BarLoader speedMultiplier={speedMultiplier} />);
-      animationSpeedSpec(2);
-    });
-
-    it("should stop animating if passed in as 0", () => {
-      const speedMultiplier = 0;
-      loader = mount(<BarLoader speedMultiplier={speedMultiplier} />);
-      animationSpeedSpec(Infinity);
-    });
-  });
+  const speecMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    expect(loader.find("span span").at(0)).toHaveStyleRule(
+      "animation",
+      expect.stringContaining(`${defaultSpeed * multiplier}s`)
+    );
+    expect(loader.find("span span").at(1)).toHaveStyleRule(
+      "animation",
+      expect.stringContaining(`${defaultSpeed * multiplier}s`)
+    );
+    expect(loader.find("span span").at(1)).toHaveStyleRule(
+      "animation",
+      expect.stringContaining(`${defaultDelay * multiplier}s`)
+    );
+  };
+  speedMultiplierSpecs(BarLoader, speecMultiplierExpectStatements);
 
   it("should render the css override based on props", () => {
     const loader = mount(<BarLoader css={"position: absolute; overflow: scroll;"} />);
