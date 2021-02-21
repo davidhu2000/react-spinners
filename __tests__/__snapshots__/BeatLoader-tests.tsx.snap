@@ -69,6 +69,7 @@ exports[`BeatLoader should match snapshot 1`] = `
   loading={true}
   margin={2}
   size={15}
+  speedMultiplier={1}
 >
   <span
     className="emotion-0"

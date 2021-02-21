@@ -296,3 +296,21 @@ footer a {
 footer a:hover {
   color: #fff;
 }
+
+.speed-multiplier-input {
+  background: #2b303b;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  opacity: 0.9;
+  align-items: center;
+}
+
+.speed-multiplier-input input {
+  margin-top: 5px;
+}
+
+.speed-multiplier-input input:focus {
+  outline: none;
+}

@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.11.0-alpha.3
+
+- Implement `speedMultipler` prop to `BarLoader`. This is done to test the API for a single loader before adding to the rest.
+
 ## 0.11.0-alpha.2
 
 - Update readme usage section to use `@emotion` for `.babelrc` plugins

@@ -111,6 +111,50 @@ describe("BarLoader", () => {
     });
   });
 
+  describe("speedMultipler prop", () => {
+    const defaultSpeed = 2.1;
+    const defaultDelay = 1.15;
+
+    const animationSpeedSpec = (multiplier: number) => {
+      expect(loader.find("span span").at(0)).toHaveStyleRule(
+        "animation",
+        expect.stringContaining(`${defaultSpeed * multiplier}s`)
+      );
+      expect(loader.find("span span").at(1)).toHaveStyleRule(
+        "animation",
+        expect.stringContaining(`${defaultSpeed * multiplier}s`)
+      );
+
+      expect(loader.find("span span").at(1)).toHaveStyleRule(
+        "animation",
+        expect.stringContaining(`${defaultDelay * multiplier}s`)
+      );
+    };
+
+    it("should use default speed and delay if speedMultipler is not passed in", () => {
+      loader = mount(<BarLoader />);
+      animationSpeedSpec(1);
+    });
+
+    it("should double the animation speed if passed in as 2", () => {
+      const speedMultiplier = 2;
+      loader = mount(<BarLoader speedMultiplier={speedMultiplier} />);
+      animationSpeedSpec(0.5);
+    });
+
+    it("should half the animation speed if passed in as 0.5", () => {
+      const speedMultiplier = 0.5;
+      loader = mount(<BarLoader speedMultiplier={speedMultiplier} />);
+      animationSpeedSpec(2);
+    });
+
+    it("should stop animating if passed in as 0", () => {
+      const speedMultiplier = 0;
+      loader = mount(<BarLoader speedMultiplier={speedMultiplier} />);
+      animationSpeedSpec(Infinity);
+    });
+  });
+
   it("should render the css override based on props", () => {
     loader = mount(<BarLoader css={"position: absolute; overflow: scroll;"} />);
     expect(loader).not.toHaveStyleRule("position", "relative");

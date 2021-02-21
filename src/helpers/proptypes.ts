@@ -1,25 +1,19 @@
-import { SerializedStyles } from '@emotion/react';
 import {
   LoaderHeightWidthProps,
   LoaderSizeProps,
   LoaderSizeMarginProps,
-  LoaderHeightWidthRadiusProps
+  LoaderHeightWidthRadiusProps,
+  CommonProps
 } from "../interfaces";
 
 /*
  * DefaultProps object for different loaders
  */
-
-interface CommonDefaults {
-  loading: boolean;
-  color: string;
-  css: string | SerializedStyles;
-}
-
-const commonValues: CommonDefaults = {
+const commonValues: Required<CommonProps> = {
   loading: true,
   color: "#000000",
-  css: ""
+  css: "",
+  speedMultiplier: 1
 };
 
 export function sizeDefaults(sizeValue: number): Required<LoaderSizeProps> {

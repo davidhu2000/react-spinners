@@ -7,9 +7,7 @@ interface FormProps {
   update: (field: string) => (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-type FormType = (arg: FormProps) => JSX.Element;
-
-const Form: FormType = ({ inputs, update }: FormProps): JSX.Element => (
+const Form = ({ inputs, update }: FormProps): JSX.Element => (
   <div className="spinner-form">
     {Object.keys(inputs).map((name: string) => (
       <div className="spinner-form-input" key={name}>

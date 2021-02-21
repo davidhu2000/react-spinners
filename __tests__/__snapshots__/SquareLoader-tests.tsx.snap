@@ -47,6 +47,7 @@ exports[`SquareLoader should match snapshot 1`] = `
   css=""
   loading={true}
   size={50}
+  speedMultiplier={1}
 >
   <span
     className="emotion-0"

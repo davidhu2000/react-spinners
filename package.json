@@ -1,6 +1,6 @@
 {
   "name": "react-spinners",
-  "version": "0.11.0-alpha.2",
+  "version": "0.11.0-alpha.3",
   "description": "A collection of react loading spinners",
   "repository": {
     "type": "git",
@@ -43,7 +43,9 @@
     "lint": "./node_modules/.bin/eslint src __tests__ examples",
     "jest": "./node_modules/.bin/jest --runInBand",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "remove:tag": "npm dist-tag rm react-spinners"
+    "remove:tag": "npm dist-tag rm react-spinners",
+    "publish:alpha": "npm publish --tag alpha",
+    "publish:beta": "npm publish --tag beta"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",

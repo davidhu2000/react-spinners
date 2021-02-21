@@ -5,10 +5,11 @@ export interface LengthObject {
   unit: string;
 }
 
-interface CommonProps {
+export interface CommonProps {
   color?: string;
   loading?: boolean;
   css?: string | SerializedStyles;
+  speedMultiplier?: number
 }
 
 export type LengthType = number | string;
