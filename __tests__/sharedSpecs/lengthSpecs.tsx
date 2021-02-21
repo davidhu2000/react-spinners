@@ -12,7 +12,7 @@ function lengthSpecs(
 ): void {
   const length = 18;
 
-  describe(`${property} prop`, () => {
+  describe(`${property} props`, () => {
     it(`should render the ${property} with px unit when size is a number`, () => {
       const props = { [property]: length };
       const loader = mount(<Loader {...props} />);
