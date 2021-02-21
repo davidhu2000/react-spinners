@@ -1,38 +1,32 @@
 import * as React from "react";
-import { mount, ReactWrapper } from "enzyme";
-import { matchers } from '@emotion/jest';
+import { mount } from "enzyme";
+import { matchers } from "@emotion/jest";
 expect.extend(matchers);
 
 import PulseLoader from "../src/PulseLoader";
-import { LoaderSizeMarginProps } from "../src/interfaces";
 import { sizeMarginDefaults } from "../src/helpers";
+import { commonSpecs } from "./sharedSpecs/commonSpecs";
 
 describe("PulseLoader", () => {
-  let loader: ReactWrapper;
-  let props: LoaderSizeMarginProps;
   const defaultSize = 15;
   const defaultMargin = 2;
   const defaultColor = "#000000";
   const defaultUnit = "px";
 
-  it("should match snapshot", () => {
-    loader = mount(<PulseLoader />);
-    expect(loader).toMatchSnapshot();
-  });
-
-  it("should contain default props if no props are passed", () => {
-    props = loader.props();
-    expect(props).toEqual(sizeMarginDefaults(defaultSize));
-  });
+  commonSpecs(PulseLoader, sizeMarginDefaults(defaultSize));
 
   it("should contain styles created using default props", () => {
+    const loader = mount(<PulseLoader />);
     for (let i = 0; i < 3; i++) {
       expect(loader.find("span span").at(i)).toHaveStyleRule("background-color", defaultColor);
       expect(loader.find("span span").at(i)).toHaveStyleRule(
         "height",
         `${defaultSize}${defaultUnit}`
       );
-      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
+        "width",
+        `${defaultSize}${defaultUnit}`
+      );
       expect(loader.find("span span").at(i)).toHaveStyleRule(
         "margin",
         `${defaultMargin}${defaultUnit}`
@@ -40,14 +34,9 @@ describe("PulseLoader", () => {
     }
   });
 
-  it("should render null if loading prop is set as false", () => {
-    loader = mount(<PulseLoader loading={false} />);
-    expect(loader.isEmptyRender()).toBe(true);
-  });
-
   it("should render the correct color based on prop", () => {
     const color = "#e2e2e2";
-    loader = mount(<PulseLoader color={color} />);
+    const loader = mount(<PulseLoader color={color} />);
     for (let i = 0; i < 3; i++) {
       expect(loader.find("span span").at(i)).not.toHaveStyleRule("background-color", defaultColor);
       expect(loader.find("span span").at(i)).toHaveStyleRule("background-color", color);
@@ -57,7 +46,7 @@ describe("PulseLoader", () => {
   describe("size props", () => {
     it("should render the size with px unit when size is a number", () => {
       const size = 18;
-      loader = mount(<PulseLoader size={size} />);
+      const loader = mount(<PulseLoader size={size} />);
 
       for (let i = 0; i < 3; i++) {
         expect(loader.find("span span").at(i)).not.toHaveStyleRule(
@@ -76,7 +65,7 @@ describe("PulseLoader", () => {
 
     it("should render the size as is when size is a string with valid css unit", () => {
       const size = "18px";
-      loader = mount(<PulseLoader size={size} />);
+      const loader = mount(<PulseLoader size={size} />);
 
       for (let i = 0; i < 3; i++) {
         expect(loader.find("span span").at(i)).not.toHaveStyleRule(
@@ -97,7 +86,7 @@ describe("PulseLoader", () => {
       const length = 18;
       const unit = "ad";
       const size = `${length}${unit}`;
-      loader = mount(<PulseLoader size={size} />);
+      const loader = mount(<PulseLoader size={size} />);
 
       for (let i = 0; i < 3; i++) {
         expect(loader.find("span span").at(i)).not.toHaveStyleRule(
@@ -118,7 +107,7 @@ describe("PulseLoader", () => {
   describe("margin props", () => {
     it("should render the margin with px unit when margin is a number", () => {
       const margin = 18;
-      loader = mount(<PulseLoader margin={margin} />);
+      const loader = mount(<PulseLoader margin={margin} />);
 
       for (let i = 0; i < 3; i++) {
         expect(loader.find("span span").at(i)).not.toHaveStyleRule(
@@ -131,7 +120,7 @@ describe("PulseLoader", () => {
 
     it("should render the margin as is when margin is a string with valid css unit", () => {
       const margin = "18px";
-      loader = mount(<PulseLoader margin={margin} />);
+      const loader = mount(<PulseLoader margin={margin} />);
 
       for (let i = 0; i < 3; i++) {
         expect(loader.find("span span").at(i)).not.toHaveStyleRule(
@@ -146,7 +135,7 @@ describe("PulseLoader", () => {
       const length = 18;
       const unit = "ad";
       const margin = `${length}${unit}`;
-      loader = mount(<PulseLoader margin={margin} />);
+      const loader = mount(<PulseLoader margin={margin} />);
 
       for (let i = 0; i < 3; i++) {
         expect(loader.find("span span").at(i)).not.toHaveStyleRule(
@@ -159,7 +148,7 @@ describe("PulseLoader", () => {
   });
 
   it("should render the css override based on props", () => {
-    loader = mount(<PulseLoader css={"position: fixed; width: 100px; color: blue;"} />);
+    const loader = mount(<PulseLoader css={"position: fixed; width: 100px; color: blue;"} />);
     expect(loader).toHaveStyleRule("position", "fixed");
     expect(loader).toHaveStyleRule("width", "100px");
     expect(loader).toHaveStyleRule("color", "blue");
