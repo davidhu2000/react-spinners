@@ -100,7 +100,7 @@ describe("BarLoader", () => {
     });
   });
 
-  const animationSpeedSpec = (loader: ReactWrapper, multiplier: number) => {
+  const speecMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
     expect(loader.find("span span").at(0)).toHaveStyleRule(
       "animation",
       expect.stringContaining(`${defaultSpeed * multiplier}s`)
@@ -109,13 +109,12 @@ describe("BarLoader", () => {
       "animation",
       expect.stringContaining(`${defaultSpeed * multiplier}s`)
     );
-
     expect(loader.find("span span").at(1)).toHaveStyleRule(
       "animation",
       expect.stringContaining(`${defaultDelay * multiplier}s`)
     );
   };
-  speedMultiplierSpecs(BarLoader, animationSpeedSpec);
+  speedMultiplierSpecs(BarLoader, speecMultiplierExpectStatements);
 
   it("should render the css override based on props", () => {
     const loader = mount(<BarLoader css={"position: absolute; overflow: scroll;"} />);
