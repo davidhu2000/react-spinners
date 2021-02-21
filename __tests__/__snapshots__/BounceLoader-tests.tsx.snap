@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BounceLoader should match snapshot 1`] = `
+exports[`BounceLoader common specs should match snapshot 1`] = `
 @keyframes animation-0 {
   0%, 100% {
     -webkit-transform: scale(0);

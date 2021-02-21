@@ -5,10 +5,7 @@ expect.extend(matchers);
 
 type ExpectFunc = (loader: ReactWrapper, multiplier: number) => void;
 
-export function speedMultiplierSpecs(
-  Loader: typeof React.Component,
-  expectFunction: ExpectFunc
-): void {
+function speedMultiplierSpecs(Loader: typeof React.Component, expectFunction: ExpectFunc): void {
   describe("speedMultipler prop", () => {
     let loader = mount(<Loader />);
 
@@ -35,3 +32,5 @@ export function speedMultiplierSpecs(
     });
   });
 }
+
+export default speedMultiplierSpecs;

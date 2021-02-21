@@ -5,8 +5,7 @@ expect.extend(matchers);
 
 import PulseLoader from "../src/PulseLoader";
 import { sizeMarginDefaults } from "../src/helpers";
-import { commonSpecs } from "./sharedSpecs/commonSpecs";
-import { speedMultiplierSpecs } from "./sharedSpecs/speedMultiplerSpecs";
+import { commonSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("PulseLoader", () => {
   const defaultSize = 15;

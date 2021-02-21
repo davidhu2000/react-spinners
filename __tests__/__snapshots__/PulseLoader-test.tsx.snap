@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PulseLoader should match snapshot 1`] = `
+exports[`PulseLoader common specs should match snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: scale(1);
