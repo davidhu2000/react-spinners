@@ -14,7 +14,6 @@ function isFunctionSpec<T>(defaultsFunction: T) {
 
 function defaultPropsSpec<T extends CommonProps>(defaultProps: T) {
   it("should return an object containing the common props: loading, color, css, speedMultiplier", () => {
-    // const defaultProps = defaultsFunction(...inputs);
     expect(defaultProps).toHaveProperty("loading");
     expect(defaultProps.loading).toEqual(true);
     expect(defaultProps).toHaveProperty("color");
