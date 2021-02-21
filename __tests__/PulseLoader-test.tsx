@@ -163,7 +163,7 @@ describe("PulseLoader", () => {
       );
     }
   };
-  speedMultiplierSpecs(PulseLoader, speecMultiplierExpectStatements);
+  speedMultiplierSpecs(PulseLoader, speedMultiplierExpectStatements);
 
   it("should render the css override based on props", () => {
     const loader = mount(<PulseLoader css={"position: fixed; width: 100px; color: blue;"} />);
