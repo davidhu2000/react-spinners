@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DotLoader should match snapshot 1`] = `
+exports[`DotLoader common specs should match snapshot 1`] = `
 @keyframes animation-0 {
   100% {
     -webkit-transform: rotate(360deg);
