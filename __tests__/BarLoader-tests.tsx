@@ -4,7 +4,7 @@ import { matchers } from "@emotion/jest";
 expect.extend(matchers);
 
 import BarLoader from "../src/BarLoader";
-import { commonSpecs, speedMultiplierSpecs } from "./sharedSpecs/";
+import { commonSpecs, cssSpecs, speedMultiplierSpecs } from "./sharedSpecs/";
 import { heightWidthDefaults } from "../src/helpers";
 
 describe("BarLoader", () => {
@@ -16,6 +16,7 @@ describe("BarLoader", () => {
   const defaultDelay = 1.15;
 
   commonSpecs(BarLoader, heightWidthDefaults(defaultHeight, defaultWidth));
+  cssSpecs(BarLoader);
 
   it("should contain styles created using default props", () => {
     const loader = mount(<BarLoader />);
