@@ -43,7 +43,7 @@ exports[`MoonLoader should match snapshot 1`] = `
   animation-fill-mode: forwards;
 }
 
-.emotion-01a1rv6j {
+.emotion-0mhu5ag {
   width: 60px;
   height: 60px;
   border-radius: 100%;
@@ -58,6 +58,7 @@ exports[`MoonLoader should match snapshot 1`] = `
   css=""
   loading={true}
   size={60}
+  speedMultiplier={1}
 >
   <span
     className="emotion-0"
@@ -69,7 +70,7 @@ exports[`MoonLoader should match snapshot 1`] = `
         className="emotion-042s4e8"
       />
       <span
-        className="emotion-01a1rv6j"
+        className="emotion-0mhu5ag"
       />
     </span>
   </span>

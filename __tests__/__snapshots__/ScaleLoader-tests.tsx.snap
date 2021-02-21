@@ -188,6 +188,7 @@ exports[`ScaleLoader should match snapshot 1`] = `
   loading={true}
   margin={2}
   radius={2}
+  speedMultiplier={1}
   width={4}
 >
   <span
