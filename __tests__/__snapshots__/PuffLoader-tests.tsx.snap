@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PuffLoader should match snapshot 1`] = `
+exports[`PuffLoader common specs should match snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: scale(0);
