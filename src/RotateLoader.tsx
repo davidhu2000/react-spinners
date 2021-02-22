@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from '@emotion/react';
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 
 import { sizeMarginDefaults, cssValue, parseLengthAndUnit } from "./helpers";
 import { LoaderSizeMarginProps } from "./interfaces";
@@ -16,14 +16,14 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
 
   public style = (i: number): SerializedStyles => {
     const { margin } = this.props;
-    const { value } = parseLengthAndUnit(margin || Loader.defaultProps.margin);
+    const { value, unit } = parseLengthAndUnit(margin || Loader.defaultProps.margin);
     const left = (i % 2 ? -1 : 1) * (26 + value);
 
     return css`
       opacity: 0.8;
       position: absolute;
       top: 0;
-      left: ${left}px;
+      left: ${left}${unit};
     `;
   };
 
