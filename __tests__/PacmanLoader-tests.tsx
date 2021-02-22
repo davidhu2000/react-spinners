@@ -4,7 +4,6 @@ import { matchers } from "@emotion/jest";
 expect.extend(matchers);
 
 import PacmanLoader from "../src/PacmanLoader";
-import { LoaderSizeMarginProps } from "../src/interfaces";
 import { sizeMarginDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
 
