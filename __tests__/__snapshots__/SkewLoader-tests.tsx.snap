@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SkewLoader should match snapshot 1`] = `
+exports[`SkewLoader common specs should match snapshot 1`] = `
 @keyframes animation-0 {
   25% {
     -webkit-transform: perspective(100px) rotateX(180deg) rotateY(0);
