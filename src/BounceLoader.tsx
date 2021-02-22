@@ -18,9 +18,9 @@ class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
 
     return css`
       position: absolute;
-      height: ${cssValue(size || Loader.defaultProps.size)};
-      width: ${cssValue(size || Loader.defaultProps.size)};
-      background-color: ${color || Loader.defaultProps.color};
+      height: ${cssValue(size)};
+      width: ${cssValue(size)};
+      background-color: ${color};
       border-radius: 100%;
       opacity: 0.6;
       top: 0;
@@ -36,8 +36,8 @@ class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
 
     return css`
       position: relative;
-      width: ${cssValue(size || Loader.defaultProps.size)};
-      height: ${cssValue(size || Loader.defaultProps.size)};
+      width: ${cssValue(size)};
+      height: ${cssValue(size)};
     `;
   };
 
