@@ -37,7 +37,7 @@ exports[`BeatLoader common specs should match snapshot 1`] = `
   }
 }
 
-.emotion-0110do72 {
+.emotion-0dfmyvi {
   display: inline-block;
   background-color: #000000;
   width: 15px;
@@ -50,7 +50,7 @@ exports[`BeatLoader common specs should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-.emotion-01by9rry {
+.emotion-0b9bjvj {
   display: inline-block;
   background-color: #000000;
   width: 15px;
@@ -78,13 +78,13 @@ exports[`BeatLoader common specs should match snapshot 1`] = `
       className="emotion-01xdhyk6"
     >
       <span
-        className="emotion-0110do72"
+        className="emotion-0dfmyvi"
       />
       <span
-        className="emotion-01by9rry"
+        className="emotion-0b9bjvj"
       />
       <span
-        className="emotion-0110do72"
+        className="emotion-0dfmyvi"
       />
     </span>
   </span>

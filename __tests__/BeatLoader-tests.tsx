@@ -5,13 +5,15 @@ expect.extend(matchers);
 
 import BeatLoader from "../src/BeatLoader";
 import { sizeMarginDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("BeatLoader", () => {
   const defaultColor = "#000000";
   const defaultSize = 15;
   const defaultMargin = 2;
   const defaultUnit = "px";
+  const defaultSpeed = 0.7;
+  const defaultDelay = 0.35;
 
   commonSpecs(BeatLoader, sizeMarginDefaults(defaultSize));
   cssSpecs(BeatLoader);
@@ -46,4 +48,19 @@ describe("BeatLoader", () => {
     expect(loader.find("span span")).toHaveStyleRule("margin", `${length}${unit || defaultUnit}`);
   };
   lengthSpecs(BeatLoader, "margin", marginExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    [0, 1, 2].forEach((index) => {
+      expect(loader.find("span span").at(index)).toHaveStyleRule(
+        "animation",
+        expect.stringContaining(`${defaultSpeed * multiplier}s`)
+      );
+    });
+
+    expect(loader.find("span span").at(1)).toHaveStyleRule(
+      "animation",
+      expect.stringContaining(`${defaultDelay * multiplier}s`)
+    );
+  };
+  speedMultiplierSpecs(BeatLoader, speedMultiplierExpectStatements);
 });
