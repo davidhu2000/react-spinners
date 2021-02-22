@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from '@emotion/react';
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 
 import { sizeDefaults, cssValue, parseLengthAndUnit } from "./helpers";
 import { LoaderSizeProps } from "./interfaces";
@@ -11,11 +11,11 @@ const circle = keyframes`
   100% {transform: rotate(360deg)}
 `;
 
-class Loader extends React.PureComponent<LoaderSizeProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   public static defaultProps = sizeDefaults(50);
 
   public style = (i: number): SerializedStyles => {
-    const { size, color } = this.props;
+    const { size, color, speedMultiplier } = this.props;
     const { value, unit } = parseLengthAndUnit(size || Loader.defaultProps.size);
 
     return css`
@@ -30,7 +30,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
       top: ${i * 0.7 * 2.5}%;
       left: ${i * 0.35 * 2.5}%;
       animation-fill-mode: "";
-      animation: ${circle} 1s ${i * 0.2}s infinite linear;
+      animation: ${circle} ${1 / speedMultiplier}s ${(i * 0.2) / speedMultiplier}s infinite linear;
     `;
   };
 

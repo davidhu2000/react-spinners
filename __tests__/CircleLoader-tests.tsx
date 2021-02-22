@@ -5,12 +5,14 @@ expect.extend(matchers);
 
 import CircleLoader from "../src/CircleLoader";
 import { sizeDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("CircleLoader", () => {
   const defaultColor = "#000000";
   const defaultSize = 50;
   const defaultUnit = "px";
+  const defaultSpeed = 1;
+  const defaultDelay = 0.2;
 
   commonSpecs(CircleLoader, sizeDefaults(defaultSize));
   cssSpecs(CircleLoader);
@@ -43,4 +45,19 @@ describe("CircleLoader", () => {
     expect(loader.find("span span")).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
   };
   lengthSpecs(CircleLoader, "size", sizeExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    [0, 1, 2, 3, 4].forEach((index) => {
+      expect(loader.find("span span").at(index)).toHaveStyleRule(
+        "animation",
+        expect.stringContaining(`${defaultSpeed * multiplier}s`)
+      );
+
+      expect(loader.find("span span").at(index)).toHaveStyleRule(
+        "animation",
+        expect.stringContaining(`${index * defaultDelay * multiplier}s`)
+      );
+    });
+  };
+  speedMultiplierSpecs(CircleLoader, speedMultiplierExpectStatements);
 });
