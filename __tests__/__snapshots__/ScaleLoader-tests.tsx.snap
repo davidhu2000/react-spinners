@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ScaleLoader should match snapshot 1`] = `
+exports[`ScaleLoader common specs should match snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: scaley(1.0);
