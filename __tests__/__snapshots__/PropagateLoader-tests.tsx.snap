@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PropagateLoader should match snapshot 1`] = `
+exports[`PropagateLoader common specs should match snapshot 1`] = `
 @keyframes animation-0 {
   25% {
     -webkit-transform: translateX(-1rem) scale(0.75);
