@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RingLoader should match snapshot 1`] = `
+exports[`RingLoader common specs should match snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
