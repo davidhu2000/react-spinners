@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RiseLoader should match snapshot 1`] = `
+exports[`RiseLoader common specs should match snapshot 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: scale(0.4);
