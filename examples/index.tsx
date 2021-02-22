@@ -72,7 +72,7 @@ class SpinnerExamples extends React.Component<unknown, ExampleState> {
     return (
       <div className="spinner-container">
         <div className="color-picker position-abs">
-          <SpeedMultiplierInput value={this.state.speedMultiplier} update={this.updateMultiplier} />
+          {/* <SpeedMultiplierInput value={this.state.speedMultiplier} update={this.updateMultiplier} /> */}
           <br />
           {showPicker ? (
             <ColorPicker
