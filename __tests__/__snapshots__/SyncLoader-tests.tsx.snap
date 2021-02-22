@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SyncLoader should match snapshot 1`] = `
+exports[`SyncLoader common specs should match snapshot 1`] = `
 @keyframes animation-0 {
   33% {
     -webkit-transform: translateY(10px);
