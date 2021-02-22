@@ -16,7 +16,7 @@ class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
 
   public style = (i: number): SerializedStyles => {
     const { size, color, speedMultiplier } = this.props;
-    const { value, unit } = parseLengthAndUnit(size || Loader.defaultProps.size);
+    const { value, unit } = parseLengthAndUnit(size);
 
     return css`
       position: absolute;
@@ -39,8 +39,8 @@ class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
 
     return css`
       position: relative;
-      width: ${cssValue(size || Loader.defaultProps.size)};
-      height: ${cssValue(size || Loader.defaultProps.size)};
+      width: ${cssValue(size)};
+      height: ${cssValue(size)};
     `;
   };
 
