@@ -5,12 +5,14 @@ expect.extend(matchers);
 
 import BounceLoader from "../src/BounceLoader";
 import { sizeDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("BounceLoader", () => {
   const defaultColor = "#000000";
   const defaultSize = 60;
   const defaultUnit = "px";
+  const defaultSpeed = 2.1;
+  const defaultDelay = 1;
 
   commonSpecs(BounceLoader, sizeDefaults(defaultSize));
   cssSpecs(BounceLoader);
@@ -43,4 +45,19 @@ describe("BounceLoader", () => {
     expect(loader.find("span span")).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
   };
   lengthSpecs(BounceLoader, "size", sizeExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    [0, 1].forEach((index) => {
+      expect(loader.find("span span").at(index)).toHaveStyleRule(
+        "animation",
+        expect.stringContaining(`${defaultSpeed * multiplier}s`)
+      );
+    });
+
+    expect(loader.find("span span").at(0)).toHaveStyleRule(
+      "animation",
+      expect.stringContaining(`${defaultDelay * multiplier}s`)
+    );
+  };
+  speedMultiplierSpecs(BounceLoader, speedMultiplierExpectStatements);
 });

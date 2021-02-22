@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from '@emotion/react';
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 
 import { sizeDefaults, cssValue } from "./helpers";
 import { LoaderSizeProps } from "./interfaces";
@@ -10,11 +10,11 @@ const bounce = keyframes`
   50% {transform: scale(1.0)}
 `;
 
-class Loader extends React.PureComponent<LoaderSizeProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   public static defaultProps = sizeDefaults(60);
 
   public style = (i: number): SerializedStyles => {
-    const { color, size } = this.props;
+    const { color, size, speedMultiplier } = this.props;
 
     return css`
       position: absolute;
@@ -26,7 +26,8 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
       top: 0;
       left: 0;
       animation-fill-mode: both;
-      animation: ${bounce} 2.1s ${i === 1 ? "1s" : "0s"} infinite ease-in-out;
+      animation: ${bounce} ${2.1 / speedMultiplier}s ${i === 1 ? `${1 / speedMultiplier}s` : "0s"}
+        infinite ease-in-out;
     `;
   };
 
