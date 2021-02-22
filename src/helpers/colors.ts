@@ -18,9 +18,7 @@ enum BasicColors {
   white = "#FFFFFF"
 }
 
-type RgbaFunction = (color: string, opacity: number) => string;
-
-export const calculateRgba: RgbaFunction = (color: string, opacity: number): string => {
+export const calculateRgba = (color: string, opacity: number): string => {
   if (Object.keys(BasicColors).includes(color)) {
     color = BasicColors[color as keyof typeof BasicColors];
   }
