@@ -1291,10 +1291,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
   integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
 
-"@emotion/jest@^11.1.0":
-  version "11.1.0"
-  resolved "https://registry.yarnpkg.com/@emotion/jest/-/jest-11.1.0.tgz#ee498838f5f8cfc3c31be38543036372f36ebf4b"
-  integrity sha512-nkJY5U/cM3WjFYoKozy4WSKILmV3Y2P/uMynI9HVoCTNuYHSdu0djQBHL6zqBmpRya0sjVT1Sv7lasYYwVoMFg==
+"@emotion/jest@^11.2.0":
+  version "11.2.0"
+  resolved "https://registry.yarnpkg.com/@emotion/jest/-/jest-11.2.0.tgz#c07f0023e17c61c3c67058e4dbd9b69e0de9b034"
+  integrity sha512-/IHfepppnbf5KHOuz5e145oKR2JOV0hz4chy3HHSz/JrIDa9EyQLGIo6ZqLku1XdieMYvnxaCA2ReJRo7EvUIQ==
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@emotion/css-prettifier" "^1.0.0"
