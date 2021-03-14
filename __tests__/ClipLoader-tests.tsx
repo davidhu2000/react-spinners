@@ -5,12 +5,13 @@ expect.extend(matchers);
 
 import ClipLoader from "../src/ClipLoader";
 import { sizeDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("ClipLoader", () => {
   const defaultColor = "#000000";
   const defaultSize = 35;
   const defaultUnit = "px";
+  const defaultSpeed = 0.75;
 
   commonSpecs(ClipLoader, sizeDefaults(defaultSize));
   cssSpecs(ClipLoader);
@@ -36,4 +37,9 @@ describe("ClipLoader", () => {
     expect(loader).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
   };
   lengthSpecs(ClipLoader, "size", sizeExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    expect(loader.find("span")).toHaveStyleRule("animation", expect.stringContaining(`${defaultSpeed * multiplier}s`));
+  };
+  speedMultiplierSpecs(ClipLoader, speedMultiplierExpectStatements);
 });
