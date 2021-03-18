@@ -15,7 +15,7 @@ class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   public wrapper = (): SerializedStyles => {
     const { size, color, speedMultiplier } = this.props;
 
-    const { value, unit } = parseLengthAndUnit(size || Loader.defaultProps.size);
+    const { value, unit } = parseLengthAndUnit(size);
 
     return css`
       position: relative;
