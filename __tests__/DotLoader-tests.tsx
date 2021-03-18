@@ -5,12 +5,13 @@ expect.extend(matchers);
 
 import DotLoader from "../src/DotLoader";
 import { sizeDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("DotLoader", () => {
   const defaultColor = "#000000";
   const defaultSize = 60;
   const defaultUnit = "px";
+  const defaultSpeed = 2;
 
   commonSpecs(DotLoader, sizeDefaults(defaultSize));
   cssSpecs(DotLoader);
@@ -23,10 +24,7 @@ describe("DotLoader", () => {
 
     for (let i = 0; i < 2; i++) {
       expect(loader.find("span span").at(i)).toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "height",
-        `${childSize}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${childSize}${defaultUnit}`);
       expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${childSize}${defaultUnit}`);
     }
   });
@@ -46,4 +44,17 @@ describe("DotLoader", () => {
     expect(loader).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
   };
   lengthSpecs(DotLoader, "size", sizeExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    expect(loader.find("span")).toHaveStyleRule("animation", expect.stringContaining(`${defaultSpeed * multiplier}s`));
+    expect(loader.find("span span").at(0)).toHaveStyleRule(
+      "animation",
+      expect.stringContaining(`${defaultSpeed * multiplier}s`)
+    );
+    expect(loader.find("span span").at(1)).toHaveStyleRule(
+      "animation",
+      expect.stringContaining(`${defaultSpeed * multiplier}s`)
+    );
+  };
+  speedMultiplierSpecs(DotLoader, speedMultiplierExpectStatements);
 });

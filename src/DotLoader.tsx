@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from '@emotion/react';
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 
 import { sizeDefaults, parseLengthAndUnit, cssValue } from "./helpers";
 import { LoaderSizeProps } from "./interfaces";
@@ -14,12 +14,12 @@ const bounce = keyframes`
   50% {transform: scale(1.0)}
 `;
 
-class Loader extends React.PureComponent<LoaderSizeProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   public static defaultProps = sizeDefaults(60);
 
   public style = (i: number): SerializedStyles => {
-    const { size, color } = this.props;
-    const { value, unit } = parseLengthAndUnit(size || Loader.defaultProps.size);
+    const { size, color, speedMultiplier } = this.props;
+    const { value, unit } = parseLengthAndUnit(size);
 
     return css`
       position: absolute;
@@ -30,19 +30,19 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
       background-color: ${color};
       border-radius: 100%;
       animation-fill-mode: forwards;
-      animation: ${bounce} 2s ${i === 2 ? "-1s" : "0s"} infinite linear;
+      animation: ${bounce} ${2 / speedMultiplier}s ${i === 2 ? "-1s" : "0s"} infinite linear;
     `;
   };
 
   public wrapper = (): SerializedStyles => {
-    const { size } = this.props;
+    const { size, speedMultiplier } = this.props;
 
     return css`
       position: relative;
-      width: ${cssValue(size || Loader.defaultProps.size)};
-      height: ${cssValue(size || Loader.defaultProps.size)};
+      width: ${cssValue(size)};
+      height: ${cssValue(size)};
       animation-fill-mode: forwards;
-      animation: ${rotate} 2s 0s infinite linear;
+      animation: ${rotate} ${2 / speedMultiplier}s 0s infinite linear;
     `;
   };
 
