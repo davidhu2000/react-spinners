@@ -5,12 +5,14 @@ expect.extend(matchers);
 
 import ClockLoader from "../src/ClockLoader";
 import { sizeDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("ClockLoader", () => {
   const defaultColor = "#000000";
   const defaultSize = 50;
   const defaultUnit = "px";
+  const defaultSpeedBefore = 8;
+  const defaultSpeedAfter = 2;
 
   commonSpecs(ClockLoader, sizeDefaults(defaultSize));
   cssSpecs(ClockLoader);
@@ -37,4 +39,22 @@ describe("ClockLoader", () => {
     expect(loader).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
   };
   lengthSpecs(ClockLoader, "size", sizeExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    expect(loader.find("span")).toHaveStyleRule(
+      "animation",
+      expect.stringContaining(`${defaultSpeedBefore * multiplier}s`),
+      {
+        target: ":before"
+      }
+    );
+    expect(loader.find("span")).toHaveStyleRule(
+      "animation",
+      expect.stringContaining(`${defaultSpeedAfter * multiplier}s`),
+      {
+        target: ":after"
+      }
+    );
+  };
+  speedMultiplierSpecs(ClockLoader, speedMultiplierExpectStatements);
 });
