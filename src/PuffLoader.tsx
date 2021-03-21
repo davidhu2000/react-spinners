@@ -24,7 +24,7 @@ class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   };
 
   public style = (i: number): SerializedStyles => {
-    const { color } = this.props;
+    const { color, speedMultiplier } = this.props;
 
     return css`
       position: absolute;
@@ -37,7 +37,7 @@ class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
       left: 0;
       animation-fill-mode: both;
       animation: ${puff[0]}, ${puff[1]};
-      animation-duration: 2s;
+      animation-duration: ${2 / speedMultiplier}s;
       animation-iteration-count: infinite;
       animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1), cubic-bezier(0.3, 0.61, 0.355, 1);
       animation-delay: ${i === 1 ? "-1s" : "0s"};

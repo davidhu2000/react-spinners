@@ -59,7 +59,7 @@ exports[`PuffLoader common specs should match snapshot 1`] = `
   height: 60px;
 }
 
-.emotion-01rxp7yl {
+.emotion-01jt58b5 {
   position: absolute;
   height: 60px;
   width: 60px;
@@ -82,7 +82,7 @@ exports[`PuffLoader common specs should match snapshot 1`] = `
   animation-delay: -1s;
 }
 
-.emotion-01soeyf7 {
+.emotion-0i1b41b {
   position: absolute;
   height: 60px;
   width: 60px;
@@ -119,10 +119,10 @@ exports[`PuffLoader common specs should match snapshot 1`] = `
       className="emotion-0mz0q36"
     >
       <span
-        className="emotion-01rxp7yl"
+        className="emotion-01jt58b5"
       />
       <span
-        className="emotion-01soeyf7"
+        className="emotion-0i1b41b"
       />
     </span>
   </span>

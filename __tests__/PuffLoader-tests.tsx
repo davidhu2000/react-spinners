@@ -5,12 +5,13 @@ expect.extend(matchers);
 
 import PuffLoader from "../src/PuffLoader";
 import { sizeDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("PuffLoader", () => {
   const defaultColor = "#000000";
   const defaultSize = 60;
   const defaultUnit = "px";
+  const defaultSpeed = 2;
 
   commonSpecs(PuffLoader, sizeDefaults(defaultSize));
   cssSpecs(PuffLoader);
@@ -43,4 +44,12 @@ describe("PuffLoader", () => {
     expect(loader.find("span span")).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
   };
   lengthSpecs(PuffLoader, "size", sizeExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    for (let i = 0; i < 2; i++) {
+      expect(loader.find("span span").at(i)).toHaveStyleRule("animation-duration", `${defaultSpeed * multiplier}s`);
+    }
+  };
+
+  speedMultiplierSpecs(PuffLoader, speedMultiplierExpectStatements);
 });
