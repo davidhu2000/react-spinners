@@ -4,7 +4,7 @@ import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 import { Keyframes } from "@emotion/serialize";
 
 import { sizeMarginDefaults, parseLengthAndUnit, cssValue } from "./helpers";
-import { LoaderSizeMarginProps, LengthType } from "./interfaces";
+import { LoaderSizeMarginProps } from "./interfaces";
 
 const pacman = [
   keyframes`
