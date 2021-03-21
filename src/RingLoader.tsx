@@ -15,7 +15,7 @@ const left = keyframes`
   100% {transform: rotateX(360deg) rotateY(180deg) rotateZ(360deg)}
 `;
 
-class Loader extends React.PureComponent<LoaderSizeProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   public static defaultProps = sizeDefaults(60);
 
   public getSize = (): LengthType => {

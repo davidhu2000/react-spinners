@@ -11,7 +11,7 @@ const rotate = keyframes`
   100% {transform: rotate(360deg)}
 `;
 
-class Loader extends React.PureComponent<LoaderSizeMarginProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeMarginProps>> {
   public static defaultProps = sizeMarginDefaults(15);
 
   public style = (i: number): SerializedStyles => {

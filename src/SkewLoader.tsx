@@ -12,7 +12,7 @@ const skew = keyframes`
   100% {transform: perspective(100px) rotateX(0) rotateY(0)}
 `;
 
-class Loader extends React.PureComponent<LoaderSizeProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   public static defaultProps = sizeDefaults(20);
 
   public getSize = (): LengthType => {

@@ -11,7 +11,7 @@ const scale = keyframes`
   100% {transform: scaley(1.0)}
 `;
 
-class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
+class Loader extends React.PureComponent<Required<LoaderHeightWidthRadiusProps>> {
   public static defaultProps = heightWidthRadiusDefaults(35, 4, 2);
 
   public style = (i: number): SerializedStyles => {

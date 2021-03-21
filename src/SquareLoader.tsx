@@ -12,7 +12,7 @@ const square = keyframes`
   100% {transform: rotateX(0) rotateY(0)}
 `;
 
-class Loader extends React.PureComponent<LoaderSizeProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   public static defaultProps = sizeDefaults(50);
 
   public style = (): SerializedStyles => {

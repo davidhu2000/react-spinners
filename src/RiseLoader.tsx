@@ -23,7 +23,7 @@ const odd = keyframes`
   100% {transform: translateY(0) scale(0.75)}
 `;
 
-class Loader extends React.PureComponent<LoaderSizeMarginProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeMarginProps>> {
   public static defaultProps = sizeMarginDefaults(15);
 
   public style = (i: number): SerializedStyles => {

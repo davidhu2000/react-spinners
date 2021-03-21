@@ -16,7 +16,7 @@ const puff = [
 `
 ];
 
-class Loader extends React.PureComponent<LoaderSizeProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   public static defaultProps = sizeDefaults(60);
 
   public getSize = (): LengthType => {
