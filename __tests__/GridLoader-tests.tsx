@@ -5,7 +5,7 @@ expect.extend(matchers);
 
 import GridLoader from "../src/GridLoader";
 import { sizeMarginDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 interface MockMath {
   random: () => number;
@@ -20,6 +20,7 @@ describe("GridLoader", () => {
   const defaultSize = 15;
   const defaultUnit = "px";
   const wrapperWidthDefault = parseFloat(defaultSize.toString()) * 3 + parseFloat("2px") * 6;
+  const defaultSpeed = 50 / 100 + 0.6;
 
   commonSpecs(GridLoader, sizeMarginDefaults(defaultSize));
   cssSpecs(GridLoader);
@@ -30,14 +31,8 @@ describe("GridLoader", () => {
 
     for (let i = 0; i < 9; i++) {
       expect(loader.find("span span").at(i)).toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "height",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "width",
-        `${defaultSize}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
       expect(loader.find("span span").at(i)).toHaveStyleRule("margin", "2px");
     }
   });
@@ -54,24 +49,22 @@ describe("GridLoader", () => {
     expect(loader).not.toHaveStyleRule("width", `${wrapperWidthDefault}${defaultUnit}`);
     expect(loader).toHaveStyleRule("width", `${wrapperWidth}${unit || defaultUnit}`);
     for (let i = 0; i < 9; i++) {
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "height",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "width",
-        `${defaultSize}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "height",
-        `${length}${unit || defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "width",
-        `${length}${unit || defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${length}${unit || defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
     }
   };
   lengthSpecs(GridLoader, "size", sizeExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    for (let i = 0; i < 8; i++) {
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
+        "animation",
+        expect.stringContaining(`${defaultSpeed * multiplier}s`)
+      );
+    }
+  };
+  speedMultiplierSpecs(GridLoader, speedMultiplierExpectStatements);
 });
