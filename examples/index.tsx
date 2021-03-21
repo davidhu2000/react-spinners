@@ -66,20 +66,22 @@ class SpinnerExamples extends React.Component<unknown, ExampleState> {
     this.setState({ showPicker: !this.state.showPicker });
   };
 
+  public urlParams = () => {
+    return new URLSearchParams(window.location.search);
+  };
+
   public render(): JSX.Element {
     const { color, showPicker, speedMultiplier } = this.state;
 
     return (
       <div className="spinner-container">
         <div className="color-picker position-abs">
-          {/* <SpeedMultiplierInput value={this.state.speedMultiplier} update={this.updateMultiplier} /> */}
+          {this.urlParams().get("speed-multiplier") && (
+            <SpeedMultiplierInput value={this.state.speedMultiplier} update={this.updateMultiplier} />
+          )}
           <br />
           {showPicker ? (
-            <ColorPicker
-              color={color}
-              updateColor={this.updateColor}
-              togglePicker={this.togglePicker}
-            />
+            <ColorPicker color={color} updateColor={this.updateColor} togglePicker={this.togglePicker} />
           ) : (
             <button onClick={this.togglePicker}>Change Color</button>
           )}
