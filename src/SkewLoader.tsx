@@ -3,7 +3,7 @@ import * as React from "react";
 import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 
 import { sizeDefaults, cssValue } from "./helpers";
-import { LoaderSizeProps, LengthType } from "./interfaces";
+import { LoaderSizeProps } from "./interfaces";
 
 const skew = keyframes`
   25% {transform: perspective(100px) rotateX(180deg) rotateY(0)}
