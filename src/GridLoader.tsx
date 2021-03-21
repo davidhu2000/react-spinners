@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from '@emotion/react';
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 
 import { sizeMarginDefaults, cssValue, parseLengthAndUnit } from "./helpers";
-import { LoaderSizeMarginProps, LengthObject } from "./interfaces";
+import { LoaderSizeMarginProps } from "./interfaces";
 
 const grid = keyframes`
   0% {transform: scale(1)}
@@ -11,36 +11,34 @@ const grid = keyframes`
   100% {transform: scale(1);opacity: 1}
 `;
 
-type RandomFunction = (top: number) => number;
-const random: RandomFunction = (top: number): number => Math.random() * top;
+const random = (top: number): number => Math.random() * top;
 
-class Loader extends React.PureComponent<LoaderSizeMarginProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeMarginProps>> {
   public static defaultProps = sizeMarginDefaults(15);
 
   public style = (rand: number): SerializedStyles => {
-    const { color, size, margin } = this.props;
+    const { color, size, margin, speedMultiplier } = this.props;
 
     return css`
       display: inline-block;
       background-color: ${color};
-      width: ${cssValue(size || Loader.defaultProps.size)};
-      height: ${cssValue(size || Loader.defaultProps.size)};
-      margin: ${cssValue(margin || Loader.defaultProps.size)};
+      width: ${cssValue(size)};
+      height: ${cssValue(size)};
+      margin: ${cssValue(margin)};
       border-radius: 100%;
       animation-fill-mode: "both";
-      animation: ${grid} ${rand / 100 + 0.6}s ${rand / 100 - 0.2}s infinite ease;
+      animation: ${grid} ${(rand / 100 + 0.6) / speedMultiplier}s ${rand / 100 - 0.2}s infinite ease;
     `;
   };
 
   public wrapper = (): SerializedStyles => {
     const { size, margin } = this.props;
-    const sizeWithUnit: LengthObject = parseLengthAndUnit(size || Loader.defaultProps.size);
-    const marginWithUnit: LengthObject = parseLengthAndUnit(margin || Loader.defaultProps.margin);
+    const sizeWithUnit = parseLengthAndUnit(size);
+    const marginWithUnit = parseLengthAndUnit(margin);
 
-    const width = `${
-      parseFloat(sizeWithUnit.value.toString()) * 3 +
-      parseFloat(marginWithUnit.value.toString()) * 6
-    }${sizeWithUnit.unit}`;
+    const width = `${parseFloat(sizeWithUnit.value.toString()) * 3 + parseFloat(marginWithUnit.value.toString()) * 6}${
+      sizeWithUnit.unit
+    }`;
 
     return css`
       width: ${width};

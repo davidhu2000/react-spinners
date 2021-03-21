@@ -5,13 +5,14 @@ expect.extend(matchers);
 
 import SyncLoader from "../src/SyncLoader";
 import { sizeMarginDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("SyncLoader", () => {
   const defaultSize = 15;
   const defaultMargin = 2;
   const defaultColor = "#000000";
   const defaultUnit = "px";
+  const defaultSpeed = 0.6;
 
   commonSpecs(SyncLoader, sizeMarginDefaults(defaultSize));
   cssSpecs(SyncLoader);
@@ -20,18 +21,9 @@ describe("SyncLoader", () => {
     const loader = mount(<SyncLoader />);
     for (let i = 0; i < 3; i++) {
       expect(loader.find("span span").at(i)).toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "height",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "width",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "margin",
-        `${defaultMargin}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${defaultMargin}${defaultUnit}`);
     }
   });
 
@@ -47,38 +39,31 @@ describe("SyncLoader", () => {
 
   const sizeExpectStatements = (loader: ReactWrapper, length: number, unit?: string) => {
     for (let i = 0; i < 3; i++) {
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "height",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "width",
-        `${defaultSize}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "height",
-        `${length}${unit || defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "width",
-        `${length}${unit || defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${length}${unit || defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
     }
   };
   lengthSpecs(SyncLoader, "size", sizeExpectStatements);
 
   const marginExpectStatements = (loader: ReactWrapper, length: number, unit?: string) => {
     for (let i = 0; i < 3; i++) {
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "margin",
-        `${defaultMargin}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "margin",
-        `${length}${unit || defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("margin", `${defaultMargin}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${length}${unit || defaultUnit}`);
     }
   };
   lengthSpecs(SyncLoader, "margin", marginExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    for (let i = 0; i < 3; i++) {
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
+        "animation",
+        expect.stringContaining(`${defaultSpeed * multiplier}s`)
+      );
+    }
+  };
+
+  speedMultiplierSpecs(SyncLoader, speedMultiplierExpectStatements);
 });

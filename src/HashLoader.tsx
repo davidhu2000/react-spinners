@@ -1,24 +1,24 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from '@emotion/react';
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 import { Keyframes } from "@emotion/serialize";
 
 import { calculateRgba, sizeDefaults, parseLengthAndUnit, cssValue } from "./helpers/index";
 import { LoaderSizeProps } from "./interfaces";
 
-class Loader extends React.PureComponent<LoaderSizeProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   public static defaultProps = sizeDefaults(50);
 
   public thickness = (): number => {
     const { size } = this.props;
-    const { value } = parseLengthAndUnit(size || Loader.defaultProps.size);
+    const { value } = parseLengthAndUnit(size);
 
     return value / 5;
   };
 
   public lat = (): number => {
     const { size } = this.props;
-    const { value } = parseLengthAndUnit(size || Loader.defaultProps.size);
+    const { value } = parseLengthAndUnit(size);
 
     return (value - this.thickness()) / 2;
   };
@@ -28,12 +28,11 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   public color = (): string => {
     const { color } = this.props;
 
-    return calculateRgba(color || Loader.defaultProps.color, 0.75);
+    return calculateRgba(color, 0.75);
   };
 
   public before = (): Keyframes => {
-    let { size } = this.props;
-    size = size || Loader.defaultProps.size;
+    const { size } = this.props;
 
     const color: string = this.color();
     const lat: number = this.lat();
@@ -49,8 +48,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   };
 
   public after = (): Keyframes => {
-    let { size } = this.props;
-    size = size || Loader.defaultProps.size;
+    const { size } = this.props;
 
     const color: string = this.color();
     const lat: number = this.lat();
@@ -66,8 +64,8 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   };
 
   public style = (i: number): SerializedStyles => {
-    const { size } = this.props;
-    const { value, unit } = parseLengthAndUnit(size || Loader.defaultProps.size);
+    const { size, speedMultiplier } = this.props;
+    const { value, unit } = parseLengthAndUnit(size);
 
     return css`
       position: absolute;
@@ -80,13 +78,12 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
       border-radius: ${`${value / 10}${unit}`};
       transform: translate(-50%, -50%);
       animation-fill-mode: none;
-      animation: ${i === 1 ? this.before() : this.after()} 2s infinite;
+      animation: ${i === 1 ? this.before() : this.after()} ${2 / speedMultiplier}s infinite;
     `;
   };
 
   public wrapper = (): SerializedStyles => {
-    let { size } = this.props;
-    size = size || Loader.defaultProps.size;
+    const { size } = this.props;
 
     return css`
       position: relative;

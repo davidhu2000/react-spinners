@@ -5,12 +5,13 @@ expect.extend(matchers);
 
 import SkewLoader from "../src/SkewLoader";
 import { sizeDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("SkewLoader", () => {
   const defaultSize = 20;
   const defaultColor = "#000000";
   const defaultUnit = "px";
+  const defaultSpeed = 3;
 
   commonSpecs(SkewLoader, sizeDefaults(defaultSize));
   cssSpecs(SkewLoader);
@@ -18,53 +19,32 @@ describe("SkewLoader", () => {
   it("should contain styles created using default props", () => {
     const loader = mount(<SkewLoader />);
     expect(loader).toHaveStyleRule("border-left", `${defaultSize}${defaultUnit} solid transparent`);
-    expect(loader).toHaveStyleRule(
-      "border-right",
-      `${defaultSize}${defaultUnit} solid transparent`
-    );
-    expect(loader).toHaveStyleRule(
-      "border-bottom",
-      `${defaultSize}${defaultUnit} solid ${defaultColor}`
-    );
+    expect(loader).toHaveStyleRule("border-right", `${defaultSize}${defaultUnit} solid transparent`);
+    expect(loader).toHaveStyleRule("border-bottom", `${defaultSize}${defaultUnit} solid ${defaultColor}`);
   });
 
   it("should render the correct color based on props", () => {
     const color = "#e2e2e2";
     const loader = mount(<SkewLoader color={color} />);
 
-    expect(loader).not.toHaveStyleRule(
-      "border-bottom",
-      `${defaultSize}${defaultUnit} solid ${defaultColor}`
-    );
+    expect(loader).not.toHaveStyleRule("border-bottom", `${defaultSize}${defaultUnit} solid ${defaultColor}`);
     expect(loader).toHaveStyleRule("border-bottom", `${defaultSize}${defaultUnit} solid ${color}`);
   });
 
   const sizeExpectStatements = (loader: ReactWrapper, length: number, unit?: string) => {
-    expect(loader).not.toHaveStyleRule(
-      "border-left",
-      `${defaultSize}${defaultUnit} solid transparent`
-    );
-    expect(loader).not.toHaveStyleRule(
-      "border-right",
-      `${defaultSize}${defaultUnit} solid transparent`
-    );
-    expect(loader).not.toHaveStyleRule(
-      "border-bottom",
-      `${defaultSize}${defaultUnit} solid ${defaultColor}`
-    );
+    expect(loader).not.toHaveStyleRule("border-left", `${defaultSize}${defaultUnit} solid transparent`);
+    expect(loader).not.toHaveStyleRule("border-right", `${defaultSize}${defaultUnit} solid transparent`);
+    expect(loader).not.toHaveStyleRule("border-bottom", `${defaultSize}${defaultUnit} solid ${defaultColor}`);
 
-    expect(loader).toHaveStyleRule(
-      "border-left",
-      `${length}${unit || defaultUnit} solid transparent`
-    );
-    expect(loader).toHaveStyleRule(
-      "border-right",
-      `${length}${unit || defaultUnit} solid transparent`
-    );
-    expect(loader).toHaveStyleRule(
-      "border-bottom",
-      `${length}${unit || defaultUnit} solid ${defaultColor}`
-    );
+    expect(loader).toHaveStyleRule("border-left", `${length}${unit || defaultUnit} solid transparent`);
+    expect(loader).toHaveStyleRule("border-right", `${length}${unit || defaultUnit} solid transparent`);
+    expect(loader).toHaveStyleRule("border-bottom", `${length}${unit || defaultUnit} solid ${defaultColor}`);
   };
   lengthSpecs(SkewLoader, "size", sizeExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    expect(loader.find("span")).toHaveStyleRule("animation", expect.stringContaining(`${defaultSpeed * multiplier}s`));
+  };
+
+  speedMultiplierSpecs(SkewLoader, speedMultiplierExpectStatements);
 });

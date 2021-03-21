@@ -5,12 +5,13 @@ expect.extend(matchers);
 
 import SquareLoader from "../src/SquareLoader";
 import { sizeDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("SquareLoader", () => {
   const defaultSize = 50;
   const defaultColor = "#000000";
   const defaultUnit = "px";
+  const defaultSpeed = 3;
 
   commonSpecs(SquareLoader, sizeDefaults(defaultSize));
   cssSpecs(SquareLoader);
@@ -37,4 +38,10 @@ describe("SquareLoader", () => {
     expect(loader).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
   };
   lengthSpecs(SquareLoader, "size", sizeExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    expect(loader.find("span")).toHaveStyleRule("animation", expect.stringContaining(`${defaultSpeed * multiplier}s`));
+  };
+
+  speedMultiplierSpecs(SquareLoader, speedMultiplierExpectStatements);
 });

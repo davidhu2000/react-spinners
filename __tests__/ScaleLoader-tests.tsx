@@ -5,7 +5,7 @@ expect.extend(matchers);
 
 import ScaleLoader from "../src/ScaleLoader";
 import { heightWidthRadiusDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("ScaleLoader", () => {
   const defaultColor = "#000000";
@@ -14,6 +14,7 @@ describe("ScaleLoader", () => {
   const defaultRadius = 2;
   const defaultMargin = 2;
   const defaultUnit = "px";
+  const defaultSpeed = 1;
 
   commonSpecs(ScaleLoader, heightWidthRadiusDefaults(defaultHeight, defaultWidth, defaultRadius));
   cssSpecs(ScaleLoader);
@@ -22,22 +23,10 @@ describe("ScaleLoader", () => {
     const loader = mount(<ScaleLoader />);
     for (let i = 0; i < 5; i++) {
       expect(loader.find("span span").at(i)).toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "height",
-        `${defaultHeight}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "width",
-        `${defaultWidth}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "border-radius",
-        `${defaultRadius}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "margin",
-        `${defaultMargin}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${defaultWidth}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("border-radius", `${defaultRadius}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${defaultMargin}${defaultUnit}`);
     }
   });
 
@@ -50,19 +39,23 @@ describe("ScaleLoader", () => {
     }
   });
 
-  const lengthExpectStatements = (property: string) => (
-    loader: ReactWrapper,
-    length: number,
-    unit?: string
-  ) => {
-    expect(loader.find("span span")).not.toHaveStyleRule(
-      property,
-      `${defaultHeight}${defaultUnit}`
-    );
+  const lengthExpectStatements = (property: string) => (loader: ReactWrapper, length: number, unit?: string) => {
+    expect(loader.find("span span")).not.toHaveStyleRule(property, `${defaultHeight}${defaultUnit}`);
     expect(loader.find("span span")).toHaveStyleRule(property, `${length}${unit || defaultUnit}`);
   };
   lengthSpecs(ScaleLoader, "height", lengthExpectStatements("height"));
   lengthSpecs(ScaleLoader, "width", lengthExpectStatements("width"));
   lengthSpecs(ScaleLoader, "radius", lengthExpectStatements("border-radius"));
   lengthSpecs(ScaleLoader, "margin", lengthExpectStatements("margin"));
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    for (let i = 0; i < 5; i++) {
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
+        "animation",
+        expect.stringContaining(`${defaultSpeed * multiplier}s`)
+      );
+    }
+  };
+
+  speedMultiplierSpecs(ScaleLoader, speedMultiplierExpectStatements);
 });

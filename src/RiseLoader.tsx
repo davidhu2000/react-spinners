@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from '@emotion/react';
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 
 import { sizeMarginDefaults, cssValue } from "./helpers";
 import { LoaderSizeMarginProps } from "./interfaces";
@@ -23,20 +23,20 @@ const odd = keyframes`
   100% {transform: translateY(0) scale(0.75)}
 `;
 
-class Loader extends React.PureComponent<LoaderSizeMarginProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeMarginProps>> {
   public static defaultProps = sizeMarginDefaults(15);
 
   public style = (i: number): SerializedStyles => {
-    const { color, size, margin } = this.props;
+    const { color, size, margin, speedMultiplier } = this.props;
 
     return css`
       background-color: ${color};
-      width: ${cssValue(size || Loader.defaultProps.size)};
-      height: ${cssValue(size || Loader.defaultProps.size)};
-      margin: ${cssValue(margin || Loader.defaultProps.margin)};
+      width: ${cssValue(size)};
+      height: ${cssValue(size)};
+      margin: ${cssValue(margin)};
       border-radius: 100%;
       display: inline-block;
-      animation: ${i % 2 === 0 ? even : odd} 1s 0s infinite cubic-bezier(0.15, 0.46, 0.9, 0.6);
+      animation: ${i % 2 === 0 ? even : odd} ${1 / speedMultiplier}s 0s infinite cubic-bezier(0.15, 0.46, 0.9, 0.6);
       animation-fill-mode: both;
     `;
   };

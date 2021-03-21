@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from '@emotion/react';
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 
 import { heightWidthRadiusDefaults, cssValue, parseLengthAndUnit } from "./helpers";
 import { LoaderHeightWidthRadiusProps } from "./interfaces";
@@ -10,12 +10,12 @@ const fade = keyframes`
   100% {opacity: 1}
 `;
 
-class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
+class Loader extends React.PureComponent<Required<LoaderHeightWidthRadiusProps>> {
   public static defaultProps = heightWidthRadiusDefaults(15, 5, 2);
 
   public radius = (): number => {
     const { margin } = this.props;
-    const { value } = parseLengthAndUnit(margin || Loader.defaultProps.margin);
+    const { value } = parseLengthAndUnit(margin);
 
     return value + 18;
   };
@@ -25,18 +25,18 @@ class Loader extends React.PureComponent<LoaderHeightWidthRadiusProps> {
   };
 
   public style = (i: number): SerializedStyles => {
-    const { height, width, margin, color, radius } = this.props;
+    const { height, width, margin, color, radius, speedMultiplier } = this.props;
 
     return css`
       position: absolute;
-      width: ${cssValue(width || Loader.defaultProps.width)};
-      height: ${cssValue(height || Loader.defaultProps.height)};
-      margin: ${cssValue(margin || Loader.defaultProps.margin)};
+      width: ${cssValue(width)};
+      height: ${cssValue(height)};
+      margin: ${cssValue(margin)};
       background-color: ${color};
-      border-radius: ${cssValue(radius || Loader.defaultProps.radius)};
+      border-radius: ${cssValue(radius)};
       transition: 2s;
       animation-fill-mode: "both";
-      animation: ${fade} 1.2s ${i * 0.12}s infinite ease-in-out;
+      animation: ${fade} ${1.2 / speedMultiplier}s ${i * 0.12}s infinite ease-in-out;
     `;
   };
 

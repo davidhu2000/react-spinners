@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from '@emotion/react';
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 
 import { sizeDefaults, parseLengthAndUnit } from "./helpers";
 import { LoaderSizeProps } from "./interfaces";
@@ -9,13 +9,13 @@ const rotate = keyframes`
   100% { transform: rotate(360deg) }
 `;
 
-class Loader extends React.PureComponent<LoaderSizeProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   public static defaultProps = sizeDefaults(50);
 
   public wrapper = (): SerializedStyles => {
-    const { size, color } = this.props;
+    const { size, color, speedMultiplier } = this.props;
 
-    const { value, unit } = parseLengthAndUnit(size || Loader.defaultProps.size);
+    const { value, unit } = parseLengthAndUnit(size);
 
     return css`
       position: relative;
@@ -38,7 +38,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
         top: ${value / 2 - 1}px;
         left: ${value / 2 - 1}px;
         transform-origin: 1px 1px;
-        animation: ${rotate} 2s linear infinite;
+        animation: ${rotate} ${2 / speedMultiplier}s linear infinite;
       }
 
       &:before {
@@ -47,7 +47,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
         top: ${value / 2 - 1}px;
         left: ${value / 2 - 1}px;
         transform-origin: 1px 1px;
-        animation: ${rotate} 8s linear infinite;
+        animation: ${rotate} ${8 / speedMultiplier}s linear infinite;
       }
     `;
   };

@@ -5,12 +5,13 @@ expect.extend(matchers);
 
 import RingLoader from "../src/RingLoader";
 import { sizeDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("RingLoader", () => {
   const defaultSize = 60;
   const defaultColor = "#000000";
   const defaultUnit = "px";
+  const defaultSpeed = 2;
 
   commonSpecs(RingLoader, sizeDefaults(defaultSize));
   cssSpecs(RingLoader);
@@ -21,14 +22,8 @@ describe("RingLoader", () => {
     expect(loader).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
     for (let i = 0; i < 2; i++) {
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "height",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "width",
-        `${defaultSize}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
       expect(loader.find("span span").at(i)).toHaveStyleRule(
         "border",
         `${defaultSize / 10}${defaultUnit} solid ${defaultColor}`
@@ -60,27 +55,15 @@ describe("RingLoader", () => {
     expect(loader).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
 
     for (let i = 0; i < 2; i++) {
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "height",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "width",
-        `${defaultSize}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
       expect(loader.find("span span").at(i)).not.toHaveStyleRule(
         "border",
         `${defaultSize / 10}${defaultUnit} solid ${defaultColor}`
       );
 
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "height",
-        `${length}${unit || defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "width",
-        `${length}${unit || defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${length}${unit || defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
       expect(loader.find("span span").at(i)).toHaveStyleRule(
         "border",
         `${length / 10}${unit || defaultUnit} solid ${defaultColor}`
@@ -88,4 +71,15 @@ describe("RingLoader", () => {
     }
   };
   lengthSpecs(RingLoader, "size", sizeExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    for (let i = 0; i < 2; i++) {
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
+        "animation",
+        expect.stringContaining(`${defaultSpeed * multiplier}s`)
+      );
+    }
+  };
+
+  speedMultiplierSpecs(RingLoader, speedMultiplierExpectStatements);
 });

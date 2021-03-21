@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from '@emotion/react';
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 
 import { sizeDefaults, cssValue } from "./helpers";
 import { LoaderSizeProps } from "./interfaces";
@@ -11,22 +11,22 @@ const clip = keyframes`
   100% {transform: rotate(360deg) scale(1)}
 `;
 
-class Loader extends React.PureComponent<LoaderSizeProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   public static defaultProps = sizeDefaults(35);
 
   public style = (): SerializedStyles => {
-    const { size, color } = this.props;
+    const { size, color, speedMultiplier } = this.props;
 
     return css`
       background: transparent !important;
-      width: ${cssValue(size || Loader.defaultProps.size)};
-      height: ${cssValue(size || Loader.defaultProps.size)};
+      width: ${cssValue(size)};
+      height: ${cssValue(size)};
       border-radius: 100%;
       border: 2px solid;
       border-color: ${color};
       border-bottom-color: transparent;
       display: inline-block;
-      animation: ${clip} 0.75s 0s infinite linear;
+      animation: ${clip} ${0.75 / speedMultiplier}s 0s infinite linear;
       animation-fill-mode: both;
     `;
   };

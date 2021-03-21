@@ -22,18 +22,9 @@ describe("PulseLoader", () => {
     const loader = mount(<PulseLoader />);
     for (let i = 0; i < 3; i++) {
       expect(loader.find("span span").at(i)).toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "height",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "width",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "margin",
-        `${defaultMargin}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${defaultMargin}${defaultUnit}`);
     }
   });
 
@@ -48,37 +39,19 @@ describe("PulseLoader", () => {
 
   const sizeExpectStatements = (loader: ReactWrapper, length: number, unit?: string) => {
     for (let i = 0; i < 3; i++) {
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "height",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "width",
-        `${defaultSize}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "height",
-        `${length}${unit || defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "width",
-        `${length}${unit || defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${length}${unit || defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
     }
   };
   lengthSpecs(PulseLoader, "size", sizeExpectStatements);
 
   const marginExpectStatements = (loader: ReactWrapper, length: number, unit?: string) => {
     for (let i = 0; i < 3; i++) {
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "margin",
-        `${defaultMargin}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "margin",
-        `${length}${unit || defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("margin", `${defaultMargin}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${length}${unit || defaultUnit}`);
     }
   };
   lengthSpecs(PulseLoader, "margin", marginExpectStatements);

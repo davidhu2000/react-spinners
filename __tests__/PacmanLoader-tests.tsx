@@ -5,13 +5,15 @@ expect.extend(matchers);
 
 import PacmanLoader from "../src/PacmanLoader";
 import { sizeMarginDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("PacmanLoader", () => {
   const defaultSize = 25;
   const defaultMargin = 2;
   const defaultColor = "#000000";
   const defaultUnit = "px";
+  const defaultPacmanSpeed = 0.8;
+  const defaultBallSpeed = 1;
 
   commonSpecs(PacmanLoader, sizeMarginDefaults(defaultSize));
   cssSpecs(PacmanLoader);
@@ -21,34 +23,16 @@ describe("PacmanLoader", () => {
     expect(loader).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
     expect(loader).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
-    expect(loader.find("span span").at(0)).toHaveStyleRule(
-      "border-radius",
-      `${defaultSize}${defaultUnit}`
-    );
-    expect(loader.find("span span").at(1)).toHaveStyleRule(
-      "border-radius",
-      `${defaultSize}${defaultUnit}`
-    );
+    expect(loader.find("span span").at(0)).toHaveStyleRule("border-radius", `${defaultSize}${defaultUnit}`);
+    expect(loader.find("span span").at(1)).toHaveStyleRule("border-radius", `${defaultSize}${defaultUnit}`);
 
     for (let i = 2; i < 6; i++) {
       expect(loader.find("span span").at(i)).toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "height",
-        `${defaultSize / 3}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "width",
-        `${defaultSize / 3}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "margin",
-        `${defaultMargin}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${defaultSize / 3}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${defaultSize / 3}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${defaultMargin}${defaultUnit}`);
       expect(loader.find("span span").at(i)).toHaveStyleRule("top", `${defaultSize}${defaultUnit}`);
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "left",
-        `${defaultSize * 4}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("left", `${defaultSize * 4}${defaultUnit}`);
     }
   });
 
@@ -65,73 +49,51 @@ describe("PacmanLoader", () => {
     expect(loader).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
     expect(loader).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
 
-    expect(loader.find("span span").at(0)).not.toHaveStyleRule(
-      "border-radius",
-      `${defaultSize / 3}${defaultUnit}`
-    );
-    expect(loader.find("span span").at(1)).not.toHaveStyleRule(
-      "border-radius",
-      `${defaultSize / 3}${defaultUnit}`
-    );
+    expect(loader.find("span span").at(0)).not.toHaveStyleRule("border-radius", `${defaultSize / 3}${defaultUnit}`);
+    expect(loader.find("span span").at(1)).not.toHaveStyleRule("border-radius", `${defaultSize / 3}${defaultUnit}`);
 
-    expect(loader.find("span span").at(0)).toHaveStyleRule(
-      "border-radius",
-      `${length}${unit || defaultUnit}`
-    );
-    expect(loader.find("span span").at(1)).toHaveStyleRule(
-      "border-radius",
-      `${length}${unit || defaultUnit}`
-    );
+    expect(loader.find("span span").at(0)).toHaveStyleRule("border-radius", `${length}${unit || defaultUnit}`);
+    expect(loader.find("span span").at(1)).toHaveStyleRule("border-radius", `${length}${unit || defaultUnit}`);
 
     for (let i = 2; i < 6; i++) {
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "height",
-        `${defaultSize / 3}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "width",
-        `${defaultSize / 3}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "top",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "left",
-        `${defaultSize * 4}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("height", `${defaultSize / 3}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("width", `${defaultSize / 3}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("top", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("left", `${defaultSize * 4}${defaultUnit}`);
 
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "height",
-        `${length / 3}${unit || defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "width",
-        `${length / 3}${unit || defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "top",
-        `${length}${unit || defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "left",
-        `${length * 4}${unit || defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${length / 3}${unit || defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${length / 3}${unit || defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("top", `${length}${unit || defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("left", `${length * 4}${unit || defaultUnit}`);
     }
   };
   lengthSpecs(PacmanLoader, "size", sizeExpectStatements);
 
   const marginExpectStatements = (loader: ReactWrapper, length: number, unit?: string) => {
     for (let i = 2; i < 6; i++) {
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "margin",
-        `${defaultMargin}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "margin",
-        `${length}${unit || defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("margin", `${defaultMargin}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("margin", `${length}${unit || defaultUnit}`);
     }
   };
   lengthSpecs(PacmanLoader, "margin", marginExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    expect(loader.find("span span").at(0)).toHaveStyleRule(
+      "animation",
+      expect.stringContaining(`${defaultPacmanSpeed * multiplier}s`)
+    );
+    expect(loader.find("span span").at(1)).toHaveStyleRule(
+      "animation",
+      expect.stringContaining(`${defaultPacmanSpeed * multiplier}s`)
+    );
+
+    for (let i = 2; i < 6; i++) {
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
+        "animation",
+        expect.stringContaining(`${defaultBallSpeed * multiplier}s`)
+      );
+    }
+  };
+
+  speedMultiplierSpecs(PacmanLoader, speedMultiplierExpectStatements);
 });

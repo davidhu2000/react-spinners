@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from '@emotion/react';
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 
 import { sizeDefaults, cssValue } from "./helpers";
 import { LoaderSizeProps, LengthType } from "./interfaces";
@@ -16,15 +16,15 @@ const puff = [
 `
 ];
 
-class Loader extends React.PureComponent<LoaderSizeProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   public static defaultProps = sizeDefaults(60);
 
   public getSize = (): LengthType => {
-    return this.props.size || Loader.defaultProps.size;
+    return this.props.size;
   };
 
   public style = (i: number): SerializedStyles => {
-    const { color } = this.props;
+    const { color, speedMultiplier } = this.props;
 
     return css`
       position: absolute;
@@ -37,10 +37,9 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
       left: 0;
       animation-fill-mode: both;
       animation: ${puff[0]}, ${puff[1]};
-      animation-duration: 2s;
+      animation-duration: ${2 / speedMultiplier}s;
       animation-iteration-count: infinite;
-      animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1),
-        cubic-bezier(0.3, 0.61, 0.355, 1);
+      animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1), cubic-bezier(0.3, 0.61, 0.355, 1);
       animation-delay: ${i === 1 ? "-1s" : "0s"};
     `;
   };

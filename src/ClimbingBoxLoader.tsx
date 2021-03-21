@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from '@emotion/react';
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 
 import { sizeDefaults, cssValue } from "./helpers";
 import { LoaderSizeProps } from "./interfaces";
@@ -19,11 +19,11 @@ const climbingBox = keyframes`
   100% {transform:translate(0, -1em) rotate(-225deg)}
 `;
 
-class Loader extends React.PureComponent<LoaderSizeProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   public static defaultProps = sizeDefaults(15);
 
   public style = (): SerializedStyles => {
-    const { color } = this.props;
+    const { color, speedMultiplier } = this.props;
 
     return css`
       position: absolute;
@@ -36,7 +36,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
       border: 0.25em solid ${color};
       transform: translate(0, -1em) rotate(-45deg);
       animation-fill-mode: both;
-      animation: ${climbingBox} 2.5s infinite cubic-bezier(0.79, 0, 0.47, 0.97);
+      animation: ${climbingBox} ${2.5 / speedMultiplier}s infinite cubic-bezier(0.79, 0, 0.47, 0.97);
     `;
   };
 
@@ -51,7 +51,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
       margin-left: -2.7em;
       width: 5.4em;
       height: 5.4em;
-      font-size: ${cssValue(size || Loader.defaultProps.size)};
+      font-size: ${cssValue(size)};
     `;
   };
 

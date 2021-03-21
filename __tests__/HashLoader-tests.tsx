@@ -5,11 +5,12 @@ expect.extend(matchers);
 
 import HashLoader from "../src/HashLoader";
 import { sizeDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("HashLoader", () => {
   const defaultSize = 50;
   const defaultUnit = "px";
+  const defaultSpeed = 2;
 
   commonSpecs(HashLoader, sizeDefaults(defaultSize));
   cssSpecs(HashLoader);
@@ -20,18 +21,9 @@ describe("HashLoader", () => {
     expect(loader).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
     for (let i = 0; i < 2; i++) {
-      expect(loader.find("span span").at(0)).toHaveStyleRule(
-        "height",
-        `${defaultSize / 5}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(0)).toHaveStyleRule(
-        "width",
-        `${defaultSize / 5}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(0)).toHaveStyleRule(
-        "border-radius",
-        `${defaultSize / 10}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(0)).toHaveStyleRule("height", `${defaultSize / 5}${defaultUnit}`);
+      expect(loader.find("span span").at(0)).toHaveStyleRule("width", `${defaultSize / 5}${defaultUnit}`);
+      expect(loader.find("span span").at(0)).toHaveStyleRule("border-radius", `${defaultSize / 10}${defaultUnit}`);
     }
   });
 
@@ -42,32 +34,24 @@ describe("HashLoader", () => {
     expect(loader).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
 
     for (let i = 0; i < 2; i++) {
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "height",
-        `${defaultSize / 5}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "width",
-        `${defaultSize / 5}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "border-radius",
-        `${defaultSize / 10}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("height", `${defaultSize / 5}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("width", `${defaultSize / 5}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("border-radius", `${defaultSize / 10}${defaultUnit}`);
 
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "height",
-        `${length / 5}${unit || defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "width",
-        `${length / 5}${unit || defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "border-radius",
-        `${length / 10}${unit || defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${length / 5}${unit || defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${length / 5}${unit || defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("border-radius", `${length / 10}${unit || defaultUnit}`);
     }
   };
   lengthSpecs(HashLoader, "size", sizeExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    for (let i = 0; i < 2; i++) {
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
+        "animation",
+        expect.stringContaining(`${defaultSpeed * multiplier}s`)
+      );
+    }
+  };
+  speedMultiplierSpecs(HashLoader, speedMultiplierExpectStatements);
 });

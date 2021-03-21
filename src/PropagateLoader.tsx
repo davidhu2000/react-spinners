@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from '@emotion/react';
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 
 import { sizeDefaults, parseLengthAndUnit } from "./helpers";
 import { LoaderSizeProps } from "./interfaces";
@@ -45,12 +45,12 @@ const propagate = [
     `
 ];
 
-class Loader extends React.PureComponent<LoaderSizeProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   public static defaultProps = sizeDefaults(15);
 
   public style = (i: number): SerializedStyles => {
-    const { size, color } = this.props;
-    const { value, unit } = parseLengthAndUnit(size || Loader.defaultProps.size);
+    const { size, color, speedMultiplier } = this.props;
+    const { value, unit } = parseLengthAndUnit(size);
 
     return css`
       position: absolute;
@@ -59,7 +59,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
       height: ${`${value}${unit}`};
       background: ${color};
       border-radius: 50%;
-      animation: ${propagate[i]} 1.5s infinite;
+      animation: ${propagate[i]} ${1.5 / speedMultiplier}s infinite;
       animation-fill-mode: forwards;
     `;
   };

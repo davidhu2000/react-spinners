@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from '@emotion/react';
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 import { Keyframes } from "@emotion/serialize";
 
 import { sizeMarginDefaults, parseLengthAndUnit, cssValue } from "./helpers";
-import { LoaderSizeMarginProps, LengthType } from "./interfaces";
+import { LoaderSizeMarginProps } from "./interfaces";
 
 const pacman = [
   keyframes`
@@ -17,15 +17,12 @@ const pacman = [
   `
 ];
 
-class Loader extends React.PureComponent<LoaderSizeMarginProps> {
+class Loader extends React.PureComponent<Required<LoaderSizeMarginProps>> {
   public static defaultProps = sizeMarginDefaults(25);
 
-  public getSize = (): LengthType => {
-    return this.props.size || Loader.defaultProps.size;
-  };
-
   public ball = (): Keyframes => {
-    const { value, unit } = parseLengthAndUnit(this.getSize());
+    const { size } = this.props;
+    const { value, unit } = parseLengthAndUnit(size);
 
     return keyframes`
       75% {opacity: 0.7}
@@ -34,35 +31,36 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
   };
 
   public ballStyle = (i: number): SerializedStyles => {
-    const { color, margin } = this.props;
-    const { value, unit } = parseLengthAndUnit(this.getSize());
+    const { color, margin, size, speedMultiplier } = this.props;
+    const { value, unit } = parseLengthAndUnit(size);
 
     return css`
       width: ${`${value / 3}${unit}`};
       height: ${`${value / 3}${unit}`};
       background-color: ${color};
-      margin: ${cssValue(margin || Loader.defaultProps.margin)};
+      margin: ${cssValue(margin)};
       border-radius: 100%;
       transform: translate(0, ${`${-value / 4}${unit}`});
       position: absolute;
       top: ${`${value}${unit}`};
       left: ${`${value * 4}${unit}`};
-      animation: ${this.ball()} 1s ${i * 0.25}s infinite linear;
+      animation: ${this.ball()} ${1 / speedMultiplier}s ${i * 0.25}s infinite linear;
       animation-fill-mode: both;
     `;
   };
 
   public s1 = (): string => {
-    return `${cssValue(this.getSize())} solid transparent`;
+    return `${cssValue(this.props.size)} solid transparent`;
   };
 
   public s2 = (): string => {
     const { color } = this.props;
 
-    return `${cssValue(this.getSize())} solid ${color}`;
+    return `${cssValue(this.props.size)} solid ${color}`;
   };
 
   public pacmanStyle = (i: number): SerializedStyles => {
+    const { size, speedMultiplier } = this.props;
     const s1: string = this.s1();
     const s2: string = this.s2();
 
@@ -73,9 +71,9 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
       border-top: ${i === 0 ? s1 : s2};
       border-left: ${s2};
       border-bottom: ${i === 0 ? s2 : s1};
-      border-radius: ${cssValue(this.getSize())};
+      border-radius: ${cssValue(size)};
       position: absolute;
-      animation: ${pacman[i]} 0.8s infinite ease-in-out;
+      animation: ${pacman[i]} ${0.8 / speedMultiplier}s infinite ease-in-out;
       animation-fill-mode: both;
     `;
   };
@@ -84,8 +82,8 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
     return css`
       position: relative;
       font-size: 0;
-      height: ${cssValue(this.getSize())};
-      width: ${cssValue(this.getSize())};
+      height: ${cssValue(this.props.size)};
+      width: ${cssValue(this.props.size)};
     `;
   };
 
