@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.11.0-alpha.7
+
+- Implemented `speedMultiplier` props to all loaders
+- Added feature flag to demo site. adding a url param `speed-multiplier=true` will enable to input
+
 ## 0.11.0-alpha.6
 
 - Refactored all the tests using shared specs to reduce maintenance cost.
