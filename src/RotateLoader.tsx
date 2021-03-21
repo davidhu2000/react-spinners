@@ -16,7 +16,7 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
 
   public style = (i: number): SerializedStyles => {
     const { margin } = this.props;
-    const { value, unit } = parseLengthAndUnit(margin || Loader.defaultProps.margin);
+    const { value, unit } = parseLengthAndUnit(margin);
     const left = (i % 2 ? -1 : 1) * (26 + value);
 
     return css`
@@ -32,8 +32,8 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
 
     return css`
       background-color: ${color};
-      width: ${cssValue(size || Loader.defaultProps.size)};
-      height: ${cssValue(size || Loader.defaultProps.size)};
+      width: ${cssValue(size)};
+      height: ${cssValue(size)};
       border-radius: 100%;
     `;
   };

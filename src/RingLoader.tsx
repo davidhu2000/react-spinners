@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from '@emotion/react';
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 
 import { sizeDefaults, parseLengthAndUnit, cssValue } from "./helpers";
 import { LoaderSizeProps, LengthType } from "./interfaces";
@@ -19,7 +19,7 @@ class Loader extends React.PureComponent<LoaderSizeProps> {
   public static defaultProps = sizeDefaults(60);
 
   public getSize = (): LengthType => {
-    return this.props.size || Loader.defaultProps.size;
+    return this.props.size;
   };
 
   public style = (i: number): SerializedStyles => {

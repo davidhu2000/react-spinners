@@ -28,7 +28,7 @@ class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   public color = (): string => {
     const { color } = this.props;
 
-    return calculateRgba(color || Loader.defaultProps.color, 0.75);
+    return calculateRgba(color, 0.75);
   };
 
   public before = (): Keyframes => {

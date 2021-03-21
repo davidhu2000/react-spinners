@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from '@emotion/react';
+import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 
 import { sizeMarginDefaults } from "./helpers/proptypes";
 import { LoaderSizeMarginProps } from "./interfaces";
@@ -20,9 +20,9 @@ class Loader extends React.PureComponent<LoaderSizeMarginProps> {
 
     return css`
       background-color: ${color};
-      width: ${cssValue(size || Loader.defaultProps.size)};
-      height: ${cssValue(size || Loader.defaultProps.size)};
-      margin: ${cssValue(margin || Loader.defaultProps.margin)};
+      width: ${cssValue(size)};
+      height: ${cssValue(size)};
+      margin: ${cssValue(margin)};
       border-radius: 100%;
       display: inline-block;
       animation: ${sync} 0.6s ${i * 0.07}s infinite ease-in-out;

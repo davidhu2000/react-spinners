@@ -51,7 +51,7 @@ class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
       margin-left: -2.7em;
       width: 5.4em;
       height: 5.4em;
-      font-size: ${cssValue(size || Loader.defaultProps.size)};
+      font-size: ${cssValue(size)};
     `;
   };
 

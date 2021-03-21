@@ -19,8 +19,8 @@ class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
 
     return css`
       background: transparent !important;
-      width: ${cssValue(size || Loader.defaultProps.size)};
-      height: ${cssValue(size || Loader.defaultProps.size)};
+      width: ${cssValue(size)};
+      height: ${cssValue(size)};
       border-radius: 100%;
       border: 2px solid;
       border-color: ${color};
