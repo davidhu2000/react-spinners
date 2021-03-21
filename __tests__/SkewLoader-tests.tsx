@@ -5,12 +5,13 @@ expect.extend(matchers);
 
 import SkewLoader from "../src/SkewLoader";
 import { sizeDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("SkewLoader", () => {
   const defaultSize = 20;
   const defaultColor = "#000000";
   const defaultUnit = "px";
+  const defaultSpeed = 3;
 
   commonSpecs(SkewLoader, sizeDefaults(defaultSize));
   cssSpecs(SkewLoader);
@@ -42,13 +43,8 @@ describe("SkewLoader", () => {
   lengthSpecs(SkewLoader, "size", sizeExpectStatements);
 
   const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
-    for (let i = 0; i < 5; i++) {
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "animation",
-        expect.stringContaining(`${defaultSpeed * multiplier}s`)
-      );
-    }
+    expect(loader.find("span")).toHaveStyleRule("animation", expect.stringContaining(`${defaultSpeed * multiplier}s`));
   };
 
-  speedMultiplierSpecs(PropagateLoader, speedMultiplierExpectStatements);
+  speedMultiplierSpecs(SkewLoader, speedMultiplierExpectStatements);
 });

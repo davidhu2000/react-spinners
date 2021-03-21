@@ -15,21 +15,17 @@ const skew = keyframes`
 class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   public static defaultProps = sizeDefaults(20);
 
-  public getSize = (): LengthType => {
-    return this.props.size;
-  };
-
   public style = (): SerializedStyles => {
-    const { color } = this.props;
+    const { color, speedMultiplier, size } = this.props;
 
     return css`
       width: 0;
       height: 0;
-      border-left: ${cssValue(this.getSize())} solid transparent;
-      border-right: ${cssValue(this.getSize())} solid transparent;
-      border-bottom: ${cssValue(this.getSize())} solid ${color};
+      border-left: ${cssValue(size)} solid transparent;
+      border-right: ${cssValue(size)} solid transparent;
+      border-bottom: ${cssValue(size)} solid ${color};
       display: inline-block;
-      animation: ${skew} 3s 0s infinite cubic-bezier(0.09, 0.57, 0.49, 0.9);
+      animation: ${skew} ${3 / speedMultiplier}s 0s infinite cubic-bezier(0.09, 0.57, 0.49, 0.9);
       animation-fill-mode: both;
     `;
   };
