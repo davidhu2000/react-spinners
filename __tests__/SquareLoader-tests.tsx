@@ -37,4 +37,15 @@ describe("SquareLoader", () => {
     expect(loader).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
   };
   lengthSpecs(SquareLoader, "size", sizeExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    for (let i = 0; i < 5; i++) {
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
+        "animation",
+        expect.stringContaining(`${defaultSpeed * multiplier}s`)
+      );
+    }
+  };
+
+  speedMultiplierSpecs(PropagateLoader, speedMultiplierExpectStatements);
 });
