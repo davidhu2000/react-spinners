@@ -5,12 +5,13 @@ expect.extend(matchers);
 
 import PropagateLoader from "../src/PropagateLoader";
 import { sizeDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("PropagateLoader", () => {
   const defaultSize = 15;
   const defaultColor = "#000000";
   const defaultUnit = "px";
+  const defaultSpeed = 1.5;
 
   commonSpecs(PropagateLoader, sizeDefaults(defaultSize));
   cssSpecs(PropagateLoader);
@@ -18,19 +19,10 @@ describe("PropagateLoader", () => {
   it("should contain styles created using default props", () => {
     const loader = mount(<PropagateLoader />);
     for (let i = 0; i < 6; i++) {
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "height",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "width",
-        `${defaultSize}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
       expect(loader.find("span span").at(i)).toHaveStyleRule("background", defaultColor);
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "font-size",
-        `${defaultSize / 3}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("font-size", `${defaultSize / 3}${defaultUnit}`);
     }
   });
 
@@ -47,32 +39,25 @@ describe("PropagateLoader", () => {
 
   const sizeExpectStatements = (loader: ReactWrapper, length: number, unit?: string) => {
     for (let i = 0; i < 6; i++) {
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "height",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "width",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "font-size",
-        `${defaultSize / 3}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("font-size", `${defaultSize / 3}${defaultUnit}`);
 
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "height",
-        `${length}${unit || defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "width",
-        `${length}${unit || defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "font-size",
-        `${length / 3}${unit || defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${length}${unit || defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("font-size", `${length / 3}${unit || defaultUnit}`);
     }
   };
   lengthSpecs(PropagateLoader, "size", sizeExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    for (let i = 0; i < 5; i++) {
+      expect(loader.find("span span").at(i)).toHaveStyleRule(
+        "animation",
+        expect.stringContaining(`${defaultSpeed * multiplier}s`)
+      );
+    }
+  };
+
+  speedMultiplierSpecs(PropagateLoader, speedMultiplierExpectStatements);
 });
