@@ -39,12 +39,13 @@ class Loader extends React.PureComponent<Required<LoaderSizeMarginProps>> {
   };
 
   public wrapper = (): SerializedStyles => {
+    const { speedMultiplier } = this.props;
     return css`
       ${this.ball()};
       display: inline-block;
       position: relative;
       animation-fill-mode: both;
-      animation: ${rotate} 1s 0s infinite cubic-bezier(0.7, -0.13, 0.22, 0.86);
+      animation: ${rotate} ${1 / speedMultiplier}s 0s infinite cubic-bezier(0.7, -0.13, 0.22, 0.86);
     `;
   };
 

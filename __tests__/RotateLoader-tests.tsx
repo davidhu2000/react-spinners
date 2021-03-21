@@ -5,13 +5,14 @@ expect.extend(matchers);
 
 import RotateLoader from "../src/RotateLoader";
 import { sizeMarginDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("RotateLoader", () => {
   const defaultSize = 15;
   const defaultMargin = 2;
   const defaultColor = "#000000";
   const defaultUnit = "px";
+  const defaultSpeed = 1;
 
   commonSpecs(RotateLoader, sizeMarginDefaults(defaultSize));
   cssSpecs(RotateLoader);
@@ -24,20 +25,11 @@ describe("RotateLoader", () => {
 
     for (let i = 0; i < 2; i++) {
       expect(loader.find("span span").at(i)).toHaveStyleRule("background-color", defaultColor);
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "height",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "width",
-        `${defaultSize}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
       const leftDefault = (i % 2 ? 1 : -1) * (26 + defaultMargin);
 
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "left",
-        `${leftDefault}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("left", `${leftDefault}${defaultUnit}`);
     }
   });
 
@@ -61,23 +53,11 @@ describe("RotateLoader", () => {
     expect(loader).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
 
     for (let i = 0; i < 2; i++) {
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "height",
-        `${defaultSize}${defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "width",
-        `${defaultSize}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("height", `${defaultSize}${defaultUnit}`);
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("width", `${defaultSize}${defaultUnit}`);
 
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "height",
-        `${length}${unit || defaultUnit}`
-      );
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "width",
-        `${length}${unit || defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("height", `${length}${unit || defaultUnit}`);
+      expect(loader.find("span span").at(i)).toHaveStyleRule("width", `${length}${unit || defaultUnit}`);
     }
   };
   lengthSpecs(RotateLoader, "size", sizeExpectStatements);
@@ -85,17 +65,17 @@ describe("RotateLoader", () => {
   const marginExpectStatements = (loader: ReactWrapper, length: number, unit?: string) => {
     for (let i = 0; i < 2; i++) {
       const leftDefault = (i % 2 ? 1 : -1) * (26 + defaultMargin);
-      expect(loader.find("span span").at(i)).not.toHaveStyleRule(
-        "left",
-        `${leftDefault}${defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).not.toHaveStyleRule("left", `${leftDefault}${defaultUnit}`);
 
       const left = (i % 2 ? 1 : -1) * (26 + length);
-      expect(loader.find("span span").at(i)).toHaveStyleRule(
-        "left",
-        `${left}${unit || defaultUnit}`
-      );
+      expect(loader.find("span span").at(i)).toHaveStyleRule("left", `${left}${unit || defaultUnit}`);
     }
   };
   lengthSpecs(RotateLoader, "margin", marginExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    expect(loader.find("span")).toHaveStyleRule("animation", expect.stringContaining(`${defaultSpeed * multiplier}s`));
+  };
+
+  speedMultiplierSpecs(RotateLoader, speedMultiplierExpectStatements);
 });
