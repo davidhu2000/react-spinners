@@ -23,7 +23,7 @@ class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   };
 
   public style = (i: number): SerializedStyles => {
-    const { color } = this.props;
+    const { color, speedMultiplier } = this.props;
     const { value, unit } = parseLengthAndUnit(this.getSize());
 
     return css`
@@ -37,7 +37,7 @@ class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
       border-radius: 100%;
       animation-fill-mode: forwards;
       perspective: 800px;
-      animation: ${i === 1 ? right : left} 2s 0s infinite linear;
+      animation: ${i === 1 ? right : left} ${2 / speedMultiplier}s 0s infinite linear;
     `;
   };
 
