@@ -5,13 +5,14 @@ expect.extend(matchers);
 
 import SyncLoader from "../src/SyncLoader";
 import { sizeMarginDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("SyncLoader", () => {
   const defaultSize = 15;
   const defaultMargin = 2;
   const defaultColor = "#000000";
   const defaultUnit = "px";
+  const defaultSpeed = 0.6;
 
   commonSpecs(SyncLoader, sizeMarginDefaults(defaultSize));
   cssSpecs(SyncLoader);
@@ -56,7 +57,7 @@ describe("SyncLoader", () => {
   lengthSpecs(SyncLoader, "margin", marginExpectStatements);
 
   const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 3; i++) {
       expect(loader.find("span span").at(i)).toHaveStyleRule(
         "animation",
         expect.stringContaining(`${defaultSpeed * multiplier}s`)
@@ -64,5 +65,5 @@ describe("SyncLoader", () => {
     }
   };
 
-  speedMultiplierSpecs(PropagateLoader, speedMultiplierExpectStatements);
+  speedMultiplierSpecs(SyncLoader, speedMultiplierExpectStatements);
 });

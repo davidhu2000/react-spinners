@@ -16,7 +16,7 @@ class Loader extends React.PureComponent<Required<LoaderSizeMarginProps>> {
   public static defaultProps = sizeMarginDefaults(15);
 
   public style = (i: number): SerializedStyles => {
-    const { color, size, margin } = this.props;
+    const { color, size, margin, speedMultiplier } = this.props;
 
     return css`
       background-color: ${color};
@@ -25,7 +25,7 @@ class Loader extends React.PureComponent<Required<LoaderSizeMarginProps>> {
       margin: ${cssValue(margin)};
       border-radius: 100%;
       display: inline-block;
-      animation: ${sync} 0.6s ${i * 0.07}s infinite ease-in-out;
+      animation: ${sync} ${0.6 / speedMultiplier}s ${i * 0.07}s infinite ease-in-out;
       animation-fill-mode: both;
     `;
   };
