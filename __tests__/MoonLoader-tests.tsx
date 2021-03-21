@@ -5,13 +5,14 @@ expect.extend(matchers);
 
 import MoonLoader from "../src/MoonLoader";
 import { sizeDefaults } from "../src/helpers";
-import { commonSpecs, cssSpecs, lengthSpecs } from "./sharedSpecs";
+import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
 describe("MoonLoader", () => {
   const defaultColor = "#000000";
   const defaultSize = 60;
   const defaultUnit = "px";
   const defaultWrapperSize = defaultSize + (defaultSize / 7) * 2;
+  const defaultSpeed = 0.6;
 
   commonSpecs(MoonLoader, sizeDefaults(defaultSize));
   cssSpecs(MoonLoader);
@@ -21,14 +22,8 @@ describe("MoonLoader", () => {
     expect(loader).toHaveStyleRule("height", `${defaultWrapperSize}${defaultUnit}`);
     expect(loader).toHaveStyleRule("width", `${defaultWrapperSize}${defaultUnit}`);
     expect(loader.find("span span").at(0)).toHaveStyleRule("background-color", defaultColor);
-    expect(loader.find("span span").at(0)).toHaveStyleRule(
-      "height",
-      `${defaultSize / 7}${defaultUnit}`
-    );
-    expect(loader.find("span span").at(0)).toHaveStyleRule(
-      "width",
-      `${defaultSize / 7}${defaultUnit}`
-    );
+    expect(loader.find("span span").at(0)).toHaveStyleRule("height", `${defaultSize / 7}${defaultUnit}`);
+    expect(loader.find("span span").at(0)).toHaveStyleRule("width", `${defaultSize / 7}${defaultUnit}`);
     expect(loader.find("span span").at(1)).toHaveStyleRule(
       "border",
       `${defaultSize / 7}${defaultUnit} solid ${defaultColor}`
@@ -52,4 +47,13 @@ describe("MoonLoader", () => {
     expect(loader).toHaveStyleRule("width", `${wrapperSize}${unit || defaultUnit}`);
   };
   lengthSpecs(MoonLoader, "size", sizeExpectStatements);
+
+  const speedMultiplierExpectStatements = (loader: ReactWrapper, multiplier: number) => {
+    expect(loader.find("span span").at(0)).toHaveStyleRule(
+      "animation",
+      expect.stringContaining(`${defaultSpeed * multiplier}s`)
+    );
+  };
+
+  speedMultiplierSpecs(MoonLoader, speedMultiplierExpectStatements);
 });
