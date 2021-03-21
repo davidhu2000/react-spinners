@@ -71,11 +71,7 @@ function App() {
   return (
     <div className="sweet-loading">
       <button onClick={() => setLoading(!loading)}>Toggle Loader</button>
-      <input
-        value={color}
-        onChange={(input) => setColor(input.target.value)}
-        placeholder="Color of the loader"
-      />
+      <input value={color} onChange={(input) => setColor(input.target.value)} placeholder="Color of the loader" />
 
       <ClipLoader color={color} loading={loading} css={override} size={150} />
     </div>
@@ -110,7 +106,7 @@ class AwesomeComponent extends React.Component {
   render() {
     return (
       <div className="sweet-loading">
-        <ClipLoader css={override} size={150} color={"#123abc"} loading={this.state.loading} />
+        <ClipLoader css={override} size={150} color={"#123abc"} loading={this.state.loading} speedMultiplier={1.5} />
       </div>
     );
   }
@@ -127,6 +123,7 @@ Common default props for all loaders:
 loading: true;
 color: "#000000";
 css: "";
+speedMultiplier: 1;
 ```
 
 ### `color` prop
