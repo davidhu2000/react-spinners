@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.11.0-beta.1
+
+- No changes, just promoting to beta
+
 ## 0.11.0-alpha.8
 
 - Update readme to include speed multiplier prop
