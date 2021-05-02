@@ -50,7 +50,7 @@
   "devDependencies": {
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
-    "@babel/node": "^7.12.10",
+    "@babel/node": "^7.13.13",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-transform-react-jsx": "^7.12.12",
     "@babel/plugin-transform-typescript": "^7.12.1",
