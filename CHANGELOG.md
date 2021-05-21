@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.11.0
+
+- **Feature**: added `speedMultiplier` prop to allow controlling the speed of animations. 
+
 ## 0.11.0-beta.1
 
 - No changes, just promoting to beta
