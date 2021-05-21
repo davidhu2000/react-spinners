@@ -57,7 +57,7 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
     "@emotion/babel-plugin": "^11.1.2",
-    "@emotion/eslint-plugin": "^11.0.0",
+    "@emotion/eslint-plugin": "^11.2.0",
     "@emotion/jest": "^11.1.0",
     "@types/enzyme": "^3.10.8",
     "@types/enzyme-adapter-react-16": "^1.0.6",
