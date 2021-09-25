@@ -2,9 +2,13 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.12.0-alpha.1
+
+- **Feature**: output commonjs, es module, and umd file types.
+
 ## 0.11.0
 
-- **Feature**: added `speedMultiplier` prop to allow controlling the speed of animations. 
+- **Feature**: added `speedMultiplier` prop to allow controlling the speed of animations.
 
 ## 0.11.0-beta.1
 
