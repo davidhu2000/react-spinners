@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsxImportSource @emotion/react */
 import * as React from "react";
 import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
 import { Keyframes } from "@emotion/serialize";
