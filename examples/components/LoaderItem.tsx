@@ -52,11 +52,7 @@ class LoaderItem extends React.Component<ItemProps, ItemState> {
     return (
       <div className="spinner-item">
         <div className="spinner-title">{name}</div>
-        <Spinner
-          color={this.props.color}
-          speedMultiplier={this.props.speedMultiplier}
-          {...this.state}
-        />
+        <Spinner color={this.props.color} speedMultiplier={this.props.speedMultiplier} {...this.state} />
         <Form inputs={this.state} update={this.update} />
       </div>
     );

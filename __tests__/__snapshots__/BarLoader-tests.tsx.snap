@@ -45,7 +45,7 @@ exports[`BarLoader common specs should match snapshot 1`] = `
   background-clip: padding-box;
 }
 
-.emotion-014j30wi {
+.emotion-09u87m4 {
   position: absolute;
   height: 4px;
   overflow: hidden;
@@ -61,7 +61,7 @@ exports[`BarLoader common specs should match snapshot 1`] = `
   animation: animation-0 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
 }
 
-.emotion-0arw02b {
+.emotion-05pouuy {
   position: absolute;
   height: 4px;
   overflow: hidden;
@@ -92,10 +92,10 @@ exports[`BarLoader common specs should match snapshot 1`] = `
       className="emotion-018btcsr"
     >
       <span
-        className="emotion-014j30wi"
+        className="emotion-09u87m4"
       />
       <span
-        className="emotion-0arw02b"
+        className="emotion-05pouuy"
       />
     </span>
   </span>

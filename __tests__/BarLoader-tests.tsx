@@ -38,10 +38,7 @@ describe("BarLoader", () => {
   const heightExpectStatements = (loader: ReactWrapper, length: number, unit?: string) => {
     expect(loader).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
     expect(loader).toHaveStyleRule("height", `${length}${unit || defaultUnit}`);
-    expect(loader.find("span span")).not.toHaveStyleRule(
-      "height",
-      `${defaultHeight}${defaultUnit}`
-    );
+    expect(loader.find("span span")).not.toHaveStyleRule("height", `${defaultHeight}${defaultUnit}`);
     expect(loader.find("span span")).toHaveStyleRule("height", `${length}${unit || defaultUnit}`);
   };
   lengthSpecs(BarLoader, "height", heightExpectStatements);

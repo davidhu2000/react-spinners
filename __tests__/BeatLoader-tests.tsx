@@ -41,10 +41,7 @@ describe("BeatLoader", () => {
   lengthSpecs(BeatLoader, "size", sizeExpectStatements);
 
   const marginExpectStatements = (loader: ReactWrapper, length: number, unit?: string) => {
-    expect(loader.find("span span")).not.toHaveStyleRule(
-      "margin",
-      `${defaultMargin}${defaultUnit}`
-    );
+    expect(loader.find("span span")).not.toHaveStyleRule("margin", `${defaultMargin}${defaultUnit}`);
     expect(loader.find("span span")).toHaveStyleRule("margin", `${length}${unit || defaultUnit}`);
   };
   lengthSpecs(BeatLoader, "margin", marginExpectStatements);

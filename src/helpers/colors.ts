@@ -36,9 +36,7 @@ export const calculateRgba = (color: string, opacity: number): string => {
     color = res;
   }
 
-  const rgbValues: string = (color.match(/.{2}/g) || [])
-    .map((hex: string) => parseInt(hex, 16))
-    .join(", ");
+  const rgbValues: string = (color.match(/.{2}/g) || []).map((hex: string) => parseInt(hex, 16)).join(", ");
 
   return `rgba(${rgbValues}, ${opacity})`;
 };
