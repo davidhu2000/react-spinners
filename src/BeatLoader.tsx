@@ -1,6 +1,6 @@
-/** @jsx jsx */
+/** @jsxImportSource @emotion/react */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
+import { keyframes, css, SerializedStyles } from "@emotion/react";
 
 import { sizeMarginDefaults, cssValue } from "./helpers";
 import { LoaderSizeMarginProps } from "./interfaces";
@@ -23,8 +23,7 @@ class Loader extends React.PureComponent<Required<LoaderSizeMarginProps>> {
       height: ${cssValue(size)};
       margin: ${cssValue(margin)};
       border-radius: 100%;
-      animation: ${beat} ${0.7 / speedMultiplier}s ${i % 2 ? "0s" : `${0.35 / speedMultiplier}s`}
-        infinite linear;
+      animation: ${beat} ${0.7 / speedMultiplier}s ${i % 2 ? "0s" : `${0.35 / speedMultiplier}s`} infinite linear;
       animation-fill-mode: both;
     `;
   };

@@ -26,10 +26,7 @@ export function sizeMarginDefaults(sizeValue: number): Required<LoaderSizeMargin
   });
 }
 
-export function heightWidthDefaults(
-  height: number,
-  width: number
-): Required<LoaderHeightWidthProps> {
+export function heightWidthDefaults(height: number, width: number): Required<LoaderHeightWidthProps> {
   return Object.assign({}, commonValues, {
     height,
     width

@@ -1,6 +1,6 @@
-/** @jsx jsx */
+/** @jsxImportSource @emotion/react */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
+import { keyframes, css, SerializedStyles } from "@emotion/react";
 
 import { sizeDefaults, cssValue } from "./helpers";
 import { LoaderSizeProps } from "./interfaces";
@@ -26,8 +26,7 @@ class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
       top: 0;
       left: 0;
       animation-fill-mode: both;
-      animation: ${bounce} ${2.1 / speedMultiplier}s ${i === 1 ? `${1 / speedMultiplier}s` : "0s"}
-        infinite ease-in-out;
+      animation: ${bounce} ${2.1 / speedMultiplier}s ${i === 1 ? `${1 / speedMultiplier}s` : "0s"} infinite ease-in-out;
     `;
   };
 

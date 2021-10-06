@@ -1,4 +1,3 @@
-
 **Before submitting a pull request,** please do the following:
 
 1. Make sure you are not working on the master branch.

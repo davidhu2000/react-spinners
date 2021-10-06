@@ -1,9 +1,4 @@
-import {
-  sizeDefaults,
-  sizeMarginDefaults,
-  heightWidthDefaults,
-  heightWidthRadiusDefaults
-} from "../../src/helpers";
+import { sizeDefaults, sizeMarginDefaults, heightWidthDefaults, heightWidthRadiusDefaults } from "../../src/helpers";
 import { CommonProps } from "../../src/interfaces";
 
 function isFunctionSpec<T>(defaultsFunction: T) {

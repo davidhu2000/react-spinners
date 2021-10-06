@@ -1,4 +1,4 @@
-import { SerializedStyles } from '@emotion/react';
+import { SerializedStyles } from "@emotion/react";
 
 export interface LengthObject {
   value: number;
@@ -9,7 +9,7 @@ export interface CommonProps {
   color?: string;
   loading?: boolean;
   css?: string | SerializedStyles;
-  speedMultiplier?: number
+  speedMultiplier?: number;
 }
 
 export type LengthType = number | string;

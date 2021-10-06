@@ -1,6 +1,6 @@
-/** @jsx jsx */
+/** @jsxImportSource @emotion/react */
 import * as React from "react";
-import { keyframes, css, jsx, SerializedStyles } from "@emotion/react";
+import { keyframes, css, SerializedStyles } from "@emotion/react";
 
 import { calculateRgba, heightWidthDefaults, cssValue } from "./helpers";
 import { LoaderHeightWidthProps } from "./interfaces";
@@ -33,12 +33,8 @@ class Loader extends React.PureComponent<Required<LoaderHeightWidthProps>> {
       border-radius: 2px;
       will-change: left, right;
       animation-fill-mode: forwards;
-      animation: ${i === 1 ? long : short} ${2.1 / speedMultiplier}s
-        ${i === 2 ? `${1.15 / speedMultiplier}s` : ""}
-        ${i === 1
-          ? "cubic-bezier(0.65, 0.815, 0.735, 0.395)"
-          : "cubic-bezier(0.165, 0.84, 0.44, 1)"}
-        infinite;
+      animation: ${i === 1 ? long : short} ${2.1 / speedMultiplier}s ${i === 2 ? `${1.15 / speedMultiplier}s` : ""}
+        ${i === 1 ? "cubic-bezier(0.65, 0.815, 0.735, 0.395)" : "cubic-bezier(0.165, 0.84, 0.44, 1)"} infinite;
     `;
   };
 

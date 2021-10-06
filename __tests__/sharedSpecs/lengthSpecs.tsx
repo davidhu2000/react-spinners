@@ -5,11 +5,7 @@ expect.extend(matchers);
 
 type ExpectFunc = (loader: ReactWrapper, length: number, unit?: string) => void;
 
-function lengthSpecs(
-  Loader: typeof React.Component,
-  property: string,
-  expectFunction: ExpectFunc
-): void {
+function lengthSpecs(Loader: typeof React.Component, property: string, expectFunction: ExpectFunc): void {
   const length = 18;
 
   describe(`${property} props`, () => {
