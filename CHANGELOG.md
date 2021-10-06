@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.12.0-alpha.2
+
+- Update pragma to `/** @jsxImportSource @emotion/react */` to fix issue with the new jsx runtime.
+- update all dependencies to latest version and rebuild demo site
+
 ## 0.12.0-alpha.1
 
 - **Feature**: output commonjs, es module, and umd file types.
