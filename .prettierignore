@@ -3,3 +3,4 @@ node_modules
 yarn.lock
 coverage
 docs
+template.html
