@@ -39,7 +39,7 @@ exports[`BounceLoader common specs should match snapshot 1`] = `
   height: 60px;
 }
 
-.emotion-025g8mi {
+.emotion-014hgwh {
   position: absolute;
   height: 60px;
   width: 60px;
@@ -54,7 +54,7 @@ exports[`BounceLoader common specs should match snapshot 1`] = `
   animation: animation-0 2.1s 1s infinite ease-in-out;
 }
 
-.emotion-01700g4r {
+.emotion-01fymig2 {
   position: absolute;
   height: 60px;
   width: 60px;
@@ -83,10 +83,10 @@ exports[`BounceLoader common specs should match snapshot 1`] = `
       className="emotion-0mz0q36"
     >
       <span
-        className="emotion-025g8mi"
+        className="emotion-014hgwh"
       />
       <span
-        className="emotion-01700g4r"
+        className="emotion-01fymig2"
       />
     </span>
   </span>
