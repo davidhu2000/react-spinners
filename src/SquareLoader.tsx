@@ -29,9 +29,9 @@ class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
   };
 
   public render(): JSX.Element | null {
-    const { loading, css } = this.props;
+    const { loading, css, customProps } = this.props;
 
-    return loading ? <span css={[this.style(), css]} /> : null;
+    return loading ? <span css={[this.style(), css]} {...customProps} /> : null;
   }
 }
 

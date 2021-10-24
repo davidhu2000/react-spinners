@@ -19,6 +19,11 @@ function commonSpecs(Loader: typeof React.Component, defaultProps: unknown): voi
       const loader = mount(<Loader loading={false} />);
       expect(loader.isEmptyRender()).toBe(true);
     });
+
+    it("should render an arial if it is passed into custom props", () => {
+      const loader = mount(<Loader customProps={{"aria-label": "loading"}} />);
+      expect(loader.find("span").at(0).props()).toHaveProperty("aria-label", "loading")
+    });
   });
 }
 

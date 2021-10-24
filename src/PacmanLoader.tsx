@@ -91,10 +91,10 @@ class Loader extends React.PureComponent<Required<LoaderSizeMarginProps>> {
   public man = (): SerializedStyles => this.pacmanStyle(1);
 
   public render(): JSX.Element | null {
-    const { loading, css } = this.props;
+    const { loading, css, customProps } = this.props;
 
     return loading ? (
-      <span css={[this.wrapper(), css]}>
+      <span css={[this.wrapper(), css]} {...customProps}>
         <span css={this.pac()} />
         <span css={this.man()} />
         <span css={this.ballStyle(2)} />
