@@ -99,10 +99,10 @@ class Loader extends React.PureComponent<Required<LoaderHeightWidthRadiusProps>>
   `;
 
   public render(): JSX.Element | null {
-    const { loading, css, customProps } = this.props;
+    const { loading, css } = this.props;
 
     return loading ? (
-      <span css={[this.wrapper(), css]} {...customProps}>
+      <span css={[this.wrapper(), css]}>
         <span css={this.a()} />
         <span css={this.b()} />
         <span css={this.c()} />

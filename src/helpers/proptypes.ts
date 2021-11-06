@@ -9,25 +9,24 @@ import {
 /*
  * DefaultProps object for different loaders
  */
-const commonValues: Required<CommonProps> = {
+const commonValues: CommonProps = {
   loading: true,
   color: "#000000",
   css: "",
-  speedMultiplier: 1,
-  customProps: {}
+  speedMultiplier: 1
 };
 
-export function sizeDefaults(sizeValue: number): Required<LoaderSizeProps> {
+export function sizeDefaults(sizeValue: number): LoaderSizeProps {
   return Object.assign({}, commonValues, { size: sizeValue });
 }
 
-export function sizeMarginDefaults(sizeValue: number): Required<LoaderSizeMarginProps> {
+export function sizeMarginDefaults(sizeValue: number): LoaderSizeMarginProps {
   return Object.assign({}, sizeDefaults(sizeValue), {
     margin: 2
   });
 }
 
-export function heightWidthDefaults(height: number, width: number): Required<LoaderHeightWidthProps> {
+export function heightWidthDefaults(height: number, width: number): LoaderHeightWidthProps {
   return Object.assign({}, commonValues, {
     height,
     width
@@ -38,7 +37,7 @@ export function heightWidthRadiusDefaults(
   height: number,
   width: number,
   radius = 2
-): Required<LoaderHeightWidthRadiusProps> {
+): LoaderHeightWidthRadiusProps {
   return Object.assign({}, heightWidthDefaults(height, width), {
     radius,
     margin: 2

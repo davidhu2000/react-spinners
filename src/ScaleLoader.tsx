@@ -30,10 +30,10 @@ class Loader extends React.PureComponent<Required<LoaderHeightWidthRadiusProps>>
   };
 
   public render(): JSX.Element | null {
-    const { loading, css, customProps } = this.props;
+    const { loading, css } = this.props;
 
     return loading ? (
-      <span css={[css]} {...customProps}>
+      <span css={[css]}>
         <span css={this.style(1)} />
         <span css={this.style(2)} />
         <span css={this.style(3)} />

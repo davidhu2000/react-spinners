@@ -59,10 +59,10 @@ class Loader extends React.PureComponent<Required<LoaderSizeMarginProps>> {
   `;
 
   public render(): JSX.Element | null {
-    const { loading, css, customProps } = this.props;
+    const { loading, css } = this.props;
 
     return loading ? (
-      <span css={[this.wrapper(), css]} {...customProps}>
+      <span css={[this.wrapper(), css]}>
         <span css={this.long()} />
         <span css={this.short()} />
       </span>

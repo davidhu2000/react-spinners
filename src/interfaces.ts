@@ -4,12 +4,11 @@ export interface LengthObject {
   value: number;
   unit: string;
 }
-export interface CommonProps {
+export interface CommonProps extends React.HTMLAttributes<HTMLSpanElement> {
   color?: string;
   loading?: boolean;
   css?: string | SerializedStyles;
   speedMultiplier?: number;
-  customProps?: React.HTMLAttributes<HTMLSpanElement>
 }
 
 export type LengthType = number | string;
