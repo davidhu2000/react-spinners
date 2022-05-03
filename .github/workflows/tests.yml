@@ -1,0 +1,23 @@
+name: tests
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: "npm"
+      - run: npm install --global yarn
+      - run: yarn install
+      - run: yarn run lint
+      - run: yarn run jest
+      - run: yarn run coveralls
