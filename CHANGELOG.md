@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.12.0-alpha.3
+
+- migrate from circle-ci to github actions for lint/jest
+- **Feature**: add support for react 18 [#464](https://github.com/davidhu2000/react-spinners/pull/464)
+
 ## 0.12.0-alpha.2
 
 - Update pragma to `/** @jsxImportSource @emotion/react */` to fix issue with the new jsx runtime.
