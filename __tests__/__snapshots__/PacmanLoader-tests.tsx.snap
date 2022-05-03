@@ -85,14 +85,14 @@ exports[`PacmanLoader common specs should match snapshot 1`] = `
   }
 }
 
-.emotion-0113v409 {
+.emotion-0 {
   position: relative;
   font-size: 0;
   height: 25px;
   width: 25px;
 }
 
-.emotion-0e1cvz7 {
+.emotion-1 {
   width: 0;
   height: 0;
   border-right: 25px solid transparent;
@@ -107,7 +107,7 @@ exports[`PacmanLoader common specs should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-.emotion-01p1b5e4 {
+.emotion-2 {
   width: 0;
   height: 0;
   border-right: 25px solid transparent;
@@ -122,7 +122,7 @@ exports[`PacmanLoader common specs should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-.emotion-05j85ug {
+.emotion-3 {
   width: 8.333333333333334px;
   height: 8.333333333333334px;
   background-color: #000000;
@@ -141,7 +141,7 @@ exports[`PacmanLoader common specs should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-.emotion-01cna3gb {
+.emotion-4 {
   width: 8.333333333333334px;
   height: 8.333333333333334px;
   background-color: #000000;
@@ -160,7 +160,7 @@ exports[`PacmanLoader common specs should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-.emotion-0e4u31e {
+.emotion-5 {
   width: 8.333333333333334px;
   height: 8.333333333333334px;
   background-color: #000000;
@@ -179,7 +179,7 @@ exports[`PacmanLoader common specs should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-.emotion-030u7o4 {
+.emotion-6 {
   width: 8.333333333333334px;
   height: 8.333333333333334px;
   background-color: #000000;
@@ -210,27 +210,23 @@ exports[`PacmanLoader common specs should match snapshot 1`] = `
     className="emotion-0"
   >
     <span
-      className="emotion-0113v409"
-    >
-      <span
-        className="emotion-0e1cvz7"
-      />
-      <span
-        className="emotion-01p1b5e4"
-      />
-      <span
-        className="emotion-05j85ug"
-      />
-      <span
-        className="emotion-01cna3gb"
-      />
-      <span
-        className="emotion-0e4u31e"
-      />
-      <span
-        className="emotion-030u7o4"
-      />
-    </span>
+      className="emotion-1"
+    />
+    <span
+      className="emotion-2"
+    />
+    <span
+      className="emotion-3"
+    />
+    <span
+      className="emotion-4"
+    />
+    <span
+      className="emotion-5"
+    />
+    <span
+      className="emotion-6"
+    />
   </span>
 </Loader>
 `;

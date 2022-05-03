@@ -19,7 +19,7 @@ exports[`ClockLoader common specs should match snapshot 1`] = `
   }
 }
 
-.emotion-032xao6 {
+.emotion-0 {
   position: relative;
   width: 50px;
   height: 50px;
@@ -28,14 +28,14 @@ exports[`ClockLoader common specs should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.emotion-032xao6:after,
-.emotion-032xao6:before {
+.emotion-0:after,
+.emotion-0:before {
   position: absolute;
   content: "";
   background-color: #000000;
 }
 
-.emotion-032xao6:after {
+.emotion-0:after {
   width: 20.833333333333336px;
   height: 2px;
   top: 24px;
@@ -45,7 +45,7 @@ exports[`ClockLoader common specs should match snapshot 1`] = `
   animation: animation-0 2s linear infinite;
 }
 
-.emotion-032xao6:before {
+.emotion-0:before {
   width: 16.666666666666668px;
   height: 2px;
   top: 24px;
@@ -64,10 +64,6 @@ exports[`ClockLoader common specs should match snapshot 1`] = `
 >
   <span
     className="emotion-0"
-  >
-    <span
-      className="emotion-032xao6"
-    />
-  </span>
+  />
 </Loader>
 `;

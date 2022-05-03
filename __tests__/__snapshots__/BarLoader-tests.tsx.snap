@@ -35,7 +35,7 @@ exports[`BarLoader common specs should match snapshot 1`] = `
   }
 }
 
-.emotion-018btcsr {
+.emotion-0 {
   position: relative;
   width: 100px;
   height: 4px;
@@ -45,7 +45,7 @@ exports[`BarLoader common specs should match snapshot 1`] = `
   background-clip: padding-box;
 }
 
-.emotion-09u87m4 {
+.emotion-1 {
   position: absolute;
   height: 4px;
   overflow: hidden;
@@ -61,7 +61,7 @@ exports[`BarLoader common specs should match snapshot 1`] = `
   animation: animation-0 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
 }
 
-.emotion-05pouuy {
+.emotion-2 {
   position: absolute;
   height: 4px;
   overflow: hidden;
@@ -89,15 +89,11 @@ exports[`BarLoader common specs should match snapshot 1`] = `
     className="emotion-0"
   >
     <span
-      className="emotion-018btcsr"
-    >
-      <span
-        className="emotion-09u87m4"
-      />
-      <span
-        className="emotion-05pouuy"
-      />
-    </span>
+      className="emotion-1"
+    />
+    <span
+      className="emotion-2"
+    />
   </span>
 </Loader>
 `;

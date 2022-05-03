@@ -16,5 +16,6 @@ module.exports = {
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(t|j)sx?$",
   moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
   snapshotSerializers: ["@emotion/jest/serializer", "enzyme-to-json/serializer"],
-  setupFilesAfterEnv: ["<rootDir>/__tests__/config/enzyme.ts"]
+  setupFilesAfterEnv: ["<rootDir>/__tests__/config/enzyme.ts"],
+  testEnvironment: "jsdom"
 };

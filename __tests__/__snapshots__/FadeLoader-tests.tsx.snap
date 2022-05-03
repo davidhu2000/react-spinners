@@ -81,7 +81,7 @@ exports[`FadeLoader common specs should match snapshot 1`] = `
   }
 }
 
-.emotion-0kud8pv {
+.emotion-0 {
   position: relative;
   font-size: 0;
   top: 20px;
@@ -90,7 +90,7 @@ exports[`FadeLoader common specs should match snapshot 1`] = `
   height: 60px;
 }
 
-.emotion-0ls5g3w {
+.emotion-1 {
   position: absolute;
   width: 5px;
   height: 15px;
@@ -107,7 +107,7 @@ exports[`FadeLoader common specs should match snapshot 1`] = `
   left: 0;
 }
 
-.emotion-09mx5xc {
+.emotion-2 {
   position: absolute;
   width: 5px;
   height: 15px;
@@ -128,7 +128,7 @@ exports[`FadeLoader common specs should match snapshot 1`] = `
   transform: rotate(-45deg);
 }
 
-.emotion-0fkrw1z {
+.emotion-3 {
   position: absolute;
   width: 5px;
   height: 15px;
@@ -149,7 +149,7 @@ exports[`FadeLoader common specs should match snapshot 1`] = `
   transform: rotate(90deg);
 }
 
-.emotion-0w0winf {
+.emotion-4 {
   position: absolute;
   width: 5px;
   height: 15px;
@@ -170,7 +170,7 @@ exports[`FadeLoader common specs should match snapshot 1`] = `
   transform: rotate(45deg);
 }
 
-.emotion-01caczn4 {
+.emotion-5 {
   position: absolute;
   width: 5px;
   height: 15px;
@@ -187,7 +187,7 @@ exports[`FadeLoader common specs should match snapshot 1`] = `
   left: 0;
 }
 
-.emotion-06e71m9 {
+.emotion-6 {
   position: absolute;
   width: 5px;
   height: 15px;
@@ -208,7 +208,7 @@ exports[`FadeLoader common specs should match snapshot 1`] = `
   transform: rotate(-45deg);
 }
 
-.emotion-01ngsrc8 {
+.emotion-7 {
   position: absolute;
   width: 5px;
   height: 15px;
@@ -229,7 +229,7 @@ exports[`FadeLoader common specs should match snapshot 1`] = `
   transform: rotate(90deg);
 }
 
-.emotion-01e93agn {
+.emotion-8 {
   position: absolute;
   width: 5px;
   height: 15px;
@@ -264,33 +264,29 @@ exports[`FadeLoader common specs should match snapshot 1`] = `
     className="emotion-0"
   >
     <span
-      className="emotion-0kud8pv"
-    >
-      <span
-        className="emotion-0ls5g3w"
-      />
-      <span
-        className="emotion-09mx5xc"
-      />
-      <span
-        className="emotion-0fkrw1z"
-      />
-      <span
-        className="emotion-0w0winf"
-      />
-      <span
-        className="emotion-01caczn4"
-      />
-      <span
-        className="emotion-06e71m9"
-      />
-      <span
-        className="emotion-01ngsrc8"
-      />
-      <span
-        className="emotion-01e93agn"
-      />
-    </span>
+      className="emotion-1"
+    />
+    <span
+      className="emotion-2"
+    />
+    <span
+      className="emotion-3"
+    />
+    <span
+      className="emotion-4"
+    />
+    <span
+      className="emotion-5"
+    />
+    <span
+      className="emotion-6"
+    />
+    <span
+      className="emotion-7"
+    />
+    <span
+      className="emotion-8"
+    />
   </span>
 </Loader>
 `;
