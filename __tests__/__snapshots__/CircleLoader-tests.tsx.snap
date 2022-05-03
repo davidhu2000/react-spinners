@@ -116,13 +116,13 @@ exports[`CircleLoader common specs should match snapshot 1`] = `
   }
 }
 
-.emotion-0yrmx0p {
+.emotion-0 {
   position: relative;
   width: 50px;
   height: 50px;
 }
 
-.emotion-018jumju {
+.emotion-1 {
   position: absolute;
   height: 50px;
   width: 50px;
@@ -140,7 +140,7 @@ exports[`CircleLoader common specs should match snapshot 1`] = `
   animation: animation-0 1s 0s infinite linear;
 }
 
-.emotion-01ix8i79 {
+.emotion-2 {
   position: absolute;
   height: 45px;
   width: 45px;
@@ -158,7 +158,7 @@ exports[`CircleLoader common specs should match snapshot 1`] = `
   animation: animation-0 1s 0.2s infinite linear;
 }
 
-.emotion-0mdd9ud {
+.emotion-3 {
   position: absolute;
   height: 40px;
   width: 40px;
@@ -176,7 +176,7 @@ exports[`CircleLoader common specs should match snapshot 1`] = `
   animation: animation-0 1s 0.4s infinite linear;
 }
 
-.emotion-0qbu4to {
+.emotion-4 {
   position: absolute;
   height: 35px;
   width: 35px;
@@ -194,7 +194,7 @@ exports[`CircleLoader common specs should match snapshot 1`] = `
   animation: animation-0 1s 0.6000000000000001s infinite linear;
 }
 
-.emotion-01wtwgn9 {
+.emotion-5 {
   position: absolute;
   height: 30px;
   width: 30px;
@@ -223,24 +223,20 @@ exports[`CircleLoader common specs should match snapshot 1`] = `
     className="emotion-0"
   >
     <span
-      className="emotion-0yrmx0p"
-    >
-      <span
-        className="emotion-018jumju"
-      />
-      <span
-        className="emotion-01ix8i79"
-      />
-      <span
-        className="emotion-0mdd9ud"
-      />
-      <span
-        className="emotion-0qbu4to"
-      />
-      <span
-        className="emotion-01wtwgn9"
-      />
-    </span>
+      className="emotion-1"
+    />
+    <span
+      className="emotion-2"
+    />
+    <span
+      className="emotion-3"
+    />
+    <span
+      className="emotion-4"
+    />
+    <span
+      className="emotion-5"
+    />
   </span>
 </Loader>
 `;

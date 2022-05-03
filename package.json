@@ -45,7 +45,7 @@
     "watch": "babel-node ./node_modules/.bin/webpack --watch --config ./webpack.config.dev.js",
     "clean": "rm -rf helpers/; rm -f *Loader.js; rm -f *Loader.d.ts; rm -f index.js; rm -f index.d.ts; rm -f interfaces.js; rm -f interfaces.d.ts; rm -rf docs/js; rm -rf cjs; rm -rf esm; rm -rf umd",
     "lint": "./node_modules/.bin/eslint src __tests__ examples",
-    "jest": "./node_modules/.bin/jest --runInBand",
+    "test": "jest",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "remove:tag": "npm dist-tag rm react-spinners",
     "publish:alpha": "npm publish --tag alpha && npm run clean",

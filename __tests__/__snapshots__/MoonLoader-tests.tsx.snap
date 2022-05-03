@@ -19,7 +19,7 @@ exports[`MoonLoader common specs should match snapshot 1`] = `
   }
 }
 
-.emotion-01683kmo {
+.emotion-0 {
   position: relative;
   width: 77.14285714285714px;
   height: 77.14285714285714px;
@@ -29,7 +29,7 @@ exports[`MoonLoader common specs should match snapshot 1`] = `
   animation-fill-mode: forwards;
 }
 
-.emotion-042s4e8 {
+.emotion-1 {
   width: 8.571428571428571px;
   height: 8.571428571428571px;
   border-radius: 100%;
@@ -43,7 +43,7 @@ exports[`MoonLoader common specs should match snapshot 1`] = `
   animation-fill-mode: forwards;
 }
 
-.emotion-0mhu5ag {
+.emotion-2 {
   width: 60px;
   height: 60px;
   border-radius: 100%;
@@ -64,15 +64,11 @@ exports[`MoonLoader common specs should match snapshot 1`] = `
     className="emotion-0"
   >
     <span
-      className="emotion-01683kmo"
-    >
-      <span
-        className="emotion-042s4e8"
-      />
-      <span
-        className="emotion-0mhu5ag"
-      />
-    </span>
+      className="emotion-1"
+    />
+    <span
+      className="emotion-2"
+    />
   </span>
 </Loader>
 `;
