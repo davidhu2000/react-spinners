@@ -30,6 +30,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - run: yarn install
+      - run: yarn run clean
       - run: yarn run lint
       - run: yarn run jest
       - run: yarn run coveralls
