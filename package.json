@@ -96,11 +96,9 @@
     "webpack-cli": "^4.8.0"
   },
   "peerDependencies": {
+    "@emotion/react": "^11.0.0",
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.4.1"
   },
   "sideEffects": false
 }
