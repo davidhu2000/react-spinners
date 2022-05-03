@@ -18,18 +18,16 @@ jobs:
           cache: "npm"
       - run: npm install --global yarn
 
-      - name: get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
       - uses: actions/cache@v3
         id: yarn-cache
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
 
       - run: yarn install
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run clean
       - run: yarn run lint
       - run: yarn run jest
