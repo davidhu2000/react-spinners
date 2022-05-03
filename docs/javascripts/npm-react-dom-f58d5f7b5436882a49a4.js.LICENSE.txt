@@ -1,4 +1,5 @@
-/** @license React v17.0.2
+/**
+ * @license React
  * react-dom.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
