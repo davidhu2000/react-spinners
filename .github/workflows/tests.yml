@@ -30,7 +30,6 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run clean
       - run: yarn run test
-      # - run: yarn run coveralls
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
