@@ -42,7 +42,7 @@ exports[`DotLoader common specs should match snapshot 1`] = `
   }
 }
 
-.emotion-01kttl6 {
+.emotion-0 {
   position: relative;
   width: 60px;
   height: 60px;
@@ -52,7 +52,7 @@ exports[`DotLoader common specs should match snapshot 1`] = `
   animation: animation-0 2s 0s infinite linear;
 }
 
-.emotion-09m4dtm {
+.emotion-1 {
   position: absolute;
   top: 0;
   bottom: auto;
@@ -66,7 +66,7 @@ exports[`DotLoader common specs should match snapshot 1`] = `
   animation: animation-1 2s 0s infinite linear;
 }
 
-.emotion-0rv9a72 {
+.emotion-2 {
   position: absolute;
   top: auto;
   bottom: 0;
@@ -91,15 +91,11 @@ exports[`DotLoader common specs should match snapshot 1`] = `
     className="emotion-0"
   >
     <span
-      className="emotion-01kttl6"
-    >
-      <span
-        className="emotion-09m4dtm"
-      />
-      <span
-        className="emotion-0rv9a72"
-      />
-    </span>
+      className="emotion-1"
+    />
+    <span
+      className="emotion-2"
+    />
   </span>
 </Loader>
 `;

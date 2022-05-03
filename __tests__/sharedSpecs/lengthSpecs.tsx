@@ -23,10 +23,13 @@ function lengthSpecs(Loader: typeof React.Component, property: string, expectFun
     });
 
     it(`should render the ${property} with default unit of px when the unit is incorrect`, () => {
+      const consoleWarnMock = jest.spyOn(console, "warn").mockImplementation();
+
       const unit = "ad";
       const props = { [property]: `${length}${unit}` };
       const loader = mount(<Loader {...props} />);
       expectFunction(loader, 18);
+      expect(consoleWarnMock).toBeCalled();
     });
   });
 }

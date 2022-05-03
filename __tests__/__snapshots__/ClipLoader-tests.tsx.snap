@@ -24,7 +24,7 @@ exports[`ClipLoader common specs should match snapshot 1`] = `
   }
 }
 
-.emotion-0q3o1l2 {
+.emotion-0 {
   background: transparent!important;
   width: 35px;
   height: 35px;
@@ -48,10 +48,6 @@ exports[`ClipLoader common specs should match snapshot 1`] = `
 >
   <span
     className="emotion-0"
-  >
-    <span
-      className="emotion-0q3o1l2"
-    />
-  </span>
+  />
 </Loader>
 `;

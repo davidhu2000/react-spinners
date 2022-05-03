@@ -79,7 +79,7 @@ exports[`PulseLoader common specs should match snapshot 1`] = `
   }
 }
 
-.emotion-01wl1zro {
+.emotion-1 {
   background-color: #000000;
   width: 15px;
   height: 15px;
@@ -92,7 +92,7 @@ exports[`PulseLoader common specs should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-.emotion-0nfvbbo {
+.emotion-2 {
   background-color: #000000;
   width: 15px;
   height: 15px;
@@ -105,7 +105,7 @@ exports[`PulseLoader common specs should match snapshot 1`] = `
   animation-fill-mode: both;
 }
 
-.emotion-01xsdpkx {
+.emotion-3 {
   background-color: #000000;
   width: 15px;
   height: 15px;
@@ -130,18 +130,14 @@ exports[`PulseLoader common specs should match snapshot 1`] = `
     className="emotion-0"
   >
     <span
-      className="emotion-01xdhyk6"
-    >
-      <span
-        className="emotion-01wl1zro"
-      />
-      <span
-        className="emotion-0nfvbbo"
-      />
-      <span
-        className="emotion-01xsdpkx"
-      />
-    </span>
+      className="emotion-1"
+    />
+    <span
+      className="emotion-2"
+    />
+    <span
+      className="emotion-3"
+    />
   </span>
 </Loader>
 `;
