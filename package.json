@@ -84,6 +84,7 @@
     "fork-ts-checker-webpack-plugin": "^7.2.11",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^28.0.3",
+    "jest-environment-jsdom": "^28.0.2",
     "prettier": "^2.6.2",
     "react": "^18.1.0",
     "react-click-outside": "^3.0.1",
