@@ -7,7 +7,7 @@ import FadeLoader from "../src/FadeLoader";
 import { heightWidthRadiusDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-describe("FadeLoader", () => {
+xdescribe\("FadeLoader", () => {
   const defaultColor = "#000000";
   const defaultHeight = 15;
   const defaultWidth = 5;

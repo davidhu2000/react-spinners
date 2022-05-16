@@ -7,7 +7,7 @@ import PuffLoader from "../src/PuffLoader";
 import { sizeDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-describe("PuffLoader", () => {
+xdescribe\("PuffLoader", () => {
   const defaultColor = "#000000";
   const defaultSize = 60;
   const defaultUnit = "px";

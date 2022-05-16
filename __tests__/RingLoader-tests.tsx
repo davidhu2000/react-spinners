@@ -7,7 +7,7 @@ import RingLoader from "../src/RingLoader";
 import { sizeDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-describe("RingLoader", () => {
+xdescribe\("RingLoader", () => {
   const defaultSize = 60;
   const defaultColor = "#000000";
   const defaultUnit = "px";

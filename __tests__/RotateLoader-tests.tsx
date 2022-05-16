@@ -7,7 +7,7 @@ import RotateLoader from "../src/RotateLoader";
 import { sizeMarginDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-describe("RotateLoader", () => {
+xdescribe\("RotateLoader", () => {
   const defaultSize = 15;
   const defaultMargin = 2;
   const defaultColor = "#000000";

@@ -7,7 +7,7 @@ import BounceLoader from "../src/BounceLoader";
 import { sizeDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-describe("BounceLoader", () => {
+xdescribe\("BounceLoader", () => {
   const defaultColor = "#000000";
   const defaultSize = 60;
   const defaultUnit = "px";
