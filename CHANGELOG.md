@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.12.0
+
+- **Feature**: output commonjs, es module, and umd file types.
+- **Feature**: add support for react 18 [#464](https://github.com/davidhu2000/react-spinners/pull/464)
+
 ## 0.12.0-beta.1
 
 - reverted devDepencies react back to v17 until tests can be migrated away from enzyme. [#471](https://github.com/davidhu2000/react-spinners/pull/471)
