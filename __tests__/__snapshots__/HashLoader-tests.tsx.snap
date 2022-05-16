@@ -43,7 +43,7 @@ exports[`HashLoader common specs should match snapshot 1`] = `
   }
 }
 
-.emotion-0606pct {
+.emotion-0 {
   position: relative;
   width: 50px;
   height: 50px;
@@ -53,7 +53,7 @@ exports[`HashLoader common specs should match snapshot 1`] = `
   transform: rotate(165deg);
 }
 
-.emotion-013gcv1c {
+.emotion-1 {
   position: absolute;
   content: "";
   top: 50%;
@@ -72,7 +72,7 @@ exports[`HashLoader common specs should match snapshot 1`] = `
   animation: animation-0 2s infinite;
 }
 
-.emotion-0c0c1dy {
+.emotion-2 {
   position: absolute;
   content: "";
   top: 50%;
@@ -102,15 +102,11 @@ exports[`HashLoader common specs should match snapshot 1`] = `
     className="emotion-0"
   >
     <span
-      className="emotion-0606pct"
-    >
-      <span
-        className="emotion-013gcv1c"
-      />
-      <span
-        className="emotion-0c0c1dy"
-      />
-    </span>
+      className="emotion-1"
+    />
+    <span
+      className="emotion-2"
+    />
   </span>
 </Loader>
 `;

@@ -31,7 +31,7 @@ exports[`SkewLoader common specs should match snapshot 1`] = `
   }
 }
 
-.emotion-07woid0 {
+.emotion-0 {
   width: 0;
   height: 0;
   border-left: 20px solid transparent;
@@ -53,10 +53,6 @@ exports[`SkewLoader common specs should match snapshot 1`] = `
 >
   <span
     className="emotion-0"
-  >
-    <span
-      className="emotion-07woid0"
-    />
-  </span>
+  />
 </Loader>
 `;

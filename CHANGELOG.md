@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.13.0-alpha.2
+
+- Added react testing library
+- added basic tests for BarLoader
+- **bugfix**: add `display: inherit` on barloader to fix issue where nothing shows up on page.
+
+## 0.13.0-alpha.1
+
+- Rewrite BarLoader as functional component. Use vanilla javascript to inject keyframes, and removing emotion from the component.
+
+## 0.12.0
+
+- **Feature**: output commonjs, es module, and umd file types.
+- **Feature**: add support for react 18 [#464](https://github.com/davidhu2000/react-spinners/pull/464)
+
+## 0.12.0-beta.1
+
+- reverted devDepencies react back to v17 until tests can be migrated away from enzyme. [#471](https://github.com/davidhu2000/react-spinners/pull/471)
+
+## 0.12.0-alpha.3
+
+- migrate from circle-ci to github actions for lint/jest
+- **Feature**: add support for react 18 [#464](https://github.com/davidhu2000/react-spinners/pull/464)
+
 ## 0.12.0-alpha.2
 
 - Update pragma to `/** @jsxImportSource @emotion/react */` to fix issue with the new jsx runtime.

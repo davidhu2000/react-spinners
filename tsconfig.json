@@ -23,5 +23,5 @@
     "noUnusedParameters": true,
     "skipLibCheck": true
   },
-  "exclude": ["docs/*", "webpack.config.*", "*.js", "__tests__", "examples"]
+  "exclude": ["docs/*", "webpack.config.*", "*.js", "__tests__", "examples", "src/*.test.tsx"]
 }

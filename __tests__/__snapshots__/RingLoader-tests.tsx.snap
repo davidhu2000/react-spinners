@@ -33,13 +33,13 @@ exports[`RingLoader common specs should match snapshot 1`] = `
   }
 }
 
-.emotion-01n5ab60 {
+.emotion-0 {
   width: 60px;
   height: 60px;
   position: relative;
 }
 
-.emotion-0hajlmr {
+.emotion-1 {
   position: absolute;
   top: 0;
   left: 0;
@@ -55,7 +55,7 @@ exports[`RingLoader common specs should match snapshot 1`] = `
   animation: animation-0 2s 0s infinite linear;
 }
 
-.emotion-0vrt42o {
+.emotion-2 {
   position: absolute;
   top: 0;
   left: 0;
@@ -82,15 +82,11 @@ exports[`RingLoader common specs should match snapshot 1`] = `
     className="emotion-0"
   >
     <span
-      className="emotion-01n5ab60"
-    >
-      <span
-        className="emotion-0hajlmr"
-      />
-      <span
-        className="emotion-0vrt42o"
-      />
-    </span>
+      className="emotion-1"
+    />
+    <span
+      className="emotion-2"
+    />
   </span>
 </Loader>
 `;
