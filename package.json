@@ -63,6 +63,7 @@
     "@emotion/babel-plugin": "^11.3.0",
     "@emotion/eslint-plugin": "^11.2.0",
     "@emotion/jest": "^11.3.0",
+    "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@types/enzyme": "^3.10.9",
     "@types/enzyme-adapter-react-16": "^1.0.6",
