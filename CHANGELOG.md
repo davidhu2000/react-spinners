@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.13.0-alpha.1
+
+- Rewrite BarLoader as functional component. Use vanilla javascript to inject keyframes, and removing emotion from the component.
+
 ## 0.12.0
 
 - **Feature**: output commonjs, es module, and umd file types.
