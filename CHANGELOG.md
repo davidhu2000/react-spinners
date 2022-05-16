@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.13.0-alpha.2
+
+- Added react testing library
+- added basic tests for BarLoader
+- **bugfix**: add `display: inherit` on barloader to fix issue where nothing shows up on page.
+
 ## 0.13.0-alpha.1
 
 - Rewrite BarLoader as functional component. Use vanilla javascript to inject keyframes, and removing emotion from the component.
