@@ -7,7 +7,7 @@ import MoonLoader from "../src/MoonLoader";
 import { sizeDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-xdescribe\("MoonLoader", () => {
+describe("MoonLoader", () => {
   const defaultColor = "#000000";
   const defaultSize = 60;
   const defaultUnit = "px";

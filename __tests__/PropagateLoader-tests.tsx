@@ -7,7 +7,7 @@ import PropagateLoader from "../src/PropagateLoader";
 import { sizeDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-xdescribe\("PropagateLoader", () => {
+describe("PropagateLoader", () => {
   const defaultSize = 15;
   const defaultColor = "#000000";
   const defaultUnit = "px";

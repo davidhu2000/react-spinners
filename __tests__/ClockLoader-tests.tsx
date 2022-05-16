@@ -7,7 +7,7 @@ import ClockLoader from "../src/ClockLoader";
 import { sizeDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-xdescribe\("ClockLoader", () => {
+describe("ClockLoader", () => {
   const defaultColor = "#000000";
   const defaultSize = 50;
   const defaultUnit = "px";

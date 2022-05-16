@@ -7,7 +7,7 @@ import RiseLoader from "../src/RiseLoader";
 import { sizeMarginDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-xdescribe\("RiseLoader", () => {
+describe("RiseLoader", () => {
   const defaultSize = 15;
   const defaultMargin = 2;
   const defaultColor = "#000000";

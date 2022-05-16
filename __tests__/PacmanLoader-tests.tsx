@@ -7,7 +7,7 @@ import PacmanLoader from "../src/PacmanLoader";
 import { sizeMarginDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-xdescribe\("PacmanLoader", () => {
+describe("PacmanLoader", () => {
   const defaultSize = 25;
   const defaultMargin = 2;
   const defaultColor = "#000000";
