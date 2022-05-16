@@ -22,7 +22,8 @@ function BarLoader({
   speedMultiplier = 1,
   css = {},
   height = 4,
-  width = 100
+  width = 100,
+  ...additionalprops
 }: LoaderHeightWidthProps): JSX.Element | null {
   const wrapper: React.CSSProperties = {
     display: "inherit",
@@ -57,7 +58,7 @@ function BarLoader({
   }
 
   return (
-    <span style={wrapper}>
+    <span style={wrapper} {...additionalprops}>
       <span style={style(1)} />
       <span style={style(2)} />
     </span>

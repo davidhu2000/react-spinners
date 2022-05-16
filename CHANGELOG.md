@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.13.0-alpha.3
+
+- **Feature**: Add support for custom props in BarLoader
+
 ## 0.13.0-alpha.2
 
 - Added react testing library

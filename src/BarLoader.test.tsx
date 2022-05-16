@@ -1,5 +1,5 @@
 import * as React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 import BarLoader from "./BarLoader";
@@ -14,5 +14,10 @@ describe("BarLoader", () => {
     const style = { overflow: "scroll" };
     const { container } = render(<BarLoader css={style} />);
     expect(container.firstChild).toHaveStyle(style);
+  });
+
+  it("should have allow custom html props", () => {
+    render(<BarLoader aria-label={"aria-label"} />);
+    expect(screen.queryByLabelText("aria-label")).toBeTruthy();
   });
 });
