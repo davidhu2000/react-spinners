@@ -1,17 +1,11 @@
 # React Spinners
 
 [![npm version](https://badge.fury.io/js/react-spinners.svg)][npm_url]
-[![circle ci](https://circleci.com/gh/davidhu2000/react-spinners.svg?style=shield)][ci_url]
 [![downloads](https://img.shields.io/npm/dt/react-spinners.svg)][npm_url]
 [![license](https://img.shields.io/npm/l/react-spinners.svg)][npm_url]
 [![Coverage Status](https://coveralls.io/repos/github/davidhu2000/react-spinners/badge.svg?branch=main)](https://coveralls.io/github/davidhu2000/react-spinners?branch=master)
 
-[![dependencies Status](https://david-dm.org/davidhu2000/react-spinners/status.svg)](https://david-dm.org/davidhu2000/react-spinners)
-[![devDependencies Status](https://david-dm.org/davidhu2000/react-spinners/dev-status.svg)](https://david-dm.org/davidhu2000/react-spinners?type=dev)
-[![peerDependencies Status](https://david-dm.org/davidhu2000/react-spinners/peer-status.svg)](https://david-dm.org/davidhu2000/react-spinners?type=peer)
-
 [npm_url]: https://www.npmjs.org/package/react-spinners
-[ci_url]: https://circleci.com/gh/davidhu2000/react-spinners
 
 A collection of loading spinners with React.js based on [Halogen](https://github.com/yuanyan/halogen).
 
