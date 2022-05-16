@@ -24,18 +24,15 @@ function BarLoader({
   height = 4,
   width = 100
 }: LoaderHeightWidthProps): JSX.Element | null {
-  const wrapper = (): React.CSSProperties => {
-    return Object.assign(
-      {
-        position: "relative",
-        width: cssValue(width),
-        height: cssValue(height),
-        overflow: "hidden",
-        backgroundColor: calculateRgba(color, 0.2),
-        backgroundClip: "padding-box"
-      },
-      css
-    );
+  const wrapper: React.CSSProperties = {
+    display: "inherit",
+    position: "relative",
+    width: cssValue(width),
+    height: cssValue(height),
+    overflow: "hidden",
+    backgroundColor: calculateRgba(color, 0.2),
+    backgroundClip: "padding-box",
+    ...css
   };
 
   const style = (i: number): React.CSSProperties => {
@@ -60,7 +57,7 @@ function BarLoader({
   }
 
   return (
-    <span style={wrapper()}>
+    <span style={wrapper}>
       <span style={style(1)} />
       <span style={style(2)} />
     </span>
