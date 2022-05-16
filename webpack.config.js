@@ -19,6 +19,10 @@ module.exports = {
         options: {
           transpileOnly: true
         }
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"]
       }
     ]
   },
