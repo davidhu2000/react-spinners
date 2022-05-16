@@ -1,5 +1,4 @@
 import { SerializedStyles } from "@emotion/react";
-import React from "react";
 
 export interface LengthObject {
   value: number;
@@ -31,16 +30,4 @@ export interface LoaderSizeMarginProps extends LoaderSizeProps {
 export interface LoaderHeightWidthRadiusProps extends LoaderHeightWidthProps {
   margin?: LengthType;
   radius?: LengthType;
-}
-
-export interface CommonPropsNew {
-  color?: string;
-  loading?: boolean;
-  css?: React.CSSProperties;
-  speedMultiplier?: number;
-}
-
-export interface LoaderHeightWidthPropsNew extends CommonPropsNew {
-  height?: LengthType;
-  width?: LengthType;
 }

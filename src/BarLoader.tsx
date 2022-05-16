@@ -1,34 +1,29 @@
 import * as React from "react";
 
-import { calculateRgba, heightWidthDefaults, cssValue } from "./helpers";
-import { LoaderHeightWidthPropsNew } from "./interfaces";
-import "./BarLoader.css";
+import { calculateRgba, cssValue, createAnimation } from "./helpers";
+import { LoaderHeightWidthProps } from "./helpers/props";
 
-class Loader extends React.PureComponent<Required<LoaderHeightWidthPropsNew>> {
-  public static defaultProps = heightWidthDefaults(4, 100);
+const long = createAnimation(
+  "BarLoader",
+  `0% {left: -35%;right: 100%} 60% {left: 100%;right: -90%} 100% {left: 100%;right: -90%}`,
+  "long"
+);
 
-  public style = (i: number): React.CSSProperties => {
-    const { height, color, speedMultiplier } = this.props;
+const short = createAnimation(
+  "BarLoader",
+  `0% {left: -200%;right: 100%} 60% {left: 107%;right: -8%} 100% {left: 107%;right: -8%}`,
+  "short"
+);
 
-    return {
-      position: "absolute",
-      height: cssValue(height),
-      overflow: "hidden",
-      backgroundColor: color,
-      backgroundClip: "padding-box",
-      display: "block",
-      borderRadius: 2,
-      willChange: "left, right",
-      animationFillMode: "forwards",
-      animation: `BarLoader-${i === 1 ? "long" : "short"} ${2.1 / speedMultiplier}s ${
-        i === 2 ? `${1.15 / speedMultiplier}s` : ""
-      } ${i === 1 ? "cubic-bezier(0.65, 0.815, 0.735, 0.395)" : "cubic-bezier(0.165, 0.84, 0.44, 1)"} infinite`
-    };
-  };
-
-  public wrapper = (): React.CSSProperties => {
-    const { width, height, color, css } = this.props;
-
+function BarLoader({
+  loading = true,
+  color = "#000000",
+  speedMultiplier = 1,
+  css = {},
+  height = 4,
+  width = 100
+}: LoaderHeightWidthProps): JSX.Element | null {
+  const wrapper = (): React.CSSProperties => {
     return Object.assign(
       {
         position: "relative",
@@ -42,16 +37,33 @@ class Loader extends React.PureComponent<Required<LoaderHeightWidthPropsNew>> {
     );
   };
 
-  public render(): JSX.Element | null {
-    const { loading } = this.props;
+  const style = (i: number): React.CSSProperties => {
+    return {
+      position: "absolute",
+      height: cssValue(height),
+      overflow: "hidden",
+      backgroundColor: color,
+      backgroundClip: "padding-box",
+      display: "block",
+      borderRadius: 2,
+      willChange: "left, right",
+      animationFillMode: "forwards",
+      animation: `${i === 1 ? long : short} ${2.1 / speedMultiplier}s ${i === 2 ? `${1.15 / speedMultiplier}s` : ""} ${
+        i === 1 ? "cubic-bezier(0.65, 0.815, 0.735, 0.395)" : "cubic-bezier(0.165, 0.84, 0.44, 1)"
+      } infinite`
+    };
+  };
 
-    return loading ? (
-      <span style={this.wrapper()}>
-        <span style={this.style(1)} />
-        <span style={this.style(2)} />
-      </span>
-    ) : null;
+  if (!loading) {
+    return null;
   }
+
+  return (
+    <span style={wrapper()}>
+      <span style={style(1)} />
+      <span style={style(2)} />
+    </span>
+  );
 }
 
-export default Loader;
+export default BarLoader;
