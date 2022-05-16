@@ -7,7 +7,7 @@ import ClipLoader from "../src/ClipLoader";
 import { sizeDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-xdescribe\(".+Loader", () => {
+describe("ClipLoader", () => {
   const defaultColor = "#000000";
   const defaultSize = 35;
   const defaultUnit = "px";

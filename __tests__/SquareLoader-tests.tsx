@@ -7,7 +7,7 @@ import SquareLoader from "../src/SquareLoader";
 import { sizeDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-xdescribe\(".+Loader", () => {
+describe("SquareLoader", () => {
   const defaultSize = 50;
   const defaultColor = "#000000";
   const defaultUnit = "px";
