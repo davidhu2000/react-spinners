@@ -1,6 +1,6 @@
 import { CSSProperties } from "react";
 
-export type LengthType = number | string;
+type LengthType = number | string;
 
 interface CommonProps {
   color?: string;
