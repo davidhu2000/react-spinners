@@ -1,15 +1,15 @@
 import { CSSProperties } from "react";
 
-export type LengthType = number | string;
+type LengthType = number | string;
 
-export interface CommonPropsNew {
+interface CommonProps {
   color?: string;
   loading?: boolean;
   css?: CSSProperties;
   speedMultiplier?: number;
 }
 
-export interface LoaderHeightWidthPropsNew extends CommonPropsNew {
+export interface LoaderHeightWidthProps extends CommonProps {
   height?: LengthType;
   width?: LengthType;
 }
