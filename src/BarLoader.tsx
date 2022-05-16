@@ -1,6 +1,7 @@
 import * as React from "react";
 
-import { calculateRgba, cssValue, createAnimation } from "./helpers";
+import { calculateRgba, cssValue } from "./helpers";
+import { createAnimation } from "./helpers/animation";
 import { LoaderHeightWidthProps } from "./helpers/props";
 
 const long = createAnimation(
