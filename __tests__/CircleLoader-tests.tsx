@@ -7,7 +7,7 @@ import CircleLoader from "../src/CircleLoader";
 import { sizeDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-describe("CircleLoader", () => {
+xdescribe\(".+Loader", () => {
   const defaultColor = "#000000";
   const defaultSize = 50;
   const defaultUnit = "px";

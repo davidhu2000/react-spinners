@@ -7,7 +7,7 @@ import ScaleLoader from "../src/ScaleLoader";
 import { heightWidthRadiusDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-describe("ScaleLoader", () => {
+xdescribe\(".+Loader", () => {
   const defaultColor = "#000000";
   const defaultHeight = 35;
   const defaultWidth = 4;

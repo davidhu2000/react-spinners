@@ -7,7 +7,7 @@ import BeatLoader from "../src/BeatLoader";
 import { sizeMarginDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-describe("BeatLoader", () => {
+xdescribe\(".+Loader", () => {
   const defaultColor = "#000000";
   const defaultSize = 15;
   const defaultMargin = 2;

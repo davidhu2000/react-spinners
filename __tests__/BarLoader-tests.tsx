@@ -7,7 +7,7 @@ import BarLoader from "../src/BarLoader";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs/";
 import { heightWidthDefaults } from "../src/helpers";
 
-describe("BarLoader", () => {
+xdescribe\(".+Loader", () => {
   const defaultColor = "#000000";
   const defaultHeight = 4;
   const defaultWidth = 100;

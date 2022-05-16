@@ -7,7 +7,7 @@ import HashLoader from "../src/HashLoader";
 import { sizeDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-describe("HashLoader", () => {
+xdescribe\(".+Loader", () => {
   const defaultSize = 50;
   const defaultUnit = "px";
   const defaultSpeed = 2;

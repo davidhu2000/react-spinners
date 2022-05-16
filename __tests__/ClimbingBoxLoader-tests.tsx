@@ -7,7 +7,7 @@ import ClimbingBoxLoader from "../src/ClimbingBoxLoader";
 import { sizeDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-describe("ClimbingBoxLoader", () => {
+xdescribe\(".+Loader", () => {
   const defaultColor = "#000000";
   const defaultSize = 15;
   const defaultUnit = "px";

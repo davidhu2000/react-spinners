@@ -7,7 +7,7 @@ import SyncLoader from "../src/SyncLoader";
 import { sizeMarginDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-describe("SyncLoader", () => {
+xdescribe\(".+Loader", () => {
   const defaultSize = 15;
   const defaultMargin = 2;
   const defaultColor = "#000000";

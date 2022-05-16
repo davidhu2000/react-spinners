@@ -7,7 +7,7 @@ import SkewLoader from "../src/SkewLoader";
 import { sizeDefaults } from "../src/helpers";
 import { commonSpecs, cssSpecs, lengthSpecs, speedMultiplierSpecs } from "./sharedSpecs";
 
-describe("SkewLoader", () => {
+xdescribe\(".+Loader", () => {
   const defaultSize = 20;
   const defaultColor = "#000000";
   const defaultUnit = "px";

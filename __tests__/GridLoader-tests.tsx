@@ -15,7 +15,7 @@ const mockMath: MockMath = Object.create(global.Math);
 mockMath.random = () => 0.5;
 global.Math = mockMath as Math;
 
-describe("GridLoader", () => {
+xdescribe\(".+Loader", () => {
   const defaultColor = "#000000";
   const defaultSize = 15;
   const defaultUnit = "px";
