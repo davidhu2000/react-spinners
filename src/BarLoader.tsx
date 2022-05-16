@@ -27,6 +27,7 @@ function BarLoader({
   const wrapper = (): React.CSSProperties => {
     return Object.assign(
       {
+        display: "inherit",
         position: "relative",
         width: cssValue(width),
         height: cssValue(height),
