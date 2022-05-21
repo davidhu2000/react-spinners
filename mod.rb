@@ -58,7 +58,13 @@ content.gsub!(/(.+):\s*(.+);/) do
   "#{camelize($1)}: `#{$2}`,"
 end
 
-# File.write(path, content)
+content.gsub!(/`([^$]+)`/) do 
+  "\"#{$1}\""
+end
+
+content.gsub(/`\$\{(.+)\}`/) do 
+  $1
+end
 
 content.gsub!("css=", "style=")
 content.gsub!("{this.", "{")

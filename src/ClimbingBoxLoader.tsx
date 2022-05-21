@@ -30,44 +30,44 @@ function ClimbingBoxLoader({
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
   const style: React.CSSProperties = {
-    position: `absolute`,
-    left: `0`,
-    bottom: `-0.1em`,
-    height: `1em`,
-    width: `1em`,
-    backgroundColor: `transparent`,
-    borderRadius: `15%`,
+    position: "absolute",
+    left: "0",
+    bottom: "-0.1em",
+    height: "1em",
+    width: "1em",
+    backgroundColor: "transparent",
+    borderRadius: "15%",
     border: `0.25em solid ${color}`,
-    transform: `translate(0, -1em) rotate(-45deg)`,
-    animationFillMode: `both`,
+    transform: "translate(0, -1em) rotate(-45deg)",
+    animationFillMode: "both",
     animation: `${climbingBox} ${2.5 / speedMultiplier}s infinite cubic-bezier(0.79, 0, 0.47, 0.97)`,
   };
 
   const wrapper: React.CSSProperties = {
-    position: `absolute`,
-    top: `50%`,
-    left: `50%`,
-    marginTop: `-2.7em`,
-    marginLeft: `-2.7em`,
-    width: `5.4em`,
-    height: `5.4em`,
-    fontSize: `${cssValue(size)}`,
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    marginTop: "-2.7em",
+    marginLeft: "-2.7em",
+    width: "5.4em",
+    height: "5.4em",
+    fontSize: cssValue(size),
   };
 
   const hill: React.CSSProperties = {
-    position: `absolute`,
-    width: `7.1em`,
-    height: `7.1em`,
-    top: `1.7em`,
-    left: `1.7em`,
+    position: "absolute",
+    width: "7.1em",
+    height: "7.1em",
+    top: "1.7em",
+    left: "1.7em",
     borderLeft: `0.25em solid ${color}`,
-    transform: `rotate(45deg)`,
+    transform: "rotate(45deg)",
   };
 
   const container: React.CSSProperties = {
-    position: `relative`,
-    width: `7.1em`,
-    height: `7.1em`,
+    position: "relative",
+    width: "7.1em",
+    height: "7.1em",
     ...css,
   };
 
