@@ -1,8 +1,6 @@
 import * as React from "react";
 
-import { Keyframes } from "@emotion/serialize";
-
-import { calculateRgba, sizeDefaults, parseLengthAndUnit, cssValue } from "./helpers/index";
+import { calculateRgba, parseLengthAndUnit, cssValue } from "./helpers/index";
 import { LoaderSizeProps } from "./helpers/props";
 import { createAnimation } from "./helpers/animation";
 
