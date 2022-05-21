@@ -43,6 +43,10 @@ function CircleLoader({
     };
   };
 
+  if (!loading) {
+    return null;
+  }
+
   return (
     <span style={wrapper} {...additionalprops}>
       <span style={style(0)} />
