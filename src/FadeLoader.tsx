@@ -1,33 +1,29 @@
-
 import * as React from "react";
 
+import { cssValue, parseLengthAndUnit } from "./helpers";
+import { LoaderHeightWidthRadiusProps } from "./helpers/props";
+import { createAnimation } from "./helpers/animation";
 
-import {  cssValue, parseLengthAndUnit } from "./helpers";
-import { LoaderHeightWidthRadiusProps } from "./helpers/props"; import { createAnimation } from "./helpers/animation";
-
-const fade = createAnimation("FadeLoader",`
-  50% {opacity: 0.3}
-  100% {opacity: 1}
-`);
+const fade = createAnimation("FadeLoader", "50% {opacity: 0.3} 100% {opacity: 1}");
 
 function FadeLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
   css = {},
-  height = 15, width = 5, radius = 2, margin =2,
+  height = 15,
+  width = 5,
+  radius = 2,
+  margin = 2,
   ...additionalprops
 }: LoaderHeightWidthRadiusProps): JSX.Element | null {
-  
-
   const { value } = parseLengthAndUnit(margin);
   const radiusValue = value + 18;
   const quarter = radiusValue / 2 + radiusValue / 5.5;
 
-
+  const radiusUnit = parseLengthAndUnit(radius);
 
   const style = (i: number): React.CSSProperties => {
-
     return {
       position: "absolute",
       width: cssValue(width),
@@ -39,83 +35,81 @@ function FadeLoader({
       animationFillMode: "both",
       animation: `${fade} ${1.2 / speedMultiplier}s ${i * 0.12}s infinite ease-in-out`,
     };
-  }
+  };
 
   const wrapper: React.CSSProperties = {
-      position: "relative",
-      fontSize: "0",
-      top: radius,
-      left: radius,
-      width: `${radius * 3}px`,
-      height: `${radius * 3}px`,
-...css
-    };
+    position: "relative",
+    fontSize: "0",
+    top: radius,
+    left: radius,
+    width: `${radiusUnit.value * 3}px`,
+    height: `${radiusUnit.value * 3}px`,
+    ...css,
+  };
 
-  const a : React.CSSProperties = {
+  const a: React.CSSProperties = {
     ...style(1),
-    top: `${radius}px`,
+    top: `${radiusUnit.value}px`,
     left: "0",
   };
-  const b : React.CSSProperties = {
+  const b: React.CSSProperties = {
     ...style(2),
     top: `${quarter}px`,
     left: `${quarter}px`,
     transform: "rotate(-45deg)",
   };
-  const c : React.CSSProperties = {
+  const c: React.CSSProperties = {
     ...style(3),
     top: "0",
-    left: `${radius}px`,
+    left: `${radiusUnit.value}px`,
     transform: "rotate(90deg)",
   };
-  const d : React.CSSProperties = {
+  const d: React.CSSProperties = {
     ...style(4),
-    top: `${-quarter}px`,
+    top: `${-1 * quarter}px`,
     left: `${quarter}px`,
     transform: "rotate(45deg)",
   };
-  const e : React.CSSProperties = {
+  const e: React.CSSProperties = {
     ...style(5),
-    top: `${-radius}px`,
+    top: `${-1 * radiusUnit.value}px`,
     left: "0",
   };
-  const f : React.CSSProperties = {
+  const f: React.CSSProperties = {
     ...style(6),
-    top: `${-quarter}px`,
-    left: `${-quarter}px`,
+    top: `${-1 * quarter}px`,
+    left: `${-1 * quarter}px`,
     transform: "rotate(-45deg)",
   };
-  const g : React.CSSProperties = {
+  const g: React.CSSProperties = {
     ...style(7),
     top: "0",
-    left: `${-radius}px`,
+    left: `${-1 * radiusUnit.value}px`,
     transform: "rotate(90deg)",
   };
-  const h : React.CSSProperties = {
+  const h: React.CSSProperties = {
     ...style(8),
     top: `${quarter}px`,
-    left: `${-quarter}px`,
+    left: `${-1 * quarter}px`,
     transform: "rotate(45deg)",
   };
 
-  
-    
-
-    if (!loading) { return null; }
-
- return (
-      <span style={wrapper} {...additionalprops}>
-        <span style={a} />
-        <span style={b} />
-        <span style={c} />
-        <span style={d} />
-        <span style={e} />
-        <span style={f} />
-        <span style={g} />
-        <span style={h} />
-      </span>
-    );
+  if (!loading) {
+    return null;
   }
+
+  return (
+    <span style={wrapper} {...additionalprops}>
+      <span style={a} />
+      <span style={b} />
+      <span style={c} />
+      <span style={d} />
+      <span style={e} />
+      <span style={f} />
+      <span style={g} />
+      <span style={h} />
+    </span>
+  );
 }
 
 export default FadeLoader;
