@@ -13,3 +13,8 @@ export interface LoaderHeightWidthProps extends CommonProps {
   height?: LengthType;
   width?: LengthType;
 }
+
+export interface LoaderSizeMarginProps extends CommonProps {
+  size?: LengthType;
+  margin?: LengthType;
+}

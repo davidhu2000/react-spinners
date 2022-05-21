@@ -1,44 +1,48 @@
-/** @jsxImportSource @emotion/react */
 import * as React from "react";
-import { keyframes, css, SerializedStyles } from "@emotion/react";
 
-import { sizeMarginDefaults, cssValue } from "./helpers";
-import { LoaderSizeMarginProps } from "./interfaces";
+import { cssValue } from "./helpers";
 
-const beat = keyframes`
-  50% {transform: scale(0.75);opacity: 0.2}
-  100% {transform: scale(1);opacity: 1}
-`;
+import { createAnimation } from "./helpers/animation";
+import { LoaderSizeMarginProps } from "./helpers/props";
 
-class Loader extends React.PureComponent<Required<LoaderSizeMarginProps>> {
-  public static defaultProps = sizeMarginDefaults(15);
+const beat = createAnimation(
+  "BeatLoader",
+  " 50% {transform: scale(0.75);opacity: 0.2} 100% {transform: scale(1);opacity: 1}"
+);
 
-  public style = (i: number): SerializedStyles => {
-    const { color, size, margin, speedMultiplier } = this.props;
-
-    return css`
-      display: inline-block;
-      background-color: ${color};
-      width: ${cssValue(size)};
-      height: ${cssValue(size)};
-      margin: ${cssValue(margin)};
-      border-radius: 100%;
-      animation: ${beat} ${0.7 / speedMultiplier}s ${i % 2 ? "0s" : `${0.35 / speedMultiplier}s`} infinite linear;
-      animation-fill-mode: both;
-    `;
+function BeatLoader({
+  loading = true,
+  color = "#000000",
+  speedMultiplier = 1,
+  css = {},
+  size = 15,
+  margin = 2,
+  ...additionalprops
+}: LoaderSizeMarginProps): JSX.Element | null {
+  const style = (i: number): React.CSSProperties => {
+    return {
+      display: "inline-block",
+      backgroundColor: color,
+      width: cssValue(size),
+      height: cssValue(size),
+      margin: cssValue(margin),
+      borderRadius: "100%",
+      animation: `${beat} ${0.7 / speedMultiplier}s ${i % 2 ? "0s" : `${0.35 / speedMultiplier}s`} infinite linear`,
+      animationFillMode: "both",
+    };
   };
 
-  public render(): JSX.Element | null {
-    const { loading, css } = this.props;
-
-    return loading ? (
-      <span css={[css]}>
-        <span css={this.style(1)} />
-        <span css={this.style(2)} />
-        <span css={this.style(3)} />
-      </span>
-    ) : null;
+  if (!loading) {
+    return null;
   }
+
+  return (
+    <span style={css} {...additionalprops}>
+      <span style={style(1)} />
+      <span style={style(2)} />
+      <span style={style(3)} />
+    </span>
+  );
 }
 
-export default Loader;
+export default BeatLoader;
