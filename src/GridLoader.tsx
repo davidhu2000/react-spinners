@@ -41,6 +41,7 @@ function GridLoader({
   const wrapper: React.CSSProperties = {
     width: width,
     fontSize: `${width}${sizeWithUnit.unit}`,
+    ...css,
   };
 
   if (!loading) {
