@@ -56,7 +56,7 @@ jobs:
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run clean
-      - run: yarn run lint
+      - run: yarn run lint --max-warnings=0
 
   demo-site:
     runs-on: ubuntu-latest
