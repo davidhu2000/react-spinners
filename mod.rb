@@ -28,10 +28,12 @@ default = content.match(/public static defaultProps = (?<type>.+)Defaults\((?<va
 
 if default[:type] == "size"
   props = "size = #{default[:values]},"
+elsif default[:type] == "heightWidthRadius"
+  values = default[:values].split(/\s*,\s*/)
+  props = "height = #{values[0]}, width = #{values[1]}, radius = #{values[2]},"
 end
 
-content.sub!(
-  /class Loader extends React.PureComponent<Required<.+>> {/,
+content.sub!(/class Loader extends React.PureComponent<Required<(.+)>> {/) do
   ["function #{filename}({",
    "  loading = true,",
    '  color = "#000000",',
@@ -39,8 +41,8 @@ content.sub!(
    "  css = {},",
    "  #{props}",
    "  ...additionalprops",
-   "}: LoaderHeightWidthProps): JSX.Element | null {"].join("\n")
-)
+   "}: #{$1}): JSX.Element | null {"].join("\n")
+end
 
 content.sub!(/public static defaultProps = .+;/, "")
 
