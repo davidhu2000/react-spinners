@@ -1,6 +1,10 @@
-filename = "ClimbingBoxLoader"
+filename = ARGV[0] + "Loader"
+
 path = "./src/#{filename}.tsx"
 file = File.open(path)
+
+`rm __tests__/#{filname}-tests.tsx`
+`rm __tests__/__snapshots__/#{filname}-tests.tsx.snap`
 
 def camelize(string)
   string.split("-").map do |part, index|
@@ -56,14 +60,6 @@ content.gsub!(/};\n\s+};/, "};")
 
 content.gsub!(/(.+):\s*(.+);/) do
   "#{camelize($1)}: `#{$2}`,"
-end
-
-content.gsub!(/`([^$]+)`/) do 
-  "\"#{$1}\""
-end
-
-content.gsub(/`\$\{(.+)\}`/) do 
-  $1
 end
 
 content.gsub!("css=", "style=")
