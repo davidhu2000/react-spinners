@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { sizeMarginDefaults, cssValue, parseLengthAndUnit } from "./helpers";
+import { cssValue, parseLengthAndUnit } from "./helpers";
 import { LoaderSizeMarginProps } from "./helpers/props";
 import { createAnimation } from "./helpers/animation";
 
