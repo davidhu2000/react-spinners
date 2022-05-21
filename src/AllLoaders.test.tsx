@@ -12,7 +12,6 @@ Object.entries(Loaders).forEach((loader) => {
 
   // TODO: remove from this list as loaders are converted to functional
   const oldLoaders = [
-    "ClimbingBoxLoader",
     "ClipLoader",
     "ClockLoader",
     "DotLoader",
