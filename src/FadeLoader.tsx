@@ -1,119 +1,121 @@
-/** @jsxImportSource @emotion/react */
+
 import * as React from "react";
-import { keyframes, css, SerializedStyles } from "@emotion/react";
 
-import { heightWidthRadiusDefaults, cssValue, parseLengthAndUnit } from "./helpers";
-import { LoaderHeightWidthRadiusProps } from "./interfaces";
 
-const fade = keyframes`
+import {  cssValue, parseLengthAndUnit } from "./helpers";
+import { LoaderHeightWidthRadiusProps } from "./helpers/props"; import { createAnimation } from "./helpers/animation";
+
+const fade = createAnimation("FadeLoader",`
   50% {opacity: 0.3}
   100% {opacity: 1}
-`;
+`);
 
-class Loader extends React.PureComponent<Required<LoaderHeightWidthRadiusProps>> {
-  public static defaultProps = heightWidthRadiusDefaults(15, 5, 2);
+function FadeLoader({
+  loading = true,
+  color = "#000000",
+  speedMultiplier = 1,
+  css = {},
+  height = 15, width = 5, radius = 2, margin =2,
+  ...additionalprops
+}: LoaderHeightWidthRadiusProps): JSX.Element | null {
+  
 
-  public radius = (): number => {
-    const { margin } = this.props;
-    const { value } = parseLengthAndUnit(margin);
+  const { value } = parseLengthAndUnit(margin);
+  const radiusValue = value + 18;
+  const quarter = radiusValue / 2 + radiusValue / 5.5;
 
-    return value + 18;
+
+
+  const style = (i: number): React.CSSProperties => {
+
+    return {
+      position: "absolute",
+      width: cssValue(width),
+      height: cssValue(height),
+      margin: cssValue(margin),
+      backgroundColor: color,
+      borderRadius: cssValue(radius),
+      transition: "2s",
+      animationFillMode: "both",
+      animation: `${fade} ${1.2 / speedMultiplier}s ${i * 0.12}s infinite ease-in-out`,
+    };
+  }
+
+  const wrapper: React.CSSProperties = {
+      position: "relative",
+      fontSize: "0",
+      top: radius,
+      left: radius,
+      width: `${radius * 3}px`,
+      height: `${radius * 3}px`,
+...css
+    };
+
+  const a : React.CSSProperties = {
+    ...style(1),
+    top: `${radius}px`,
+    left: "0",
+  };
+  const b : React.CSSProperties = {
+    ...style(2),
+    top: `${quarter}px`,
+    left: `${quarter}px`,
+    transform: "rotate(-45deg)",
+  };
+  const c : React.CSSProperties = {
+    ...style(3),
+    top: "0",
+    left: `${radius}px`,
+    transform: "rotate(90deg)",
+  };
+  const d : React.CSSProperties = {
+    ...style(4),
+    top: `${-quarter}px`,
+    left: `${quarter}px`,
+    transform: "rotate(45deg)",
+  };
+  const e : React.CSSProperties = {
+    ...style(5),
+    top: `${-radius}px`,
+    left: "0",
+  };
+  const f : React.CSSProperties = {
+    ...style(6),
+    top: `${-quarter}px`,
+    left: `${-quarter}px`,
+    transform: "rotate(-45deg)",
+  };
+  const g : React.CSSProperties = {
+    ...style(7),
+    top: "0",
+    left: `${-radius}px`,
+    transform: "rotate(90deg)",
+  };
+  const h : React.CSSProperties = {
+    ...style(8),
+    top: `${quarter}px`,
+    left: `${-quarter}px`,
+    transform: "rotate(45deg)",
   };
 
-  public quarter = (): number => {
-    return this.radius() / 2 + this.radius() / 5.5;
-  };
+  
+    
 
-  public style = (i: number): SerializedStyles => {
-    const { height, width, margin, color, radius, speedMultiplier } = this.props;
+    if (!loading) { return null; }
 
-    return css`
-      position: absolute;
-      width: ${cssValue(width)};
-      height: ${cssValue(height)};
-      margin: ${cssValue(margin)};
-      background-color: ${color};
-      border-radius: ${cssValue(radius)};
-      transition: 2s;
-      animation-fill-mode: "both";
-      animation: ${fade} ${1.2 / speedMultiplier}s ${i * 0.12}s infinite ease-in-out;
-    `;
-  };
-
-  public wrapper = (): SerializedStyles => {
-    return css`
-      position: relative;
-      font-size: 0;
-      top: ${this.radius()}px;
-      left: ${this.radius()}px;
-      width: ${this.radius() * 3}px;
-      height: ${this.radius() * 3}px;
-    `;
-  };
-
-  public a = (): SerializedStyles => css`
-    ${this.style(1)};
-    top: ${this.radius()}px;
-    left: 0;
-  `;
-  public b = (): SerializedStyles => css`
-    ${this.style(2)};
-    top: ${this.quarter()}px;
-    left: ${this.quarter()}px;
-    transform: rotate(-45deg);
-  `;
-  public c = (): SerializedStyles => css`
-    ${this.style(3)};
-    top: 0;
-    left: ${this.radius()}px;
-    transform: rotate(90deg);
-  `;
-  public d = (): SerializedStyles => css`
-    ${this.style(4)};
-    top: ${-this.quarter()}px;
-    left: ${this.quarter()}px;
-    transform: rotate(45deg);
-  `;
-  public e = (): SerializedStyles => css`
-    ${this.style(5)};
-    top: ${-this.radius()}px;
-    left: 0;
-  `;
-  public f = (): SerializedStyles => css`
-    ${this.style(6)};
-    top: ${-this.quarter()}px;
-    left: ${-this.quarter()}px;
-    transform: rotate(-45deg);
-  `;
-  public g = (): SerializedStyles => css`
-    ${this.style(7)};
-    top: 0;
-    left: ${-this.radius()}px;
-    transform: rotate(90deg);
-  `;
-  public h = (): SerializedStyles => css`
-    ${this.style(8)};
-    top: ${this.quarter()}px;
-    left: ${-this.quarter()}px;
-    transform: rotate(45deg);
-  `;
-
-  public render(): JSX.Element | null {
-    const { loading, css } = this.props;
-
-    return loading ? (
-      <span css={[this.wrapper(), css]}>
-        <span css={this.a()} />
-        <span css={this.b()} />
-        <span css={this.c()} />
-        <span css={this.d()} />
-        <span css={this.e()} />
-        <span css={this.f()} />
-        <span css={this.g()} />
-        <span css={this.h()} />
+ return (
+      <span style={wrapper} {...additionalprops}>
+        <span style={a} />
+        <span style={b} />
+        <span style={c} />
+        <span style={d} />
+        <span style={e} />
+        <span style={f} />
+        <span style={g} />
+        <span style={h} />
       </span>
-    ) : null;
+    );
   }
 }
 
-export default Loader;
+export default FadeLoader;
