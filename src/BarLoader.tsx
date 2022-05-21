@@ -33,7 +33,7 @@ function BarLoader({
     overflow: "hidden",
     backgroundColor: calculateRgba(color, 0.2),
     backgroundClip: "padding-box",
-    ...css
+    ...css,
   };
 
   const style = (i: number): React.CSSProperties => {
@@ -49,7 +49,7 @@ function BarLoader({
       animationFillMode: "forwards",
       animation: `${i === 1 ? long : short} ${2.1 / speedMultiplier}s ${i === 2 ? `${1.15 / speedMultiplier}s` : ""} ${
         i === 1 ? "cubic-bezier(0.65, 0.815, 0.735, 0.395)" : "cubic-bezier(0.165, 0.84, 0.44, 1)"
-      } infinite`
+      } infinite`,
     };
   };
 
