@@ -49,6 +49,7 @@ function DotLoader({
     height: cssValue(size),
     animationFillMode: "forwards",
     animation: `${rotate} ${2 / speedMultiplier}s 0s infinite linear`,
+    ...css,
   };
 
   if (!loading) {
