@@ -1,6 +1,6 @@
 import { CSSProperties, DetailedHTMLProps, HTMLAttributes } from "react";
 
-type LengthType = number | string;
+export type LengthType = number | string;
 
 interface CommonProps extends DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> {
   color?: string;

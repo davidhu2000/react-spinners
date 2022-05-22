@@ -1,4 +1,7 @@
-import { LengthObject } from "../interfaces";
+interface LengthObject {
+  value: number;
+  unit: string;
+}
 
 const cssUnit: { [unit: string]: boolean } = {
   cm: true,
@@ -15,7 +18,7 @@ const cssUnit: { [unit: string]: boolean } = {
   vh: true,
   vmin: true,
   vmax: true,
-  "%": true
+  "%": true,
 };
 
 /**
@@ -31,7 +34,7 @@ export function parseLengthAndUnit(size: number | string): LengthObject {
   if (typeof size === "number") {
     return {
       value: size,
-      unit: "px"
+      unit: "px",
     };
   }
   let value: number;
@@ -47,7 +50,7 @@ export function parseLengthAndUnit(size: number | string): LengthObject {
   if (cssUnit[unit]) {
     return {
       value,
-      unit
+      unit,
     };
   }
 
@@ -55,7 +58,7 @@ export function parseLengthAndUnit(size: number | string): LengthObject {
 
   return {
     value,
-    unit: "px"
+    unit: "px",
   };
 }
 
@@ -66,7 +69,7 @@ export function parseLengthAndUnit(size: number | string): LengthObject {
  * @return {string} valid css value
  */
 export function cssValue(value: number | string): string {
-  const lengthWithunit: LengthObject = parseLengthAndUnit(value);
+  const lengthWithunit = parseLengthAndUnit(value);
 
   return `${lengthWithunit.value}${lengthWithunit.unit}`;
 }
