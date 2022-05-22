@@ -39,7 +39,6 @@ Each loader accepts a `loading` prop as a boolean. The loader will render `null`
 
 ```tsx
 import { useState, CSSProperties } from "react";
-import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
 
 // Can be a string as well. Need to ensure each key-value pair ends with ;
@@ -70,7 +69,6 @@ export default App;
 
 ```tsx
 import React from "react";
-import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const override: React.CSSProperties = {
