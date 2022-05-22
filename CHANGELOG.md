@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.13.0-alpha.4
+
+- **Feature**: Add support for custom props in all loaders.
+- **Feature**: Removed `@emotion/react` as a dependency.
+- **Feature**: Update `RiseLoader` rise amount of use `size` prop instead of hardcoded as 30px.
+
 ## 0.13.0-alpha.3
 
 - **Feature**: Add support for custom props in BarLoader
