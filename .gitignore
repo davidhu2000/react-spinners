@@ -12,3 +12,5 @@ docs/js
 cjs
 esm
 umd
+.yarn/cache
+.yarn/install-state.gz
