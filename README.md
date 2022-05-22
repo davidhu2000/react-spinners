@@ -41,7 +41,6 @@ Each loader accepts a `loading` prop as a boolean. The loader will render `null`
 import { useState, CSSProperties } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 
-// Can be a string as well. Need to ensure each key-value pair ends with ;
 const override: CSSProperties = {
   display: "block",
   margin: "0 auto",
