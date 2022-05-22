@@ -19,25 +19,25 @@ function PuffLoader({
 }: LoaderSizeProps): JSX.Element | null {
   const style = (i: number): React.CSSProperties => {
     return {
-      position: `absolute`,
+      position: "absolute",
       height: cssValue(size),
       width: cssValue(size),
       border: `thick solid ${color}`,
-      borderRadius: `50%`,
-      opacity: `1`,
-      top: `0`,
-      left: `0`,
-      animationFillMode: `both`,
+      borderRadius: "50%",
+      opacity: "1",
+      top: "0",
+      left: "0",
+      animationFillMode: "both",
       animation: `${puff[0]}, ${puff[1]}`,
       animationDuration: `${2 / speedMultiplier}s`,
-      animationIterationCount: `infinite`,
-      animationTimingFunction: `cubic-bezier(0.165, 0.84, 0.44, 1), cubic-bezier(0.3, 0.61, 0.355, 1)`,
+      animationIterationCount: "infinite",
+      animationTimingFunction: "cubic-bezier(0.165, 0.84, 0.44, 1), cubic-bezier(0.3, 0.61, 0.355, 1)",
       animationDelay: i === 1 ? "1s" : "0s",
     };
   };
 
   const wrapper: React.CSSProperties = {
-    position: `relative`,
+    position: "relative",
     width: cssValue(size),
     height: cssValue(size),
     ...css,
