@@ -1,4 +1,4 @@
-import { calculateRgba } from "../../src/helpers";
+import { calculateRgba } from "./colors";
 
 describe("calculateRgba", () => {
   it("is a function", () => {
