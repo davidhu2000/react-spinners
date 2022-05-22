@@ -35,28 +35,19 @@ Each loader has their own default properties. You can overwrite the defaults by 
 
 Each loader accepts a `loading` prop as a boolean. The loader will render `null` if `loading` is `false`.
 
-**IMPORTANT**: This package uses [emotion](https://github.com/emotion-js/emotion). Remember to add the plugin to `.babelrc`, for example:
-
-```
-{
-    "presets": ["@babel/preset-react", "@babel/preset-env"],
-    "plugins": ["@emotion"]
-}
-```
-
 ### Example
 
-```js
-import { useState } from "react";
+```tsx
+import { useState, CSSProperties } from "react";
 import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
 
 // Can be a string as well. Need to ensure each key-value pair ends with ;
-const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-`;
+const override: CSSProperties = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+};
 
 function App() {
   let [loading, setLoading] = useState(true);
@@ -77,23 +68,22 @@ export default App;
 
 <details><summary>Example using React Class</summary>
 
-```js
+```tsx
 import React from "react";
 import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
 
-// Can be a string as well. Need to ensure each key-value pair ends with ;
-const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-`;
+const override: React.CSSProperties = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+};
 
 class AwesomeComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true
+      loading: true,
     };
   }
 
@@ -116,7 +106,8 @@ Common default props for all loaders:
 ```js
 loading: true;
 color: "#000000";
-css: "";
+css: {
+}
 speedMultiplier: 1;
 ```
 
@@ -129,10 +120,7 @@ speedMultiplier: 1;
 
 ### `css` prop
 
-`css` works exactly like the `css` works with the emotion package.
-You can directly write your css in css syntax without the dirty camelCase css in jss syntax.
-We recommend you to use this awesome library in your project. It supports Server side rendering with HTTP2 Stream!
-More info about using `css` [here](https://emotion.sh/docs/introduction)
+The css prop is an object of camelCase styles used to create inline styles on the loaders. Any html css property is valid here.
 
 ### `size`, `height`, `width`, and `radius` props
 
