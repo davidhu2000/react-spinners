@@ -1,62 +1,63 @@
-/** @jsxImportSource @emotion/react */
 import * as React from "react";
-import { keyframes, css, SerializedStyles } from "@emotion/react";
 
-import { sizeDefaults, parseLengthAndUnit } from "./helpers";
-import { LoaderSizeProps } from "./interfaces";
+import { parseLengthAndUnit } from "./helpers";
+import { LoaderSizeProps } from "./helpers/props";
+import { createAnimation } from "./helpers/animation";
 
-const rotate = keyframes`
-  100% { transform: rotate(360deg) }
-`;
+const rotate = createAnimation("ClockLoader", "100% { transform: rotate(360deg) }", "rotate");
 
-class Loader extends React.PureComponent<Required<LoaderSizeProps>> {
-  public static defaultProps = sizeDefaults(50);
+function ClockLoader({
+  loading = true,
+  color = "#000000",
+  speedMultiplier = 1,
+  css = {},
+  size = 50,
+  ...additionalprops
+}: LoaderSizeProps): JSX.Element | null {
+  const { value, unit } = parseLengthAndUnit(size);
 
-  public wrapper = (): SerializedStyles => {
-    const { size, color, speedMultiplier } = this.props;
-
-    const { value, unit } = parseLengthAndUnit(size);
-
-    return css`
-      position: relative;
-      width: ${`${value}${unit}`};
-      height: ${`${value}${unit}`};
-      background-color: transparent;
-      box-shadow: inset 0px 0px 0px 2px ${color};
-      border-radius: 50%;
-
-      &:after,
-      &:before {
-        position: absolute;
-        content: "";
-        background-color: ${color};
-      }
-
-      &:after {
-        width: ${value / 2.4}px;
-        height: 2px;
-        top: ${value / 2 - 1}px;
-        left: ${value / 2 - 1}px;
-        transform-origin: 1px 1px;
-        animation: ${rotate} ${2 / speedMultiplier}s linear infinite;
-      }
-
-      &:before {
-        width: ${value / 3}px;
-        height: 2px;
-        top: ${value / 2 - 1}px;
-        left: ${value / 2 - 1}px;
-        transform-origin: 1px 1px;
-        animation: ${rotate} ${8 / speedMultiplier}s linear infinite;
-      }
-    `;
+  const wrapper: React.CSSProperties = {
+    position: "relative",
+    width: `${value}${unit}`,
+    height: `${value}${unit}`,
+    backgroundColor: "transparent",
+    boxShadow: `inset 0px 0px 0px 2px ${color}`,
+    borderRadius: "50%",
+    ...css,
   };
 
-  public render(): JSX.Element | null {
-    const { loading, css } = this.props;
+  const minute: React.CSSProperties = {
+    position: "absolute",
+    backgroundColor: color,
+    width: `${value / 3}px`,
+    height: "2px",
+    top: `${value / 2 - 1}px`,
+    left: `${value / 2 - 1}px`,
+    transformOrigin: "1px 1px",
+    animation: `${rotate} ${8 / speedMultiplier}s linear infinite`,
+  };
 
-    return loading ? <span css={[this.wrapper(), css]} /> : null;
+  const hour: React.CSSProperties = {
+    position: "absolute",
+    backgroundColor: color,
+    width: `${value / 2.4}px`,
+    height: "2px",
+    top: `${value / 2 - 1}px`,
+    left: `${value / 2 - 1}px`,
+    transformOrigin: "1px 1px",
+    animation: `${rotate} ${2 / speedMultiplier}s linear infinite`,
+  };
+
+  if (!loading) {
+    return null;
   }
+
+  return (
+    <span style={wrapper} {...additionalprops}>
+      <span style={hour} />
+      <span style={minute} />
+    </span>
+  );
 }
 
-export default Loader;
+export default ClockLoader;
