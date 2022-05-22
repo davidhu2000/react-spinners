@@ -22,9 +22,9 @@ function SquareLoader({
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
   const style: React.CSSProperties = {
-    backgroundColor: `${color}`,
-    width: `${cssValue(size)}`,
-    height: `${cssValue(size)}`,
+    backgroundColor: color,
+    width: cssValue(size),
+    height: cssValue(size),
     display: "inline-block",
     animation: `${square} ${3 / speedMultiplier}s 0s infinite cubic-bezier(0.09, 0.57, 0.49, 0.9)`,
     animationFillMode: "both",
