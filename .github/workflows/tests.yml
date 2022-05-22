@@ -89,5 +89,5 @@ jobs:
         id: changes
         run: echo "::set-output name=changed::$(git status --porcelain | wc -l)"
       - name: error out if there are any changes
-        if: steps.changes.outputs.changed != 0 || steps.pre-release.outputs.value != 'true'
+        if: steps.changes.outputs.changed != 0 && steps.pre-release.outputs.value != 'true'
         run: exit 1
