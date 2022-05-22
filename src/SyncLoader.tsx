@@ -1,46 +1,50 @@
-/** @jsxImportSource @emotion/react */
 import * as React from "react";
-import { keyframes, css, SerializedStyles } from "@emotion/react";
 
-import { sizeMarginDefaults } from "./helpers/proptypes";
-import { LoaderSizeMarginProps } from "./interfaces";
+import { LoaderSizeMarginProps } from "./helpers/props";
+import { createAnimation } from "./helpers/animation";
 import { cssValue } from "./helpers";
 
-const sync = keyframes`
-  33% {transform: translateY(10px)}
+const sync = createAnimation(
+  "SyncLoader",
+  `33% {transform: translateY(10px)}
   66% {transform: translateY(-10px)}
-  100% {transform: translateY(0)}
-`;
+  100% {transform: translateY(0)}`,
+  "sync"
+);
 
-class Loader extends React.PureComponent<Required<LoaderSizeMarginProps>> {
-  public static defaultProps = sizeMarginDefaults(15);
-
-  public style = (i: number): SerializedStyles => {
-    const { color, size, margin, speedMultiplier } = this.props;
-
-    return css`
-      background-color: ${color};
-      width: ${cssValue(size)};
-      height: ${cssValue(size)};
-      margin: ${cssValue(margin)};
-      border-radius: 100%;
-      display: inline-block;
-      animation: ${sync} ${0.6 / speedMultiplier}s ${i * 0.07}s infinite ease-in-out;
-      animation-fill-mode: both;
-    `;
+function SyncLoader({
+  loading = true,
+  color = "#000000",
+  speedMultiplier = 1,
+  css = {},
+  size = 15,
+  margin = 2,
+  ...additionalprops
+}: LoaderSizeMarginProps): JSX.Element | null {
+  const style = (i: number): React.CSSProperties => {
+    return {
+      backgroundColor: color,
+      width: cssValue(size),
+      height: cssValue(size),
+      margin: cssValue(margin),
+      borderRadius: "100%",
+      display: "inline-block",
+      animation: `${sync} ${0.6 / speedMultiplier}s ${i * 0.07}s infinite ease-in-out`,
+      animationFillMode: "both",
+    };
   };
 
-  public render(): JSX.Element | null {
-    const { loading, css } = this.props;
-
-    return loading ? (
-      <span css={[css]}>
-        <span css={this.style(1)} />
-        <span css={this.style(2)} />
-        <span css={this.style(3)} />
-      </span>
-    ) : null;
+  if (!loading) {
+    return null;
   }
+
+  return (
+    <span style={css} {...additionalprops}>
+      <span style={style(1)} />
+      <span style={style(2)} />
+      <span style={style(3)} />
+    </span>
+  );
 }
 
-export default Loader;
+export default SyncLoader;
