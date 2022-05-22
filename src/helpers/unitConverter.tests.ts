@@ -2,7 +2,7 @@ import { parseLengthAndUnit, cssValue } from "./unitConverter";
 
 describe("unitConverter", () => {
   describe("parseLengthAndUnit", () => {
-    const spy = jest.spyOn(console, "warn");
+    const spy = jest.spyOn(console, "warn").mockImplementation();
     const output = {
       value: 12,
       unit: "px",
