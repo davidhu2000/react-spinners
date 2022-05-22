@@ -4,7 +4,7 @@ import { parseLengthAndUnit, cssValue } from "./helpers";
 import { LoaderSizeProps } from "./helpers/props";
 import { createAnimation } from "./helpers/animation";
 
-const moon = createAnimation("MoonLoader", "100% {transform: rotate(360deg)}");
+const moon = createAnimation("MoonLoader", "100% {transform: rotate(360deg)}", "moon");
 
 function MoonLoader({
   loading = true,

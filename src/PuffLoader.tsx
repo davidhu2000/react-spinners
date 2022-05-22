@@ -5,8 +5,8 @@ import { LoaderSizeProps } from "./helpers/props";
 import { createAnimation } from "./helpers/animation";
 
 const puff = [
-  createAnimation("PuffLoader", "0% {transform: scale(0)} 100% {transform: scale(1.0)}"),
-  createAnimation("PuffLoader", "0% {opacity: 1} 100% {opacity: 0}"),
+  createAnimation("PuffLoader", "0% {transform: scale(0)} 100% {transform: scale(1.0)}", "puff-1"),
+  createAnimation("PuffLoader", "0% {opacity: 1} 100% {opacity: 0}", "puff-2"),
 ];
 
 function PuffLoader({

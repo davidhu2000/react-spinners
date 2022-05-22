@@ -4,7 +4,7 @@ import { cssValue, parseLengthAndUnit } from "./helpers";
 import { LoaderHeightWidthRadiusProps } from "./helpers/props";
 import { createAnimation } from "./helpers/animation";
 
-const fade = createAnimation("FadeLoader", "50% {opacity: 0.3} 100% {opacity: 1}");
+const fade = createAnimation("FadeLoader", "50% {opacity: 0.3} 100% {opacity: 1}", "fade");
 
 function FadeLoader({
   loading = true,

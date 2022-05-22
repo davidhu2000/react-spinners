@@ -7,7 +7,8 @@ import { LoaderSizeMarginProps } from "./helpers/props";
 
 const beat = createAnimation(
   "BeatLoader",
-  " 50% {transform: scale(0.75);opacity: 0.2} 100% {transform: scale(1);opacity: 1}"
+  "50% {transform: scale(0.75);opacity: 0.2} 100% {transform: scale(1);opacity: 1}",
+  "beat"
 );
 
 function BeatLoader({
