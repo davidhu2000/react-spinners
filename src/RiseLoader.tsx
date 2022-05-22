@@ -1,59 +1,66 @@
-/** @jsxImportSource @emotion/react */
 import * as React from "react";
-import { keyframes, css, SerializedStyles } from "@emotion/react";
 
-import { sizeMarginDefaults, cssValue } from "./helpers";
-import { LoaderSizeMarginProps } from "./interfaces";
+import { cssValue } from "./helpers";
+import { LoaderSizeMarginProps } from "./helpers/props";
+import { createAnimation } from "./helpers/animation";
 
 const riseAmount = 30;
 
-const even = keyframes`
-  0% {transform: scale(1.1)}
+const even = createAnimation(
+  "RiseLoader",
+  `0% {transform: scale(1.1)}
   25% {transform: translateY(-${riseAmount}px)}
   50% {transform: scale(0.4)}
   75% {transform: translateY(${riseAmount}px)}
-  100% {transform: translateY(0) scale(1.0)}
-`;
+  100% {transform: translateY(0) scale(1.0)}`,
+  "even"
+);
 
-const odd = keyframes`
-  0% {transform: scale(0.4)}
+const odd = createAnimation(
+  "RiseLoader",
+  `0% {transform: scale(0.4)}
   25% {transform: translateY(${riseAmount}px)}
   50% {transform: scale(1.1)}
   75% {transform: translateY(${-riseAmount}px)}
-  100% {transform: translateY(0) scale(0.75)}
-`;
+  100% {transform: translateY(0) scale(0.75)}`,
+  "odd"
+);
 
-class Loader extends React.PureComponent<Required<LoaderSizeMarginProps>> {
-  public static defaultProps = sizeMarginDefaults(15);
-
-  public style = (i: number): SerializedStyles => {
-    const { color, size, margin, speedMultiplier } = this.props;
-
-    return css`
-      background-color: ${color};
-      width: ${cssValue(size)};
-      height: ${cssValue(size)};
-      margin: ${cssValue(margin)};
-      border-radius: 100%;
-      display: inline-block;
-      animation: ${i % 2 === 0 ? even : odd} ${1 / speedMultiplier}s 0s infinite cubic-bezier(0.15, 0.46, 0.9, 0.6);
-      animation-fill-mode: both;
-    `;
+function RiseLoader({
+  loading = true,
+  color = "#000000",
+  speedMultiplier = 1,
+  css = {},
+  size = 15,
+  margin = 2,
+  ...additionalprops
+}: LoaderSizeMarginProps): JSX.Element | null {
+  const style = (i: number): React.CSSProperties => {
+    return {
+      backgroundColor: color,
+      width: cssValue(size),
+      height: cssValue(size),
+      margin: cssValue(margin),
+      borderRadius: "100%",
+      display: "inline-block",
+      animation: `${i % 2 === 0 ? even : odd} ${1 / speedMultiplier}s 0s infinite cubic-bezier(0.15, 0.46, 0.9, 0.6)`,
+      animationFillMode: "both",
+    };
   };
 
-  public render(): JSX.Element | null {
-    const { loading, css } = this.props;
-
-    return loading ? (
-      <span css={[css]}>
-        <span css={this.style(1)} />
-        <span css={this.style(2)} />
-        <span css={this.style(3)} />
-        <span css={this.style(4)} />
-        <span css={this.style(5)} />
-      </span>
-    ) : null;
+  if (!loading) {
+    return null;
   }
+
+  return (
+    <span style={css} {...additionalprops}>
+      <span style={style(1)} />
+      <span style={style(2)} />
+      <span style={style(3)} />
+      <span style={style(4)} />
+      <span style={style(5)} />
+    </span>
+  );
 }
 
-export default Loader;
+export default RiseLoader;
