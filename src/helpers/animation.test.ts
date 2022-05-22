@@ -10,4 +10,3 @@ describe("createAnimation", () => {
     expect(name).toEqual("react-spinners-TestLoader-my-suffix");
   });
 });
-g;

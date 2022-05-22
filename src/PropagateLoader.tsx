@@ -52,7 +52,7 @@ const propagate = [
     50% {transform: translateX(${distance[1]}rem) scale(0.6)}
     75% {transform: translateX(${distance[2]}rem) scale(0.5)}
     95% {transform: translateX(0rem) scale(1)}`,
-    "propogate-0"
+    "propogate-5"
   ),
 ];
 
