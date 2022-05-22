@@ -11,7 +11,7 @@ Object.entries(Loaders).forEach((loader) => {
   const Loader = loader[1] as React.ComponentType<LoaderHeightWidthRadiusProps & LoaderSizeMarginProps>;
 
   // TODO: remove from this list as loaders are converted to functional
-  const oldLoaders = ["ClockLoader", "RotateLoader", "ScaleLoader", "SkewLoader", "SquareLoader", "SyncLoader"];
+  const oldLoaders = ["ClockLoader", "ScaleLoader", "SkewLoader", "SquareLoader", "SyncLoader"];
 
   if (oldLoaders.includes(name)) {
     return;
