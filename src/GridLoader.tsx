@@ -36,8 +36,8 @@ function GridLoader({
     return {
       display: "inline-block",
       backgroundColor: color,
-      width: cssValue(size),
-      height: cssValue(size),
+      width: `${cssValue(size)} !important`,
+      height: `${cssValue(size)} !important`,
       margin: cssValue(margin),
       borderRadius: "100%",
       animationFillMode: "both",
