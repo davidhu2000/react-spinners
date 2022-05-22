@@ -13,7 +13,7 @@ const even = createAnimation(
   50% {transform: scale(0.4)}
   75% {transform: translateY(${riseAmount}px)}
   100% {transform: translateY(0) scale(1.0)}`,
-  "event"
+  "even"
 );
 
 const odd = createAnimation(
