@@ -6,8 +6,7 @@ import { createAnimation } from "./helpers/animation";
 
 const climbingBox = createAnimation(
   "ClimbingBoxLoader",
-  `
-  0% {transform:translate(0, -1em) rotate(-45deg)}
+  `0% {transform:translate(0, -1em) rotate(-45deg)}
   5% {transform:translate(0, -1em) rotate(-50deg)}
   20% {transform:translate(1em, -2em) rotate(47deg)}
   25% {transform:translate(1em, -2em) rotate(45deg)}
@@ -17,8 +16,8 @@ const climbingBox = createAnimation(
   55% {transform:translate(2em, -3em) rotate(130deg)}
   70% {transform:translate(3em, -4em) rotate(217deg)}
   75% {transform:translate(3em, -4em) rotate(220deg)}
-  100% {transform:translate(0, -1em) rotate(-225deg)}
-`
+  100% {transform:translate(0, -1em) rotate(-225deg)}`,
+  "climbingBox"
 );
 
 function ClimbingBoxLoader({

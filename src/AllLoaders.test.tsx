@@ -3,32 +3,15 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 import * as Loaders from "./index";
-import { LoaderHeightWidthProps, LoaderSizeMarginProps } from "./helpers/props";
+import { LoaderHeightWidthRadiusProps, LoaderSizeMarginProps } from "./helpers/props";
 
 Object.entries(Loaders).forEach((loader) => {
   const name = loader[0];
 
-  const Loader = loader[1] as React.ComponentType<LoaderHeightWidthProps | LoaderSizeMarginProps>;
+  const Loader = loader[1] as React.ComponentType<LoaderHeightWidthRadiusProps & LoaderSizeMarginProps>;
 
   // TODO: remove from this list as loaders are converted to functional
-  const oldLoaders = [
-    "DotLoader",
-    "FadeLoader",
-    "GridLoader",
-    "HashLoader",
-    "MoonLoader",
-    "PacmanLoader",
-    "PropagateLoader",
-    "PulseLoader",
-    "PuffLoader",
-    "RingLoader",
-    "RiseLoader",
-    "RotateLoader",
-    "ScaleLoader",
-    "SkewLoader",
-    "SquareLoader",
-    "SyncLoader",
-  ];
+  const oldLoaders = ["ClockLoader"];
 
   if (oldLoaders.includes(name)) {
     return;
