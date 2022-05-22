@@ -6,7 +6,8 @@ import { createAnimation } from "./helpers/animation";
 
 const clip = createAnimation(
   "ClipLoader",
-  "0% {transform: rotate(0deg) scale(1)} 50% {transform: rotate(180deg) scale(0.8)} 100% {transform: rotate(360deg) scale(1)}"
+  "0% {transform: rotate(0deg) scale(1)} 50% {transform: rotate(180deg) scale(0.8)} 100% {transform: rotate(360deg) scale(1)}",
+  "clip"
 );
 
 function ClipLoader({

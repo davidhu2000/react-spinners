@@ -10,55 +10,49 @@ const distance = [1, 3, 5];
 const propagate = [
   createAnimation(
     "PropagateLoader",
-    `
-      25% {transform: translateX(-${distance[0]}rem) scale(0.75)}
-      50% {transform: translateX(-${distance[1]}rem) scale(0.6)}
-      75% {transform: translateX(-${distance[2]}rem) scale(0.5)}
-      95% {transform: translateX(0rem) scale(1)}
-    `
+    `25% {transform: translateX(-${distance[0]}rem) scale(0.75)}
+    50% {transform: translateX(-${distance[1]}rem) scale(0.6)}
+    75% {transform: translateX(-${distance[2]}rem) scale(0.5)}
+    95% {transform: translateX(0rem) scale(1)}`,
+    "propogate-0"
   ),
   createAnimation(
     "PropagateLoader",
-    `
-      25% {transform: translateX(-${distance[0]}rem) scale(0.75)}
-      50% {transform: translateX(-${distance[1]}rem) scale(0.6)}
-      75% {transform: translateX(-${distance[1]}rem) scale(0.6)}
-      95% {transform: translateX(0rem) scale(1)}
-    `
+    `25% {transform: translateX(-${distance[0]}rem) scale(0.75)}
+    50% {transform: translateX(-${distance[1]}rem) scale(0.6)}
+    75% {transform: translateX(-${distance[1]}rem) scale(0.6)}
+    95% {transform: translateX(0rem) scale(1)}`,
+    "propogate-1"
   ),
   createAnimation(
     "PropagateLoader",
-    `
-      25% {transform: translateX(-${distance[0]}rem) scale(0.75)}
-      75% {transform: translateX(-${distance[0]}rem) scale(0.75)}
-      95% {transform: translateX(0rem) scale(1)}
-    `
+    `25% {transform: translateX(-${distance[0]}rem) scale(0.75)}
+    75% {transform: translateX(-${distance[0]}rem) scale(0.75)}
+    95% {transform: translateX(0rem) scale(1)}`,
+    "propogate-2"
   ),
   createAnimation(
     "PropagateLoader",
-    `
-      25% {transform: translateX(${distance[0]}rem) scale(0.75)}
-      75% {transform: translateX(${distance[0]}rem) scale(0.75)}
-      95% {transform: translateX(0rem) scale(1)}
-    `
+    `25% {transform: translateX(${distance[0]}rem) scale(0.75)}
+    75% {transform: translateX(${distance[0]}rem) scale(0.75)}
+    95% {transform: translateX(0rem) scale(1)}`,
+    "propogate-3"
   ),
   createAnimation(
     "PropagateLoader",
-    `
-      25% {transform: translateX(${distance[0]}rem) scale(0.75)}
-      50% {transform: translateX(${distance[1]}rem) scale(0.6)}
-      75% {transform: translateX(${distance[1]}rem) scale(0.6)}
-      95% {transform: translateX(0rem) scale(1)}
-    `
+    `25% {transform: translateX(${distance[0]}rem) scale(0.75)}
+    50% {transform: translateX(${distance[1]}rem) scale(0.6)}
+    75% {transform: translateX(${distance[1]}rem) scale(0.6)}
+    95% {transform: translateX(0rem) scale(1)}`,
+    "propogate-4"
   ),
   createAnimation(
     "PropagateLoader",
-    `
-      25% {transform: translateX(${distance[0]}rem) scale(0.75)}
-      50% {transform: translateX(${distance[1]}rem) scale(0.6)}
-      75% {transform: translateX(${distance[2]}rem) scale(0.5)}
-      95% {transform: translateX(0rem) scale(1)}
-    `
+    `25% {transform: translateX(${distance[0]}rem) scale(0.75)}
+    50% {transform: translateX(${distance[1]}rem) scale(0.6)}
+    75% {transform: translateX(${distance[2]}rem) scale(0.5)}
+    95% {transform: translateX(0rem) scale(1)}`,
+    "propogate-5"
   ),
 ];
 

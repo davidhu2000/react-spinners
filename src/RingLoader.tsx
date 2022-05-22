@@ -6,18 +6,14 @@ import { createAnimation } from "./helpers/animation";
 
 const right = createAnimation(
   "RingLoader",
-  `
-  0% {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)}
-  100% {transform: rotateX(180deg) rotateY(360deg) rotateZ(360deg)}
-`
+  "0% {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)} 100% {transform: rotateX(180deg) rotateY(360deg) rotateZ(360deg)}",
+  "right"
 );
 
 const left = createAnimation(
   "RingLoader",
-  `
-  0% {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)}
-  100% {transform: rotateX(360deg) rotateY(180deg) rotateZ(360deg)}
-`
+  "0% {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)} 100% {transform: rotateX(360deg) rotateY(180deg) rotateZ(360deg)}",
+  "left"
 );
 
 function RingLoader({

@@ -6,7 +6,8 @@ import { createAnimation } from "./helpers/animation";
 
 const grid = createAnimation(
   "GridLoader",
-  `0% {transform: scale(1)} 50% {transform: scale(0.5), opacity: 0.7} 100% {transform: scale(1),opacity: 1}`
+  "0% {transform: scale(1)} 50% {transform: scale(0.5), opacity: 0.7} 100% {transform: scale(1),opacity: 1}",
+  "grid"
 );
 
 const random = (top: number): number => Math.random() * top;

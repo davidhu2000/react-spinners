@@ -23,21 +23,19 @@ function HashLoader({
 
   const before = createAnimation(
     "HashLoader",
-    `
-      0% {width: ${thickness}px,box-shadow: ${lat}px ${-offset}px ${colorValue}, ${-lat}px ${offset}px ${colorValue}}
-      35% {width: ${cssValue(size)},box-shadow: 0 ${-offset}px ${colorValue}, 0 ${offset}px ${colorValue}}
-      70% {width: ${thickness}px,box-shadow: ${-lat}px ${-offset}px ${colorValue}, ${lat}px ${offset}px ${colorValue}}
-      100% {box-shadow: ${lat}px ${-offset}px ${colorValue}, ${-lat}px ${offset}px ${colorValue}}`,
-    "after"
+    `0% {width: ${thickness}px,box-shadow: ${lat}px ${-offset}px ${colorValue}, ${-lat}px ${offset}px ${colorValue}}
+    35% {width: ${cssValue(size)},box-shadow: 0 ${-offset}px ${colorValue}, 0 ${offset}px ${colorValue}}
+    70% {width: ${thickness}px,box-shadow: ${-lat}px ${-offset}px ${colorValue}, ${lat}px ${offset}px ${colorValue}}
+    100% {box-shadow: ${lat}px ${-offset}px ${colorValue}, ${-lat}px ${offset}px ${colorValue}}`,
+    "before"
   );
 
   const after = createAnimation(
     "HashLoader",
-    `
-      0% {height: ${thickness}px,box-shadow: ${offset}px ${lat}px ${color}, ${-offset}px ${-lat}px ${color}}
-      35% {height: ${cssValue(size)},box-shadow: ${offset}px 0 ${color}, ${-offset}px 0 ${color}}
-      70% {height: ${thickness}px,box-shadow: ${offset}px ${-lat}px ${color}, ${-offset}px ${lat}px ${color}}
-      100% {box-shadow: ${offset}px ${lat}px ${color}, ${-offset}px ${-lat}px ${color}}`,
+    `0% {height: ${thickness}px,box-shadow: ${offset}px ${lat}px ${color}, ${-offset}px ${-lat}px ${color}}
+    35% {height: ${cssValue(size)},box-shadow: ${offset}px 0 ${color}, ${-offset}px 0 ${color}}
+    70% {height: ${thickness}px,box-shadow: ${offset}px ${-lat}px ${color}, ${-offset}px ${lat}px ${color}}
+    100% {box-shadow: ${offset}px ${lat}px ${color}, ${-offset}px ${-lat}px ${color}}`,
     "after"
   );
 

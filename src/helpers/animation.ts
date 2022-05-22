@@ -1,9 +1,9 @@
-export const createAnimation = (loaderName: string, frames: string, suffix = ""): string => {
+export const createAnimation = (loaderName: string, frames: string, suffix: string): string => {
   const styleEl = document.createElement("style");
   document.head.appendChild(styleEl);
   const styleSheet = styleEl.sheet;
 
-  const animationName = `react-spinners-${loaderName}${suffix ? `-${suffix}` : ""}`;
+  const animationName = `react-spinners-${loaderName}-${suffix}`;
 
   const keyFrames = `
     @keyframes ${animationName} {

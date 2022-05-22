@@ -5,8 +5,8 @@ import { LoaderSizeMarginProps } from "./helpers/props";
 import { createAnimation } from "./helpers/animation";
 
 const pacman = [
-  createAnimation("PacmanLoader", "0% {transform: rotate(0deg)} 50% {transform: rotate(-44deg)}"),
-  createAnimation("PacmanLoader", "0% {transform: rotate(0deg)} 50% {transform: rotate(44deg)}"),
+  createAnimation("PacmanLoader", "0% {transform: rotate(0deg)} 50% {transform: rotate(-44deg)}", "pacman-1"),
+  createAnimation("PacmanLoader", "0% {transform: rotate(0deg)} 50% {transform: rotate(44deg)}", "pacman-2"),
 ];
 
 function PacmanLoader({
@@ -22,10 +22,9 @@ function PacmanLoader({
 
   const ball = createAnimation(
     "PacmanLoader",
-    `
-      75% {opacity: 0.7}
-      100% {transform: translate(${`${-4 * value}${unit}`}, ${`${-value / 4}${unit}`})}
-    `
+    `75% {opacity: 0.7}
+    100% {transform: translate(${`${-4 * value}${unit}`}, ${`${-value / 4}${unit}`})}`,
+    "ball"
   );
 
   const ballStyle = (i: number): React.CSSProperties => {
