@@ -81,9 +81,9 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run clean
       - run: yarn run build:demo
-      - name: Check if there is any change
-        id: get-changes
+      - name: check if there is any change
+        id: changes
         run: echo "::set-output name=changed::$(git status --porcelain | wc -l)"
-      - name: Do something if there is any change
-        if: steps.get-changes.outputs.changed != 0
-        run: echo "Commit docs changes by running yarn run build:demo"
+      - name: error out if there are any changes
+        if: steps.changes.outputs.changed != 0
+        run: exit 1
