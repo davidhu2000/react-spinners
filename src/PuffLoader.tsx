@@ -17,6 +17,14 @@ function PuffLoader({
   size = 60,
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
+  const wrapper: React.CSSProperties = {
+    display: "inherit",
+    position: "relative",
+    width: cssValue(size),
+    height: cssValue(size),
+    ...css,
+  };
+
   const style = (i: number): React.CSSProperties => {
     return {
       position: "absolute",
@@ -34,13 +42,6 @@ function PuffLoader({
       animationTimingFunction: "cubic-bezier(0.165, 0.84, 0.44, 1), cubic-bezier(0.3, 0.61, 0.355, 1)",
       animationDelay: i === 1 ? "1s" : "0s",
     };
-  };
-
-  const wrapper: React.CSSProperties = {
-    position: "relative",
-    width: cssValue(size),
-    height: cssValue(size),
-    ...css,
   };
 
   if (!loading) {

@@ -26,6 +26,14 @@ function RingLoader({
 }: LoaderSizeProps): JSX.Element | null {
   const { value, unit } = parseLengthAndUnit(size);
 
+  const wrapper: React.CSSProperties = {
+    display: "inherit",
+    width: cssValue(size),
+    height: cssValue(size),
+    position: "relative",
+    ...css,
+  };
+
   const style = (i: number): React.CSSProperties => {
     return {
       position: "absolute",
@@ -40,13 +48,6 @@ function RingLoader({
       perspective: "800px",
       animation: `${i === 1 ? right : left} ${2 / speedMultiplier}s 0s infinite linear`,
     };
-  };
-
-  const wrapper: React.CSSProperties = {
-    width: cssValue(size),
-    height: cssValue(size),
-    position: "relative",
-    ...css,
   };
 
   if (!loading) {

@@ -20,6 +20,11 @@ function BeatLoader({
   margin = 2,
   ...additionalprops
 }: LoaderSizeMarginProps): JSX.Element | null {
+  const wrapper: React.CSSProperties = {
+    display: "inherit",
+    ...css,
+  };
+
   const style = (i: number): React.CSSProperties => {
     return {
       display: "inline-block",
@@ -38,7 +43,7 @@ function BeatLoader({
   }
 
   return (
-    <span style={css} {...additionalprops}>
+    <span style={wrapper} {...additionalprops}>
       <span style={style(1)} />
       <span style={style(2)} />
       <span style={style(3)} />

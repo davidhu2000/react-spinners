@@ -66,6 +66,12 @@ function PropagateLoader({
 }: LoaderSizeProps): JSX.Element | null {
   const { value, unit } = parseLengthAndUnit(size);
 
+  const wrapper: React.CSSProperties = {
+    display: "inherit",
+    position: "relative",
+    ...css,
+  };
+
   const style = (i: number): React.CSSProperties => {
     return {
       position: "absolute",
@@ -77,11 +83,6 @@ function PropagateLoader({
       animation: `${propagate[i]} ${1.5 / speedMultiplier}s infinite`,
       animationFillMode: "forwards",
     };
-  };
-
-  const wrapper: React.CSSProperties = {
-    position: "relative",
-    ...css,
   };
 
   if (!loading) {

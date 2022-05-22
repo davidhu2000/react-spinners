@@ -21,6 +21,17 @@ function FadeLoader({
   const radiusValue = value + 18;
   const quarter = radiusValue / 2 + radiusValue / 5.5;
 
+  const wrapper: React.CSSProperties = {
+    display: "inherit",
+    position: "relative",
+    fontSize: "0",
+    top: radiusValue,
+    left: radiusValue,
+    width: `${radiusValue * 3}px`,
+    height: `${radiusValue * 3}px`,
+    ...css,
+  };
+
   const style = (i: number): React.CSSProperties => {
     return {
       position: "absolute",
@@ -33,16 +44,6 @@ function FadeLoader({
       animationFillMode: "both",
       animation: `${fade} ${1.2 / speedMultiplier}s ${i * 0.12}s infinite ease-in-out`,
     };
-  };
-
-  const wrapper: React.CSSProperties = {
-    position: "relative",
-    fontSize: "0",
-    top: radiusValue,
-    left: radiusValue,
-    width: `${radiusValue * 3}px`,
-    height: `${radiusValue * 3}px`,
-    ...css,
   };
 
   const a: React.CSSProperties = {

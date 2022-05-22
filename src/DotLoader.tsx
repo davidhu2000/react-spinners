@@ -16,6 +16,16 @@ function DotLoader({
   size = 60,
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
+  const wrapper: React.CSSProperties = {
+    display: "inherit",
+    position: "relative",
+    width: cssValue(size),
+    height: cssValue(size),
+    animationFillMode: "forwards",
+    animation: `${rotate} ${2 / speedMultiplier}s 0s infinite linear`,
+    ...css,
+  };
+
   const style = (i: number): React.CSSProperties => {
     const { value, unit } = parseLengthAndUnit(size);
 
@@ -30,15 +40,6 @@ function DotLoader({
       animationFillMode: "forwards",
       animation: `${bounce} ${2 / speedMultiplier}s ${i === 2 ? "1s" : "0s"} infinite linear`,
     };
-  };
-
-  const wrapper: React.CSSProperties = {
-    position: "relative",
-    width: cssValue(size),
-    height: cssValue(size),
-    animationFillMode: "forwards",
-    animation: `${rotate} ${2 / speedMultiplier}s 0s infinite linear`,
-    ...css,
   };
 
   if (!loading) {

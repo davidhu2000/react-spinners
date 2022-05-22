@@ -28,6 +28,25 @@ function ClimbingBoxLoader({
   size = 15,
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
+  const container: React.CSSProperties = {
+    display: "inherit",
+    position: "relative",
+    width: "7.1em",
+    height: "7.1em",
+    ...css,
+  };
+
+  const wrapper: React.CSSProperties = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    marginTop: "-2.7em",
+    marginLeft: "-2.7em",
+    width: "5.4em",
+    height: "5.4em",
+    fontSize: cssValue(size),
+  };
+
   const style: React.CSSProperties = {
     position: "absolute",
     left: "0",
@@ -42,17 +61,6 @@ function ClimbingBoxLoader({
     animation: `${climbingBox} ${2.5 / speedMultiplier}s infinite cubic-bezier(0.79, 0, 0.47, 0.97)`,
   };
 
-  const wrapper: React.CSSProperties = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    marginTop: "-2.7em",
-    marginLeft: "-2.7em",
-    width: "5.4em",
-    height: "5.4em",
-    fontSize: cssValue(size),
-  };
-
   const hill: React.CSSProperties = {
     position: "absolute",
     width: "7.1em",
@@ -61,13 +69,6 @@ function ClimbingBoxLoader({
     left: "1.7em",
     borderLeft: `0.25em solid ${color}`,
     transform: "rotate(45deg)",
-  };
-
-  const container: React.CSSProperties = {
-    position: "relative",
-    width: "7.1em",
-    height: "7.1em",
-    ...css,
   };
 
   if (!loading) {

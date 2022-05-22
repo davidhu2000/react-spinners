@@ -14,6 +14,16 @@ function HashLoader({
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
   const { value, unit } = parseLengthAndUnit(size);
+
+  const wrapper: React.CSSProperties = {
+    display: "inherit",
+    position: "relative",
+    width: cssValue(size),
+    height: cssValue(size),
+    transform: "rotate(165deg)",
+    ...css,
+  };
+
   const thickness = value / 5;
 
   const lat = (value - thickness) / 2;
@@ -54,14 +64,6 @@ function HashLoader({
       animationFillMode: "none",
       animation: `${i === 1 ? before : after} ${2 / speedMultiplier}s infinite`,
     };
-  };
-
-  const wrapper: React.CSSProperties = {
-    position: "relative",
-    width: cssValue(size),
-    height: cssValue(size),
-    transform: "rotate(165deg)",
-    ...css,
   };
 
   if (!loading) {
