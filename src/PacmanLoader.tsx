@@ -35,7 +35,7 @@ function PacmanLoader({
       margin: cssValue(margin),
       borderRadius: "100%",
       transform: `translate(0, ${`${-value / 4}${unit}`})`,
-      position: `absolute`,
+      position: "absolute",
       top: `${value}${unit}`,
       left: `${value * 4}${unit}`,
       animation: `${ball} ${1 / speedMultiplier}s ${i * 0.25}s infinite linear`,

@@ -23,13 +23,13 @@ function GridLoader({
 }: LoaderSizeMarginProps): JSX.Element | null {
   const style = (rand: number): React.CSSProperties => {
     return {
-      display: `inline-block`,
+      display: "inline-block",
       backgroundColor: color,
       width: cssValue(size),
       height: cssValue(size),
       margin: cssValue(margin),
-      borderRadius: `100%`,
-      animationFillMode: `"both"`,
+      borderRadius: "100%",
+      animationFillMode: "both",
       animation: `${grid} ${(rand / 100 + 0.6) / speedMultiplier}s ${rand / 100 - 0.2}s infinite ease`,
     };
   };

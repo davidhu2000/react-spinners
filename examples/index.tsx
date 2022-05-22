@@ -29,7 +29,7 @@ class SpinnerExamples extends React.Component<unknown, ExampleState> {
     this.state = {
       color: "#36D7B7",
       speedMultiplier: 1,
-      showPicker: false
+      showPicker: false,
     };
   }
 
@@ -40,7 +40,7 @@ class SpinnerExamples extends React.Component<unknown, ExampleState> {
       if (top > 60) {
         picker.style.top = `${top}px`;
       } else {
-        picker.style.top = `50px`;
+        picker.style.top = "50px";
       }
     });
   }
@@ -58,7 +58,7 @@ class SpinnerExamples extends React.Component<unknown, ExampleState> {
 
   public updateMultiplier = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({
-      speedMultiplier: parseFloat(e.target.value)
+      speedMultiplier: parseFloat(e.target.value),
     });
   };
 
