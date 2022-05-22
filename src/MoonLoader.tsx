@@ -4,12 +4,7 @@ import { parseLengthAndUnit, cssValue } from "./helpers";
 import { LoaderSizeProps } from "./helpers/props";
 import { createAnimation } from "./helpers/animation";
 
-const moon = createAnimation(
-  "MoonLoader",
-  `
-  100% {transform: rotate(360deg)}
-`
-);
+const moon = createAnimation("MoonLoader", "100% {transform: rotate(360deg)}");
 
 function MoonLoader({
   loading = true,
@@ -27,35 +22,35 @@ function MoonLoader({
     return {
       width: cssValue(size),
       height: cssValue(size),
-      borderRadius: `100%`,
+      borderRadius: "100%",
     };
   };
 
   const wrapper: React.CSSProperties = {
-    position: `relative`,
+    position: "relative",
     width: `${`${value + moonSize * 2}${unit}`}`,
     height: `${`${value + moonSize * 2}${unit}`}`,
     animation: `${moon} ${0.6 / speedMultiplier}s 0s infinite linear`,
-    animationFillMode: `forwards`,
+    animationFillMode: "forwards",
     ...css,
   };
 
   const ball: React.CSSProperties = {
     ...ballStyle(moonSize),
     backgroundColor: `${color}`,
-    opacity: `0.8`,
-    position: `absolute`,
+    opacity: "0.8",
+    position: "absolute",
     top: `${`${value / 2 - moonSize / 2}${unit}`}`,
     animation: `${moon} ${0.6 / speedMultiplier}s 0s infinite linear`,
-    animationFillMode: `forwards`,
+    animationFillMode: "forwards",
   };
 
   const circle: React.CSSProperties = {
     ...ballStyle(value),
     border: `${moonSize}px solid ${color}`,
-    opacity: `0.1`,
-    boxSizing: `content-box`,
-    position: `absolute`,
+    opacity: "0.1",
+    boxSizing: "content-box",
+    position: "absolute",
   };
 
   if (!loading) {

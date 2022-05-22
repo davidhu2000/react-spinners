@@ -64,6 +64,10 @@ content.gsub!(/(.+):\s*(.+);/) do
   "#{camelize($1)}: `#{$2}`,"
 end
 
+content.gsub!(/`([^\$\{\}]+)`/) do
+  "\"#{$1}\""
+end
+
 content.gsub!("css=", "style=")
 content.gsub!("{this.", "{")
 
