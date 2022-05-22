@@ -8,6 +8,5 @@ module.exports = {
   },
   roots: ["<rootDir>"],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
-  snapshotSerializers: ["@emotion/jest/serializer"],
   testEnvironment: "jsdom",
 };

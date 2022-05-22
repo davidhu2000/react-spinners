@@ -43,7 +43,7 @@
     "minor": "npm version minor && npm publish && npm run clean",
     "major": "npm version major && npm publish && npm run clean",
     "watch": "babel-node ./node_modules/.bin/webpack --watch --config ./webpack.config.dev.js & open docs/index.html",
-    "clean": "rm -rf helpers/; rm -f *Loader.js; rm -f *Loader.d.ts; rm -f index.js; rm -f index.d.ts; rm -f interfaces.js; rm -f interfaces.d.ts; rm -rf docs/js; rm -rf cjs; rm -rf esm; rm -rf umd",
+    "clean": "rm -rf helpers/; rm -f *Loader.js; rm -f *Loader.d.ts; rm -f index.js; rm -f index.d.ts; rm -rf docs/js; rm -rf cjs; rm -rf esm; rm -rf umd",
     "lint": "./node_modules/.bin/eslint src examples",
     "test": "jest",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
@@ -60,9 +60,6 @@
     "@babel/plugin-transform-typescript": "^7.15.4",
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
-    "@emotion/babel-plugin": "^11.3.0",
-    "@emotion/eslint-plugin": "^11.2.0",
-    "@emotion/jest": "^11.3.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@types/jest": "^27.0.2",
@@ -98,9 +95,6 @@
   "peerDependencies": {
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.4.1"
   },
   "sideEffects": false
 }
