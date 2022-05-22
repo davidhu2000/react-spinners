@@ -1,6 +1,7 @@
 import * as React from "react";
 
-import { calculateRgba, parseLengthAndUnit, cssValue } from "./helpers/index";
+import { calculateRgba } from "./helpers/colors";
+import { parseLengthAndUnit, cssValue } from "./helpers/unitConverter";
 import { LoaderSizeProps } from "./helpers/props";
 import { createAnimation } from "./helpers/animation";
 

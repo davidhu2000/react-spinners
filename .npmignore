@@ -16,7 +16,6 @@ docs
 webpack.config.*
 prettier.config.*
 template.html
-__tests__
 .github
 .circleci
 .eslintrc.*

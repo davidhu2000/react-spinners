@@ -1,11 +1,11 @@
-import { parseLengthAndUnit, cssValue } from "../../src/helpers";
+import { parseLengthAndUnit, cssValue } from "./unitConverter";
 
 describe("unitConverter", () => {
   describe("parseLengthAndUnit", () => {
-    const spy = jest.spyOn(console, "warn");
+    const spy = jest.spyOn(console, "warn").mockImplementation();
     const output = {
       value: 12,
-      unit: "px"
+      unit: "px",
     };
 
     it("is a function", () => {
@@ -25,7 +25,7 @@ describe("unitConverter", () => {
     it("take a string with valid css float unit and return an object with value and unit", () => {
       const output = {
         value: 12.5,
-        unit: "px"
+        unit: "px",
       };
       expect(parseLengthAndUnit("12.5px")).toEqual(output);
       expect(spy).not.toBeCalled();
