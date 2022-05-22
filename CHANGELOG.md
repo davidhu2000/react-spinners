@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.13.0-alpha.5
+
+- **bugfix**: Update `GridLoader` height/width with `important` tag to prevent overwrites from outside css.
+
 ## 0.13.0-alpha.4
 
 - **Feature**: Add support for custom props in all loaders.
