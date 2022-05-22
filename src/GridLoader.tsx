@@ -27,7 +27,6 @@ function GridLoader({
   const width = parseFloat(sizeWithUnit.value.toString()) * 3 + parseFloat(marginWithUnit.value.toString()) * 6;
 
   const wrapper: React.CSSProperties = {
-    display: "inherit",
     width: `${width}${sizeWithUnit.unit}`,
     fontSize: 0,
     ...css,
