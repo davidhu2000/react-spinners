@@ -88,6 +88,6 @@ jobs:
       - name: check if there is any change
         id: changes
         run: echo "::set-output name=changed::$(git status --porcelain | wc -l)"
-      - name: error out if there are any changes
+      - name: error out if there are any changes and package isn't pre-release
         if: steps.changes.outputs.changed != 0 && steps.pre-release.outputs.value != 'true'
         run: exit 1
