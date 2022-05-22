@@ -81,9 +81,9 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run clean
       - run: yarn run build:demo
-      - name: check if there are changes
+      - name: check if there is any change
         id: changes
-        uses: UnicornGlobal/has-changes-action@v1.0.11
-      - name: error has changes
-        if: steps.changes.outputs.changed == 1
-        run: echo "Commit docs changes by running yarn run build:demo"
+        run: echo "::set-output name=changed::$(git status --porcelain | wc -l)"
+      - name: error out if there are any changes
+        if: steps.changes.outputs.changed != 0
+        run: exit 1
