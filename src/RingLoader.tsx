@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import { sizeDefaults, parseLengthAndUnit, cssValue } from "./helpers";
-import { LoaderSizeProps, LengthType } from "./helpers/props";
+import { parseLengthAndUnit, cssValue } from "./helpers";
+import { LoaderSizeProps } from "./helpers/props";
 import { createAnimation } from "./helpers/animation";
 
 const right = createAnimation(
