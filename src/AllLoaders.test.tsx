@@ -10,13 +10,6 @@ Object.entries(Loaders).forEach((loader) => {
 
   const Loader = loader[1] as React.ComponentType<LoaderHeightWidthRadiusProps & LoaderSizeMarginProps>;
 
-  // TODO: remove from this list as loaders are converted to functional
-  const oldLoaders = ["ClockLoader"];
-
-  if (oldLoaders.includes(name)) {
-    return;
-  }
-
   describe(name, () => {
     it("should render nothing is loading prop is false", () => {
       const { container } = render(<Loader loading={false} />);
