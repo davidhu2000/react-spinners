@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { cssValue } from "./helpers";
+import { cssValue } from "./helpers/unitConverter";
 import { LoaderSizeProps } from "./helpers/props";
 import { createAnimation } from "./helpers/animation";
 

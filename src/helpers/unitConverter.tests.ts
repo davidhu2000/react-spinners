@@ -1,4 +1,4 @@
-import { parseLengthAndUnit, cssValue } from ".";
+import { parseLengthAndUnit, cssValue } from "./unitConverter";
 
 describe("unitConverter", () => {
   describe("parseLengthAndUnit", () => {

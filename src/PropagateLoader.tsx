@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { parseLengthAndUnit } from "./helpers";
+import { parseLengthAndUnit } from "./helpers/unitConverter";
 import { LoaderSizeProps } from "./helpers/props";
 import { createAnimation } from "./helpers/animation";
 

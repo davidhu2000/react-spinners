@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { LoaderSizeMarginProps } from "./helpers/props";
 import { createAnimation } from "./helpers/animation";
-import { cssValue } from "./helpers";
+import { cssValue } from "./helpers/unitConverter";
 
 const sync = createAnimation(
   "SyncLoader",
