@@ -14,7 +14,6 @@ Object.entries(Loaders).forEach((loader) => {
   const oldLoaders = [
     "ClockLoader",
     "PulseLoader",
-    "PuffLoader",
     "RingLoader",
     "RiseLoader",
     "RotateLoader",
