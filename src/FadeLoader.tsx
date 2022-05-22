@@ -21,8 +21,6 @@ function FadeLoader({
   const radiusValue = value + 18;
   const quarter = radiusValue / 2 + radiusValue / 5.5;
 
-  const radiusUnit = parseLengthAndUnit(radius);
-
   const style = (i: number): React.CSSProperties => {
     return {
       position: "absolute",
@@ -40,16 +38,16 @@ function FadeLoader({
   const wrapper: React.CSSProperties = {
     position: "relative",
     fontSize: "0",
-    top: radius,
-    left: radius,
-    width: `${radiusUnit.value * 3}px`,
-    height: `${radiusUnit.value * 3}px`,
+    top: radiusValue,
+    left: radiusValue,
+    width: `${radiusValue * 3}px`,
+    height: `${radiusValue * 3}px`,
     ...css,
   };
 
   const a: React.CSSProperties = {
     ...style(1),
-    top: `${radiusUnit.value}px`,
+    top: `${radiusValue}px`,
     left: "0",
   };
   const b: React.CSSProperties = {
@@ -61,7 +59,7 @@ function FadeLoader({
   const c: React.CSSProperties = {
     ...style(3),
     top: "0",
-    left: `${radiusUnit.value}px`,
+    left: `${radiusValue}px`,
     transform: "rotate(90deg)",
   };
   const d: React.CSSProperties = {
@@ -72,7 +70,7 @@ function FadeLoader({
   };
   const e: React.CSSProperties = {
     ...style(5),
-    top: `${-1 * radiusUnit.value}px`,
+    top: `${-1 * radiusValue}px`,
     left: "0",
   };
   const f: React.CSSProperties = {
@@ -84,7 +82,7 @@ function FadeLoader({
   const g: React.CSSProperties = {
     ...style(7),
     top: "0",
-    left: `${-1 * radiusUnit.value}px`,
+    left: `${-1 * radiusValue}px`,
     transform: "rotate(90deg)",
   };
   const h: React.CSSProperties = {

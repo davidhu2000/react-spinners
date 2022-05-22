@@ -15,7 +15,7 @@ function CircleLoader({
   color = "#000000",
   speedMultiplier = 1,
   css = {},
-  size = 4,
+  size = 50,
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
   const wrapper: React.CSSProperties = {

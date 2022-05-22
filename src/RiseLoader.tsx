@@ -4,28 +4,6 @@ import { cssValue } from "./helpers/unitConverter";
 import { LoaderSizeMarginProps } from "./helpers/props";
 import { createAnimation } from "./helpers/animation";
 
-const riseAmount = 30;
-
-const even = createAnimation(
-  "RiseLoader",
-  `0% {transform: scale(1.1)}
-  25% {transform: translateY(-${riseAmount}px)}
-  50% {transform: scale(0.4)}
-  75% {transform: translateY(${riseAmount}px)}
-  100% {transform: translateY(0) scale(1.0)}`,
-  "even"
-);
-
-const odd = createAnimation(
-  "RiseLoader",
-  `0% {transform: scale(0.4)}
-  25% {transform: translateY(${riseAmount}px)}
-  50% {transform: scale(1.1)}
-  75% {transform: translateY(${-riseAmount}px)}
-  100% {transform: translateY(0) scale(0.75)}`,
-  "odd"
-);
-
 function RiseLoader({
   loading = true,
   color = "#000000",
@@ -35,6 +13,26 @@ function RiseLoader({
   margin = 2,
   ...additionalprops
 }: LoaderSizeMarginProps): JSX.Element | null {
+  const even = createAnimation(
+    "RiseLoader",
+    `0% {transform: scale(1.1)}
+    25% {transform: translateY(-${size}px)}
+    50% {transform: scale(0.4)}
+    75% {transform: translateY(${size}px)}
+    100% {transform: translateY(0) scale(1.0)}`,
+    "even"
+  );
+
+  const odd = createAnimation(
+    "RiseLoader",
+    `0% {transform: scale(0.4)}
+    25% {transform: translateY(${size}px)}
+    50% {transform: scale(1.1)}
+    75% {transform: translateY(${-size}px)}
+    100% {transform: translateY(0) scale(0.75)}`,
+    "odd"
+  );
+
   const style = (i: number): React.CSSProperties => {
     return {
       backgroundColor: color,

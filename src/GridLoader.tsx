@@ -6,7 +6,7 @@ import { createAnimation } from "./helpers/animation";
 
 const grid = createAnimation(
   "GridLoader",
-  "0% {transform: scale(1)} 50% {transform: scale(0.5), opacity: 0.7} 100% {transform: scale(1),opacity: 1}",
+  "0% {transform: scale(1)} 50% {transform: scale(0.5); opacity: 0.7} 100% {transform: scale(1); opacity: 1}",
   "grid"
 );
 
@@ -40,8 +40,8 @@ function GridLoader({
   const width = parseFloat(sizeWithUnit.value.toString()) * 3 + parseFloat(marginWithUnit.value.toString()) * 6;
 
   const wrapper: React.CSSProperties = {
-    width: width,
-    fontSize: `${width}${sizeWithUnit.unit}`,
+    width: `${width}${sizeWithUnit.unit}`,
+    fontSize: 0,
     ...css,
   };
 
