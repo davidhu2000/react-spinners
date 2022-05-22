@@ -1,13 +1,15 @@
 import * as React from "react";
 
-import { sizeDefaults, cssValue } from "./helpers";
+import { cssValue } from "./helpers";
 import { LoaderSizeProps } from "./helpers/props";
 import { createAnimation } from "./helpers/animation";
 
 const square = createAnimation(
   "SquareLoader",
-  "25% {transform: rotateX(180deg) rotateY(0)} 50% {transform: rotateX(180deg) rotateY(180deg)} 75% {transform: rotateX(0) rotateY(180deg)} 100% {transform: rotateX(0) rotateY(0)}",
-
+  `25% {transform: rotateX(180deg) rotateY(0)}
+  50% {transform: rotateX(180deg) rotateY(180deg)} 
+  75% {transform: rotateX(0) rotateY(180deg)} 
+  100% {transform: rotateX(0) rotateY(0)}`,
   "square"
 );
 
@@ -23,9 +25,9 @@ function SquareLoader({
     backgroundColor: `${color}`,
     width: `${cssValue(size)}`,
     height: `${cssValue(size)}`,
-    display: `inline-block`,
+    display: "inline-block",
     animation: `${square} ${3 / speedMultiplier}s 0s infinite cubic-bezier(0.09, 0.57, 0.49, 0.9)`,
-    animationFillMode: `both`,
+    animationFillMode: "both",
     ...css,
   };
 
