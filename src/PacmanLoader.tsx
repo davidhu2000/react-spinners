@@ -20,6 +20,15 @@ function PacmanLoader({
 }: LoaderSizeMarginProps): JSX.Element | null {
   const { value, unit } = parseLengthAndUnit(size);
 
+  const wrapper: React.CSSProperties = {
+    display: "inherit",
+    position: "relative",
+    fontSize: 0,
+    height: cssValue(size),
+    width: cssValue(size),
+    ...css,
+  };
+
   const ball = createAnimation(
     "PacmanLoader",
     `75% {opacity: 0.7}
@@ -60,14 +69,6 @@ function PacmanLoader({
       animation: `${pacman[i]} ${0.8 / speedMultiplier}s infinite ease-in-out`,
       animationFillMode: "both",
     };
-  };
-
-  const wrapper: React.CSSProperties = {
-    position: "relative",
-    fontSize: 0,
-    height: cssValue(size),
-    width: cssValue(size),
-    ...css,
   };
 
   const pac = pacmanStyle(0);

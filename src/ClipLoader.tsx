@@ -19,6 +19,7 @@ function ClipLoader({
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
   const style: React.CSSProperties = {
+    display: "inherit",
     background: "transparent !important",
     width: cssValue(size),
     height: cssValue(size),

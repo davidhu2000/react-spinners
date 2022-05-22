@@ -21,6 +21,11 @@ function SyncLoader({
   margin = 2,
   ...additionalprops
 }: LoaderSizeMarginProps): JSX.Element | null {
+  const wrapper: React.CSSProperties = {
+    display: "inherit",
+    ...css,
+  };
+
   const style = (i: number): React.CSSProperties => {
     return {
       backgroundColor: color,
@@ -39,7 +44,7 @@ function SyncLoader({
   }
 
   return (
-    <span style={css} {...additionalprops}>
+    <span style={wrapper} {...additionalprops}>
       <span style={style(1)} />
       <span style={style(2)} />
       <span style={style(3)} />

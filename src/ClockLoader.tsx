@@ -17,6 +17,7 @@ function ClockLoader({
   const { value, unit } = parseLengthAndUnit(size);
 
   const wrapper: React.CSSProperties = {
+    display: "inherit",
     position: "relative",
     width: `${value}${unit}`,
     height: `${value}${unit}`,

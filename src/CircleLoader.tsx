@@ -19,6 +19,7 @@ function CircleLoader({
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
   const wrapper: React.CSSProperties = {
+    display: "inherit",
     position: "relative",
     width: cssValue(size),
     height: cssValue(size),

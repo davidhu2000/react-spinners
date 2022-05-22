@@ -21,17 +21,6 @@ function RotateLoader({
 }: LoaderSizeMarginProps): JSX.Element | null {
   const { value, unit } = parseLengthAndUnit(margin);
 
-  const style = (i: number): React.CSSProperties => {
-    const left = (i % 2 ? -1 : 1) * (26 + value);
-
-    return {
-      opacity: "0.8",
-      position: "absolute",
-      top: "0",
-      left: `${left}${unit}`,
-    };
-  };
-
   const ball: React.CSSProperties = {
     backgroundColor: color,
     width: cssValue(size),
@@ -46,6 +35,17 @@ function RotateLoader({
     animationFillMode: "both",
     animation: `${rotate} ${1 / speedMultiplier}s 0s infinite cubic-bezier(0.7, -0.13, 0.22, 0.86)`,
     ...css,
+  };
+
+  const style = (i: number): React.CSSProperties => {
+    const left = (i % 2 ? -1 : 1) * (26 + value);
+
+    return {
+      opacity: "0.8",
+      position: "absolute",
+      top: "0",
+      left: `${left}${unit}`,
+    };
   };
 
   if (!loading) {

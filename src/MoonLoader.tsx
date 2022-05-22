@@ -15,8 +15,17 @@ function MoonLoader({
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
   const { value, unit } = parseLengthAndUnit(size);
-
   const moonSize = value / 7;
+
+  const wrapper: React.CSSProperties = {
+    display: "inherit",
+    position: "relative",
+    width: `${`${value + moonSize * 2}${unit}`}`,
+    height: `${`${value + moonSize * 2}${unit}`}`,
+    animation: `${moon} ${0.6 / speedMultiplier}s 0s infinite linear`,
+    animationFillMode: "forwards",
+    ...css,
+  };
 
   const ballStyle = (size: number): React.CSSProperties => {
     return {
@@ -24,15 +33,6 @@ function MoonLoader({
       height: cssValue(size),
       borderRadius: "100%",
     };
-  };
-
-  const wrapper: React.CSSProperties = {
-    position: "relative",
-    width: `${`${value + moonSize * 2}${unit}`}`,
-    height: `${`${value + moonSize * 2}${unit}`}`,
-    animation: `${moon} ${0.6 / speedMultiplier}s 0s infinite linear`,
-    animationFillMode: "forwards",
-    ...css,
   };
 
   const ball: React.CSSProperties = {

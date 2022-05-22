@@ -35,6 +35,7 @@ function BounceLoader({
   };
 
   const wrapper: React.CSSProperties = {
+    display: "inherit",
     position: "relative",
     width: cssValue(size),
     height: cssValue(size),
