@@ -42,7 +42,7 @@
     "patch": "npm version patch && npm publish && npm run clean",
     "minor": "npm version minor && npm publish && npm run clean",
     "major": "npm version major && npm publish && npm run clean",
-    "watch": "babel-node ./node_modules/.bin/webpack --watch --config ./webpack.config.dev.js",
+    "watch": "babel-node ./node_modules/.bin/webpack --watch --config ./webpack.config.dev.js & open docs/index.html",
     "clean": "rm -rf helpers/; rm -f *Loader.js; rm -f *Loader.d.ts; rm -f index.js; rm -f index.d.ts; rm -f interfaces.js; rm -f interfaces.d.ts; rm -rf docs/js; rm -rf cjs; rm -rf esm; rm -rf umd",
     "lint": "./node_modules/.bin/eslint src __tests__ examples",
     "test": "jest",
