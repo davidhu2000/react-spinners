@@ -10,7 +10,7 @@ module.exports = {
   devtool: "eval",
   output: {
     path: path.resolve(__dirname, "docs", "js"),
-    filename: "[name]-[contenthash].js"
+    filename: "[name]-[contenthash].js",
   },
   module: {
     rules: [
@@ -18,28 +18,27 @@ module.exports = {
         test: /\.(t|j)sx?$/,
         loader: "ts-loader",
         options: {
-          transpileOnly: true
-        }
-      }
-    ]
+          transpileOnly: true,
+        },
+      },
+    ],
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx", ".ts", ".tsx"]
+    extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "template.html"),
+      template: path.join(__dirname, "templaete.html"),
       filename: path.join(__dirname, "docs", "index.html"),
-      inject: "head"
+      inject: "head",
     }),
     new ForkTsCheckerWebpackPlugin({
-      typescript: true,
-      eslint: {
-        files: "./src/**/*.{ts,tsx}"
-      }
-    })
+      typescript: {
+        configFile: "./tsconfig.json",
+      },
+    }),
   ],
   optimization: {
-    splitChunks: { chunks: "all" }
-  }
+    splitChunks: { chunks: "all" },
+  },
 };

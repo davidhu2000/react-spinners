@@ -9,7 +9,7 @@ module.exports = {
   mode: "production",
   output: {
     path: path.resolve(__dirname, "docs", "javascripts"),
-    filename: "[name]-[contenthash].js"
+    filename: "[name]-[contenthash].js",
   },
   module: {
     rules: [
@@ -17,26 +17,25 @@ module.exports = {
         test: /\.(t|j)sx?$/,
         loader: "ts-loader",
         options: {
-          transpileOnly: true
-        }
-      }
-    ]
+          transpileOnly: true,
+        },
+      },
+    ],
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx", ".ts", ".tsx"]
+    extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "template.html"),
       filename: path.join(__dirname, "docs", "index.html"),
-      inject: "head"
+      inject: "head",
     }),
     new ForkTsCheckerWebpackPlugin({
-      typescript: true,
-      eslint: {
-        files: "./src/**/*.{ts,tsx}"
-      }
-    })
+      typescript: {
+        configFile: "./tsconfig.json",
+      },
+    }),
   ],
   optimization: {
     splitChunks: {
@@ -49,9 +48,9 @@ module.exports = {
           name(module) {
             const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
             return `npm-${packageName.replace("@", "")}`;
-          }
-        }
-      }
-    }
-  }
+          },
+        },
+      },
+    },
+  },
 };
