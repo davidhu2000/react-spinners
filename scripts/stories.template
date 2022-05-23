@@ -10,7 +10,7 @@ const argTypes = {
 export default {
   component: LOADER_NAME,
   argTypes
-} as ComponentMeta<typeof <LOADER_NAME>>;
+} as ComponentMeta<typeof LOADER_NAME>;
 
 const Template: ComponentStory<typeof LOADER_NAME> = (args) => <LOADER_NAME {...args} />;
 

@@ -9,7 +9,7 @@ def get_args(content)
 
   ["size", "height", "width", "margin"].each do |arg|
     if content.include?("#{arg} =")
-      args += "#{arg}: { control: { type: \"text\" } },\n"
+      args += "#{arg}: { control: { type: \"number\" } },\n"
     end
   end
 

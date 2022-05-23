@@ -13,9 +13,4 @@ export const argTypes = {
   loading: { control: { type: "boolean" } },
   speedMultiplier: { control: { type: "number" } },
   css: { control: { type: "object" } },
-
-  height: { control: { type: "text" } },
-  width: { control: { type: "text" } },
-  size: { control: { type: "text" } },
-  margin: { control: { type: "text" } },
 };
