@@ -5,15 +5,15 @@ end
 template = File.open("./scripts/stories.template").read
 
 def get_args(content)
-  args = ""
+  args = []
 
   ["size", "height", "width", "margin"].each do |arg|
     if content.include?("#{arg} =")
-      args += "#{arg}: { control: { type: \"number\" } },\n"
+      args << "  #{arg}: { control: { type: \"text\" } },"
     end
   end
 
-  args
+  args.join("\n")
 end
 
 paths.sort.each do |path|
