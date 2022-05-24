@@ -1,0 +1,17 @@
+import * as React from "react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+
+import LOADER_NAME from "./LOADER_NAME";
+
+const argTypes = {
+ARG_TYPES
+}
+
+export default {
+  component: LOADER_NAME,
+  argTypes
+} as ComponentMeta<typeof LOADER_NAME>;
+
+const Template: ComponentStory<typeof LOADER_NAME> = (args) => <LOADER_NAME {...args} />;
+
+export const Main = Template.bind({});
