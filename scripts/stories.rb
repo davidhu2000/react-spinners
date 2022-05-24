@@ -17,6 +17,7 @@ def get_args(content)
 end
 
 paths.sort.each do |path|
+  puts "creating story for #{path}"
   file = File.open(path)
   loader = path.match(/\w+Loader/).to_s
 
