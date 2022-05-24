@@ -13,10 +13,10 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: "npm"
+      # - uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 16.x
+      #     cache: "npm"
       - run: npm install --global yarn
 
       - uses: actions/cache@v3
@@ -29,10 +29,10 @@ jobs:
 
       - run: ruby scripts/stories.rb
       - run: yarn build-storybook --docs
-      - run: yarn build:demo
+      # - run: yarn build:demo
 
-      # - name: Deploy 🚀
-      #   uses: JamesIves/github-pages-deploy-action@v4.3.3
-      #   with:
-      #     branch: gh-pages
-      #     folder: build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages
+          folder: docs
