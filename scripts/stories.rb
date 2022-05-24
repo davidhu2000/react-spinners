@@ -22,7 +22,7 @@ paths.sort.each do |path|
 
   arg_types = get_args(file.read)
 
-  story_path = path.sub(".tsx", ".stories.tsx")
+  story_path = path.sub(".tsx", ".stories.tsx").sub("./src", "./stories")
 
   story = template.gsub("LOADER_NAME", loader).gsub("ARG_TYPES", arg_types)
 
