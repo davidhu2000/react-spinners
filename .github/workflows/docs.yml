@@ -25,11 +25,5 @@ jobs:
 
       - run: ruby scripts/stories.rb
       - run: yarn build-storybook --docs
-      - run: mv src/storybook-static docs
+      - run: mv ./src/storybook-static docs
       - run: yarn build:demo
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
-        with:
-          branch: gh-pages
-          folder: docs
