@@ -26,4 +26,11 @@ jobs:
       - run: ruby scripts/stories.rb
       - run: yarn build-storybook --docs
       - run: mv ./storybook-static docs
-      - run: yarn build:demo
+      # - run: yarn build:demo
+      - uses: actions/deploy-pages@v1
+        with:
+          emit_telemetry: false
+          token: ${{ github.token }}
+          timeout: 600000
+          error_count: 10
+          reporting_interval: 5000
