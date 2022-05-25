@@ -29,3 +29,5 @@ paths.sort.each do |path|
 
   File.write(story_path, story)
 end
+
+puts "done creating stories"
