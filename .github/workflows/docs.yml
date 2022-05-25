@@ -25,5 +25,5 @@ jobs:
 
       - run: ruby scripts/stories.rb
       - run: yarn build-storybook --docs
-      - run: mv ./src/storybook-static docs
+      - run: mv ./storybook-static docs
       - run: yarn build:demo
