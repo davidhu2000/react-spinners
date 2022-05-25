@@ -8,3 +8,6 @@ on:
 
 jobs:
   build-and-deploy:
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
