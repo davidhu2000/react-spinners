@@ -100,11 +100,10 @@ class AwesomeComponent extends React.Component {
 
 Common default props for all loaders:
 
-```js
+```
 loading: true;
 color: "#000000";
-css: {
-}
+css: {}
 speedMultiplier: 1;
 ```
 
