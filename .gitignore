@@ -14,5 +14,4 @@ esm
 umd
 .yarn/cache
 .yarn/install-state.gz
-storybook-static
 stories/*.tsx
