@@ -36,8 +36,8 @@ function GridLoader({
     return {
       display: "inline-block",
       backgroundColor: color,
-      width: `${cssValue(size)} !important`,
-      height: `${cssValue(size)} !important`,
+      width: `${cssValue(size)}`,
+      height: `${cssValue(size)}`,
       margin: cssValue(margin),
       borderRadius: "100%",
       animationFillMode: "both",
@@ -50,7 +50,15 @@ function GridLoader({
   }
 
   return (
-    <span style={wrapper} {...additionalprops}>
+    <span
+      style={wrapper}
+      {...additionalprops}
+      ref={(node) => {
+        if (node) {
+          node.style.setProperty("width", `${width}${sizeWithUnit.unit}`, "important");
+        }
+      }}
+    >
       <span style={style(random(100))} />
       <span style={style(random(100))} />
       <span style={style(random(100))} />

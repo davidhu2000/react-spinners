@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.13.0-beta.1
+
+- **bugfix**: Properly assign important tag to `GridLoader` width prop.
+
 ## 0.13.0-alpha.5
 
 - **bugfix**: Update `GridLoader` height/width with `important` tag to prevent overwrites from outside css.
