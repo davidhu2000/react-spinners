@@ -26,3 +26,4 @@ jest.config.*
 CODEOWNERS
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
+stories
