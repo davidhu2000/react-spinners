@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.13.0-beta.2
+
+- **bugfix**: Update tsconfig.json to ignore stories folder. This caused the outputted files to not be in the root directory and breaking the imports.
+
 ## 0.13.0-beta.1
 
 - **bugfix**: Properly assign important tag to `GridLoader` width prop.
