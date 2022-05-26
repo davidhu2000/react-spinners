@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ## 0.13.0-beta.3
 
-- update `.npmignore` to ignore `stories` folder
+- update `.npmignore` to ignore `stories` folder, yarn error log
 
 ## 0.13.0-beta.2
 

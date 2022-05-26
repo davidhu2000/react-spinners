@@ -27,3 +27,6 @@ CODEOWNERS
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 stories
+yarn-error.log
+.storybook
+.prettierignore
