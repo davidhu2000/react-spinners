@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.13.0-beta.4
+
+- **bugfix**: Fix `document is not defined` when rendering server side
+
 ## 0.13.0-beta.3
 
 - update `.npmignore` to ignore `stories` folder, yarn error log
