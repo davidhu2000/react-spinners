@@ -19,8 +19,6 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "skipLibCheck": true
   },
   "exclude": ["docs/*", "webpack.config.*", "*.js", "__tests__", "examples", "src/*.test.tsx", "stories"]
