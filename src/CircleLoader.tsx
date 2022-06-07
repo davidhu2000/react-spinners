@@ -14,7 +14,7 @@ function CircleLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   size = 50,
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
@@ -23,7 +23,7 @@ function CircleLoader({
     position: "relative",
     width: cssValue(size),
     height: cssValue(size),
-    ...css,
+    ...cssOverride,
   };
 
   const style = (i: number): React.CSSProperties => {

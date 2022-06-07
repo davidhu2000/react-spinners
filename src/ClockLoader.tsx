@@ -10,7 +10,7 @@ function ClockLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   size = 50,
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
@@ -24,7 +24,7 @@ function ClockLoader({
     backgroundColor: "transparent",
     boxShadow: `inset 0px 0px 0px 2px ${color}`,
     borderRadius: "50%",
-    ...css,
+    ...cssOverride,
   };
 
   const minute: React.CSSProperties = {

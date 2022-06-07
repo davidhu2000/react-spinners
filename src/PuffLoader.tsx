@@ -13,7 +13,7 @@ function PuffLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   size = 60,
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
@@ -22,7 +22,7 @@ function PuffLoader({
     position: "relative",
     width: cssValue(size),
     height: cssValue(size),
-    ...css,
+    ...cssOverride,
   };
 
   const style = (i: number): React.CSSProperties => {

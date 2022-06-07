@@ -5,7 +5,7 @@ export type LengthType = number | string;
 interface CommonProps extends DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> {
   color?: string;
   loading?: boolean;
-  css?: CSSProperties;
+  cssOverride?: CSSProperties;
   speedMultiplier?: number;
 }
 

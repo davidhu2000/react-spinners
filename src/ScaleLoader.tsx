@@ -14,7 +14,7 @@ function ScaleLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   height = 35,
   width = 4,
   radius = 2,
@@ -23,7 +23,7 @@ function ScaleLoader({
 }: LoaderHeightWidthRadiusProps): JSX.Element | null {
   const wrapper: React.CSSProperties = {
     display: "inherit",
-    ...css,
+    ...cssOverride,
   };
 
   const style = (i: number): React.CSSProperties => {

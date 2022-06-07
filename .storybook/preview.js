@@ -13,5 +13,5 @@ export const argTypes = {
   color: { control: { type: "color" } },
   loading: { control: { type: "boolean" } },
   speedMultiplier: { control: { type: "number" } },
-  css: { control: { type: "object" } },
+  cssOverride: { control: { type: "object" } },
 };

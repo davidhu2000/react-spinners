@@ -14,7 +14,7 @@ function SkewLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   size = 20,
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
@@ -27,7 +27,7 @@ function SkewLoader({
     display: "inline-block",
     animation: `${skew} ${3 / speedMultiplier}s 0s infinite cubic-bezier(0.09, 0.57, 0.49, 0.9)`,
     animationFillMode: "both",
-    ...css,
+    ...cssOverride,
   };
 
   if (!loading) {

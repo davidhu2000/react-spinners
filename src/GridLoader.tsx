@@ -16,7 +16,7 @@ function GridLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   size = 15,
   margin = 2,
   ...additionalprops
@@ -29,7 +29,7 @@ function GridLoader({
   const wrapper: React.CSSProperties = {
     width: `${width}${sizeWithUnit.unit}`,
     fontSize: 0,
-    ...css,
+    ...cssOverride,
   };
 
   const style = (rand: number): React.CSSProperties => {

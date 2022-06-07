@@ -24,7 +24,7 @@ function ClimbingBoxLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   size = 15,
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
@@ -33,7 +33,7 @@ function ClimbingBoxLoader({
     position: "relative",
     width: "7.1em",
     height: "7.1em",
-    ...css,
+    ...cssOverride,
   };
 
   const wrapper: React.CSSProperties = {

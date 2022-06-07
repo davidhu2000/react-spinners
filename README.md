@@ -56,7 +56,7 @@ function App() {
       <button onClick={() => setLoading(!loading)}>Toggle Loader</button>
       <input value={color} onChange={(input) => setColor(input.target.value)} placeholder="Color of the loader" />
 
-      <ClipLoader color={color} loading={loading} css={override} size={150} />
+      <ClipLoader color={color} loading={loading} cssOverride={override} size={150} />
     </div>
   );
 }
@@ -87,7 +87,13 @@ class AwesomeComponent extends React.Component {
   render() {
     return (
       <div className="sweet-loading">
-        <ClipLoader css={override} size={150} color={"#123abc"} loading={this.state.loading} speedMultiplier={1.5} />
+        <ClipLoader
+          cssOverride={override}
+          size={150}
+          color={"#123abc"}
+          loading={this.state.loading}
+          speedMultiplier={1.5}
+        />
       </div>
     );
   }
@@ -103,7 +109,7 @@ Common default props for all loaders:
 ```
 loading: true;
 color: "#000000";
-css: {}
+cssOverride: {}
 speedMultiplier: 1;
 ```
 
@@ -114,9 +120,9 @@ speedMultiplier: 1;
 > maroon, red, orange, yellow, olive, green, purple, white,
 > fuchsia, lime, teal, aqua, blue, navy, black, gray, silver
 
-### `css` prop
+### `cssOverride` prop
 
-The css prop is an object of camelCase styles used to create inline styles on the loaders. Any html css property is valid here.
+The `cssOverride` prop is an object of camelCase styles used to create inline styles on the loaders. Any html css property is valid here.
 
 ### `size`, `height`, `width`, and `radius` props
 

@@ -10,7 +10,7 @@ function MoonLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   size = 60,
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
@@ -24,7 +24,7 @@ function MoonLoader({
     height: `${`${value + moonSize * 2}${unit}`}`,
     animation: `${moon} ${0.6 / speedMultiplier}s 0s infinite linear`,
     animationFillMode: "forwards",
-    ...css,
+    ...cssOverride,
   };
 
   const ballStyle = (size: number): React.CSSProperties => {
