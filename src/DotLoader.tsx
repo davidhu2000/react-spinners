@@ -12,7 +12,7 @@ function DotLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   size = 60,
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
@@ -23,7 +23,7 @@ function DotLoader({
     height: cssValue(size),
     animationFillMode: "forwards",
     animation: `${rotate} ${2 / speedMultiplier}s 0s infinite linear`,
-    ...css,
+    ...cssOverride,
   };
 
   const style = (i: number): React.CSSProperties => {

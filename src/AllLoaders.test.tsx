@@ -18,7 +18,7 @@ Object.entries(Loaders).forEach((loader) => {
 
     it("should have allow style override on wrapper", () => {
       const style = { overflow: "scroll" };
-      const { container } = render(<Loader css={style} />);
+      const { container } = render(<Loader cssOverride={style} />);
       expect(container.firstChild).toHaveStyle(style);
     });
 

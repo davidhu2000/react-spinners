@@ -21,7 +21,7 @@ function BarLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   height = 4,
   width = 100,
   ...additionalprops
@@ -34,7 +34,7 @@ function BarLoader({
     overflow: "hidden",
     backgroundColor: calculateRgba(color, 0.2),
     backgroundClip: "padding-box",
-    ...css,
+    ...cssOverride,
   };
 
   const style = (i: number): React.CSSProperties => {

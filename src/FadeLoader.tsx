@@ -10,7 +10,7 @@ function FadeLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   height = 15,
   width = 5,
   radius = 2,
@@ -29,7 +29,7 @@ function FadeLoader({
     left: radiusValue,
     width: `${radiusValue * 3}px`,
     height: `${radiusValue * 3}px`,
-    ...css,
+    ...cssOverride,
   };
 
   const style = (i: number): React.CSSProperties => {

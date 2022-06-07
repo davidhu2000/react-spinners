@@ -14,7 +14,7 @@ function ClipLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   size = 35,
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
@@ -29,7 +29,7 @@ function ClipLoader({
     display: "inline-block",
     animation: `${clip} ${0.75 / speedMultiplier}s 0s infinite linear`,
     animationFillMode: "both",
-    ...css,
+    ...cssOverride,
   };
 
   if (!loading) {

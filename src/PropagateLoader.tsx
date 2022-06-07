@@ -60,7 +60,7 @@ function PropagateLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   size = 15,
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
@@ -69,7 +69,7 @@ function PropagateLoader({
   const wrapper: React.CSSProperties = {
     display: "inherit",
     position: "relative",
-    ...css,
+    ...cssOverride,
   };
 
   const style = (i: number): React.CSSProperties => {

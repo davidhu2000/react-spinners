@@ -20,7 +20,7 @@ function RingLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   size = 60,
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
@@ -31,7 +31,7 @@ function RingLoader({
     width: cssValue(size),
     height: cssValue(size),
     position: "relative",
-    ...css,
+    ...cssOverride,
   };
 
   const style = (i: number): React.CSSProperties => {

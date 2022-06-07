@@ -9,7 +9,7 @@ function HashLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   size = 50,
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
@@ -21,7 +21,7 @@ function HashLoader({
     width: cssValue(size),
     height: cssValue(size),
     transform: "rotate(165deg)",
-    ...css,
+    ...cssOverride,
   };
 
   const thickness = value / 5;

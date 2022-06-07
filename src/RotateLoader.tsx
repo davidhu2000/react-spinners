@@ -14,7 +14,7 @@ function RotateLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   size = 15,
   margin = 2,
   ...additionalprops
@@ -34,7 +34,7 @@ function RotateLoader({
     position: "relative",
     animationFillMode: "both",
     animation: `${rotate} ${1 / speedMultiplier}s 0s infinite cubic-bezier(0.7, -0.13, 0.22, 0.86)`,
-    ...css,
+    ...cssOverride,
   };
 
   const style = (i: number): React.CSSProperties => {

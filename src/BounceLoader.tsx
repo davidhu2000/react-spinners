@@ -14,7 +14,7 @@ function BounceLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   size = 60,
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
@@ -39,7 +39,7 @@ function BounceLoader({
     position: "relative",
     width: cssValue(size),
     height: cssValue(size),
-    ...css,
+    ...cssOverride,
   };
 
   if (!loading) {

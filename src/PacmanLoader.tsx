@@ -13,7 +13,7 @@ function PacmanLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   size = 25,
   margin = 2,
   ...additionalprops
@@ -26,7 +26,7 @@ function PacmanLoader({
     fontSize: 0,
     height: cssValue(size),
     width: cssValue(size),
-    ...css,
+    ...cssOverride,
   };
 
   const ball = createAnimation(

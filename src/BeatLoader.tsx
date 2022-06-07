@@ -15,14 +15,14 @@ function BeatLoader({
   loading = true,
   color = "#000000",
   speedMultiplier = 1,
-  css = {},
+  cssOverride = {},
   size = 15,
   margin = 2,
   ...additionalprops
 }: LoaderSizeMarginProps): JSX.Element | null {
   const wrapper: React.CSSProperties = {
     display: "inherit",
-    ...css,
+    ...cssOverride,
   };
 
   const style = (i: number): React.CSSProperties => {
