@@ -1,15 +1,14 @@
 /* global document, window */
 import * as React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { ColorResult } from "react-color";
 
-import { Code, ColorPicker, LoaderItem, SpeedMultiplierInput } from "./components";
+import { Code, ColorPicker, LoaderItem } from "./components";
 import * as Spinners from "../src";
-import { LoaderSizeMarginProps, LoaderHeightWidthRadiusProps } from "../src/interfaces";
 
 const files: {
   [key: string]: {
-    default: React.ComponentType<LoaderSizeMarginProps & LoaderHeightWidthRadiusProps>;
+    default: React.FC;
   };
 } = {};
 
@@ -20,7 +19,6 @@ Object.keys(Spinners).forEach((key) => {
 interface ExampleState {
   color: string;
   showPicker: boolean;
-  speedMultiplier: number;
 }
 
 class SpinnerExamples extends React.Component<unknown, ExampleState> {
@@ -28,7 +26,6 @@ class SpinnerExamples extends React.Component<unknown, ExampleState> {
     super(props);
     this.state = {
       color: "#36D7B7",
-      speedMultiplier: 1,
       showPicker: false,
     };
   }
@@ -56,29 +53,16 @@ class SpinnerExamples extends React.Component<unknown, ExampleState> {
     `;
   };
 
-  public updateMultiplier = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({
-      speedMultiplier: parseFloat(e.target.value),
-    });
-  };
-
   public togglePicker = (): void => {
     this.setState({ showPicker: !this.state.showPicker });
   };
 
-  public urlParams = () => {
-    return new URLSearchParams(window.location.search);
-  };
-
   public render(): JSX.Element {
-    const { color, showPicker, speedMultiplier } = this.state;
+    const { color, showPicker } = this.state;
 
     return (
       <div className="spinner-container">
         <div className="color-picker position-abs">
-          <SpeedMultiplierInput value={this.state.speedMultiplier} update={this.updateMultiplier} />
-
-          <br />
           {showPicker ? (
             <ColorPicker color={color} updateColor={this.updateColor} togglePicker={this.togglePicker} />
           ) : (
@@ -87,13 +71,7 @@ class SpinnerExamples extends React.Component<unknown, ExampleState> {
         </div>
 
         {Object.keys(Spinners).map((name: string) => (
-          <LoaderItem
-            key={`loader-${name}`}
-            color={color}
-            name={name}
-            speedMultiplier={speedMultiplier}
-            Spinner={files[name].default}
-          />
+          <LoaderItem key={`loader-${name}`} color={color} name={name} Spinner={files[name].default} />
         ))}
       </div>
     );
@@ -101,9 +79,9 @@ class SpinnerExamples extends React.Component<unknown, ExampleState> {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const root = document.getElementById("root") as HTMLElement;
-  ReactDOM.render(<SpinnerExamples />, root);
+  const root = createRoot(document.getElementById("root"));
+  root.render(<SpinnerExamples />);
 
-  const code = document.getElementById("code") as HTMLElement;
-  ReactDOM.render(<Code />, code);
+  const code = createRoot(document.getElementById("code"));
+  code.render(<Code />);
 });

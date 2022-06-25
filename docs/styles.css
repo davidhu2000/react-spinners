@@ -138,6 +138,12 @@ code:hover {
 .spinner-title {
   position: absolute;
   top: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.spinner-title:hover{
+  text-decoration: underline;
 }
 
 /* form styles */

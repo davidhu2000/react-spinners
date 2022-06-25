@@ -1,31 +1,15 @@
 import * as React from "react";
 
-interface CodeState {
-  text: string[];
-  index: number;
-}
+const text = ["yarn add react-spinners", "npm install react-spinners --save"];
 
-class Code extends React.Component<unknown, CodeState> {
-  constructor(props: unknown) {
-    super(props);
-    this.state = {
-      text: ["yarn add react-spinners", "npm install react-spinners --save"],
-      index: 0
-    };
-  }
+function Code() {
+  const [index, setIndex] = React.useState(0);
 
-  public componentDidMount(): void {
-    const el: HTMLElement = document.getElementById("code") as HTMLElement;
-    el.addEventListener("click", () => {
-      this.setState({
-        index: +!this.state.index
-      });
-    });
-  }
+  const updateIndex = () => {
+    setIndex(index === 0 ? 1 : 0);
+  };
 
-  public render(): JSX.Element {
-    return <span>{this.state.text[this.state.index]}</span>;
-  }
+  return <span onClick={updateIndex}>{text[index]}</span>;
 }
 
 export default Code;
