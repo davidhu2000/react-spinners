@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.13.0-beta.6
+
+- **bugfix**: fix GridLoader rendering issue
+
 ## 0.13.0-beta.5
 
 - **BREAKING CHANGE**: `css` prop has been renamed to `cssOverride` to avoid type conflicts with css-in-js libraries such as emotion and styled-components

@@ -29,6 +29,7 @@ function GridLoader({
   const wrapper: React.CSSProperties = {
     width: `${width}${sizeWithUnit.unit}`,
     fontSize: 0,
+    display: "inline-block",
     ...cssOverride,
   };
 
