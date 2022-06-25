@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.13.0
+
+- Rewrite each loader from the ground up using functional components.
+- Replaced `@emotion` with vanilla javascript and inline style to reduce component size by 75%. This project now have 0 dependencies, while continuing to support server side rendering.
+- Added support for custom props such as `aria-label`
+- renamed `css` prop to `cssOverride` to avoid type conflicts with css-in-js libraries.
+
 ## 0.13.0-beta.7
 
 - **bugfix**: fix style warnings on ClipLoader and CircleLoader
