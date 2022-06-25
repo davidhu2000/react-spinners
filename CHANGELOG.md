@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.13.1
+
+- update homepage in package.json
+
 ## 0.13.0
 
 - Rewrite each loader from the ground up using functional components.
