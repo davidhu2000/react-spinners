@@ -15,3 +15,4 @@ umd
 .yarn/cache
 .yarn/install-state.gz
 stories/*.tsx
+storybook-static
