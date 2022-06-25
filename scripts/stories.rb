@@ -7,9 +7,11 @@ template = File.open("./scripts/stories.template").read
 def get_args(content)
   args = []
 
+  description = "Can be number or string. When number, unit is assumed as px. When string, a unit is expected to be passed in"
+
   ["size", "height", "width", "margin"].each do |arg|
     if content.include?("#{arg} =")
-      args << "  #{arg}: { control: { type: \"text\" } },"
+      args << "  #{arg}: { description: \"#{description}\", control: { type: \"number\" } },"
     end
   end
 
