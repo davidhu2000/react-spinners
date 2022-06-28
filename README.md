@@ -3,7 +3,8 @@
 [![npm version](https://badge.fury.io/js/react-spinners.svg)][npm_url]
 [![downloads](https://img.shields.io/npm/dt/react-spinners.svg)][npm_url]
 [![license](https://img.shields.io/npm/l/react-spinners.svg)][npm_url]
-[![next version](https://badgen.net/npm/v/react-spinners/next)](https://www.npmjs.com/package/react-spinners/v/next)
+
+<!-- [![next version](https://badgen.net/npm/v/react-spinners/next)](https://www.npmjs.com/package/react-spinners/v/next) -->
 
 [![Coverage Status](https://coveralls.io/repos/github/davidhu2000/react-spinners/badge.svg?branch=main)](https://coveralls.io/github/davidhu2000/react-spinners?branch=master)
 ![Dependency Count](https://badgen.net/bundlephobia/dependency-count/react-spinners)
