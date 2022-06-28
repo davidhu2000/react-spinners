@@ -65,6 +65,7 @@
     "@storybook/addon-actions": "^6.5.5",
     "@storybook/addon-docs": "^6.5.5",
     "@storybook/addon-essentials": "^6.5.5",
+    "@storybook/addon-google-analytics": "^6.2.9",
     "@storybook/addon-interactions": "^6.5.5",
     "@storybook/addon-links": "^6.5.5",
     "@storybook/builder-webpack5": "^6.5.5",
