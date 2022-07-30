@@ -53,7 +53,6 @@ function HashLoader({
   const style = (i: number): React.CSSProperties => {
     return {
       position: "absolute",
-      content: "",
       top: "50%",
       left: "50%",
       display: "block",
