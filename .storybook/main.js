@@ -4,7 +4,8 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    "@storybook/addon-google-analytics",
+    // "@storybook/addon-google-analytics",
+    "./google-analytics-v4/register.js",
   ],
   framework: "@storybook/react",
   core: {
