@@ -14410,6 +14410,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-ga4@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "react-ga4@npm:1.4.1"
+  checksum: 4c33ecb47dfc26c241a6af8e2b08b29b6c059f40e456e93d1c2b65c995edce18f32d9777295774ec992d968d7c5efdd105eb62398972d85ff2e2b6dad8646a26
+  languageName: node
+  linkType: hard
+
 "react-ga@npm:^2.7.0":
   version: 2.7.0
   resolution: "react-ga@npm:2.7.0"
@@ -14526,6 +14533,7 @@ __metadata:
     react-click-outside: ^3.0.1
     react-color: ^2.19.3
     react-dom: ^18.1.0
+    react-ga4: ^1.4.1
     ts-jest: ^28.0.3
     ts-loader: ^9.3.0
     typescript: ^4.7.2
