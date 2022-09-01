@@ -1,4 +1,3 @@
-/* global document, window */
 import * as React from "react";
 import { createRoot } from "react-dom/client";
 import { ColorResult } from "react-color";
@@ -34,10 +33,10 @@ class SpinnerExamples extends React.Component<unknown, ExampleState> {
     document.addEventListener("scroll", () => {
       const picker = document.getElementsByClassName("color-picker")[0] as HTMLElement;
       const top = 370 - window.scrollY * 2;
-      if (top > 60) {
+      if (top > 80) {
         picker.style.top = `${top}px`;
       } else {
-        picker.style.top = "50px";
+        picker.style.top = "70px";
       }
     });
   }

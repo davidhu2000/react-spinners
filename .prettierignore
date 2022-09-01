@@ -2,5 +2,7 @@
 node_modules
 yarn.lock
 coverage
-docs
+docs/storybook
+docs/javascripts
+docs/js
 template.html

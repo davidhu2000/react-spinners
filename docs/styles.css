@@ -19,23 +19,39 @@ header {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
   z-index: 1000;
 }
 
+header.navbar {
+  justify-content: space-around;
+}
+
+header a {
+  color: white;
+  cursor: pointer;
+}
+
+header a:hover {
+  color: #e5e5e5;
+}
+
 .navbar {
-  height: 40px !important;
+  height: 60px !important;
   position: fixed;
   top: 0;
 }
 
 .navbar h1 {
   font-size: 20px;
-  height: 40px;
+}
+
+.navbar h2 {
+  font-size: 16px;
 }
 
 .logo {
-  height: 50px;
-  line-height: 50px;
   display: block;
   text-align: center;
   margin: 0px auto;
@@ -79,8 +95,7 @@ code {
 code:hover {
   -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
     0 3px 1px -1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
-    0 3px 1px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
   opacity: 1;
 }
 
@@ -142,113 +157,8 @@ code:hover {
   color: black;
 }
 
-.spinner-title:hover{
+.spinner-title:hover {
   text-decoration: underline;
-}
-
-/* form styles */
-.spinner-form {
-  position: absolute;
-  bottom: 5px;
-  font-family: sans-serif, serif;
-  width: 80%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.spinner-form-input {
-  margin: 3px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 50px;
-  height: 20px;
-  position: relative;
-}
-
-.spinner-form-input label {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  font-size: 15px;
-  line-height: 20px;
-  text-align: right;
-  color: #999;
-  position: absolute;
-  pointer-events: none;
-  -webkit-transition: 0.2s ease all;
-  -o-transition: 0.2s ease all;
-  transition: 0.2s ease all;
-  top: 0px;
-  width: 50px;
-  text-align: center;
-}
-
-.spinner-form-input input {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  width: 50%;
-  padding: 0 4px;
-  display: block;
-  border: none;
-  border-bottom: 1px solid #757575;
-  text-align: center;
-  min-width: 0;
-}
-
-.spinner-form-input input:focus {
-  outline: none;
-}
-
-.spinner-form-input input:focus ~ label,
-.spinner-form-input input:valid ~ label {
-  top: -20px;
-  color: #111;
-  font-size: 10px;
-}
-
-.bar {
-  position: absolute;
-  display: block;
-  width: 100%;
-  bottom: -1px;
-}
-
-.bar:before,
-.bar:after {
-  content: "";
-  height: 2px;
-  width: 0;
-  bottom: 1px;
-  position: absolute;
-  background: #36d7b7;
-  -webkit-transition: 0.2s ease all;
-  -o-transition: 0.2s ease all;
-  transition: 0.2s ease all;
-}
-
-.bar:before {
-  left: 50%;
-}
-
-.bar:after {
-  right: 50%;
-}
-
-.spinner-form-input input:focus ~ .bar:before,
-.spinner-form-input input:focus ~ .bar:after {
-  width: 50%;
 }
 
 /* color picker styles */
@@ -281,8 +191,7 @@ code:hover {
 .color-picker button:hover {
   -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
     0 3px 1px -1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
-    0 3px 1px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
   opacity: 1;
 }
 
