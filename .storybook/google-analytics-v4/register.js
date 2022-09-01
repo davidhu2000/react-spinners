@@ -5,7 +5,6 @@ import { STORY_CHANGED, STORY_ERRORED, STORY_MISSING } from "@storybook/core-eve
 import ReactGa from "react-ga4";
 
 addons.register("storybook/google-analytics-v4", (api) => {
-  console.log("registering google analytics v4");
   ReactGa.initialize(window.STORYBOOK_GA_V4_ID, window.STORYBOOK_REACT_GA_OPTIONS);
 
   api.on(STORY_CHANGED, () => {
