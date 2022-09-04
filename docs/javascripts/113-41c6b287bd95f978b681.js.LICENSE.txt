@@ -1,6 +1,6 @@
 /**
  * @license React
- * react-dom-test-utils.production.min.js
+ * react.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -10,7 +10,7 @@
 
 /**
  * @license React
- * react-dom.production.min.js
+ * scheduler.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
  *

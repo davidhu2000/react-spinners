@@ -1,11 +1,11 @@
 import * as React from "react";
 import enhanceWithClickOutside from "react-click-outside";
-import { SketchPicker, ColorResult } from "react-color";
+import { HexAlphaColorPicker } from "react-colorful";
 
 interface ColorPickerProps {
   togglePicker: () => void;
   color: string;
-  updateColor: (color: ColorResult) => void;
+  updateColor: (color: string) => void;
 }
 
 class Picker extends React.Component<ColorPickerProps> {
@@ -16,7 +16,7 @@ class Picker extends React.Component<ColorPickerProps> {
   public render(): JSX.Element {
     const { color, updateColor } = this.props;
 
-    return <SketchPicker color={color} onChangeComplete={updateColor} />;
+    return <HexAlphaColorPicker color={color} onChange={updateColor} />;
   }
 }
 
