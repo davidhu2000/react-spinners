@@ -1,6 +1,5 @@
 import * as React from "react";
 import { createRoot } from "react-dom/client";
-import type { ColorResult } from "react-color";
 
 import { Code, ColorPicker, LoaderItem } from "./components";
 import * as Spinners from "../src";
