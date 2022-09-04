@@ -1,6 +1,5 @@
 import * as React from "react";
 import { createRoot } from "react-dom/client";
-import type { ColorResult } from "react-color";
 
 import { Code, ColorPicker, LoaderItem } from "./components";
 import * as Spinners from "../src";
@@ -28,14 +27,14 @@ function SpinnerExamples() {
     });
   }, []);
 
-  function updateColor(color: ColorResult) {
-    setColor(color.hex);
+  function updateColor(color: string) {
+    setColor(color);
     const header = document.getElementById("header") as HTMLElement;
     header.style.cssText = `
-      background: -webkit-gradient(linear, left top, right top, from(${color.hex}), to(#2b303b));
-      background: -webkit-linear-gradient(left, ${color.hex}, #2b303b);
-      background: -o-linear-gradient(left, ${color.hex}, #2b303b);
-      background: linear-gradient(90deg, ${color.hex}, #2b303b);
+      background: -webkit-gradient(linear, left top, right top, from(${color}), to(#2b303b));
+      background: -webkit-linear-gradient(left, ${color}, #2b303b);
+      background: -o-linear-gradient(left, ${color}, #2b303b);
+      background: linear-gradient(90deg, ${color}, #2b303b);
     `;
   }
 

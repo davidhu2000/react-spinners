@@ -2,8 +2,8 @@ import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
-import * as Loaders from "./index";
-import { LoaderHeightWidthRadiusProps, LoaderSizeMarginProps } from "./helpers/props";
+import * as Loaders from "../src";
+import { LoaderHeightWidthRadiusProps, LoaderSizeMarginProps } from "../src/helpers/props";
 
 Object.entries(Loaders).forEach((loader) => {
   const name = loader[0];
