@@ -33,7 +33,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Build demo site
-        run: yarn run build
+        run: yarn run build:demo
       - name: Create stories
         run: ruby scripts/stories.rb
       - name: Build storybook
