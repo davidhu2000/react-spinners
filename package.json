@@ -49,9 +49,8 @@
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "remove:tag": "npm dist-tag rm react-spinners next",
     "publish:next": "npm publish --tag next && npm run clean",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook --docs -o ./docs/storybook",
-    "build-stories": ""
+    "storybook": "start-storybook --docs -p 6006",
+    "build-storybook": "build-storybook --docs -o ./docs/storybook"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
