@@ -5,7 +5,9 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     // "@storybook/addon-google-analytics",
+    "storybook-dark-mode",
     "./google-analytics-v4/register.js",
+    "./canonical-link/register.js",
   ],
   framework: "@storybook/react",
   core: {
