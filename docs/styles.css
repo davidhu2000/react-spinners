@@ -62,9 +62,6 @@ header a:hover {
   position: -webkit-sticky;
   position: sticky;
   top: 10px;
-  -webkit-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
 }
 
 /* install styles */
@@ -87,9 +84,6 @@ code {
   margin: 0 auto;
   font-family: Courier New, Courier, monospace;
   opacity: 0.9;
-  -webkit-transition: 0.3s ease-out;
-  -o-transition: 0.3s ease-out;
-  transition: 0.3s ease-out;
 }
 
 code:hover {
@@ -177,9 +171,6 @@ code:hover {
   color: #fff;
   border: none;
   opacity: 0.9;
-  -webkit-transition: 0.5s ease-in-out;
-  -o-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
   font-weight: 300;
   text-transform: uppercase;
   cursor: pointer;
