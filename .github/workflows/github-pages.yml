@@ -1,8 +1,8 @@
-name: deploy
+name: github-pages
 
 on:
   push:
-    branches: [deploy]
+    branches: [main]
 
 jobs:
   build:
