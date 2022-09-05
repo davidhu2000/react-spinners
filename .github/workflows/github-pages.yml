@@ -20,6 +20,9 @@ jobs:
         with:
           node-version: 16.x
           cache: "npm"
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.0"
       - run: npm install --global yarn
 
       - uses: actions/cache@v3
@@ -30,7 +33,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Build demo site
-        run: yarn run build:demo
+        run: yarn run build
+      - name: Create stories
+        run: ruby scripts/stories.rb
       - name: Build storybook
         run: yarn run build-storybook
 
