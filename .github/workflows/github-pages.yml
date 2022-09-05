@@ -23,15 +23,15 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-    - name: Build demo site
-      run: yarn run build:demo
-    - name: Build storybook
-      run: yarn run build-storybook
+      - name: Build demo site
+        run: yarn run build:demo
+      - name: Build storybook
+        run: yarn run build-storybook
 
-    - name: Upload Pages Artifact
-      uses: actions/upload-pages-artifact@v1
-      with:
-        path: "./docs"
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: "./docs"
 
   # deploy:
   #   needs: build
