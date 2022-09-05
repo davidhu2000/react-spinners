@@ -13,6 +13,7 @@ export const argTypes = {
   color: {
     description: "Hex code of load colors",
     control: { type: "color" },
+    defaultValue: "#36d7b7",
   },
   loading: {
     description: "controls whether loader is shown",
