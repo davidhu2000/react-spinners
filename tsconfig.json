@@ -21,5 +21,5 @@
     "noImplicitReturns": true,
     "skipLibCheck": true
   },
-  "exclude": ["docs/*", "webpack.config.*", "*.js", "__tests__", "examples", "src/*.test.tsx", "stories"]
+  "exclude": ["docs/*", "webpack.config.*", "*.js", "tests", "examples", "src/*.test.tsx", "stories"]
 }
