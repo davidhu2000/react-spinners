@@ -237,7 +237,6 @@ footer a:hover {
 }
 @media screen and (min-width: 600px) {
   #forkongithub {
-    display: block;
     top: 0;
     right: 0;
     width: 200px;
@@ -256,5 +255,11 @@ footer a:hover {
     -moz-transform: rotate(45deg);
     -o-transform: rotate(45deg);
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+  }
+}
+
+@media screen and (max-width: 599px) {
+  #forkongithub {
+    display: none;
   }
 }
