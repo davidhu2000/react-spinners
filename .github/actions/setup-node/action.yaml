@@ -1,0 +1,16 @@
+name: setup-node-env
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+    - run: npm install --global yarn
+      shell: bash
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        cache: "yarn"
+    - run: yarn install
+      shell: bash
