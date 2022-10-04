@@ -64,7 +64,7 @@ function App() {
       <button onClick={() => setLoading(!loading)}>Toggle Loader</button>
       <input value={color} onChange={(input) => setColor(input.target.value)} placeholder="Color of the loader" />
 
-      <ClipLoader color={color} loading={loading} cssOverride={override} size={150} />
+      <ClipLoader color={color} loading={loading} cssOverride={override} size={150} aria-label="Loading Spinner" />
     </div>
   );
 }
@@ -101,6 +101,7 @@ class AwesomeComponent extends React.Component {
           color={"#123abc"}
           loading={this.state.loading}
           speedMultiplier={1.5}
+          aria-label="Loading Spinner"
         />
       </div>
     );
@@ -120,6 +121,8 @@ color: "#000000";
 cssOverride: {}
 speedMultiplier: 1;
 ```
+
+All valid HTML props such as `aria-*` and `data-*` props are fully supported.
 
 ### `color` prop
 

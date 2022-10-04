@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.13.5
+
+- Improve README to include additional available props via span tag
+
 ## 0.13.4
 
 - **bugfix**: fix server side render issue on `HashLoader`
