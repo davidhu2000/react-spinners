@@ -12,22 +12,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: "npm"
-      - run: npm install --global yarn
 
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+      - uses: ./.github/actions/setup-node
 
-      - run: yarn install
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run clean
       - run: yarn run test
       - name: Coveralls
@@ -39,21 +26,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: "npm"
-      - run: npm install --global yarn
-
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - run: yarn install
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
+      - uses: ./.github/actions/setup-node
       - run: yarn run clean
       - run: yarn run lint --max-warnings=0
