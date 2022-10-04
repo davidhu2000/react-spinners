@@ -1,9 +1,10 @@
-name: github-pages
+name: deploy
 
 on:
   push:
     branches: [main]
-  workflow_dispatch:
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: read
@@ -11,7 +12,27 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup-node
+      - run: yarn run clean
+      - run: yarn run test
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup-node
+      - run: yarn run clean
+      - run: yarn run lint --max-warnings=0
+
+  build-site:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,9 +40,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.0"
-
       - uses: ./.github/actions/setup-node
-
       - name: Build demo site
         run: yarn run build:demo
       - name: Create stories
@@ -30,12 +49,14 @@ jobs:
         run: yarn run build-storybook
 
       - name: Upload Pages Artifact
+        if: ${{ github.event_name != 'pull_request' }}
         uses: actions/upload-pages-artifact@v1
         with:
           path: "./docs"
 
-  deploy:
-    needs: build
+  deploy-site:
+    if: ${{ github.event_name != 'pull_request' }}
+    needs: build-site
     runs-on: ubuntu-latest
     environment:
       name: github-pages
