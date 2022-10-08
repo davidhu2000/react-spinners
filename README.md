@@ -64,7 +64,14 @@ function App() {
       <button onClick={() => setLoading(!loading)}>Toggle Loader</button>
       <input value={color} onChange={(input) => setColor(input.target.value)} placeholder="Color of the loader" />
 
-      <ClipLoader color={color} loading={loading} cssOverride={override} size={150} aria-label="Loading Spinner" />
+      <ClipLoader
+        color={color}
+        loading={loading}
+        cssOverride={override}
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
     </div>
   );
 }
@@ -102,6 +109,7 @@ class AwesomeComponent extends React.Component {
           loading={this.state.loading}
           speedMultiplier={1.5}
           aria-label="Loading Spinner"
+          data-testid="loader"
         />
       </div>
     );
