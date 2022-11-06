@@ -4,17 +4,12 @@ import type * as Loaders from "./index";
 
 export function useLoader<T extends keyof typeof Loaders>(
   name: T,
-  params?: Omit<ComponentProps<typeof Loaders[T]>, "loading" | "color">
+  params?: Omit<ComponentProps<typeof Loaders[T]>, "loading">
 ) {
   const [loading, setLoading] = useState(true);
-  const [color, setColor] = useState<string>("#ffffff");
 
   const toggleLoader = useCallback(() => {
     setLoading((preState) => !preState);
-  }, []);
-
-  const changeColor = useCallback((color: string) => {
-    setColor(color);
   }, []);
 
   const Loader = lazy(() => import(`./${name}`));
@@ -22,10 +17,9 @@ export function useLoader<T extends keyof typeof Loaders>(
   return {
     Loader: () => (
       <Suspense>
-        <Loader {...params} loading={loading} color={color} />
+        <Loader {...params} loading={loading} />
       </Suspense>
     ),
     toggleLoader,
-    changeColor,
   };
 }
