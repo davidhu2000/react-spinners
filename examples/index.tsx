@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 
 import { Code, ColorPicker, LoaderItem } from "./components";
 import * as Spinners from "../src";
+import { useLoader } from "../src/useLoader";
 
 const files: {
   [key: string]: {
@@ -26,6 +27,8 @@ function SpinnerExamples() {
       picker.style.top = `${top > 80 ? top : 70}px`;
     });
   }, []);
+
+  const [Loader, toggleLoader] = useLoader("BarLoader");
 
   function updateColor(color: string) {
     setColor(color);
@@ -52,9 +55,11 @@ function SpinnerExamples() {
         )}
       </div>
 
-      {Object.keys(Spinners).map((name: string) => (
+      <Loader />
+
+      {/* {Object.keys(Spinners).map((name: string) => (
         <LoaderItem key={`loader-${name}`} color={color} name={name} Spinner={files[name].default} />
-      ))}
+      ))} */}
     </div>
   );
 }

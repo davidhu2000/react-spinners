@@ -5,7 +5,7 @@ import type * as Loaders from "./index";
 export function useLoader<T extends keyof typeof Loaders>(
   name: T,
   params?: Omit<ComponentProps<typeof Loaders[T]>, "loading">
-) {
+): [() => JSX.Element, () => void] {
   const [loading, setLoading] = useState(true);
 
   const toggleLoader = useCallback(() => {
@@ -14,12 +14,12 @@ export function useLoader<T extends keyof typeof Loaders>(
 
   const Loader = lazy(() => import(`./${name}`));
 
-  return {
-    Loader: () => (
+  return [
+    (): JSX.Element => (
       <Suspense>
         <Loader {...params} loading={loading} />
       </Suspense>
     ),
     toggleLoader,
-  };
+  ];
 }
