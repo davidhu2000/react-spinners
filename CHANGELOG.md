@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.13.7
+
+- **bugfix**: fix PacmanLoader container height/width to adjust with size prop
+
 ## 0.13.6
 
 - Improve formatting of example code to include `data-testid` prop

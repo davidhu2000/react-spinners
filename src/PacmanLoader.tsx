@@ -24,8 +24,8 @@ function PacmanLoader({
     display: "inherit",
     position: "relative",
     fontSize: 0,
-    height: cssValue(size),
-    width: cssValue(size),
+    height: `${value * 2}${unit}`,
+    width: `${value * 2}${unit}`,
     ...cssOverride,
   };
 
