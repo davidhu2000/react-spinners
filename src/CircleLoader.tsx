@@ -41,7 +41,6 @@ function CircleLoader({
       transition: "2s",
       top: `${i * 0.7 * 2.5}%`,
       left: `${i * 0.35 * 2.5}%`,
-      animationFillMode: "",
       animation: `${circle} ${1 / speedMultiplier}s ${(i * 0.2) / speedMultiplier}s infinite linear`,
     };
   };
