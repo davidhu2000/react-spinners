@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.13.8
+
+- **bugfix**: Remove Animation Fill Mode from CircieLoader to fix SSR mismatch style error. [#558](https://github.com/davidhu2000/react-spinners/pull/558)
+
 ## 0.13.7
 
 - **bugfix**: fix PacmanLoader container height/width to adjust with size prop
