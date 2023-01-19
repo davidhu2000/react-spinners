@@ -9,7 +9,7 @@ def get_args(content)
 
   description = "Can be number or string. When number, unit is assumed as px. When string, a unit is expected to be passed in"
 
-  ["size", "height", "width", "margin"].each do |arg|
+  ["size", "height", "width", "margin", "radius"].each do |arg|
     if content.include?("#{arg} =")
       args << "  #{arg}: { description: \"#{description}\", control: { type: \"number\" } },"
     end
