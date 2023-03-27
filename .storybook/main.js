@@ -7,7 +7,7 @@ module.exports = {
     // "@storybook/addon-google-analytics",
     "storybook-dark-mode",
     "./google-analytics-v4/register.js",
-    "./google-adsense/register.js",
+    "./umami/register.js",
     "./canonical-link/register.js",
   ],
   framework: "@storybook/react",
