@@ -1,17 +1,28 @@
 module.exports = {
   stories: ["../stories/*.stories.@(ts|tsx)"],
+
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    // "@storybook/addon-google-analytics",
     "storybook-dark-mode",
     "./google-analytics-v4/register.js",
     "./canonical-link/register.js",
+    "@storybook/addon-webpack5-compiler-swc",
   ],
-  framework: "@storybook/react",
+
+  framework: {
+    name: "@storybook/react-vite",
+    options: {},
+  },
+
   core: {
-    builder: "@storybook/builder-webpack5",
     disableTelemetry: true,
+  },
+
+  docs: {},
+
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
   },
 };
