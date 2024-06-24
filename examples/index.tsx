@@ -43,9 +43,12 @@ function SpinnerExamples() {
         )}
       </div>
 
-      {Object.entries(Spinners).map(([name, loader]) => (
+      {/* {Object.entries(Spinners).map(([name, loader]) => (
         <LoaderItem key={`loader-${name}`} color={color} name={name} Spinner={loader} />
-      ))}
+      ))} */}
+
+      <Spinners.HashLoader color="green" />
+      <Spinners.HashLoader color="red" />
     </div>
   );
 }
