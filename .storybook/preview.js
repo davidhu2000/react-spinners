@@ -1,10 +1,4 @@
-import React from "react";
-import { DocsContainer } from "@storybook/addon-docs";
-import { themes } from "@storybook/theming";
-import { useDarkMode } from "storybook-dark-mode";
-
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -12,19 +6,6 @@ export const parameters = {
     },
   },
   layout: "centered",
-  docs: {
-    container: (props) => {
-      const isDark = useDarkMode();
-
-      const { id: storyId, storyById } = props.context;
-      const {
-        parameters: { docs = {} },
-      } = storyById(storyId);
-      docs.theme = isDark ? themes.dark : themes.light;
-
-      return React.createElement(DocsContainer, props);
-    },
-  },
 };
 
 export const argTypes = {
@@ -46,3 +27,4 @@ export const argTypes = {
     control: { type: "object" },
   },
 };
+export const tags = ["autodocs"];
