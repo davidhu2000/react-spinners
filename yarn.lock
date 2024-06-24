@@ -17887,17 +17887,17 @@ __metadata:
   linkType: hard
 
 "ws@npm:^8.2.3, ws@npm:^8.8.0":
-  version: 8.8.1
-  resolution: "ws@npm:8.8.1"
+  version: 8.17.1
+  resolution: "ws@npm:8.17.1"
   peerDependencies:
     bufferutil: ^4.0.1
-    utf-8-validate: ^5.0.2
+    utf-8-validate: ">=5.0.2"
   peerDependenciesMeta:
     bufferutil:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: 10/65e33447e8ff83f76a3e0cefc28be02e73db37b10c7bf282121ec97ad972407f5b960609c8868ca6f48692d118a9d93ea0c434a4671e15bee1a13e840caa1adf
+  checksum: 10/4264ae92c0b3e59c7e309001e93079b26937aab181835fb7af79f906b22cd33b6196d96556dafb4e985742dd401e99139572242e9847661fdbc96556b9e6902d
   languageName: node
   linkType: hard
 
