@@ -109,5 +109,5 @@
     "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "sideEffects": false,
-  "packageManager": "yarn@3.3.0"
+  "packageManager": "yarn@4.3.1"
 }
