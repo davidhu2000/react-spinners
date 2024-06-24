@@ -1,17 +1,17 @@
-import * as React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
 import LOADER_NAME from "../src/LOADER_NAME";
 
-const argTypes = {
-ARG_TYPES
-}
-
-export default {
+const meta: Meta<typeof LOADER_NAME> = {
   component: LOADER_NAME,
-  argTypes
-} as ComponentMeta<typeof LOADER_NAME>;
+  argTypes:{
+ARG_TYPES
+  }
+};
 
-const Template: ComponentStory<typeof LOADER_NAME> = (args) => <LOADER_NAME {...args} />;
+export default meta;
 
-export const Main = Template.bind({});
+type Story = StoryObj<typeof LOADER_NAME>;
+
+export const Primary: Story = {};
+
