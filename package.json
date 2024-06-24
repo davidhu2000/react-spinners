@@ -52,9 +52,6 @@
     "build-storybook": "build-storybook --docs -o ./dist/storybook"
   },
   "devDependencies": {
-    "@eslint/compat": "^1.1.0",
-    "@eslint/eslintrc": "^3.1.0",
-    "@eslint/js": "^9.5.0",
     "@storybook/addon-actions": "^6.5.14",
     "@storybook/addon-docs": "^6.5.14",
     "@storybook/addon-essentials": "^6.5.14",
