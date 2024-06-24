@@ -1,7 +1,5 @@
-import { window } from "global";
 import { addons } from "@storybook/addons";
 import { STORY_CHANGED, STORY_ERRORED, STORY_MISSING } from "@storybook/core-events";
-
 import ReactGa from "react-ga4";
 
 addons.register("storybook/google-analytics-v4", (api) => {
