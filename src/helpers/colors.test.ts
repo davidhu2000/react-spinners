@@ -5,6 +5,26 @@ describe("calculateRgba", () => {
     expect(typeof calculateRgba).toEqual("function");
   });
 
+  it("returns the same passed in rgb value with custom opacity in old syntax", () => {
+    expect(calculateRgba("rgb(255, 255, 255, 0.5)", 1)).toEqual("rgba(255, 255, 255, 0.5)");
+    expect(calculateRgba("rgba(255, 255, 255, 0.5)", 1)).toEqual("rgba(255, 255, 255, 0.5)");
+  });
+
+  it("returns the same passed in rgb value with custom opacity in new syntax", () => {
+    expect(calculateRgba("rgb(255 255 255 / 0.5)", 1)).toEqual("rgba(255 255 255 / 0.5)");
+    expect(calculateRgba("rgba(255 255 255 / 0.5)", 1)).toEqual("rgba(255 255 255 / 0.5)");
+  });
+
+  it("adds passed in opacity to the rgb values in old syntax", () => {
+    expect(calculateRgba("rgb(255, 255, 255)", 0.5)).toEqual("rgba(255, 255, 255, 0.5)");
+    expect(calculateRgba("rgba(255, 255, 255)", 0.5)).toEqual("rgba(255, 255, 255, 0.5)");
+  });
+
+  it("adds passed in opacity to the rgb values in new syntax", () => {
+    expect(calculateRgba("rgb(255 255 255)", 0.5)).toEqual("rgba(255 255 255 / 0.5)");
+    expect(calculateRgba("rgba(255 255 255)", 0.5)).toEqual("rgba(255 255 255 / 0.5)");
+  });
+
   it("converts hash values to rgb", () => {
     expect(calculateRgba("#ffffff", 1)).toEqual("rgba(255, 255, 255, 1)");
   });
