@@ -3,16 +3,7 @@ import { createRoot } from "react-dom/client";
 
 import { Code, ColorPicker, LoaderItem } from "./components";
 import * as Spinners from "../src";
-
-const files: {
-  [key: string]: {
-    default: React.FC;
-  };
-} = {};
-
-Object.keys(Spinners).forEach((key) => {
-  files[key] = require(`../src/${key}.tsx`);
-});
+import "./styles.css";
 
 function SpinnerExamples() {
   const [color, setColor] = React.useState("#36D7B7");
@@ -52,8 +43,8 @@ function SpinnerExamples() {
         )}
       </div>
 
-      {Object.keys(Spinners).map((name: string) => (
-        <LoaderItem key={`loader-${name}`} color={color} name={name} Spinner={files[name].default} />
+      {Object.entries(Spinners).map(([name, loader]) => (
+        <LoaderItem key={`loader-${name}`} color={color} name={name} Spinner={loader} />
       ))}
     </div>
   );

@@ -52,7 +52,7 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         uses: actions/upload-pages-artifact@v1
         with:
-          path: "./docs"
+          path: "./dist"
 
   deploy-site:
     if: ${{ github.event_name != 'pull_request' }}
