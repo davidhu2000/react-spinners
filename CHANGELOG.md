@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.14.0
+
+- feat: color prop can accept rgb colors [#586](https://github.com/davidhu2000/react-spinners/pull/586)
+- fix: multiple hash loader with different color renders as the same color [#602](https://github.com/davidhu2000/react-spinners/pull/602)
+- fix: moon loader wobble if size is not divisible by 7 [#603](https://github.com/davidhu2000/react-spinners/pull/603)
+
 ## 0.13.8
 
 - **bugfix**: Remove Animation Fill Mode from CircieLoader to fix SSR mismatch style error. [#558](https://github.com/davidhu2000/react-spinners/pull/558)
