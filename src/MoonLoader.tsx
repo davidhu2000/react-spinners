@@ -15,7 +15,7 @@ function MoonLoader({
   ...additionalprops
 }: LoaderSizeProps): JSX.Element | null {
   const { value, unit } = parseLengthAndUnit(size);
-  const moonSize = value / 7;
+  const moonSize = Math.round(value / 7);
 
   const wrapper: React.CSSProperties = {
     display: "inherit",
