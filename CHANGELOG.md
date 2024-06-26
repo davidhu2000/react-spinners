@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.14.1
+
+- revert [#602](https://github.com/davidhu2000/react-spinners/pull/602) due to issues with test and server side rendering
+
 ## 0.14.0
 
 - feat: color prop can accept rgb colors [#586](https://github.com/davidhu2000/react-spinners/pull/586)
@@ -10,7 +14,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ## 0.13.8
 
-- **bugfix**: Remove Animation Fill Mode from CircieLoader to fix SSR mismatch style error. [#558](https://github.com/davidhu2000/react-spinners/pull/558)
+- **bugfix**: Remove Animation Fill Mode from CircleLoader to fix SSR mismatch style error. [#558](https://github.com/davidhu2000/react-spinners/pull/558)
 
 ## 0.13.7
 
