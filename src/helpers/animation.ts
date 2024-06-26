@@ -1,5 +1,5 @@
 export const createAnimation = (loaderName: string, frames: string, suffix: string): string => {
-  const animationName = `react-spinners-${loaderName}-${suffix}-${animationSuffix(10)}`;
+  const animationName = `react-spinners-${loaderName}-${suffix}`;
 
   if (typeof window == "undefined" || !window.document) {
     return animationName;
@@ -21,15 +21,3 @@ export const createAnimation = (loaderName: string, frames: string, suffix: stri
 
   return animationName;
 };
-
-function animationSuffix(length: number) {
-  let result = "";
-  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  const charactersLength = characters.length;
-  let counter = 0;
-  while (counter < length) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    counter += 1;
-  }
-  return result;
-}
