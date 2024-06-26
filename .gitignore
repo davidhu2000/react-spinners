@@ -19,3 +19,4 @@ umd
 .yarn/install-state.gz
 stories/*.tsx
 storybook-static
+coverage
