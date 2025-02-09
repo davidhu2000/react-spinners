@@ -19,8 +19,9 @@ function ScaleLoader({
   width = 4,
   radius = 2,
   margin = 2,
+  count = 5,
   ...additionalprops
-}: LoaderHeightWidthRadiusProps): JSX.Element | null {
+}: LoaderHeightWidthRadiusProps & { count: number }): JSX.Element | null {
   const wrapper: React.CSSProperties = {
     display: "inherit",
     ...cssOverride,
@@ -45,11 +46,9 @@ function ScaleLoader({
 
   return (
     <span style={wrapper} {...additionalprops}>
-      <span style={style(1)} />
-      <span style={style(2)} />
-      <span style={style(3)} />
-      <span style={style(4)} />
-      <span style={style(5)} />
+      {[...Array(count)].map((_, i) => (
+        <span key={i} style={style(i)} />
+      ))}
     </span>
   );
 }
