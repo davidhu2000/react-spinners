@@ -20,7 +20,7 @@ function GridLoader({
   size = 15,
   margin = 2,
   ...additionalprops
-}: LoaderSizeMarginProps): React.JSX.Element | null {
+}: LoaderSizeMarginProps) {
   const sizeWithUnit = parseLengthAndUnit(size);
   const marginWithUnit = parseLengthAndUnit(margin);
 

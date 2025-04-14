@@ -25,7 +25,7 @@ function PacmanLoader({
   size = 25,
   margin = 2,
   ...additionalprops
-}: LoaderSizeMarginProps): React.JSX.Element | null {
+}: LoaderSizeMarginProps) {
   const { value, unit } = parseLengthAndUnit(size);
 
   const wrapper: React.CSSProperties = {

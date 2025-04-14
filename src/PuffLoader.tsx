@@ -16,7 +16,7 @@ function PuffLoader({
   cssOverride = {},
   size = 60,
   ...additionalprops
-}: LoaderSizeProps): React.JSX.Element | null {
+}: LoaderSizeProps) {
   const wrapper: React.CSSProperties = {
     display: "inherit",
     position: "relative",
