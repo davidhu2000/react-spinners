@@ -20,11 +20,12 @@ function GridLoader({
   size = 15,
   margin = 2,
   ...additionalprops
-}: LoaderSizeMarginProps): JSX.Element | null {
+}: LoaderSizeMarginProps): React.JSX.Element | null {
   const sizeWithUnit = parseLengthAndUnit(size);
   const marginWithUnit = parseLengthAndUnit(margin);
 
-  const width = parseFloat(sizeWithUnit.value.toString()) * 3 + parseFloat(marginWithUnit.value.toString()) * 6;
+  const width =
+    parseFloat(sizeWithUnit.value.toString()) * 3 + parseFloat(marginWithUnit.value.toString()) * 6;
 
   const wrapper: React.CSSProperties = {
     width: `${width}${sizeWithUnit.unit}`,

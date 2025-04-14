@@ -41,7 +41,7 @@ content.sub!(/class Loader extends React.PureComponent<Required<(.+)>> {/) do
    "  css = {},",
    "  #{props}",
    "  ...additionalprops",
-   "}: #{$1}): JSX.Element | null {"].join("\n")
+   "}: #{$1}): React.JSX.Element | null  {"].join("\n")
 end
 
 content.sub!(/public static defaultProps = .+;/, "")
@@ -67,7 +67,7 @@ end
 content.gsub!("css=", "style=")
 content.gsub!("{this.", "{")
 
-content.gsub!("public render(): JSX.Element | null {", "")
+content.gsub!("public render(): React.JSX.Element | null  {", "")
 content.gsub!(/}\n\s+}/, "}")
 
 content.gsub!("return loading ? (", "if (!loading) { return null; }\n\n return (")

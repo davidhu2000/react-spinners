@@ -27,7 +27,7 @@ function ClimbingBoxLoader({
   cssOverride = {},
   size = 15,
   ...additionalprops
-}: LoaderSizeProps): JSX.Element | null {
+}: LoaderSizeProps): React.JSX.Element | null {
   const container: React.CSSProperties = {
     display: "inherit",
     position: "relative",

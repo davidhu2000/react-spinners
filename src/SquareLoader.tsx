@@ -20,7 +20,7 @@ function SquareLoader({
   cssOverride = {},
   size = 50,
   ...additionalprops
-}: LoaderSizeProps): JSX.Element | null {
+}: LoaderSizeProps): React.JSX.Element | null {
   const style: React.CSSProperties = {
     backgroundColor: color,
     width: cssValue(size),
