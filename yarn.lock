@@ -5099,13 +5099,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hoist-non-react-statics@npm:^2.1.1":
-  version: 2.5.5
-  resolution: "hoist-non-react-statics@npm:2.5.5"
-  checksum: 10/5cd8f04dc3adec5e19fa4dd05a03216b0237e98d870064f4232e6339e9bbe1bd07b41cca2bb6e999c328b409271c1eefde299a69ca75aff510acdd4e7b3d340e
-  languageName: node
-  linkType: hard
-
 "hosted-git-info@npm:^7.0.0":
   version: 7.0.2
   resolution: "hosted-git-info@npm:7.0.2"
@@ -7535,15 +7528,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-click-outside@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "react-click-outside@npm:3.0.1"
-  dependencies:
-    hoist-non-react-statics: "npm:^2.1.1"
-  checksum: 10/2e729631ae856bb4f2e7fcfd68100455656d2409ac6166ed6c9a0661dd83a42864c827e6a9a5a1df276c908356fe863ab9c44e0e4a8e9c226269c957e6a9195a
-  languageName: node
-  linkType: hard
-
 "react-colorful@npm:^5.6.1":
   version: 5.6.1
   resolution: "react-colorful@npm:5.6.1"
@@ -7661,7 +7645,6 @@ __metadata:
     jest-environment-jsdom: "npm:^29.7.0"
     prettier: "npm:^3.5.3"
     react: "npm:^19.1.0"
-    react-click-outside: "npm:^3.0.1"
     react-colorful: "npm:^5.6.1"
     react-dom: "npm:^19.1.0"
     react-ga4: "npm:^2.1.0"
