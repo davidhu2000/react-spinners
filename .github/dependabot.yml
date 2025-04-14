@@ -13,9 +13,6 @@ updates:
     directory: "/.github/actions/setup-node"
     schedule:
       interval: "daily"
-    groups:
-      github-actions:
-        patterns: ["*"]
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
