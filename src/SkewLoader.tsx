@@ -17,7 +17,7 @@ function SkewLoader({
   cssOverride = {},
   size = 20,
   ...additionalprops
-}: LoaderSizeProps): React.JSX.Element | null {
+}: LoaderSizeProps) {
   const style: React.CSSProperties = {
     width: "0",
     height: "0",

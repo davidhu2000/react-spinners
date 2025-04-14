@@ -13,7 +13,7 @@ function ClockLoader({
   cssOverride = {},
   size = 50,
   ...additionalprops
-}: LoaderSizeProps): React.JSX.Element | null {
+}: LoaderSizeProps) {
   const { value, unit } = parseLengthAndUnit(size);
 
   const wrapper: React.CSSProperties = {

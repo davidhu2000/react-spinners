@@ -16,7 +16,7 @@ function FadeLoader({
   radius = 2,
   margin = 2,
   ...additionalprops
-}: LoaderHeightWidthRadiusProps): React.JSX.Element | null {
+}: LoaderHeightWidthRadiusProps) {
   const { value } = parseLengthAndUnit(margin);
   const radiusValue = value + 18;
   const quarter = radiusValue / 2 + radiusValue / 5.5;
