@@ -18,7 +18,7 @@ function RotateLoader({
   size = 15,
   margin = 2,
   ...additionalprops
-}: LoaderSizeMarginProps): JSX.Element | null {
+}: LoaderSizeMarginProps) {
   const { value, unit } = parseLengthAndUnit(margin);
 
   const ball: React.CSSProperties = {

@@ -17,7 +17,7 @@ function ClipLoader({
   cssOverride = {},
   size = 35,
   ...additionalprops
-}: LoaderSizeProps): JSX.Element | null {
+}: LoaderSizeProps) {
   const style: React.CSSProperties = {
     background: "transparent !important",
     width: cssValue(size),
