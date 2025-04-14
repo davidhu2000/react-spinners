@@ -22,7 +22,7 @@ updates:
       interval: "daily"
     groups:
       storybook:
-        patterns: ["@storybook/*"]
+        patterns: ["@storybook/*", "storybook"]
       testing:
         patterns: ["@testing-library/*", "jest*", "ts-jest"]
       eslint:
