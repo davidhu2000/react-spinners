@@ -6,7 +6,11 @@ import { createAnimation } from "./helpers/animation";
 
 const rotate = createAnimation("DotLoader", "100% {transform: rotate(360deg)}", "rotate");
 
-const bounce = createAnimation("DotLoader", "0%, 100% {transform: scale(0)} 50% {transform: scale(1.0)}", "bounce");
+const bounce = createAnimation(
+  "DotLoader",
+  "0%, 100% {transform: scale(0)} 50% {transform: scale(1.0)}",
+  "bounce"
+);
 
 function DotLoader({
   loading = true,
@@ -15,7 +19,7 @@ function DotLoader({
   cssOverride = {},
   size = 60,
   ...additionalprops
-}: LoaderSizeProps): JSX.Element | null {
+}: LoaderSizeProps): React.JSX.Element | null {
   const wrapper: React.CSSProperties = {
     display: "inherit",
     position: "relative",

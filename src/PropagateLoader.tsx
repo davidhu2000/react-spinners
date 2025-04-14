@@ -63,7 +63,7 @@ function PropagateLoader({
   cssOverride = {},
   size = 15,
   ...additionalprops
-}: LoaderSizeProps): JSX.Element | null {
+}: LoaderSizeProps): React.JSX.Element | null {
   const { value, unit } = parseLengthAndUnit(size);
 
   const wrapper: React.CSSProperties = {

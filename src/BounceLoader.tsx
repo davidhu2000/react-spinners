@@ -17,7 +17,7 @@ function BounceLoader({
   cssOverride = {},
   size = 60,
   ...additionalprops
-}: LoaderSizeProps): JSX.Element | null {
+}: LoaderSizeProps): React.JSX.Element | null {
   const style = (i: number): React.CSSProperties => {
     const animationTiming = i === 1 ? `${1 / speedMultiplier}s` : "0s";
     return {
