@@ -12,7 +12,7 @@ function HashLoader({
   cssOverride = {},
   size = 50,
   ...additionalprops
-}: LoaderSizeProps): JSX.Element | null {
+}: LoaderSizeProps) {
   const { value, unit } = parseLengthAndUnit(size);
 
   const wrapper: React.CSSProperties = {

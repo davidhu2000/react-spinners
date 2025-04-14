@@ -25,7 +25,7 @@ function BarLoader({
   height = 4,
   width = 100,
   ...additionalprops
-}: LoaderHeightWidthProps): JSX.Element | null {
+}: LoaderHeightWidthProps) {
   const wrapper: React.CSSProperties = {
     display: "inherit",
     position: "relative",

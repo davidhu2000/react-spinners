@@ -16,7 +16,7 @@ function PuffLoader({
   cssOverride = {},
   size = 60,
   ...additionalprops
-}: LoaderSizeProps): JSX.Element | null {
+}: LoaderSizeProps) {
   const wrapper: React.CSSProperties = {
     display: "inherit",
     position: "relative",
@@ -39,7 +39,8 @@ function PuffLoader({
       animation: `${puff[0]}, ${puff[1]}`,
       animationDuration: `${2 / speedMultiplier}s`,
       animationIterationCount: "infinite",
-      animationTimingFunction: "cubic-bezier(0.165, 0.84, 0.44, 1), cubic-bezier(0.3, 0.61, 0.355, 1)",
+      animationTimingFunction:
+        "cubic-bezier(0.165, 0.84, 0.44, 1), cubic-bezier(0.3, 0.61, 0.355, 1)",
       animationDelay: i === 1 ? "-1s" : "0s",
     };
   };

@@ -13,3 +13,16 @@ updates:
     directory: "/.github/actions/setup-node"
     schedule:
       interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    groups:
+      storybook:
+        patterns: ["@storybook/*", "storybook"]
+      testing:
+        patterns: ["@testing-library/*", "jest*", "ts-jest"]
+      eslint:
+        patterns: ["eslint*", "@typescript-eslint/*"]
+      react:
+        patterns: ["react", "react-dom", "@types/react", "@types/react-dom"]
