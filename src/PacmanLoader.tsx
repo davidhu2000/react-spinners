@@ -5,8 +5,16 @@ import { LoaderSizeMarginProps } from "./helpers/props";
 import { createAnimation } from "./helpers/animation";
 
 const pacman = [
-  createAnimation("PacmanLoader", "0% {transform: rotate(0deg)} 50% {transform: rotate(-44deg)}", "pacman-1"),
-  createAnimation("PacmanLoader", "0% {transform: rotate(0deg)} 50% {transform: rotate(44deg)}", "pacman-2"),
+  createAnimation(
+    "PacmanLoader",
+    "0% {transform: rotate(0deg)} 50% {transform: rotate(-44deg)}",
+    "pacman-1"
+  ),
+  createAnimation(
+    "PacmanLoader",
+    "0% {transform: rotate(0deg)} 50% {transform: rotate(44deg)}",
+    "pacman-2"
+  ),
 ];
 
 function PacmanLoader({
@@ -17,7 +25,7 @@ function PacmanLoader({
   size = 25,
   margin = 2,
   ...additionalprops
-}: LoaderSizeMarginProps): JSX.Element | null {
+}: LoaderSizeMarginProps) {
   const { value, unit } = parseLengthAndUnit(size);
 
   const wrapper: React.CSSProperties = {
