@@ -47,7 +47,7 @@ function ScaleLoader({
   return (
     <span style={wrapper} {...additionalprops}>
       {[...Array(barCount)].map((_, i) => (
-        <span key={i} style={style(i)} />
+        <span key={i} style={style(i + 1)} />
       ))}
     </span>
   );
