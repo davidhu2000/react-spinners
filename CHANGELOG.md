@@ -1,3 +1,6 @@
+> [!IMPORTANT]  
+> This changelog is deprecated. Please check [GitHub Releases](https://github.com/davidhu2000/react-spinners/releases) for the most up-to-date release information.
+
 # Change Log
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
