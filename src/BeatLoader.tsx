@@ -1,7 +1,8 @@
+"use client";
+
 import * as React from "react";
 
 import { cssValue } from "./helpers/unitConverter";
-
 import { createAnimation } from "./helpers/animation";
 import { LoaderSizeMarginProps } from "./helpers/props";
 
