@@ -30,3 +30,5 @@ stories
 yarn-error.log
 .storybook
 .prettierignore
+test-apps
+tests
