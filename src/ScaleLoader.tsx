@@ -19,7 +19,7 @@ function ScaleLoader({
   width = 4,
   radius = 2,
   margin = 2,
-  count = 5,
+  barCount = 5,
   ...additionalprops
 }: LoaderHeightWidthRadiusProps & { count: number }): JSX.Element | null {
   const wrapper: React.CSSProperties = {
