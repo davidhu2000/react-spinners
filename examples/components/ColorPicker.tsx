@@ -1,5 +1,4 @@
 import * as React from "react";
-import enhanceWithClickOutside from "react-click-outside";
 import { HexAlphaColorPicker } from "react-colorful";
 
 interface ColorPickerProps {
@@ -8,16 +7,23 @@ interface ColorPickerProps {
   updateColor: (color: string) => void;
 }
 
-class Picker extends React.Component<ColorPickerProps> {
-  public handleClickOutside(): void {
-    this.props.togglePicker();
-  }
-
-  public render(): JSX.Element {
-    const { color, updateColor } = this.props;
-
-    return <HexAlphaColorPicker color={color} onChange={updateColor} />;
-  }
+function Picker({ togglePicker, color, updateColor }: ColorPickerProps) {
+  return (
+    <div>
+      <HexAlphaColorPicker color={color} onChange={updateColor} />
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          height: "100vh",
+          width: "100vw",
+          zIndex: -1,
+        }}
+        onClick={togglePicker}
+      ></div>
+    </div>
+  );
 }
 
-export default enhanceWithClickOutside(Picker);
+export default Picker;
