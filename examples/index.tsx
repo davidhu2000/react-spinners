@@ -42,9 +42,13 @@ function SpinnerExamples() {
           <button onClick={togglePicker}>Change Color</button>
         )}
       </div>
-
       {Object.entries(Spinners).map(([name, loader]) => (
-        <LoaderItem key={`loader-${name}`} color={color} name={name} Spinner={loader} />
+        <LoaderItem
+          key={`loader-${name}`}
+          color={color}
+          name={name}
+          Spinner={loader as React.ComponentType<any>}
+        />
       ))}
     </div>
   );
