@@ -12,7 +12,7 @@ function RiseLoader({
   size = 15,
   margin = 2,
   ...additionalprops
-}: LoaderSizeMarginProps): React.JSX.Element | null {
+}: LoaderSizeMarginProps) {
   const wrapper: React.CSSProperties = {
     display: "inherit",
     ...cssOverride,
