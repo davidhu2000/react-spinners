@@ -2,6 +2,7 @@ body {
   background: #e2e2e2;
   font-family: "Roboto", sans-serif;
   margin: 0;
+  overflow-x: hidden;
 }
 
 /* Header styles */
@@ -205,6 +206,19 @@ footer {
   margin: 15px 0 0 0;
   background: #2b303b;
   text-align: center;
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  footer a {
+    margin-left: 0 !important;
+  }
 }
 
 footer a {
