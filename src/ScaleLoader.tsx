@@ -21,7 +21,7 @@ function ScaleLoader({
   margin = 2,
   barCount = 5,
   ...additionalprops
-}: LoaderHeightWidthRadiusProps & { barCount: number }) {
+}: LoaderHeightWidthRadiusProps & { barCount?: number }) {
   const wrapper: React.CSSProperties = {
     display: "inherit",
     ...cssOverride,
