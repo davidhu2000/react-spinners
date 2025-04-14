@@ -11,7 +11,7 @@ docs/javascripts
 docs/js
 docs/index.html
 docs/storybook
-
+coverage
 cjs
 esm
 umd
