@@ -57,7 +57,7 @@
     "@storybook/addon-essentials": "^8.1.10",
     "@storybook/addon-interactions": "^8.1.10",
     "@storybook/addon-links": "^8.1.10",
-    "@storybook/addon-webpack5-compiler-swc": "^1.0.4",
+    "@storybook/addon-webpack5-compiler-swc": "^3.0.0",
     "@storybook/addons": "7.6.17",
     "@storybook/react": "^8.1.10",
     "@storybook/react-vite": "^8.1.10",
