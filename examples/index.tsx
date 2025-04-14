@@ -29,17 +29,20 @@ function SpinnerExamples() {
     `;
   }
 
-  function togglePicker() {
-    setShowPicker(!showPicker);
+  function handleShowPicker() {
+    setShowPicker(true);
+  }
+  function handleHidePicker() {
+    setShowPicker(false);
   }
 
   return (
     <div className="spinner-container">
       <div className="color-picker position-abs">
         {showPicker ? (
-          <ColorPicker color={color} updateColor={updateColor} togglePicker={togglePicker} />
+          <ColorPicker color={color} updateColor={updateColor} togglePicker={handleHidePicker} />
         ) : (
-          <button onClick={togglePicker}>Change Color</button>
+          <button onClick={handleShowPicker}>Change Color</button>
         )}
       </div>
       {Object.entries(Spinners).map(([name, loader]) => (
