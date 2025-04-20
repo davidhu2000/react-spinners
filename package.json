@@ -32,11 +32,10 @@
   "main": "index.js",
   "module": "esm/index.js",
   "scripts": {
-    "prepare": "$npm_execpath run build:cjs & $npm_execpath run build:esm & $npm_execpath run build:umd && $npm_execpath run build",
+    "prepare": "$npm_execpath run build:cjs & $npm_execpath run build:esm && $npm_execpath run build",
     "build": "tsc --project tsconfig.cjs.json",
     "build:cjs": "tsc --project tsconfig.cjs.json --outDir cjs",
     "build:esm": "tsc --project tsconfig.esm.json --outDir esm",
-    "build:umd": "tsc --project tsconfig.umd.json --outDir umd",
     "build:demo": "$npm_execpath run vite build",
     "dev:demo": "vite dev",
     "patch": "npm version patch && npm publish && npm run clean",
