@@ -1,4 +1,4 @@
-import * as Loaders from "../../../../src/index";
+import * as Loaders from "esm/index";
 
 export default function Home() {
   return (

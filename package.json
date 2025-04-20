@@ -29,11 +29,14 @@
     "progress",
     "activity"
   ],
-  "main": "index.js",
+  "main": "cjs/index.js",
   "module": "esm/index.js",
+  "exports": {
+    "import": "./esm/index.js",
+    "require": "./cjs/index.js"
+  },
   "scripts": {
-    "prepare": "$npm_execpath run build:cjs & $npm_execpath run build:esm && $npm_execpath run build",
-    "build": "tsc --project tsconfig.cjs.json",
+    "prepare": "$npm_execpath run clean && $npm_execpath run build:cjs & $npm_execpath run build:esm",
     "build:cjs": "tsc --project tsconfig.cjs.json --outDir cjs",
     "build:esm": "tsc --project tsconfig.esm.json --outDir esm",
     "build:demo": "$npm_execpath run vite build",
@@ -41,7 +44,7 @@
     "patch": "npm version patch && npm publish && npm run clean",
     "minor": "npm version minor && npm publish && npm run clean",
     "major": "npm version major && npm publish && npm run clean",
-    "clean": "rm -rf helpers/; rm -f *Loader.js; rm -f *Loader.d.ts; rm -f index.js; rm -f index.d.ts; rm -rf docs/js; rm -rf cjs; rm -rf esm",
+    "clean": "rm -rf cjs; rm -rf esm",
     "lint": "eslint",
     "test": "jest",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
