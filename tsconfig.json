@@ -28,6 +28,7 @@
     "tests",
     "examples",
     "src/*.test.tsx",
+    "src/helpers/*.test.*",
     "stories",
     "test-apps"
   ]
