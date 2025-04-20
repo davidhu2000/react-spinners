@@ -32,3 +32,9 @@ yarn-error.log
 .prettierignore
 test-apps
 tests
+CHANGELOG.md
+.yarnrc.yml
+.prettierrc.cjs
+tests/*
+scripts/*
+.vscode/*
