@@ -38,3 +38,4 @@ CHANGELOG.md
 tests/*
 scripts/*
 .vscode/*
+eslint.config.mjs
