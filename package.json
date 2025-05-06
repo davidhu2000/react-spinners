@@ -36,7 +36,7 @@
     "build": "tsc --project tsconfig.cjs.json",
     "build:esm": "tsc --project tsconfig.esm.json --outDir esm",
     "build:demo": "$npm_execpath run vite build",
-    "dev:demo": "vite dev",
+    "dev": "vite dev",
     "patch": "npm version patch && npm publish && npm run clean",
     "minor": "npm version minor && npm publish && npm run clean",
     "major": "npm version major && npm publish && npm run clean",
