@@ -2268,11 +2268,11 @@ __metadata:
   linkType: hard
 
 "@types/react-dom@npm:^19.1.2":
-  version: 19.1.4
-  resolution: "@types/react-dom@npm:19.1.4"
+  version: 19.1.5
+  resolution: "@types/react-dom@npm:19.1.5"
   peerDependencies:
     "@types/react": ^19.0.0
-  checksum: 10/bf25b3911152b7b5be0f65313532e1cefb33c5d836c49e6bafa55e55f61b04dfad065108b6145f294e22bb280002f9f75538c9b5353df25e83083435e1c00f05
+  checksum: 10/1bbfb77aa8b40ae1b3e2d90a3cd29987aa244a34a0e398828266276eb3f83810d10ed6cb1fddaf1469653bbe7243d9b75f6e245c21c8bb6224169c48bedfa536
   languageName: node
   linkType: hard
 
