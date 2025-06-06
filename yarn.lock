@@ -4248,26 +4248,26 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-storybook@npm:^9.0.4":
-  version: 9.0.4
-  resolution: "eslint-plugin-storybook@npm:9.0.4"
+  version: 9.0.5
+  resolution: "eslint-plugin-storybook@npm:9.0.5"
   dependencies:
     "@typescript-eslint/utils": "npm:^8.8.1"
   peerDependencies:
     eslint: ">=8"
-    storybook: ^9.0.4
-  checksum: 10/6e77969f2cd59157de95a9097cdb9143e2363fdf68500e066d8c77c99e64b8cde078a3eca62bb8ee4c5ebf7581e7f382d3c1169e15544220707afaf8bab68f0f
+    storybook: ^9.0.5
+  checksum: 10/9f059cde0cfb0fa4c479ed52331d34668bb5588f2e3f7bfee7bc949f0f62aa9057bff1114e0257347900f49ef55cdfb2a28dc64077cc19072cab6a8a863d17b7
   languageName: node
   linkType: hard
 
 "eslint-plugin-testing-library@npm:^7.1.1":
-  version: 7.3.0
-  resolution: "eslint-plugin-testing-library@npm:7.3.0"
+  version: 7.4.0
+  resolution: "eslint-plugin-testing-library@npm:7.4.0"
   dependencies:
     "@typescript-eslint/scope-manager": "npm:^8.15.0"
     "@typescript-eslint/utils": "npm:^8.15.0"
   peerDependencies:
     eslint: ^8.57.0 || ^9.0.0
-  checksum: 10/b786b05a49c9477f02c1fc01364f36d9ad427073562ad18ea400d6299f101a86b7929e8059496f2c018651186c8c10bb77bd9a9bb28fc3dd3a31a633495192e5
+  checksum: 10/636e4a977a1887f1e78cbf37c42b0c138d40178717458acd068d76ede7a956511a129de4261ea018f59fe94b473a904ed79627b533e4ff0f6dd29f95877583ca
   languageName: node
   linkType: hard
 
