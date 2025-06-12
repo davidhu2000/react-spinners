@@ -14,12 +14,12 @@ describe("unitConverter", () => {
 
     it("takes a number as the input and append px to the value", () => {
       expect(parseLengthAndUnit(12)).toEqual(output);
-      expect(spy).not.toBeCalled();
+      expect(spy).not.toHaveBeenCalled();
     });
 
     it("take a string with valid integer css unit and return an object with value and unit", () => {
       expect(parseLengthAndUnit("12px")).toEqual(output);
-      expect(spy).not.toBeCalled();
+      expect(spy).not.toHaveBeenCalled();
     });
 
     it("take a string with valid css float unit and return an object with value and unit", () => {
@@ -28,12 +28,12 @@ describe("unitConverter", () => {
         unit: "px",
       };
       expect(parseLengthAndUnit("12.5px")).toEqual(output);
-      expect(spy).not.toBeCalled();
+      expect(spy).not.toHaveBeenCalled();
     });
 
     it("takes an invalid css unit and default the value to px", () => {
       expect(parseLengthAndUnit("12fd")).toEqual(output);
-      expect(spy).toBeCalled();
+      expect(spy).toHaveBeenCalled();
     });
   });
 
