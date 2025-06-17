@@ -61,7 +61,7 @@
     "@storybook/react-vite": "^8.6.12",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
-    "@types/jest": "^29.5.14",
+    "@types/jest": "^30.0.0",
     "@types/react": "^19.1.2",
     "@types/react-click-outside": "^3.0.7",
     "@types/react-dom": "^19.1.2",
