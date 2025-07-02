@@ -950,10 +950,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.30.0":
-  version: 9.30.0
-  resolution: "@eslint/js@npm:9.30.0"
-  checksum: 10/42e3d5a9cdd5a0842f3ed078e28f81ae1cf04bd2edfd09f43e6dc148bb2e99904f09090007eb6485afd82d837771890c5a8b9ceb1e8c4e256953df4b4aa97308
+"@eslint/js@npm:9.30.1":
+  version: 9.30.1
+  resolution: "@eslint/js@npm:9.30.1"
+  checksum: 10/f32c8a42b1343b03613b92a4a7c4745d19a93e66ffb8fac18ccd066deaa200b2fc55f476bf0407d7748f663bc947ca78c0518f13f60cd9ed08d0ba8b7bb74370
   languageName: node
   linkType: hard
 
@@ -4754,14 +4754,14 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-storybook@npm:^9.0.4":
-  version: 9.0.14
-  resolution: "eslint-plugin-storybook@npm:9.0.14"
+  version: 9.0.15
+  resolution: "eslint-plugin-storybook@npm:9.0.15"
   dependencies:
     "@typescript-eslint/utils": "npm:^8.8.1"
   peerDependencies:
     eslint: ">=8"
-    storybook: ^9.0.14
-  checksum: 10/de3dd2a8e301e3f2efb3b02fe3c30b44e70d476a543d837beed53e7d50877a7f39b81bc5f799a6c00b7b4e5466d9b453a64146b1e10fc6bc9482bdd517ff2bb4
+    storybook: ^9.0.15
+  checksum: 10/21682d8bd72b9f6d7856246d3672057766bdbe48e052790bfe23f8804e8d68392eaafb6679752dce29e48d1b64fc84f01865c6b14f9ab3eeae4b5740d2aecd99
   languageName: node
   linkType: hard
 
@@ -4836,8 +4836,8 @@ __metadata:
   linkType: hard
 
 "eslint@npm:^9.24.0":
-  version: 9.30.0
-  resolution: "eslint@npm:9.30.0"
+  version: 9.30.1
+  resolution: "eslint@npm:9.30.1"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@eslint-community/regexpp": "npm:^4.12.1"
@@ -4845,7 +4845,7 @@ __metadata:
     "@eslint/config-helpers": "npm:^0.3.0"
     "@eslint/core": "npm:^0.14.0"
     "@eslint/eslintrc": "npm:^3.3.1"
-    "@eslint/js": "npm:9.30.0"
+    "@eslint/js": "npm:9.30.1"
     "@eslint/plugin-kit": "npm:^0.3.1"
     "@humanfs/node": "npm:^0.16.6"
     "@humanwhocodes/module-importer": "npm:^1.0.1"
@@ -4881,7 +4881,7 @@ __metadata:
       optional: true
   bin:
     eslint: bin/eslint.js
-  checksum: 10/74c11e6be5997f0de6542932795e997c1586f8f21cdeeda09c89c6c36879a9a593af84f1fd594bd8e22814c54ca0ad65513a0c91b0e8944efb51faed34b7d3b0
+  checksum: 10/bd3024f730c88a2d099455f5ec5be2d6293eaf1412eb5111427282e1060b7f87891168ccbded10b71fc7182e05151e42511ec29d4e0d4ece5e3151eaf8d54763
   languageName: node
   linkType: hard
 
