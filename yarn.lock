@@ -4754,14 +4754,14 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-storybook@npm:^9.0.4":
-  version: 9.0.15
-  resolution: "eslint-plugin-storybook@npm:9.0.15"
+  version: 9.0.16
+  resolution: "eslint-plugin-storybook@npm:9.0.16"
   dependencies:
     "@typescript-eslint/utils": "npm:^8.8.1"
   peerDependencies:
     eslint: ">=8"
-    storybook: ^9.0.15
-  checksum: 10/21682d8bd72b9f6d7856246d3672057766bdbe48e052790bfe23f8804e8d68392eaafb6679752dce29e48d1b64fc84f01865c6b14f9ab3eeae4b5740d2aecd99
+    storybook: ^9.0.16
+  checksum: 10/07e6291ab133fd24deb76a7f3428343abf2f6a6589ff8f77f7207b4f094e14dad209c6aef1388a7c677727c397861636e236fd55fbfcbb2bca5bf1169ae15e36
   languageName: node
   linkType: hard
 
