@@ -7796,6 +7796,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"picomatch@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "picomatch@npm:4.0.3"
+  checksum: 10/57b99055f40b16798f2802916d9c17e9744e620a0db136554af01d19598b96e45e2f00014c91d1b8b13874b80caa8c295b3d589a3f72373ec4aaf54baa5962d5
+  languageName: node
+  linkType: hard
+
 "pirates@npm:^4.0.7":
   version: 4.0.7
   resolution: "pirates@npm:4.0.7"
@@ -9609,13 +9616,13 @@ __metadata:
   linkType: hard
 
 "vite@npm:^7.0.0":
-  version: 7.0.5
-  resolution: "vite@npm:7.0.5"
+  version: 7.0.6
+  resolution: "vite@npm:7.0.6"
   dependencies:
     esbuild: "npm:^0.25.0"
     fdir: "npm:^6.4.6"
     fsevents: "npm:~2.3.3"
-    picomatch: "npm:^4.0.2"
+    picomatch: "npm:^4.0.3"
     postcss: "npm:^8.5.6"
     rollup: "npm:^4.40.0"
     tinyglobby: "npm:^0.2.14"
@@ -9659,7 +9666,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/7429198ee4a62badb20691356425b5b98fe87be82108748c3b3661487868fdc647c3fbb2bb1fe1803aea8e72f1a6494815fc53bf6c329b61c6784f5f2273e9eb
+  checksum: 10/729ddefd6710b0b5aa38a62a537f3dc28577edaf57958c815a1964f1e348a1c7cb17ce8f708675668d7e80d95fb62f7c433b718fe12d80dd8a756ccec519bc2a
   languageName: node
   linkType: hard
 
