@@ -67,7 +67,7 @@
     "@types/react-dom": "^19.1.2",
     "@typescript-eslint/eslint-plugin": "^8.30.0",
     "@typescript-eslint/parser": "^8.30.0",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react": "^5.0.2",
     "coveralls": "^3.1.1",
     "eslint": "^9.24.0",
     "eslint-config-prettier": "^10.1.2",
