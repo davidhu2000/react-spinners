@@ -4962,14 +4962,14 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-storybook@npm:^9.0.4":
-  version: 9.1.9
-  resolution: "eslint-plugin-storybook@npm:9.1.9"
+  version: 9.1.10
+  resolution: "eslint-plugin-storybook@npm:9.1.10"
   dependencies:
     "@typescript-eslint/utils": "npm:^8.8.1"
   peerDependencies:
     eslint: ">=8"
-    storybook: ^9.1.9
-  checksum: 10/7a1298832dc3ca773ae5d6ca0b5578c14be92189f0158e71654fa4ba4ab7446c3712bf048fa9d9e6358a0ae81aae5f2c1d8a43669a8ab215ad47b1d08ed16a2a
+    storybook: ^9.1.10
+  checksum: 10/d9fbf88e6a40171d2161456d8c05318892e842bb4109a96a1d46a81d188d7c5ff4577f514113983e7660916a2bfc09518d9d510d87dd9c6c6431565df4641946
   languageName: node
   linkType: hard
 
