@@ -8771,6 +8771,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"semver@npm:^7.7.3":
+  version: 7.7.3
+  resolution: "semver@npm:7.7.3"
+  bin:
+    semver: bin/semver.js
+  checksum: 10/8dbc3168e057a38fc322af909c7f5617483c50caddba135439ff09a754b20bdd6482a5123ff543dad4affa488ecf46ec5fb56d61312ad20bb140199b88dfaea9
+  languageName: node
+  linkType: hard
+
 "set-blocking@npm:^2.0.0":
   version: 2.0.0
   resolution: "set-blocking@npm:2.0.0"
@@ -9417,8 +9426,8 @@ __metadata:
   linkType: hard
 
 "ts-jest@npm:^29.3.2":
-  version: 29.4.4
-  resolution: "ts-jest@npm:29.4.4"
+  version: 29.4.5
+  resolution: "ts-jest@npm:29.4.5"
   dependencies:
     bs-logger: "npm:^0.2.6"
     fast-json-stable-stringify: "npm:^2.1.0"
@@ -9426,7 +9435,7 @@ __metadata:
     json5: "npm:^2.2.3"
     lodash.memoize: "npm:^4.1.2"
     make-error: "npm:^1.3.6"
-    semver: "npm:^7.7.2"
+    semver: "npm:^7.7.3"
     type-fest: "npm:^4.41.0"
     yargs-parser: "npm:^21.1.1"
   peerDependencies:
@@ -9452,7 +9461,7 @@ __metadata:
       optional: true
   bin:
     ts-jest: cli.js
-  checksum: 10/759913fdb9795416abe918ba41c2ab3865f796f909d22bbf219a6a6c5e7daecad06ad85ecc905ea1af89fde2eb048c3b981493dfad6e3a21f7d5c602e630d34d
+  checksum: 10/48d867e0707474241b6339336cbe57d85122d6018fef957c8c095ff365e5d9428f112fe2cb11a8301343bbd32cec3ff639523d9bf9eea3a371734aa9a100f8a2
   languageName: node
   linkType: hard
 
