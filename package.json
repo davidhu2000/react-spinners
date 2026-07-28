@@ -59,7 +59,7 @@
     "@storybook/addons": "7.6.20",
     "@storybook/react": "^8.6.12",
     "@storybook/react-vite": "^8.6.12",
-    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/jest-dom": "^7.0.0",
     "@testing-library/react": "^16.3.0",
     "@types/jest": "^30.0.0",
     "@types/react": "^19.1.2",
