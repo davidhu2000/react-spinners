@@ -41,6 +41,10 @@ describe("calculateRgba", () => {
     expect(calculateRgba("fff", 1)).toEqual("rgba(255, 255, 255, 1)");
   });
 
+  it("handles a color shorter than one byte", () => {
+    expect(calculateRgba("f", 1)).toEqual("rgba(, 1)");
+  });
+
   it("calculates the correct rgba using basic color names", () => {
     expect(calculateRgba("maroon", 0.7)).toEqual("rgba(128, 0, 0, 0.7)");
     expect(calculateRgba("red", 0.7)).toEqual("rgba(255, 0, 0, 0.7)");
