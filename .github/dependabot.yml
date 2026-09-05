@@ -24,5 +24,7 @@ updates:
         patterns: ["@testing-library/*", "jest*", "ts-jest"]
       eslint:
         patterns: ["eslint*", "@typescript-eslint/*"]
+      vite:
+        patterns: ["@vitejs/*", "vite"]
       react:
         patterns: ["react", "react-dom", "@types/react", "@types/react-dom"]
