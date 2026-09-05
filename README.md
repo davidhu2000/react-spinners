@@ -7,9 +7,8 @@
 <!-- [![next version](https://badgen.net/npm/v/react-spinners/next)](https://www.npmjs.com/package/react-spinners/v/next) -->
 
 [![Coverage Status](https://coveralls.io/repos/github/davidhu2000/react-spinners/badge.svg?branch=main)](https://coveralls.io/github/davidhu2000/react-spinners?branch=main)
-![Dependency Count](https://badgen.net/bundlephobia/dependency-count/react-spinners)
 ![Types Included](https://badgen.net/npm/types/react-spinners)
-![Tree Shaking Supported](https://badgen.net/bundlephobia/tree-shaking/react-spinners)
+[![Package Size](https://img.shields.io/npm/unpacked-size/react-spinners.svg)][npm_url]
 
 [npm_url]: https://www.npmjs.org/package/react-spinners
 
