@@ -8,7 +8,6 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/davidhu2000/react-spinners/badge.svg?branch=main)](https://coveralls.io/github/davidhu2000/react-spinners?branch=main)
 ![Types Included](https://badgen.net/npm/types/react-spinners)
-[![Package Size](https://img.shields.io/npm/unpacked-size/react-spinners.svg)][npm_url]
 
 [npm_url]: https://www.npmjs.org/package/react-spinners
 
