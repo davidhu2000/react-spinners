@@ -8261,10 +8261,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-ga4@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "react-ga4@npm:2.1.0"
-  checksum: 10/e47edd040b7a272d35df732e08c4a8b6b14add659db04fb81a3a2cbde59bf34dc6eae9e0b8b4abd8937d11c837954773a6ba86feb2c605e5eb916f4c99e420c7
+"react-ga4@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "react-ga4@npm:3.0.1"
+  checksum: 10/b93520a259bbe8f809eb6a695d8e888f9809417dc2fadf1dd83b752cc0f57c38c660d90c5f52f501a12c76bb07cdfd62c416b53b5e4f5db27d5869b30fb9045b
   languageName: node
   linkType: hard
 
@@ -8318,7 +8318,7 @@ __metadata:
     react: "npm:^19.1.0"
     react-colorful: "npm:^5.6.1"
     react-dom: "npm:^19.1.0"
-    react-ga4: "npm:^2.1.0"
+    react-ga4: "npm:^3.0.1"
     storybook: "npm:^8.6.12"
     storybook-dark-mode: "npm:^4.0.2"
     ts-jest: "npm:^29.3.2"
