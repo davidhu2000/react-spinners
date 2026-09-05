@@ -19,7 +19,7 @@ updates:
       interval: "weekly"
     groups:
       storybook:
-        patterns: ["@storybook/*", "storybook"]
+        patterns: ["@storybook/*", "storybook", "storybook-dark-mode"]
       testing:
         patterns: ["@testing-library/*", "jest*", "ts-jest"]
       eslint:

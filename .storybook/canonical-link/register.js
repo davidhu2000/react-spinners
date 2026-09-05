@@ -1,4 +1,4 @@
-import { addons } from "@storybook/addons";
+import { addons } from "storybook/manager-api";
 
 addons.register("storybook/canonical-link", (api) => {
   var link = document.createElement("link");
