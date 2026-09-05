@@ -17,8 +17,6 @@ module.exports = {
     disableTelemetry: true,
   },
 
-  docs: {},
-
   typescript: {
     reactDocgen: "react-docgen-typescript",
   },
