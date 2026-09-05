@@ -9,4 +9,21 @@ describe("createAnimation", () => {
     );
     expect(name).toEqual("react-spinners-TestLoader-my-suffix");
   });
+
+  it("reuses the existing keyframes when an animation is rendered again", () => {
+    const frames = "0% {opacity: 0} 100% {opacity: 1}";
+
+    const firstName = createAnimation("TestLoader", frames, "deduplicated");
+    const secondName = createAnimation("TestLoader", frames, "deduplicated");
+
+    expect(firstName).toEqual(secondName);
+    expect(
+      Array.from(document.styleSheets).filter((sheet) =>
+        Array.from(sheet.cssRules).some((rule) => rule.cssText.includes(firstName))
+      )
+    ).toHaveLength(1);
+    expect(
+      Array.from(document.querySelectorAll("style")).filter((style) => style.textContent?.includes(firstName))
+    ).toHaveLength(1);
+  });
 });

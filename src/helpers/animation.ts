@@ -1,3 +1,6 @@
+const injectedKeyframes = new Set<string>();
+let animationStyleElement: HTMLStyleElement | null = null;
+
 export const createAnimation = (loaderName: string, frames: string, suffix: string): string => {
   const animationName = `react-spinners-${loaderName}-${suffix}`;
 
@@ -5,19 +8,23 @@ export const createAnimation = (loaderName: string, frames: string, suffix: stri
     return animationName;
   }
 
-  const styleEl = document.createElement("style");
-  document.head.appendChild(styleEl);
-  const styleSheet = styleEl.sheet;
-
   const keyFrames = `
     @keyframes ${animationName} {
       ${frames}
     }
   `;
 
-  if (styleSheet) {
-    styleSheet.insertRule(keyFrames, 0);
+  if (injectedKeyframes.has(keyFrames)) {
+    return animationName;
   }
+
+  if (!animationStyleElement) {
+    animationStyleElement = document.createElement("style");
+    document.head.appendChild(animationStyleElement);
+  }
+
+  animationStyleElement.textContent += keyFrames;
+  injectedKeyframes.add(keyFrames);
 
   return animationName;
 };
