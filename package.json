@@ -45,6 +45,7 @@
     "test": "jest",
     "remove:tag": "npm dist-tag rm react-spinners next",
     "publish:next": "npm publish --tag next && npm run clean",
+    "release": "bash scripts/release.sh",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o ./dist/storybook"
   },
