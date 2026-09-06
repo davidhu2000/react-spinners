@@ -7,6 +7,17 @@ import { parseLengthAndUnit, cssValue } from "./helpers/unitConverter";
 import { LoaderSizeProps } from "./helpers/props";
 import { createAnimation } from "./helpers/animation";
 
+const getAnimationId = (color: string, size: number | string): string => {
+  const value = `${color}-${size}`;
+  let hash = 0;
+
+  for (let i = 0; i < value.length; i += 1) {
+    hash = (hash * 31 + value.charCodeAt(i)) | 0;
+  }
+
+  return Math.abs(hash).toString(36);
+};
+
 function HashLoader({
   loading = true,
   color = "#000000",
@@ -33,6 +44,7 @@ function HashLoader({
   const offset = lat - thickness;
 
   const colorValue = calculateRgba(color, 0.75);
+  const animationId = getAnimationId(color, size);
 
   const before = createAnimation(
     "HashLoader",
@@ -40,7 +52,7 @@ function HashLoader({
     35% {width: ${cssValue(size)}; box-shadow: 0 ${-offset}px ${colorValue}, 0 ${offset}px ${colorValue}}
     70% {width: ${thickness}px; box-shadow: ${-lat}px ${-offset}px ${colorValue}, ${lat}px ${offset}px ${colorValue}}
     100% {box-shadow: ${lat}px ${-offset}px ${colorValue}, ${-lat}px ${offset}px ${colorValue}}`,
-    "before"
+    `before-${animationId}`
   );
 
   const after = createAnimation(
@@ -49,7 +61,7 @@ function HashLoader({
     35% {height: ${cssValue(size)}; box-shadow: ${offset}px 0 ${color}, ${-offset}px 0 ${color}}
     70% {height: ${thickness}px; box-shadow: ${offset}px ${-lat}px ${color}, ${-offset}px ${lat}px ${color}}
     100% {box-shadow: ${offset}px ${lat}px ${color}, ${-offset}px ${-lat}px ${color}}`,
-    "after"
+    `after-${animationId}`
   );
 
   const style = (i: number): React.CSSProperties => {

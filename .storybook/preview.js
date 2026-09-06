@@ -27,4 +27,3 @@ export const argTypes = {
     control: { type: "object" },
   },
 };
-export const tags = ["autodocs"];

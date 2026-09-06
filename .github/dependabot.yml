@@ -19,10 +19,12 @@ updates:
       interval: "weekly"
     groups:
       storybook:
-        patterns: ["@storybook/*", "storybook"]
+        patterns: ["@storybook/*", "storybook", "storybook-dark-mode"]
       testing:
         patterns: ["@testing-library/*", "jest*", "ts-jest"]
       eslint:
         patterns: ["eslint*", "@typescript-eslint/*"]
+      vite:
+        patterns: ["@vitejs/*", "vite"]
       react:
         patterns: ["react", "react-dom", "@types/react", "@types/react-dom"]

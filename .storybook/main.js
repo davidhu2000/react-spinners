@@ -2,9 +2,6 @@ module.exports = {
   stories: ["../stories/*.stories.@(ts|tsx)"],
 
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
     "storybook-dark-mode",
     "./google-analytics-v4/register.js",
     "./canonical-link/register.js",
@@ -19,8 +16,6 @@ module.exports = {
   core: {
     disableTelemetry: true,
   },
-
-  docs: {},
 
   typescript: {
     reactDocgen: "react-docgen-typescript",

@@ -4,7 +4,10 @@ module.exports = {
   coverageDirectory: "./coverage",
   moduleDirectories: ["node_modules"],
   transform: {
-    ".(ts|tsx|js|jsx)": "ts-jest",
+    ".(ts|tsx|js|jsx)": [
+      "ts-jest",
+      { tsconfig: { esModuleInterop: false, module: "commonjs", sourceMap: true } },
+    ],
   },
   roots: ["<rootDir>"],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx"],

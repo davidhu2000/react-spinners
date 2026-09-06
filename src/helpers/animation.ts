@@ -9,7 +9,11 @@ export const createAnimation = (loaderName: string, frames: string, suffix: stri
     return animationName;
   }
 
-  if (!animationStyleElement || !document.head.contains(animationStyleElement)) {
+  if (
+    !animationStyleElement ||
+    !document.head.contains(animationStyleElement) ||
+    !animationStyleSheet
+  ) {
     animationStyleElement = document.createElement("style");
     document.head.appendChild(animationStyleElement);
     animationStyleSheet = animationStyleElement.sheet;
