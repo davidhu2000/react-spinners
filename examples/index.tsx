@@ -1,92 +1,67 @@
 import * as React from "react";
 import { createRoot } from "react-dom/client";
 
-import { Code, ColorPicker, LoaderItem } from "./components";
+import { ControlValues, Controls, InstallCommand, SpinnerCard, ThemeToggle } from "./components";
 import * as Spinners from "../src";
 import "./styles.css";
 
-function SpinnerExamples() {
-  const [color, setColor] = React.useState("#36D7B7");
-  const [showPicker, setShowPicker] = React.useState(false);
+const loaders = Object.entries(Spinners) as [string, React.ComponentType<any>][];
 
+const DEFAULTS: ControlValues = { query: "", color: "#36d7b7", scale: 1, speed: 1 };
+
+/** The controls and the spinner grid. Everything around them is static HTML. */
+function Gallery() {
+  const [values, setValues] = React.useState(DEFAULTS);
+  const { query, color } = values;
+
+  // The chosen spinner color doubles as the page accent.
   React.useEffect(() => {
-    document.addEventListener("scroll", () => {
-      const picker = document.getElementsByClassName("color-picker")[0] as HTMLElement;
-      const top = 370 - window.scrollY * 2;
+    document.documentElement.style.setProperty("--accent", color);
+  }, [color]);
 
-      picker.style.top = `${top > 80 ? top : 70}px`;
-    });
-  }, []);
+  const needle = query.trim().toLowerCase();
+  const results = loaders.filter(([name]) => name.toLowerCase().includes(needle));
 
-  function updateColor(color: string) {
-    setColor(color);
-    const header = document.getElementById("header") as HTMLElement;
-    header.style.cssText = `
-      background: -webkit-gradient(linear, left top, right top, from(${color}), to(#2b303b));
-      background: -webkit-linear-gradient(left, ${color}, #2b303b);
-      background: -o-linear-gradient(left, ${color}, #2b303b);
-      background: linear-gradient(90deg, ${color}, #2b303b);
-    `;
-  }
-
-  function handleShowPicker() {
-    setShowPicker(true);
-  }
-  function handleHidePicker() {
-    setShowPicker(false);
+  function update(partial: Partial<ControlValues>) {
+    setValues((current) => ({ ...current, ...partial }));
   }
 
   return (
-    <div className="spinner-container">
-      <div className="color-picker position-abs">
-        {showPicker ? (
-          <ColorPicker color={color} updateColor={updateColor} togglePicker={handleHidePicker} />
-        ) : (
-          <button onClick={handleShowPicker}>Change Color</button>
-        )}
-      </div>
-      {Object.entries(Spinners).map(([name, loader]) => (
-        <LoaderItem
-          key={`loader-${name}`}
-          color={color}
-          name={name}
-          Spinner={loader as React.ComponentType<any>}
-        />
-      ))}
-    </div>
+    <>
+      <Controls
+        values={values}
+        onChange={update}
+        onReset={() => setValues(DEFAULTS)}
+        resultCount={results.length}
+        totalCount={loaders.length}
+      />
+
+      {results.length > 0 ? (
+        <div className="grid">
+          {results.map(([name, Spinner]) => (
+            <SpinnerCard key={name} name={name} Spinner={Spinner} settings={values} />
+          ))}
+        </div>
+      ) : (
+        <p className="empty">
+          No spinner matches “{query}”.{" "}
+          <button type="button" className="link-button" onClick={() => update({ query: "" })}>
+            Clear search
+          </button>
+        </p>
+      )}
+    </>
   );
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const root = document.getElementById("root");
+function mount(id: string, element: React.ReactElement) {
+  const node = document.getElementById(id);
 
-  if (root) {
-    const reactRoot = createRoot(root);
-    reactRoot.render(<SpinnerExamples />);
+  if (node) {
+    createRoot(node).render(element);
   }
+}
 
-  const code = document.getElementById("code");
-
-  if (code) {
-    const reactCode = createRoot(code);
-    reactCode.render(<Code />);
-  }
-});
-
-const header = document.getElementById("header") as HTMLElement;
-const main = document.getElementById("main") as HTMLElement;
-document.addEventListener("scroll", () => {
-  const height = 360 - window.scrollY;
-  if (height > 200) {
-    header.style.height = `${height}px`;
-    header.classList.remove("navbar");
-    header.style.boxShadow = "";
-    main.style.marginTop = "0";
-  } else {
-    header.classList.add("navbar");
-    header.style.height = "";
-    header.style.boxShadow =
-      "0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2)";
-    main.style.marginTop = "250px";
-  }
-});
+mount("theme-toggle", <ThemeToggle />);
+mount("install", <InstallCommand />);
+mount("root", <Gallery />);
