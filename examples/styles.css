@@ -229,10 +229,15 @@ main {
 
 /* -------------------------------- install --------------------------------- */
 
+#install {
+  margin-top: 36px;
+  min-height: 94px;
+}
+
 .install {
   width: fit-content;
   max-width: 100%;
-  margin: 36px auto 0;
+  margin: 0 auto;
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--bg-elevated);
@@ -313,6 +318,7 @@ main {
   align-items: center;
   flex-wrap: wrap;
   gap: 12px 28px;
+  min-height: 74px;
   padding: 14px 0;
 }
 
@@ -569,6 +575,7 @@ input[type="range"]::-moz-range-thumb {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  min-height: 55px;
   padding: 10px 12px 10px 16px;
   border-top: 1px solid var(--border);
 }
