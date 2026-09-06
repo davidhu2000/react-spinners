@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZLGVJTEW5V"></script>
@@ -33,58 +33,31 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="React Spinners" />
     <meta name="twitter:description" content="A collection of react loading spinners" />
+    <meta name="theme-color" content="#0b0d12" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="preload" />
+    <script>
+      // Applied before first paint so the theme never flashes.
+      (function () {
+        try {
+          var stored = localStorage.getItem("react-spinners-theme");
+          document.documentElement.dataset.theme =
+            stored || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        } catch (error) {
+          document.documentElement.dataset.theme = "dark";
+        }
+      })();
+    </script>
   </head>
 
   <body>
-    <header id="header">
-      <h1 class="logo">React Spinners</h1>
-
-      <h2 class="author">by <a href="https://www.davidhu.io">David Hu</a></h2>
-    </header>
-
-    <main id="main">
-      <div class="installation">
-        <code id="code">yarn add react-spinners</code>
-      </div>
-
-      <div id="root">
-        <div class="spinner-container">
-          <div class="spinner-item">
-            <a href="#" class="spinner-title">Loading</a>
-          </div>
-          <div class="spinner-item">
-            <a href="#" class="spinner-title">Loading</a>
-          </div>
-          <div class="spinner-item">
-            <a href="#" class="spinner-title">Loading</a>
-          </div>
-          <div class="spinner-item">
-            <a href="#" class="spinner-title">Loading</a>
-          </div>
-          <div class="spinner-item">
-            <a href="#" class="spinner-title">Loading</a>
-          </div>
-          <div class="spinner-item">
-            <a href="#" class="spinner-title">Loading</a>
-          </div>
-        </div>
-      </div>
-      <script type="module" src="./index.tsx"></script>
-    </main>
-
-    <footer>
-      <a href="https://github.com/davidhu2000/react-spinners">Github Repo</a>
-      <a href="https://www.davidhu.io/blog">Personal Blog</a>
-      <a href="https://magichour.ai">My Company</a>
-    </footer>
-
-    <span id="forkongithub">
-      <a href="https://github.com/davidhu2000/react-spinners">Fork me on GitHub</a>
-    </span>
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
