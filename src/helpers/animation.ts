@@ -28,13 +28,14 @@ export const createAnimation = (loaderName: string, frames: string, suffix: stri
     return animationName;
   }
 
-  for (let i = animationStyleSheet.cssRules.length - 1; i >= 0; i--) {
-    const rule = animationStyleSheet.cssRules[i];
-    if (
-      (rule as CSSKeyframesRule).name === animationName ||
-      new RegExp(`^@(?:-webkit-)?keyframes\\s+${animationName}\\s*\\{`).test(rule.cssText)
-    ) {
-      animationStyleSheet.deleteRule(i);
+  // This stylesheet only ever holds keyframe rules inserted below, so an existing
+  // rule for this animation can only be present when the name is already tracked.
+  if (currentFrames.has(animationName)) {
+    for (let i = animationStyleSheet.cssRules.length - 1; i >= 0; i--) {
+      if ((animationStyleSheet.cssRules[i] as CSSKeyframesRule).name === animationName) {
+        animationStyleSheet.deleteRule(i);
+        break;
+      }
     }
   }
 

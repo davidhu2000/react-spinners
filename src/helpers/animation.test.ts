@@ -3,6 +3,13 @@ import { render } from "@testing-library/react";
 import { createAnimation } from "./animation";
 import RiseLoader from "../RiseLoader";
 
+const keyframeRulesNamed = (animationName: string): CSSKeyframesRule[] =>
+  Array.from(document.styleSheets).flatMap((sheet) =>
+    Array.from(sheet.cssRules).filter(
+      (rule): rule is CSSKeyframesRule => (rule as CSSKeyframesRule).name === animationName
+    )
+  );
+
 describe("createAnimation", () => {
   beforeEach(() => {
     document.head.innerHTML = "";
@@ -46,11 +53,7 @@ describe("createAnimation", () => {
     const secondName = createAnimation("TestLoader", frames, "deduplicated");
 
     expect(firstName).toEqual(secondName);
-    expect(
-      Array.from(document.styleSheets).filter((sheet) =>
-        Array.from(sheet.cssRules).some((rule) => rule.cssText.includes(firstName))
-      )
-    ).toHaveLength(1);
+    expect(keyframeRulesNamed(firstName)).toHaveLength(1);
   });
 
   it("restores keyframes when an animation returns to an earlier value", () => {
@@ -59,9 +62,7 @@ describe("createAnimation", () => {
     createAnimation("TestLoader", "0% {width: 20px}", "dynamic");
     createAnimation("TestLoader", "0% {width: 10px}", "dynamic");
 
-    const matchingRules = Array.from(document.styleSheets).flatMap((sheet) =>
-      Array.from(sheet.cssRules).filter((rule) => rule.cssText.includes(animationName))
-    );
+    const matchingRules = keyframeRulesNamed(animationName);
 
     expect(matchingRules).toHaveLength(1);
     expect(matchingRules[0].cssText).toContain("10px");
@@ -73,10 +74,8 @@ describe("createAnimation", () => {
 
     createAnimation("PrefixLoader", "0% {width: 20px}", "prefix");
 
-    const rules = Array.from(document.styleSheets).flatMap((sheet) => Array.from(sheet.cssRules));
-
-    const baseRules = rules.filter((rule) => (rule as CSSKeyframesRule).name === baseName);
-    const extendedRules = rules.filter((rule) => (rule as CSSKeyframesRule).name === extendedName);
+    const baseRules = keyframeRulesNamed(baseName);
+    const extendedRules = keyframeRulesNamed(extendedName);
 
     expect(baseRules).toHaveLength(1);
     expect(baseRules[0].cssText).toContain("20px");
@@ -89,9 +88,7 @@ describe("createAnimation", () => {
     rerender(React.createElement(RiseLoader, { size: 20 }));
     rerender(React.createElement(RiseLoader, { size: 10 }));
 
-    const matchingRules = Array.from(document.styleSheets).flatMap((sheet) =>
-      Array.from(sheet.cssRules).filter((rule) => rule.cssText.includes("react-spinners-RiseLoader-even"))
-    );
+    const matchingRules = keyframeRulesNamed("react-spinners-RiseLoader-even");
 
     expect(matchingRules).toHaveLength(1);
     expect(matchingRules[0].cssText).toContain("10px");
