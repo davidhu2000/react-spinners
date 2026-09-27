@@ -16,33 +16,31 @@ Install the necessary dependencies (you can use `npm` or `yarn`):
 
     npm install
 
-If you want to make changes to the demo page, you can edit the files in `examples` and `docs` folder.
+If you want to make changes to the demo page, you can edit the files in the `examples` folder.
 
-To see the changes to the loaders or the demo site, you can use `webpack` to update the bundle file.
+To see the changes to the loaders or the demo site, start the Vite dev server:
 
-    npm run watch
+    npm run dev
 
-And open `./docs/index.html` in your favorite browser.
+And open the local URL it prints in your favorite browser.
 
-After all the changes are made, make sure nothing changed in the demo site by running
+After all the changes are made, make sure the demo site still builds:
 
     npm run build:demo
 
-And commit the file changes in the docs folder.
+Make sure to run the necessary tests and lints and fix any errors:
+
+    npm run lint
+    npm run test
 
 Then commit your changes:
 
-    git add -A;
-    git commit -m 'Awesome new feature';
+    git add -A
+    git commit -m 'Awesome new feature'
 
-Make sure to run the necessary tests and lints and fix any errors:
+Push up to GitHub:
 
-    npm run lint;
-    npm run test:jest;
-
-Push up to Github:
-
-    git push origin awesome-feature;
+    git push origin awesome-feature
 
 [Create a Pull Request][pr], add appropriate label(s).
 
