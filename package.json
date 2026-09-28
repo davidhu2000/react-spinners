@@ -79,7 +79,7 @@
     "storybook": "^10.6.0",
     "storybook-dark-mode": "^5.0.0",
     "ts-jest": "^29.3.2",
-    "typescript": "^5.8.3",
+    "typescript": "^7.0.2",
     "vite": "^8.0.0"
   },
   "peerDependencies": {
