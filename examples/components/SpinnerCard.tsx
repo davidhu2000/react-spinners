@@ -27,7 +27,7 @@ function SpinnerCard({ name, Spinner, settings }: SpinnerCardProps) {
       </div>
 
       <div className="card-meta">
-        <a className="card-name" href={`storybook?path=/docs/${name.toLowerCase()}--docs`}>
+        <a className="card-name" href={`storybook/?path=/story/${name.toLowerCase()}--primary`}>
           {name}
         </a>
 

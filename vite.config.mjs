@@ -25,7 +25,7 @@ function staticLoaderCards() {
             `<article class="card">\n` +
             `            <div class="card-stage"></div>\n` +
             `            <div class="card-meta">\n` +
-            `              <a class="card-name" href="storybook?path=/docs/${name.toLowerCase()}--docs">${name}</a>\n` +
+            `              <a class="card-name" href="storybook/?path=/story/${name.toLowerCase()}--primary">${name}</a>\n` +
             `            </div>\n` +
             `          </article>`
         )
