@@ -42,6 +42,10 @@ html {
 
 body {
   margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
   background: var(--bg);
   color: var(--text);
   font-family: var(--sans);
@@ -62,6 +66,8 @@ a {
 }
 
 main {
+  flex: 1;
+  width: 100%;
   max-width: var(--content);
   margin: 0 auto;
   padding: 0 24px 96px;
